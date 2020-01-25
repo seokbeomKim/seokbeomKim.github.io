@@ -1,4 +1,4 @@
-baseURL = "http://seokbeomKim.github.io"
+baseURL = "http://seokbeomKim.github.io/"
 languageCode = "en-us"
 title = "A Developer's Note"
 theme = "pickles"
@@ -42,21 +42,3 @@ theme = "pickles"
 [taxonomies]
 	category = "categories"
 	tags = "tags"
-
-[related]
-	threshold = 80
-	
-	[[related.indices]]
-		name = "keywords"
-		weight = 150
-	[[related.indices]]
-		name  = "author"
-		toLower = true
-		weight = 30
-	[[related.indices]]
-		name  = "tags"
-		weight = 100
-	[[related.indices]]
-		name  = "date"
-		weight = 10
-		pattern = "2017"
