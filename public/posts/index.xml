@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on A Developer&#39;s Note</title>
-    <link>http://seokbeomKim.github.io/posts/</link>
+    <link>https://seokbeomKim.github.io/posts/</link>
     <description>Recent content in Posts on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Jun 2019 22:47:44 +0900</lastBuildDate>
     
-	<atom:link href="http://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>부트로더(Bootloader)</title>
-      <link>http://seokbeomKim.github.io/posts/bootloader/</link>
+      <link>https://seokbeomKim.github.io/posts/bootloader/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/bootloader/</guid>
+      <guid>https://seokbeomKim.github.io/posts/bootloader/</guid>
       <description>이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램, 네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.
 브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면 메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽 카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test) 과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를 찾아 부팅한다.</description>
     </item>
     
     <item>
       <title>command: posix_spawn failed: Resource temporarily unavailable</title>
-      <link>http://seokbeomKim.github.io/posts/posix-spawn-errors/</link>
+      <link>https://seokbeomKim.github.io/posts/posix-spawn-errors/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/posix-spawn-errors/</guid>
+      <guid>https://seokbeomKim.github.io/posts/posix-spawn-errors/</guid>
       <description>QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.
 이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이
 sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
@@ -35,40 +35,40 @@ sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
     
     <item>
       <title>QEMU 이용한 임베디드 개발 환경 구축하기</title>
-      <link>http://seokbeomKim.github.io/posts/qemu-arm-versatile/</link>
+      <link>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</link>
       <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/qemu-arm-versatile/</guid>
+      <guid>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</guid>
       <description>임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
 개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.</description>
     </item>
     
     <item>
       <title>RCU (Read, Copy, Update)</title>
-      <link>http://seokbeomKim.github.io/posts/rcu/</link>
+      <link>https://seokbeomKim.github.io/posts/rcu/</link>
       <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/rcu/</guid>
+      <guid>https://seokbeomKim.github.io/posts/rcu/</guid>
       <description>1. 들어가기 전에 &amp;hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
 RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (4/5)</title>
-      <link>http://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</link>
+      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</link>
       <pubDate>Tue, 04 Jun 2019 16:40:28 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</guid>
+      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</guid>
       <description>BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하기 위해 락(Lock)을 획득해야 커널 모드로 진입되었고 나머지 프로세서들은 락을 획득하기 위해 대기한다. 하지만 이 후, 성능, 실시간 애플리케이션에 대한 latency 이슈로 BKL(Big Kernel Lock)은 스핀락과 뮤텍스, RCU 등으로 대체되면서 현재는 거의 관련 코드가 제거되어 있는 상태이다.
  lock_kernel(): Acquires the BKL unlock_kernel(): Releases the BKL kernel_locked(): Returns nonzero if the lock is held and zero otherwise (UP always returns nonzero)  BKL은 프로세서들이 동시에 커널에 진입하는 것을 막아 동기화 문제를 해결한다.</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (3/5)</title>
-      <link>http://seokbeomKim.github.io/posts/locks-in-the-kernel-3/</link>
+      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/</link>
       <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/locks-in-the-kernel-3/</guid>
+      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/</guid>
       <description>이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
 세마포어는 아래와 같은 경우에 적합하다.
 태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.</description>
@@ -76,30 +76,30 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     
     <item>
       <title>Major와 Minor Numbers</title>
-      <link>http://seokbeomKim.github.io/posts/major-and-minor-numbers/</link>
+      <link>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/major-and-minor-numbers/</guid>
+      <guid>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
 캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&#39;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&#39;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (2/5)</title>
-      <link>http://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</link>
+      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</guid>
+      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</guid>
       <description>지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다. 많은 곳에서 뮤텍스는 세마포어의 카운트 값이 단순하게 1로 설정되었을 때를 말한다고 기술한다. 하지만 이것이 맞는 설명일까?
 참고 자료에 따르면 뮤텍스는 공유 자원으로의 접근(Access)에 대한 상호 배제(Mutual Exclusion)을 위한 수단이 Mutex라고 정의하고 있다. 이에 반해 세마포어(Semaphore)는 시그널 매커니즘으로서 스레드(또는 프로세스) 간 동기화가 주 목적으로, wait 함수를 호출한 스레드만이 뮤텍스를 신호를 보낼 수 있다는 점이 기능적인 특징이다.</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (1/5)</title>
-      <link>http://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</link>
+      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</link>
       <pubDate>Tue, 28 May 2019 17:45:51 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
+      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
 세마 포어의 카운트가 1인 락&#39;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
@@ -109,20 +109,20 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     
     <item>
       <title>지피(Jiffies)</title>
-      <link>http://seokbeomKim.github.io/posts/jiffies/</link>
+      <link>https://seokbeomKim.github.io/posts/jiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/jiffies/</guid>
+      <guid>https://seokbeomKim.github.io/posts/jiffies/</guid>
       <description>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.
 커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.</description>
     </item>
     
     <item>
       <title>태스크릿(Tasklet)</title>
-      <link>http://seokbeomKim.github.io/posts/tasklet/</link>
+      <link>https://seokbeomKim.github.io/posts/tasklet/</link>
       <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/tasklet/</guid>
+      <guid>https://seokbeomKim.github.io/posts/tasklet/</guid>
       <description>커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.
 간단히 말해 tasklet은 스택이나 자체 컨텍스트가 없는 스레드와 같은 것으로 설명하고 있다.
 태스크릿(Tasklet)의 특성  태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.</description>
@@ -130,10 +130,10 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
-      <link>http://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</link>
+      <link>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</guid>
+      <guid>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던 기회였다.
 두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 crosstool-ng라는 크로스 컴파일러 생성 스크립트 도구와 buildroot라는 Makefile 패키지를 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.
 Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.
@@ -142,60 +142,60 @@ Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미�
     
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</title>
-      <link>http://seokbeomKim.github.io/posts/build-kernel-and-busybox/</link>
+      <link>https://seokbeomKim.github.io/posts/build-kernel-and-busybox/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/build-kernel-and-busybox/</guid>
+      <guid>https://seokbeomKim.github.io/posts/build-kernel-and-busybox/</guid>
       <description>취업은 언제하나&amp;hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접 확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도 나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방 해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은 마운트하지 않는다는 제한은 있다.
 이 문서는 참고한 페이지를 토대로 필요한 정보들을 중간에 좀 더 추가한 형태로 정리하였다.</description>
     </item>
     
     <item>
       <title>OSI 7-Layers</title>
-      <link>http://seokbeomKim.github.io/posts/osi-7-layers/</link>
+      <link>https://seokbeomKim.github.io/posts/osi-7-layers/</link>
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/osi-7-layers/</guid>
+      <guid>https://seokbeomKim.github.io/posts/osi-7-layers/</guid>
       <description>네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을 이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.
 OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.L1. 물리 계층, Physical Layer 물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다.</description>
     </item>
     
     <item>
       <title>TCP와 UDP의 차이점</title>
-      <link>http://seokbeomKim.github.io/posts/tcp-and-udp/</link>
+      <link>https://seokbeomKim.github.io/posts/tcp-and-udp/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/tcp-and-udp/</guid>
+      <guid>https://seokbeomKim.github.io/posts/tcp-and-udp/</guid>
       <description>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올 경우 포스팅을 업데이트 할 예정이다.
 방산 업체에서 무인 정찰기를 개발할 당시에도 중요 데이터는 모두 TCP를 이용해 송수신하고 영상과 같은 정보는 UDP를 이용해 전달받았다. 당시에 구현된 코드를 보면서 이전에 프로토콜 사용에 있어서 어디부터 어디까지를 UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했지만 코드를 변경할 수 없어 아쉬웠던 적이 있었다.</description>
     </item>
     
     <item>
       <title>TCP와 UDP의 차이점</title>
-      <link>http://seokbeomKim.github.io/posts/tcp-and-udp/</link>
+      <link>https://seokbeomKim.github.io/posts/tcp-and-udp/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/tcp-and-udp/</guid>
+      <guid>https://seokbeomKim.github.io/posts/tcp-and-udp/</guid>
       <description>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올 경우 포스팅을 업데이트 할 예정이다.
 방산 업체에서 무인 정찰기를 개발할 당시에도 중요 데이터는 모두 TCP를 이용해 송수신하고 영상과 같은 정보는 UDP를 이용해 전달받았다. 당시에 구현된 코드를 보면서 이전에 프로토콜 사용에 있어서 어디부터 어디까지를 UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했지만 코드를 변경할 수 없어 아쉬웠던 적이 있었다.</description>
     </item>
     
     <item>
       <title>커널 해킹: 프로세스</title>
-      <link>http://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/</link>
+      <link>https://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/</link>
       <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/</guid>
+      <guid>https://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/</guid>
       <description>앞으로 리눅스 커널 공부를 해가면서 포스팅으로 정리해둘 계획이다. 디바이스 드라이버 개발 이전에 리눅스라는 운영체제에 대해 개인적으로 정리해야할 필요성을 느꼈다. 그리고 최신 커널을 사용하기 보다 상대적으로 오래된 커널을 시작으로 공부하고자 한다. 기본 틀은 크게 변하지 않았을거라 생각하고 충분히 이해한 뒤에 최근 버전을 받아 개발 흐름을 이해하는 것이 옳은 방법이라 생각하였다.
 이 문서에서는 리눅스/유닉스 운영체제의 기본 추상화 개념 중 하나인 프로세스에 대해 정리하고자 한다. 정리에 필요한 정보 수집을 위해서 Linux kernel development(3rd edition) 책과 LWN 등의 사이트들을 참고한다.</description>
     </item>
     
     <item>
       <title>Copy on Write (CoW or COW)</title>
-      <link>http://seokbeomKim.github.io/posts/copy-on-write/</link>
+      <link>https://seokbeomKim.github.io/posts/copy-on-write/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/copy-on-write/</guid>
+      <guid>https://seokbeomKim.github.io/posts/copy-on-write/</guid>
       <description>Copy-on-write은 리눅스 커널의 fork() 함수에서 사용하는 기법이다.
 전통적인 fork()는 부모 프로세스의 모든 자원을 복사해 자식 프로세스에게 넘겨준다. 하지만 이러한 방식은 공유가 가능한 많은 데이터를 복사하므로 단순하고 비효율적이다. 게다가 새로 만든 프로세스가 곧바로 다른 프로그램을 실행한다면 복사 작업이 모두 헛수고가 되고 만다.
 이러한 문제를 해결하기 위해 리눅스에서는 Copy-on-write, COW 기법을 이용하는데 기록사항 발생 시에 복사하는 기능으로 즉각적인 데이터의 복사를 지연하거나 방지하는 기법이다. 때문에 fork()를 사용하게 되면 프로세스의 주소 공간을 모두 복사하는 대신, 부모와 자식 프로세스가 같은 공간을 공유하고 있다가 기록 사항이 발생했을 때 사본을 만든다.</description>
@@ -203,10 +203,10 @@ OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경�
     
     <item>
       <title>커널 모듈과 드라이버의 차이</title>
-      <link>http://seokbeomKim.github.io/posts/kernel-module-and-drivers/</link>
+      <link>https://seokbeomKim.github.io/posts/kernel-module-and-drivers/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/kernel-module-and-drivers/</guid>
+      <guid>https://seokbeomKim.github.io/posts/kernel-module-and-drivers/</guid>
       <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
 커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
 arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용) 구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.</description>
@@ -214,30 +214,30 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
     
     <item>
       <title>비선점 스케쥴링(Nonpreemptive Scheduling)</title>
-      <link>http://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</link>
+      <link>https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</guid>
+      <guid>https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</guid>
       <description>비선점 스케쥴링(Non-preemptive Scheduling) 비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록 허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가 생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로 프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을 적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.
 설명하기 전에 프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의 프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫 번째이다.</description>
     </item>
     
     <item>
       <title>교착상태(Deadlock)</title>
-      <link>http://seokbeomKim.github.io/posts/deadlock/</link>
+      <link>https://seokbeomKim.github.io/posts/deadlock/</link>
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/deadlock/</guid>
+      <guid>https://seokbeomKim.github.io/posts/deadlock/</guid>
       <description>교착 상태(Deadlock) 두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결하는 일반적인 방법은 아직 없는 상태다.
 교착 상태는 하나의 사다리에 두 명이 사람이 매달려 있는 상황을 예상할 수 있다. 위쪽의 사람은 아래로 내려오려고 하고 아래에 있는 사람은 위로 올라가려고 한다면 서로 상대방이 사다리에서 비켜줄 때까지 계속 기다리고 있을 것이고 결과적으로 아무도 사다리에서 내려오거나 올라가지 못하듯이 교착 상태란 다중 프로그래밍 환경에서 흔히 발생할 수 있는 문제이다.</description>
     </item>
     
     <item>
       <title>Named export와 Default export</title>
-      <link>http://seokbeomKim.github.io/posts/default-export-in-typescript/</link>
+      <link>https://seokbeomKim.github.io/posts/default-export-in-typescript/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/default-export-in-typescript/</guid>
+      <guid>https://seokbeomKim.github.io/posts/default-export-in-typescript/</guid>
       <description>개요 모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때 이해가 되지 않았다. 특히 default export와 named export 라는 export 방식과 자바스크립트 버전에 따른 문법 호환 때문에 모듈 export와 import, require를 사용하는 코드를 이해하기 힘들었다.
 이 문서에서는 타입스크립트를 이용하여 default, named export 각각을 구현한 뒤 import, require 키워드 각각을 이용하였을 때 레퍼런스 변수가 어떤 값을 가지고 있는지 확인한다.
 직접 확인해보자 첫 번째 테스트 먼저 export할 테스트 클래스를 간단하게 구현한다.
@@ -246,10 +246,10 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
     
     <item>
       <title>텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이</title>
-      <link>http://seokbeomKim.github.io/posts/tensorflow-scikit-learn/</link>
+      <link>https://seokbeomKim.github.io/posts/tensorflow-scikit-learn/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/tensorflow-scikit-learn/</guid>
+      <guid>https://seokbeomKim.github.io/posts/tensorflow-scikit-learn/</guid>
       <description>책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.
 각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득 텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로 머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는 이유가 있을까 궁금해졌다.
 왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류, 회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습 방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도 있다.</description>
@@ -257,10 +257,10 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
     
     <item>
       <title>비지도 학습 알고리즘과 지도 학습</title>
-      <link>http://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</link>
+      <link>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</guid>
+      <guid>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</guid>
       <description>개요 프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(Unsupervised Learning)이었는데 어디에도 학습이 정확이 무엇인지에 대한 내용이 없었다.
 학습이란 무엇인가? 질문에 대한 답은 쉽게 찾을 수 있었다.(해당 링크)
 A model with a set of parameters transforms the input into an output, this generates a signal from which the model updates the parameters to produce a new output. In the supervised learning scenario, the signal is the error between the model&amp;#39;s estimate and the ground truth (the correct answer).</description>
@@ -268,20 +268,20 @@ A model with a set of parameters transforms the input into an output, this gener
     
     <item>
       <title>자바의 중첩 클래스(Nested Class)</title>
-      <link>http://seokbeomKim.github.io/posts/java-inner-class/</link>
+      <link>https://seokbeomKim.github.io/posts/java-inner-class/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/java-inner-class/</guid>
+      <guid>https://seokbeomKim.github.io/posts/java-inner-class/</guid>
       <description>개요 중첩 클래스(Nested Class)에 대해서 여러 사이트에서 설명해놓은 것이 있지만 잘못 설명되어 있는 부분도 있었다. &amp;lsquo;Nested Class는 Inner Class와 같다.&amp;rsquo; 라는 식으로 기술해놓은 페이지가 많아 이번 기회에 확실하게 정리해놓고자 한다.
 중첩 클래스(Nested Class)는 내부 클래스(Inner Class)와 같은 개념이 아니라 포함 관계이다. 중첩 클래스는 static사용 여부에 따라, 정적 중첩 클래스(Static nested class)와 비정적 중첩 클래스(Non-static nested class)로 구분하며, 통상적으로 각각을 정적 중첩 클래스(Static Nested Class), 내부 클래스(Inner Class)라고 한다. 중첩 클래스와 내부 클래스를 같은 개념으로 혼용하는 용례가 많다는데 static 여부에 따라 구분되어 서로 다르다는 것을 반드시 알고 있자.</description>
     </item>
     
     <item>
       <title>서블릿 컨테이너와 서버와의 관계</title>
-      <link>http://seokbeomKim.github.io/posts/servlet-container/</link>
+      <link>https://seokbeomKim.github.io/posts/servlet-container/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/servlet-container/</guid>
+      <guid>https://seokbeomKim.github.io/posts/servlet-container/</guid>
       <description>개요 아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을 올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는 애플리케이션은 개발해 본 적이 없다. 때문에 서블릿이라는 용어 자체가 생소하고 웹 서버에서 이를 어떻게 관리하는지에 대해 궁금한 점을 중점으로 정리하고자 한다.
 정리하고자 하는 질문은 아래와 같다.
  Apache나 Nginx에서 서블릿 컨테이너로 어떤 방식을 통해서 클라이언트 요청을 넘겨주는가? 서블릿 컨테이너가 만들어진 이유는 무엇인가? 애플리케이션의 서블릿은 서블릿 컨테이너가 가지고 있는 라이프사이클 중 언제 추가되는가? 애플리케이션이 가지는 서블릿은 서블릿 컨테이너에 어떤 형태로 추가되는가?</description>
@@ -289,19 +289,19 @@ A model with a set of parameters transforms the input into an output, this gener
     
     <item>
       <title>파티셔닝(Partitioning)과 샤딩(Sharding)</title>
-      <link>http://seokbeomKim.github.io/posts/partition-and-sharding/</link>
+      <link>https://seokbeomKim.github.io/posts/partition-and-sharding/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/partition-and-sharding/</guid>
+      <guid>https://seokbeomKim.github.io/posts/partition-and-sharding/</guid>
       <description>개요 데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로 나누어 분산시키기 위한 기술 용어들인데 모두 서비스 크기 증가에 따른 DB 크기 증가, 성능 이슈에 따른 것이다. 일명 VLDB(Very Large DBMS)라 불리는, DBMS 하나로 전체 데이터베이스를 다룰 수 없는 데이터베이스가 자연스럽게 등장하였고 DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생기게 되었는데 이를 해결하기 위한 것이 바로 파티셔닝(partitioning) 과 샤딩(Sharding)이다.</description>
     </item>
     
     <item>
       <title>RESTful 성숙도 모델, Richardson Maturity Model(RMM)</title>
-      <link>http://seokbeomKim.github.io/posts/rest-api-model/</link>
+      <link>https://seokbeomKim.github.io/posts/rest-api-model/</link>
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/rest-api-model/</guid>
+      <guid>https://seokbeomKim.github.io/posts/rest-api-model/</guid>
       <description>개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &amp;lsquo;RESTful&amp;rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &amp;lsquo;Richardson Maturity Model&#39;이라는 성숙도 모델을 기술한다.
 REST 소개 이 절은 Microsoft의 REST 소개를 발췌하여 정리한 것이다.
 REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키텍처 스타일로서 프로토콜과는 관련이 없는 용어이다. (일각에서 REST와 SOAP를 비교하는 글들이 많아 언급하였다.</description>
@@ -309,10 +309,10 @@ REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키
     
     <item>
       <title>Folding in Haskell</title>
-      <link>http://seokbeomKim.github.io/posts/folding-in-haskell/</link>
+      <link>https://seokbeomKim.github.io/posts/folding-in-haskell/</link>
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/folding-in-haskell/</guid>
+      <guid>https://seokbeomKim.github.io/posts/folding-in-haskell/</guid>
       <description>Folding in Haskell 취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고리즘이나 데이터베이스 등 배울 것이 많은 데 갈수록 태산이다.) 대학교 시절, xmonad 윈도우즈 매니저를 사용하면서 접한 언어를 이렇게 뒤늦게 배우게 될 줄은 꿈에도 몰랐다.
 대표적인 함수형 언어로 알려진 Haskell 에는 Folding 이라는 특별한 개념이 등장한다. Haskell Wiki에서는 Folding을 아래와 같이 설명하고 있다.
  In functional programming, fold (or reduce) is a family of higher order functions that process a data structure in some order and build a return value.</description>
@@ -320,10 +320,10 @@ REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키
     
     <item>
       <title>HTTP/1.1과 HTTP/2의 차이점</title>
-      <link>http://seokbeomKim.github.io/posts/http1-http2/</link>
+      <link>https://seokbeomKim.github.io/posts/http1-http2/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/http1-http2/</guid>
+      <guid>https://seokbeomKim.github.io/posts/http1-http2/</guid>
       <description>HTTP/1.1 vs HTTP/2 HTTP 프로토콜에 대해서는 관심이 없다가 문득 텔레그램의 봇을 통해 우연히 HTTP/2의 개념을 처음으로 접하게 되었다. 이 문서는 HTTP/1.1과 HTTP/2 의 차이점을 설명하고 1.1에서 2로 변화하면서 어떻게 개선되었는지 기술한다.
 HTTP/1.1 동작 방식 HTTP(HyperText Transfer Protocol)은 웹에서 클라이언트(웹 브라우저)가 웹 서버(httpd, nginx, etc&amp;hellip;)와 통신하기 위한 프로토콜 중 하나이다. HTTP 1.1은 클라이언트와 서버 간의 통신을 위해 다음과 같은 과정을 거친다.
 위 그림에서 알 수 있듯이 HTTP/1.1은 기본적으로 Connection 한 개당 하나의 요청을 처리하도록 설계되어 있다.</description>
@@ -331,10 +331,10 @@ HTTP/1.1 동작 방식 HTTP(HyperText Transfer Protocol)은 웹에서 클라이�
     
     <item>
       <title>CORS(Cross-Origin Resource Sharing)</title>
-      <link>http://seokbeomKim.github.io/posts/cors/</link>
+      <link>https://seokbeomKim.github.io/posts/cors/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/cors/</guid>
+      <guid>https://seokbeomKim.github.io/posts/cors/</guid>
       <description>CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(Origin)는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.
 하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 CORS(Cross-Origin Resource Sharing)이라는 추가 정책이 나오게 되었다.
 CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.</description>
@@ -342,10 +342,10 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
     
     <item>
       <title>컨텐츠 전송 네트워크, CDN(Content Delivery Network)</title>
-      <link>http://seokbeomKim.github.io/posts/cdn/</link>
+      <link>https://seokbeomKim.github.io/posts/cdn/</link>
       <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/cdn/</guid>
+      <guid>https://seokbeomKim.github.io/posts/cdn/</guid>
       <description>CDN(Content Delivery Network) Content Delivery Network 또는 Content Distribution Network라고 불리는 네트워크는 컨텐츠를 효율적으로 전달하기 위해 여러 노드를 가진 네트워크에 데이터를 저장하여 제공하는 시스템을 말한다. 관련된 질문으로는 &amp;lsquo;CDN vs. Cache, 무엇이 더 효율적인가?&amp;lsquo;라는 것이 있다. CDN은 오늘날 텐스트, 그래픽, 스크립트, 미디어 파일, 소프트웨어, 문서 등의 다운로드가 가능한 객체들 뿐만 아니라 어플리케이션, 라이브 스트리밍 미디어 등의 다양한 컨텐츠들을 망라하여 제공하고 있다.
 아래의 그림을 살펴보자.
 왼쪽의 그림은 컨텐츠가 End User들에게 직접 제공되는 반면에 오른쪽 그림은 End-User에서 가장 가까운 CDN 서버를 통해 간접적으로 전달된다.</description>
@@ -353,47 +353,47 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
     
     <item>
       <title>가상호스트(Virtual Host)와 Host Header</title>
-      <link>http://seokbeomKim.github.io/posts/vhost-host-header/</link>
+      <link>https://seokbeomKim.github.io/posts/vhost-host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/vhost-host-header/</guid>
+      <guid>https://seokbeomKim.github.io/posts/vhost-host-header/</guid>
       <description>Virtual Host and Host Header 문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가상 호스트와 호스트 헤더 간에는 무슨 관계가 있는 것일까. 이 문서에서는 가상 호스트와 가상호스트 종류, 그리고 마지막으로 호스트 헤더와 어떤 식으로 연관되는지에 대해 설명하겠다.
 가상 호스트(Virtual Host) 가상호스트란 싱글 서버(또는 서버 풀)에서 여러 개의 도메인 이름으로 호스팅하기 위한 방법이다. 가상 호스트를 사용함으로써 얻는 이점은 하나의 서버로 해당 서버의 리소스(메모리, 프로세서 사이클 등)를 공유할 수 있다는 점이다.</description>
     </item>
     
     <item>
       <title>Server Name Indication(SNI)</title>
-      <link>http://seokbeomKim.github.io/posts/sni/</link>
+      <link>https://seokbeomKim.github.io/posts/sni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/sni/</guid>
+      <guid>https://seokbeomKim.github.io/posts/sni/</guid>
       <description>Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다.</description>
     </item>
     
     <item>
       <title>Server Name Indication(SNI)</title>
-      <link>http://seokbeomKim.github.io/posts/sni/</link>
+      <link>https://seokbeomKim.github.io/posts/sni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/sni/</guid>
+      <guid>https://seokbeomKim.github.io/posts/sni/</guid>
       <description>Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다.</description>
     </item>
     
     <item>
       <title>HTTP와 HTTPS의 차이점</title>
-      <link>http://seokbeomKim.github.io/posts/diff_http_https/</link>
+      <link>https://seokbeomKim.github.io/posts/diff_http_https/</link>
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/diff_http_https/</guid>
+      <guid>https://seokbeomKim.github.io/posts/diff_http_https/</guid>
       <description>HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&#39;가 나타내는 Secure라는 의미로부터 HTTP에 &amp;lsquo;어떤 것&#39;을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한&#39;어떤 것&#39;인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.</description>
     </item>
     
     <item>
       <title></title>
-      <link>http://seokbeomKim.github.io/posts/about/</link>
+      <link>https://seokbeomKim.github.io/posts/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://seokbeomKim.github.io/posts/about/</guid>
+      <guid>https://seokbeomKim.github.io/posts/about/</guid>
       <description></description>
     </item>
     

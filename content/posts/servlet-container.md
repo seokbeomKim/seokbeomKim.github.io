@@ -4,8 +4,8 @@ date: 2019-05-03T17:50:32+09:00
 categories:
 - web
 tags:
-- apache httpd
-- servlet container
+- apache_httpd
+- servlet_container
 keywords:
 - tech
 ---

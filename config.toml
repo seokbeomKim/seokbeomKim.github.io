@@ -1,15 +1,16 @@
-baseURL = "http://seokbeomKim.github.io/"
+baseURL = "https://seokbeomKim.github.io/"
 languageCode = "en-us"
 title = "A Developer's Note"
 theme = "pickles"
+paginate = 5
 
 [params]
-	paginate = 5
 	subtitle = "Technical Writing in Daily Life"
 
 	# Socal accounts
 	github = "seokbeomKim"
 	linkedin = "sukbeomkim"
+	disqus = "beomiyi-beulrogeu"
 
 [[menu.main]]
 	name = "Blog"
