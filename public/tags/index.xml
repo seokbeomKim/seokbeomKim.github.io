@@ -6,10 +6,37 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jun 2019 22:47:44 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2020 16:39:36 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>colorspace</title>
+      <link>https://seokbeomKim.github.io/tags/colorspace/</link>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/colorspace/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rgb</title>
+      <link>https://seokbeomKim.github.io/tags/rgb/</link>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/rgb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yuv</title>
+      <link>https://seokbeomKim.github.io/tags/yuv/</link>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/yuv/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>bootloader</title>
