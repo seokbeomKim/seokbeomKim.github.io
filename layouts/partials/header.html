@@ -15,5 +15,6 @@
       {{ . }}
     </p>
     {{ end }}
+    {{ if .Params.mathjax }}{{ partial "mathjax_support.html" . }}{{ end }}
   </header>
   <main id="main" class="l-main">

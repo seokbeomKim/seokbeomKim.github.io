@@ -12,6 +12,12 @@ paginate = 5
 	linkedin = "sukbeomkim"
 	disqus = "beomiyi-beulrogeu"
 
+	# plugin supports
+	mathjax = true
+
+	# my custom css fils
+	custom_css = ["css/img.css"]
+
 [[menu.main]]
 	name = "Blog"
 	url = "/"
@@ -36,9 +42,9 @@ paginate = 5
 	defaultMarkdownHandler = "goldmark"
 
 	[markup.tableOfContents]
+		startLevel = 1
 		endLevel = 3
 		ordered = true 
-		startLevel = 2
 
 [taxonomies]
 	category = "categories"
