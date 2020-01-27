@@ -4,12 +4,67 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-01-26T16:39:36+09:00</lastmod>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/big-endian/</loc>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-01-26T16:39:36+09:00</lastmod>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/endian/</loc>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/little-endian/</loc>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/endian/</loc>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/bt.601/</loc>
+    <lastmod>2020-01-26T17:44:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/bt.656/</loc>
+    <lastmod>2020-01-26T17:44:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/video/</loc>
+    <lastmod>2020-01-26T17:44:18+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/digital_output_formats/</loc>
+    <lastmod>2020-01-26T17:44:18+09:00</lastmod>
   </url>
   
   <url>
@@ -18,22 +73,7 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-01-26T16:39:36+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/rgb/</loc>
-    <lastmod>2020-01-26T16:39:36+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
-    <lastmod>2020-01-26T16:39:36+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/video/</loc>
     <lastmod>2020-01-26T16:39:36+09:00</lastmod>
   </url>
   
@@ -115,11 +155,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2019-06-04T17:34:42+09:00</lastmod>
   </url>
   
   <url>

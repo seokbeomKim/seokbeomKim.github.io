@@ -6,10 +6,32 @@
     <description>Recent content in Posts on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 16:39:36 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jan 2020 22:27:06 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Little Endian vs. Big Endian</title>
+      <link>https://seokbeomKim.github.io/posts/endian/</link>
+      <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/endian/</guid>
+      <description>개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
+엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
+ Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.</description>
+    </item>
+    
+    <item>
+      <title>영상 출력 포맷</title>
+      <link>https://seokbeomKim.github.io/posts/digital_output_formats/</link>
+      <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/digital_output_formats/</guid>
+      <description>디지널 출력 포맷 아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타겟으로 한 표준들이 나오고 있다. 디지털 텔레비전의 부호화 파라미터들을 정의한 권고안으로서 601은 모든 컴포넌트 디지털 영상 표준에 대한 기초가 되었다.
+규격 내용 각 표준에는 아래와 같은 내용들을 정의한다.
+ 화면비 휘도 및 색 신호에 대한 처리 영상 포맷 형식 기준 주파수 샘플링 주파수 샘플링 및 코딩 형식  BT.</description>
+    </item>
     
     <item>
       <title>색 공간(Color Space)</title>
