@@ -74,6 +74,7 @@
   <aside>
     <nav id="TableOfContents">
   <ol>
+    <li><a href="#kobjects-ktypes-ksets">kobjects, ktypes, ksets</a></li>
     <li><a href="#출처">출처</a></li>
   </ol>
 </nav>
@@ -81,7 +82,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <p>디바이스 트리를 살펴보다 <code>kobject</code> 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.</p>
+    <h1 id="kobjects-ktypes-ksets">kobjects, ktypes, ksets</h1>
+<p>디바이스 트리를 살펴보다 <code>kobject</code> 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> <span style="color:#ae81ff">61</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">kobject</span> {
  <span style="color:#ae81ff">62</span>         <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span>              <span style="color:#f92672">*</span>name;
  <span style="color:#ae81ff">63</span>         <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">list_head</span>        entry;
