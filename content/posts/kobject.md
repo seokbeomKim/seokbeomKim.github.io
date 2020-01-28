@@ -11,6 +11,7 @@ keywords:
 toc: false
 ---
 
+# kobjects, ktypes, ksets
 디바이스 트리를 살펴보다 `kobject` 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
 
 ```c++
