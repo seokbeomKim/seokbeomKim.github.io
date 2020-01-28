@@ -8,6 +8,7 @@ tags:
 - kobject
 keywords:
 - tech
+toc: false
 ---
 
 디바이스 트리를 살펴보다 `kobject` 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
@@ -34,20 +35,20 @@ keywords:
 
 커널 문서(https://www.kernel.org/doc/Documentation/kobject.txt)에 따르면 `kobjects`와 더불어 `ksets`, `ktypes` 에 대해 아래와 같이 기술하고 있다.
 
-    - A kobject is an object of type struct kobject.  Kobjects have a name
+   > A kobject is an object of type struct kobject.  Kobjects have a name
    and a reference count.  A kobject also has a parent pointer (allowing
    objects to be arranged into hierarchies), a specific type, and,
    usually, a representation in the sysfs virtual filesystem.
 
-   Kobjects are generally not interesting on their own; instead, they are
+   > Kobjects are generally not interesting on their own; instead, they are
    usually embedded within some other structure which contains the stuff
    the code is really interested in
 
-   - A ktype is the type of object that embeds a kobject.  Every structure
+   > A ktype is the type of object that embeds a kobject.  Every structure
    that embeds a kobject needs a corresponding ktype.  The ktype controls
    what happens to the kobject when it is created and destroyed.
 
-   - A kset is a group of kobjects.  These kobjects can be of the same ktype
+   > A kset is a group of kobjects.  These kobjects can be of the same ktype
    or belong to different ktypes.  The kset is the basic container type for
    collections of kobjects. Ksets contain their own kobjects, but you can
    safely ignore that implementation detail as the kset core code handles

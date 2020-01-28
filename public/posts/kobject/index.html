@@ -100,28 +100,29 @@
  <span style="color:#ae81ff">76</span>         <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> uevent_suppress:<span style="color:#ae81ff">1</span>;
  <span style="color:#ae81ff">77</span> };
 </code></pre></div><p>커널 문서(<a href="https://www.kernel.org/doc/Documentation/kobject.txt">https://www.kernel.org/doc/Documentation/kobject.txt</a>)에 따르면 <code>kobjects</code>와 더불어 <code>ksets</code>, <code>ktypes</code> 에 대해 아래와 같이 기술하고 있다.</p>
-<pre><code>- A kobject is an object of type struct kobject.  Kobjects have a name
-</code></pre>
-<p>and a reference count.  A kobject also has a parent pointer (allowing
+<blockquote>
+<p>A kobject is an object of type struct kobject.  Kobjects have a name
+and a reference count.  A kobject also has a parent pointer (allowing
 objects to be arranged into hierarchies), a specific type, and,
 usually, a representation in the sysfs virtual filesystem.</p>
+</blockquote>
+<blockquote>
 <p>Kobjects are generally not interesting on their own; instead, they are
 usually embedded within some other structure which contains the stuff
 the code is really interested in</p>
-<ul>
-<li>
+</blockquote>
+<blockquote>
 <p>A ktype is the type of object that embeds a kobject.  Every structure
 that embeds a kobject needs a corresponding ktype.  The ktype controls
 what happens to the kobject when it is created and destroyed.</p>
-</li>
-<li>
+</blockquote>
+<blockquote>
 <p>A kset is a group of kobjects.  These kobjects can be of the same ktype
 or belong to different ktypes.  The kset is the basic container type for
 collections of kobjects. Ksets contain their own kobjects, but you can
 safely ignore that implementation detail as the kset core code handles
 this kobject automatically.</p>
-</li>
-</ul>
+</blockquote>
 <p>Kobject는 이름과 참조횟수를 가지고 있는 객체로서 자기 자신에 대해 관심을 가지는 것이 아니라 다른 구조체에 embedded 되어 관련 코드에서 필요로 하는 내용들을 저장하는 용도로 사용한다. kobjects 자체는 계층 구조로 구성할 수 있도록 부모 포인터를 가지며 특정 유형이나 sysfs 등에도 사용된다.</p>
 <p>ktype은 kobject에 대한 도메인(정의역)이라 생각하면 이해하기 쉽다. 서로 다른 값들로 구성할 수 있는 도메인은 그 값에 대한 타입 시스템으로 구성할 수 있으며 이러한 타입시스템에 대한 개념이 여기에도 그대로 묻어나는 것을 네이밍을 통해 단번에 알 수 있다.</p>
 <p>kset은 kobject, 즉 단순한 집합이다. 때문에 서로 다른 ktype들을 가지고 있을 수도 있고 모두 같은 ktype들로 구성할 수도 있다.</p>
