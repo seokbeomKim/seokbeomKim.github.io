@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Embedded on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/categories/embedded/</link>
+    <description>Recent content in Embedded on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Jun 2019 22:47:44 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/categories/embedded/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>부트로더(Bootloader)</title>
+      <link>https://seokbeomKim.github.io/posts/bootloader/</link>
+      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/bootloader/</guid>
+      <description>이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램, 네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.
+브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면 메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽 카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test) 과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를 찾아 부팅한다.</description>
+    </item>
+    
+    <item>
+      <title>QEMU 이용한 임베디드 개발 환경 구축하기</title>
+      <link>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</link>
+      <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</guid>
+      <description>임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
+개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.</description>
+    </item>
+    
+  </channel>
+</rss>

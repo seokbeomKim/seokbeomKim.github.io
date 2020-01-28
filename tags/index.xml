@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/tags/</link>
+    <description>Recent content in Tags on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>kobject</title>
+      <link>https://seokbeomKim.github.io/tags/kobject/</link>
+      <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/kobject/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>big endian</title>
+      <link>https://seokbeomKim.github.io/tags/big-endian/</link>
+      <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/big-endian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>endian</title>
+      <link>https://seokbeomKim.github.io/tags/endian/</link>
+      <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/endian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>little endian</title>
+      <link>https://seokbeomKim.github.io/tags/little-endian/</link>
+      <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/little-endian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bt.601</title>
+      <link>https://seokbeomKim.github.io/tags/bt.601/</link>
+      <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/bt.601/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bt.656</title>
+      <link>https://seokbeomKim.github.io/tags/bt.656/</link>
+      <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/bt.656/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>colorspace</title>
+      <link>https://seokbeomKim.github.io/tags/colorspace/</link>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/colorspace/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rgb</title>
+      <link>https://seokbeomKim.github.io/tags/rgb/</link>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/rgb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yuv</title>
+      <link>https://seokbeomKim.github.io/tags/yuv/</link>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/yuv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bootloader</title>
+      <link>https://seokbeomKim.github.io/tags/bootloader/</link>
+      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/bootloader/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>embedded_linux</title>
+      <link>https://seokbeomKim.github.io/tags/embedded_linux/</link>
+      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/embedded_linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>posix-spawn</title>
+      <link>https://seokbeomKim.github.io/tags/posix-spawn/</link>
+      <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/posix-spawn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arm-versatile</title>
+      <link>https://seokbeomKim.github.io/tags/arm-versatile/</link>
+      <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/arm-versatile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qemu</title>
+      <link>https://seokbeomKim.github.io/tags/qemu/</link>
+      <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/qemu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RCU</title>
+      <link>https://seokbeomKim.github.io/tags/rcu/</link>
+      <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/rcu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BKL</title>
+      <link>https://seokbeomKim.github.io/tags/bkl/</link>
+      <pubDate>Tue, 04 Jun 2019 16:40:28 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/bkl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>semaphore</title>
+      <link>https://seokbeomKim.github.io/tags/semaphore/</link>
+      <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/semaphore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>major number</title>
+      <link>https://seokbeomKim.github.io/tags/major-number/</link>
+      <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/major-number/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>minor number</title>
+      <link>https://seokbeomKim.github.io/tags/minor-number/</link>
+      <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/minor-number/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>global kernel lock</title>
+      <link>https://seokbeomKim.github.io/tags/global-kernel-lock/</link>
+      <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/global-kernel-lock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mutex</title>
+      <link>https://seokbeomKim.github.io/tags/mutex/</link>
+      <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mutex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spinlock</title>
+      <link>https://seokbeomKim.github.io/tags/spinlock/</link>
+      <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/spinlock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jiffies</title>
+      <link>https://seokbeomKim.github.io/tags/jiffies/</link>
+      <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/jiffies/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tasklet</title>
+      <link>https://seokbeomKim.github.io/tags/tasklet/</link>
+      <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/tasklet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>buildroot</title>
+      <link>https://seokbeomKim.github.io/tags/buildroot/</link>
+      <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/buildroot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>busybox</title>
+      <link>https://seokbeomKim.github.io/tags/busybox/</link>
+      <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/busybox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>https://seokbeomKim.github.io/tags/kernel/</link>
+      <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OSI 7 Layers</title>
+      <link>https://seokbeomKim.github.io/tags/osi-7-layers/</link>
+      <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/osi-7-layers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tcp</title>
+      <link>https://seokbeomKim.github.io/tags/tcp/</link>
+      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/tcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>udp</title>
+      <link>https://seokbeomKim.github.io/tags/udp/</link>
+      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/udp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux kernel</title>
+      <link>https://seokbeomKim.github.io/tags/linux-kernel/</link>
+      <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/linux-kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>process</title>
+      <link>https://seokbeomKim.github.io/tags/process/</link>
+      <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/process/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>COW</title>
+      <link>https://seokbeomKim.github.io/tags/cow/</link>
+      <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/cow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>implicit sharing</title>
+      <link>https://seokbeomKim.github.io/tags/implicit-sharing/</link>
+      <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/implicit-sharing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shadowing</title>
+      <link>https://seokbeomKim.github.io/tags/shadowing/</link>
+      <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/shadowing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>drivers</title>
+      <link>https://seokbeomKim.github.io/tags/drivers/</link>
+      <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/drivers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>modules</title>
+      <link>https://seokbeomKim.github.io/tags/modules/</link>
+      <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/modules/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nonpreemptive</title>
+      <link>https://seokbeomKim.github.io/tags/nonpreemptive/</link>
+      <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/nonpreemptive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deadlock</title>
+      <link>https://seokbeomKim.github.io/tags/deadlock/</link>
+      <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/deadlock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>default export</title>
+      <link>https://seokbeomKim.github.io/tags/default-export/</link>
+      <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/default-export/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>named export</title>
+      <link>https://seokbeomKim.github.io/tags/named-export/</link>
+      <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/named-export/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scikit learn</title>
+      <link>https://seokbeomKim.github.io/tags/scikit-learn/</link>
+      <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/scikit-learn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tensorflow</title>
+      <link>https://seokbeomKim.github.io/tags/tensorflow/</link>
+      <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/tensorflow/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>비지도 학습</title>
+      <link>https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
+      <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>지도 학습</title>
+      <link>https://seokbeomKim.github.io/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
+      <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nested class</title>
+      <link>https://seokbeomKim.github.io/tags/nested-class/</link>
+      <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/nested-class/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apache_httpd</title>
+      <link>https://seokbeomKim.github.io/tags/apache_httpd/</link>
+      <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/apache_httpd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>servlet_container</title>
+      <link>https://seokbeomKim.github.io/tags/servlet_container/</link>
+      <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/servlet_container/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>partition</title>
+      <link>https://seokbeomKim.github.io/tags/partition/</link>
+      <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/partition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shard</title>
+      <link>https://seokbeomKim.github.io/tags/shard/</link>
+      <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/shard/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Restful</title>
+      <link>https://seokbeomKim.github.io/tags/restful/</link>
+      <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/restful/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RMM</title>
+      <link>https://seokbeomKim.github.io/tags/rmm/</link>
+      <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/rmm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>folding</title>
+      <link>https://seokbeomKim.github.io/tags/folding/</link>
+      <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/folding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http1.1</title>
+      <link>https://seokbeomKim.github.io/tags/http1.1/</link>
+      <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/http1.1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http2</title>
+      <link>https://seokbeomKim.github.io/tags/http2/</link>
+      <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/http2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cors</title>
+      <link>https://seokbeomKim.github.io/tags/cors/</link>
+      <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/cors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cdn</title>
+      <link>https://seokbeomKim.github.io/tags/cdn/</link>
+      <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/cdn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>host header</title>
+      <link>https://seokbeomKim.github.io/tags/host-header/</link>
+      <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/host-header/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtual host</title>
+      <link>https://seokbeomKim.github.io/tags/virtual-host/</link>
+      <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/virtual-host/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SNI</title>
+      <link>https://seokbeomKim.github.io/tags/sni/</link>
+      <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/sni/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>https://seokbeomKim.github.io/tags/http/</link>
+      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/http/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>https</title>
+      <link>https://seokbeomKim.github.io/tags/https/</link>
+      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/https/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

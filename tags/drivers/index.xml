@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>drivers on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/tags/drivers/</link>
+    <description>Recent content in drivers on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 May 2019 02:11:40 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/drivers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>커널 모듈과 드라이버의 차이</title>
+      <link>https://seokbeomKim.github.io/posts/kernel-module-and-drivers/</link>
+      <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/kernel-module-and-drivers/</guid>
+      <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
+커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
+arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용) 구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.</description>
+    </item>
+    
+  </channel>
+</rss>

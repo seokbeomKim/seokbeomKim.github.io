@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/categories/</link>
+    <description>Recent content in Categories on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>kernel</title>
+      <link>https://seokbeomKim.github.io/categories/kernel/</link>
+      <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://seokbeomKim.github.io/categories/linux/</link>
+      <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>video</title>
+      <link>https://seokbeomKim.github.io/categories/video/</link>
+      <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/video/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Embedded</title>
+      <link>https://seokbeomKim.github.io/categories/embedded/</link>
+      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/embedded/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>O/S</title>
+      <link>https://seokbeomKim.github.io/categories/o/s/</link>
+      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/o/s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Build</title>
+      <link>https://seokbeomKim.github.io/categories/build/</link>
+      <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/build/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Error</title>
+      <link>https://seokbeomKim.github.io/categories/error/</link>
+      <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qemu</title>
+      <link>https://seokbeomKim.github.io/categories/qemu/</link>
+      <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/qemu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://seokbeomKim.github.io/categories/network/</link>
+      <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scheduling</title>
+      <link>https://seokbeomKim.github.io/categories/scheduling/</link>
+      <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/scheduling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming Languages</title>
+      <link>https://seokbeomKim.github.io/categories/programming-languages/</link>
+      <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/programming-languages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>https://seokbeomKim.github.io/categories/typescript/</link>
+      <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://seokbeomKim.github.io/categories/machine-learning/</link>
+      <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://seokbeomKim.github.io/categories/java/</link>
+      <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://seokbeomKim.github.io/categories/web/</link>
+      <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>database</title>
+      <link>https://seokbeomKim.github.io/categories/database/</link>
+      <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>haskell</title>
+      <link>https://seokbeomKim.github.io/categories/haskell/</link>
+      <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/haskell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>protocol</title>
+      <link>https://seokbeomKim.github.io/categories/protocol/</link>
+      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/protocol/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
