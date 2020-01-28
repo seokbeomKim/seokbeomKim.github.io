@@ -6,10 +6,19 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jan 2020 22:27:06 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kobject</title>
+      <link>https://seokbeomKim.github.io/tags/kobject/</link>
+      <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/kobject/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>big endian</title>

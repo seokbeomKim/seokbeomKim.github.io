@@ -6,7 +6,7 @@
     <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jan 2020 22:27:06 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Kernel</title>
       <link>https://seokbeomKim.github.io/categories/kernel/</link>
-      <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
+      <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://seokbeomKim.github.io/categories/linux/</link>
+      <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
@@ -75,29 +84,11 @@
     </item>
     
     <item>
-      <title>Linux</title>
-      <link>https://seokbeomKim.github.io/categories/linux/</link>
-      <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Network</title>
       <link>https://seokbeomKim.github.io/categories/network/</link>
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
-      <link>https://seokbeomKim.github.io/categories/web/</link>
-      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/web/</guid>
       <description></description>
     </item>
     
@@ -143,6 +134,15 @@
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://seokbeomKim.github.io/categories/web/</link>
+      <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/web/</guid>
       <description></description>
     </item>
     

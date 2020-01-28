@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
+    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/kobject/</loc>
+    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/kobject/</loc>
+    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
+    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
   </url>
   
   <url>
@@ -13,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/endian/</loc>
-    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
     <lastmod>2020-01-27T22:27:06+09:00</lastmod>
   </url>
   
@@ -34,16 +59,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/endian/</loc>
-    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-01-27T22:27:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-01-27T22:27:06+09:00</lastmod>
   </url>
   
@@ -155,11 +170,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
-    <lastmod>2019-06-04T17:34:42+09:00</lastmod>
   </url>
   
   <url>
@@ -303,17 +313,7 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/posts/tcp-and-udp/</loc>
-    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/udp/</loc>
-    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/web/</loc>
     <lastmod>2019-05-21T15:27:08+09:00</lastmod>
   </url>
   
@@ -478,6 +478,11 @@
   </url>
   
   <url>
+    <loc>https://seokbeomKim.github.io/categories/web/</loc>
+    <lastmod>2019-05-03T17:50:32+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/posts/servlet-container/</loc>
     <lastmod>2019-05-03T17:50:32+09:00</lastmod>
   </url>
@@ -580,11 +585,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/vhost-host-header/</loc>
     <lastmod>2019-05-01T17:16:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/sni/</loc>
-    <lastmod>2019-05-01T17:12:34+09:00</lastmod>
   </url>
   
   <url>
