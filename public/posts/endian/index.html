@@ -153,7 +153,7 @@ value2[7] = 0x12
 <p>Big-Endian은 소프트웨어의 디버그를 편하게 해주는 경향이 있다. 사람이 숫자를 읽고 쓰는 방법과 같기 때문에 디버깅 과정에서 메모리의 값을 보기 편하다. 예를 들어, <strong><em>0x59654148</em>을 Big-Endian으로 표현하면 <em>0x59, 0x65, 0x41, 0x48</em> 등으로 메모리에 순서대로 표현</strong>된다.</p>
 <p>반대로 Little-Endian은 메모리에 저장된 값의 하위 바이트들만 사용할 때 별도의 계산이 필요 없다는 장점이 있다. 예를 들어, 32비트 숫자인 0x2A는 리틀 엔디언으로 표현하면 2A 00 00 00이 되는데, 이 표현에서 앞의 두 바이트 또는 한 바이트만 떼어내면 하위 16비트 또는 8비트를 바로 얻을 수 있다. 반면 32비트 빅 엔디안 환경에서는 하위 16비트나 8비트 값을 얻기 위해 변수 주소에 2바이트 또는 3바이트를 더해야 한다.</p>
 <h1 id="커널-내-인터페이스">커널 내 인터페이스</h1>
-<p>커널은 <code>byte order</code> 에 대한 의존성을 해결하기 위해 <code>Type Identifier</code>, <code>Conversion Macro</code> 등을 제공하고 있다. <code>include/uapi/linux/types.h</code> 헤더 파일 내에서는 아래와 같이 엔디안 별로 타입들이 정의되어 있는 것을 알 수 있다. 여기서 uapi 디렉토리는 커널의 userspace API를 포함하고 있다. 
+<p>커널은 <code>byte order</code> 에 대한 의존성을 해결하기 위해 <code>Type Identifier</code>, <code>Conversion Macro</code> 등을 제공하고 있다. <code>include/uapi/linux/types.h</code> 헤더 파일 내에서는 아래와 같이 엔디안 별로 타입들이 정의되어 있는 것을 알 수 있다. 여기서 uapi 디렉토리는 커널의 userspace API를 포함하고 있다.
 (참고. <a href="https://stackoverflow.com/questions/18858190/whats-in-include-uapi-of-kernel-source-project">https://stackoverflow.com/questions/18858190/whats-in-include-uapi-of-kernel-source-project</a>)</p>
 <h2 id="타입-정의">타입 정의</h2>
 <pre><code>/*
