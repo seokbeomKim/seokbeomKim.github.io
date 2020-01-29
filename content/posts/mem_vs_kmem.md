@@ -1,5 +1,5 @@
 ---
-title: "Mem_vs_kmem"
+title: "/dev/mem vs. /dev/kmem"
 date: 2020-01-29T23:30:44+09:00
 categories:
 - kernel
