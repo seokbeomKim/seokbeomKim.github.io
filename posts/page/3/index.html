@@ -60,6 +60,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/">리눅스 커널 락 종류 (3/5)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-04T11:40:12&#43;09:00">
+        Jun 4, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
+세마포어는 아래와 같은 경우에 적합하다.
+태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/">Major와 Minor Numbers</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -145,29 +168,6 @@
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/tasklet/">태스크릿(Tasklet)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-25T17:32:26&#43;09:00">
-        May 25, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.
-간단히 말해 tasklet은 스택이나 자체 컨텍스트가 없는 스레드와 같은 것으로 설명하고 있다.
-태스크릿(Tasklet)의 특성  태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/tasklet/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -181,7 +181,7 @@
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 3 of 8</span>
+  <span class="c-pagination__count p-pagination__count">Page 3 of 9</span>
 </nav>
 
 

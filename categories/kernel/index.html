@@ -60,6 +60,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/">Mem_vs_kmem</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-01-29T23:30:44&#43;09:00">
+        Jan 29, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때, /dev/mem 디바이스 노드가 반드시 있어야 한다고 들었기에 Kconfig에서 관련 설정 플래그를 찾던 중 kmem 이라는 것도 있다는 것을 알게 되었다. 문득 이 둘의 차이점과 공식적(?)인 디버깅 툴이 어떤 것이 있는지 알아보고자 한다.
+/dev/mem vs. /dev/kmem 이 둘의 차이점은 출처에 따르면 아래와 같이 나와있다.
+ /dev/mem is a device file that directly represents physical memory, so an open(/dev/mem)/seek(1000)/read(10) system call combination ends up reading 10 bytes from RAM address 1000.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kobject/">Kobject</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -141,28 +164,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/">리눅스 커널 락 종류 (1/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-28T17:45:51&#43;09:00">
-        May 28, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lsquo;뮤텍스는 세마 포어의 카운트가 1인 락'이라는 말도 안되는 내용으로 학교 선배로부터 배웠던 것이 기억난다. 락의 종류별로 쓰임새가 있고 장단점이 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에 대한 사용 예를 기술하고자 한다.
-
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
