@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Mem_vs_kmem</title>
+      <title>/dev/mem vs. /dev/kmem</title>
       <link>https://seokbeomKim.github.io/posts/mem_vs_kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
