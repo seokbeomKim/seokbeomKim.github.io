@@ -6,10 +6,21 @@
     <description>Recent content on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jan 2020 23:30:44 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jan 2020 23:34:30 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android_uevent_and_ueventd</title>
+      <link>https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/</link>
+      <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/</guid>
+      <description>개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. ueventd.rc 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.
+본 포스팅에서는 uevent와 ueventd가 무엇인지 살펴보고 안드로이드 init 과정에서 어떻게 활용되는지 살펴보기로 한다.
+여담으로 안드로이드의 uevent는 리눅스의 udev 와 비슷한 역할을 하면서도 조금 다르다. 리눅스의 일반적인 환경 구성이 devfs + udev 로 디바이스 노드 파일들을 관리한다면, 안드로이드는 ueventd를 이용하여 노드 파일들을 관리한다.</description>
+    </item>
     
     <item>
       <title>/dev/mem vs. /dev/kmem</title>

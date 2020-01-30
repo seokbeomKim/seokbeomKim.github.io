@@ -3,17 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://seokbeomKim.github.io/posts/mem_vs_kmem/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/categories/android/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/uevent/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/ueventd/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/mem_vs_kmem/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url>
   
@@ -34,16 +64,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/mem/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url>
   
@@ -173,12 +193,12 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
