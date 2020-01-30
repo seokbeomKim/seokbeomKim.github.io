@@ -1,5 +1,5 @@
 ---
-title: "Android_uevent_and_ueventd"
+title: "안드로이드의 uevent, ueventd"
 date: 2020-01-30T23:34:30+09:00
 categories:
 - Android
@@ -19,15 +19,15 @@ toc: false
 여담으로 안드로이드의 uevent는 리눅스의 udev 와 비슷한 역할을 하면서도 조금 다르다. 리눅스의 일반적인 환경 구성이 devfs + udev 로 디바이스 노드 파일들을 관리한다면, 안드로이드는 `ueventd`를 이용하여 노드 파일들을 관리한다. 
 
 # uevent & ueventd
-리눅스에서는 디바이스 노드 파일을 생성할 수 있도록 `mknod` 유틸리티를 제공하지만 안드로이드에서는 보안 문제로 이를 제공하지 않는다. 때문에, 안드로이드의 init 프로세스는 아래의 두 가지 방식으로 디바이스 노드를 생성한다. (
+리눅스에서는 디바이스 노드 파일을 생성할 수 있도록 `mknod` 유틸리티를 제공하지만 안드로이드에서는 보안 문제로 이를 제공하지 않는다. 때문에, 안드로이드의 init 프로세스는 아래의 두 가지 방식으로 디바이스 노드를 생성한다.
 
 - hot plug: 시스템 동작 중 디바이스 장치가 삽입될 때 이에 대한 이벤트 처리로 `ueventd`를 거쳐 해당 장치의 디바이스 노드 파일을 동적으로 생성한다.
 - cold plug: 미리 정의된 디바이스 정보를 바탕으로 init 프로세스가 실행될 때 일괄적으로 디바이스 노드 파일을 생성한다.
 
-출처에 따르면 cold plug 방식에 대해서, `ueventd`가 실행되기 전의 디바이스 드라이버가 /sys 디렉토리 아래에 디바이스 노드를 생성하기 위한 정보들을 저장한 후, `ueventd`에서 디바이스 노드를 생성하지 못한 디바이스 드라이버에 대해 cold plug 처리를 한다고 설명하고 있다. 
+출처에 따르면 cold plug 방식에 대해서, `ueventd`가 실행되기 전에 디바이스 드라이버가 /sys 디렉토리 아래에 디바이스 노드를 생성하기 위한 정보들을 저장한 후, `ueventd`가 실행되면서 디바이스 노드를 생성하지 못한 디바이스 드라이버에 대해서 강제로 uevent 를 발생시켜 cold plug 처리를 한다고 설명하고 있다. 
 
-# init process
-안드로이드 init 과정에서 `ueventd`를 부른다. `uevent`에서는 아래의 `ueventd_main` 함수를 호출한다.
+# init process와 ueventd
+안드로이드 init 과정에서 `ueventd`를 부른다. `ueventd` 에서는 내부적으로 아래의 `ueventd_main` 함수를 호출한다.
 
 ```c++
 int ueventd_main(int argc, char **argv)
@@ -118,7 +118,7 @@ void device_init(void)
 }
 ``` 
 
-호출 되는 coldboot는 내부적으로 `do_coldboot`를 호출한다.
+호출되는 coldboot는 내부적으로 `do_coldboot`를 호출한다.
 ```c++
 static void do_coldboot(DIR *d)
 {
@@ -155,7 +155,7 @@ static void do_coldboot(DIR *d)
 }
 ```
 
-디바이스 노드를 생성하지 못한 디바이스가 저장한 /sys 밑의 각각의 해당 폴더를 들어가 `uevent` 파일에 “add” 메시지를 써넣어 강제로 uevent를 발생시킨다. 그 후 `handle_device_fd` 함수를 통해 `uevent` 를 파싱해 디바이스 노드를 만든다. 이 과정에서 `ueventd_parse_config_file`에서 얻어온 정보를 사용한다.
+디바이스 노드를 생성하지 못한 디바이스가 저장한 /sys 밑의 각각의 해당 폴더를 들어가 `uevent` 파일에 “add” 메시지를 써넣어 강제로 uevent를 발생시킨다. 그 후 `handle_device_fd` 함수를 통해 `uevent` 를 파싱해 디바이스 노드를 만든다. 이 과정에서 `ueventd_parse_config_file` 에서 얻어온 정보를 사용한다.
 
 # 출처
 - https://kshokd.wordpress.com/2012/08/29/init-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-uevent%EC%99%80-ueventd%EC%9D%98-%ED%99%9C%EC%9A%A9/

@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/</loc>
-    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
     <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url>
@@ -39,6 +34,11 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/ueventd/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/</loc>
     <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url>
   
