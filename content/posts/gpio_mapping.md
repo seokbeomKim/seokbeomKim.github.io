@@ -1,5 +1,5 @@
 ---
-title: "Gpio_mapping"
+title: "GPIO Mapping"
 date: 2020-01-31T23:48:06+09:00
 categories:
 - kernel
@@ -39,10 +39,10 @@ gpio2: gpio2 {
     gpio-controller;
     #gpio-cells = <1>;
 }
-```
 
 enable-gpios = <&gpio2 2>;
 data-gpios = <&gpio1 12 0>, <&gpio1 13 0>, <&gpio1 14 0>, <&gpio1 15 0>;
+```
 
 ## Pin control subsystem과의 연동
 `pin control subsystem`과의 연동은 gpio controller 노드에서 "gpio-ranges" 속성을 사용한다.
