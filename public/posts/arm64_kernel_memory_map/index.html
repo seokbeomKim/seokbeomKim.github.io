@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>TCP와 UDP의 차이점</title>
-  <meta property="og:title" content="TCP와 UDP의 차이점" />
-  <meta name="twitter:title" content="TCP와 UDP의 차이점" />
+  <title>ARM64에서의 커널 메모리 맵</title>
+  <meta property="og:title" content="ARM64에서의 커널 메모리 맵" />
+  <meta name="twitter:title" content="ARM64에서의 커널 메모리 맵" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="A Developer&#39;s Note" />
-  <meta property="og:url" content="https://seokbeomKim.github.io/posts/tcp-and-udp/" />
+  <meta property="og:url" content="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -60,94 +60,72 @@
 
 <article class="p-article">
   <header>
-    <h1>TCP와 UDP의 차이점</h1>
+    <h1>ARM64에서의 커널 메모리 맵</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2019-05-21T15:27:08&#43;09:00">
-          May 21, 2019
+        <time datetime="2020-02-01T23:27:45&#43;09:00">
+          Feb 1, 2020
         </time>
       </div>
       
-      <a href="https://seokbeomkim.github.io/tags/tcp" class="c-tag">tcp</a>
+      <a href="https://seokbeomkim.github.io/tags/memory-map" class="c-tag">memory map</a>
       
-      <a href="https://seokbeomkim.github.io/tags/udp" class="c-tag">udp</a>
+      <a href="https://seokbeomkim.github.io/tags/page-table" class="c-tag">page table</a>
+      
+      <a href="https://seokbeomkim.github.io/tags/va_bits" class="c-tag">VA_BITS</a>
       
     </div>
   </header>
   
+  <aside>
+    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#arm64에서의-커널-메모리-맵">ARM64에서의 커널 메모리 맵</a></li>
+    <li><a href="#가상-주소-공간">가상 주소 공간</a>
+      <ol>
+        <li><a href="#arm64-커널의-기본-구성인-3단계-페이지-테이블">ARM64 커널의 기본 구성인 3단계 페이지 테이블</a></li>
+      </ol>
+    </li>
+    <li><a href="#arm64-커널-메모리-맵">ARM64 커널 메모리 맵</a></li>
+  </ol>
+</nav>
+  </aside>
+  
   
   <section id="js-article" class="p-article__body">
-    <p>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그
-페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게
-될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올
-경우 포스팅을 업데이트 할 예정이다.</p>
-<p>방산 업체에서 무인 정찰기를 개발할 당시에도 중요 데이터는 모두 <code>TCP</code>를
-이용해 송수신하고 영상과 같은 정보는 <code>UDP</code>를 이용해 전달받았다. 당시에
-구현된 코드를 보면서 이전에 프로토콜 사용에 있어서 어디부터 어디까지를
-UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했지만 코드를
-변경할 수 없어 아쉬웠던 적이 있었다.</p>
-<p>각설하고 이 포스팅에서는 리눅스 커널 소스에서 TCP와 UDP, 즉 L4
-전송계층에 대한 구현이 어떤 식으로 되어있는지 살펴볼 것이다.</p>
-<h1 id="tcp-transmission-control-protocol">TCP (Transmission Control Protocol)</h1>
-<p>먼저, TCP(Transmission Control Protocol)는 <code>connection-oriented</code>
-프로토콜이다. 연결이 수립되기 전까지는 데이터를 송수신하지 않으며,
-데이터 송수신이 종료되면 반드시 연결을 닫아야 한다. 이러한 특성 덕분에
-TCP는 아래와 같은 특징을 갖는다.</p>
-<ol>
-<li>데이터 송수신에 신뢰성이 보장된다.</li>
-<li>에러 체크 기능을 제공한다.</li>
-<li>수신자에게 패킷이 순서대로 전달된다.</li>
-<li>UDP보다 상대적으로 느리다.</li>
-<li>패킷 손실로 인한 패킷 재전송이 가능하다.</li>
-<li>헤더 크기가 20bytes이다.</li>
-<li>HTTP, HTTPS, FTP, SMTP, Telnet 등에 사용된다.</li>
-</ol>
-<p>먼저 앞서 언급한 것들에 대해서 커널 소스를 통해 자세히 살펴보자. tcp에
-관련된 코드는 <code>/net/ipv4/tcp.c</code> 하위 경로 내에 위치한다. (분석으로는
-IPv4를 먼저 진행하고 충분히 이해한 뒤 추후에 IPv6에 대해서 분석한 뒤
-업데이트 하고자 한다.)</p>
-<blockquote>
-<p>코드를 살펴보면 EXPORT_SYMBOL 코드를 많이 볼 수 있을 것이다. 로드
-가능한 모듈이 삽입되면 해당 모듈이 가지고 있는 커널 함수들과 데이터
-구조들은 반드시 현재 실행 중인 커널에 로드되어 reference 될 수
-있어야 한다. 하지만 모듈을 로드하는 Module Loader는 모듈에서
-명시적으로 export 하지 않는 한 모듈이 가지고 있는 모든 심볼들을
-export 하지 않는다.<!-- raw HTML omitted -->또 한가지 재밌는 점은 라이센스에 따라 해당
-심볼로의 접근을 제한할 수 있다는 것이다. cscope를 통해 탐색해보면
-알겠지만, __EXPORT_SYMBOL 함수에는 심볼 이름 외에 라이센스 그룹에
-대한 정보를 전달하게 되어 있어 같은 라이센스 구릅인지 아닌지를
-구분하여 액세스 여부를 허용/거부 하도록 되어 있다.</p>
-</blockquote>
-<h2 id="초기화-코드">초기화 코드</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> __init <span style="color:#a6e22e">tcp_init</span>(<span style="color:#66d9ef">void</span>)
-{
-    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">sk_buff</span> <span style="color:#f92672">*</span>skb <span style="color:#f92672">=</span> NULL;
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> nr_pages, limit;
-    <span style="color:#66d9ef">int</span> i, max_share, cnt;
-    <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> jiffy <span style="color:#f92672">=</span> jiffies;
-
-    BUILD_BUG_ON(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">tcp_skb_cb</span>) <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">sizeof</span>(skb<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>cb));
-
-    percpu_counter_init(<span style="color:#f92672">&amp;</span>tcp_sockets_allocated, <span style="color:#ae81ff">0</span>);
-    percpu_counter_init(<span style="color:#f92672">&amp;</span>tcp_orphan_count, <span style="color:#ae81ff">0</span>);
-    tcp_hashinfo.bind_bucket_cachep <span style="color:#f92672">=</span> ...
-</code></pre></div><p>TCP 초기화 코드는 <code>__init</code> 이라는 키워드와 함께 심볼이 정의되어 있다.</p>
-<blockquote>
-<p>__init에 관한 설명은 $KERNEL_SOURCE/arch/um/include/shared/init.h
-에서 찾아볼 수 있다. 이 키워드는 해당 함수를 초기화 함수로 표시하는
-역할을 한다. 커널은 초기화 프로세스 도중에 초기화에 관련된 것으로
-간주하고 메모리 리소스를 해제하거나 초기화 프로세스 과정에서 표시된
-함수나 데이터들을 이용한다.<!-- raw HTML omitted -->
-<a href="https://stackoverflow.com/questions/8832114/what-does-init-mean-in-the-linux-kernel-code">링크</a>를
-살펴보면 재미있는 예시가 하나 있다. &lsquo;Freeing unused kernel memory'와
-같은 메시지를 나타내는 것을 그 예로 들 수 있다.</p>
-</blockquote>
-<h1 id="출처">출처</h1>
+    <h1 id="arm64에서의-커널-메모리-맵">ARM64에서의 커널 메모리 맵</h1>
+<p>&lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&quot;이라는 챕터를
+읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자
+한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을
+매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소
+공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.</p>
+<p>ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을
+사용한다. 이 때, <strong>가상 주소</strong> 기준으로 각 끝 영역을 사용한다는 점에
+유의해야 한다.</p>
+<h1 id="가상-주소-공간">가상 주소 공간</h1>
+<p>ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 가상 주소 공간을 사용한다. 각각의 공간은 서로 다른 TTBR(Translation Table Base Register)를 사용하기 때문에 각자의 페이지 테이블을 갖고 있다. 이 때, 커널 주소 공간은 TTBR1, 사용자 주소 공간은 TTBR0를 사용하며 각각의 레지스터는 MMU 디바이스 내부에 저장된다.</p>
+<p><img src="/img/kernel-user-space-in-mem.png" alt="Kernel-space and User-space in memory"></p>
+<p>페이지 테이블을 엔트리 여러 개로 구성되며, 페이지 테이블 엔트리 하나는 페이지 1개에 대한 물리주소로 변환하는데 사용한다. ARM64 커널에서는 페이지 크기로 4KB, 16KB, 64KB 중 하나를 사용할 수 있다(기본 4KB). 중요한 점은 ARM64 커널이 64비트 가상 주소 전체를 사용하는 것이 아니라 36, 39, 42, 47 및 최대 48비트와 같이 아키텍처가 지원하는 비트만을 선택해 사용할 수 있고 이 범위를 가상 주소로 사용한다. 이러한 비트는 <code>VA_BITS</code> 값으로 설정하며 <strong>페이지 크기</strong>와 <strong>페이지 테이블 엔트리 인덱스</strong>, <strong>페이지 오프셋 크기 구성</strong>에 따라 페이지 테이블 엔트리의 수가 결정된다.</p>
+<p>커널에서 레벨에 따라 페이지 테이블 명칭은 아래와 같이 구분한다.</p>
 <ul>
-<li><a href="https://www.geeksforgeeks.org/differences-between-tcp-and-udp/">https://www.geeksforgeeks.org/differences-between-tcp-and-udp/</a></li>
-<li><a href="https://lwn.net/Articles/154602/">LWN - On the value of EXPORT_SYMBOL_GPL</a></li>
-<li><a href="https://d2.naver.com/helloworld/47667">Naver D2 - TCP/IP 스택 이해하기</a></li>
+<li>1단계: PGD (Page Global Directory)</li>
+<li>2단계: PUD (Page Upper Directory)</li>
+<li>3단계: PMD (Page Mid-level Directory)</li>
+<li>4단계: PTE (Page Table Entry)</li>
+</ul>
+<p>예를 들어, VA_BITS 를 36으로 설정한다면, 아래와 같이 64비트 가상주소 중에서 테이블 엔트리 인덱스와 페이지 오프셋을 포함한 비트가 36비트를 차지한다. 그리고 2단계 페이지 테이블을 구성한다면, 16K 페이지를 사용한다고 가정했을 때 아래와 같이 가상주소의 구성을 생각할 수 있다.</p>
+<p><img src="/img/va-address.png" alt="Virtual Address"></p>
+<h2 id="arm64-커널의-기본-구성인-3단계-페이지-테이블">ARM64 커널의 기본 구성인 3단계 페이지 테이블</h2>
+<p>커널의 기본 구성인 4K 페이지와 <code>VA_BITS = 39</code>로 구성된 3단계 페이지 테이블을 사용하는 경우를 살펴보자. 64비트 중 39비트에 포함하지 않는 상위 25비트는 커널(모두 1)과 유저 주소 공간(모두 0) 구분에 사용하고, 나머지 39비트를 각각 9비트/9비트/9비트/12비트(페이지 오프셋용) 으로 나누어 사용한다. 상위 비트에 따라 TTBR을 어떤 것을 사용할지를 결정한다.</p>
+<p><img src="/img/vaddr-page-table-mapping.png" alt="Virtual Address and Page Table Mapping"></p>
+<h1 id="arm64-커널-메모리-맵">ARM64 커널 메모리 맵</h1>
+<p>커널용 가상 주소 영역도 독특하게 사용한다. 상위 절반은 물리 메모리를 1:1로 미리 매핑하여 사용하며 나머지 절반에 대해 <code>fixmap</code>, <code>vmalloc</code>, <code>vmemmap</code>, <code>pci-iomap</code> 등의 영역과 커널 이미지 영역으로 나누어 사용한다.</p>
+<ul>
+<li>fixmap: 컴파일 테임에 목적에 따라 가상 주소 공간이 이미 결정된 매핑 영역이다.</li>
+<li>vmalloc: 런타임에 연속된 가상 주소 공간을 자유롭게 매핑할 수 있는 영역이다. <code>vmalloc()</code> 함수가 <code>vmap()</code> 함수를 통해 이용하는 곳이고 <code>ioremap()</code> 역시 사용하는 영역이다.</li>
+<li>vmemmap: 빠른 접근을 위해 분산된 페이지 구조체들을 이 영역에 매핑하기 위해 사용한다.</li>
+<li>pci-iomap: PCI 디바이스의 메모리 맵 I/O 영역으로 사용한다. PCI 디바이스만 사용하며, 일반적으로 <strong>ioremap 함수를 통해 매핑하는 곳은 vmalloc 영역</strong>이다.</li>
 </ul>
 
   </section>
@@ -169,66 +147,16 @@ export 하지 않는다.<!-- raw HTML omitted -->또 한가지 재밌는 점은 
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://seokbeomKim.github.io/posts/tcp-and-udp/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/">Older</a>
+          <a href="https://seokbeomKim.github.io/posts/gpio_mapping/">Older</a>
           
         </div>
       </div>
     </nav>
     
-
-<section class="p-related">
-  <h3>See Also</h3>
-  <ul id="slider" class="p-related__list">
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/kernel-hacking-chapter-process/"
-        >
-        <span>커널 해킹: 프로세스</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/copy-on-write/"
-        >
-        <span>Copy on Write (CoW or COW)</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/kernel-module-and-drivers/"
-        >
-        <span>커널 모듈과 드라이버의 차이</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/nonpreemptive_scheduling/"
-        >
-        <span>비선점 스케쥴링(Nonpreemptive Scheduling)</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/deadlock/"
-        >
-        <span>교착상태(Deadlock)</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/default-export-in-typescript/"
-        >
-        <span>Named export와 Default export</span>
-      </a>
-    </li>
-    
-  </ul>
-</section>
 
 
     
