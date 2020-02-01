@@ -123,9 +123,10 @@ gpio2: gpio2 {
     gpio-controller;
     #gpio-cells = &lt;1&gt;;
 }
-</code></pre><p>enable-gpios = &lt;&amp;gpio2 2&gt;;
-data-gpios = &lt;&amp;gpio1 12 0&gt;, &lt;&amp;gpio1 13 0&gt;, &lt;&amp;gpio1 14 0&gt;, &lt;&amp;gpio1 15 0&gt;;</p>
-<h2 id="pin-control-subsystem과의-연동">Pin control subsystem과의 연동</h2>
+
+enable-gpios = &lt;&amp;gpio2 2&gt;;
+data-gpios = &lt;&amp;gpio1 12 0&gt;, &lt;&amp;gpio1 13 0&gt;, &lt;&amp;gpio1 14 0&gt;, &lt;&amp;gpio1 15 0&gt;;
+</code></pre><h2 id="pin-control-subsystem과의-연동">Pin control subsystem과의 연동</h2>
 <p><code>pin control subsystem</code>과의 연동은 gpio controller 노드에서 &ldquo;gpio-ranges&rdquo; 속성을 사용한다.
 &ldquo;gpio-ranges&rdquo; 속성이 가리키는 phandle은 연계된 pin controller 노드를 가리켜야 한다. 그리고 1~3개의 인자를 사용할 수 있으며, 배열 사용을 지원한다.</p>
 <pre><code>iomux: iomux@FF10601c {
