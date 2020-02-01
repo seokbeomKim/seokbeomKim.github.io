@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Posts</title>
-  <meta property="og:title" content="Posts" />
-  <meta name="twitter:title" content="Posts" />
+  <title>gpio</title>
+  <meta property="og:title" content="gpio" />
+  <meta name="twitter:title" content="gpio" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="A Developer&#39;s Note" />
-  <meta property="og:url" content="https://seokbeomKim.github.io/posts/" />
+  <meta property="og:url" content="https://seokbeomKim.github.io/tags/gpio/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -56,7 +56,7 @@
   </header>
   <main id="main" class="l-main">
 
-<h2 class="c-title p-tag-title">Posts</h2>
+<h2 class="c-title p-tag-title">gpio</h2>
 
 
 
@@ -83,97 +83,6 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/">안드로이드의 uevent, ueventd</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-30T23:34:30&#43;09:00">
-        Jan 30, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. ueventd.rc 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.
-본 포스팅에서는 uevent와 ueventd가 무엇인지 살펴보고 안드로이드 init 과정에서 어떻게 활용되는지 살펴보기로 한다.
-여담으로 안드로이드의 uevent는 리눅스의 udev 와 비슷한 역할을 하면서도 조금 다르다. 리눅스의 일반적인 환경 구성이 devfs + udev 로 디바이스 노드 파일들을 관리한다면, 안드로이드는 ueventd를 이용하여 노드 파일들을 관리한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/">/dev/mem vs. /dev/kmem</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-29T23:30:44&#43;09:00">
-        Jan 29, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때, /dev/mem 디바이스 노드가 반드시 있어야 한다고 들었기에 Kconfig에서 관련 설정 플래그를 찾던 중 kmem 이라는 것도 있다는 것을 알게 되었다. 문득 이 둘의 차이점과 공식적(?)인 디버깅 툴이 어떤 것이 있는지 알아보고자 한다.
-/dev/mem vs. /dev/kmem 이 둘의 차이점은 출처에 따르면 아래와 같이 나와있다.
- /dev/mem is a device file that directly represents physical memory, so an open(/dev/mem)/seek(1000)/read(10) system call combination ends up reading 10 bytes from RAM address 1000.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kobject/">Kobject</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-28T22:25:50&#43;09:00">
-        Jan 28, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
-61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kobject/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/endian/">Little Endian vs. Big Endian</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-27T22:27:06&#43;09:00">
-        Jan 27, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
-엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
- Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/endian/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -181,11 +90,9 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
     </div>
     <div class="c-pagination__older">
       
-      <a href="/posts/page/2/">Older</a>
-      
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 1 of 9</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 1</span>
 </nav>
 
 

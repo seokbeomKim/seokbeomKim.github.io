@@ -4,26 +4,46 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/android/</loc>
-    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/gpio/</loc>
+    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/gpio_mapping/</loc>
+    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
+    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
+    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/android/</loc>
     <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url>
   
@@ -48,17 +68,7 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/kmem/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url>
   

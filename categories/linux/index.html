@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/gpio_mapping/">GPIO Mapping</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-01-31T23:48:06&#43;09:00">
+        Jan 31, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
+GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
+ 디바이스 트리 이용 (최근 트렌드) Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의   (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/gpio_mapping/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/">/dev/mem vs. /dev/kmem</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -144,29 +167,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/">리눅스 커널 락 종류 (3/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T11:40:12&#43;09:00">
-        Jun 4, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
-세마포어는 아래와 같은 경우에 적합하다.
-태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
