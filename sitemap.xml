@@ -4,12 +4,47 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/</loc>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/memory-map/</loc>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/page-table/</loc>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/va_bits/</loc>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url>
   
   <url>
@@ -23,22 +58,7 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/categories/linux/</loc>
-    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-01-31T23:48:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-01-31T23:48:06+09:00</lastmod>
   </url>
   
@@ -203,12 +223,12 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
