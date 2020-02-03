@@ -92,7 +92,21 @@
         <li><a href="#serverclient-model">Server/Client Model</a></li>
       </ol>
     </li>
-    <li><a href="#그래픽-라이브러리-종류">그래픽 라이브러리 종류</a></li>
+    <li><a href="#그래픽-라이브러리-종류">그래픽 라이브러리 종류</a>
+      <ol>
+        <li><a href="#qt5">QT5</a></li>
+        <li><a href="#gtk">GTK+</a></li>
+        <li><a href="#clutter">Clutter</a></li>
+        <li><a href="#sdl-simple-directmedia-layer">SDL (Simple DirectMedia Layer)</a></li>
+        <li><a href="#efl">EFL</a></li>
+      </ol>
+    </li>
+    <li><a href="#weston">Weston</a>
+      <ol>
+        <li><a href="#기본-역할">기본 역할</a></li>
+      </ol>
+    </li>
+    <li><a href="#출처">출처</a></li>
   </ol>
 </nav>
   </aside>
@@ -167,6 +181,53 @@ compositor가 통합되어 두 컴포넌트 간의 불필요한 통신이 감소
 <p>출처에서는 모듈이라는 용어를 사용했는데 그래픽 라이브러리가 더 적절할
 것이라 생각하여 그래픽 라이브러리로 기술하겠다. 이전에 보지 못했던
 라이브러리들(clutter, SDL)이 있어 함께 정리하고자 한다.</p>
+<h2 id="qt5">QT5</h2>
+<p>이전에는 qt4, qt5의 호환성으로 엄청나게 욕을 먹었었는데 최근에는
+해결된 것으로 보인다. 리눅스, 안드로이드, 윈도우즈 등의 운영체제를
+지원하며, qt의 대표적인 모듈은 아래와 같다.</p>
+<ul>
+<li>QtCore: 컨테이너 관리, 스레드 관리, 이벤트 관리 등을 제공하는 기본 라이브러리</li>
+<li>QtGui &amp; QtWidgets: 데스크탑용 GUI 툴킷으로서 응용 프로그램을 위한 그래픽 구성 요소 제공</li>
+<li>QtMultimedia: 비디오, 카메라, 오디오 기능을 가진 클래스 제공</li>
+<li>QtNetwork: 네트워크 통신을 위한 클래스 제공</li>
+<li>QtSQL: ODBC, SQLite, MySQL 사용가능하도록 지원</li>
+<li>QtWayland: Wayland 기능 사용할 수 있도록 API 제공</li>
+</ul>
+<h2 id="gtk">GTK+</h2>
+<p>GTK+ (GIMP Toolkit+)는 GUI를 위한 라이브러리로서 실제 사용해보면
+알겠지만, 제공되는 프레임워크 API나 결과물의 코드가 더럽다. GTK에
+대해서는 별도로 언급하지 않겠다.</p>
+<h2 id="clutter">Clutter</h2>
+<p>인텔에 합병된 OpenedHand에서 C언어로 구현한 2D 그래픽 라이브러리로
+객체 Actor와 이를 그리는 Canvas라는 추상화된 개념이 있다. OpenGL ES를
+사용하기 때문에 데스크탑 뿐만 아니라 다양한 플랫폼에 적용할 수 있다.</p>
+<h2 id="sdl-simple-directmedia-layer">SDL (Simple DirectMedia Layer)</h2>
+<p>오디오, 키보드, 마우스, 조이스틱 등 하드웨어가 OpenGL 및 Direct3D에
+대한 접근을 제공하도록 설계된 크로스 플랫폼 라이브러리이다. SDL은
+윈도우즈용 게임을 리눅스로 쉽게 포팅하기 위한 라이브러리를 만들기 위해
+개발되었고 현재는 멀티 플랫폼 상에서 게임 개발 및 포팅 목적으로 널리
+이용되고 있다.</p>
+<h2 id="efl">EFL</h2>
+<p>Enlightenment Foundation Library로 Enlightenment에 코어 그래픽
+라이브러리로 사용되는 라이브러리이다.</p>
+<h1 id="weston">Weston</h1>
+<p>weston은 wayland compositor의 참조 구현(하드웨어 또는 소프트웨어
+구현을 돕기 위해 제공하는 샘플 프로그램)이다. Desktop, 자동차,
+키오스크, 셋톱박스 등을 위한 라이브러리를 제공하며 Wayland API에 대한
+기본적인 내용을 담고 있기 때문에 기본적으로 창관리와 composite 기능을
+갖고 있다.</p>
+<h2 id="기본-역할">기본 역할</h2>
+<p>Weston의 기본 역할은 아래와 같다.</p>
+<ul>
+<li>윈도우들을 여러 계층으로 구분하여 관리한다.</li>
+<li>shell(윈도우 관리 규칙)을 이용해 출력되는 윈도우의 순서를 결정한다.</li>
+<li>윈도우를 화면에 나타나게 하거나 위치를 옮기고 화면 크기 변경을
+관리한다.</li>
+</ul>
+<h1 id="출처">출처</h1>
+<ul>
+<li>Telechips, Graphic Framework</li>
+</ul>
 
   </section>
   <footer>
