@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/posix-spawn-errors/">command: posix_spawn failed: Resource temporarily unavailable</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-23T10:46:29&#43;09:00">
+        Jun 23, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.
+이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이
+sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
+명령어를 통해 제한값을 높여주면 해결된다. 맥은 설치는 쉬운데 왜이리도 설정해줘야 많은지 모르겠다.
+  </div>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/">QEMU 이용한 임베디드 개발 환경 구축하기</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -149,28 +171,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/">Major와 Minor Numbers</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-31T18:37:25&#43;09:00">
-        May 31, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &lsquo;c'를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &lsquo;b'를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -184,7 +184,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 3 of 9</span>
+  <span class="c-pagination__count p-pagination__count">Page 3 of 10</span>
 </nav>
 
 
