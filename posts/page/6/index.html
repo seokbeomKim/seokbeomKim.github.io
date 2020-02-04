@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.63.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.64.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/tcp-and-udp/">TCP와 UDP의 차이점</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-21T15:27:08&#43;09:00">
+        May 21, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올 경우 포스팅을 업데이트 할 예정이다.
+방산 업체에서 무인 정찰기를 개발할 당시에도 중요 데이터는 모두 TCP를 이용해 송수신하고 영상과 같은 정보는 UDP를 이용해 전달받았다. 당시에 구현된 코드를 보면서 이전에 프로토콜 사용에 있어서 어디부터 어디까지를 UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했지만 코드를 변경할 수 없어 아쉬웠던 적이 있었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/tcp-and-udp/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -145,28 +167,6 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/deadlock/">교착상태(Deadlock)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-15T17:40:14&#43;09:00">
-        May 15, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    교착 상태(Deadlock) 두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결하는 일반적인 방법은 아직 없는 상태다.
-교착 상태는 하나의 사다리에 두 명이 사람이 매달려 있는 상황을 예상할 수 있다. 위쪽의 사람은 아래로 내려오려고 하고 아래에 있는 사람은 위로 올라가려고 한다면 서로 상대방이 사다리에서 비켜줄 때까지 계속 기다리고 있을 것이고 결과적으로 아무도 사다리에서 내려오거나 올라가지 못하듯이 교착 상태란 다중 프로그래밍 환경에서 흔히 발생할 수 있는 문제이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/deadlock/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
