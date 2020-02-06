@@ -6,10 +6,46 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 23:17:11 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 23:43:34 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>debug</title>
+      <link>https://seokbeomKim.github.io/tags/debug/</link>
+      <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ftrace</title>
+      <link>https://seokbeomKim.github.io/tags/ftrace/</link>
+      <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/ftrace/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>raspberry pi</title>
+      <link>https://seokbeomKim.github.io/tags/raspberry-pi/</link>
+      <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>side project</title>
+      <link>https://seokbeomKim.github.io/tags/side-project/</link>
+      <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/side-project/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>wayland</title>
