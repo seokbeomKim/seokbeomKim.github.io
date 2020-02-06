@@ -85,6 +85,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/tcp-and-udp/">TCP와 UDP의 차이점</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-21T15:27:08&#43;09:00">
+        May 21, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올 경우 포스팅을 업데이트 할 예정이다.
+방산 업체에서 무인 정찰기를 개발할 당시에도 중요 데이터는 모두 TCP를 이용해 송수신하고 영상과 같은 정보는 UDP를 이용해 전달받았다. 당시에 구현된 코드를 보면서 이전에 프로토콜 사용에 있어서 어디부터 어디까지를 UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했지만 코드를 변경할 수 없어 아쉬웠던 적이 있었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/tcp-and-udp/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/">커널 해킹: 프로세스</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -145,28 +167,6 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/">비선점 스케쥴링(Nonpreemptive Scheduling)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-15T18:44:06&#43;09:00">
-        May 15, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    비선점 스케쥴링(Non-preemptive Scheduling) 비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록 허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가 생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로 프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을 적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.
-설명하기 전에 프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의 프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫 번째이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

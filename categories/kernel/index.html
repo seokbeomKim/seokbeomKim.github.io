@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ftrace/">Ftrace</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-06T23:43:34&#43;09:00">
+        Feb 6, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.
+예전에 젠투 리눅스를 사용할 무렵, menuconfig에서 커널 해킹이라는 흥미로운 메뉴에서 알 수 없는 tracer라는 메뉴로만 본 것으로 이해하지 직접적으로 사용한 적은 없었는데, 실제 사용해보니 생각보다 많은 옵션, 정보들을 보여주었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/ftrace/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/">ARM64에서의 커널 메모리 맵</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -145,29 +167,6 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/kobject/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/endian/">Little Endian vs. Big Endian</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-27T22:27:06&#43;09:00">
-        Jan 27, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
-엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
- Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/endian/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
