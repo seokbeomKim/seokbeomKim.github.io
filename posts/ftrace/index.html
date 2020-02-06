@@ -76,6 +76,24 @@
     </div>
   </header>
   
+  <aside>
+    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#ftrace란">ftrace란?</a></li>
+    <li><a href="#커널에서-ftrace-활성화하기">커널에서 ftrace 활성화하기</a></li>
+    <li><a href="#ftracer-설정-방법">ftracer 설정 방법</a></li>
+    <li><a href="#ftracer-사용-예">ftracer 사용 예</a>
+      <ol>
+        <li><a href="#커널-함수-추적하기">커널 함수 추적하기</a></li>
+        <li><a href="#스케쥴링-과정-보기">스케쥴링 과정 보기</a></li>
+      </ol>
+    </li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
+</nav>
+  </aside>
+  
   
   <section id="js-article" class="p-article__body">
     <h1 id="개요">개요</h1>
@@ -114,7 +132,96 @@ CONFIG_TRACER_SNAPSHOT=y
 </code></pre><p>라즈베리파이에서는 기본으로 <code>ftrace</code>에 필요한 세부 설정 플래그가 모두
 켜져 있다. 또한 <code>ftrace</code>는 리눅스 커널 공통 기능이므로 다른
 시스템에서도 사용 가능하다.</p>
-<h1 id="heading"></h1>
+<p>커널 2.6.28 버전부터 포함된 기본 기능으로서 아래와 같이 <code>debugfs</code>를
+마운트 시켜서 사용할 수 있다.</p>
+<pre><code>mount -t debugfs nodev /sys/kernel/debug
+</code></pre><h1 id="ftracer-설정-방법"><code>ftracer</code> 설정 방법</h1>
+<p>아래와 같이 셸 스크립트를 이용하여 설정도 가능하지만 기본적으로는
+<code>sysfs</code>를 이용하여 설정을 한다. 설정 시나리오는 tracer를 OFF 한 뒤에
+옵션들을 설정해주고 다시 ON하는 방식으로 설정한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/sh
+</span><span style="color:#75715e"></span>
+echo <span style="color:#ae81ff">0</span> &gt; /sys/kernel/debug/tracing/tracing_on
+sleep <span style="color:#ae81ff">1</span>
+echo <span style="color:#e6db74">&#34;tracing_off&#34;</span>
+<span style="color:#ae81ff">7</span> echo <span style="color:#ae81ff">0</span> &gt; /sys/kernel/debug/tracing/events/enable
+sleep <span style="color:#ae81ff">1</span>
+echo <span style="color:#e6db74">&#34;events disabled&#34;</span>
+
+ echo  secondary_start_kernel  &gt; /sys/kernel/debug/tracing/set_ftrace_filter	
+ sleep <span style="color:#ae81ff">1</span>
+ echo <span style="color:#e6db74">&#34;set_ftrace_filter init&#34;</span>
+
+ echo <span style="color:#66d9ef">function</span> &gt; /sys/kernel/debug/tracing/current_tracer
+ sleep <span style="color:#ae81ff">1</span>
+ echo <span style="color:#e6db74">&#34;function tracer enabled&#34;</span>
+
+ echo <span style="color:#ae81ff">1</span> &gt; /sys/kernel/debug/tracing/events/sched/sched_wakeup/enable
+ echo <span style="color:#ae81ff">1</span> &gt; /sys/kernel/debug/tracing/events/sched/sched_switch/enable
+
+ echo <span style="color:#ae81ff">1</span> &gt; /sys/kernel/debug/tracing/events/irq/irq_handler_entry/enable
+ echo <span style="color:#ae81ff">1</span> &gt; /sys/kernel/debug/tracing/events/irq/irq_handler_exit/enable
+
+ echo <span style="color:#ae81ff">1</span> &gt; /sys/kernel/debug/tracing/events/raw_syscalls/enable
+ sleep <span style="color:#ae81ff">1</span>
+ echo <span style="color:#e6db74">&#34;event enabled&#34;</span>
+
+ echo  schedule ttwu_do_wakeup &gt; /sys/kernel/debug/tracing/set_ftrace_filter
+
+ sleep <span style="color:#ae81ff">1</span>
+ echo <span style="color:#e6db74">&#34;set_ftrace_filter enabled&#34;</span>
+
+ echo <span style="color:#ae81ff">1</span> &gt; /sys/kernel/debug/tracing/options/func_stack_trace
+ echo <span style="color:#ae81ff">1</span> &gt; /sys/kernel/debug/tracing/options/sym-offset
+ echo <span style="color:#e6db74">&#34;function stack trace enabled&#34;</span>
+
+ echo <span style="color:#ae81ff">1</span> &gt; /sys/kernel/debug/tracing/tracing_on
+ echo <span style="color:#e6db74">&#34;tracing_on&#34;</span>
+</code></pre></div><p>리눅스에서는 nop, function, function_graph를 포함한 여러가지
+트레이서를 제공한다.</p>
+<ul>
+<li>nop: 기본 트레이서로 ftrace 이벤트만 출력</li>
+<li>function: <code>set_ftrace_filter</code>로 지정한 함수를 누가 호출하는지
+출력한다.</li>
+<li>function_graph: 함수 실행 시간과 세부 호출 정보를 그래픽 정보를
+추가(?)해 출력한다.</li>
+</ul>
+<h1 id="ftracer-사용-예">ftracer 사용 예</h1>
+<p>아래는 출처에서 기술되어 있는 예시들을 한 데 정리한 것이다. 이 후,
+업무에서 사용한 이력이나 팁이 있는 경우에 이 곳에 관련 내용을
+추가하도록 한다.</p>
+<h2 id="커널-함수-추적하기">커널 함수 추적하기</h2>
+<p>커널 함수들이 호출되는 과정을 살펴본다. 우선 tracing 디렉토리로
+이동해서 추적할 수 있는 항목들을 알아보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tracing $ cat available_tracers
+blk kmemtrace function_graph wakeup_rt wakeup <span style="color:#66d9ef">function</span> sysprof sched_switch initcall nop
+
+tracing $ echo <span style="color:#66d9ef">function</span> &gt; ./current_tracer
+</code></pre></div><p>위에서처럼 tracer의 모드를 설정한 후 <code>vi</code>로 trace 파일을 열어보면
+아래와 같은 내용을 볼 수 있다.</p>
+<pre><code># tracer: function
+#
+#           TASK-PID    CPU#    TIMESTAMP  FUNCTION
+#              | |       |          |         |
+            sshd-15219 [000] 159421.106063: __math_state_restore &lt;-__switch_to
+            sshd-15219 [000] 159421.106064: finish_task_switch &lt;-thread_return
+            sshd-15219 [000] 159421.106065: fget_light &lt;-do_select
+            sshd-15219 [000] 159421.106065: sock_poll &lt;-do_select
+            sshd-15219 [000] 159421.106066: tcp_poll &lt;-sock_poll
+            sshd-15219 [000] 159421.106066: fget_light &lt;-do_select
+            sshd-15219 [000] 159421.106066: pipe_poll &lt;-do_select
+</code></pre><p>또한, 프로세스 별로 호출하고 있는 커널 함수를 직접 살펴볼 수도 있다.</p>
+<pre><code>[root@server tracing]# echo function_graph &gt; ./current_tracer
+
+ 0)               |    do_vfs_ioctl() {
+ 0)               |      vfs_ioctl() {
+ 0)               |        tty_ioctl() {
+ 0)   0.349 us    |          tty_paranoia_check();
+ 0)   0.301 us    |          pty_unix98_ioctl();
+ 0)               |          tty_ldisc_ref_wait() {
+ 0)               |            tty_ldisc_try() {
+ 0)   0.301 us    |              _spin_lock_irqsave();
+</code></pre><h2 id="스케쥴링-과정-보기">스케쥴링 과정 보기</h2>
 <h1 id="출처">출처</h1>
 <ul>
 <li><a href="https://kldp.org/node/161282">https://kldp.org/node/161282</a></li>
