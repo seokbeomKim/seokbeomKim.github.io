@@ -4,12 +4,37 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-02-06T23:43:34+09:00</lastmod>
+    <lastmod>2020-02-09T03:09:59+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-02-06T23:43:34+09:00</lastmod>
+    <lastmod>2020-02-09T03:09:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/emacs/</loc>
+    <lastmod>2020-02-09T03:09:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
+    <lastmod>2020-02-09T03:09:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-02-09T03:09:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-02-09T03:09:59+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/emacs-as-default-editor/</loc>
+    <lastmod>2020-02-09T03:09:59+00:00</lastmod>
   </url>
   
   <url>
@@ -29,16 +54,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-02-06T23:43:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-02-06T23:43:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-02-06T23:43:34+09:00</lastmod>
   </url>
   
@@ -65,11 +80,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/tags/side-project/</loc>
     <lastmod>2020-02-05T00:53:22+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
-    <lastmod>2020-02-03T23:17:11+09:00</lastmod>
   </url>
   
   <url>
@@ -278,12 +288,12 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   

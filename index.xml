@@ -6,10 +6,20 @@
     <description>Recent content on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Feb 2020 23:43:34 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 03:09:59 +0000</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>이맥스 기본 에디터로 사용하기</title>
+      <link>https://seokbeomKim.github.io/posts/emacs-as-default-editor/</link>
+      <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/emacs-as-default-editor/</guid>
+      <description>개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
+데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다.</description>
+    </item>
     
     <item>
       <title>ftrace 이용한 커널 디버깅</title>
