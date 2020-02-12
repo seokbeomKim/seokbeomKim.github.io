@@ -6,10 +6,19 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Feb 2020 03:09:59 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 01:12:37 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>typedef</title>
+      <link>https://seokbeomKim.github.io/tags/typedef/</link>
+      <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/typedef/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>emacs</title>
