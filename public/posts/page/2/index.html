@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wayland/">Wayland과 Weston</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-03T23:17:11&#43;09:00">
+        Feb 3, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을 맞추고 gnome이나 kde, xfce가 아닌 fluxbox, blackbox, i3, xmonad, enlightenment 등을 이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서 사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도 몰랐다.
+이번 포스팅에서는 사내 위키의 내용을 출처로 하여, wayland, weston에 대한 구조를 살펴보고 클라이언트 예제를 기술하고자 한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/wayland/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/">ARM64에서의 커널 메모리 맵</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -151,28 +173,6 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kobject/">Kobject</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-28T22:25:50&#43;09:00">
-        Jan 28, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
-61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kobject/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -186,7 +186,7 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 2 of 10</span>
+  <span class="c-pagination__count p-pagination__count">Page 2 of 11</span>
 </nav>
 
 

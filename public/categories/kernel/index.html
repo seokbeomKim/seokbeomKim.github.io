@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/">Likely and Unlikely</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-13T23:27:51&#43;09:00">
+        Feb 13, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.
+회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.
+likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ftrace/">ftrace 이용한 커널 디버깅</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -145,28 +168,6 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kobject/">Kobject</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-28T22:25:50&#43;09:00">
-        Jan 28, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
-61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kobject/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
