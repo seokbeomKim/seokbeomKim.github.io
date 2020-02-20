@@ -63,6 +63,73 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/">Likely and Unlikely</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-13T23:27:51&#43;09:00">
+        Feb 13, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.
+회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.
+likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/typedef-is-evil/">typedef is evil</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-13T01:12:37&#43;09:00">
+        Feb 13, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을 비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이 되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.
+typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조체에 대한 포인터를 정의할 때 typedef을 이용하지 말 것을 당부한다. 또한, typedef unsigned long DWORD 와 같은 것도 비판한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/typedef-is-evil/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/">이맥스 기본 에디터로 사용하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-09T03:09:59Z">
+        Feb 9, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
+데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wayland/">Wayland과 Weston</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -105,73 +172,6 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/">/dev/mem vs. /dev/kmem</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-29T23:30:44&#43;09:00">
-        Jan 29, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때, /dev/mem 디바이스 노드가 반드시 있어야 한다고 들었기에 Kconfig에서 관련 설정 플래그를 찾던 중 kmem 이라는 것도 있다는 것을 알게 되었다. 문득 이 둘의 차이점과 공식적(?)인 디버깅 툴이 어떤 것이 있는지 알아보고자 한다.
-/dev/mem vs. /dev/kmem 이 둘의 차이점은 출처에 따르면 아래와 같이 나와있다.
- /dev/mem is a device file that directly represents physical memory, so an open(/dev/mem)/seek(1000)/read(10) system call combination ends up reading 10 bytes from RAM address 1000.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kobject/">Kobject</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-28T22:25:50&#43;09:00">
-        Jan 28, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
-61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kobject/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T17:34:42&#43;09:00">
-        Jun 4, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    1. 들어가기 전에 &hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
-RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/rcu/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -183,7 +183,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 1 of 3</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 4</span>
 </nav>
 
 

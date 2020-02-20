@@ -63,19 +63,66 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sni/">Server Name Indication(SNI)</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/cors/">CORS(Cross-Origin Resource Sharing)</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2019-05-01T17:12:34&#43;09:00">
+      <time datetime="2019-05-01T17:20:49&#43;09:00">
         May 1, 2019
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다.
+    CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(Origin)는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.
+하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 CORS(Cross-Origin Resource Sharing)이라는 추가 정책이 나오게 되었다.
+CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.
   </div>
   
-  <a href="https://seokbeomKim.github.io/posts/sni/" class="c-article__btn p-list-article__btn">Read more</a>
+  <a href="https://seokbeomKim.github.io/posts/cors/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/cdn/">컨텐츠 전송 네트워크, CDN(Content Delivery Network)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-01T17:19:18&#43;09:00">
+        May 1, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    CDN(Content Delivery Network) Content Delivery Network 또는 Content Distribution Network라고 불리는 네트워크는 컨텐츠를 효율적으로 전달하기 위해 여러 노드를 가진 네트워크에 데이터를 저장하여 제공하는 시스템을 말한다. 관련된 질문으로는 &lsquo;CDN vs. Cache, 무엇이 더 효율적인가?&lsquo;라는 것이 있다. CDN은 오늘날 텐스트, 그래픽, 스크립트, 미디어 파일, 소프트웨어, 문서 등의 다운로드가 가능한 객체들 뿐만 아니라 어플리케이션, 라이브 스트리밍 미디어 등의 다양한 컨텐츠들을 망라하여 제공하고 있다.
+아래의 그림을 살펴보자.
+왼쪽의 그림은 컨텐츠가 End User들에게 직접 제공되는 반면에 오른쪽 그림은 End-User에서 가장 가까운 CDN 서버를 통해 간접적으로 전달된다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/cdn/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/vhost-host-header/">가상호스트(Virtual Host)와 Host Header</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-01T17:16:40&#43;09:00">
+        May 1, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Virtual Host and Host Header 문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가상 호스트와 호스트 헤더 간에는 무슨 관계가 있는 것일까. 이 문서에서는 가상 호스트와 가상호스트 종류, 그리고 마지막으로 호스트 헤더와 어떤 식으로 연관되는지에 대해 설명하겠다.
+가상 호스트(Virtual Host) 가상호스트란 싱글 서버(또는 서버 풀)에서 여러 개의 도메인 이름으로 호스팅하기 위한 방법이다. 가상 호스트를 사용함으로써 얻는 이점은 하나의 서버로 해당 서버의 리소스(메모리, 프로세서 사이클 등)를 공유할 수 있다는 점이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/vhost-host-header/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -105,38 +152,19 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/diff_http_https/">HTTP와 HTTPS의 차이점</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sni/">Server Name Indication(SNI)</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2019-05-01T16:53:27&#43;09:00">
+      <time datetime="2019-05-01T17:12:34&#43;09:00">
         May 1, 2019
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &lsquo;S'가 나타내는 Secure라는 의미로부터 HTTP에 &lsquo;어떤 것'을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한'어떤 것'인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.
+    Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다.
   </div>
   
-  <a href="https://seokbeomKim.github.io/posts/diff_http_https/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/about/"></a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="0001-01-01T00:00:00Z">
-        Jan 1, 0001
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    
-  </div>
+  <a href="https://seokbeomKim.github.io/posts/sni/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -151,9 +179,11 @@
     </div>
     <div class="c-pagination__older">
       
+      <a href="/posts/page/11/">Older</a>
+      
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 10 of 10</span>
+  <span class="c-pagination__count p-pagination__count">Page 10 of 11</span>
 </nav>
 
 

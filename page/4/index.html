@@ -63,6 +63,72 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/bootloader/">부트로더(Bootloader)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-23T22:47:44&#43;09:00">
+        Jun 23, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램, 네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.
+브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면 메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽 카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test) 과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를 찾아 부팅한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/bootloader/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/posix-spawn-errors/">command: posix_spawn failed: Resource temporarily unavailable</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-23T10:46:29&#43;09:00">
+        Jun 23, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.
+이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이
+sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
+명령어를 통해 제한값을 높여주면 해결된다. 맥은 설치는 쉬운데 왜이리도 설정해줘야 많은지 모르겠다.
+  </div>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/">QEMU 이용한 임베디드 개발 환경 구축하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-22T21:29:27&#43;09:00">
+        Jun 22, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
+개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -103,73 +169,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
 </article>
 
 
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/">리눅스 커널 락 종류 (3/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T11:40:12&#43;09:00">
-        Jun 4, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
-세마포어는 아래와 같은 경우에 적합하다.
-태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/">Major와 Minor Numbers</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-31T18:37:25&#43;09:00">
-        May 31, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &lsquo;c'를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &lsquo;b'를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/">리눅스 커널 락 종류 (2/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-29T00:59:34&#43;09:00">
-        May 29, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다. 많은 곳에서 뮤텍스는 세마포어의 카운트 값이 단순하게 1로 설정되었을 때를 말한다고 기술한다. 하지만 이것이 맞는 설명일까?
-참고 자료에 따르면 뮤텍스는 공유 자원으로의 접근(Access)에 대한 상호 배제(Mutual Exclusion)을 위한 수단이 Mutex라고 정의하고 있다. 이에 반해 세마포어(Semaphore)는 시그널 매커니즘으로서 스레드(또는 프로세스) 간 동기화가 주 목적으로, wait 함수를 호출한 스레드만이 뮤텍스를 신호를 보낼 수 있다는 점이 기능적인 특징이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
 
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
@@ -184,7 +183,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 4 of 10</span>
+  <span class="c-pagination__count p-pagination__count">Page 4 of 11</span>
 </nav>
  
 
