@@ -6,34 +6,22 @@
     <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-<<<<<<< HEAD
     <lastBuildDate>Fri, 21 Feb 2020 00:12:34 +0900</lastBuildDate>
-=======
-    <lastBuildDate>Thu, 13 Feb 2020 23:27:51 +0900</lastBuildDate>
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
     
 	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Kernel</title>
+      <title>kernel</title>
       <link>https://seokbeomKim.github.io/categories/kernel/</link>
-<<<<<<< HEAD
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
-=======
-      <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
       
       <guid>https://seokbeomKim.github.io/categories/kernel/</guid>
       <description></description>
     </item>
     
     <item>
-<<<<<<< HEAD
       <title>linux</title>
-=======
-      <title>Linux</title>
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
       <link>https://seokbeomKim.github.io/categories/linux/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       

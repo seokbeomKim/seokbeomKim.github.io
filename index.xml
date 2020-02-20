@@ -6,17 +6,12 @@
     <description>Recent content on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-<<<<<<< HEAD
     <lastBuildDate>Fri, 21 Feb 2020 00:12:34 +0900</lastBuildDate>
-=======
-    <lastBuildDate>Thu, 13 Feb 2020 23:27:51 +0900</lastBuildDate>
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
     
 	<atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-<<<<<<< HEAD
       <title>WARN_ON, BUG_ON 매크로</title>
       <link>https://seokbeomKim.github.io/posts/warn_on-and-bug_on/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
@@ -27,8 +22,6 @@
     </item>
     
     <item>
-=======
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
       <title>Likely and Unlikely</title>
       <link>https://seokbeomKim.github.io/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>

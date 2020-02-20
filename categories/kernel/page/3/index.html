@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Kernel</title>
-  <meta property="og:title" content="Kernel" />
-  <meta name="twitter:title" content="Kernel" />
+  <title>kernel</title>
+  <meta property="og:title" content="kernel" />
+  <meta name="twitter:title" content="kernel" />
   
 
   
@@ -56,29 +56,7 @@
   </header>
   <main id="main" class="l-main">
 
-<h2 class="c-title p-tag-title">Kernel</h2>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/jiffies/">지피(Jiffies)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-26T10:38:40&#43;09:00">
-        May 26, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.
-커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/jiffies/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
+<h2 class="c-title p-tag-title">kernel</h2>
 
 
 

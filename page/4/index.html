@@ -63,37 +63,21 @@
   
   <article class="c-article p-list-article">
   <header>
-<<<<<<< HEAD
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/bootloader/">부트로더(Bootloader)</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2019-06-23T22:47:44&#43;09:00">
-=======
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/posix-spawn-errors/">command: posix_spawn failed: Resource temporarily unavailable</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-23T10:46:29&#43;09:00">
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
         Jun 23, 2019
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-<<<<<<< HEAD
     이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램, 네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.
 브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면 메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽 카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test) 과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를 찾아 부팅한다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/bootloader/" class="c-article__btn p-list-article__btn">Read more</a>
   
-=======
-    QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.
-이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이
-sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
-명령어를 통해 제한값을 높여주면 해결된다. 맥은 설치는 쉬운데 왜이리도 설정해줘야 많은지 모르겠다.
-  </div>
-  
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
 </article>
 
 
@@ -101,38 +85,21 @@ sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
     
   <article class="c-article p-list-article">
   <header>
-<<<<<<< HEAD
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/posix-spawn-errors/">command: posix_spawn failed: Resource temporarily unavailable</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2019-06-23T10:46:29&#43;09:00">
         Jun 23, 2019
-=======
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/">QEMU 이용한 임베디드 개발 환경 구축하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-22T21:29:27&#43;09:00">
-        Jun 22, 2019
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-<<<<<<< HEAD
     QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.
 이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이
 sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
 명령어를 통해 제한값을 높여주면 해결된다. 맥은 설치는 쉬운데 왜이리도 설정해줘야 많은지 모르겠다.
   </div>
   
-=======
-    임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
-개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/" class="c-article__btn p-list-article__btn">Read more</a>
-  
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
 </article>
 
 
@@ -140,36 +107,20 @@ sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
     
   <article class="c-article p-list-article">
   <header>
-<<<<<<< HEAD
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/">QEMU 이용한 임베디드 개발 환경 구축하기</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2019-06-22T21:29:27&#43;09:00">
         Jun 22, 2019
-=======
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T17:34:42&#43;09:00">
-        Jun 4, 2019
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-<<<<<<< HEAD
     임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
 개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/" class="c-article__btn p-list-article__btn">Read more</a>
-=======
-    1. 들어가기 전에 &hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
-RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/rcu/" class="c-article__btn p-list-article__btn">Read more</a>
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
   
 </article>
 
@@ -178,35 +129,20 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     
   <article class="c-article p-list-article">
   <header>
-<<<<<<< HEAD
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2019-06-04T17:34:42&#43;09:00">
-=======
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/">리눅스 커널 락 종류 (4/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T16:40:28&#43;09:00">
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
         Jun 4, 2019
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-<<<<<<< HEAD
     1. 들어가기 전에 &hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
 RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/rcu/" class="c-article__btn p-list-article__btn">Read more</a>
-=======
-    BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하기 위해 락(Lock)을 획득해야 커널 모드로 진입되었고 나머지 프로세서들은 락을 획득하기 위해 대기한다. 하지만 이 후, 성능, 실시간 애플리케이션에 대한 latency 이슈로 BKL(Big Kernel Lock)은 스핀락과 뮤텍스, RCU 등으로 대체되면서 현재는 거의 관련 코드가 제거되어 있는 상태이다.
- lock_kernel(): Acquires the BKL unlock_kernel(): Releases the BKL kernel_locked(): Returns nonzero if the lock is held and zero otherwise (UP always returns nonzero)  BKL은 프로세서들이 동시에 커널에 진입하는 것을 막아 동기화 문제를 해결한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/" class="c-article__btn p-list-article__btn">Read more</a>
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
   
 </article>
 
@@ -215,36 +151,20 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     
   <article class="c-article p-list-article">
   <header>
-<<<<<<< HEAD
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/">리눅스 커널 락 종류 (4/5)</a></h2>
     <p class="c-article__meta">
       Posted on
       <time datetime="2019-06-04T16:40:28&#43;09:00">
-=======
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/">리눅스 커널 락 종류 (3/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T11:40:12&#43;09:00">
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
         Jun 4, 2019
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-<<<<<<< HEAD
     BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하기 위해 락(Lock)을 획득해야 커널 모드로 진입되었고 나머지 프로세서들은 락을 획득하기 위해 대기한다. 하지만 이 후, 성능, 실시간 애플리케이션에 대한 latency 이슈로 BKL(Big Kernel Lock)은 스핀락과 뮤텍스, RCU 등으로 대체되면서 현재는 거의 관련 코드가 제거되어 있는 상태이다.
  lock_kernel(): Acquires the BKL unlock_kernel(): Releases the BKL kernel_locked(): Returns nonzero if the lock is held and zero otherwise (UP always returns nonzero)  BKL은 프로세서들이 동시에 커널에 진입하는 것을 막아 동기화 문제를 해결한다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/" class="c-article__btn p-list-article__btn">Read more</a>
-=======
-    이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
-세마포어는 아래와 같은 경우에 적합하다.
-태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/" class="c-article__btn p-list-article__btn">Read more</a>
->>>>>>> 1c2d16b1e011b21f632e13eb233d87fa807f3c04
   
 </article>
 
