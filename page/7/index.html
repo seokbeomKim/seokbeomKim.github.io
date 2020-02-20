@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.64.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
@@ -61,6 +61,29 @@
 
 
   
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/">커널 모듈과 드라이버의 차이</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-16T02:11:40&#43;09:00">
+        May 16, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
+커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
+arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용) 구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
   <article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/">비선점 스케쥴링(Nonpreemptive Scheduling)</a></h2>
@@ -146,29 +169,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/tensorflow-scikit-learn/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/">비지도 학습 알고리즘과 지도 학습</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-06T15:31:38&#43;09:00">
-        May 6, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(Unsupervised Learning)이었는데 어디에도 학습이 정확이 무엇인지에 대한 내용이 없었다.
-학습이란 무엇인가? 질문에 대한 답은 쉽게 찾을 수 있었다.(해당 링크)
-A model with a set of parameters transforms the input into an output, this generates a signal from which the model updates the parameters to produce a new output. In the supervised learning scenario, the signal is the error between the model&#39;s estimate and the ground truth (the correct answer).
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

@@ -6,10 +6,28 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Feb 2020 23:43:34 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 21 Feb 2020 00:12:34 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BUG_ON</title>
+      <link>https://seokbeomKim.github.io/tags/bug_on/</link>
+      <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/bug_on/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WARN_ON</title>
+      <link>https://seokbeomKim.github.io/tags/warn_on/</link>
+      <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/warn_on/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>debug</title>
