@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -76,75 +76,95 @@
   
   
   <section id="js-article" class="p-article__body">
-    <!-- raw HTML omitted -->
+    
+
+<!-- toc -->
+
 <h1 id="개요">개요</h1>
+
 <p>중첩 클래스(Nested Class)에 대해서 여러 사이트에서 설명해놓은 것이
 있지만 잘못 설명되어 있는 부분도 있었다. &lsquo;Nested Class는 Inner Class와
 같다.&rsquo; 라는 식으로 기술해놓은 페이지가 많아 이번 기회에 확실하게
 정리해놓고자 한다.</p>
+
 <p>중첩 클래스(Nested Class)는 내부 클래스(Inner Class)와 같은 개념이
-아니라 포함 관계이다. 중첩 클래스는 <!-- raw HTML omitted -->static<!-- raw HTML omitted --> 사용 여부에
+아니라 포함 관계이다. 중첩 클래스는 <code>static</code> 사용 여부에
 따라, 정적 중첩 클래스(Static nested class)와 비정적 중첩
 클래스(Non-static nested class)로 구분하며, 통상적으로 각각을
-<!-- raw HTML omitted -->정적 중첩 클래스(Static Nested Class)<!-- raw HTML omitted -->, <!-- raw HTML omitted -->내부
-클래스(Inner Class)<!-- raw HTML omitted -->라고 한다. 중첩 클래스와 내부 클래스를 같은
+<code>정적 중첩 클래스(Static Nested Class)</code>, <code>내부
+클래스(Inner Class)</code>라고 한다. 중첩 클래스와 내부 클래스를 같은
 개념으로 혼용하는 용례가 많다는데 <code>static</code> 여부에 따라 구분되어 서로
 다르다는 것을 반드시 알고 있자.</p>
+
 <h1 id="사용-이유">사용 이유</h1>
+
 <p>중첩 클래스를 사용하는 이유에 대한 오라클 페이지의 기술
 내용이다. 개인적으로는 SRP나 OCP 등을 포함한 SOLID 원칙을 지키는데
 오히려 악영향을 줄 수 있다고 판단해 중첩 클래스의 사용이 양면성이
 있다고 판한다기 때문에 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">해당
 문서</a>에서
 제시하는 이유에 대해서는 동의를 하지 못하겠다.</p>
+
 <p>어쨌든 문서 내에서 기술하는 중첩 클래스를 사용하는 이유는 아래와 같다.</p>
+
 <ol>
 <li>논리적으로 한 곳에 클래스들을 모아놓을 방법 중 하나로서 사용</li>
 <li>캡슐화 증가</li>
 <li>가독성 및 유지보수에 유리</li>
 </ol>
+
 <h1 id="정적-클래스와-내부-클래스">정적 클래스와 내부 클래스</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OuterClass</span> <span style="color:#f92672">{</span>
 
-   <span style="color:#75715e">// 스태틱 클래스
-</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NestedStaticClass</span> <span style="color:#f92672">{</span>
-      <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printMessage</span> <span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Message from nested static class&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-      <span style="color:#f92672">}</span>
-   <span style="color:#f92672">}</span>
+<pre><code class="language-java">class OuterClass {
 
-   <span style="color:#75715e">// 내부 클래스(non-static nested class라고도 불린다.)
-</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InnerClass</span> <span style="color:#f92672">{</span>
-      <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Message from non-static inner class&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-      <span style="color:#f92672">}</span>
-   <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
+   // 스태틱 클래스
+   public static class NestedStaticClass {
+      public void printMessage () {
+         System.out.println(&quot;Message from nested static class&quot;);
+      }
+   }
 
-</code></pre></div><h1 id="스코프에-따른-내부-클래스-구분">스코프에 따른 내부 클래스 구분</h1>
+   // 내부 클래스(non-static nested class라고도 불린다.)
+   public class InnerClass {
+      public void display() {
+         System.out.println(&quot;Message from non-static inner class&quot;);
+      }
+   }
+}
+
+</code></pre>
+
+<h1 id="스코프에-따른-내부-클래스-구분">스코프에 따른 내부 클래스 구분</h1>
+
 <p>내부 클래스는 스코프에 따라 아래와 같이 구분할 수 있다.</p>
+
 <ul>
 <li>Inner Class: 클래스 내부에 정의한 클래스이다.</li>
 <li>Method Local Inner Class: 메서드 내부에 정의한 클래스이다.</li>
-<li>Anonymous Inner Class: 익명 클래스를 이용하여 정의한
+
+<li><p>Anonymous Inner Class: 익명 클래스를 이용하여 정의한
 클래스이다. 보통 인터페이스를 구현한 클래스를 메서드 인자로 넘김과
-동시에 정의할 때 사용한다.</li>
+동시에 정의할 때 사용한다.</p>
+
+<pre><code class="language-java">...
+// 익명 내부 클래스 사용 예
+public returnValue () {
+return new IAInterface({
+
+@Override
+public methodA () {
+   ...
+}
+
+});
+}
+
+...
+</code></pre></li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
-<span style="color:#75715e">// 익명 내부 클래스 사용 예
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#a6e22e">returnValue</span> <span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> IAInterface<span style="color:#f92672">(</span><span style="color:#f92672">{</span>
 
-    <span style="color:#a6e22e">@Override</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">methodA</span> <span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-       <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
-    <span style="color:#f92672">}</span>
+<h1 id="출처">출처</h1>
 
-    <span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
-</code></pre></div><h1 id="출처">출처</h1>
 <ul>
 <li><a href="http://ccm3.net/archives/20638">http://ccm3.net/archives/20638</a></li>
 <li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html</a></li>

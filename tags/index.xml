@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on A Developer&#39;s Note</title>
@@ -6,10 +6,46 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Feb 2020 00:12:34 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2020 18:41:53 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>linux</title>
+      <link>https://seokbeomKim.github.io/tags/linux/</link>
+      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macbook</title>
+      <link>https://seokbeomKim.github.io/tags/macbook/</link>
+      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/macbook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mbp</title>
+      <link>https://seokbeomKim.github.io/tags/mbp/</link>
+      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mbp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://seokbeomKim.github.io/tags/ubuntu/</link>
+      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>BUG_ON</title>

@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -139,7 +139,7 @@ likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 �
     </p>
   </header>
   <div class="c-article__summary">
-    ARM64에서의 커널 메모리 맵 &lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&quot;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
+    ARM64에서의 커널 메모리 맵 &lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&rdquo;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
 ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을 사용한다. 이 때, 가상 주소 기준으로 각 끝 영역을 사용한다는 점에 유의해야 한다.
   </div>
   
@@ -163,7 +163,7 @@ ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 �
   <div class="c-article__summary">
     GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
 GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
- 디바이스 트리 이용 (최근 트렌드) Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의   (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.
+ 디바이스 트리 이용 (최근 트렌드) Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의  (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/gpio_mapping/" class="c-article__btn p-list-article__btn">Read more</a>

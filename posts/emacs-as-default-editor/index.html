@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -76,67 +76,89 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="개요">개요</h1>
+    
+
+<h1 id="개요">개요</h1>
+
 <p>이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해
 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가
 상당히 오래 걸리는 편이다. <code>daemon</code> 형태로 실행한다고 해도, 첫 로드를
 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에
 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로
 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.</p>
+
 <p>데몬 형태로 실행하는 것을 사용자 레벨의 <code>systemd</code>로 활성화함으로써
 로그인 시에 자동으로 실행되게 한다. 그리고 <code>gnome</code>에서 사용하는 몇
 가지 애플리케이션 설정만 바꿔주면 기본적인 파일들에 대한 편집은
 이맥스에서 사용할 수 있게 된다.</p>
+
 <h2 id="설정-환경">설정 환경</h2>
+
 <p>본 포스팅 작성에 사용된 리눅스 환경은 아래와 같다.</p>
+
 <ul>
 <li>distro: Arch Linux</li>
 <li>D/E: Gnome 3.34.2</li>
 <li>systemd: 244.2-1</li>
 </ul>
+
 <h1 id="systemd-에-emacs-등록하기">systemd 에 emacs 등록하기</h1>
+
 <p>현재 대부분의 리눅스 배포판에서는 initrc 에서 systemd 로
 바뀌었다. initrc를 고집하던 젠투에서도 <code>systemd</code>를 사용하는 것을 보면,
 아마 대부분의 배포판에서 사용하고 있을 거라 생각하며, initrc를
 사용하는 시스템이라면 젠투 쪽의 위키페이지를 참고하기를 바란다.</p>
+
 <p>먼저 <code>~/.config/systemd/user/emacs.service</code> 파일을 아래와 같이
 생성한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
-Description<span style="color:#f92672">=</span>Emacs text editor
-Documentation<span style="color:#f92672">=</span>info:emacs man:emacs<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> https://gnu.org/software/emacs/
 
-<span style="color:#f92672">[</span>Service<span style="color:#f92672">]</span>
-Type<span style="color:#f92672">=</span>forking
-ExecStart<span style="color:#f92672">=</span>/usr/bin/emacs --daemon
-ExecStop<span style="color:#f92672">=</span>/usr/bin/emacsclient --eval <span style="color:#e6db74">&#34;(kill-emacs)&#34;</span>
-Environment<span style="color:#f92672">=</span>SSH_AUTH_SOCK<span style="color:#f92672">=</span>%t/keyring/ssh
-Restart<span style="color:#f92672">=</span>on-failure
+<pre><code class="language-shell">[Unit]
+Description=Emacs text editor
+Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/
 
-<span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
-WantedBy<span style="color:#f92672">=</span>default.target
-</code></pre></div><p>그 뒤, <code>systemctl</code> 명령어를 이용해 해당 서비스를 활성화한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl enable --user emacs
+[Service]
+Type=forking
+ExecStart=/usr/bin/emacs --daemon
+ExecStop=/usr/bin/emacsclient --eval &quot;(kill-emacs)&quot;
+Environment=SSH_AUTH_SOCK=%t/keyring/ssh
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+</code></pre>
+
+<p>그 뒤, <code>systemctl</code> 명령어를 이용해 해당 서비스를 활성화한다.</p>
+
+<pre><code class="language-shell">systemctl enable --user emacs
 systemctl disable --user emacs
-</code></pre></div><h1 id="gnome-application-아이템-조정하기">gnome application 아이템 조정하기</h1>
+</code></pre>
+
+<h1 id="gnome-application-아이템-조정하기">gnome application 아이템 조정하기</h1>
+
 <p>gnome에서 파일을 열 때 <code>mime type</code>에 따라 기본으로 열기 위한
 애플리케이션을 미리 정의해놓는다. 아래와 같이
 <code>/usr/share/applications/emacs.desktop</code> 파일을 열어서 <code>emacsclient</code>를
 이용하도록 설정한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Desktop Entry<span style="color:#f92672">]</span>
-Name<span style="color:#f92672">=</span>Emacs
-GenericName<span style="color:#f92672">=</span>Text Editor
-Comment<span style="color:#f92672">=</span>Edit text
-MimeType<span style="color:#f92672">=</span>text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
-Exec<span style="color:#f92672">=</span>emacsclient -c -a <span style="color:#e6db74">&#34;&#34;</span> %F
-Icon<span style="color:#f92672">=</span>emacs
-Type<span style="color:#f92672">=</span>Application
-Terminal<span style="color:#f92672">=</span>false
-Categories<span style="color:#f92672">=</span>Development;TextEditor;
-StartupWMClass<span style="color:#f92672">=</span>Emacs
-Keywords<span style="color:#f92672">=</span>Text;Editor;
-</code></pre></div><p>이제 모든 설정이 끝났다. 파일에 대한 기본 편집툴을 이맥스로 설정하면,
+
+<pre><code class="language-shell">[Desktop Entry]
+Name=Emacs
+GenericName=Text Editor
+Comment=Edit text
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+Exec=emacsclient -c -a &quot;&quot; %F
+Icon=emacs
+Type=Application
+Terminal=false
+Categories=Development;TextEditor;
+StartupWMClass=Emacs
+Keywords=Text;Editor;
+</code></pre>
+
+<p>이제 모든 설정이 끝났다. 파일에 대한 기본 편집툴을 이맥스로 설정하면,
 별도의 초기화 과정 없이 곧바로 실행되는 것을 알 수 있다.</p>
+
 <h1 id="출처">출처</h1>
+
 <ul>
 <li><a href="https://www.emacswiki.org/emacs/EmacsAsDaemon">https://www.emacswiki.org/emacs/EmacsAsDaemon</a></li>
 </ul>

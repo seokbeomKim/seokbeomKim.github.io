@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -96,7 +96,7 @@
   </header>
   <div class="c-article__summary">
     kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
-61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.
+61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 };  커널 문서(https://www.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/kobject/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -163,7 +163,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
   </header>
   <div class="c-article__summary">
     세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &lsquo;c'를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &lsquo;b'를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &lsquo;c&rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/" class="c-article__btn p-list-article__btn">Read more</a>

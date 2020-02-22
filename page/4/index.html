@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
@@ -61,6 +61,28 @@
 
 
   
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/color-space/">색 공간(Color Space)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-01-26T16:39:36&#43;09:00">
+        Jan 26, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.
+색 포맷에 대한 비트 구성은 표준에 따르지 않고 각 플랫폼 환경에 따라 달라지므로 SoC 데이터시트를 참고하여 컴포넌트에서 어떻게 구성되는지 확인해야 한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/color-space/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
   <article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/bootloader/">부트로더(Bootloader)</a></h2>
@@ -143,28 +165,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/rcu/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/">리눅스 커널 락 종류 (4/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T16:40:28&#43;09:00">
-        Jun 4, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하기 위해 락(Lock)을 획득해야 커널 모드로 진입되었고 나머지 프로세서들은 락을 획득하기 위해 대기한다. 하지만 이 후, 성능, 실시간 애플리케이션에 대한 latency 이슈로 BKL(Big Kernel Lock)은 스핀락과 뮤텍스, RCU 등으로 대체되면서 현재는 거의 관련 코드가 제거되어 있는 상태이다.
- lock_kernel(): Acquires the BKL unlock_kernel(): Releases the BKL kernel_locked(): Returns nonzero if the lock is held and zero otherwise (UP always returns nonzero)  BKL은 프로세서들이 동시에 커널에 진입하는 것을 막아 동기화 문제를 해결한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

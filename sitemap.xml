@@ -1,10 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-02-21T00:12:34+09:00</lastmod>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/linux/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/macbook/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/mbp/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/ubuntu/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/linux-on-macbook/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
   </url>
   
   <url>
@@ -13,22 +58,7 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-02-21T00:12:34+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-02-21T00:12:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-02-21T00:12:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-02-21T00:12:34+09:00</lastmod>
   </url>
   
@@ -49,11 +79,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/likely-and-unlikely/</loc>
-    <lastmod>2020-02-13T23:27:51+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
     <lastmod>2020-02-13T23:27:51+09:00</lastmod>
   </url>
   
@@ -328,12 +353,12 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
