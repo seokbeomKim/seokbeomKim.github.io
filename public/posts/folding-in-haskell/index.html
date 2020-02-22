@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -76,75 +76,99 @@
   
   <aside>
     <nav id="TableOfContents">
-  <ol>
-    <li><a href="#folding-in-haskell">Folding in Haskell</a></li>
-  </ol>
+<ul>
+<li><a href="#folding-in-haskell">Folding in Haskell</a></li>
+</ul>
 </nav>
   </aside>
   
   
   <section id="js-article" class="p-article__body">
-    <!-- raw HTML omitted -->
+    
+
+<!-- toc -->
+
 <h1 id="folding-in-haskell">Folding in Haskell</h1>
+
 <p>취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional
 Programming에 대해 관심이 생겨 <code>Haskell</code>이라는 언어를 배우기
 시작했다. (알고리즘이나 데이터베이스 등 배울 것이 많은 데 갈수록
 태산이다.) 대학교 시절, xmonad 윈도우즈 매니저를 사용하면서 접한
 언어를 이렇게 뒤늦게 배우게 될 줄은 꿈에도 몰랐다.</p>
+
 <p>대표적인 함수형 언어로 알려진 Haskell 에는 <code>Folding</code> 이라는 특별한
 개념이 등장한다. <code>Haskell Wiki</code>에서는 <code>Folding</code>을 아래와 같이 설명하고
 있다.</p>
+
 <blockquote>
 <p>In functional programming, fold (or reduce) is a family of higher
 order functions that process a data structure in some order and
-build a return value. <!-- raw HTML omitted -->
+build a return value. <br>
 Typically, a fold deals with two things: a combining function, and a
 data structure (typically a list of elements). The fold then
 proceeds to combine elements of the data structure using the
 function in some systematic way.</p>
 </blockquote>
+
 <p>리스트와 같이 여러 원소들로 이루어진 데이터 구조의 각 원소들을 각각
 인자(arguments)로 넘긴 함수에 대입하고, 그 결과를 원소 타입으로
 반환하는 것이 <code>fold</code> 함수의 역할이다. 다시 말해서, <code>spine</code> 형태의
 데이터 구조를 특정한 함수를 이용하여 접고(<code>fold</code>) 줄여서(<code>reduce</code>)
 결과값을 얻는 것이 그 역할이라고 정리하면 이해하기 쉽다.</p>
-<p>먼저, 아래의 예제를 살펴보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hs" data-lang="hs"><span style="color:#f92672">&gt;</span> foldr (<span style="color:#f92672">+</span>) <span style="color:#ae81ff">1</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>]
-<span style="color:#ae81ff">7</span>
 
-<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">:</span>t foldr
-<span style="color:#a6e22e">foldr</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Foldable</span> t <span style="color:#f92672">=&gt;</span> (a <span style="color:#f92672">-&gt;</span> b <span style="color:#f92672">-&gt;</span> b) <span style="color:#f92672">-&gt;</span> b <span style="color:#f92672">-&gt;</span> t a <span style="color:#f92672">-&gt;</span> b
-</code></pre></div><p><code>foldr</code>은 <code>(a -&gt; b -&gt; b)</code> 형태의 함수와 <code>b</code>, <code>t a</code> 인자 3 개를 입력
+<p>먼저, 아래의 예제를 살펴보자.</p>
+
+<pre><code class="language-hs">&gt; foldr (+) 1 [1..3]
+7
+
+&gt; :t foldr
+foldr :: Foldable t =&gt; (a -&gt; b -&gt; b) -&gt; b -&gt; t a -&gt; b
+</code></pre>
+
+<p><code>foldr</code>은 <code>(a -&gt; b -&gt; b)</code> 형태의 함수와 <code>b</code>, <code>t a</code> 인자 3 개를 입력
 받아 <code>b</code> 타입을 반환한다. 즉, (1 + (2 + (3 + (1))) 과 같은 형식으로
 <code>fold</code> 를 진행하여 결국 답은 7이 된다. 이 때, 각 괄호를 reduce한
 결과는 <code>foldr</code> 대신 <code>scanr</code> 키워드를 사용하면 아래와 같이 얻을 수
 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hs" data-lang="hs"><span style="color:#f92672">&gt;</span> scanr (<span style="color:#f92672">+</span>) <span style="color:#ae81ff">1</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>]
-[<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">1</span>]
-</code></pre></div><p>그렇다면, 반대로 괄호를 움직여 evaluation의 방향을 왼쪽에서 오른쪽으로
+
+<pre><code class="language-hs">&gt; scanr (+) 1 [1..3]
+[7,6,4,1]
+</code></pre>
+
+<p>그렇다면, 반대로 괄호를 움직여 evaluation의 방향을 왼쪽에서 오른쪽으로
 바꿔보면 어떨까?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hs" data-lang="hs"><span style="color:#f92672">&gt;</span> foldl (<span style="color:#f92672">+</span>) <span style="color:#ae81ff">1</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>]
-<span style="color:#ae81ff">7</span>
-<span style="color:#f92672">&gt;</span> scanl (<span style="color:#f92672">+</span>) <span style="color:#ae81ff">1</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>]
-[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">7</span>]
-<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">:</span>t foldl
-<span style="color:#a6e22e">foldl</span> <span style="color:#f92672">::</span> <span style="color:#66d9ef">Foldable</span> t <span style="color:#f92672">=&gt;</span> (b <span style="color:#f92672">-&gt;</span> a <span style="color:#f92672">-&gt;</span> b) <span style="color:#f92672">-&gt;</span> b <span style="color:#f92672">-&gt;</span> t a <span style="color:#f92672">-&gt;</span> b
-</code></pre></div><p><code>foldr</code>과 달리 <code>foldr</code>은 전달한 함수에 인자로 <code>(a -&gt; b -&gt; b)</code>가 아닌
+
+<pre><code class="language-hs">&gt; foldl (+) 1 [1..3]
+7
+&gt; scanl (+) 1 [1..3]
+[1,2,4,7]
+&gt; :t foldl
+foldl :: Foldable t =&gt; (b -&gt; a -&gt; b) -&gt; b -&gt; t a -&gt; b
+</code></pre>
+
+<p><code>foldr</code>과 달리 <code>foldr</code>은 전달한 함수에 인자로 <code>(a -&gt; b -&gt; b)</code>가 아닌
 <code>(b -&gt; a -&gt; b)</code>를 전달한다. 이 때문에 결과값은 같더라도
 평가(Evaluation)의 순서가 ((((1) + 1) + 2) + 3) 달라지게 된다. 이
 때문에 <code>scanl</code>의 결과는 <code>[1,2,4,7]</code>이 되는 것이다.</p>
+
 <p>이러한 <code>fold</code>의 장점은 갖가지 재귀 함수들을 엄청나게 간단하게 만들 수
 있다는 것이다. 예를 들면, reverse 함수의 경우 보통 아래와 같이 작성할
 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hs" data-lang="hs"><span style="color:#a6e22e">myReverse</span> <span style="color:#f92672">::</span> [a] <span style="color:#f92672">-&gt;</span> [a]
-<span style="color:#a6e22e">myReverse</span> <span style="color:#66d9ef">[]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">[]</span>
-<span style="color:#a6e22e">myReverse</span> (x<span style="color:#66d9ef">:</span>xs) <span style="color:#f92672">=</span> myReverse xs <span style="color:#f92672">++</span> [x]
-</code></pre></div><p>하지만, <code>fold</code>를 사용하면, 아래와 같이 축약된 형태로 간단하게 작성할
+
+<pre><code class="language-hs">myReverse :: [a] -&gt; [a]
+myReverse [] = []
+myReverse (x:xs) = myReverse xs ++ [x]
+</code></pre>
+
+<p>하지만, <code>fold</code>를 사용하면, 아래와 같이 축약된 형태로 간단하게 작성할
 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hs" data-lang="hs"><span style="color:#75715e">-- pointfree 함수 형태로 작성</span>
-<span style="color:#a6e22e">myReverse</span> <span style="color:#f92672">::</span> [a] <span style="color:#f92672">-&gt;</span> [a]
-<span style="color:#a6e22e">myReverse</span> <span style="color:#f92672">=</span> foldl (flip (<span style="color:#66d9ef">:</span>)) <span style="color:#66d9ef">[]</span>
-</code></pre></div><p>이처럼 함수형 프로그래밍에서 <code>fold</code> 또는 <code>reduce</code>는 인자로 전달한
+
+<pre><code class="language-hs">-- pointfree 함수 형태로 작성
+myReverse :: [a] -&gt; [a]
+myReverse = foldl (flip (:)) []
+</code></pre>
+
+<p>이처럼 함수형 프로그래밍에서 <code>fold</code> 또는 <code>reduce</code>는 인자로 전달한
 데이터 구조를 특정한 함수를 이용하여 반환값을 구성하기 위한 HOF
 (Higher Order Functions, 함수를 인자로 취하거나 반환값으로 함수를
 반환하는 함수)의 한 가지이다. 문서 대부분이 영어로 되어 있고 함수형

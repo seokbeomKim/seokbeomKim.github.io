@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -78,82 +78,103 @@
   
   <aside>
     <nav id="TableOfContents">
-  <ol>
-    <li><a href="#개요">개요</a></li>
-    <li><a href="#rest-소개">REST 소개</a></li>
-    <li><a href="#http기반-restful-api-디자인-원칙">HTTP기반 RESTful API 디자인 원칙</a></li>
-    <li><a href="#잘-디자인된-웹-api가-지원해야-하는-특성">잘 디자인된 웹 API가 지원해야 하는 특성</a>
-      <ol>
-        <li><a href="#플랫폼-독립성">플랫폼 독립성</a></li>
-        <li><a href="#서비스-진화">서비스 진화</a></li>
-      </ol>
-    </li>
-    <li><a href="#richardson-성숙도-모델richardson-maturity-model">Richardson 성숙도 모델(Richardson Maturity Model)</a>
-      <ol>
-        <li><a href="#레벨-0">레벨 0</a></li>
-        <li><a href="#레벨-1-리소스-사용">레벨 1: 리소스 사용</a></li>
-        <li><a href="#레벨-2-http-메서드-사용verbs">레벨 2: HTTP 메서드 사용(Verbs)</a></li>
-        <li><a href="#레벨-3-하이퍼미디어-컨트롤-도입">레벨 3: 하이퍼미디어 컨트롤 도입</a></li>
-        <li><a href="#레벨의-의미">레벨의 의미</a></li>
-      </ol>
-    </li>
-    <li><a href="#출처">출처</a></li>
-  </ol>
+<ul>
+<li><a href="#개요">개요</a></li>
+<li><a href="#rest-소개">REST 소개</a></li>
+<li><a href="#http기반-restful-api-디자인-원칙">HTTP기반 RESTful API 디자인 원칙</a></li>
+<li><a href="#잘-디자인된-웹-api가-지원해야-하는-특성">잘 디자인된 웹 API가 지원해야 하는 특성</a>
+<ul>
+<li><a href="#플랫폼-독립성">플랫폼 독립성</a></li>
+<li><a href="#서비스-진화">서비스 진화</a></li>
+</ul></li>
+<li><a href="#richardson-성숙도-모델-richardson-maturity-model">Richardson 성숙도 모델(Richardson Maturity Model)</a>
+<ul>
+<li><a href="#레벨-0">레벨 0</a></li>
+<li><a href="#레벨-1-리소스-사용">레벨 1: 리소스 사용</a></li>
+<li><a href="#레벨-2-http-메서드-사용-verbs">레벨 2: HTTP 메서드 사용(Verbs)</a></li>
+<li><a href="#레벨-3-하이퍼미디어-컨트롤-도입">레벨 3: 하이퍼미디어 컨트롤 도입</a></li>
+<li><a href="#레벨의-의미">레벨의 의미</a></li>
+</ul></li>
+<li><a href="#출처">출처</a></li>
+</ul>
 </nav>
   </aside>
   
   
   <section id="js-article" class="p-article__body">
-    <!-- raw HTML omitted -->
+    
+
+<!-- toc -->
+
 <h1 id="개요">개요</h1>
-<p>이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &lsquo;RESTful&rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &lsquo;Richardson Maturity Model'이라는 성숙도 모델을 기술한다.</p>
+
+<p>이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &lsquo;RESTful&rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &lsquo;Richardson Maturity Model&rsquo;이라는 성숙도 모델을 기술한다.</p>
+
 <h1 id="rest-소개">REST 소개</h1>
+
 <p>이 절은 Microsoft의 <a href="https://docs.microsoft.com/ko-kr/azure/architecture/best-practices/api-design">REST 소개</a>를 발췌하여 정리한 것이다.</p>
+
 <p>REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키텍처 스타일로서 프로토콜과는 관련이 없는 용어이다. (일각에서 REST와 SOAP를 비교하는 글들이 많아 언급하였다.) REST는 어떤 기본 프로토콜과도 독립적이며 HTTP에 연결될 필요가 없다. 그러나 대부분의 일반적인 REST 구현에서 응용 프로그램 프로토콜로 HTTP를 사용하고 이 지침에서는 HTTP를 위한 REST API 디자인에 중점을 둔다.</p>
+
 <p>REST가 HTTP보다 우수한 주요 장점은 개방형 표준을 사용하므로 API 또는 클라이언트 응용 프로그램의 구현이 특정 구현에 바인딩되지 않는다는 점이다. 예를 들어 REST 웹 서비스는 ASP.NET으로 작성할 수 있으며, 클라이언트 응용 프로그램은 HTTP 요청을 생성하고 HTTP 응답을 구문 분석할 수 있는 모든 언어 또는 도구 집합을 사용할 수 있다.</p>
+
 <p>아래는 HTTP를 사용하는 RESTful API의 몇 가지 디자인 원칙이며 잘 디자인된 웹 API는 아래에 언급되는 특성들을 지원해야 한다.</p>
+
 <h1 id="http기반-restful-api-디자인-원칙">HTTP기반 RESTful API 디자인 원칙</h1>
+
 <ul>
 <li>REST API는 <strong>리소스</strong>를 중심으로 디자인되며 클라이언트에서 액세스할 수 있는 모든 종류의 개체, 데이터 또는 서비스가 리소스에 포함된다.</li>
-<li>리소스마다 해당 리소스를 고유하게 식별하는 URI인 <strong>식별자</strong>가 있다. 예를 들어 특정 고객 주문의 URI는 아래와 같다.</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">https://adventure-works.com/orders/1
-</code></pre></div><ul>
-<li>클라이언트가 리소스의 <strong>표현</strong>을 교환하여 서비스와 상호 작용한다. 많은 Web API가 교환 형식으로 JSON을 사용한다. 예를 들어 위에 나열된 URI에 대한 GET 요청은 아래의 응답을 반환할 수 있다.</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;orderID&#34;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&#34;orderValue&#34;</span>:<span style="color:#ae81ff">99</span>, <span style="color:#f92672">&#34;productId&#34;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&#34;quantity&#34;</span>: <span style="color:#ae81ff">1</span>}
-</code></pre></div><ul>
-<li>
-<p>REST API는 균일한 인터페이스를 사용하므로 클라이언트와 서비스 구현을 분리하는데 도움이 된다. HTTP 기반의 REST API의 경우 리소스에 표준 HTTP 동사 수행 작업을 사용하는 것이 균일한 인터페이스에 포함된다. 가장 일반적인 작업은 GET, POST, PUT, PATCH, DELETE 등이다.</p>
-</li>
-<li>
-<p>REST API는 상태 비저장 요청 모델을 사용한다. <strong>HTTP 요청은 독립적이어야 하고 임의 순서대로 발생할 수 있으므로 요청 사이에 일시적인 상태 정보를 유지할 수 없다. 정보는 리소스 자체에만 저장되며 각 요청은 자동 작업이어야 한다.</strong> 결국 이러한 클라이언트와 서버 간의 상태 유지 제약 조건 덕분에 웹 서비스를 확장하는데 유리한 면이 생기게 되었다. (둘 간에 상태를 처리할 필요가 없기 때문에) 하지만 웹 서비스가 백 엔드 데이터 저장소에 데이터를 쓰는 경우 규모 확장이 어려울 수 있다.</p>
-</li>
-<li>
-<p>REST API는 표현에 포함된 하이퍼미디어 링크에 따라 구동된다. 예를 들어 아래는 주문 요청을 JSON 형식으로 나타낸 것이다. 해당 요청에는 주문과 관련된 고객 정보를 가져오고 업데이트하는 링크를 포함하고 있다.</p>
-</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;orderId&#34;</span>: <span style="color:#ae81ff">3</span>,
-  <span style="color:#f92672">&#34;productId&#34;</span>: <span style="color:#ae81ff">2</span>,
-  <span style="color:#f92672">&#34;quantity&#34;</span>: <span style="color:#ae81ff">4</span>,
-  <span style="color:#f92672">&#34;orderValue&#34;</span>: <span style="color:#ae81ff">16</span>,
-  <span style="color:#f92672">&#34;links&#34;</span>: [
-    {<span style="color:#f92672">&#34;rel&#34;</span>:<span style="color:#e6db74">&#34;product&#34;</span>, <span style="color:#f92672">&#34;href&#34;</span>:<span style="color:#e6db74">&#34;https://adventure-works.com/customers/3&#34;</span>, <span style="color:#f92672">&#34;action&#34;</span>:<span style="color:#e6db74">&#34;GET&#34;</span>},
-    {<span style="color:#f92672">&#34;rel&#34;</span>:<span style="color:#e6db74">&#34;product&#34;</span>,<span style="color:#f92672">&#34;href&#34;</span>:<span style="color:#e6db74">&#34;https://adventure-works.com/customers/3&#34;</span>, <span style="color:#f92672">&#34;action&#34;</span>:<span style="color:#e6db74">&#34;PUT&#34;</span> }
-  ]
+
+<li><p>리소스마다 해당 리소스를 고유하게 식별하는 URI인 <strong>식별자</strong>가 있다. 예를 들어 특정 고객 주문의 URI는 아래와 같다.</p>
+
+<pre><code class="language-text">https://adventure-works.com/orders/1
+</code></pre></li>
+
+<li><p>클라이언트가 리소스의 <strong>표현</strong>을 교환하여 서비스와 상호 작용한다. 많은 Web API가 교환 형식으로 JSON을 사용한다. 예를 들어 위에 나열된 URI에 대한 GET 요청은 아래의 응답을 반환할 수 있다.</p>
+
+<pre><code class="language-json">{&quot;orderID&quot;: 1, &quot;orderValue&quot;:99, &quot;productId&quot;: 1, &quot;quantity&quot;: 1}
+</code></pre></li>
+
+<li><p>REST API는 균일한 인터페이스를 사용하므로 클라이언트와 서비스 구현을 분리하는데 도움이 된다. HTTP 기반의 REST API의 경우 리소스에 표준 HTTP 동사 수행 작업을 사용하는 것이 균일한 인터페이스에 포함된다. 가장 일반적인 작업은 GET, POST, PUT, PATCH, DELETE 등이다.</p></li>
+
+<li><p>REST API는 상태 비저장 요청 모델을 사용한다. <strong>HTTP 요청은 독립적이어야 하고 임의 순서대로 발생할 수 있으므로 요청 사이에 일시적인 상태 정보를 유지할 수 없다. 정보는 리소스 자체에만 저장되며 각 요청은 자동 작업이어야 한다.</strong> 결국 이러한 클라이언트와 서버 간의 상태 유지 제약 조건 덕분에 웹 서비스를 확장하는데 유리한 면이 생기게 되었다. (둘 간에 상태를 처리할 필요가 없기 때문에) 하지만 웹 서비스가 백 엔드 데이터 저장소에 데이터를 쓰는 경우 규모 확장이 어려울 수 있다.</p></li>
+
+<li><p>REST API는 표현에 포함된 하이퍼미디어 링크에 따라 구동된다. 예를 들어 아래는 주문 요청을 JSON 형식으로 나타낸 것이다. 해당 요청에는 주문과 관련된 고객 정보를 가져오고 업데이트하는 링크를 포함하고 있다.</p>
+
+<pre><code class="language-json">{
+&quot;orderId&quot;: 3,
+&quot;productId&quot;: 2,
+&quot;quantity&quot;: 4,
+&quot;orderValue&quot;: 16,
+&quot;links&quot;: [
+{&quot;rel&quot;:&quot;product&quot;, &quot;href&quot;:&quot;https://adventure-works.com/customers/3&quot;, &quot;action&quot;:&quot;GET&quot;},
+{&quot;rel&quot;:&quot;product&quot;,&quot;href&quot;:&quot;https://adventure-works.com/customers/3&quot;, &quot;action&quot;:&quot;PUT&quot; }
+]
 }
-</code></pre></div><h1 id="잘-디자인된-웹-api가-지원해야-하는-특성">잘 디자인된 웹 API가 지원해야 하는 특성</h1>
+</code></pre></li>
+</ul>
+
+<h1 id="잘-디자인된-웹-api가-지원해야-하는-특성">잘 디자인된 웹 API가 지원해야 하는 특성</h1>
+
 <h2 id="플랫폼-독립성">플랫폼 독립성</h2>
+
 <p>모든 클라이언트는 내부에서 API가 구현되는 방법에 관계없이 API를 호출할 수 있어야 한다. 이를 위해서는 표준 프로토콜을 사용해야 하고 클라이언트 및 웹 서비스가 교환할 데이터 형식에 동의할 수 있는 매커니즘이 있어야 한다.</p>
+
 <h2 id="서비스-진화">서비스 진화</h2>
+
 <p>Web API는 클라이언트 <strong>응용 프로그램과 독립적으로</strong> 기능을 진화시키고 추가할 수 있어야 한다. API가 진화해도 기존 클라이언트 응용 프로그램은 수정 없이 계속 작동할 수 있어야 한다. 모든 기능은 클라이언트 응용 프로그램이 해당 기능을 완전히 이용할 수 있도록 검색이 가능하다.</p>
-<h1 id="richardson-성숙도-모델richardson-maturity-model">Richardson 성숙도 모델(Richardson Maturity Model)</h1>
+
+<h1 id="richardson-성숙도-모델-richardson-maturity-model">Richardson 성숙도 모델(Richardson Maturity Model)</h1>
+
 <p>REST 방식의 주요 요소들을 3개의 단계로 나눈 모델이며 이 모델은 리소스, HTTP 메서드(verbs), 하이퍼미디어 컨트롤을 도입한다.</p>
-<p><img src="./images/RMM.png" alt="RMM" title="Richardson Maturity Model"></p>
+
+<p><img src="./images/RMM.png" alt="RMM" title="Richardson Maturity Model" /></p>
+
 <h2 id="레벨-0">레벨 0</h2>
+
 <p>이 모델의 시작점은 웹 매커니즘은 전혀 사용하지 않고 HTTP를 단순히 원격 통신을 위한 전송 시스템으로 사용하는 것이다. 여기서는 원격 프로시저 호출(Remote Precedure Invocation)에 기반한 원격 통신 매커니즘을 위한 터널링 매커니즘으로서 HTTP를 사용하는 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">            |                             |
+
+<pre><code class="language-plain">            |                             |
             |                             |
             o-----------------------------x AppointmentService
             | POST/OpenSlotRequest        |
@@ -169,10 +190,15 @@
             |       RESPONSE/Apointment   |
             |                             |
             |                             |
-</code></pre></div><p>레벨 0 단계에서는 단순히 POX(Plain Old XML)을 주고 받는 단순한 RPC 스타일 시스템에 불과하다.</p>
+</code></pre>
+
+<p>레벨 0 단계에서는 단순히 POX(Plain Old XML)을 주고 받는 단순한 RPC 스타일 시스템에 불과하다.</p>
+
 <h2 id="레벨-1-리소스-사용">레벨 1: 리소스 사용</h2>
+
 <p>이 단계는 리소스를 도입하는 것이다. 레벨 0에서처럼 모든 요청을 단일 서비스 엔드포인트로 보내는 것이 아니라 개별 리소스와 통신하도록 설계하는 단계이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">           |                                  |
+
+<pre><code class="language-plain">           |                                  |
            |                                  |
            | POST/OpenSlotRequest             |
            O----------------------------------X doctors/mjones
@@ -189,29 +215,42 @@
            X----------------------------------o
            |          RESPONSE/Appointment    |
            |                                  |
-</code></pre></div><p>위 그림에서 첫 요청에서 해당 의사에 대한 리소스를 먼저 아래와 같이 POST로 요청하고 해당 결과 값을 받아올 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">POST</span> /doctors/mjones <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
-<span style="color:#960050;background-color:#1e0010">[</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">s</span> <span style="color:#ae81ff">other headers]</span>
+</code></pre>
 
-&lt;OpenSlotRequest date=&#34;2018-01-01&#34; /&gt;
-</code></pre></div><p>이 때, 중요한 것은 응답은 같은 기본 정보를 제공하지만 각 시간대는 이제 개별적으로 어드레싱이 가능한 리소스라는 점이다. 의사 정보를 요청하는 것과 마찬가지로 예약은 특정 시간대로 요청을 보내는 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">POST</span> /slots/1234 <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
-<span style="color:#960050;background-color:#1e0010">[</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">s</span> <span style="color:#ae81ff">other headers]</span>
+<p>위 그림에서 첫 요청에서 해당 의사에 대한 리소스를 먼저 아래와 같이 POST로 요청하고 해당 결과 값을 받아올 것이다.</p>
+
+<pre><code class="language-http">POST /doctors/mjones HTTP/1.1
+[various other headers]
+
+&lt;OpenSlotRequest date=&quot;2018-01-01&quot; /&gt;
+</code></pre>
+
+<p>이 때, 중요한 것은 응답은 같은 기본 정보를 제공하지만 각 시간대는 이제 개별적으로 어드레싱이 가능한 리소스라는 점이다. 의사 정보를 요청하는 것과 마찬가지로 예약은 특정 시간대로 요청을 보내는 것이다.</p>
+
+<pre><code class="language-http">POST /slots/1234 HTTP/1.1
+[various other headers]
 
 &lt;RequestAppointment&gt;
-    &lt;patient id=&#34;jsmith&#34; /&gt;
+    &lt;patient id=&quot;jsmith&quot; /&gt;
 &lt;/RequestAppointment&gt;
-</code></pre></div><p>여기에 문제가 없다면 아래와 같은 응답을 받을 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
-<span style="color:#960050;background-color:#1e0010">[</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">s</span> <span style="color:#ae81ff">headers]</span>
+</code></pre>
+
+<p>여기에 문제가 없다면 아래와 같은 응답을 받을 것이다.</p>
+
+<pre><code class="language-http">HTTP/1.1 200 OK
+[various headers]
 
 &lt;appointment&gt;
-    &lt;slot id=&#34;1234&#34; doctor=&#34;mjones&#34; start=&#34;1400&#34; end=&#34;1450&#34; /&gt;
-    &lt;patient id=&#34;jsmith&#34; /&gt;
+    &lt;slot id=&quot;1234&quot; doctor=&quot;mjones&quot; start=&quot;1400&quot; end=&quot;1450&quot; /&gt;
+    &lt;patient id=&quot;jsmith&quot; /&gt;
 &lt;/appointment&gt;
-</code></pre></div><h2 id="레벨-2-http-메서드-사용verbs">레벨 2: HTTP 메서드 사용(Verbs)</h2>
+</code></pre>
+
+<h2 id="레벨-2-http-메서드-사용-verbs">레벨 2: HTTP 메서드 사용(Verbs)</h2>
+
 <p>레벨 0, 레벨 1의 모든 통신에서 HTTP POST 메서드를 사용했지만 레벨 2에서는 HTTP 사용법에 가능한 가깝게 HTTP 메서드를 사용하여 API를 구현한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">
+
+<pre><code class="language-plain">
         |                                       |
         | GET/?date=20180101&amp;status=open        |
         o---------------------------------------x doctors/mjones/slots
@@ -226,19 +265,25 @@
         |                           201 Created |
         |     Location: slots/1234/appointments |
         |                                       |
-</code></pre></div><p>레벨 2는 HTTP 메서드와 HTTP 응답 코드의 사용을 도입한다. 여기에 일관성 문제가 생겨나는데 REST 옹호자들은 모든 HTTP 메서드 사용에 대해 언급하지만 웹의 존재에 의해 지지되는 핵심 요소들은 발생한 에러의 종류를 커뮤니케이션하기 위해 상태 코드를 사용하는 것과 안전한 오퍼레이션(GET 등)과 안전하지 않은 오퍼레이션 간의 분리를 제공하는 것이다.</p>
+</code></pre>
+
+<p>레벨 2는 HTTP 메서드와 HTTP 응답 코드의 사용을 도입한다. 여기에 일관성 문제가 생겨나는데 REST 옹호자들은 모든 HTTP 메서드 사용에 대해 언급하지만 웹의 존재에 의해 지지되는 핵심 요소들은 발생한 에러의 종류를 커뮤니케이션하기 위해 상태 코드를 사용하는 것과 안전한 오퍼레이션(GET 등)과 안전하지 않은 오퍼레이션 간의 분리를 제공하는 것이다.</p>
+
 <h2 id="레벨-3-하이퍼미디어-컨트롤-도입">레벨 3: 하이퍼미디어 컨트롤 도입</h2>
+
 <p>마지막 레벨은 HATEOAS(Hypertext As The Engine Of Application state)라는 약어로 종종 언급되는 것을 도입하는 단계이다. 예시에 적용하여 설명하자면, 예약을 하기 위해 필요한 요청을, 가능한 시간대 목록을 가져오면서 알 수 있는 디자인 방법이다.</p>
+
 <p>먼저 아래의 다이어그램을 보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">        |                                       |
+
+<pre><code class="language-plain">        |                                       |
         o---------------------------------------&gt; doctors/mjones/slots
         | GET ?date=20180101&amp;status=open        |
         |                                       |
         &lt;---------------------------------------o
         | 200 OK OpenSlotList                   |
         | ...                                   |
-        | &lt;link rel=&#34;/linkrels/slot/book&#34;       |
-        |       url=&#34;/slots/1234&#34;               |
+        | &lt;link rel=&quot;/linkrels/slot/book&quot;       |
+        |       url=&quot;/slots/1234&quot;               |
         |                                       |
         |                                       |
         o---------------------------------------&gt;
@@ -248,32 +293,45 @@
         | 201 Created                           |
         | Location: /slots/1234/appointment     |
         |                                       |
-</code></pre></div><p>레벨 2에서 보냈던 GET과 동일한 요청으로 시작한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">GET</span> /doctors/mjones/slots?date=20100104&amp;status=open <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
-Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">royalhope.nhs.uk</span>
-</code></pre></div><p>하지만 여기에 대한 응답은 새로운 요소를 가진다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
-<span style="color:#960050;background-color:#1e0010">[</span><span style="color:#960050;background-color:#1e0010">v</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">s</span> <span style="color:#ae81ff">headers]</span>
+</code></pre>
+
+<p>레벨 2에서 보냈던 GET과 동일한 요청으로 시작한다.</p>
+
+<pre><code class="language-http">GET /doctors/mjones/slots?date=20100104&amp;status=open HTTP/1.1
+Host: royalhope.nhs.uk
+</code></pre>
+
+<p>하지만 여기에 대한 응답은 새로운 요소를 가진다.</p>
+
+<pre><code class="language-http">HTTP/1.1 200 OK
+[various headers]
 
 &lt;openSlotList&gt;
- &lt;slot id = &#34;1234&#34; doctor = &#34;mjones&#34; start = &#34;1400&#34; end = &#34;1450&#34;&gt;
-            &lt;link rel = &#34;/linkrels/slot/book&#34;
-            uri = &#34;/slots/1234&#34;/&gt;
+ &lt;slot id = &quot;1234&quot; doctor = &quot;mjones&quot; start = &quot;1400&quot; end = &quot;1450&quot;&gt;
+            &lt;link rel = &quot;/linkrels/slot/book&quot;
+            uri = &quot;/slots/1234&quot;/&gt;
  &lt;/slot&gt;
- &lt;slot id = &#34;5678&#34; doctor = &#34;mjones&#34; start = &#34;1600&#34; end = &#34;1650&#34;&gt;
-            &lt;link rel = &#34;/linkrels/slot/book&#34;
-            uri = &#34;/slots/5678&#34;/&gt;
+ &lt;slot id = &quot;5678&quot; doctor = &quot;mjones&quot; start = &quot;1600&quot; end = &quot;1650&quot;&gt;
+            &lt;link rel = &quot;/linkrels/slot/book&quot;
+            uri = &quot;/slots/5678&quot;/&gt;
  &lt;/slot&gt;
 &lt;/openSlotList&gt;
-</code></pre></div><p>이제 각 시간대는 예약하는 방법을 알려주는 URI를 포함한 링크 요소를 가진다.</p>
+</code></pre>
+
+<p>이제 각 시간대는 예약하는 방법을 알려주는 URI를 포함한 링크 요소를 가진다.</p>
+
 <p>하이퍼 미디어 컨트롤의 요점은 리소스로 다음에 무엇을 할 수 있는지, 그것을 하기 위해 다루어야 할 리소스의 URI를 함께 알려준다는 것이다. 우리가 예약 요청을 어디에 보낼지 알아야 하는 것이 아니라 응답 내에서 하이퍼미디어 컨트롤이 우리에게 그것을 어떻게 할지를 알려주는 것이다. 이러한 하이퍼미디어 컨트롤의 장점은 클라이언트 개발자가 프로토콜을 탐색할 수 있도록 돕는다. 링크는 개발자에게 다음에 무엇이 가능할지 힌트를 제공함과 동시에 새로운 기능이 추가된 경우에도 알릴 수 있다.</p>
+
 <h2 id="레벨의-의미">레벨의 의미</h2>
+
 <ul>
 <li>레벨 1은 큰 서비스 엔드포인트를 복수개의 리소스로 나누는 분할 &amp; 정복(divide and conquer)을 사용해서 복잡성을 다루는 문제를 처리한다.</li>
 <li>레벨 2는 불필요한 다양성을 제거하고, 동일한 방식으로 유사한 환경을 처리할 수 있도록 메소드의 표준 집합을 도입한다.</li>
 <li>레벨 3은 프로토콜을 더 스스로 문서화할 수 있는 방법을 제공함으로써 발견가능성(discoverability)을 도입한다.</li>
 </ul>
+
 <h1 id="출처">출처</h1>
+
 <ul>
 <li><a href="https://docs.microsoft.com/ko-kr/azure/architecture/best-practices/api-design">https://docs.microsoft.com/ko-kr/azure/architecture/best-practices/api-design</a></li>
 <li><a href="http://jinson.tistory.com/190">http://jinson.tistory.com/190</a></li>

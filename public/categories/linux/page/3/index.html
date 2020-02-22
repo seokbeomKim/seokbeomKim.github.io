@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.64.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/">리눅스 커널 락 종류 (3/5)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-04T11:40:12&#43;09:00">
+        Jun 4, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
+세마포어는 아래와 같은 경우에 적합하다.
+태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/">Major와 Minor Numbers</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -73,7 +96,7 @@
   </header>
   <div class="c-article__summary">
     세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &lsquo;c'를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &lsquo;b'를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &lsquo;c&rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -116,7 +139,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lsquo;뮤텍스는 세마 포어의 카운트가 1인 락'이라는 말도 안되는 내용으로 학교 선배로부터 배웠던 것이 기억난다. 락의 종류별로 쓰임새가 있고 장단점이 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에 대한 사용 예를 기술하고자 한다.
+    리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lsquo;뮤텍스는 세마 포어의 카운트가 1인 락&rsquo;이라는 말도 안되는 내용으로 학교 선배로부터 배웠던 것이 기억난다. 락의 종류별로 쓰임새가 있고 장단점이 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에 대한 사용 예를 기술하고자 한다.
 
   </div>
   
@@ -143,29 +166,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/jiffies/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/tasklet/">태스크릿(Tasklet)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-25T17:32:26&#43;09:00">
-        May 25, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.
-간단히 말해 tasklet은 스택이나 자체 컨텍스트가 없는 스레드와 같은 것으로 설명하고 있다.
-태스크릿(Tasklet)의 특성  태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/tasklet/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

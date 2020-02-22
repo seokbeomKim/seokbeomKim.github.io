@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>O/S on A Developer&#39;s Note</title>
@@ -69,7 +69,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&#39;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&#39;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&amp;rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&amp;rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
     </item>
     
     <item>
@@ -89,7 +89,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
-세마 포어의 카운트가 1인 락&#39;이라는 말도 안되는 내용으로 학교
+세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에
 대한 사용 예를 기술하고자 한다.&lt;/p&gt;</description>
@@ -124,8 +124,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       <guid>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던 기회였다.
 두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 crosstool-ng라는 크로스 컴파일러 생성 스크립트 도구와 buildroot라는 Makefile 패키지를 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.
-Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.
-먼저 crosstool-ng를 받는다.</description>
+Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.</description>
     </item>
     
     <item>
@@ -145,7 +144,8 @@ Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미�
       
       <guid>https://seokbeomKim.github.io/posts/osi-7-layers/</guid>
       <description>네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을 이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.
-OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.L1. 물리 계층, Physical Layer 물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다.</description>
+OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.
+L1. 물리 계층, Physical Layer 물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다.</description>
     </item>
     
     <item>
@@ -187,7 +187,7 @@ OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경�
       <guid>https://seokbeomKim.github.io/posts/kernel-module-and-drivers/</guid>
       <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
 커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
-arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용) 구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.</description>
+arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용)  구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.</description>
     </item>
     
     <item>
