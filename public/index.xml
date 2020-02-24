@@ -6,10 +6,21 @@
     <description>Recent content on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Feb 2020 18:41:53 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2020 23:01:54 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Identity Mapping</title>
+      <link>https://seokbeomKim.github.io/posts/idmap/</link>
+      <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/idmap/</guid>
+      <description>ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
+ idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
+linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.</description>
+    </item>
     
     <item>
       <title>맥북에 리눅스 설치</title>
