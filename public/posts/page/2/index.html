@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/typedef-is-evil/">typedef is evil</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-13T01:12:37&#43;09:00">
+        Feb 13, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을 비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이 되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.
+typedef struct foo { int bar; int baz; } foot_t, *pfoo_t;  위와 같이 구조체에 대한 포인터를 정의할 때 typedef을 이용하지 말 것을 당부한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/typedef-is-evil/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/">이맥스 기본 에디터로 사용하기</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -143,28 +165,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/wayland/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/">ARM64에서의 커널 메모리 맵</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-01T23:27:45&#43;09:00">
-        Feb 1, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    ARM64에서의 커널 메모리 맵 &lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&rdquo;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
-ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을 사용한다. 이 때, 가상 주소 기준으로 각 끝 영역을 사용한다는 점에 유의해야 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
