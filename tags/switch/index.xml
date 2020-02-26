@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>Switch Statement</title>
+      <title>switch 구문과 if-else 구문</title>
       <link>https://seokbeomKim.github.io/posts/switch-statement/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/switch-statement/</guid>
-      <description></description>
+      <description>개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다.
+int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A break; case FLAG_B: // do B break; case blabla: // blabla... break; default: printk(KERN_ERR &amp;quot;ERROR!\n&amp;quot;); } return 0; }  함수 포인터 배열 사용하기 if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를 들었던 기억이 났다.</description>
     </item>
     
   </channel>
