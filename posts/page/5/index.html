@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/">QEMU 이용한 임베디드 개발 환경 구축하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-22T21:29:27&#43;09:00">
+        Jun 22, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
+개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -144,28 +166,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/">리눅스 커널 락 종류 (2/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-29T00:59:34&#43;09:00">
-        May 29, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다. 많은 곳에서 뮤텍스는 세마포어의 카운트 값이 단순하게 1로 설정되었을 때를 말한다고 기술한다. 하지만 이것이 맞는 설명일까?
-참고 자료에 따르면 뮤텍스는 공유 자원으로의 접근(Access)에 대한 상호 배제(Mutual Exclusion)을 위한 수단이 Mutex라고 정의하고 있다. 이에 반해 세마포어(Semaphore)는 시그널 매커니즘으로서 스레드(또는 프로세스) 간 동기화가 주 목적으로, wait 함수를 호출한 스레드만이 뮤텍스를 신호를 보낼 수 있다는 점이 기능적인 특징이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

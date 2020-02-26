@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/endian/">Little Endian vs. Big Endian</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-01-27T22:27:06&#43;09:00">
+        Jan 27, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
+엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
+ Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/endian/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/digital_output_formats/">영상 출력 포맷</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -144,28 +167,6 @@
 sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
 명령어를 통해 제한값을 높여주면 해결된다. 맥은 설치는 쉬운데 왜이리도 설정해줘야 많은지 모르겠다.
   </div>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/">QEMU 이용한 임베디드 개발 환경 구축하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-22T21:29:27&#43;09:00">
-        Jun 22, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
-개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
