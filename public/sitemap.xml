@@ -4,21 +4,46 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-02-26T23:56:18+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/c/</loc>
-    <lastmod>2020-02-26T23:56:18+09:00</lastmod>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-02-26T23:56:18+09:00</lastmod>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/ioctl/</loc>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/ioctl_cmd_macro/</loc>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/macro/</loc>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/c/</loc>
     <lastmod>2020-02-26T23:56:18+09:00</lastmod>
   </url>
   
@@ -33,11 +58,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
-    <lastmod>2020-02-26T23:56:18+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/posts/idmap/</loc>
     <lastmod>2020-02-24T23:01:54+09:00</lastmod>
   </url>
@@ -48,17 +68,12 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-02-24T23:01:54+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/linux/</loc>
+    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
     <lastmod>2020-02-22T18:41:53+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
+    <loc>https://seokbeomKim.github.io/tags/linux/</loc>
     <lastmod>2020-02-22T18:41:53+09:00</lastmod>
   </url>
   
@@ -378,12 +393,12 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/qemu/</loc>
+    <loc>https://seokbeomKim.github.io/categories/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url>
   
