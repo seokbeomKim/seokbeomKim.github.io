@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ioctl_cmd_macro/">ioctl()에 전달되는 cmd 관련 매크로 함수</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-27T00:23:10&#43;09:00">
+        Feb 27, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한다.
+저수준 파일 입출력 함수인 ioctl()을 디바이스 파일에 적용시키면 디바이스 파일에 연결된 디바이스 드라이버의 file_operation 구조체의 ioctl 필드에 선언된 함수가 호출된다. ioctl 함수는 디바이스마다 고유하게 선언하여 사용하는데, 일반적으로 하드에워의 제어나 상태를 얻기 위해 사용한다.
+cmd 구성 디바이스 드라이버의 ioctl() 함수에 전달되는 매개변수 cmd는 응용 프로그램이 디바이스 드라이버에게 요구한 처리를 구별하기 위한 구별값이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/ioctl_cmd_macro/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/switch-statement/">switch 구문과 if-else 구문</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -150,29 +173,6 @@ PIM은 기본이고 상위 레벨 프로그래밍이라면 대부분 맥 만큼 
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/">Likely and Unlikely</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-13T23:27:51&#43;09:00">
-        Feb 13, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.
-회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.
-likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -184,7 +184,7 @@ likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 �
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 1 of 11</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 12</span>
 </nav>
 
 

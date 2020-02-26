@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-04T17:34:42&#43;09:00">
+        Jun 4, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    1. 들어가기 전에 &hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
+RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/rcu/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/">Major와 Minor Numbers</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -144,29 +166,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/tasklet/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/">커널 모듈과 드라이버의 차이</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-16T02:11:40&#43;09:00">
-        May 16, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
-커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
-arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용)  구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
