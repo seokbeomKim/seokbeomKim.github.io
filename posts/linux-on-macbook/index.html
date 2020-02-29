@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -82,54 +82,40 @@
   
   
   <section id="js-article" class="p-article__body">
-    
-
-<h1 id="개요">개요</h1>
-
+    <h1 id="개요">개요</h1>
 <p>맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반
 동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한
 운영체제였지만 동시에 맥 만의 단점을 갖고 있었고, 생각보다 꽤 크게
 다가왔다.</p>
-
 <p>PIM은 기본이고 상위 레벨 프로그래밍이라면 대부분 맥 만큼 좋은
 운영체제는 없을 것이다. BSD 기반으로 만들어져 완벽하지는 않지만 포팅을
 하면 어느정도 리눅스에 가까울 정도로 native로 실행 가능하고 다양한
 분야에서 강력한 유료 애플리케이션이 지원되기 때문에 정말 만족스럽게
 사용할 수 있다.</p>
-
 <p>다만 맥은 WSL을 도입하면서 윈도우즈가 갖게된 리눅스 플랫폼(?)과의
 호환성을 가지고 있지 않다. 포팅은 되지만 기본적으로 리눅스 배포판들이
 갖는 환경을 구성하기가 매우 힘들다. 게다가 완전한 독점 플랫폼이고
 하드웨어조차 security chip을 도입하고 있기 때문에 맥 OS 외에는 설치조차
 힘들다. (불행인지 다행인지, 현재 갖고 있는 2017년형 13인치 논터치바
 모델은 블루투스와 사운드를 제외하고는 전부 잘 작동하는 것 같다.)</p>
-
 <p>또한, 크로스 컴파일러를 이용한 커널 빌드를 위한 환경 구성에도 그닥
 좋지 않다. bare-metal 크로스 컴파일러를 구성한다면 상관없겠지만,
 커널을 빌드하기 위해 필요한 glibc, openssl, &hellip; 등의 라이브러리들이
 포함되기 시작하면 매우 까다로운 작업이 된다. 맥에서 LFS (Linux From
 Scratch) 프로젝트를 할 것도 아닌데, 그만큼의 노력과 시간이 요구되는
 아이러니한 상황이 펼쳐진다.</p>
-
 <h1 id="맥북과-커널의-호환성">맥북과 커널의 호환성</h1>
-
 <p>현재, mbp 기준 리눅스 커널의 기본 드라이버들과의 호환성은 그닥 좋지
 않다. 호환성은 <a href="https://github.com/Dunedan/mbp-2016-linux#bluetooth">https://github.com/Dunedan/mbp-2016-linux#bluetooth</a>
 페이지에서 확인해볼 수 있다. 논터치바 13인치 모델(13,1)을 제외하고는
 와이파이조차 안된다는 점에 유의하자.</p>
-
 <h1 id="우분투-설치">우분투 설치</h1>
-
 <p>개인적으로 우분투는 별로 좋아하지 않지만 설치 후 서드 파티 드라이버
 설치를 간편하게 하기 위해 우분투를 설치하기로 했다.</p>
-
-<pre><code class="language-shell">$ hdiutil convert -format UDRW -o ~/Desktop/ubuntu.img ~/Downloads/ubuntu.iso
-$ dd if=ubuntu.img of=/dev/disk2 bs=1m # /dev/disk2 는 반드시 직접 확인해야 한다.
-</code></pre>
-
-<p>dd 명령어로 img 파일을 USB 에 구울 때 busy resource 에러가 나온다면,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hdiutil convert -format UDRW -o ~/Desktop/ubuntu.img ~/Downloads/ubuntu.iso
+$ dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>ubuntu.img of<span style="color:#f92672">=</span>/dev/disk2 bs<span style="color:#f92672">=</span>1m <span style="color:#75715e"># /dev/disk2 는 반드시 직접 확인해야 한다.</span>
+</code></pre></div><p>dd 명령어로 img 파일을 USB 에 구울 때 busy resource 에러가 나온다면,
 디스크 유틸리티에서 해당 파티션을 unmount 해주고 다시 실행해야 한다.</p>
-
 <p>나머지는 간단하다. USB를 넣고 맥북 재부팅 시 option키를 눌러
 이동식디스크로 부트해주면 설치를 진행할 수 있다.</p>
 

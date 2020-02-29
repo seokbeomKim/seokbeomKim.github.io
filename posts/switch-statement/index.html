@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -76,42 +76,34 @@
   
   
   <section id="js-article" class="p-article__body">
-    
-
-<h1 id="개요">개요</h1>
-
+    <h1 id="개요">개요</h1>
 <p>실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은
 case 구문을 보았다.</p>
-
-<pre><code class="language-c++">int switch_example(unsigned int flag) {
-    switch (flag) {
-    case FLAG_A:
-	// do A
-	break;
-    case FLAG_B:
-	// do B
-	break;
-    case blabla:
-	// blabla...
-	break;
-    default:
-	printk(KERN_ERR &quot;ERROR!\n&quot;);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">switch_example</span>(<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> flag) {
+    <span style="color:#66d9ef">switch</span> (flag) {
+    <span style="color:#66d9ef">case</span> FLAG_A:
+	<span style="color:#75715e">// do A
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">break</span>;
+    <span style="color:#66d9ef">case</span> FLAG_B:
+	<span style="color:#75715e">// do B
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">break</span>;
+    <span style="color:#66d9ef">case</span> blabla:
+	<span style="color:#75715e">// blabla...
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">break</span>;
+    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+	printk(KERN_ERR <span style="color:#e6db74">&#34;ERROR!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
     }
 
-    return 0;
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-
-<h1 id="함수-포인터-배열-사용하기">함수 포인터 배열 사용하기</h1>
-
+</code></pre></div><h1 id="함수-포인터-배열-사용하기">함수 포인터 배열 사용하기</h1>
 <p>if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부
 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를
 들었던 기억이 났다. 하지만 if-else 구문을 사용하면 여러 개의 branch 가
 생기기 때문에 처음 위 예제로 간단하게 작성한 코드를 아래와 같이
 변환하려 했었다.</p>
-
-<pre><code class="language-c++">int use_array_example (unsigned int flag) {
-    void* handler[] = {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">use_array_example</span> (<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> flag) {
+    <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> handler[] <span style="color:#f92672">=</span> {
 	handler_A,
 	handler_B,
 	handler_C
@@ -119,20 +111,15 @@ case 구문을 보았다.</p>
 
     handler[flag]();
 }
-</code></pre>
-
-<p>사용할 flag는 정해져 있고 함수 포인터를 담고 있는 배열을 사용한다면
+</code></pre></div><p>사용할 flag는 정해져 있고 함수 포인터를 담고 있는 배열을 사용한다면
 불필요한 분기로 인한 성능 손실을 없애고 곧바로 호출할 수 있기 때문에
 위와 같이 개선하려 했다. 하지만, 막상 switch 문에 대해 구글링 해보니
 아래와 같은 답변을 찾을 수 있었다.</p>
-
 <h1 id="switch-문과-컴파일러-최적화">switch 문과 컴파일러 최적화</h1>
-
 <p><a href="https://www.geeksforgeeks.org/switch-vs-else/">https://www.geeksforgeeks.org/switch-vs-else/</a> 내용에 따르면, switch
 문을 사용할 경우 컴파일 시에 &lsquo;jump table(lookup table)&rsquo; 또는 hash
 list를 만들어 최적화를 시도하기 때문에 단순하게 if-else 를 사용할
 때보다 실행 속도 측면에서 더 유리하다고 한다.</p>
-
 <p>분명 학부시절 때 알아야 했을 기본적인 내용이지만, 몇 년이 지나서도
 이러한 기본적인 내용을 계속해서 살펴보게 되는 것 같다. 배우고 기억하려
 해도 끝이 보이지 않는다.</p>

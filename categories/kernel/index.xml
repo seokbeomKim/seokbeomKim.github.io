@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kernel on A Developer&#39;s Note</title>
@@ -6,10 +6,20 @@
     <description>Recent content in kernel on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Feb 2020 00:23:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 29 Feb 2020 23:34:30 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>리눅스에서의 버퍼링 방식</title>
+      <link>https://seokbeomKim.github.io/posts/buffering-in-linux/</link>
+      <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/buffering-in-linux/</guid>
+      <description>리눅스에서의 버퍼링 정책 리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
+만약 write 호출로 데이터를 쓰기 명령을 전달하면 해당 파일 작업을 위한 버퍼에 기록을 해 두었다가 정책에 따라 특정 시점에 물리적인 파일에 기록을 수행한다. 리눅스에서 제공하는 버퍼링 정책에는 버퍼가 꽉 차면 물리적인 파일에 기록하는 Full Buffering과 꽉 차거나 개행문자가 오면 처리하는 Line Buffering, 버퍼를 사용하는 않는 Null Buffering 정책을 제공하고 있다.</description>
+    </item>
     
     <item>
       <title>ioctl()에 전달되는 cmd 관련 매크로 함수</title>
@@ -70,7 +80,7 @@ likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 �
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/</guid>
-      <description>ARM64에서의 커널 메모리 맵 &amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;rdquo;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
+      <description>ARM64에서의 커널 메모리 맵 &amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;quot;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
 ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을 사용한다. 이 때, 가상 주소 기준으로 각 끝 영역을 사용한다는 점에 유의해야 한다.</description>
     </item>
     
@@ -82,7 +92,7 @@ ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 �
       <guid>https://seokbeomKim.github.io/posts/gpio_mapping/</guid>
       <description>GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
 GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
- 디바이스 트리 이용 (최근 트렌드) Legacy Board &amp;amp; Machine Specific Code에서 플랫폼 데이터로 정의  (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.</description>
+ 디바이스 트리 이용 (최근 트렌드) Legacy Board &amp;amp; Machine Specific Code에서 플랫폼 데이터로 정의   (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.</description>
     </item>
     
     <item>
@@ -103,7 +113,7 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
       
       <guid>https://seokbeomKim.github.io/posts/kobject/</guid>
       <description>kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
-61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 };  커널 문서(https://www.</description>
+61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.</description>
     </item>
     
     <item>
@@ -134,7 +144,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&amp;rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&amp;rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&#39;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&#39;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
     </item>
     
     <item>
@@ -144,7 +154,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
-세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
+세마 포어의 카운트가 1인 락&#39;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에
 대한 사용 예를 기술하고자 한다.&lt;/p&gt;</description>
@@ -179,7 +189,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       <guid>https://seokbeomKim.github.io/posts/kernel-module-and-drivers/</guid>
       <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
 커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
-arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용)  구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.</description>
+arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용) 구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.</description>
     </item>
     
     <item>

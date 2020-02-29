@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -78,95 +78,74 @@
   
   <aside>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#프로세스-process-란">프로세스(Process)란?</a>
-<ul>
-<li><a href="#프로세스-디스크립터-pcb">프로세스 디스크립터, PCB</a></li>
-</ul></li>
-<li><a href="#출처">출처</a></li>
-</ul>
+  <ol>
+    <li><a href="#프로세스process란">프로세스(Process)란?</a>
+      <ol>
+        <li><a href="#프로세스-디스크립터-pcb">프로세스 디스크립터, PCB</a></li>
+      </ol>
+    </li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
   </aside>
   
   
   <section id="js-article" class="p-article__body">
-    
-
-<p>앞으로 리눅스 커널 공부를 해가면서 포스팅으로 정리해둘
+    <p>앞으로 리눅스 커널 공부를 해가면서 포스팅으로 정리해둘
 계획이다. 디바이스 드라이버 개발 이전에 리눅스라는 운영체제에 대해
 개인적으로 정리해야할 필요성을 느꼈다. 그리고 최신 커널을 사용하기
 보다 상대적으로 오래된 커널을 시작으로 공부하고자 한다. 기본 틀은 크게
 변하지 않았을거라 생각하고 충분히 이해한 뒤에 최근 버전을 받아 개발
 흐름을 이해하는 것이 옳은 방법이라 생각하였다.</p>
-
 <p>이 문서에서는 리눅스/유닉스 운영체제의 기본 추상화 개념 중 하나인
 프로세스에 대해 정리하고자 한다. 정리에 필요한 정보 수집을 위해서
 Linux kernel development(3rd edition) 책과 LWN 등의 사이트들을
 참고한다.</p>
-
 <p>문서는 계속해서 업데이트할 예정이며, 내용이 추가되면 문서를 분리하거나
 링크를 통해 업데이트할 예정이다.</p>
-
-<h1 id="프로세스-process-란">프로세스(Process)란?</h1>
-
+<h1 id="프로세스process란">프로세스(Process)란?</h1>
 <p>프로세스는 실행 중인 프로그램으로 다음과 같은 리소스들을 포함한다.</p>
-
 <h2 id="프로세스-디스크립터-pcb">프로세스 디스크립터, PCB</h2>
-
 <p>프로세스 디스크립트(Process Descriptor)는 Task Descriptor 또는 Process
 Control Block이라고도 불린다. 프로세스의 전반적인 정보들을 담고 있으며
 대표적인 것들은 아래와 같다.</p>
-
 <ol>
-<li><p>프로세스가 사용 중인 파일</p>
-
-<pre><code class="language-c++">struct files_struct *files;
-</code></pre>
-
-<p>파일 디스크립터 테이블을 포함한다. 이 정보는 태스크(프로세스를 커널
+<li>
+<p>프로세스가 사용 중인 파일</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">files_struct</span> <span style="color:#f92672">*</span>files;
+</code></pre></div><p>파일 디스크립터 테이블을 포함한다. 이 정보는 태스크(프로세스를 커널
 내부에서는 Task라 일컫는다.) 간에 공유할 수 있으며 <code>CLONE_FILES</code>를
-이용해 특정할 수 있다.</p></li>
-
-<li><p>파일시스템 정보</p>
-
-<pre><code class="language-c++">struct fs_struct *fs;
-</code></pre>
-
-<p>처음 소스를 보자마자 이해하기 어려운 부분이었다. 어째서 프로세스가
+이용해 특정할 수 있다.</p>
+</li>
+<li>
+<p>파일시스템 정보</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">fs_struct</span> <span style="color:#f92672">*</span>fs;
+</code></pre></div><p>처음 소스를 보자마자 이해하기 어려운 부분이었다. 어째서 프로세스가
 파일시스템 정보까지 가지고 있어야 하는가? 출처에서 이 부분은 아래와
-같이 설명하고 있다.<br><br></p>
-
+같이 설명하고 있다.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <ul>
 <li>root directory&rsquo;s dentry and mountpoint.</li>
 <li>alternate root directory&rsquo;s dentry and mountpoint.</li>
 <li>current working directory&rsquo;s dentry and mountpoint.</li>
 </ul>
-
 <p>즉, <code>ext4, xfs</code> 와 같은 파일시스템의 정보가 아니라 프로세스 실행
 환경을 위한 루트 디렉토리의 엔트리 정보와 마운트 포인트 정보를 가지고
-있는 것이다. 이 부분에 대해서는 나중에 좀 더 알아봐야겠다.</p></li>
-
-<li><p>대기 중인 시그널과 시그널 핸들러</p>
-
-<pre><code class="language-c++">struct signal_struct *signal;
-struct sighand_struct *sighand;
-</code></pre></li>
-</ol>
-
-<p>파일시스템 정보와 마찬가지로 <code>clone</code> 된 태스크들과 공유할 수 있는
-   정보이며 <code>CLONE_SIGHAND</code>를 통해서 특정할 수 있다.</p>
-
-<ol>
-<li><p>프로세서 상태</p>
-
-<pre><code class="language-c++">/* -1 unrunnable, 0 runnable, &gt;0 stopped */
-volatile long state;
-</code></pre>
-
-<p>프로세스의 상태를 <code>volatile</code>이라는 키워드와 함께한 변수로 담고
+있는 것이다. 이 부분에 대해서는 나중에 좀 더 알아봐야겠다.</p>
+</li>
+<li>
+<p>대기 중인 시그널과 시그널 핸들러</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">signal_struct</span> <span style="color:#f92672">*</span>signal;
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">sighand_struct</span> <span style="color:#f92672">*</span>sighand;
+</code></pre></div><p>파일시스템 정보와 마찬가지로 <code>clone</code> 된 태스크들과 공유할 수 있는
+정보이며 <code>CLONE_SIGHAND</code>를 통해서 특정할 수 있다.</p>
+</li>
+<li>
+<p>프로세서 상태</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/* -1 unrunnable, 0 runnable, &gt;0 stopped */</span>
+<span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">long</span> state;
+</code></pre></div><p>프로세스의 상태를 <code>volatile</code>이라는 키워드와 함께한 변수로 담고
 있으며 단순하게 unrunnable, runnable, stopped 등으로 구분하고
 있다.</p>
-
 <blockquote>
 <p>여기서 <code>volatile</code>은 왜 사용된 걸까? TLDP 출처에는 &ldquo;The volatile
 in p-&gt;state declaration means it can be modified asynchronously
@@ -175,56 +154,47 @@ in p-&gt;state declaration means it can be modified asynchronously
 살펴보면 &ldquo;volatile&rdquo; 타입 클래스를 사용해서는 안되는지에 대한
 설명이 나와있는데 실제로 state 변수를 제외하고는 sched.h 나머지
 어디에도 사용되고 있지 않다. 그 이유는 다음과 같다:</p>
-
 <p>volatile의 목적은 최적화를 막는 것이다. 커널은 데이터 구조들을
 원치 않은 동시 접근(concurrent access)로부터 철저하게 보호해야
 하는데 그러한 보호 과정으로 최적화에 관련된 문제들을 더 효과적인
 방법으로 피해갈 수 있다.</p>
-
 <p>volatile과 같이 커널에는 동시 접근으로부터 데이터를 보호하기
 위해 spinlocks, mutexes, memory barriers 등으로 원치 않은
 최적화를 막기 위해 설계했다. 문서에는 &ldquo;그러한 설계된 도구들을
 충분히 잘 활용할 수 있다면 volatile을 사용할 이유가 없고,
 volatile이 여전히 필요하다면 대부분 코드 어딘가에 버그가 내재된
 것이다&rdquo; 라고 설명하고 있다.</p>
-
 <p>하지만, 프로세스 상태와 같이 멀티 프로세스 환경에서 반드시 여러
 개의 쓰레드에 공유되어야 하는 변수들은 volatile을 사용하여
 컴파일러가 최적화하는 것을 막는다.</p>
 </blockquote>
-
 <p>프로세스의 상태는 매크로 형태로 정의되어 있다. 커널
 버전(5.x)에서는 값들이 Hex 값으로 정의되어 있는 반면, 2.6.x
 버전에서는 단순히 정수형으로 정의되어 있다. 이전 커널과의 주요
 차이점은 Task의 상태를 <code>TASK_RUNNING</code>, <code>TASK_INTERRUPTIBLE</code>,
 <code>TASK_UNINTERRUPTIBLE</code>, <code>TASK_DEAD</code>, <code>TASK_WAKEKILL</code>,
 <code>TASK_WAKING</code> 등으로 구분하고 종료 시점의 상태를 별도로 구분하여
-<code>EXIT_ZOMBIE</code>, <code>EXIT_DEAD</code> 등으로 정의해 놓았다는 점이다.</p></li>
-
-<li><p>하나 이상의 물리적 메모리 영역이 할당된 메모리 주소 공간</p>
-
+<code>EXIT_ZOMBIE</code>, <code>EXIT_DEAD</code> 등으로 정의해 놓았다는 점이다.</p>
+</li>
+<li>
+<p>하나 이상의 물리적 메모리 영역이 할당된 메모리 주소 공간</p>
 <p>메모리 관리용 데이터 구조로서(객체라는 말은 사용하지 않겠다.)
 task_struct 안에는 해당 정보들을 받아올 수 있는 <code>mm_struct</code>를
 포함하고 있다.</p>
-
-<pre><code class="language-c++">struct mm_struct *mm, *active_mm;
-</code></pre></li>
-
-<li><p>실행 중인 하나 이상의 스레드 정보</p>
-
-<pre><code class="language-c++">/* CPU-specific state of this task */
-struct thread_struct thread;
-</code></pre>
-
-<p>역시 다른 정보들과 마찬가지로 thread에 대한 정보를 가지고
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">mm_struct</span> <span style="color:#f92672">*</span>mm, <span style="color:#f92672">*</span>active_mm;
+</code></pre></div></li>
+<li>
+<p>실행 중인 하나 이상의 스레드 정보</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/* CPU-specific state of this task */</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">thread_struct</span> <span style="color:#66d9ef">thread</span>;
+</code></pre></div><p>역시 다른 정보들과 마찬가지로 thread에 대한 정보를 가지고
 있다. 리눅스에서는 프로세스와 스레드를 구분하지 않고 모두 스레드로
 관리하고 스케쥴링한다. 둘의 차이점은 공유 자원을 다른 스레드와
 공유하느냐 공유하지 않느냐에 따라 구분하며, 프로세스가 생성되면
-커널 내부에서는 프로세스가 아닌 스레드 한 개가 생성된 것과 같다.</p></li>
+커널 내부에서는 프로세스가 아닌 스레드 한 개가 생성된 것과 같다.</p>
+</li>
 </ol>
-
 <h1 id="출처">출처</h1>
-
 <ul>
 <li><a href="https://www.tldp.org/LDP/tlk/tlk.html">https://www.tldp.org/LDP/tlk/tlk.html</a></li>
 <li><a href="https://www.tldp.org/LDP/lki/lki-2.html">https://www.tldp.org/LDP/lki/lki-2.html</a></li>

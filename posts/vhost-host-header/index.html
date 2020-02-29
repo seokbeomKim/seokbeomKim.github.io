@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -78,65 +78,45 @@
   
   <aside>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#virtual-host-and-host-header">Virtual Host and Host Header</a>
-<ul>
-<li><a href="#가상-호스트-virtual-host">가상 호스트(Virtual Host)</a>
-<ul>
-<li><a href="#이름-기반-name-based">이름 기반(Name-based)</a></li>
-<li><a href="#ip-주소-기반-ip-based">IP 주소 기반(IP-based)</a></li>
-<li><a href="#포트-기반-port-based">포트 기반(Port-based)</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#출처">출처</a></li>
-</ul>
+  <ol>
+    <li><a href="#virtual-host-and-host-header">Virtual Host and Host Header</a>
+      <ol>
+        <li><a href="#가상-호스트virtual-host">가상 호스트(Virtual Host)</a>
+          <ol>
+            <li><a href="#이름-기반name-based">이름 기반(Name-based)</a></li>
+            <li><a href="#ip-주소-기반ip-based">IP 주소 기반(IP-based)</a></li>
+            <li><a href="#포트-기반port-based">포트 기반(Port-based)</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
   </aside>
   
   
   <section id="js-article" class="p-article__body">
-    
-
-<h1 id="virtual-host-and-host-header">Virtual Host and Host Header</h1>
-
+    <h1 id="virtual-host-and-host-header">Virtual Host and Host Header</h1>
 <p>문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가상 호스트와 호스트 헤더 간에는 무슨 관계가 있는 것일까.
 이 문서에서는 가상 호스트와 가상호스트 종류, 그리고 마지막으로 호스트 헤더와 어떤 식으로 연관되는지에 대해 설명하겠다.</p>
-
-<h2 id="가상-호스트-virtual-host">가상 호스트(Virtual Host)</h2>
-
+<h2 id="가상-호스트virtual-host">가상 호스트(Virtual Host)</h2>
 <p>가상호스트란 싱글 서버(또는 서버 풀)에서 여러 개의 도메인 이름으로 호스팅하기 위한 방법이다. 가상 호스트를 사용함으로써 얻는 이점은 하나의 서버로 해당 서버의 리소스(메모리, 프로세서 사이클 등)를 공유할 수 있다는 점이다. 이러한 특징을 잘 살린 것이 <strong>Shared Web Hosting</strong>이라는 서비스이다. 서버 한 대를 통째로 소비자에게 빌려주는 방식이 아닌 서버 하나에 가상 호스트를 이용하여 여러 개의 웹 서비스를 구축하는 방식이다.</p>
-
 <p>가상 호스트에는 <strong>Name-based</strong> 방식과 <strong>IP-based</strong> 방식 등 두 가지 방식이 있다.</p>
-
-<h3 id="이름-기반-name-based">이름 기반(Name-based)</h3>
-
+<h3 id="이름-기반name-based">이름 기반(Name-based)</h3>
 <p>Name-based 방식의 가상 호스트는 같은 IP 주소를 가지고 여러 개의 호스트명을 가진다. 이 때, 기술적인 요구사항은 HTTP/1.1 프로토콜에서의 REQUEST 메시지 안에 들어가 있는 호스트 헤더이다. 서버는 클라이언트가 보낸 요청의 호스트 헤더를 통해 어떤 가상 호스트로 요청을 전달해야 할지를 파악할 수 있기 때문이다.</p>
-
 <p>참고로, 호스트 헤더의 문법은 다음과 같다.</p>
-
-<pre><code class="language-text">Host: &lt;host&gt;:&lt;port&gt;
-</code></pre>
-
-<p>아래는 실제 Request 안에 들어있는 호스트 헤더 예시이다.</p>
-
-<pre><code class="language-text">GET /pub/WWW/TheProject.html HTTP/1.1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Host: &lt;host&gt;:&lt;port&gt;
+</code></pre></div><p>아래는 실제 Request 안에 들어있는 호스트 헤더 예시이다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">GET /pub/WWW/TheProject.html HTTP/1.1
        Host: www.w3.org
-</code></pre>
-
-<p>하지만 이러한 <code>Name-based</code> 방식은 한 가지 문제점이 있는데 SSL/TLS를 사용하는 HTTPS 기반의 웹 사이트들의 경우에는 이러한 가상 호스트를 적용하기 힘들다는 것이다. 왜냐하면 SSL/TLS handshake를 위해서 인증서를 사용하게 되는데 서버 입장에서는 클라이언트가 보내는 encrypted 된 handshake 단계의 패킷들이 어떠한 서비스의 인증서인지 알 길이 없다. 때문에 이러한 문제를 해결하기 위해 <a href="#/wiki/detail/Server Name Indication(SNI)">SNI(Server Name Indication)</a>이라는 TLS의 확장이 나오게 되었는데 이를 이용하여 handshake 시작부터 서버의 어떤 호스트를 가리키는지 이름을 사용하여 문제를 해결할 수 있게 되었다.</p>
-
+</code></pre></div><p>하지만 이러한 <code>Name-based</code> 방식은 한 가지 문제점이 있는데 SSL/TLS를 사용하는 HTTPS 기반의 웹 사이트들의 경우에는 이러한 가상 호스트를 적용하기 힘들다는 것이다. 왜냐하면 SSL/TLS handshake를 위해서 인증서를 사용하게 되는데 서버 입장에서는 클라이언트가 보내는 encrypted 된 handshake 단계의 패킷들이 어떠한 서비스의 인증서인지 알 길이 없다. 때문에 이러한 문제를 해결하기 위해 [SNI(Server Name Indication)](#/wiki/detail/Server Name Indication(SNI))이라는 TLS의 확장이 나오게 되었는데 이를 이용하여 handshake 시작부터 서버의 어떤 호스트를 가리키는지 이름을 사용하여 문제를 해결할 수 있게 되었다.</p>
 <p>또 한가지 문제점은 DNS(Domain Name System)이 제대로 설정되지 않았을 때, 서버의 IP 주소를 알고 있다고 해도 가상 호스트 웹사이트에 접속할 수 없는 문제가 생긴다. 특정 도메인으로 접속하여 fall back이 발생하면 웹 브라우저는 IP 주소를 호스트이름으로 보내기 때문이다. 웹 서버가 웹 브라우저가 어떤 서버 이름(vhost)을 사용할 것인지를 요청으로 서버에게 알리는 방식이기 때문에 DNS로 인해 fallback이 발생하는 상황까지 서버에서 전부 처리해줄 수 없다. 이러한 문제의 해결 방법은 클라이언트 시스템의 호스트 파일에 서버 IP 주소와 호스트 이름을 함께 직접 추가해주는 것이다.</p>
-
-<h3 id="ip-주소-기반-ip-based">IP 주소 기반(IP-based)</h3>
-
+<h3 id="ip-주소-기반ip-based">IP 주소 기반(IP-based)</h3>
 <p>IP 기반의 가상호스팅 환경에서 각 사이트들은 고유한 IP주소를 갖는다. 이 때 웹 서버 환경은 물리적 네트워크 인터페이스를 여러개 갖고 있거나, 하나의 물리 네트워크 인터페이스 위에 여러 개의 가상 네트워크 인터페이스를 갖고 있거나, 하나의 물리 인터페이스가 여러 개의 아이피 주소를 갖고 있는 경우 중 하나에 해당한다. 또한 웹 서버는 각 IP 주소별로 LISTENING 소켓을 갖고 있거나 하나의 소켓만으로 모든 인터페이스를 LISTEN하도록 설정할 수도 있다. Name-based 방식과는 다르게 클라이언트가 어떤 가상 호스트를 선택할 것인지 결정하는 과정이 없기 때문에 Compatibility 이슈는 없다. 하지만 각 웹 사이트들마다 서로 다른 IP 주소가 필요하고 이에 따라 사이트 관리 오버헤드가 증가하게 되는 것이 단점이다.</p>
-
-<h3 id="포트-기반-port-based">포트 기반(Port-based)</h3>
-
+<h3 id="포트-기반port-based">포트 기반(Port-based)</h3>
 <p>기본 HTTP 포트는 80번이다. 하지만 LISTEN 포트를 80번에서 다른 번호로 바꿈으로써 하나의 IP 주소로 여러 개의 웹 사이트를 명시적으로 운영할 수 있다.</p>
-
 <h1 id="출처">출처</h1>
-
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Virtual_hosting">위키피디아 - 가상호스트 검색 결과</a></li>
 </ul>

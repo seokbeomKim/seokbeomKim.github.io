@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -119,7 +119,7 @@ likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 �
   </header>
   <div class="c-article__summary">
     커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을 비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이 되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.
-typedef struct foo { int bar; int baz; } foot_t, *pfoo_t;  위와 같이 구조체에 대한 포인터를 정의할 때 typedef을 이용하지 말 것을 당부한다.
+typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조체에 대한 포인터를 정의할 때 typedef을 이용하지 말 것을 당부한다. 또한, typedef unsigned long DWORD 와 같은 것도 비판한다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/typedef-is-evil/" class="c-article__btn p-list-article__btn">Read more</a>

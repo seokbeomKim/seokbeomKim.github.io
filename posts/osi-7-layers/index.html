@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -76,48 +76,46 @@
   
   <aside>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#l1-물리-계층-physical-layer">L1. 물리 계층, Physical Layer</a></li>
-<li><a href="#l2-데이터-링크-계층-data-link-layer">L2. 데이터 링크 계층, Data Link Layer</a>
-<ul>
-<li><a href="#데이터링크-계층-역할">데이터링크 계층 역할</a></li>
-<li><a href="#데이터링크의-부계층-llc와-mac">데이터링크의 부계층, LLC와 MAC</a></li>
-<li><a href="#주소-종류">주소 종류</a></li>
-</ul></li>
-<li><a href="#l3-네트워크-계층-network-layer">L3. 네트워크 계층, Network Layer</a>
-<ul>
-<li><a href="#계층-역할">계층 역할</a></li>
-</ul></li>
-<li><a href="#l4-전송-계층-transport-layer">L4. 전송 계층, Transport Layer</a>
-<ul>
-<li><a href="#계층-역할-1">계층 역할</a></li>
-</ul></li>
-<li><a href="#l5-세션-계층-session-layer">L5. 세션 계층, Session Layer</a></li>
-<li><a href="#l6-표현-계층-presentation-layer">L6. 표현 계층, Presentation Layer</a></li>
-<li><a href="#l7-응용-계층-application-layer">L7. 응용 계층, Application Layer</a></li>
-<li><a href="#계층별-전송-단위">계층별 전송 단위</a></li>
-<li><a href="#계층별-네트워킹-장비">계층별 네트워킹 장비</a></li>
-<li><a href="#출처">출처</a></li>
-</ul>
+  <ol>
+    <li><a href="#l1-물리-계층-physical-layer">L1. 물리 계층, Physical Layer</a></li>
+    <li><a href="#l2-데이터-링크-계층-data-link-layer">L2. 데이터 링크 계층, Data Link Layer</a>
+      <ol>
+        <li><a href="#데이터링크-계층-역할">데이터링크 계층 역할</a></li>
+        <li><a href="#데이터링크의-부계층-llc와-mac">데이터링크의 부계층, LLC와 MAC</a></li>
+        <li><a href="#주소-종류">주소 종류</a></li>
+      </ol>
+    </li>
+    <li><a href="#l3-네트워크-계층-network-layer">L3. 네트워크 계층, Network Layer</a>
+      <ol>
+        <li><a href="#계층-역할">계층 역할</a></li>
+      </ol>
+    </li>
+    <li><a href="#l4-전송-계층-transport-layer">L4. 전송 계층, Transport Layer</a>
+      <ol>
+        <li><a href="#계층-역할-1">계층 역할</a></li>
+      </ol>
+    </li>
+    <li><a href="#l5-세션-계층-session-layer">L5. 세션 계층, Session Layer</a></li>
+    <li><a href="#l6-표현-계층-presentation-layer">L6. 표현 계층, Presentation Layer</a></li>
+    <li><a href="#l7-응용-계층-application-layer">L7. 응용 계층, Application Layer</a></li>
+    <li><a href="#계층별-전송-단위">계층별 전송 단위</a></li>
+    <li><a href="#계층별-네트워킹-장비">계층별 네트워킹 장비</a></li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
   </aside>
   
   
   <section id="js-article" class="p-article__body">
-    
-
-<p>네트워크의 기본 개념인 <code>OSI 7-Layers</code>에 대해서 정리하고자 한다. 학부
+    <p>네트워크의 기본 개념인 <code>OSI 7-Layers</code>에 대해서 정리하고자 한다. 학부
 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층
 개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을
 이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.</p>
-
 <p>OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을
 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각
 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을
-이해해야 한다.<br><br></p>
-
+이해해야 한다.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h1 id="l1-물리-계층-physical-layer">L1. 물리 계층, Physical Layer</h1>
-
 <p>물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해
 물리적으로 신호를 주고받는 계층이다. 무인 드론 개발 프로젝트에서 각
 장비들은 스위치와 광케이블을 이용해 연결되었는데 이러한 1차적인 물리적
@@ -127,7 +125,6 @@
 사용하기도 한다. 이처럼 <strong>물리적</strong>인 신호를 주고받는 인프라들을 물리
 계층이라 하며, <code>Coax, Fiber, Wireless, Hubs, Repeaters</code> 등이 여기에
 포함된다.</p>
-
 <blockquote>
 <p>허브(Hubs)와 스위치(Switch) 둘이 헷갈리는 경우가 종종 있는데
 <a href="https://planetechusa.com/blog/ethernet-hub-vs-switch">출처</a>를
@@ -135,96 +132,86 @@
 신호 전달 경로만 제공하고 스위치는 각 장비들을 구분할 수 있다는 점이
 차이점이다.</p>
 </blockquote>
-
 <h1 id="l2-데이터-링크-계층-data-link-layer">L2. 데이터 링크 계층, Data Link Layer</h1>
-
 <p>데이터 링크 계층의 주 목적은 <strong>잡음이 있는 인접 노드 간의 물리적인
 회선</strong>을 상위 네트워크 계층이 사용할 수 있도록 <strong>전송 에러가 없는 통신
 채널</strong>로 변환시키는 계층이다. 때문에 데이터 링크 계층의 역할 중 가장
-중요한 역할은 <strong>에러 제어(Error Control)</strong>이다.</p>
-
+중요한 역할은 **에러 제어(Error Control)**이다.</p>
 <p>드론 개발 프로젝트를 다시 예로 들어보자. 각 장비들은 광 케이블로
 연결되고 이러한 광 케이블은 다시 스위치 한 개에 집중되어
 연결된다. 마침내 각 장비들은 서로를 MAC 주소를 이용해 식별하고 raw
 데이터를 신뢰성 있게 송수신 할 수 있게 되었다. 이처럼 데이터 링크
 계층의 역할은 1계층(Physical Layer)에서 raw 데이터들의 흐름을 제어하고
 에러를 제어하는 역할을 한다.</p>
-
 <p>이 계층에는 <code>Ethernet, PPP, Switch, Bridge</code> 등이 포함된다.</p>
-
 <h2 id="데이터링크-계층-역할">데이터링크 계층 역할</h2>
-
 <ol>
-<li><p>프레이밍(Framing)</p>
-
+<li>
+<p>프레이밍(Framing)</p>
 <p>데이터 배열에 Data, Header, Trailer 등을 넣어서 캡슐화를 하는
-작업을 말한다. <br>각각의 노드(송신자, 수신자, 중간 중간의 각종
+작업을 말한다. <!-- raw HTML omitted -->각각의 노드(송신자, 수신자, 중간 중간의 각종
 라우터, 스위치 등의 하드웨어)에서 다음 노드로 데이터를 보낼 때,
 L3(Network Layer)에서 받은 데이터그램(Datagram)을 캡슐화하며
 캡슐화된 틀(데이터 배열)을 프레임(Frame) 또는 패킷(packet)이라
-한다.</p></li>
-
-<li><p>흐름제어(Flow Control)</p>
-
+한다.</p>
+</li>
+<li>
+<p>흐름제어(Flow Control)</p>
 <p>송신 측이 수신 측의 데이터 처리 속도보다 훨씬 빠른 속도로 데이터를
-보낸다면 어떻게 될까?<br>수신 측의 버퍼(Buffer)가 점점 더 길어지게
+보낸다면 어떻게 될까?<!-- raw HTML omitted -->수신 측의 버퍼(Buffer)가 점점 더 길어지게
 된다. 버퍼의 길이는 제한되어 있기 때문에 버퍼가 가득차면 데이터를
 더이상 저장할 수 없어 데이터가 손실된다. 이러한 문제를 보완하기
 위해 수신 측에서는 송신 측에게 그만 보내거나 천천히 보내달라는
-피드백을 보낼 수 있는데 이러한 것을 흐름제어(Flow Control)라 한다.</p></li>
-
-<li><p>에러제어(Error Control)</p>
-
+피드백을 보낼 수 있는데 이러한 것을 흐름제어(Flow Control)라 한다.</p>
+</li>
+<li>
+<p>에러제어(Error Control)</p>
 <p>송신 측에서는 프레이밍을 통해 0과 1로 구성된 비트로 변환한 뒤
 송신한다. 수신 측에서는 당연히 이 비트 배열들을 받을 텐데, 0과 1을
 이루는 전기적 신호들은 매우 취약하기 때문에 수신 측의 L2 계층이 이
 전기적 신호를 보고 프레이밍을 해야 한다. 이 과정에서 에러를 검출할
 수 있으며, 검출된 에러는 직접 수정하거나 송신 측에 재송신을
-요청하여 해결한다.</p></li>
+요청하여 해결한다.</p>
+</li>
 </ol>
-
 <h2 id="데이터링크의-부계층-llc와-mac">데이터링크의 부계층, LLC와 MAC</h2>
-
 <p>데이터 링크 계층을 더 세부적으로 나누면 LLC(Logical Link Control)
 부계층과 MAC(Media Access Control) 부계층으로 나눌 수 있다. LLC는
 <code>Flow Control</code>과 <code>Error Control</code>에 대한 책임을 갖고 있고 MAC은
 네트워크 노드 간의 접근과 권한을 관리한다.</p>
-
 <h2 id="주소-종류">주소 종류</h2>
-
 <ol>
-<li><p>Unicast address: 1 대 1 통신<br>
+<li>
+<p>Unicast address: 1 대 1 통신<!-- raw HTML omitted -->
 모든 기기(송신자, 수신자, 라우터 등)에는 Unicast 주소가 할당되어
 있다. Unicast는 1 대 1 통신을 의미하며 L2 계층에서 프레이밍을 할
-때 Unicast address를 넣으면 해당 MAC 주소를 가진 곳으로만 간다.</p></li>
-
-<li><p>Multicast address: 1 대 다 통신<br>
+때 Unicast address를 넣으면 해당 MAC 주소를 가진 곳으로만 간다.</p>
+</li>
+<li>
+<p>Multicast address: 1 대 다 통신<!-- raw HTML omitted -->
 특정 L2 계층의 프로토콜에는 Multicast 주소를 정의하고
 있다. Multicast란 1대 다 통신을 의미하며 아무데서나 쓸 수 없고
-특정 범위에서만 사용 가능하다.</p></li>
-
-<li><p>Broadcast address: 1 대 전체 통신<br>
+특정 범위에서만 사용 가능하다.</p>
+</li>
+<li>
+<p>Broadcast address: 1 대 전체 통신<!-- raw HTML omitted -->
 Broadcast는 1 대 전체 통신을 의미한다. Broadcast 주소를 담은
 프레임은 모든 기기에 전달되며 일반적인 브로드캐스트 주소는
-FF:FF:FF:FF:FF:FF 이다.</p></li>
+FF:FF:FF:FF:FF:FF 이다.</p>
+</li>
 </ol>
-
 <h1 id="l3-네트워크-계층-network-layer">L3. 네트워크 계층, Network Layer</h1>
-
 <p>네트워크 계층은 여러 개의 네트워크 간 데이터를 구성하고 전송하는
 계층으로 라우팅, 주소체계를 관리하는 계층이라고 이해하면
 된다. 네트워크 계층에 대한 간단한 예로, 보스턴에 있는 컴퓨터가
 캘리포니아에 있는 서버에 연결하려고 할 때 그 경로는 수백 만 가지다. 이
 계층의 라우터가 이러한 작업을 효율적으로 처리한다.</p>
-
 <p>네트워크 계층에는 라우터와 브릿지 라우터 등이 포함되며 <code>IPv4, IPv6</code>와
 같은 <code>인터넷 프로토콜(Internet Protocol)</code>과 ARP가 여기에 포함된다.</p>
-
 <h2 id="계층-역할">계층 역할</h2>
-
 <ol>
-<li><p>경로제어(라우팅)</p>
-
+<li>
+<p>경로제어(라우팅)</p>
 <p>단말기 혹은 컴퓨터가 어떤 망에 접속되어 있을 때 송신하고자 하는
 정보가 망을 통해서 어떻게 상대방 수신측까지 전달되는가를 제어하는
 일을 담당한다. 네트워크 계층의 패킷이 하위 계층인 데이터 링크
@@ -232,103 +219,85 @@ FF:FF:FF:FF:FF:FF 이다.</p></li>
 바로 인접 노드의 물리 주소를 헤더에 첨부하여 전송하게 된다. 이 때,
 목적지 호스트(논리주소)까지 각 노드를 거칠 때마다 인접 노드의 물리
 주소를 프레임에 다시 첨부하여 전송하게 되는데, 이처럼 경로를
-지정하거나 교환 기능을 제공하는 것을 라우팅이라고 한다.</p></li>
-
-<li><p>투명성</p></li>
-</ol>
-
+지정하거나 교환 기능을 제공하는 것을 라우팅이라고 한다.</p>
+</li>
+<li>
+<p>투명성</p>
 <p>상위의 전송계층(Transport Layer)이 경로 선택과 중계 등 망 계층
-   고유의 기능에 대하여 의식하지 않도록 투명하게 하는 역할이다.</p>
-
-<ol>
-<li>논리적 주소체계 부여</li>
-</ol>
-
+고유의 기능에 대하여 의식하지 않도록 투명하게 하는 역할이다.</p>
+</li>
+<li>
+<p>논리적 주소체계 부여</p>
 <p>라우팅과 관련된 주소 지정 등 주소 체계를 정립한다. (IP 주소, 공인
-   IP, 사설 IP 등) 상위 전송계층에서 받은 데이터에 목적지 호스트의
-   논리 주소를 헤더에 추가하여 전송한다.</p>
-
+IP, 사설 IP 등) 상위 전송계층에서 받은 데이터에 목적지 호스트의
+논리 주소를 헤더에 추가하여 전송한다.</p>
+</li>
+</ol>
 <h1 id="l4-전송-계층-transport-layer">L4. 전송 계층, Transport Layer</h1>
-
 <p>전송 계층은 양단 간 어떤 종류의 망이 사용되었는지 의식하지 않고 쌍방
 응용프로세스 간 투명하고 신뢰성 있게 논리적인 통신을 이루는
-계층이다. 이 계층은 <code>Error Control</code>, <code>Flow Control</code>, <code>Congestion
-Control</code> 등의 매커니즘을 제공하며 일반적인 프로토콜은
+계층이다. 이 계층은 <code>Error Control</code>, <code>Flow Control</code>, <code>Congestion Control</code> 등의 매커니즘을 제공하며 일반적인 프로토콜은
 <code>TCP(Transmission Control Protocol)</code>, <code>UDP(User Datagram Protocol)</code>
 등이 있다.</p>
-
 <h2 id="계층-역할-1">계층 역할</h2>
-
 <p>전송 계층의 하위 계층인 네트워크 계층(L2)는 목적지까지 개별적인
 패킷(프레임)을 전달하지만, 이들 패킷 간의 관계는 알지 못한다. 다시
 말해, 올바른 순서대로 도착하여 정상적인 메시지로 조립되었는지 알지
 못하기 때문에 이를 전송 계층에서 담당해야 한다.</p>
-
 <ol>
-<li><p>서비스 지점 주소 지정</p>
-
+<li>
+<p>서비스 지점 주소 지정</p>
 <p>컴퓨터는 여러 개의 프로그램을 동시에 실행하는 경우가 많은데 각
 프로그램을 서비스 단위 혹은 프로세스로 보고, 전송 계층은 상위
 계층에서 내려온 메시지를 세그먼트로 나누어 헤더에 목적지 호스트의
-해당 서비스 지점 주소, 즉 포트번호를 붙여 전송한다.</p></li>
-
-<li><p>분할과 재조립</p>
-
+해당 서비스 지점 주소, 즉 포트번호를 붙여 전송한다.</p>
+</li>
+<li>
+<p>분할과 재조립</p>
 <p>상위 계층에서 내려온 세그먼트를 전송할 수 있는 세그먼트 단위로
 나누면 각 세그먼트는 순서 번호를 갖고 목적지에 도착하면 수신자
-측에서 이를 재조립한다.</p></li>
-
-<li><p>흐름 제어</p>
-
+측에서 이를 재조립한다.</p>
+</li>
+<li>
+<p>흐름 제어</p>
 <p>데이터 링크 계층의 흐름 제어는 노드 대 노드의 흐름제어지만 전송
 계층의 흐름제어는 단일 링크가 아닌 종단 간 흐름(end-to-end)을
-제어한다.</p></li>
-
-<li><p>오류 제어</p>
-
+제어한다.</p>
+</li>
+<li>
+<p>오류 제어</p>
 <p>흐름 제어와 마찬가지로 데이터링크 계층에서는 프레임에 대한 오류를
 제어하나, 전송 계층은 전체 세그먼트 오류(손상, 유실 등) 없이
 수신측 전송 계층에 도착하도록 오류 제어 기능을 수행하며, 오류
-교정은 통상 재전송을 통해 이루어진다.</p></li>
+교정은 통상 재전송을 통해 이루어진다.</p>
+</li>
 </ol>
-
 <h1 id="l5-세션-계층-session-layer">L5. 세션 계층, Session Layer</h1>
-
 <p>여기서부터는 애플리케이션에 관련된 계층이라고 할 수
 있다. (물리계층(L1)부터 전송계층(L4)까지의 주된 기능은 단순히 데이터를
 전달하는 것이다.) 세션 계층은 응용 프로세스가 통신을 관리하기 위한
 방법을 정의하는 계층으로, 세션을 만들고 없애는 역할을 한다. 흔한 예로
 HTTP의 세션을 생각하면 이해하기 쉽다.</p>
-
 <h1 id="l6-표현-계층-presentation-layer">L6. 표현 계층, Presentation Layer</h1>
-
 <p>네트워크 상의 여러 이기종 시스템들은 저마다 다른 데이터 표현 방식을
 사용하는데, 이를 하나의 통일된 구문으로 변환시키는 기능을 수행하는
 계층을 말한다. 즉, 네트워크와 애플리케이션 간 데이터 형식을 변환하는
 역할을 수행한다.</p>
-
 <p>표현 계층의 주요 기능은 아래와 같이 정리할 수 있다.</p>
-
 <ol>
 <li>암호화</li>
 <li>압축</li>
 <li>코드 변환(ASCII, EBCDIC, Binary 등), 파일 변환 및 문장 축소화 등의
 기능 수행</li>
 </ol>
-
 <h1 id="l7-응용-계층-application-layer">L7. 응용 계층, Application Layer</h1>
-
 <p>여러 하위 통신 프로토콜 개체에 대하여 사용 관점의 사용자 인터페이스를
 제공하며 응용계층 프로세스들 사이의 통신은 표현계층이 제공하는
 서비스를 이용한다. (데이터의 형식을 정하고 부호화하고 암호화, 압축하는
 서비스를 통해 이루어진다.)</p>
-
 <p>응용계층에는 FTP, SMTP, HTTP, HTTPS, TELNET 등이 해당된다.</p>
-
 <h1 id="계층별-전송-단위">계층별 전송 단위</h1>
-
 <p>OSI-7 Layers의 각 계층에서 전송 단위는 아래와 같이 정리할 수 있다.</p>
-
 <ul>
 <li>1계층: 비트</li>
 <li>2계층: 프레임</li>
@@ -336,18 +305,14 @@ HTTP의 세션을 생각하면 이해하기 쉽다.</p>
 <li>4계층: 세그먼트</li>
 <li>5계층: 메시지</li>
 </ul>
-
 <h1 id="계층별-네트워킹-장비">계층별 네트워킹 장비</h1>
-
 <ul>
 <li>1계층: 리피터, 허브</li>
 <li>2계층: 브리지, 스위치</li>
 <li>3계층: 라우터</li>
 <li>4 - 7계층: 게이트웨이</li>
 </ul>
-
 <h1 id="출처">출처</h1>
-
 <ul>
 <li><a href="https://planetechusa.com/blog/ethernet-hub-vs-switch/">허브와 스위치의 차이점</a></li>
 <li><a href="https://tyeolrik.github.io/network/2017/02/14/Networking-4-Data-Link-Layer.html">데이터링크 계층</a></li>
