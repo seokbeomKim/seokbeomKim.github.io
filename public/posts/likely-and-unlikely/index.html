@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -78,141 +78,115 @@
   
   <aside>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#개요">개요</a></li>
-<li><a href="#likely-unlikely">likely(), unlikely()</a></li>
-<li><a href="#built-in-function">__built-in function</a></li>
-<li><a href="#예제">예제</a></li>
-<li><a href="#출처">출처</a></li>
-</ul>
+  <ol>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#likely-unlikely">likely(), unlikely()</a></li>
+    <li><a href="#__built-in-function">__built-in function</a></li>
+    <li><a href="#예제">예제</a></li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
   </aside>
   
   
   <section id="js-article" class="p-article__body">
-    
-
-<h1 id="개요">개요</h1>
-
+    <h1 id="개요">개요</h1>
 <p>예전에 관리하던 블로그에서 커널에서 사용하는 <code>likely</code>와 <code>unlikely</code> 에
 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시
 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.</p>
-
 <p>회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에
 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무
 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로
 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.</p>
-
 <h1 id="likely-unlikely">likely(), unlikely()</h1>
-
 <p>함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을
 위한 매크로이다. 출처에는 아래와 같은 예제를 제공하고 있다.</p>
-
-<pre><code class="language-c++">bvl = bvec_alloc(gfp_mask, nr_iovecs, &amp;idx);
-if (unlikely(!bvl)) {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">bvl <span style="color:#f92672">=</span> bvec_alloc(gfp_mask, nr_iovecs, <span style="color:#f92672">&amp;</span>idx);
+<span style="color:#66d9ef">if</span> (unlikely(<span style="color:#f92672">!</span>bvl)) {
 	mempool_free(bio, bio_pool);
-	bio = NULL;
-	goto out;
+	bio <span style="color:#f92672">=</span> NULL;
+	<span style="color:#66d9ef">goto</span> out;
 }
-</code></pre>
-
-<p>특정 condition을 확인하는 용도로 사용하는데 위의 코드에서는
+</code></pre></div><p>특정 condition을 확인하는 용도로 사용하는데 위의 코드에서는
 <code>bvec_alloc</code>으로 할당받고 bvl이 유효한 주소값이라면 메모리 해제를 하고
 NULL로 변경하는 코드이다.</p>
-
 <p><code>include/linux/compiler.h</code> 파일에 정의되어 있는 매크로로서 branch
 prediction 을 위한 용도로 사용된다. 즉, 결과값이 대부분 false로
 예상된다면 <code>unlikely()</code>를, true로 예상된다면 <code>likely()</code>를 사용함으로서
 컴파일러를 통한 분기 예측을 이용하여 성능 향상을 꾀할 수 있다.</p>
-
 <p>각각의 정의를 살펴보면, 아래와 같이 되어 있다.</p>
-
-<pre><code class="language-c++">#define likely(x)       __builtin_expect(!!(x), 1)
-#define unlikely(x)     __builtin_expect(!!(x), 0)
-</code></pre>
-
-<h1 id="built-in-function">__built-in function</h1>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define likely(x)       __builtin_expect(!!(x), 1)
+</span><span style="color:#75715e">#define unlikely(x)     __builtin_expect(!!(x), 0)
+</span></code></pre></div><h1 id="__built-in-function">__built-in function</h1>
 <p><code>__builtin_expect</code>를 사용하는 것은 컴파일러에게 분기 예측(branch
 prediction) 정보를 제공하기 위한 것이다. 일반적으로 개발자들은 자신의
 프로그램이 어떻게 수행되는지 알기 힘들기 때문에 &lsquo;-fprofile-arcs&rsquo;
 옵션을 통해 프로파일을 피드백 받는 것을 선호한다. 하지만
 애플리케이션에 따라서 이러한 옵션을 통해 프로파일링이 힘든 경우도
 있다.</p>
-
 <h1 id="예제">예제</h1>
-
 <p>아래의 예제를 통해 성능 향상이 어떻게 가능한지 살펴보자.</p>
-
-<pre><code class="language-c++">#define likely(x)    __builtin_expect(!!(x), 1)
-#define unlikely(x)  __builtin_expect(!!(x), 0)
-
-int main(int argc, char *argv[]) {
-	int a;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define likely(x)    __builtin_expect(!!(x), 1)
+</span><span style="color:#75715e">#define unlikely(x)  __builtin_expect(!!(x), 0)
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
+	<span style="color:#66d9ef">int</span> a;
 	
-	a = atoi (argv[1]);
+	a <span style="color:#f92672">=</span> atoi (argv[<span style="color:#ae81ff">1</span>]);
 	
-	if (unlikely (a == 2)) 
-		a++;
-	else
-		a--;
+	<span style="color:#66d9ef">if</span> (unlikely (a <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>)) 
+		a<span style="color:#f92672">++</span>;
+	<span style="color:#66d9ef">else</span>
+		a<span style="color:#f92672">--</span>;
 	
-	printf(&quot;%d\n&quot;, a);
+	printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a);
 	
-	return 0;
+	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre>
-
-<p>위 예제를 컴파일 한 다음, objdump로 살펴보면 아래와 같이 main 부분을
+</code></pre></div><p>위 예제를 컴파일 한 다음, objdump로 살펴보면 아래와 같이 main 부분을
 발견할 수 있다.</p>
-
-<pre><code class="language-bash">$ gcc -o unlikely unlikely.c
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gcc -o unlikely unlikely.c
 $ objdump -S unlikely
 
 
-0000000000001149 &lt;main&gt;:
-    1149:	55                   	push   %rbp
-    114a:	48 89 e5             	mov    %rsp,%rbp
-    114d:	48 83 ec 20          	sub    $0x20,%rsp
-    1151:	89 7d ec             	mov    %edi,-0x14(%rbp)
-    1154:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
-    1158:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
-    115c:	48 83 c0 08          	add    $0x8,%rax
-    1160:	48 8b 00             	mov    (%rax),%rax
-    1163:	48 89 c7             	mov    %rax,%rdi
-    1166:	b8 00 00 00 00       	mov    $0x0,%eax
-    116b:	e8 d0 fe ff ff       	callq  1040 &lt;atoi@plt&gt;
-    1170:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1173:	83 7d fc 02          	cmpl   $0x2,-0x4(%rbp)
-    1177:	0f 94 c0             	sete   %al
+<span style="color:#ae81ff">0000000000001149</span> &lt;main&gt;:
+    1149:	<span style="color:#ae81ff">55</span>                   	push   %rbp
+    114a:	<span style="color:#ae81ff">48</span> <span style="color:#ae81ff">89</span> e5             	mov    %rsp,%rbp
+    114d:	<span style="color:#ae81ff">48</span> <span style="color:#ae81ff">83</span> ec <span style="color:#ae81ff">20</span>          	sub    $0x20,%rsp
+    1151:	<span style="color:#ae81ff">89</span> 7d ec             	mov    %edi,-0x14<span style="color:#f92672">(</span>%rbp<span style="color:#f92672">)</span>
+    1154:	<span style="color:#ae81ff">48</span> <span style="color:#ae81ff">89</span> <span style="color:#ae81ff">75</span> e0          	mov    %rsi,-0x20<span style="color:#f92672">(</span>%rbp<span style="color:#f92672">)</span>
+    1158:	<span style="color:#ae81ff">48</span> 8b <span style="color:#ae81ff">45</span> e0          	mov    -0x20<span style="color:#f92672">(</span>%rbp<span style="color:#f92672">)</span>,%rax
+    115c:	<span style="color:#ae81ff">48</span> <span style="color:#ae81ff">83</span> c0 <span style="color:#ae81ff">08</span>          	add    $0x8,%rax
+    1160:	<span style="color:#ae81ff">48</span> 8b <span style="color:#ae81ff">00</span>             	mov    <span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>,%rax
+    1163:	<span style="color:#ae81ff">48</span> <span style="color:#ae81ff">89</span> c7             	mov    %rax,%rdi
+    1166:	b8 <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>       	mov    $0x0,%eax
+    116b:	e8 d0 fe ff ff       	callq  <span style="color:#ae81ff">1040</span> &lt;atoi@plt&gt;
+    1170:	<span style="color:#ae81ff">89</span> <span style="color:#ae81ff">45</span> fc             	mov    %eax,-0x4<span style="color:#f92672">(</span>%rbp<span style="color:#f92672">)</span>
+    1173:	<span style="color:#ae81ff">83</span> 7d fc <span style="color:#ae81ff">02</span>          	cmpl   $0x2,-0x4<span style="color:#f92672">(</span>%rbp<span style="color:#f92672">)</span>
+    1177:	0f <span style="color:#ae81ff">94</span> c0             	sete   %al
     117a:	0f b6 c0             	movzbl %al,%eax
-    117d:	48 85 c0             	test   %rax,%rax
-    1180:	74 06                	je     1188 &lt;main+0x3f&gt;
-    1182:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
-    1186:	eb 04                	jmp    118c &lt;main+0x43&gt;
-    1188:	83 6d fc 01          	subl   $0x1,-0x4(%rbp)
-    118c:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    118f:	89 c6                	mov    %eax,%esi
-    1191:	48 8d 3d 6c 0e 00 00 	lea    0xe6c(%rip),%rdi        # 2004 &lt;_IO_stdin_used+0x4&gt;
-    1198:	b8 00 00 00 00       	mov    $0x0,%eax
-    119d:	e8 8e fe ff ff       	callq  1030 &lt;printf@plt&gt;
-    11a2:	b8 00 00 00 00       	mov    $0x0,%eax
+    117d:	<span style="color:#ae81ff">48</span> <span style="color:#ae81ff">85</span> c0             	test   %rax,%rax
+    1180:	<span style="color:#ae81ff">74</span> <span style="color:#ae81ff">06</span>                	je     <span style="color:#ae81ff">1188</span> &lt;main+0x3f&gt;
+    1182:	<span style="color:#ae81ff">83</span> <span style="color:#ae81ff">45</span> fc <span style="color:#ae81ff">01</span>          	addl   $0x1,-0x4<span style="color:#f92672">(</span>%rbp<span style="color:#f92672">)</span>
+    1186:	eb <span style="color:#ae81ff">04</span>                	jmp    118c &lt;main+0x43&gt;
+    1188:	<span style="color:#ae81ff">83</span> 6d fc <span style="color:#ae81ff">01</span>          	subl   $0x1,-0x4<span style="color:#f92672">(</span>%rbp<span style="color:#f92672">)</span>
+    118c:	8b <span style="color:#ae81ff">45</span> fc             	mov    -0x4<span style="color:#f92672">(</span>%rbp<span style="color:#f92672">)</span>,%eax
+    118f:	<span style="color:#ae81ff">89</span> c6                	mov    %eax,%esi
+    1191:	<span style="color:#ae81ff">48</span> 8d 3d 6c 0e <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> 	lea    0xe6c<span style="color:#f92672">(</span>%rip<span style="color:#f92672">)</span>,%rdi        <span style="color:#75715e"># 2004 &lt;_IO_stdin_used+0x4&gt;</span>
+    1198:	b8 <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>       	mov    $0x0,%eax
+    119d:	e8 8e fe ff ff       	callq  <span style="color:#ae81ff">1030</span> &lt;printf@plt&gt;
+    11a2:	b8 <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span>       	mov    $0x0,%eax
     11a7:	c9                   	leaveq 
     11a8:	c3                   	retq   
-    11a9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-</code></pre>
-
-<p><code>cmpl %0x2, -0x4(%rbp)</code> 에서 보듯 2와 같을 경우에 jump 명령어를
+    11a9:	0f 1f <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> <span style="color:#ae81ff">00</span> 	nopl   0x0<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</code></pre></div><p><code>cmpl %0x2, -0x4(%rbp)</code> 에서 보듯 2와 같을 경우에 jump 명령어를
 수행하고 같지 않을 경우에는 계속해서 명령어를 순차 진행한다. je
 명령어를 실행하지 않으니 pipeline flush가 일어나지 않아 branch
 prediction을 하지 않았을 때보다 성능 향상을 꾀할 수 있다.</p>
-
 <p>만약, <code>likely()</code>를 하게 되면 어떨까? 아마 반대로 명령어가 실행될
 것이다. 즉, 프로그래머가 예상하는 시나리오로 분기 예측을 하여 최대한
 jump 명령어를 수행하지 않도록 하는 기법이다.</p>
-
 <h1 id="출처">출처</h1>
-
 <ul>
 <li><a href="https://woodz.tistory.com/67">https://woodz.tistory.com/67</a></li>
 </ul>

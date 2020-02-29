@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.57.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -76,73 +76,59 @@
   
   <aside>
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gpio-맵핑하기">GPIO 맵핑하기</a></li>
-<li><a href="#디바이스-트리를-사용하는-gpio-매핑">디바이스 트리를 사용하는 GPIO 매핑</a>
-<ul>
-<li><a href="#cell-개수">cell 개수</a></li>
-<li><a href="#pin-control-subsystem과의-연동">Pin control subsystem과의 연동</a></li>
-</ul></li>
-<li><a href="#acpi-펌웨어를-사용하는-gpio-매핑">ACPI 펌웨어를 사용하는 GPIO 매핑</a></li>
-<li><a href="#platform-데이터에-gpio-맵핑-deprecated">Platform 데이터에 GPIO 맵핑 (deprecated)</a></li>
-<li><a href="#출처">출처</a></li>
-</ul>
+  <ol>
+    <li><a href="#gpio-맵핑하기">GPIO 맵핑하기</a></li>
+    <li><a href="#디바이스-트리를-사용하는-gpio-매핑">디바이스 트리를 사용하는 GPIO 매핑</a>
+      <ol>
+        <li><a href="#cell-개수">cell 개수</a></li>
+        <li><a href="#pin-control-subsystem과의-연동">Pin control subsystem과의 연동</a></li>
+      </ol>
+    </li>
+    <li><a href="#acpi-펌웨어를-사용하는-gpio-매핑">ACPI 펌웨어를 사용하는 GPIO 매핑</a></li>
+    <li><a href="#platform-데이터에-gpio-맵핑-deprecated">Platform 데이터에 GPIO 맵핑 (deprecated)</a></li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
   </aside>
   
   
   <section id="js-article" class="p-article__body">
-    
-
-<h1 id="gpio-맵핑하기">GPIO 맵핑하기</h1>
-
+    <h1 id="gpio-맵핑하기">GPIO 맵핑하기</h1>
 <p>오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.</p>
-
 <p>GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.</p>
-
 <ol>
 <li>디바이스 트리 이용 (최근 트렌드)</li>
-<li>Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의
-
+<li>Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의</li>
+</ol>
 <ul>
 <li>(출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.</li>
-</ul></li>
+</ul>
+<ol start="3">
 <li>ACPI 펌웨어 테이블에 정의</li>
 </ol>
-
 <h1 id="디바이스-트리를-사용하는-gpio-매핑">디바이스 트리를 사용하는 GPIO 매핑</h1>
-
 <p>디바이스 노드 내부에 &ldquo;gpio-controller&rdquo; 속성이 있으면 GPIO Controller 노드를 의미한다.</p>
-
 <h2 id="cell-개수">cell 개수</h2>
-
 <p><code>#gpio-cells = &lt;2&gt;</code> 속성은 셀 데이터 2개를 사용한다는 것을 의미한다. 아래 예시에서는 gpio1, gpio2에 대해 각각 다음과 같이 해석 가능하다.</p>
-
 <ul>
 <li>gpio1 controller는 cell 2개를 사용하여 디바이스 드라이버가 인자 2개를 받아 처리한다.</li>
 <li>gpio2 controller는 cell 1개를 사용하여 디바이스 드라이버가 인자 1개를 받아 처리한다.</li>
-
-<li><p>지정되지 않는 경우 2 cell 방식을 사용한다.</p>
-
+<li>지정되지 않는 경우 2 cell 방식을 사용한다.</li>
+</ul>
 <pre><code>gpio1: gpio1 {
-gpio-controller;
-#gpio-cells = &lt;2&gt;;
+    gpio-controller;
+    #gpio-cells = &lt;2&gt;;
 };
 gpio2: gpio2 {
-gpio-controller;
-#gpio-cells = &lt;1&gt;;
+    gpio-controller;
+    #gpio-cells = &lt;1&gt;;
 }
 
 enable-gpios = &lt;&amp;gpio2 2&gt;;
 data-gpios = &lt;&amp;gpio1 12 0&gt;, &lt;&amp;gpio1 13 0&gt;, &lt;&amp;gpio1 14 0&gt;, &lt;&amp;gpio1 15 0&gt;;
-</code></pre></li>
-</ul>
-
-<h2 id="pin-control-subsystem과의-연동">Pin control subsystem과의 연동</h2>
-
+</code></pre><h2 id="pin-control-subsystem과의-연동">Pin control subsystem과의 연동</h2>
 <p><code>pin control subsystem</code>과의 연동은 gpio controller 노드에서 &ldquo;gpio-ranges&rdquo; 속성을 사용한다.
 &ldquo;gpio-ranges&rdquo; 속성이 가리키는 phandle은 연계된 pin controller 노드를 가리켜야 한다. 그리고 1~3개의 인자를 사용할 수 있으며, 배열 사용을 지원한다.</p>
-
 <pre><code>iomux: iomux@FF10601c {
         compatible = &quot;abilis,tb10x-iomux&quot;;
         reg = &lt;0xFF10601c 0x4&gt;;
@@ -172,12 +158,8 @@ gpioa: gpio@FF140000 {
         gpio-ranges = &lt;&amp;iomux 0 0&gt;;
         gpio-ranges-group-names = &quot;gpioa&quot;;
 };
-</code></pre>
-
-<h1 id="acpi-펌웨어를-사용하는-gpio-매핑">ACPI 펌웨어를 사용하는 GPIO 매핑</h1>
-
-<p>디바이스 트리를 사용하는 방법과 유사하게 ACPI 디스크립션을 사용하는 방법이 있다. ACPI 5.1에서 소개된 [[[_DSD (Device Specific Data)|<a href="https://www.kernel.org/doc/Documentation/acpi/gpio-properties.txt]]를">https://www.kernel.org/doc/Documentation/acpi/gpio-properties.txt]]를</a> 참고한다.</p>
-
+</code></pre><h1 id="acpi-펌웨어를-사용하는-gpio-매핑">ACPI 펌웨어를 사용하는 GPIO 매핑</h1>
+<p>디바이스 트리를 사용하는 방법과 유사하게 ACPI 디스크립션을 사용하는 방법이 있다. ACPI 5.1에서 소개된 [[[_DSD (Device Specific Data)|https://www.kernel.org/doc/Documentation/acpi/gpio-properties.txt]]를 참고한다.</p>
 <pre><code>Device (FOO) {
     Name (_CRS, ResourceTemplate () {
         GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
@@ -208,41 +190,31 @@ gpioa: gpio@FF140000 {
         }
     })    Name (_CRS, )
 }
-</code></pre>
-
-<h1 id="platform-데이터에-gpio-맵핑-deprecated">Platform 데이터에 GPIO 맵핑 (deprecated)</h1>
-
+</code></pre><h1 id="platform-데이터에-gpio-맵핑-deprecated">Platform 데이터에 GPIO 맵핑 (deprecated)</h1>
 <p>일부 시스템에서 아래의 매크로 함수, API를 사용하여 플랫폼 데이터에 저장한 후, 이를 lookup 하여 사용하는데 지금은 사용하지 않는 방법이다.</p>
-
-<pre><code class="language-c++">GPIO_LOOKUP(chip_label, chip_hwnum, con_id, flag)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">GPIO_LOOKUP(chip_label, chip_hwnum, con_id, flag)
 GPIO_LOOKUP_IDX(chip_label, chip_hwnum, con_id, idx, flags)
-</code></pre>
-
-<p>아래와 같이 GPIO Lookup Table을 정의한 후에 아래와 같이 사용할 수 있다.</p>
-
-<pre><code class="language-c++">struct gpiod_lookup_table gpios_table = {
-    .dev_id = &quot;foo.0&quot;,
-    .table = {
-        GPIO_LOOKUP_IDX(&quot;gpio.0&quot;, 15, &quot;led&quot;, 0, GPIO_ACTIVE_HIGH),
-        GPIO_LOOKUP_IDX(&quot;gpio.0&quot;, 16, &quot;led&quot;, 1, GPIO_ACTIVE_HIGH),
-        GPIO_LOOKUP_IDX(&quot;gpio.0&quot;, 17, &quot;led&quot;, 2, GPIO_ACTIVE_HIGH),
-        GPIO_LOOKUP(&quot;gpio.0&quot;, 1, &quot;power&quot;, GPIO_ACTIVE_LOW),
+</code></pre></div><p>아래와 같이 GPIO Lookup Table을 정의한 후에 아래와 같이 사용할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">gpiod_lookup_table</span> gpios_table <span style="color:#f92672">=</span> {
+    .dev_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foo.0&#34;</span>,
+    .table <span style="color:#f92672">=</span> {
+        GPIO_LOOKUP_IDX(<span style="color:#e6db74">&#34;gpio.0&#34;</span>, <span style="color:#ae81ff">15</span>, <span style="color:#e6db74">&#34;led&#34;</span>, <span style="color:#ae81ff">0</span>, GPIO_ACTIVE_HIGH),
+        GPIO_LOOKUP_IDX(<span style="color:#e6db74">&#34;gpio.0&#34;</span>, <span style="color:#ae81ff">16</span>, <span style="color:#e6db74">&#34;led&#34;</span>, <span style="color:#ae81ff">1</span>, GPIO_ACTIVE_HIGH),
+        GPIO_LOOKUP_IDX(<span style="color:#e6db74">&#34;gpio.0&#34;</span>, <span style="color:#ae81ff">17</span>, <span style="color:#e6db74">&#34;led&#34;</span>, <span style="color:#ae81ff">2</span>, GPIO_ACTIVE_HIGH),
+        GPIO_LOOKUP(<span style="color:#e6db74">&#34;gpio.0&#34;</span>, <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;power&#34;</span>, GPIO_ACTIVE_LOW),
         { },
     },
 };
 
-gpiod_add_lookup_table(&amp;gpios_table);
+gpiod_add_lookup_table(<span style="color:#f92672">&amp;</span>gpios_table);
 
-struct gpio_desc *red, *green, *blue, *power;
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">gpio_desc</span> <span style="color:#f92672">*</span>red, <span style="color:#f92672">*</span>green, <span style="color:#f92672">*</span>blue, <span style="color:#f92672">*</span>power;
 
-red = gpiod_get_index(dev, &quot;led&quot;, 0, GPIOD_OUT_HIGH);
-green = gpiod_get_index(dev, &quot;led&quot;, 1, GPIOD_OUT_HIGH);
-blue = gpiod_get_index(dev, &quot;led&quot;, 2, GPIOD_OUT_HIGH);
-power = gpiod_get(dev, &quot;power&quot;, GPIOD_OUT_HIGH);
-</code></pre>
-
-<h1 id="출처">출처</h1>
-
+red <span style="color:#f92672">=</span> gpiod_get_index(dev, <span style="color:#e6db74">&#34;led&#34;</span>, <span style="color:#ae81ff">0</span>, GPIOD_OUT_HIGH);
+green <span style="color:#f92672">=</span> gpiod_get_index(dev, <span style="color:#e6db74">&#34;led&#34;</span>, <span style="color:#ae81ff">1</span>, GPIOD_OUT_HIGH);
+blue <span style="color:#f92672">=</span> gpiod_get_index(dev, <span style="color:#e6db74">&#34;led&#34;</span>, <span style="color:#ae81ff">2</span>, GPIOD_OUT_HIGH);
+power <span style="color:#f92672">=</span> gpiod_get(dev, <span style="color:#e6db74">&#34;power&#34;</span>, GPIOD_OUT_HIGH);
+</code></pre></div><h1 id="출처">출처</h1>
 <ul>
 <li><a href="http://jake.dothome.co.kr/gpio-3/">http://jake.dothome.co.kr/gpio-3/</a></li>
 </ul>

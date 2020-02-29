@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on A Developer&#39;s Note</title>
@@ -6,7 +6,7 @@
     <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Feb 2020 00:23:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 29 Feb 2020 23:34:30 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>kernel</title>
       <link>https://seokbeomKim.github.io/categories/kernel/</link>
-      <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
+      <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/kernel/</guid>
       <description></description>
@@ -84,15 +84,6 @@
     </item>
     
     <item>
-      <title>O/S</title>
-      <link>https://seokbeomKim.github.io/categories/o/s/</link>
-      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/o/s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Build</title>
       <link>https://seokbeomKim.github.io/categories/build/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
@@ -125,15 +116,6 @@
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
-      <link>https://seokbeomKim.github.io/categories/web/</link>
-      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/web/</guid>
       <description></description>
     </item>
     
@@ -183,6 +165,15 @@
     </item>
     
     <item>
+      <title>web</title>
+      <link>https://seokbeomKim.github.io/categories/web/</link>
+      <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>database</title>
       <link>https://seokbeomKim.github.io/categories/database/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
@@ -206,6 +197,15 @@
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/protocol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>O/S</title>
+      <link>https://seokbeomKim.github.io/categories/o/s/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/o/s/</guid>
       <description></description>
     </item>
     
