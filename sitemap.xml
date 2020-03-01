@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/hyper-v/</loc>
+    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/static-ipaddr-for-hyper-v/</loc>
+    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/virtualization/</loc>
+    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/tags/buffering/</loc>
     <lastmod>2020-02-29T23:34:30+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-02-29T23:34:30+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-02-29T23:34:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-02-29T23:34:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-02-29T23:34:30+09:00</lastmod>
   </url>
   
