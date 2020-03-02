@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-06-04T17:34:42&#43;09:00">
+        Jun 4, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    1. 들어가기 전에 &hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
+RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/rcu/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/">리눅스 커널 락 종류 (4/5)</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -149,28 +171,6 @@
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/">리눅스 커널 락 종류 (1/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-28T17:45:51&#43;09:00">
-        May 28, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lsquo;뮤텍스는 세마 포어의 카운트가 1인 락'이라는 말도 안되는 내용으로 학교 선배로부터 배웠던 것이 기억난다. 락의 종류별로 쓰임새가 있고 장단점이 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에 대한 사용 예를 기술하고자 한다.
-
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -184,7 +184,7 @@
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 6 of 11</span>
+  <span class="c-pagination__count p-pagination__count">Page 6 of 12</span>
 </nav>
 
 
