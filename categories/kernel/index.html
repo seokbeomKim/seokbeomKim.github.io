@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/">MICOM과 MPU</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-03-08T23:30:44&#43;09:00">
+        Mar 8, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
+마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
+본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &ldquo;Adv&quot;는 Advanced Topic의 줄임말로서 사용한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ioctl-and-interrupt/">IOCTL과 인터럽트</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -142,28 +165,6 @@ linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/idmap/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/">WARN_ON, BUG_ON 매크로</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-21T00:12:34&#43;09:00">
-        Feb 21, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
-이 글에서는 BUG_ON, WARN_ON 등 커널에서 제공하는 assertion에 해당하는 매크로가 어떤 것들이 있는지 살펴보고 어떤 경우에 사용해야 하는지에 대해 간략히 정리하고자 한다. 이 외에 커널에서는 dump_stack(), save_stack_trace(), dump_trace(), backtrace() 등의 콜 스택 출력 방법을 제공한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

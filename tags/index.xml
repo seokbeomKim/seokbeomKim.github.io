@@ -6,10 +6,28 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Mar 2020 00:00:10 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2020 23:30:44 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>micom</title>
+      <link>https://seokbeomKim.github.io/tags/micom/</link>
+      <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/micom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mpu</title>
+      <link>https://seokbeomKim.github.io/tags/mpu/</link>
+      <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mpu/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>interrupt</title>

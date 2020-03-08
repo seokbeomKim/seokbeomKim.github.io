@@ -4,7 +4,42 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-03-03T00:00:10+09:00</lastmod>
+    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
+    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/micom/</loc>
+    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/micom-vs-mpu/</loc>
+    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/mpu/</loc>
+    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
   </url>
   
   <url>
@@ -19,21 +54,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/ioctl-and-interrupt/</loc>
-    <lastmod>2020-03-03T00:00:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-03-03T00:00:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-03-03T00:00:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-03-03T00:00:10+09:00</lastmod>
   </url>
   
@@ -99,11 +119,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/linux/</loc>
-    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
     <lastmod>2020-02-22T18:41:53+09:00</lastmod>
   </url>
   

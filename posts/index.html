@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/">MICOM과 MPU</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-03-08T23:30:44&#43;09:00">
+        Mar 8, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
+마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
+본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &ldquo;Adv&quot;는 Advanced Topic의 줄임말로서 사용한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ioctl-and-interrupt/">IOCTL과 인터럽트</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -141,28 +164,6 @@ cmd 구성 디바이스 드라이버의 ioctl() 함수에 전달되는 매개변
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/ioctl_cmd_macro/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/switch-statement/">switch 구문과 if-else 구문</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-26T23:56:18&#43;09:00">
-        Feb 26, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다.
-int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	break; case FLAG_B: // do B 	break; case blabla: // blabla... 	break; default: printk(KERN_ERR &#34;ERROR!\n&#34;); } return 0; } 함수 포인터 배열 사용하기 if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를 들었던 기억이 났다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/switch-statement/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
