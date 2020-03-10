@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/idmap/">Identity Mapping</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-24T23:01:54&#43;09:00">
+        Feb 24, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
+ idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
+linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/idmap/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/">WARN_ON, BUG_ON 매크로</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -149,29 +172,6 @@ ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 �
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/gpio_mapping/">GPIO Mapping</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-31T23:48:06&#43;09:00">
-        Jan 31, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
-GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
- 디바이스 트리 이용 (최근 트렌드) Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의   (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/gpio_mapping/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -185,7 +185,7 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 2 of 4</span>
+  <span class="c-pagination__count p-pagination__count">Page 2 of 5</span>
 </nav>
 
 

@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>poll() 그리고 poll_wait()</title>
+      <link>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</link>
+      <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</guid>
+      <description>개요 </description>
+    </item>
+    
+    <item>
       <title>MICOM과 MPU</title>
       <link>https://seokbeomKim.github.io/posts/micom-vs-mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>

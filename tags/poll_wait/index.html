@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>A Developer&#39;s Note</title>
-  <meta property="og:title" content="A Developer&#39;s Note" />
-  <meta name="twitter:title" content="A Developer&#39;s Note" />
+  <title>poll_wait</title>
+  <meta property="og:title" content="poll_wait" />
+  <meta name="twitter:title" content="poll_wait" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="A Developer&#39;s Note" />
-  <meta property="og:url" content="https://seokbeomKim.github.io/" />
+  <meta property="og:url" content="https://seokbeomKim.github.io/tags/poll_wait/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -31,8 +31,6 @@
   <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
-  <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
-  
   
   <script type="text/javascript" src="https://seokbeomKim.github.io/js/bundle.js"></script>
   
@@ -58,116 +56,24 @@
   </header>
   <main id="main" class="l-main">
 
+<h2 class="c-title p-tag-title">poll_wait</h2>
 
 
-  
-  <article class="c-article p-list-article">
+
+
+<article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ioctl_cmd_macro/">ioctl()에 전달되는 cmd 관련 매크로 함수</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/poll-and-poll_wait/">poll() 그리고 poll_wait()</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-02-27T00:23:10&#43;09:00">
-        Feb 27, 2020
+      <time datetime="2020-03-10T23:52:01&#43;09:00">
+        Mar 10, 2020
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한다.
-저수준 파일 입출력 함수인 ioctl()을 디바이스 파일에 적용시키면 디바이스 파일에 연결된 디바이스 드라이버의 file_operation 구조체의 ioctl 필드에 선언된 함수가 호출된다. ioctl 함수는 디바이스마다 고유하게 선언하여 사용하는데, 일반적으로 하드에워의 제어나 상태를 얻기 위해 사용한다.
-cmd 구성 디바이스 드라이버의 ioctl() 함수에 전달되는 매개변수 cmd는 응용 프로그램이 디바이스 드라이버에게 요구한 처리를 구별하기 위한 구별값이다.
+    개요 
   </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/ioctl_cmd_macro/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/switch-statement/">switch 구문과 if-else 구문</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-26T23:56:18&#43;09:00">
-        Feb 26, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다.
-int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	break; case FLAG_B: // do B 	break; case blabla: // blabla... 	break; default: printk(KERN_ERR &#34;ERROR!\n&#34;); } return 0; } 함수 포인터 배열 사용하기 if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를 들었던 기억이 났다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/switch-statement/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/idmap/">Identity Mapping</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-24T23:01:54&#43;09:00">
-        Feb 24, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
- idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
-linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/idmap/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/linux-on-macbook/">맥북에 리눅스 설치, 그리고 hyper-v</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-22T18:41:53&#43;09:00">
-        Feb 22, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반 동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한 운영체제였지만 동시에 맥 만의 단점을 갖고 있었고 생각보다 매우 영향이 컸다.
-PIM은 기본이고 상위 레벨 프로그래밍을 위해서, 맥 만큼 좋은 운영체제는 없을 것이다. BSD 기반으로 만들어져 완벽하지는 않지만 포팅을 하면 어느정도 리눅스에 가까울 정도로 네이티브 환경에서 실행 가능하고 다양한 분야에서 강력한 유료 애플리케이션이 지원되기 때문에 만족스럽게 사용할 수 있다.
-하지만 맥은 WSL을 도입하면서 윈도우즈가 갖게된 리눅스 플랫폼(?
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/linux-on-macbook/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/">WARN_ON, BUG_ON 매크로</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-21T00:12:34&#43;09:00">
-        Feb 21, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
-이 글에서는 BUG_ON, WARN_ON 등 커널에서 제공하는 assertion에 해당하는 매크로가 어떤 것들이 있는지 살펴보고 어떤 경우에 사용해야 하는지에 대해 간략히 정리하고자 한다. 이 외에 커널에서는 dump_stack(), save_stack_trace(), dump_trace(), backtrace() 등의 콜 스택 출력 방법을 제공한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -177,18 +83,15 @@ PIM은 기본이고 상위 레벨 프로그래밍을 위해서, 맥 만큼 좋�
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
       
-      <a href="/">Newer</a>
-      
     </div>
     <div class="c-pagination__older">
       
-      <a href="/page/3/">Older</a>
-      
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 2 of 12</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 1</span>
 </nav>
- 
+
+
 
   </main>
   

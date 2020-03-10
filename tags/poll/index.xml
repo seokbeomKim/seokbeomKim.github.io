@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>poll on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/tags/poll/</link>
+    <description>Recent content in poll on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Mar 2020 23:52:01 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/poll/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>poll() 그리고 poll_wait()</title>
+      <link>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</link>
+      <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</guid>
+      <description>개요 </description>
+    </item>
+    
+  </channel>
+</rss>

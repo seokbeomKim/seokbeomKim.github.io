@@ -6,10 +6,19 @@
     <description>Recent content in kernel on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Mar 2020 23:30:44 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2020 23:52:01 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>poll() 그리고 poll_wait()</title>
+      <link>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</link>
+      <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</guid>
+      <description>개요 </description>
+    </item>
     
     <item>
       <title>MICOM과 MPU</title>
