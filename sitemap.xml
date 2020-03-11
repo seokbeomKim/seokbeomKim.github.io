@@ -3,8 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/categories/android/</loc>
+    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-03-10T23:52:01+09:00</lastmod>
+    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/partition/</loc>
+    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/android-partitions/</loc>
+    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
   </url>
   
   <url>
@@ -24,16 +49,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/poll_wait/</loc>
-    <lastmod>2020-03-10T23:52:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-03-10T23:52:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url>
   
@@ -295,11 +310,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/gpio_mapping/</loc>
     <lastmod>2020-01-31T23:48:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/android/</loc>
-    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url>
   
   <url>
@@ -784,11 +794,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/database/</loc>
-    <lastmod>2019-05-01T20:29:02+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/partition/</loc>
     <lastmod>2019-05-01T20:29:02+09:00</lastmod>
   </url>
   
