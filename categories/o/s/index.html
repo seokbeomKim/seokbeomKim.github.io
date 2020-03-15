@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.65.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.67.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">O/S</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl2/">WSL2</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-03-15T23:23:15&#43;09:00">
+        Mar 15, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    몇주 전 맥북에 윈도우즈를 설치하며, WSL과 Hyper-V 의 지원으로 리눅스 환경을 사용하기 위해 듀얼 부트나 Unix 환경을 제공하는 맥을 사용할 필요가 없어지게 되었다는 포스팅을 작성했다. 대안으로 가상 머신과는 다른 구조로 하드웨어 자원을 사용할 수 있는 Hyper-V 컨테이너를 만들어 사용했었는데 오늘 윈도우즈 2004 버전에서 Hyper-V를 이용한 WSL2 버전이 곧 릴리즈 될 것이라는 기사를 접했다.
+릴리즈 될 때까지 기다릴 수 없어 Preview Insider 프로그램에 바로 참여하여 2004 버전을 내려받았다. https://aka.ms/wsl2kernel 에는 기존 WSL을 버전 2로 업데이트 하는 방법에 대해 자세히 설명되어 있었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/wsl2/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -143,29 +165,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/">리눅스 커널 락 종류 (3/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T11:40:12&#43;09:00">
-        Jun 4, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
-세마포어는 아래와 같은 경우에 적합하다.
-태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
