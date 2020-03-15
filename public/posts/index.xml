@@ -6,10 +6,20 @@
     <description>Recent content in Posts on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Mar 2020 00:26:40 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 23:23:15 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WSL2</title>
+      <link>https://seokbeomKim.github.io/posts/wsl2/</link>
+      <pubDate>Sun, 15 Mar 2020 23:23:15 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/wsl2/</guid>
+      <description>몇주 전 맥북에 윈도우즈를 설치하며, WSL과 Hyper-V 의 지원으로 리눅스 환경을 사용하기 위해 듀얼 부트나 Unix 환경을 제공하는 맥을 사용할 필요가 없어지게 되었다는 포스팅을 작성했다. 대안으로 가상 머신과는 다른 구조로 하드웨어 자원을 사용할 수 있는 Hyper-V 컨테이너를 만들어 사용했었는데 오늘 윈도우즈 2004 버전에서 Hyper-V를 이용한 WSL2 버전이 곧 릴리즈 될 것이라는 기사를 접했다.
+릴리즈 될 때까지 기다릴 수 없어 Preview Insider 프로그램에 바로 참여하여 2004 버전을 내려받았다. https://aka.ms/wsl2kernel 에는 기존 WSL을 버전 2로 업데이트 하는 방법에 대해 자세히 설명되어 있었다.</description>
+    </item>
     
     <item>
       <title>안드로이드 파티션</title>

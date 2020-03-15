@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-03-15T23:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-03-15T23:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/wsl/</loc>
+    <lastmod>2020-03-15T23:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/wsl2/</loc>
+    <lastmod>2020-03-15T23:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/categories/android/</loc>
     <lastmod>2020-03-12T00:26:40+09:00</lastmod>
   </url>
@@ -14,16 +34,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/partition/</loc>
-    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-03-12T00:26:40+09:00</lastmod>
   </url>
   
