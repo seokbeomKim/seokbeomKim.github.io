@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>WSL2</title>
-  <meta property="og:title" content="WSL2" />
-  <meta name="twitter:title" content="WSL2" />
+  <title>goto statement</title>
+  <meta property="og:title" content="goto statement" />
+  <meta name="twitter:title" content="goto statement" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="A Developer&#39;s Note" />
-  <meta property="og:url" content="https://seokbeomKim.github.io/posts/wsl2/" />
+  <meta property="og:url" content="https://seokbeomKim.github.io/posts/goto-statement/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -60,26 +60,49 @@
 
 <article class="p-article">
   <header>
-    <h1>WSL2</h1>
+    <h1>goto statement</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2020-03-15T23:23:15&#43;09:00">
-          Mar 15, 2020
+        <time datetime="2020-03-25T00:47:49&#43;09:00">
+          Mar 25, 2020
         </time>
       </div>
       
-      <a href="https://seokbeomkim.github.io/tags/wsl" class="c-tag">WSL</a>
+      <a href="https://seokbeomkim.github.io/tags/goto" class="c-tag">goto</a>
       
     </div>
   </header>
   
   
   <section id="js-article" class="p-article__body">
-    <p>몇주 전 맥북에 윈도우즈를 설치하며, WSL과 Hyper-V 의 지원으로 리눅스 환경을 사용하기 위해 듀얼 부트나 Unix 환경을 제공하는 맥을 사용할 필요가 없어지게 되었다는 포스팅을 작성했다. 대안으로 가상 머신과는 다른 구조로 하드웨어 자원을 사용할 수 있는 Hyper-V 컨테이너를 만들어 사용했었는데 오늘 윈도우즈 2004 버전에서 Hyper-V를 이용한 WSL2 버전이 곧 릴리즈 될 것이라는 기사를 접했다.</p>
-<p>릴리즈 될 때까지 기다릴 수 없어 Preview Insider 프로그램에 바로 참여하여 2004 버전을 내려받았다. <a href="https://aka.ms/wsl2kernel">https://aka.ms/wsl2kernel</a> 에는 기존 WSL을 버전 2로 업데이트 하는 방법에 대해 자세히 설명되어 있었다. 기존 WSL 버전 1과 비교했을 때 얼만큼의 성능 차이가 있는지 궁금했다. 그리고 완벽하지 않은 서브 시스템으로 크로스 컴파일을 할 수 없었던 기존 환경에서 이번에 새로 나온 WSL2에서는 Hyper-V 도입으로 크로스 컴파일이 가능한지도 매우 궁금했다.</p>
-<p>결과는 예상했던대로 만족스러웠다. 크로스 컴파일도 지원되며 리얼머신에서 동작하는 것만큼 매우 부드럽게 작업할 수 있었다. 대학교에 입학한 이래, 십여년 동안 윈도우즈와 리눅스를 동시에 사용하고 싶었던 오랜 소원(?)이 이루어진 느낌이라 이루 말할 수가 없다. 이제는 정말로 윈도우즈를 메인 O/S 로써 사용해도 무방할 듯하다. 이맥스 만큼은 아니지만 그보다도 설정이 편한 VS Code가 지원되고 있고 이를 WSL과 함께 사용할 수 있다는 점이 정말 매력적인 포인트다.</p>
-<p>이제는 더 이상 리눅스를 부팅하기 위해 옛날처럼 <code>defconfig &amp;&amp; genkernel all</code>을 하지 않아도 되는 세상이 되었다. 최근 몇 년간의 MS의 행보와 여러 리눅스 배포판을 이끄는 리딩 커뮤니티의 분열 등은 마치 자본주의 대 공산주의처럼 학창시절 FSF 에 대한 이상과 목표를 갖고 있었던 내게 정말 많은 생각이 들게 해준다.</p>
+    <h2 id="개요">개요</h2>
+<p>학부 시절 c언어를 배울 때 &lsquo;goto&rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를 사용하지 않고 분기나 객체를 이용하도록 코딩을 했었고 저학년에서 고학년으로 올라갈수록 c언어 대신 자바나 c++, c# 등을 배우면서 goto는 머릿속에서 잊혀져갔다.</p>
+<p>입사하고 나서 드라이버 코드를 보니 간간히 goto 문이 사용된 것들을 보고 이것이 과연 리팩토링을 해야하는 대상인가에 대해 잠시 생각해보았다. 만약 아래와 같이 코드가 진행될 경우, 반드시 나머지 코드를 분기문으로 처리해야할 필요가 있을까? 아니면 여기저기에 <code>return</code> 문을 사용해서 에러가 발생할 경우에 곧바로 함수를 빠져나가게 해야할까?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">func() {
+    <span style="color:#66d9ef">int</span> ret <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+    ret <span style="color:#f92672">=</span> check_something();
+    <span style="color:#66d9ef">if</span> (ret <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+        printk(KERN_ERR <span style="color:#e6db74">&#34;ERROR!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#75715e">// remains..
+</span><span style="color:#75715e"></span>    }
+}
+
+func2() {
+    <span style="color:#66d9ef">int</span> ret <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+
+    ret <span style="color:#f92672">=</span> check_something();
+    <span style="color:#66d9ef">if</span> (ret <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+        printk(KERN_ERR <span style="color:#e6db74">&#34;ERROR!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>EINVAL;
+    }
+
+    <span style="color:#75715e">// remains..
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> ret;
+}
+</code></pre></div><p>Stack Overflow에서 관련 내용을 찾아보니 재미있는 코드를 발견했다. 코드 곳곳에서 보이던 <code>do - while(0)</code> 이 대체 왜 사용되는 걸까 하고 궁금했었는데, [[링크|https://stackoverflow.com/questions/243967/do-you-consider-this-technique-bad]]를 보니 이제서야 왜 사용했는지를 알 수 있었다. 정답은 없지만 최대한 간결하고 이해할 수 있도록 짤 수만 있다면 그러한 문법에 무슨 문제가 있을까? 무조건 사용을 하지 말아야 할 것이 아니라, 때에 따라서 적절하게 사용하고, 문제가 되지 않는다면 goto로 간결하게 짤 수 있을 것이다. 함수가 길지 않고 여기 저기에 사용되지 않는다면 goto 문을 사용할 수 있지만 그렇지 않을 경우에는 되도록이면 분기문을 통해 적절하게 처리해야할 것이다.</p>
 
   </section>
   <footer>
@@ -100,12 +123,11 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://seokbeomKim.github.io/posts/goto-statement/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://seokbeomKim.github.io/posts/android-partitions/">Older</a>
+          <a href="https://seokbeomKim.github.io/posts/wsl2/">Older</a>
           
         </div>
       </div>
