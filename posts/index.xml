@@ -6,10 +6,20 @@
     <description>Recent content in Posts on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Mar 2020 23:23:15 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 00:47:49 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>goto statement</title>
+      <link>https://seokbeomKim.github.io/posts/goto-statement/</link>
+      <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/goto-statement/</guid>
+      <description>개요 학부 시절 c언어를 배울 때 &amp;lsquo;goto&amp;rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를 사용하지 않고 분기나 객체를 이용하도록 코딩을 했었고 저학년에서 고학년으로 올라갈수록 c언어 대신 자바나 c++, c# 등을 배우면서 goto는 머릿속에서 잊혀져갔다.
+입사하고 나서 드라이버 코드를 보니 간간히 goto 문이 사용된 것들을 보고 이것이 과연 리팩토링을 해야하는 대상인가에 대해 잠시 생각해보았다. 만약 아래와 같이 코드가 진행될 경우, 반드시 나머지 코드를 분기문으로 처리해야할 필요가 있을까?</description>
+    </item>
     
     <item>
       <title>WSL2</title>
