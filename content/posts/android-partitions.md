@@ -7,11 +7,11 @@ tags:
 - partition
 ---
 
-# 개요
+## 개요
 
 안드로이드 기본 내용이지만 파티션을 착각한 탓에 수정 사항을 반영하지 못해 시간을 날리고 말았다. 커널의 수정사항이라 부트 이미지만 적용하면 변경 사항이 적용될 거라 생각했지만 커널 모듈로 빌드되는 경우 vendor 이미지로 별도로 관리될 수도 있기 때문에 해당 이미지도 함께 추가해서 해당 파티션도 업데이트 해줘야 한다.
 
-# 안드로이드 파티션
+## 안드로이드 파티션
 
 안드로이드 레퍼런스 문서에 따르면 boot, system, vendor, radio를 다음과 같이 설명하고 있다.
 
@@ -24,11 +24,12 @@ tags:
 - misc: 파티션 복구에 사용되며 4KB 이상이다.
 - userdata: 맞춤설정 데이터를 포함하여 사용자가 설치한 애플리케이션과 데이터가 포함된다.
 - metadata: 기기가 암호화되고 16MB 이상인 경우에만 사용한다.
-- vendor: AOSP에 배포할 수 없는 바이너리들이 포함된다. 
+- vendor: AOSP에 배포할 수 없는 바이너리들이 포함된다.
 - radio: 무선 이미지가 포함된다.
 - tos: Trusty OS 바이너리 이미지를 저장하며 기기에 Trusty가 있는 경우에만 사용한다.
 
 위에서 언급되었듯이 vendor 파티션에는 안드로이드 오픈소스 프로젝트에 배포할 수 없는 바이너리가 포함된다. 때문에 자사 드라이버 모듈들이나 바이너리 형태로 제공되는 드라이버의 경우 vendor 이미지로 관리되어야 한다. 만일 특정 벤더에서 사용하는 커널 드라이버나 바이너리가 업데이트 되는 경우 boot 이미지 뿐만 아니라 vendor 이미지도 함께 업데이트 하는 것이 확실한 방법이다.
 
-# 출처
-- https://source.android.com/devices/bootloader/partitions-images#images
+## 출처
+
+- <https://source.android.com/devices/bootloader/partitions-images#images>
