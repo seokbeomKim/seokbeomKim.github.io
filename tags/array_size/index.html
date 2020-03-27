@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Posts</title>
-  <meta property="og:title" content="Posts" />
-  <meta name="twitter:title" content="Posts" />
+  <title>ARRAY_SIZE</title>
+  <meta property="og:title" content="ARRAY_SIZE" />
+  <meta name="twitter:title" content="ARRAY_SIZE" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="A Developer&#39;s Note" />
-  <meta property="og:url" content="https://seokbeomKim.github.io/posts/" />
+  <meta property="og:url" content="https://seokbeomKim.github.io/tags/array_size/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -56,47 +56,28 @@
   </header>
   <main id="main" class="l-main">
 
-<h2 class="c-title p-tag-title">Posts</h2>
+<h2 class="c-title p-tag-title">ARRAY_SIZE</h2>
 
 
 
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sni/">Server Name Indication(SNI)</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/c-arraysize-macro/">C ARRAY_SIZE 매크로와 포인터 기초</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2019-05-01T17:12:34&#43;09:00">
-        May 1, 2019
+      <time datetime="2020-03-28T00:54:01&#43;09:00">
+        Mar 28, 2020
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다.
+    개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 https://kldp.org/node/34268과 같은 원인이라는 것을 알게되고 C 기초를 또 다시 한번 공부하게 되었다.
+커널에서 사용하는 ARRAY_SIZE는 아래와 같이 구현되어 있다.
+#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))  // examples for (idx = 0; idx &lt; ARRAY_SIZE(pArr); idx++) { // do something }) 본래 의도한대로라면, 배열의 크기만큼 for 구문을 반복해서 수행해야 하지만, pArr 자체가 함수의 인자로써 전달된 것이라면 얘기가 달라진다.
   </div>
   
-  <a href="https://seokbeomKim.github.io/posts/sni/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/diff_http_https/">HTTP와 HTTPS의 차이점</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-01T16:53:27&#43;09:00">
-        May 1, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &lsquo;S'가 나타내는 Secure라는 의미로부터 HTTP에 &lsquo;어떤 것'을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한'어떤 것'인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/diff_http_https/" class="c-article__btn p-list-article__btn">Read more</a>
+  <a href="https://seokbeomKim.github.io/posts/c-arraysize-macro/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -106,14 +87,12 @@
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
       
-      <a href="/posts/page/12/">Newer</a>
-      
     </div>
     <div class="c-pagination__older">
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 13 of 13</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 1</span>
 </nav>
 
 

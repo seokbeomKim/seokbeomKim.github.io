@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/switch-statement/">switch 구문과 if-else 구문</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-26T23:56:18&#43;09:00">
+        Feb 26, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다.
+int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	break; case FLAG_B: // do B 	break; case blabla: // blabla... 	break; default: printk(KERN_ERR &#34;ERROR!\n&#34;); } return 0; } 함수 포인터 배열 사용하기 if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를 들었던 기억이 났다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/switch-statement/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/idmap/">Identity Mapping</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -146,28 +168,6 @@ likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/typedef-is-evil/">typedef is evil</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-13T01:12:37&#43;09:00">
-        Feb 13, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을 비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이 되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.
-typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조체에 대한 포인터를 정의할 때 typedef을 이용하지 말 것을 당부한다. 또한, typedef unsigned long DWORD 와 같은 것도 비판한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/typedef-is-evil/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

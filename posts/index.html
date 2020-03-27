@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/c-arraysize-macro/">C ARRAY_SIZE 매크로와 포인터 기초</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-03-28T00:54:01&#43;09:00">
+        Mar 28, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 https://kldp.org/node/34268과 같은 원인이라는 것을 알게되고 C 기초를 또 다시 한번 공부하게 되었다.
+커널에서 사용하는 ARRAY_SIZE는 아래와 같이 구현되어 있다.
+#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))  // examples for (idx = 0; idx &lt; ARRAY_SIZE(pArr); idx++) { // do something }) 본래 의도한대로라면, 배열의 크기만큼 for 구문을 반복해서 수행해야 하지만, pArr 자체가 함수의 인자로써 전달된 것이라면 얘기가 달라진다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/c-arraysize-macro/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/goto-statement/">goto statement</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -144,29 +167,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/poll-and-poll_wait/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/">MICOM과 MPU</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-03-08T23:30:44&#43;09:00">
-        Mar 8, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
-마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
-본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &ldquo;Adv&quot;는 Advanced Topic의 줄임말로서 사용한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
