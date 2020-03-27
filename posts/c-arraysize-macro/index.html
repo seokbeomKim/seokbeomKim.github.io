@@ -74,19 +74,6 @@
     </div>
   </header>
   
-  <aside>
-    <nav id="TableOfContents">
-  <ol>
-    <li>
-      <ol>
-        <li><a href="#개요">개요</a></li>
-        <li><a href="#예제">예제</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-  </aside>
-  
   
   <section id="js-article" class="p-article__body">
     <h2 id="개요">개요</h2>
@@ -144,49 +131,19 @@
     tc4(arrInt);
 }
 </code></pre></div><p>위 코드를 실행하면 아래와 같은 결과를 얻는다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))
-
-void tc1(void) {
-    int arr[] = {1, 2, 3};
-    printf(&#34;ARRAY_SIZE = %ld\n&#34;, ARRAY_SIZE(arr));
-}
-
-void tc2(int *pArr) {
-    printf(&#34;ARRAY_SIZE = %ld\n&#34;, ARRAY_SIZE(pArr));
-    printf(&#34;sizeof(x) = %d, sizeof(x[0]) = %d\n&#34;, sizeof(pArr), sizeof(pArr[0]));
-}
-
-void tc3(char *pArr) {
-    printf(&#34;ARRAY_SIZE = %ld\n&#34;, ARRAY_SIZE(pArr));
-    printf(&#34;sizeof(x) = %d, sizeof(x[0]) = %d\n&#34;, sizeof(pArr), sizeof(pArr[0]));
-}
-
-void tc4(unsigned long *pArr) {
-    printf(&#34;ARRAY_SIZE = %ld\n&#34;, ARRAY_SIZE(pArr));
-    printf(&#34;sizeof(x) = %d, sizeof(x[0]) = %d\n&#34;, sizeof(pArr), sizeof(pArr[0]));
-}
-
-int main(void) {
-    int arrInt[] = {4, 5, 6, 7};
-
-    printf(&#34;size of int = %d, size of long = %d\n&#34;, sizeof(int), sizeof(long));
-    printf(&#34;size of pointer value = %d\n&#34;, sizeof(arrInt[0]));
-
-    printf(&#34;[Test case 1]\n&#34;);
-    tc1();
-
-    printf(&#34;[Test case 2]\n&#34;);
-    tc2(arrInt);
-
-    printf(&#34;[Test case 3]\n&#34;);
-    tc3(arrInt);
-
-    printf(&#34;[Test case 4]\n&#34;);
-    tc4(arrInt);
-}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">size of int = 4, size of long = 8
+size of pointer value = 4
+[Test case 1]
+ARRAY_SIZE = 3
+[Test case 2]
+ARRAY_SIZE = 2
+sizeof(x) = 8, sizeof(x[0]) = 4
+[Test case 3]
+ARRAY_SIZE = 8
+sizeof(x) = 8, sizeof(x[0]) = 1
+[Test case 4]
+ARRAY_SIZE = 1
+sizeof(x) = 8, sizeof(x[0]) = 8
 </code></pre></div><p>함수의 파라미터로 정의되어 있는 포인터 변수들은 프로세서 아키텍처의 주소 크기만큼을 갖는다. 테스트는 64비트에서 이루어졌으므로 첫 번째 테스트케이스를 제외한 나머지에서 <code>sizeof(x)</code>는 모두 8(64비트)를 갖는다. 그리고 포인터의 타입에 따라 첫 번째 인자가 갖는 크기는 달라지게 되므로 결과값은 모두 달라지게 된다. 때문에 <code>ARRAY_SIZE</code> 매크로는 함수 내에 지역 변수로서 정의한 경우에는 사용할 수 있지만 함수로 넘겨서 사용하는 경우에는 사용이 불가능하다. 배열의 크기를 반드시 명시적으로 전달해줘야 전달받은 루틴에서 정상적으로 그 크기를 다룰 수 있다.</p>
 <p>기초적인 내용인데도 불구하고 막상 문제에 닥치니 제대로 알기가 어렵다. 아직 한참 멀었다.</p>
 
