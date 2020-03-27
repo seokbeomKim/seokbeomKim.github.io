@@ -6,10 +6,19 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2020 00:47:49 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2020 00:54:01 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ARRAY_SIZE</title>
+      <link>https://seokbeomKim.github.io/tags/array_size/</link>
+      <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/array_size/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>goto</title>

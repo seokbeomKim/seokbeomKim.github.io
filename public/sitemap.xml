@@ -3,13 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/tags/array_size/</loc>
+    <lastmod>2020-03-28T00:54:01+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/categories/c/</loc>
-    <lastmod>2020-03-25T00:47:49+09:00</lastmod>
+    <lastmod>2020-03-28T00:54:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/c-arraysize-macro/</loc>
+    <lastmod>2020-03-28T00:54:01+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-03-25T00:47:49+09:00</lastmod>
+    <lastmod>2020-03-28T00:54:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-03-28T00:54:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-03-28T00:54:01+09:00</lastmod>
   </url>
   
   <url>
@@ -19,16 +39,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/goto-statement/</loc>
-    <lastmod>2020-03-25T00:47:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-03-25T00:47:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-03-25T00:47:49+09:00</lastmod>
   </url>
   
