@@ -6,10 +6,37 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Mar 2020 00:54:01 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2020 00:26:52 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>bsd</title>
+      <link>https://seokbeomKim.github.io/tags/bsd/</link>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/bsd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>list</title>
+      <link>https://seokbeomKim.github.io/tags/list/</link>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>queue</title>
+      <link>https://seokbeomKim.github.io/tags/queue/</link>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/queue/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ARRAY_SIZE</title>

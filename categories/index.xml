@@ -6,7 +6,7 @@
     <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Mar 2020 00:54:01 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2020 00:26:52 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,27 @@
     <item>
       <title>c</title>
       <link>https://seokbeomKim.github.io/categories/c/</link>
-      <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://seokbeomKim.github.io/categories/linux/</link>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>https://seokbeomKim.github.io/categories/programming/</link>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/programming/</guid>
       <description></description>
     </item>
     
@@ -35,15 +53,6 @@
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://seokbeomKim.github.io/categories/linux/</link>
-      <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
