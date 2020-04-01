@@ -3,12 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/c/</loc>
-    <lastmod>2020-04-01T23:55:32+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <loc>https://seokbeomKim.github.io/posts/futex/</loc>
+    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/futex/</loc>
+    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/c/</loc>
     <lastmod>2020-04-01T23:55:32+09:00</lastmod>
   </url>
   
@@ -19,21 +44,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/do_while/</loc>
-    <lastmod>2020-04-01T23:55:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-04-01T23:55:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-04-01T23:55:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-04-01T23:55:32+09:00</lastmod>
   </url>
   

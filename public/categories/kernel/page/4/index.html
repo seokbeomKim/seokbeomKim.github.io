@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/endian/">Little Endian vs. Big Endian</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-01-27T22:27:06&#43;09:00">
+        Jan 27, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
+엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
+ Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/endian/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -143,29 +166,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/jiffies/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/tasklet/">태스크릿(Tasklet)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-25T17:32:26&#43;09:00">
-        May 25, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.
-간단히 말해 tasklet은 스택이나 자체 컨텍스트가 없는 스레드와 같은 것으로 설명하고 있다.
-태스크릿(Tasklet)의 특성  태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/tasklet/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
