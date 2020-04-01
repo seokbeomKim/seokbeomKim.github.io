@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/buffering-in-linux/">리눅스에서의 버퍼링 방식</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-29T23:34:30&#43;09:00">
+        Feb 29, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    리눅스에서의 버퍼링 정책 리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
+만약 write 호출로 데이터를 쓰기 명령을 전달하면 해당 파일 작업을 위한 버퍼에 기록을 해 두었다가 정책에 따라 특정 시점에 물리적인 파일에 기록을 수행한다. 리눅스에서 제공하는 버퍼링 정책에는 버퍼가 꽉 차면 물리적인 파일에 기록하는 Full Buffering과 꽉 차거나 개행문자가 오면 처리하는 Line Buffering, 버퍼를 사용하는 않는 Null Buffering 정책을 제공하고 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/buffering-in-linux/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ioctl_cmd_macro/">ioctl()에 전달되는 cmd 관련 매크로 함수</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -146,28 +168,6 @@ likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ftrace/">ftrace 이용한 커널 디버깅</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-06T23:43:34&#43;09:00">
-        Feb 6, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.
-예전에 젠투 리눅스를 사용할 무렵, menuconfig에서 커널 해킹이라는 흥미로운 메뉴에서 알 수 없는 tracer라는 메뉴로만 본 것으로 이해하지 직접적으로 사용한 적은 없었는데, 실제 사용해보니 생각보다 많은 옵션, 정보들을 보여주었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/ftrace/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
