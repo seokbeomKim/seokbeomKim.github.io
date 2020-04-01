@@ -6,10 +6,28 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Apr 2020 00:26:52 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2020 23:55:32 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>c</title>
+      <link>https://seokbeomKim.github.io/tags/c/</link>
+      <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>do_while</title>
+      <link>https://seokbeomKim.github.io/tags/do_while/</link>
+      <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/do_while/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>bsd</title>
