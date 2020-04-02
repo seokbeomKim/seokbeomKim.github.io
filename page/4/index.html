@@ -63,6 +63,29 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/idmap/">Identity Mapping</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-24T23:01:54&#43;09:00">
+        Feb 24, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
+ idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
+linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/idmap/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/linux-on-macbook/">맥북에 리눅스 설치, 그리고 hyper-v</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -149,28 +172,6 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
 </article>
 
 
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/">이맥스 기본 에디터로 사용하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-09T03:09:59Z">
-        Feb 9, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
-데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
 
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
@@ -185,7 +186,7 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 4 of 13</span>
+  <span class="c-pagination__count p-pagination__count">Page 4 of 14</span>
 </nav>
  
 

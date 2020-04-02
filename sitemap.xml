@@ -3,8 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/categories/benchmark/</loc>
+    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
+    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/dmips/</loc>
+    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/dmips/</loc>
+    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
   </url>
   
   <url>
@@ -19,16 +44,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-04-02T01:45:50+09:00</lastmod>
   </url>
   
