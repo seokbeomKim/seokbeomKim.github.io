@@ -63,6 +63,27 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/">가상주소와 페이지 테이블 크기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-04-11T18:25:16&#43;09:00">
+        Apr 11, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지'에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블'이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl2/">WSL2</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -148,28 +169,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/">리눅스 커널 락 종류 (4/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T16:40:28&#43;09:00">
-        Jun 4, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하기 위해 락(Lock)을 획득해야 커널 모드로 진입되었고 나머지 프로세서들은 락을 획득하기 위해 대기한다. 하지만 이 후, 성능, 실시간 애플리케이션에 대한 latency 이슈로 BKL(Big Kernel Lock)은 스핀락과 뮤텍스, RCU 등으로 대체되면서 현재는 거의 관련 코드가 제거되어 있는 상태이다.
- lock_kernel(): Acquires the BKL unlock_kernel(): Releases the BKL kernel_locked(): Returns nonzero if the lock is held and zero otherwise (UP always returns nonzero)  BKL은 프로세서들이 동시에 커널에 진입하는 것을 막아 동기화 문제를 해결한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -181,7 +180,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 1 of 4</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 5</span>
 </nav>
 
 
