@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>비지도 학습 on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
+    <description>Recent content in 비지도 학습 on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 May 2019 15:31:38 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>비지도 학습 알고리즘과 지도 학습</title>
+      <link>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</link>
+      <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</guid>
+      <description>개요 프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(Unsupervised Learning)이었는데 어디에도 학습이 정확이 무엇인지에 대한 내용이 없었다.
+학습이란 무엇인가? 질문에 대한 답은 쉽게 찾을 수 있었다.(해당 링크)
+A model with a set of parameters transforms the input into an output, this generates a signal from which the model updates the parameters to produce a new output. In the supervised learning scenario, the signal is the error between the model&amp;#39;s estimate and the ground truth (the correct answer).</description>
+    </item>
+    
+  </channel>
+</rss>
