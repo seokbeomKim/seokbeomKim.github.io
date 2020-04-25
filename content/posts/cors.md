@@ -9,7 +9,8 @@ keywords:
 - tech
 ---
 
-# CORS(Cross-Origin Resource Sharing)
+## CORS(Cross-Origin Resource Sharing)
+
 웹 보안 정책 중 `Same-Origin Policy`는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 `출처(Origin)`는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.
 
 하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 `CORS(Cross-Origin Resource Sharing)`이라는 추가 정책이 나오게 되었다.
@@ -19,6 +20,7 @@ keywords:
 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.
 
 ### Simple Requests
+
 몇몇 요청(Request)들은 CORS preflight를 트리거하지 않는다. `MDN` 자료와 티맥스 출처자료에서는 이를 두고 `Simple Requests`라고 구분하지만 CORS를 정의한 실제 [Fetch](https://fetch.spec.whatwg.org/) 스펙에서는 Simple Requests라는 용어를 사용하지 않는다. **CORS preflight를 트리거 하지 않는 요청(편의상 MDN에서 'simple requests'라고 명명했던)은 아래의 조건들을 모두 만족하는 요청을 가리킨다.**
 
 1. GET/POST/HEAD 메서드만을 사용해야 한다.
@@ -94,6 +96,7 @@ Access-Control-Allow-Origin: http://foo.example
 처럼 왔다면 `http://foo.example`을 제외한 다른 도메인들에서는 cross-site 방식으로 해당 리소스에 접근할 수 없다는 것을 의미한다.
 
 ### Preflighted Requests
+
 `Simple Requests`와 다르게 "preflighted" requests(사전 전달 요청)는 먼저 `OPTIONS` 메서드를 이용하여 HTTP request를 먼저 보내 실제 요청이 보내기에 안전한지 확인한다. 아래 조건들 중 하나라도 만족하면 `Preflighted Requests`로 간주한다.
 
 1. Request가 아래 메서드를 사용한다.

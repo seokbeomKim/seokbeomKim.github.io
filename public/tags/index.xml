@@ -6,10 +6,64 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2020 14:27:31 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>c</title>
+      <link>https://seokbeomKim.github.io/tags/c/</link>
+      <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cache</title>
+      <link>https://seokbeomKim.github.io/tags/cache/</link>
+      <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cache-line</title>
+      <link>https://seokbeomKim.github.io/tags/cache-line/</link>
+      <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/cache-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>page table</title>
+      <link>https://seokbeomKim.github.io/tags/page-table/</link>
+      <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/page-table/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VA_BITS</title>
+      <link>https://seokbeomKim.github.io/tags/va_bits/</link>
+      <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/va_bits/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtual address</title>
+      <link>https://seokbeomKim.github.io/tags/virtual-address/</link>
+      <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/virtual-address/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>type check</title>
@@ -35,15 +89,6 @@
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/futex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>c</title>
-      <link>https://seokbeomKim.github.io/tags/c/</link>
-      <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/c/</guid>
       <description></description>
     </item>
     
@@ -377,24 +422,6 @@
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/memory-map/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>page table</title>
-      <link>https://seokbeomKim.github.io/tags/page-table/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/page-table/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>VA_BITS</title>
-      <link>https://seokbeomKim.github.io/tags/va_bits/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/va_bits/</guid>
       <description></description>
     </item>
     
