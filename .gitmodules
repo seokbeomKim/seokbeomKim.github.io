@@ -1,3 +1,7 @@
 [submodule "themes/pickles"]
 	path = themes/pickles
 	url = https://github.com/mismith0227/hugo_theme_pickles.git
+
+[submodule "seokbeomKim.github.io"]
+	path = public
+	url = https://github.com/seokbeomKim/seokbeomKim.github.io
