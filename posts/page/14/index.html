@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.69.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,29 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/http1-http2/">HTTP/1.1과 HTTP/2의 차이점</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-01T17:29:25&#43;09:00">
+        May 1, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    HTTP/1.1 vs HTTP/2 HTTP 프로토콜에 대해서는 관심이 없다가 문득 텔레그램의 봇을 통해 우연히 HTTP/2의 개념을 처음으로 접하게 되었다. 이 문서는 HTTP/1.1과 HTTP/2 의 차이점을 설명하고 1.1에서 2로 변화하면서 어떻게 개선되었는지 기술한다.
+HTTP/1.1 동작 방식 HTTP(HyperText Transfer Protocol)은 웹에서 클라이언트(웹 브라우저)가 웹 서버(httpd, nginx, etc&hellip;)와 통신하기 위한 프로토콜 중 하나이다. HTTP 1.1은 클라이언트와 서버 간의 통신을 위해 다음과 같은 과정을 거친다.
+위 그림에서 알 수 있듯이 HTTP/1.1은 기본적으로 Connection 한 개당 하나의 요청을 처리하도록 설계되어 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/http1-http2/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -149,27 +172,6 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/diff_http_https/">HTTP와 HTTPS의 차이점</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-01T16:53:27&#43;09:00">
-        May 1, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &lsquo;S'가 나타내는 Secure라는 의미로부터 HTTP에 &lsquo;어떤 것'을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한'어떤 것'인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/diff_http_https/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -179,9 +181,11 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
     </div>
     <div class="c-pagination__older">
       
+      <a href="/posts/page/15/">Older</a>
+      
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 14 of 14</span>
+  <span class="c-pagination__count p-pagination__count">Page 14 of 15</span>
 </nav>
 
 

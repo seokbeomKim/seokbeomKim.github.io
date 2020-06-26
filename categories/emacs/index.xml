@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/categories/emacs/</link>
+    <description>Recent content in emacs on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Jun 2020 01:36:36 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mu4e 설정하기</title>
+      <link>https://seokbeomKim.github.io/posts/setting-mu4e/</link>
+      <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/setting-mu4e/</guid>
+      <description>개요 이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.
+단점은 환경 설정하는 것이 단점인데 mu4e를 단독으로 사용할 수 없을 뿐더러 메일 클라이언트로서 일반 사용자가 사용하기에는 무리가 있다.
+mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신, 공식 문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

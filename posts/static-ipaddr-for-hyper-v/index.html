@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.69.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -96,10 +96,10 @@
 <p>가상머신에 고정 아이피를 할당하기 위해서는 가상 스위치 장치를 이용해야 한다. 가상 스위치의 패킷을 실제 네트워크 어댑터(이더넷 또는 와이파이)와 공유하도록 하고 가상 스위치의 아이피를 가상 머신에서 사용하는 게이트웨이로 지정하여 호스트에서 SSH로 접속할 수 있는 환경을 구성한다.</p>
 <ol>
 <li>작업 &gt; 가상 스위치 관리자
-현재 Default Switch로 되어 있는 스위치가 내부 네트워크로 되어 있는지 확인한다. &lsquo;내부 네트워크'로 선택되어 있는 경우라면 가상 스위치를 추가할 필요가 없지만 만약 선택되어 있다면 이 단계는 넘어가자.</li>
+현재 Default Switch로 되어 있는 스위치가 내부 네트워크로 되어 있는지 확인한다. &lsquo;내부 네트워크&rsquo;로 선택되어 있는 경우라면 가상 스위치를 추가할 필요가 없지만 만약 선택되어 있다면 이 단계는 넘어가자.</li>
 </ol>
 <ul>
-<li>스위치가 없는 경우 &lsquo;새 가상 네트워크 스위치'를 선택하여 내부 타입의 가상 스위치를 하나 생성한다.</li>
+<li>스위치가 없는 경우 &lsquo;새 가상 네트워크 스위치&rsquo;를 선택하여 내부 타입의 가상 스위치를 하나 생성한다.</li>
 </ul>
 <ol start="2">
 <li>네트워크 설정
@@ -107,7 +107,7 @@
 </ol>
 <pre><code>IP: 192.168.137.1
 subnet mask: 255.255.255.0
-</code></pre><p>스위치에 대한 네트워크 설정을 마쳤으면 이더넷 또는 와이파이 어댑터의 속성에서 공유 탭의 &lsquo;인터넷 연결 공유'에 &lsquo;다른 네트워크 사용자가 이 컴퓨터의 인터넷 연결을 통해 연결할 수 있도록 허용&rsquo; 옵션을 활성화해준다.</p>
+</code></pre><p>스위치에 대한 네트워크 설정을 마쳤으면 이더넷 또는 와이파이 어댑터의 속성에서 공유 탭의 &lsquo;인터넷 연결 공유&rsquo;에 &lsquo;다른 네트워크 사용자가 이 컴퓨터의 인터넷 연결을 통해 연결할 수 있도록 허용&rsquo; 옵션을 활성화해준다.</p>
 <ol start="3">
 <li>가상머신에서 네트워크 설정
 이제 거의 끝났다. 가상머신에서 직접 아래와 같이 네트워크 설정을 해준다. 위에서 설정한 스위치 아이피를 gateway로 설정하고 원하는 고정아이피로 설정하면 끝이다.</li>

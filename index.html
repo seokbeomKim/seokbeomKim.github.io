@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.69.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
@@ -61,6 +61,29 @@
 
 
   
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/setting-mu4e/">mu4e 설정하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-06-26T01:36:36&#43;09:00">
+        Jun 26, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.
+단점은 환경 설정하는 것이 단점인데 mu4e를 단독으로 사용할 수 없을 뿐더러 메일 클라이언트로서 일반 사용자가 사용하기에는 무리가 있다.
+mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신, 공식 문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/setting-mu4e/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
   <article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/cache-line/">캐시 라인(Cache-Line)</a></h2>
@@ -116,7 +139,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지'에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블'이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
+    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지&rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블&rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -146,28 +169,6 @@ typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pg
 </article>
 
 
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/dmips/">DMIPS (Dhrystone Million Instructions Per Second)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-03T01:41:29&#43;09:00">
-        Apr 3, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS라는 것이어서 이번에 확실하게 정리하고 가고자 한다.
-DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수화해서 이를 하중한 값으로 비교하는 방법으로 프로세서 성능 비교에 이용하는 지표이다. 예를 들어, ARM 32bit Cortex-M3 CPU - 72 MHz maximum frequency 모델의 경우 1.25 DMIS/MHz 인데 여기에 CPU 사용량을 이용하면 해당 프로세서가 가지는 Full DMIPS (72MHz 일 때의 DMIPS) 대비 측정하고자 하는 프로세스에 대한 DMIPS 지표를 얻을 수 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/dmips/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
 
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
@@ -180,7 +181,7 @@ DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수�
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 1 of 14</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 15</span>
 </nav>
  
 
