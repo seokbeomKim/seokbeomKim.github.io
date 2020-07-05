@@ -3,13 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-06-26T01:36:36+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2020-07-05T02:52:23+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-06-26T01:36:36+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/categories/etc/</loc>
+    <lastmod>2020-07-05T02:52:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
+    <lastmod>2020-07-05T02:52:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/mbp/</loc>
+    <lastmod>2020-07-05T02:52:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2020-07-05T02:52:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/linux-on-mbp/</loc>
+    <lastmod>2020-07-05T02:52:23+09:00</lastmod>
   </url>
   
   <url>
@@ -28,13 +48,13 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-06-26T01:36:36+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
-    <lastmod>2020-06-26T01:36:36+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/tags/c/</loc>
+    <lastmod>2020-04-25T14:27:31+09:00</lastmod>
   </url>
   
   <url>
@@ -133,11 +153,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/c/</loc>
-    <lastmod>2020-04-01T23:55:32+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/posts/do-while/</loc>
     <lastmod>2020-04-01T23:55:32+09:00</lastmod>
   </url>
@@ -154,11 +169,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/bsd_queue/</loc>
-    <lastmod>2020-04-01T00:26:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
     <lastmod>2020-04-01T00:26:52+09:00</lastmod>
   </url>
   
@@ -458,6 +468,11 @@
   </url>
   
   <url>
+    <loc>https://seokbeomKim.github.io/tags/mem/</loc>
+    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/tags/memory-map/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url>
@@ -494,11 +509,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/kmem/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/mem/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url>
   
@@ -570,6 +580,11 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/color-space/</loc>
     <lastmod>2020-01-26T16:39:36+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2020-01-25T22:47:44+09:00</lastmod>
   </url>
   
   <url>
@@ -998,6 +1013,11 @@
   </url>
   
   <url>
+    <loc>https://seokbeomKim.github.io/tags/http/</loc>
+    <lastmod>2019-05-01T17:29:25+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/posts/http1-http2/</loc>
     <lastmod>2019-05-01T17:29:25+09:00</lastmod>
   </url>
@@ -1055,11 +1075,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/tags/sni/</loc>
     <lastmod>2019-05-01T17:12:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/http/</loc>
-    <lastmod>2019-05-01T16:53:27+09:00</lastmod>
   </url>
   
   <url>

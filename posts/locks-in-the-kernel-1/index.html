@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -97,7 +97,7 @@
   
   <section id="js-article" class="p-article__body">
     <p>리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, <em>&lsquo;뮤텍스는
-세마 포어의 카운트가 1인 락&rsquo;이라는 말도 안되는 내용으로 학교
+세마 포어의 카운트가 1인 락'이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.</em> 락의 종류별로 쓰임새가 있고 장단점이
 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에
 대한 사용 예를 기술하고자 한다.</p>
@@ -190,7 +190,7 @@ Section) 내에서 락을 잡고 있는 스레드가 선정됐다는 상황을
 환경과 달리 한 스레드가 임계영역 내에서 락을 잡고 있는 상태라도
 프로세스가 여러 개이므로 앞서 설명한 상황과 같이, 다른 스레드들이
 스케쥴링 되더라도 스핀락 자체가 매우 짧은 시간동안 언락된다면
-스케쥴링된 새로운 스레드가 해당 락을 잡게 되어 &lsquo;Uni-Processor&rsquo;처럼
+스케쥴링된 새로운 스레드가 해당 락을 잡게 되어 &lsquo;Uni-Processor'처럼
 클럭 낭비를 줄일 수 있다.</p>
 <h2 id="스핀락과-후반부-처리">스핀락과 후반부 처리</h2>
 <p>스핀락은 인터럽트 핸들러에서 종종 사용된다고 언급했다. 특히, &ldquo;후반부

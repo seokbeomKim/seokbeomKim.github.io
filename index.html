@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
@@ -61,6 +61,28 @@
 
 
   
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/linux-on-mbp/">맥북에 리눅스 설치하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-07-05T02:52:23&#43;09:00">
+        Jul 5, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는 그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의 개발자라면 각종 IDE나 유닉스 환경의 맥에서도 충분히 리눅스 계열의 애플리케이션들을 포팅해서 사용할 수 있기에 제약사항이 많지 않다. 하지만 리눅스 커널 컴파일을 하려면 얘기가 달라진다. GNU GCC 자체도 포팅된 것을 준비해야할 뿐 아니라, glibc를 포함한 build essentials 패키지들이 리눅스용으로 설치되어 있어야 한다.
+그리고 시리얼 통신을 지원하는 애플리케이션의 경우 맥에서 사용할 수 있는게 많지 않다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/linux-on-mbp/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
   <article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/setting-mu4e/">mu4e 설정하기</a></h2>
@@ -139,32 +161,10 @@ mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신,
     </p>
   </header>
   <div class="c-article__summary">
-    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지&rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블&rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
+    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지'에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블'이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/type-check-in-c/">C언어에서의 type-check</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-10T00:13:53&#43;09:00">
-        Apr 10, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    페이지 테이블에서의 타입 체크 ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게 작성되어 있는 부분을 찾을 수 있었다.
-typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pgdval_t; ... /* * These are used to make use of C type-checking.. */ typedef struct { pteval_t pte; } pte_t; #define pte_val(x)	((x).pte) #define __pte(x)	((pte_t) { (x) } )  ... typedef struct { pgdval_t pgd; } pgd_t; #define pgd_val(x)	((x).
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/type-check-in-c/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
