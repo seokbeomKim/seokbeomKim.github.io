@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -163,7 +163,7 @@
 <pre><code>document.addEventListener(&quot;DOMContentLoaded&quot;, function () {
   document.getElementById(&quot;user-greeting&quot;).textContent = &quot;Welcome!&quot;
 });
-</code></pre><p>하지만 이러한 개선방법은 한 가지 문제점을 가지고 있는데, 전체 DOM을 파싱하기 전까지 스크립트 파일을 받아오지 못하는 단점이 있다. 한 예로, 옛날 &lsquo;파병온라인'이라는 온라인 FPS 게임이 있었는데 당시 캐시 충전을 하는 페이지가 단순 웹페이지로 되어 있었다. 그리고 단순하게 오른쪽 마우스를 차단하는 방식으로만 페이지를 구성했는데 문제는 자바스크립트가 로드되는 시간을 늦추면(강제로 모뎀의 속도를 낮추면) 스크립트가 다운로드 되기 전에 페이지의 소스코드를 볼 수 있었다. 당시는 초등학생 때라 그러한 원리를 몰랐지만 이렇게 스크립트 배치와 브라우저의 파싱 방법에 대해 알고나니 당시의 문제점이 무엇인지 알게 되었다.</p>
+</code></pre><p>하지만 이러한 개선방법은 한 가지 문제점을 가지고 있는데, 전체 DOM을 파싱하기 전까지 스크립트 파일을 받아오지 못하는 단점이 있다. 한 예로, 옛날 &lsquo;파병온라인&rsquo;이라는 온라인 FPS 게임이 있었는데 당시 캐시 충전을 하는 페이지가 단순 웹페이지로 되어 있었다. 그리고 단순하게 오른쪽 마우스를 차단하는 방식으로만 페이지를 구성했는데 문제는 자바스크립트가 로드되는 시간을 늦추면(강제로 모뎀의 속도를 낮추면) 스크립트가 다운로드 되기 전에 페이지의 소스코드를 볼 수 있었다. 당시는 초등학생 때라 그러한 원리를 몰랐지만 이렇게 스크립트 배치와 브라우저의 파싱 방법에 대해 알고나니 당시의 문제점이 무엇인지 알게 되었다.</p>
 <p>때문에 요즘에는 아래와 같은 방법으로 로드 문제를 해결한다.</p>
 <h4 id="async">async</h4>
 <pre><code>&lt;script type='text/javascript' src='path/to/s1.js' async&gt;&lt;/script&gt;

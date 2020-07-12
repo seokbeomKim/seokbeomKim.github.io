@@ -6,10 +6,21 @@
     <description>Recent content in Posts on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Jul 2020 02:52:23 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2020 22:13:08 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>맥 OS에서 리눅스 커널 컴파일하기</title>
+      <link>https://seokbeomKim.github.io/posts/kernel-compilation-on-mac-os/</link>
+      <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/kernel-compilation-on-mac-os/</guid>
+      <description>개요 맥 환경에서 bare-metal이 아닌 리눅스 커널로 컴파일하는 것은 생각했던 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한 라이브러리와 경로들이 리눅스 환경과 다르기 때문에, 일반적인 리눅스 배포판에서처럼 크로스 컴파일러를 바이너리 형태로 설치한 뒤에 곧바로 커널 빌드를 할 수는 없다.
+이 포스팅은 맥에서 리눅스 커널을 빌드하려는 사람들을 위해 작성한 것으로, 아래 구성으로 간략하게 기술하겠다.
+ 준비 사항 및 제약 사항 크로스 컴파일러 빌드 커널 빌드 끝맺음  본 포스팅에서 확인한 맥 환경은 아래와 같으며 단순 바이너리만 받고자 하는 경우 아래 링크에서 받도록 한다.</description>
+    </item>
     
     <item>
       <title>맥북에 리눅스 설치하기</title>
@@ -58,7 +69,7 @@ mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신,
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/</guid>
-      <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &amp;lsquo;어떻게 가상 주소를 맵핑할 것인지&#39;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &amp;lsquo;페이지 테이블&#39;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.</description>
+      <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &amp;lsquo;어떻게 가상 주소를 맵핑할 것인지&amp;rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &amp;lsquo;페이지 테이블&amp;rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.</description>
     </item>
     
     <item>
@@ -234,17 +245,6 @@ int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	br
       <description>ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
  idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
 linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.</description>
-    </item>
-    
-    <item>
-      <title>맥북에 리눅스 설치, 그리고 hyper-v</title>
-      <link>https://seokbeomKim.github.io/posts/linux-on-macbook/</link>
-      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/linux-on-macbook/</guid>
-      <description>개요 맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반 동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한 운영체제였지만 동시에 맥 만의 단점을 갖고 있었고 생각보다 매우 영향이 컸다.
-PIM은 기본이고 상위 레벨 프로그래밍을 위해서, 맥 만큼 좋은 운영체제는 없을 것이다. BSD 기반으로 만들어져 완벽하지는 않지만 포팅을 하면 어느정도 리눅스에 가까울 정도로 네이티브 환경에서 실행 가능하고 다양한 분야에서 강력한 유료 애플리케이션이 지원되기 때문에 만족스럽게 사용할 수 있다.
-하지만 맥은 WSL을 도입하면서 윈도우즈가 갖게된 리눅스 플랫폼(?</description>
     </item>
     
     <item>
@@ -474,7 +474,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&#39;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&#39;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&amp;rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&amp;rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
     </item>
     
     <item>
@@ -494,7 +494,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
-세마 포어의 카운트가 1인 락&#39;이라는 말도 안되는 내용으로 학교
+세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에
 대한 사용 예를 기술하고자 한다.&lt;/p&gt;</description>
@@ -685,7 +685,7 @@ A model with a set of parameters transforms the input into an output, this gener
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/rest-api-model/</guid>
-      <description>개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &amp;lsquo;RESTful&amp;rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &amp;lsquo;Richardson Maturity Model&#39;이라는 성숙도 모델을 기술한다.
+      <description>개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &amp;lsquo;RESTful&amp;rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &amp;lsquo;Richardson Maturity Model&amp;rsquo;이라는 성숙도 모델을 기술한다.
 REST 소개 이 절은 Microsoft의 REST 소개를 발췌하여 정리한 것이다.
 REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키텍처 스타일로서 프로토콜과는 관련이 없는 용어이다. (일각에서 REST와 SOAP를 비교하는 글들이 많아 언급하였다.</description>
     </item>
@@ -759,7 +759,7 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/diff_http_https/</guid>
-      <description>HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&#39;가 나타내는 Secure라는 의미로부터 HTTP에 &amp;lsquo;어떤 것&#39;을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한&#39;어떤 것&#39;인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.</description>
+      <description>HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&amp;rsquo;가 나타내는 Secure라는 의미로부터 HTTP에 &amp;lsquo;어떤 것&amp;rsquo;을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한&amp;rsquo;어떤 것&amp;rsquo;인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.</description>
     </item>
     
   </channel>

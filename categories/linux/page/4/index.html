@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -63,28 +63,6 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/">리눅스 커널 락 종류 (2/5)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-29T00:59:34&#43;09:00">
-        May 29, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다. 많은 곳에서 뮤텍스는 세마포어의 카운트 값이 단순하게 1로 설정되었을 때를 말한다고 기술한다. 하지만 이것이 맞는 설명일까?
-참고 자료에 따르면 뮤텍스는 공유 자원으로의 접근(Access)에 대한 상호 배제(Mutual Exclusion)을 위한 수단이 Mutex라고 정의하고 있다. 이에 반해 세마포어(Semaphore)는 시그널 매커니즘으로서 스레드(또는 프로세스) 간 동기화가 주 목적으로, wait 함수를 호출한 스레드만이 뮤텍스를 신호를 보낼 수 있다는 점이 기능적인 특징이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/">리눅스 커널 락 종류 (1/5)</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -94,7 +72,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lsquo;뮤텍스는 세마 포어의 카운트가 1인 락'이라는 말도 안되는 내용으로 학교 선배로부터 배웠던 것이 기억난다. 락의 종류별로 쓰임새가 있고 장단점이 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에 대한 사용 예를 기술하고자 한다.
+    리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lsquo;뮤텍스는 세마 포어의 카운트가 1인 락&rsquo;이라는 말도 안되는 내용으로 학교 선배로부터 배웠던 것이 기억난다. 락의 종류별로 쓰임새가 있고 장단점이 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에 대한 사용 예를 기술하고자 한다.
 
   </div>
   
@@ -172,6 +150,28 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
 
 
 
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/">비선점 스케쥴링(Nonpreemptive Scheduling)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-15T18:44:06&#43;09:00">
+        May 15, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    비선점 스케쥴링(Non-preemptive Scheduling) 비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록 허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가 생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로 프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을 적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.
+설명하기 전에 프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의 프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫 번째이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -181,11 +181,9 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
     </div>
     <div class="c-pagination__older">
       
-      <a href="/categories/linux/page/5/">Older</a>
-      
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 4 of 5</span>
+  <span class="c-pagination__count p-pagination__count">Page 4 of 4</span>
 </nav>
 
 

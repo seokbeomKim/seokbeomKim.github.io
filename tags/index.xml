@@ -6,10 +6,37 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2020 01:36:36 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2020 22:13:08 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cross compile</title>
+      <link>https://seokbeomKim.github.io/tags/cross-compile/</link>
+      <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/cross-compile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>https://seokbeomKim.github.io/tags/kernel/</link>
+      <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac_os</title>
+      <link>https://seokbeomKim.github.io/tags/mac_os/</link>
+      <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mac_os/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>mu4e</title>
@@ -17,15 +44,6 @@
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/mu4e/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>c</title>
-      <link>https://seokbeomKim.github.io/tags/c/</link>
-      <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/c/</guid>
       <description></description>
     </item>
     
@@ -107,6 +125,15 @@
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/futex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://seokbeomKim.github.io/tags/c/</link>
+      <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/c/</guid>
       <description></description>
     </item>
     
@@ -282,42 +309,6 @@
     </item>
     
     <item>
-      <title>linux</title>
-      <link>https://seokbeomKim.github.io/tags/linux/</link>
-      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>macbook</title>
-      <link>https://seokbeomKim.github.io/tags/macbook/</link>
-      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/macbook/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mbp</title>
-      <link>https://seokbeomKim.github.io/tags/mbp/</link>
-      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/mbp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ubuntu</title>
-      <link>https://seokbeomKim.github.io/tags/ubuntu/</link>
-      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/ubuntu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>BUG_ON</title>
       <link>https://seokbeomKim.github.io/tags/bug_on/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
@@ -426,15 +417,6 @@
     </item>
     
     <item>
-      <title>mem</title>
-      <link>https://seokbeomKim.github.io/tags/mem/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/mem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>memory map</title>
       <link>https://seokbeomKim.github.io/tags/memory-map/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
@@ -476,6 +458,15 @@
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/kmem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mem</title>
+      <link>https://seokbeomKim.github.io/tags/mem/</link>
+      <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mem/</guid>
       <description></description>
     </item>
     
@@ -714,15 +705,6 @@
     </item>
     
     <item>
-      <title>kernel</title>
-      <link>https://seokbeomKim.github.io/tags/kernel/</link>
-      <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>OSI 7 Layers</title>
       <link>https://seokbeomKim.github.io/tags/osi-7-layers/</link>
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
@@ -948,15 +930,6 @@
     </item>
     
     <item>
-      <title>http</title>
-      <link>https://seokbeomKim.github.io/tags/http/</link>
-      <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/http/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>http1.1</title>
       <link>https://seokbeomKim.github.io/tags/http1.1/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
@@ -1016,6 +989,15 @@
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/sni/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>https://seokbeomKim.github.io/tags/http/</link>
+      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/http/</guid>
       <description></description>
     </item>
     
