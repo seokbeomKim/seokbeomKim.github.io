@@ -6,10 +6,28 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jul 2020 22:13:08 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2020 16:25:23 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kernel</title>
+      <link>https://seokbeomKim.github.io/tags/kernel/</link>
+      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oop</title>
+      <link>https://seokbeomKim.github.io/tags/oop/</link>
+      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/oop/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cross compile</title>
@@ -17,15 +35,6 @@
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/cross-compile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kernel</title>
-      <link>https://seokbeomKim.github.io/tags/kernel/</link>
-      <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
       <description></description>
     </item>
     

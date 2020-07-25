@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oop on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/tags/oop/</link>
+    <description>Recent content in oop on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Jul 2020 16:25:23 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>커널에서의 Object-Oriented Design Pattern</title>
+      <link>https://seokbeomKim.github.io/posts/oop-in-kernel/</link>
+      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/oop-in-kernel/</guid>
+      <description>개요 현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패턴은 이미 오래 전부터 적용되어 왔지만 BSP에 포함된 솔루션 코드로서 추가되는 코드에는 그러한 디자인 패턴이 보이지 않는다.
+Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascript에서도 객체 지향적인 디자인 패턴이 적용되어 있다. 그렇다면, C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 어떻게 적용되어 있을까. 여기에 대한 좋은 참고 자료로서 LWN의 한 기사를 찾을 수 있었다.</description>
+    </item>
+    
+  </channel>
+</rss>

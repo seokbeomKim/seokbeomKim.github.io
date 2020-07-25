@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.74.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
@@ -61,6 +61,29 @@
 
 
   
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/android-partitions/">안드로이드 파티션</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-03-12T00:26:40&#43;09:00">
+        Mar 12, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 안드로이드 기본 내용이지만 파티션을 착각한 탓에 수정 사항을 반영하지 못해 시간을 날리고 말았다. 커널의 수정사항이라 부트 이미지만 적용하면 변경 사항이 적용될 거라 생각했지만 커널 모듈로 빌드되는 경우 vendor 이미지로 별도로 관리될 수도 있기 때문에 해당 이미지도 함께 추가해서 해당 파티션도 업데이트 해줘야 한다.
+안드로이드 파티션 안드로이드 레퍼런스 문서에 따르면 boot, system, vendor, radio를 다음과 같이 설명하고 있다.
+  boot: boot 파티션에는 mkbootimg를 통해 결합된 커널 이미지와 RAM 디스크가 포함된다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/android-partitions/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
   <article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/poll-and-poll_wait/">poll() 그리고 poll_wait()</a></h2>
@@ -145,28 +168,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/static-ipaddr-for-hyper-v/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/buffering-in-linux/">리눅스에서의 버퍼링 방식</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-29T23:34:30&#43;09:00">
-        Feb 29, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    리눅스에서의 버퍼링 정책 리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
-만약 write 호출로 데이터를 쓰기 명령을 전달하면 해당 파일 작업을 위한 버퍼에 기록을 해 두었다가 정책에 따라 특정 시점에 물리적인 파일에 기록을 수행한다. 리눅스에서 제공하는 버퍼링 정책에는 버퍼가 꽉 차면 물리적인 파일에 기록하는 Full Buffering과 꽉 차거나 개행문자가 오면 처리하는 Line Buffering, 버퍼를 사용하는 않는 Null Buffering 정책을 제공하고 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/buffering-in-linux/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

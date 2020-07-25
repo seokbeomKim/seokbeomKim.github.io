@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.73.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.74.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">linux</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/oop-in-kernel/">커널에서의 Object-Oriented Design Pattern</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-07-25T16:25:23&#43;09:00">
+        Jul 25, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 현업에서 BSP 코드를 수정하다가 문득 든 생각은 &lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&rsquo; 라는 것이다. 그러한 디자인 패턴은 이미 오래 전부터 적용되어 왔지만 BSP에 포함된 솔루션 코드로서 추가되는 코드에는 그러한 디자인 패턴이 보이지 않는다.
+Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascript에서도 객체 지향적인 디자인 패턴이 적용되어 있다. 그렇다면, C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 어떻게 적용되어 있을까. 여기에 대한 좋은 참고 자료로서 LWN의 한 기사를 찾을 수 있었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/oop-in-kernel/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -149,28 +171,6 @@ likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 �
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/typedef-is-evil/">typedef is evil</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-13T01:12:37&#43;09:00">
-        Feb 13, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을 비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이 되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.
-typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조체에 대한 포인터를 정의할 때 typedef을 이용하지 말 것을 당부한다. 또한, typedef unsigned long DWORD 와 같은 것도 비판한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/typedef-is-evil/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -182,7 +182,7 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 1 of 4</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 5</span>
 </nav>
 
 
