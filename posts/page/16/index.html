@@ -63,110 +63,19 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/digital_output_formats/">영상 출력 포맷</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/diff_http_https/">HTTP와 HTTPS의 차이점</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-01-26T17:44:18&#43;09:00">
-        Jan 26, 2020
+      <time datetime="2019-05-01T16:53:27&#43;09:00">
+        May 1, 2019
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    디지널 출력 포맷 아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타겟으로 한 표준들이 나오고 있다. 디지털 텔레비전의 부호화 파라미터들을 정의한 권고안으로서 601은 모든 컴포넌트 디지털 영상 표준에 대한 기초가 되었다.
-규격 내용 각 표준에는 아래와 같은 내용들을 정의한다.
- 화면비 휘도 및 색 신호에 대한 처리 영상 포맷 형식 기준 주파수 샘플링 주파수 샘플링 및 코딩 형식  BT.
+    HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &lsquo;S&rsquo;가 나타내는 Secure라는 의미로부터 HTTP에 &lsquo;어떤 것&rsquo;을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한&rsquo;어떤 것&rsquo;인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.
   </div>
   
-  <a href="https://seokbeomKim.github.io/posts/digital_output_formats/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/color-space/">색 공간(Color Space)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-26T16:39:36&#43;09:00">
-        Jan 26, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.
-색 포맷에 대한 비트 구성은 표준에 따르지 않고 각 플랫폼 환경에 따라 달라지므로 SoC 데이터시트를 참고하여 컴포넌트에서 어떻게 구성되는지 확인해야 한다.
-RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/color-space/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/bootloader/">부트로더(Bootloader)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-23T22:47:44&#43;09:00">
-        Jun 23, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램, 네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.
-브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면 메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽 카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test) 과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를 찾아 부팅한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/bootloader/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/posix-spawn-errors/">command: posix_spawn failed: Resource temporarily unavailable</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-23T10:46:29&#43;09:00">
-        Jun 23, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.
-이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이
-sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
-명령어를 통해 제한값을 높여주면 해결된다. 맥은 설치는 쉬운데 왜이리도 설정해줘야 많은지 모르겠다.
-  </div>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/">QEMU 이용한 임베디드 개발 환경 구축하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-22T21:29:27&#43;09:00">
-        Jun 22, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
-개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/qemu-arm-versatile/" class="c-article__btn p-list-article__btn">Read more</a>
+  <a href="https://seokbeomKim.github.io/posts/diff_http_https/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -176,16 +85,14 @@ sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
       
-      <a href="/posts/page/8/">Newer</a>
+      <a href="/posts/page/15/">Newer</a>
       
     </div>
     <div class="c-pagination__older">
       
-      <a href="/posts/page/10/">Older</a>
-      
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 9 of 16</span>
+  <span class="c-pagination__count p-pagination__count">Page 16 of 16</span>
 </nav>
 
 

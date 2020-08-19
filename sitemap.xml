@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://seokbeomKim.github.io/post/real-haskell-chapter-04/</loc>
+    <loc>https://seokbeomKim.github.io/posts/real-haskell-chapter-04/</loc>
     <lastmod>2020-08-17T18:08:58+09:00</lastmod>
   </url>
   
@@ -28,7 +28,7 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/post/</loc>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
     <lastmod>2020-08-17T18:08:58+09:00</lastmod>
   </url>
   
@@ -54,11 +54,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/oop/</loc>
-    <lastmod>2020-07-25T16:25:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
     <lastmod>2020-07-25T16:25:23+09:00</lastmod>
   </url>
   
