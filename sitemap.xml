@@ -3,13 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/post/real-haskell-chapter-04/</loc>
+    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-07-25T16:25:23+09:00</lastmod>
+    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-07-25T16:25:23+09:00</lastmod>
+    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/function-application/</loc>
+    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/haskell/</loc>
+    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/post/</loc>
+    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
   </url>
   
   <url>
@@ -34,11 +59,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-07-25T16:25:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2020-07-25T16:25:23+09:00</lastmod>
   </url>
   
@@ -75,6 +95,21 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/linux-on-mbp/</loc>
     <lastmod>2020-07-05T02:52:23+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/git/</loc>
+    <lastmod>2020-06-27T22:40:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/git-prune/</loc>
+    <lastmod>2020-06-27T22:40:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/vcs/</loc>
+    <lastmod>2020-06-27T22:40:53+09:00</lastmod>
   </url>
   
   <url>
@@ -370,6 +405,31 @@
   <url>
     <loc>https://seokbeomKim.github.io/tags/idmap/</loc>
     <lastmod>2020-02-24T23:01:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/linux/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/macbook/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/mbp/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/ubuntu/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/linux-on-macbook/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
   </url>
   
   <url>
@@ -1009,11 +1069,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/folding-in-haskell/</loc>
-    <lastmod>2019-05-01T17:56:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/haskell/</loc>
     <lastmod>2019-05-01T17:56:20+09:00</lastmod>
   </url>
   
