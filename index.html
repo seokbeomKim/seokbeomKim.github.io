@@ -63,6 +63,28 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/nfd-on-mac-os/">Mac OS에서의 자모 분리 현상 해결하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-08-24T22:55:11&#43;09:00">
+        Aug 24, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반대로 맥에서 동기화한 파일을 윈도우즈나 리눅스에서 보면 한글 자모가 분리되는 현상이 있었다. 자세히 살펴보니 유니코드 정규화 방식의 차이 때문이었다.
+유니코드 정규화 유니코드 정규화는 모양이 같은 여러 문자들이 있을 경우 이를 기준에 따라 하나로 통합해주는 역할을 하며 해당 기준으로 NFD, NFC, NFKD, NFKC 등이 이다. 윈도우즈나 리눅스에서는 NFC 를 기준으로 유니코드 정규화를 하지만 맥에서는 이와 다른 NFD 를 기준으로 유니코드를 정규화하기에 이와 같은 문제가 발생하는 것이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/nfd-on-mac-os/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/real-haskell-chapter-04/">(.) 와 ($) 의 차이</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -147,27 +169,6 @@ Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascri
 </article>
 
 
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/git-prune/">git prune</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-06-27T22:40:53&#43;09:00">
-        Jun 27, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    git prune 명령어는 unreachable한 git object를 로컬에서 제거하는 명령어이다.
-git prune 수행 시에 --dry-run --verbose 옵션을 주면 실제 수행되지는 않고 어떻게 수행될지에 대한 시뮬레이션을 볼 수 있다.
-$ git remote prune --dry-run --verbose 
-  </div>
-  
-</article>
-
-
 
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
@@ -180,7 +181,7 @@ $ git remote prune --dry-run --verbose
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 1 of 16</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 15</span>
 </nav>
  
 
