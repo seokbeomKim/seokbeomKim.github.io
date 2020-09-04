@@ -1,11 +1,11 @@
 baseURL = "https://seokbeomKim.github.io/"
 languageCode = "en-us"
-title = "A Developer's Note"
+title = "코드몽키의 개발 일지"
 theme = "pickles"
 paginate = 5
 
 [params]
-	subtitle = "Technical Writing in Daily Life"
+	subtitle = "일상 속 글쓰는 공간"
 
 	# Socal accounts
 	github = "seokbeomKim"
@@ -19,22 +19,22 @@ paginate = 5
 	custom_css = ["css/img.css"]
 
 [[menu.main]]
-	name = "Blog"
+	name = "블로그"
 	url = "/"
 	weight = 1
 
 [[menu.main]]
-	name = "Tags"
+	name = "태그"
 	url = "/tags"
 	weight = 2
 
 [[menu.main]]
-	name = "Categories"
+	name = "카테고리"
 	url = "/categories"
 	weight = 3
 
 [[menu.main]]
-	name = "About"
+	name = "소개"
 	url = "/about"
 
 
@@ -44,7 +44,7 @@ paginate = 5
 	[markup.tableOfContents]
 		startLevel = 1
 		endLevel = 3
-		ordered = true 
+		ordered = true
 
 [taxonomies]
 	category = "categories"
