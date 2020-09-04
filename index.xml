@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Developer&#39;s Note</title>
+    <title>코드몽키의 개발 일지</title>
     <link>https://seokbeomKim.github.io/</link>
-    <description>Recent content on A Developer&#39;s Note</description>
+    <description>Recent content on 코드몽키의 개발 일지</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Aug 2020 22:55:11 +0900</lastBuildDate>
@@ -434,16 +434,15 @@ RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.</descrip
     </item>
     
     <item>
-      <title>Sukbeom Kim (Jason Kim)</title>
+      <title></title>
       <link>https://seokbeomKim.github.io/about/</link>
       <pubDate>Sat, 25 Jan 2020 22:47:44 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/about/</guid>
-      <description> BSP Engineer @: sukbeom.kim@gmail.com  Careers   2009 - 2016: Kwangwoon Univ.
- Bachelor&amp;rsquo;s degree, Computer Engineering    2015 - 2016: Alpha Labs, Software Engineer
- Working on Smart Glasses Development Device Driver &amp;amp; Android Framework Server Management    2017 - 2018: LIGNex1, Research Engineer
- Korean UAV Project    2019 - : Telechips, BSP Engineer
-  </description>
+      <description>Sukbeom (Jason) Kim  BSP Engineer @: sukbeom.kim@gmail.com  Careers   2009 - 2016
+ Kwangwoon Univ. Bachelor&amp;rsquo;s degree, Computer Engineering    2015 - 2016
+ Alpha Labs, Software Engineer Smart Glasses Development  Device Driver &amp;amp; Android Framework Server Management      2017 - 2018
+ LIG-Nex1, Research Engineer Korean military UAV project  Integration software for analysis system and control system      2019 - now</description>
     </item>
     
     <item>
