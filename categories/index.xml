@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 코드몽키의 개발 일지</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2020 22:55:11 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2020 09:50:58 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>coc</title>
+      <link>https://seokbeomKim.github.io/categories/coc/</link>
+      <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/coc/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>mac</title>

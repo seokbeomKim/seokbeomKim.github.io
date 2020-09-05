@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/switch-statement/">switch 구문과 if-else 구문</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-26T23:56:18&#43;09:00">
+        Feb 26, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다.
+int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	break; case FLAG_B: // do B 	break; case blabla: // blabla... 	break; default: printk(KERN_ERR &#34;ERROR!\n&#34;); } return 0; } 함수 포인터 배열 사용하기 if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를 들었던 기억이 났다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/switch-statement/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/idmap/">Identity Mapping</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -150,28 +172,6 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/">이맥스 기본 에디터로 사용하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-09T03:09:59Z">
-        Feb 9, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
-데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -185,7 +185,7 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 6 of 15</span>
+  <span class="c-pagination__count p-pagination__count">Page 6 of 16</span>
 </nav>
 
 

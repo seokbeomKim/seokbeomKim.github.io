@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>일상 글쓰기 on 코드몽키의 개발 일지</title>
+    <link>https://seokbeomKim.github.io/tags/%EC%9D%BC%EC%83%81-%EA%B8%80%EC%93%B0%EA%B8%B0/</link>
+    <description>Recent content in 일상 글쓰기 on 코드몽키의 개발 일지</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Sep 2020 09:50:58 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/%EC%9D%BC%EC%83%81-%EA%B8%80%EC%93%B0%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>리누즈게이트와 CoC</title>
+      <link>https://seokbeomKim.github.io/posts/coc/</link>
+      <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/coc/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
