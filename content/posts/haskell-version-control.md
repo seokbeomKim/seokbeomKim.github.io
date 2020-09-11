@@ -18,8 +18,50 @@ IDE 환경을 구성하기 위해 `haskell-ide-engine`을 설치하였지만 한
 
 ghcup은 아치리눅스의 경우 `AUR`에서 `ghcup-hs-bin` 패키지로 설치할 수
 있으며 아래와 같이 원하는 ghc 버전들을 간편하게 설치하고 메인으로
-관리할 수 있다. 단, `$HOME/.ghcup/bin` 경로에 설치되어 있으므로 셸
-스크립트를 통해 환경변수로서 설정해줘야 한다.
+관리할 수 있다. 먼저, `ghcup list` 명령어를 통해 `ghc` 로 설치된
+패키지들의 목록을 확인해보자.
+
+``` bash
+public git:6c65fe3 ❯ ghcup list
+   Tool  Version      Tags                                 Notes
+✗  ghc   7.10.3       base-4.8.2.0
+✗  ghc   8.0.2        base-4.9.1.0
+✗  ghc   8.2.2        base-4.10.1.0
+✗  ghc   8.4.1        base-4.11.0.0
+✗  ghc   8.4.2        base-4.11.1.0
+✗  ghc   8.4.3        base-4.11.1.0
+✗  ghc   8.4.4        base-4.11.1.0
+✗  ghc   8.6.1        base-4.12.0.0
+✗  ghc   8.6.2        base-4.12.0.0
+✗  ghc   8.6.3        base-4.12.0.0
+✗  ghc   8.6.4        base-4.12.0.0
+✗  ghc   8.6.5        base-4.12.0.0
+✗  ghc   8.8.1        base-4.13.0.0
+✗  ghc   8.8.2        base-4.13.0.0
+✔✔ ghc   8.8.3        base-4.13.0.0
+✗  ghc   8.8.4        recommended,base-4.13.0.0
+✗  ghc   8.10.1       base-4.14.0.0
+✓  ghc   8.10.2       latest,base-4.14.1.0
+✗  ghc   9.0.1-alpha1 prerelease,base-4.15.0.0
+✗  cabal 2.4.1.0
+✗  cabal 3.0.0.0
+✗  cabal 3.2.0.0      latest,recommended
+✗  cabal 3.4.0.0-rc2  prerelease
+✔✔ ghcup 0.1.10       latest,recommended
+```
+
+현재 기본으로 설정되어 있는 `ghc` 버전과 `ghcup` 버전 등을 리스트로
+확인할 수 있다. 새로 ghc 버전을 설치하기 위해서는 아래 명령어로 버전을
+간편하게 설치할 수 있다.
+
+``` bash
+$ ghcup install ghc 8.8.2 # install ghc of version 8.8.2
+$ ghcup set ghc 8.8.2     # set default version to 8.8.2
+```
+
+중요한 것은 `ghcup`을 통해 설치하는 모든 바이너리는 `$HOME/.ghcup/bin`
+경로에 설치되어 있으므로 셸 스크립트를 통해 해당 경로를 참조할 수
+있도록 `$PATH` 환경변수를 조정해줘야 한다.
 
 # 참고 링크
 
