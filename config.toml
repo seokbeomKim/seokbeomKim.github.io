@@ -1,11 +1,11 @@
 baseURL = "https://seokbeomKim.github.io/"
 languageCode = "en-us"
-title = "코드몽키의 개발 일지"
+title = "A Developer's Note"
 theme = "pickles"
 paginate = 5
 
 [params]
-	subtitle = "일상 속 글쓰는 공간"
+	subtitle = "일상 속 글쓰기"
 
 	# Socal accounts
 	github = "seokbeomKim"
