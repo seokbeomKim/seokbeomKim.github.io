@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>shadowing on 코드몽키의 개발 일지</title>
+    <title>shadowing on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/tags/shadowing/</link>
-    <description>Recent content in shadowing on 코드몽키의 개발 일지</description>
+    <description>Recent content in shadowing on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 May 2019 18:24:16 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/shadowing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 16 May 2019 18:24:16 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/shadowing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Copy on Write (CoW or COW)</title>
       <link>https://seokbeomKim.github.io/posts/copy-on-write/</link>

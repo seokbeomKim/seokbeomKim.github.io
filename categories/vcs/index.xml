@@ -6,11 +6,7 @@
     <description>Recent content in vcs on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jun 2020 22:40:53 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/categories/vcs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 27 Jun 2020 22:40:53 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/vcs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git prune</title>
       <link>https://seokbeomKim.github.io/posts/git-prune/</link>

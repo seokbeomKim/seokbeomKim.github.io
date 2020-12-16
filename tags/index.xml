@@ -1,15 +1,74 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 코드몽키의 개발 일지</title>
+    <title>Tags on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/tags/</link>
-    <description>Recent content in Tags on 코드몽키의 개발 일지</description>
+    <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Sep 2020 09:50:58 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Dec 2020 01:38:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sysrq</title>
+      <link>https://seokbeomKim.github.io/tags/sysrq/</link>
+      <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/sysrq/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PLL</title>
+      <link>https://seokbeomKim.github.io/tags/pll/</link>
+      <pubDate>Tue, 08 Dec 2020 15:04:30 +0000</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/pll/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>vmmem</title>
+      <link>https://seokbeomKim.github.io/tags/vmmem/</link>
+      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/vmmem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WSL</title>
+      <link>https://seokbeomKim.github.io/tags/wsl/</link>
+      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/wsl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cache</title>
+      <link>https://seokbeomKim.github.io/tags/cache/</link>
+      <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cache-line</title>
+      <link>https://seokbeomKim.github.io/tags/cache-line/</link>
+      <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/cache-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ghcup</title>
+      <link>https://seokbeomKim.github.io/tags/ghcup/</link>
+      <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/ghcup/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>일상</title>
@@ -84,29 +143,20 @@
     </item>
     
     <item>
+      <title>git</title>
+      <link>https://seokbeomKim.github.io/tags/git/</link>
+      <pubDate>Sat, 27 Jun 2020 22:40:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>mu4e</title>
       <link>https://seokbeomKim.github.io/tags/mu4e/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/mu4e/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cache</title>
-      <link>https://seokbeomKim.github.io/tags/cache/</link>
-      <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/cache/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cache-line</title>
-      <link>https://seokbeomKim.github.io/tags/cache-line/</link>
-      <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/cache-line/</guid>
       <description></description>
     </item>
     
@@ -237,15 +287,6 @@
     </item>
     
     <item>
-      <title>WSL</title>
-      <link>https://seokbeomKim.github.io/tags/wsl/</link>
-      <pubDate>Sun, 15 Mar 2020 23:23:15 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/wsl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>partition</title>
       <link>https://seokbeomKim.github.io/tags/partition/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
@@ -350,6 +391,42 @@
       <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/idmap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://seokbeomKim.github.io/tags/linux/</link>
+      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macbook</title>
+      <link>https://seokbeomKim.github.io/tags/macbook/</link>
+      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/macbook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mbp</title>
+      <link>https://seokbeomKim.github.io/tags/mbp/</link>
+      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mbp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://seokbeomKim.github.io/tags/ubuntu/</link>
+      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/ubuntu/</guid>
       <description></description>
     </item>
     

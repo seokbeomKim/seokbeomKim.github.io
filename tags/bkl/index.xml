@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>BKL on 코드몽키의 개발 일지</title>
+    <title>BKL on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/tags/bkl/</link>
-    <description>Recent content in BKL on 코드몽키의 개발 일지</description>
+    <description>Recent content in BKL on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Jun 2019 16:40:28 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/bkl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 04 Jun 2019 16:40:28 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/bkl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>리눅스 커널 락 종류 (4/5)</title>
       <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</link>

@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cache on 코드몽키의 개발 일지</title>
+    <title>cache on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/tags/cache/</link>
-    <description>Recent content in cache on 코드몽키의 개발 일지</description>
+    <description>Recent content in cache on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Apr 2020 14:27:31 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/cache/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 13 Sep 2020 21:30:10 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/cache/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>캐시라인(cache-line) 구조 #2</title>
+      <link>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</link>
+      <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</guid>
+      <description>개요 &amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
+캐시 구조 캐시에 관련된 주요 용어는 아래와 같다.
+ 태그 캐시라인 인덱스 웨이와 세트  태그 태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.</description>
+    </item>
     
     <item>
       <title>캐시 라인(Cache-Line)</title>

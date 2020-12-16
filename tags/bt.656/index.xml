@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bt.656 on 코드몽키의 개발 일지</title>
+    <title>bt.656 on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/tags/bt.656/</link>
-    <description>Recent content in bt.656 on 코드몽키의 개발 일지</description>
+    <description>Recent content in bt.656 on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/bt.656/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/bt.656/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>영상 출력 포맷</title>
       <link>https://seokbeomKim.github.io/posts/digital_output_formats/</link>

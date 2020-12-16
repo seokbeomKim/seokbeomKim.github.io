@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>O/S on 코드몽키의 개발 일지</title>
+    <title>o/s on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/categories/o/s/</link>
-    <description>Recent content in O/S on 코드몽키의 개발 일지</description>
+    <description>Recent content in o/s on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en-us</language><atom:link href="https://seokbeomKim.github.io/categories/o/s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL 리소스 조정하기</title>
+      <link>https://seokbeomKim.github.io/posts/wsl-customize-resource/</link>
+      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/wsl-customize-resource/</guid>
+      <description>개요 커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한 내용은 다른 블로그에서도 동일하게 재현되고 있었다.
+위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.
+WSL 리소스 설정 먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.
+PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 PS C:\Windows\system32&amp;gt; wsl -t Ubuntu --shutdown PS C:\Windows\system32&amp;gt; PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Stopped 2 종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.</description>
+    </item>
     
-	<atom:link href="https://seokbeomKim.github.io/categories/o/s/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>캐시라인(cache-line) 구조 #2</title>
+      <link>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</link>
+      <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</guid>
+      <description>개요 &amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
+캐시 구조 캐시에 관련된 주요 용어는 아래와 같다.
+ 태그 캐시라인 인덱스 웨이와 세트  태그 태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.</description>
+    </item>
     
     <item>
       <title>가상주소와 페이지 테이블 크기</title>

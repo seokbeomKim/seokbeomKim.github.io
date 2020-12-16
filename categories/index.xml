@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on 코드몽키의 개발 일지</title>
+    <title>Categories on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/categories/</link>
-    <description>Recent content in Categories on 코드몽키의 개발 일지</description>
+    <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Sep 2020 09:50:58 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Dec 2020 01:38:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sysrq</title>
+      <link>https://seokbeomKim.github.io/categories/sysrq/</link>
+      <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/sysrq/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Embedded</title>
+      <link>https://seokbeomKim.github.io/categories/embedded/</link>
+      <pubDate>Tue, 08 Dec 2020 15:04:30 +0000</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/embedded/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>haskell</title>
+      <link>https://seokbeomKim.github.io/categories/haskell/</link>
+      <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/haskell/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>coc</title>
@@ -26,15 +49,6 @@
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>haskell</title>
-      <link>https://seokbeomKim.github.io/categories/haskell/</link>
-      <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/haskell/</guid>
       <description></description>
     </item>
     
@@ -71,6 +85,15 @@
       <pubDate>Sun, 05 Jul 2020 02:52:23 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/mbp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vcs</title>
+      <link>https://seokbeomKim.github.io/categories/vcs/</link>
+      <pubDate>Sat, 27 Jun 2020 22:40:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/vcs/</guid>
       <description></description>
     </item>
     
@@ -170,15 +193,6 @@
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/video/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Embedded</title>
-      <link>https://seokbeomKim.github.io/categories/embedded/</link>
-      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/embedded/</guid>
       <description></description>
     </item>
     
@@ -291,7 +305,7 @@
     </item>
     
     <item>
-      <title>O/S</title>
+      <title>o/s</title>
       <link>https://seokbeomKim.github.io/categories/o/s/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

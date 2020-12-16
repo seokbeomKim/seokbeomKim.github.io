@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PLL on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/tags/pll/</link>
+    <description>Recent content in PLL on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Dec 2020 15:04:30 +0000</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/pll/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PLL (Phase Locked Loop)</title>
+      <link>https://seokbeomKim.github.io/posts/pll-and-pms/</link>
+      <pubDate>Tue, 08 Dec 2020 15:04:30 +0000</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/pll-and-pms/</guid>
+      <description>개요 업무 상에서 클럭 소스를 컨트롤 하기 위해 사용되는 것이 바로 PLL (Phase Locked Loop) 이다. 회로를 통해서 일정한 주파수를 생섬해주는 역할을 한다. 현업에서는 PLL 설정을 위한 값으로 PMS 를 사용하지만 출처에 따르면 M/N 이라는 기호로 나타낸 것을 알 수 있다.
+PLL 회로 사용 예 아래 회로는 10 MHz 클럭 소스를 이용하여 100 MHz Fout 을 만들어내는 PLL 회로이다.
+TCXO 는 심장과 같이 10 MHz 짜리 클럭 소스로 PLL 에 넣어준다.</description>
+    </item>
+    
+  </channel>
+</rss>

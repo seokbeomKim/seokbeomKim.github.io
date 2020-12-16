@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>endian on 코드몽키의 개발 일지</title>
+    <title>endian on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/tags/endian/</link>
-    <description>Recent content in endian on 코드몽키의 개발 일지</description>
+    <description>Recent content in endian on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jan 2020 22:27:06 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/endian/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 27 Jan 2020 22:27:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/endian/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Little Endian vs. Big Endian</title>
       <link>https://seokbeomKim.github.io/posts/endian/</link>

@@ -3,22 +3,102 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-09-05T09:50:58+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/coc/</loc>
-    <lastmod>2020-09-05T09:50:58+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-09-05T09:50:58+09:00</lastmod>
+    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/sysrq/</loc>
+    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/sysrq/</loc>
+    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/sysrq/</loc>
+    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/embedded/</loc>
+    <lastmod>2020-12-08T15:04:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/pll/</loc>
+    <lastmod>2020-12-08T15:04:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/pll-and-pms/</loc>
+    <lastmod>2020-12-08T15:04:30+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/vmmem/</loc>
+    <lastmod>2020-11-28T23:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/wsl/</loc>
+    <lastmod>2020-11-28T23:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/wsl-customize-resource/</loc>
+    <lastmod>2020-11-28T23:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/cache/</loc>
+    <lastmod>2020-09-13T21:30:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/cache-line/</loc>
+    <lastmod>2020-09-13T21:30:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</loc>
+    <lastmod>2020-09-13T21:30:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/ghcup/</loc>
+    <lastmod>2020-09-12T00:05:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/haskell/</loc>
+    <lastmod>2020-09-12T00:05:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/haskell-version-control/</loc>
+    <lastmod>2020-09-12T00:05:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/coc/</loc>
     <lastmod>2020-09-05T09:50:58+09:00</lastmod>
   </url>
   
@@ -29,11 +109,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/%EC%9D%BC%EC%83%81/</loc>
-    <lastmod>2020-09-05T09:50:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/</loc>
     <lastmod>2020-09-05T09:50:58+09:00</lastmod>
   </url>
   
@@ -64,11 +139,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/function-application/</loc>
-    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/haskell/</loc>
     <lastmod>2020-08-17T18:08:58+09:00</lastmod>
   </url>
   
@@ -128,6 +198,21 @@
   </url>
   
   <url>
+    <loc>https://seokbeomKim.github.io/tags/git/</loc>
+    <lastmod>2020-06-27T22:40:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/git-prune/</loc>
+    <lastmod>2020-06-27T22:40:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/vcs/</loc>
+    <lastmod>2020-06-27T22:40:53+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/categories/emacs/</loc>
     <lastmod>2020-06-26T01:36:36+09:00</lastmod>
   </url>
@@ -140,16 +225,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/setting-mu4e/</loc>
     <lastmod>2020-06-26T01:36:36+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/cache/</loc>
-    <lastmod>2020-04-25T14:27:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/cache-line/</loc>
-    <lastmod>2020-04-25T14:27:31+09:00</lastmod>
   </url>
   
   <url>
@@ -298,11 +373,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/wsl/</loc>
-    <lastmod>2020-03-15T23:23:15+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/posts/wsl2/</loc>
     <lastmod>2020-03-15T23:23:15+09:00</lastmod>
   </url>
@@ -420,6 +490,31 @@
   <url>
     <loc>https://seokbeomKim.github.io/tags/idmap/</loc>
     <lastmod>2020-02-24T23:01:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/linux/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/macbook/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/mbp/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/ubuntu/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/linux-on-macbook/</loc>
+    <lastmod>2020-02-22T18:41:53+09:00</lastmod>
   </url>
   
   <url>
@@ -654,11 +749,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/bootloader/</loc>
-    <lastmod>2019-06-23T22:47:44+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/embedded/</loc>
     <lastmod>2019-06-23T22:47:44+09:00</lastmod>
   </url>
   

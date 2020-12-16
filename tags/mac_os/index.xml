@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mac_os on 코드몽키의 개발 일지</title>
+    <title>mac_os on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/tags/mac_os/</link>
-    <description>Recent content in mac_os on 코드몽키의 개발 일지</description>
+    <description>Recent content in mac_os on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jul 2020 22:13:08 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/mac_os/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 12 Jul 2020 22:13:08 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/mac_os/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>맥 OS에서 리눅스 커널 컴파일하기</title>
       <link>https://seokbeomKim.github.io/posts/kernel-compilation-on-mac-os/</link>

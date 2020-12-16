@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>비지도 학습 on 코드몽키의 개발 일지</title>
+    <title>비지도 학습 on A Developer&#39;s Note</title>
     <link>https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
-    <description>Recent content in 비지도 학습 on 코드몽키의 개발 일지</description>
+    <description>Recent content in 비지도 학습 on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 May 2019 15:31:38 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 06 May 2019 15:31:38 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>비지도 학습 알고리즘과 지도 학습</title>
       <link>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</link>
