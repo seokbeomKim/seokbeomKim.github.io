@@ -123,17 +123,6 @@ Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascri
     </item>
     
     <item>
-      <title>git prune</title>
-      <link>https://seokbeomKim.github.io/posts/git-prune/</link>
-      <pubDate>Sat, 27 Jun 2020 22:40:53 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/git-prune/</guid>
-      <description>git prune 명령어는 unreachable한 git object를 로컬에서 제거하는 명령어이다.
-git prune 수행 시에 --dry-run --verbose 옵션을 주면 실제 수행되지는 않고 어떻게 수행될지에 대한 시뮬레이션을 볼 수 있다.
-$ git remote prune --dry-run --verbose </description>
-    </item>
-    
-    <item>
       <title>mu4e 설정하기</title>
       <link>https://seokbeomKim.github.io/posts/setting-mu4e/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
@@ -346,17 +335,6 @@ int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	br
       <description>ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
  idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
 linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.</description>
-    </item>
-    
-    <item>
-      <title>맥북에 리눅스 설치, 그리고 hyper-v</title>
-      <link>https://seokbeomKim.github.io/posts/linux-on-macbook/</link>
-      <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/linux-on-macbook/</guid>
-      <description>개요 맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반 동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한 운영체제였지만 동시에 맥 만의 단점을 갖고 있었고 생각보다 매우 영향이 컸다.
-PIM은 기본이고 상위 레벨 프로그래밍을 위해서, 맥 만큼 좋은 운영체제는 없을 것이다. BSD 기반으로 만들어져 완벽하지는 않지만 포팅을 하면 어느정도 리눅스에 가까울 정도로 네이티브 환경에서 실행 가능하고 다양한 분야에서 강력한 유료 애플리케이션이 지원되기 때문에 만족스럽게 사용할 수 있다.
-하지만 맥은 WSL을 도입하면서 윈도우즈가 갖게된 리눅스 플랫폼(?</description>
     </item>
     
     <item>

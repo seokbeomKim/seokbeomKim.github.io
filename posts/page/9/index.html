@@ -63,50 +63,6 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wayland/">Wayland과 Weston</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-03T23:17:11&#43;09:00">
-        Feb 3, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을 맞추고 gnome이나 kde, xfce가 아닌 fluxbox, blackbox, i3, xmonad, enlightenment 등을 이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서 사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도 몰랐다.
-이번 포스팅에서는 사내 위키의 내용을 출처로 하여, wayland, weston에 대한 구조를 살펴보고 클라이언트 예제를 기술하고자 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/wayland/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/">ARM64에서의 커널 메모리 맵</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-01T23:27:45&#43;09:00">
-        Feb 1, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    ARM64에서의 커널 메모리 맵 &lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&quot;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
-ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을 사용한다. 이 때, 가상 주소 기준으로 각 끝 영역을 사용한다는 점에 유의해야 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/gpio_mapping/">GPIO Mapping</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -168,6 +124,51 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kobject/">Kobject</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-01-28T22:25:50&#43;09:00">
+        Jan 28, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
+61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/kobject/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/endian/">Little Endian vs. Big Endian</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-01-27T22:27:06&#43;09:00">
+        Jan 27, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
+엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
+ Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/endian/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
