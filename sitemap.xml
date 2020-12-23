@@ -4,17 +4,67 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
+    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/tags/file2alias/</loc>
+    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/kernel/</loc>
+    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/mac_os/</loc>
+    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
+    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/uuid/</loc>
+    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/uuid-compatibility-on-mac-os/</loc>
+    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/embedded/</loc>
+    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/vmmem/</loc>
+    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/wsl/</loc>
+    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/wsl-move-to-d/</loc>
+    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -33,16 +83,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
-    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/embedded/</loc>
-    <lastmod>2020-12-08T15:04:30+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/pll/</loc>
     <lastmod>2020-12-08T15:04:30+00:00</lastmod>
   </url>
@@ -50,16 +90,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/pll-and-pms/</loc>
     <lastmod>2020-12-08T15:04:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/vmmem/</loc>
-    <lastmod>2020-11-28T23:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/wsl/</loc>
-    <lastmod>2020-11-28T23:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -148,11 +178,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/kernel/</loc>
-    <lastmod>2020-07-25T16:25:23+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/categories/linux/</loc>
     <lastmod>2020-07-25T16:25:23+09:00</lastmod>
   </url>
@@ -169,11 +194,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/cross-compile/</loc>
-    <lastmod>2020-07-12T22:13:08+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/mac_os/</loc>
     <lastmod>2020-07-12T22:13:08+09:00</lastmod>
   </url>
   

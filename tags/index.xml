@@ -6,7 +6,61 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Dec 2020 01:38:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Dec 2020 00:56:38 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>file2alias</title>
+      <link>https://seokbeomKim.github.io/tags/file2alias/</link>
+      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/file2alias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>https://seokbeomKim.github.io/tags/kernel/</link>
+      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac_os</title>
+      <link>https://seokbeomKim.github.io/tags/mac_os/</link>
+      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mac_os/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>uuid</title>
+      <link>https://seokbeomKim.github.io/tags/uuid/</link>
+      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/uuid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmmem</title>
+      <link>https://seokbeomKim.github.io/tags/vmmem/</link>
+      <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/vmmem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WSL</title>
+      <link>https://seokbeomKim.github.io/tags/wsl/</link>
+      <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/wsl/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>sysrq</title>
       <link>https://seokbeomKim.github.io/tags/sysrq/</link>
@@ -22,24 +76,6 @@
       <pubDate>Tue, 08 Dec 2020 15:04:30 +0000</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/pll/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vmmem</title>
-      <link>https://seokbeomKim.github.io/tags/vmmem/</link>
-      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/vmmem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WSL</title>
-      <link>https://seokbeomKim.github.io/tags/wsl/</link>
-      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/wsl/</guid>
       <description></description>
     </item>
     
@@ -107,15 +143,6 @@
     </item>
     
     <item>
-      <title>kernel</title>
-      <link>https://seokbeomKim.github.io/tags/kernel/</link>
-      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>oop</title>
       <link>https://seokbeomKim.github.io/tags/oop/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
@@ -130,15 +157,6 @@
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/cross-compile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mac_os</title>
-      <link>https://seokbeomKim.github.io/tags/mac_os/</link>
-      <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/mac_os/</guid>
       <description></description>
     </item>
     

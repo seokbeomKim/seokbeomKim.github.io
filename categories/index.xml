@@ -6,22 +6,22 @@
     <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Dec 2020 01:38:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Dec 2020 01:00:00 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Embedded</title>
+      <link>https://seokbeomKim.github.io/categories/embedded/</link>
+      <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/embedded/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>sysrq</title>
       <link>https://seokbeomKim.github.io/categories/sysrq/</link>
       <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/sysrq/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Embedded</title>
-      <link>https://seokbeomKim.github.io/categories/embedded/</link>
-      <pubDate>Tue, 08 Dec 2020 15:04:30 +0000</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/embedded/</guid>
       <description></description>
     </item>
     
