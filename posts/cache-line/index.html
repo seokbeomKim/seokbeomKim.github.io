@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.79.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -94,7 +94,7 @@
   <section id="js-article" class="p-article__body">
     <h2 id="캐시를-꼭-사용해야-하나">캐시를 꼭 사용해야 하나</h2>
 <p>SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다. 하지만 매번 간략하게 정리한 문서가 없다보니 기억에 잘 남지도 않고 전체적인 흐름을 읽지 못하는 것 같아 이번 포스팅을 통해서 대략적으로나마 정리하고자 한다.</p>
-<p>프로세서 캐시와 메모리의 불일치 문제는 다루기 까다로운 문제이다. 단순하게 프로세서가 싱글 코어라면 문제가 없겠지만 여러 개의 코어를 가지고 있는 프로세서라면 각각의 코어가 가지고 있는 캐시와 주 메모리를 동기화 시켜주어야 한다. 그러한 동기화로 인해 캐시 성능이 제대로 나오지 않을 것 같은데도 &lsquo;코어 ~ 캐시&rsquo;의 액세스 속도와 &lsquo;코어 ~ 주 메모리&rsquo; 간의 속도 차이가 그러한 동기화 이슈를 가릴 정도로 충분히 크기 때문에 여전히 필자가 보이게 변태같은 구조로 열심히 캐시를 사용하고 있다.</p>
+<p>프로세서 캐시와 메모리의 불일치 문제는 다루기 까다로운 문제이다. 단순하게 프로세서가 싱글 코어라면 문제가 없겠지만 여러 개의 코어를 가지고 있는 프로세서라면 각각의 코어가 가지고 있는 캐시와 주 메모리를 동기화 시켜주어야 한다. 그러한 동기화로 인해 캐시 성능이 제대로 나오지 않을 것 같은데도 &lsquo;코어 ~ 캐시'의 액세스 속도와 &lsquo;코어 ~ 주 메모리&rsquo; 간의 속도 차이가 그러한 동기화 이슈를 가릴 정도로 충분히 크기 때문에 여전히 필자가 보이게 변태같은 구조로 열심히 캐시를 사용하고 있다.</p>
 <p>주 메모리의 내용을 캐시에 저장하기 위해서 주 메모리의 데이터를 읽어와야 한다. 이 때, 읽어들이는 최소 단위를 캐시라인(cahce-line)이라 하며, 이렇게 읽어들인 데이터는 캐시의 data block을 구성하게 된다. 캐시는 아래와 같이 간략하게 나타낼 수 있다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"> +------------------------ cache --------------------------------------+
  | +-----------------------------------------------------------------+ |
@@ -264,7 +264,7 @@
       
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;

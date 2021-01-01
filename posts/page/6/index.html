@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.79.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/goto-statement/">goto statement</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-03-25T00:47:49&#43;09:00">
+        Mar 25, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 학부 시절 c언어를 배울 때 &lsquo;goto&rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를 사용하지 않고 분기나 객체를 이용하도록 코딩을 했었고 저학년에서 고학년으로 올라갈수록 c언어 대신 자바나 c++, c# 등을 배우면서 goto는 머릿속에서 잊혀져갔다.
+입사하고 나서 드라이버 코드를 보니 간간히 goto 문이 사용된 것들을 보고 이것이 과연 리팩토링을 해야하는 대상인가에 대해 잠시 생각해보았다. 만약 아래와 같이 코드가 진행될 경우, 반드시 나머지 코드를 분기문으로 처리해야할 필요가 있을까?
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/goto-statement/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -145,29 +167,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ioctl-and-interrupt/">IOCTL과 인터럽트</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-03-03T00:00:10&#43;09:00">
-        Mar 3, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackOverflow에서 재미있는 질문을 찾았다.
- [[https://stackoverflow.com/questions/60088342/does-context-switching-occurs-when-ioctl-is-issued-from-user-space-while-kernel]]  문제 자체는 커널 모듈 안에 있는 critical section에서 스핀락을 사용하지 않을 때 irq나 softirq를 비활성화하지 않고도 데드락에 빠지지 않고 정상적으로 동작이 가능한가에 대한 질문이다. 질문에 대한 답변부터 살펴보면,
-  IRQ/SoftIRQ는 시스템 콜과 아무런 영향이 없다. 단지 인터럽트 컨텍스트 안에서 사용되는 데이터 구조들을 보호하기 위해 IRQ와 softIRQ를 비활성화하는 것 뿐이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/ioctl-and-interrupt/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -270,7 +269,7 @@
       
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;

@@ -6,7 +6,11 @@
     <description>Recent content in kobject on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/kobject/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/kobject/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Kobject</title>
       <link>https://seokbeomKim.github.io/posts/kobject/</link>

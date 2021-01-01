@@ -6,7 +6,11 @@
     <description>Recent content in 지도 학습 on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 May 2019 15:31:38 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2019 15:31:38 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>비지도 학습 알고리즘과 지도 학습</title>
       <link>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</link>

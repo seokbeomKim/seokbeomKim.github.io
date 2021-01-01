@@ -6,7 +6,20 @@
     <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Dec 2020 01:00:00 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jan 2021 13:42:08 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>emacs</title>
+      <link>https://seokbeomKim.github.io/categories/emacs/</link>
+      <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/emacs/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Embedded</title>
       <link>https://seokbeomKim.github.io/categories/embedded/</link>
@@ -31,6 +44,15 @@
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/haskell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://seokbeomKim.github.io/categories/c/</link>
+      <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/c/</guid>
       <description></description>
     </item>
     
@@ -89,15 +111,6 @@
     </item>
     
     <item>
-      <title>emacs</title>
-      <link>https://seokbeomKim.github.io/categories/emacs/</link>
-      <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>kernel</title>
       <link>https://seokbeomKim.github.io/categories/kernel/</link>
       <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
@@ -112,15 +125,6 @@
       <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/memory/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>c</title>
-      <link>https://seokbeomKim.github.io/categories/c/</link>
-      <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/c/</guid>
       <description></description>
     </item>
     

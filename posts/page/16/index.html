@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.79.1" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,29 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/servlet-container/">서블릿 컨테이너와 서버와의 관계</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-03T17:50:32&#43;09:00">
+        May 3, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을 올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는 애플리케이션은 개발해 본 적이 없다. 때문에 서블릿이라는 용어 자체가 생소하고 웹 서버에서 이를 어떻게 관리하는지에 대해 궁금한 점을 중점으로 정리하고자 한다.
+정리하고자 하는 질문은 아래와 같다.
+ Apache나 Nginx에서 서블릿 컨테이너로 어떤 방식을 통해서 클라이언트 요청을 넘겨주는가? 서블릿 컨테이너가 만들어진 이유는 무엇인가? 애플리케이션의 서블릿은 서블릿 컨테이너가 가지고 있는 라이프사이클 중 언제 추가되는가? 애플리케이션이 가지는 서블릿은 서블릿 컨테이너에 어떤 형태로 추가되는가?
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/servlet-container/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -93,7 +116,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &lsquo;RESTful&rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &lsquo;Richardson Maturity Model&rsquo;이라는 성숙도 모델을 기술한다.
+    개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &lsquo;RESTful&rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &lsquo;Richardson Maturity Model'이라는 성숙도 모델을 기술한다.
 REST 소개 이 절은 Microsoft의 REST 소개를 발췌하여 정리한 것이다.
 REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키텍처 스타일로서 프로토콜과는 관련이 없는 용어이다. (일각에서 REST와 SOAP를 비교하는 글들이 많아 언급하였다.
   </div>
@@ -145,29 +168,6 @@ HTTP/1.1 동작 방식 HTTP(HyperText Transfer Protocol)은 웹에서 클라이�
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/http1-http2/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/cors/">CORS(Cross-Origin Resource Sharing)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-01T17:20:49&#43;09:00">
-        May 1, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(Origin)는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.
-하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 CORS(Cross-Origin Resource Sharing)이라는 추가 정책이 나오게 되었다.
-CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/cors/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -270,7 +270,7 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
       
         
         &nbsp;&bull;&nbsp;
-        2020
+        2021
 
         
           &nbsp;&bull;&nbsp;

@@ -6,7 +6,11 @@
     <description>Recent content in cache-line on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Sep 2020 21:30:10 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/cache-line/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Sep 2020 21:30:10 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/cache-line/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>캐시라인(cache-line) 구조 #2</title>
       <link>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</link>

@@ -6,7 +6,11 @@
     <description>Recent content in folding on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 17:56:20 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/folding/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 May 2019 17:56:20 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/folding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Folding in Haskell</title>
       <link>https://seokbeomKim.github.io/posts/folding-in-haskell/</link>
