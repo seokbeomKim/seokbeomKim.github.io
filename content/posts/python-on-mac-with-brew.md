@@ -1,7 +1,9 @@
 ---
 title: "Homebrew python 설치하기"
 date: 2020-12-29T23:35:55+09:00
-tags: mac, homebrew
+tags:
+- mac
+- homebrew
 ---
 
 Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와
