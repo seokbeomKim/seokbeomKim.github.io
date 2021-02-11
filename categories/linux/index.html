@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.74.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">linux</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/i3wm/">i3 window manager</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-02-11T18:20:10&#43;09:00">
+        Feb 11, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    우분투 데스크탑 환경 삭제하기 개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
+리소스 부족의 원인을 살펴보니 불필요한 서비스들이 너무 많이 돌고 있었다. 예를 들어, goa (gnome online accounts), snapd (snap package manager) 등 원하지도 않는 서비스들이 설치되어 리소스들을 좀먹고 있었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/i3wm/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -143,29 +165,6 @@ Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascri
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/">Likely and Unlikely</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-13T23:27:51&#43;09:00">
-        Feb 13, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.
-회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.
-likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

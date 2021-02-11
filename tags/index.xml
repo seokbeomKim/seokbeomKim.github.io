@@ -6,10 +6,19 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jan 2021 13:42:08 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 11 Feb 2021 18:20:10 +0900</lastBuildDate>
     
 	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>i3wm</title>
+      <link>https://seokbeomKim.github.io/tags/i3wm/</link>
+      <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/i3wm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>emacs</title>
@@ -116,15 +125,6 @@
       <pubDate>Tue, 08 Dec 2020 15:04:30 +0000</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/pll/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>c</title>
-      <link>https://seokbeomKim.github.io/tags/c/</link>
-      <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/c/</guid>
       <description></description>
     </item>
     
@@ -278,6 +278,15 @@
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/futex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://seokbeomKim.github.io/tags/c/</link>
+      <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/c/</guid>
       <description></description>
     </item>
     
@@ -543,15 +552,6 @@
     </item>
     
     <item>
-      <title>mem</title>
-      <link>https://seokbeomKim.github.io/tags/mem/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/mem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>memory map</title>
       <link>https://seokbeomKim.github.io/tags/memory-map/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
@@ -593,6 +593,15 @@
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/kmem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mem</title>
+      <link>https://seokbeomKim.github.io/tags/mem/</link>
+      <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mem/</guid>
       <description></description>
     </item>
     
@@ -1056,15 +1065,6 @@
     </item>
     
     <item>
-      <title>http</title>
-      <link>https://seokbeomKim.github.io/tags/http/</link>
-      <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/http/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>http1.1</title>
       <link>https://seokbeomKim.github.io/tags/http1.1/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
@@ -1124,6 +1124,15 @@
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/sni/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>https://seokbeomKim.github.io/tags/http/</link>
+      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/http/</guid>
       <description></description>
     </item>
     

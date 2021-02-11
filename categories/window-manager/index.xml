@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Window Manager on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/categories/window-manager/</link>
+    <description>Recent content in Window Manager on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Feb 2021 18:20:10 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/categories/window-manager/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>i3 window manager</title>
+      <link>https://seokbeomKim.github.io/posts/i3wm/</link>
+      <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/i3wm/</guid>
+      <description>우분투 데스크탑 환경 삭제하기 개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
+리소스 부족의 원인을 살펴보니 불필요한 서비스들이 너무 많이 돌고 있었다. 예를 들어, goa (gnome online accounts), snapd (snap package manager) 등 원하지도 않는 서비스들이 설치되어 리소스들을 좀먹고 있었다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.74.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">linux</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/">Major와 Minor Numbers</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-31T18:37:25&#43;09:00">
+        May 31, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &lsquo;c&rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/major-and-minor-numbers/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -94,7 +116,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lsquo;뮤텍스는 세마 포어의 카운트가 1인 락'이라는 말도 안되는 내용으로 학교 선배로부터 배웠던 것이 기억난다. 락의 종류별로 쓰임새가 있고 장단점이 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에 대한 사용 예를 기술하고자 한다.
+    리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lsquo;뮤텍스는 세마 포어의 카운트가 1인 락&rsquo;이라는 말도 안되는 내용으로 학교 선배로부터 배웠던 것이 기억난다. 락의 종류별로 쓰임새가 있고 장단점이 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에 대한 사용 예를 기술하고자 한다.
 
   </div>
   
@@ -144,29 +166,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/tasklet/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/">커널 모듈과 드라이버의 차이</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-16T02:11:40&#43;09:00">
-        May 16, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
-커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
-arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용) 구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
