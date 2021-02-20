@@ -1,15 +1,9 @@
----
-title: "TCP와 UDP의 차이점"
-date: 2019-05-21T15:27:08+09:00
-categories:
-- O/S
-- Network
-tags:
-- tcp
-- udp
-keywords:
-- tech
----
++++
+title = "TCP와 UDP의 차이점"
+date = 2019-05-21T15:27:08+09:00
+categories = ["web"]
+tags = ["udp", "tcp"]
++++
 
 예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그
 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게
