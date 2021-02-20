@@ -6,10 +6,24 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Feb 2021 18:20:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gdb</title>
+      <link>https://seokbeomKim.github.io/tags/gdb/</link>
+      <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/gdb/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>mac_os</title>
+      <link>https://seokbeomKim.github.io/tags/mac_os/</link>
+      <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mac_os/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>i3wm</title>
@@ -71,15 +85,6 @@
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mac_os</title>
-      <link>https://seokbeomKim.github.io/tags/mac_os/</link>
-      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/mac_os/</guid>
       <description></description>
     </item>
     

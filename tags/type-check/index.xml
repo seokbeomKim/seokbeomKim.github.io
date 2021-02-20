@@ -6,11 +6,7 @@
     <description>Recent content in type check on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/type-check/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/type-check/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C언어에서의 type-check</title>
       <link>https://seokbeomKim.github.io/posts/type-check-in-c/</link>

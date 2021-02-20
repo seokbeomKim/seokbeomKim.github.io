@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.74.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">web</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/tcp-and-udp/">TCP와 UDP의 차이점</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2019-05-21T15:27:08&#43;09:00">
+        May 21, 2019
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올 경우 포스팅을 업데이트 할 예정이다.
+방산 업체에서 무인 정찰기를 개발할 당시에도 중요 데이터는 모두 TCP를 이용해 송수신하고 영상과 같은 정보는 UDP를 이용해 전달받았다. 당시에 구현된 코드를 보면서 이전에 프로토콜 사용에 있어서 어디부터 어디까지를 UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했지만 코드를 변경할 수 없어 아쉬웠던 적이 있었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/tcp-and-udp/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -145,29 +167,6 @@ HTTP/1.1 동작 방식 HTTP(HyperText Transfer Protocol)은 웹에서 클라이�
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/http1-http2/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/cors/">CORS(Cross-Origin Resource Sharing)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-01T17:20:49&#43;09:00">
-        May 1, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(Origin)는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.
-하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 CORS(Cross-Origin Resource Sharing)이라는 추가 정책이 나오게 되었다.
-CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/cors/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

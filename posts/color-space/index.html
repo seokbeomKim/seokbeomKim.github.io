@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.74.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
@@ -205,7 +205,7 @@ W_B = 0.114,\\<br>
 U_{max} = 0.436,\\<br>
 V_{max} = 0.615$$</p>
 <p>이 때, RGB 채널 각각에 대한 가중치를 이용하여 Y, U, V 채널 값을 아래와 같이 구할 수 있다.</p>
-<p>$$Y&rsquo; = W_RR + W_GG + W_BB = 0.299R + 0.587G + 0.114B,\\U = U_{max}((B - Y&rsquo;)/(1 - W_R)) =~ 0.492 (B - Y&rsquo;),\\V=V_{max}(R-Y&rsquo;)/(1-W_R) = 0.877(R-Y&rsquo;)$$</p>
+<p>$$Y' = W_RR + W_GG + W_BB = 0.299R + 0.587G + 0.114B,\\U = U_{max}((B - Y')/(1 - W_R)) =~ 0.492 (B - Y'),\\V=V_{max}(R-Y')/(1-W_R) = 0.877(R-Y')$$</p>
 <p>BT.809의 경우는 R과 B에 대한 가중치를 아래와 같이 갖는다.</p>
 <p>$$W_R=0.2126, W_B=0.0722$$</p>
 <h3 id="일반적인-rgb-to-yuv-예제">일반적인 RGB-to-YUV 예제</h3>
@@ -215,7 +215,7 @@ V_{max} = 0.615$$</p>
 <p>같은 YUV 포맷이라도 해도, 이를 다시 서브샘플링하여 압축함으로써 전송 효율을 높일 수 있다. 이 때, YUV 의 각 채널에 대한 기호로 아래와 같이 나타낸다.</p>
 <p>$$Y: Y, \\U: P_B(orC_B)\\V:P_R(orC_R)$$</p>
 <h3 id="yuv444">YUV444</h3>
-<p>원본 YUV 색상으로서 Y가 4 바이트 사용될 때 U와 V 채널에도 각각 4바이트를 사용한다. 왼쪽에서 오른쪽으로 픽셀 배열이 있다고 가정했을 때, 세로로 표현한 픽셀 한 개를 구성하는 각 채널은 Y&rsquo;, Cb, Cr 모두 동일한 비율로 구성되어 있다. 메모리 상으로 살펴 보았을 때, <code>YCbCr, YCbCr, ...</code> 등이 된다.</p>
+<p>원본 YUV 색상으로서 Y가 4 바이트 사용될 때 U와 V 채널에도 각각 4바이트를 사용한다. 왼쪽에서 오른쪽으로 픽셀 배열이 있다고 가정했을 때, 세로로 표현한 픽셀 한 개를 구성하는 각 채널은 Y', Cb, Cr 모두 동일한 비율로 구성되어 있다. 메모리 상으로 살펴 보았을 때, <code>YCbCr, YCbCr, ...</code> 등이 된다.</p>
 <p><img src="/img/yuv444.png" alt="YUV444"></p>
 <h3 id="yuv422">YUV422</h3>
 <p>YUV444와 달리 Cb, Cr 채널에 대해 픽셀 두 개에 대한 Cb, Cr 정보를 한 개로 하여 서브샘플링한 것을 나타낸다. 즉, Y 값이 두 개 올 때 나머지 채널은 1개씩 오게 되어 결국 4:2:2 의 비율을 갖게 된다. 메모리 상으로 살펴 보았을 때, <code>YCbYCr, YCbYCr, ...</code> 등이 된다.</p>

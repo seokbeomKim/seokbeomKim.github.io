@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gdb on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/categories/gdb/</link>
+    <description>Recent content in gdb on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/gdb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac에서 GDB 이용한 커널 해킹하기</title>
+      <link>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</link>
+      <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</guid>
+      <description>개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
+(gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&amp;#39;m sorry, Dave, I can&amp;#39;t do that. Symbol format `elf64-littleaarch64&amp;#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.</description>
+    </item>
+    
+  </channel>
+</rss>

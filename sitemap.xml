@@ -4,12 +4,42 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2021-02-11T18:20:10+09:00</lastmod>
+    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2021-02-11T18:20:10+09:00</lastmod>
+    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/gdb/</loc>
+    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/gdb/</loc>
+    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/mac_os/</loc>
+    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</loc>
+    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
   </url>
   
   <url>
@@ -24,16 +54,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/linux/</loc>
-    <lastmod>2021-02-11T18:20:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2021-02-11T18:20:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2021-02-11T18:20:10+09:00</lastmod>
   </url>
   
@@ -84,11 +104,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/kernel/</loc>
-    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/mac_os/</loc>
     <lastmod>2020-12-24T00:56:38+09:00</lastmod>
   </url>
   
@@ -963,6 +978,11 @@
   </url>
   
   <url>
+    <loc>https://seokbeomKim.github.io/categories/web/</loc>
+    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/tags/linux-kernel/</loc>
     <lastmod>2019-05-16T18:59:15+09:00</lastmod>
   </url>
@@ -1119,11 +1139,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/servlet_container/</loc>
-    <lastmod>2019-05-03T17:50:32+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/web/</loc>
     <lastmod>2019-05-03T17:50:32+09:00</lastmod>
   </url>
   

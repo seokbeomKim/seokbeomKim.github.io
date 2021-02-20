@@ -6,11 +6,7 @@
     <description>Recent content in Restful on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 18:38:22 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/restful/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 01 May 2019 18:38:22 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/restful/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RESTful 성숙도 모델, Richardson Maturity Model(RMM)</title>
       <link>https://seokbeomKim.github.io/posts/rest-api-model/</link>
