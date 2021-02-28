@@ -6,7 +6,18 @@
     <description>Recent content in Posts on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 12:27:08 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>state vs status</title>
+      <link>https://seokbeomKim.github.io/posts/state-vs-status/</link>
+      <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/state-vs-status/</guid>
+      <description>개요 코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state” or “status”? When should a variable name contain the word “state”, and when should a variable name instead contain the word “status”? 스택오버플로우에 이미 관련된 질문이 올라와 있었다.
+둘의 차이점은 간단 명료하게 아래와 같이 정리할 수 있다.
+ status: 결과 (success/fail); &amp;ldquo;마지막 상태&amp;rdquo; state: 상태 (pending/dispatched)  앞으로는 둘을 잘 구분해서 사용해야겠다.</description>
+    </item>
+    
     <item>
       <title>Mac에서 GDB 이용한 커널 해킹하기</title>
       <link>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</link>

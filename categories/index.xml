@@ -6,7 +6,16 @@
     <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 12:27:08 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>term</title>
+      <link>https://seokbeomKim.github.io/categories/term/</link>
+      <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/term/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gdb</title>
       <link>https://seokbeomKim.github.io/categories/gdb/</link>

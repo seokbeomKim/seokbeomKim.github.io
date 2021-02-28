@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.81.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
@@ -61,6 +61,28 @@
 
 
   
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/uuid-compatibility-on-mac-os/">리눅스 커널 빌드 시 맥 O/S uuid_t 호환성</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-12-24T00:56:38&#43;09:00">
+        Dec 24, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 BSD 기반의 맥에서 리눅스 커널 빌드가 안될리 없다고 생각하고 나서 어떻게든 맥에서 리눅스 커널을 빌드하기 위해 이런저런 삽질을 했다. 회사에서의 BSP 업무는 모두 리눅스 환경 아래에서 작업하기 때문에 사실상 큰 의미는 없겠으나, 빌드만을 위해서 맥에서 도커까지 사용해야 하는 솔루션을 납득할 수 없었다.
+이에, 지난 포스팅에서 열심히 정리해놓은 가이드를 따라 크로스 컴파일러 준비 후, 커널 빌드를 시도하였으나 어찌된 영문인지 file2alias.c 파일에서 계속해서 빌드 에러가 났다. commit 로그를 뒤져보았는데 uuid_t 관련해서 크게 달라진 점은 없었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/uuid-compatibility-on-mac-os/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
   <article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl-move-to-d/">WSL 가상 디스크 파일 D 드라이브에 옮기기</a></h2>
@@ -148,29 +170,6 @@ PS C:\Windows\system32&gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 PS C:
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/wsl-customize-resource/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/a-structure-of-cacheline/">캐시라인(cache-line) 구조 #2</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-09-13T21:30:10&#43;09:00">
-        Sep 13, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 &laquo;코드로 알아보는 ARM 리눅스 커널&raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
-캐시 구조 캐시에 관련된 주요 용어는 아래와 같다.
- 태그 캐시라인 인덱스 웨이와 세트  태그 태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/a-structure-of-cacheline/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

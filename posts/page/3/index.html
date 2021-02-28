@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.81.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,29 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/a-structure-of-cacheline/">캐시라인(cache-line) 구조 #2</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-09-13T21:30:10&#43;09:00">
+        Sep 13, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 &laquo;코드로 알아보는 ARM 리눅스 커널&raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
+캐시 구조 캐시에 관련된 주요 용어는 아래와 같다.
+ 태그 캐시라인 인덱스 웨이와 세트  태그 태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/a-structure-of-cacheline/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -141,28 +164,6 @@ ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/real-haskell-chapter-04/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/oop-in-kernel/">커널에서의 Object-Oriented Design Pattern</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-07-25T16:25:23&#43;09:00">
-        Jul 25, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 현업에서 BSP 코드를 수정하다가 문득 든 생각은 &lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&rsquo; 라는 것이다. 그러한 디자인 패턴은 이미 오래 전부터 적용되어 왔지만 BSP에 포함된 솔루션 코드로서 추가되는 코드에는 그러한 디자인 패턴이 보이지 않는다.
-Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascript에서도 객체 지향적인 디자인 패턴이 적용되어 있다. 그렇다면, C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 어떻게 적용되어 있을까. 여기에 대한 좋은 참고 자료로서 LWN의 한 기사를 찾을 수 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/oop-in-kernel/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
