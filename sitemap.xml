@@ -2,14 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://seokbeomKim.github.io/tags/__is_constexpr/</loc>
+    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/posts/is_constexpr/</loc>
+    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
+  </url><url>
     <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
+    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/tags/c/</loc>
+    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
+    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
+    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
+    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/state/</loc>
     <lastmod>2021-02-28T12:27:08+09:00</lastmod>
@@ -18,9 +33,6 @@
     <lastmod>2021-02-28T12:27:08+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/status/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2021-02-28T12:27:08+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/categories/term/</loc>
@@ -42,9 +54,6 @@
     <lastmod>2021-02-11T18:20:10+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/i3wm/</loc>
-    <lastmod>2021-02-11T18:20:10+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/categories/linux/</loc>
     <lastmod>2021-02-11T18:20:10+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/categories/window-manager/</loc>
@@ -238,9 +247,6 @@
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/futex/</loc>
     <lastmod>2020-04-02T01:45:50+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/tags/c/</loc>
-    <lastmod>2020-04-01T23:55:32+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/posts/do-while/</loc>
     <lastmod>2020-04-01T23:55:32+09:00</lastmod>

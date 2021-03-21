@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/">MICOM과 MPU</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-03-08T23:30:44&#43;09:00">
+        Mar 8, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
+마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
+본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &ldquo;Adv&quot;는 Advanced Topic의 줄임말로서 사용한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/likely-and-unlikely/">Likely and Unlikely</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -144,29 +167,6 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/wayland/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/gpio_mapping/">GPIO Mapping</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-31T23:48:06&#43;09:00">
-        Jan 31, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
-GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
- 디바이스 트리 이용 (최근 트렌드) Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의   (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/gpio_mapping/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

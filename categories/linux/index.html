@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/is_constexpr/">__is_constexpr macro in kernel</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-03-21T22:44:03&#43;09:00">
+        Mar 21, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.
+That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.
+#define __is_constexpr(x)	\ (sizeof(int) == sizeof(*(8 ?
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/is_constexpr/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/i3wm/">i3 window manager</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -142,29 +165,6 @@ Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascri
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/bsd_queue/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/">MICOM과 MPU</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-03-08T23:30:44&#43;09:00">
-        Mar 8, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
-마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
-본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &ldquo;Adv&quot;는 Advanced Topic의 줄임말로서 사용한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
