@@ -13,8 +13,9 @@
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/type-check-in-c/</guid>
-      <description>페이지 테이블에서의 타입 체크 ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게 작성되어 있는 부분을 찾을 수 있었다.
-typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pgdval_t; ... /* * These are used to make use of C type-checking.. */ typedef struct { pteval_t pte; } pte_t; #define pte_val(x)	((x).pte) #define __pte(x)	((pte_t) { (x) } )  ... typedef struct { pgdval_t pgd; } pgd_t; #define pgd_val(x)	((x).</description>
+      <description>개요 리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입 체크에 대해 정리하고 내용이 추가될 때마다 페이지를 업데이트 하도록 한다.
+페이지 테이블에서의 타입 체크 ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게 작성되어 있는 부분을 찾을 수 있었다.
+typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pgdval_t; .</description>
     </item>
     
     <item>
