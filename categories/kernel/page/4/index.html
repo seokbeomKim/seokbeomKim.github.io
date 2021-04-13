@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.81.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.82.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">kernel</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/">ARM64에서의 커널 메모리 맵</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-01T23:27:45&#43;09:00">
+        Feb 1, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    ARM64에서의 커널 메모리 맵 &lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&quot;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
+ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을 사용한다. 이 때, 가상 주소 기준으로 각 끝 영역을 사용한다는 점에 유의해야 한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -146,28 +168,6 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/endian/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/rcu/">RCU (Read, Copy, Update)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-04T17:34:42&#43;09:00">
-        Jun 4, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    1. 들어가기 전에 &hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
-RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/rcu/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2021-04-13T23:31:41+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2021-04-13T23:31:41+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2021-04-13T23:31:41+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/</loc>
+    <lastmod>2021-04-13T23:31:41+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/categories/kgdb/</loc>
+    <lastmod>2021-04-13T23:31:41+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2021-04-13T23:31:41+09:00</lastmod>
+  </url><url>
     <loc>https://seokbeomKim.github.io/tags/__is_constexpr/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/posts/is_constexpr/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomKim.github.io/</loc>
-    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
-  </url><url>
     <loc>https://seokbeomKim.github.io/tags/c/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
-  </url><url>
     <loc>https://seokbeomKim.github.io/categories/linux/</loc>
-    <lastmod>2021-03-21T22:44:03+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/</loc>
@@ -196,9 +205,6 @@
   </url><url>
     <loc>https://seokbeomKim.github.io/posts/setting-mu4e/</loc>
     <lastmod>2020-06-26T01:36:36+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2020-04-25T14:27:31+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/categories/memory/</loc>
     <lastmod>2020-04-25T14:27:31+09:00</lastmod>

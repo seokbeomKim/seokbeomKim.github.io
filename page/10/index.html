@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.81.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.82.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
@@ -61,6 +61,28 @@
 
 
   
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ftrace/">ftrace 이용한 커널 디버깅</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-06T23:43:34&#43;09:00">
+        Feb 6, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.
+예전에 젠투 리눅스를 사용할 무렵, menuconfig에서 커널 해킹이라는 흥미로운 메뉴에서 알 수 없는 tracer라는 메뉴로만 본 것으로 이해하지 직접적으로 사용한 적은 없었는데, 실제 사용해보니 생각보다 많은 옵션, 정보들을 보여주었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/ftrace/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
   <article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/raspberry-pi-sub-projects/">Raspberry Pi를 이용한 사이드 프로젝트</a></h2>
@@ -144,29 +166,6 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/gpio_mapping/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/">안드로이드의 uevent, ueventd</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-30T23:34:30&#43;09:00">
-        Jan 30, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. ueventd.rc 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.
-본 포스팅에서는 uevent와 ueventd가 무엇인지 살펴보고 안드로이드 init 과정에서 어떻게 활용되는지 살펴보기로 한다.
-여담으로 안드로이드의 uevent는 리눅스의 udev 와 비슷한 역할을 하면서도 조금 다르다. 리눅스의 일반적인 환경 구성이 devfs + udev 로 디바이스 노드 파일들을 관리한다면, 안드로이드는 ueventd를 이용하여 노드 파일들을 관리한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

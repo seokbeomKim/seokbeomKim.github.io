@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.81.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.82.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">kernel</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/">Kernel Debug With Kgdb</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-04-13T23:31:41&#43;09:00">
+        Apr 13, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는 방법에 대한 세미나를 보게 되었다. 유투브에서 «Using Serial kdb / kgdb to Debug the Linux Kernel - Douglas Anderson, Google» 검색한 영상인데, KDB와 KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을 테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.
+KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 없는 환경에서 매우 유용하다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -142,28 +164,6 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/futex/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/do-while/">Do While</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-01T23:55:32&#43;09:00">
-        Apr 1, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. https://kernelnewbies.org/FAQ/DoWhile0 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.
- 빈 구문(empty statement)는 컴파일러가 경고를 낸다. 지역 변수를 선언할 수 있는 구역을 만들어준다. 조건문을 포함한 코드에서 복잡한 형태의 매크로를 사용할 수 있도록 해준다.  조건문을 포함한 코드에서의 매크로 사용 #define FOO(x) \ printf(&#34;arg is %s\n&#34;, x); \ do_something_useful(x); 이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/do-while/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
