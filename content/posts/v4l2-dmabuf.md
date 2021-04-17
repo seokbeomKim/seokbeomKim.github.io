@@ -1,0 +1,82 @@
+---
+title: "V4L2 Memory Type"
+date: 2021-04-18T00:32:27+09:00
+draft: false
+categories:
+- v4l2
+tags:
+- v4l2
+- vb2
+- dmabuf
+- mmap
+---
+
+# 개요
+
+최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를
+할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 하루 만에 코드를
+수정하니 기대한 결과값이 나왔다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아
+토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석했다. 그리고
+이제서야 왜 그동안 이해가 안됐었는지, 그리고 무엇이 잘못됐는지를 파악할 수
+있었다.
+
+들어가기에 앞서, V4L2 (Video for Linux) 와 Video Buffer 에 대해 간단하게
+설명하면, 우선 V4L2는 기본적으로 Video Streaming I/O 를 지원하기 위한
+프레임워크이다. 스트리밍 API이므로 성능이 중요하고 userspace와 kernel 간의
+메모리 교환에서 반드시 zero-copy가 이뤄져야 한다. 이 때문에 API들이 꽤
+복잡하다.
+
+이러한 개발 환경에서 복잡성을 조금이라도 줄이기 위해, 스트리밍에 사용하는 버퍼에
+관련된 코드의 일관성을 유지하고자 나온 것이 Videobuffer이다 (현재 버전은
+2이다). 버퍼용 메모리 할당을 위해 기본적인 memory allocator가 지원된다. 그리고
+버퍼 방식에 따라 3가지의 할당자가 기본 지원된다. 그게 바로,
+
+- vmalloc
+- dma_contig
+- dma_contig_sg
+
+등이다. vmalloc 의 경우 커널 가상 메모리 상에서는 연속적이지만 실제 물리적으로는
+연속적이지 않지만 비교적 효율적이다. IOMMU가 지원되지 않는 경우 직접 DMA에
+매핑하는데 한계가 있다. dma_contig와 같은 경우 물리/가상 주소에서 연속되는
+메모리 영역을 할당받는다. 물리/가상 주소에서 동일하게 비연속적인 경우는
+dma_contig_sg를 사용한다. 이 경우 하드웨어 적으로 scatter/gather DMA operation이
+지원되어야 하는 제약사항이 있다.
+
+# 문제
+
+IOMMU가 지원되지 않으면서 vmalloc을 사용한다는 것은 문제가 있기에 dma_contig를
+이용하여 할당받아 사용해야 한다. 이에 dma_contig 버퍼 타입에서 DMABUF 방식을
+지원하도록 지시를 받았는데 여기서 한 가지 문제가 있었다. DMABUF 방식의 사용
+목적을 고려하지 않았다는 점이다.
+
+처음 태스크를 받았을 때, 할당자가 변경되어야 하는 배경은 이해했지만 DMABUF
+방식은 이해할 수 없었다. '왜 이해가 안되는 것인지'가 머리로 이해가 안되는
+답답함에 코드를 보고 있었는데, 각각의 메모리 방식을 사용하는 이유에 대해서
+우선적으로 알아보지 않았던 것이 문제였다.
+
+V4L2 memory에는 아래와 같이 MMAP/USERPTR/OVERLAY/DMABUF 등이 제공된다.
+
+``` c
+enum v4l2_memory {
+    V4L2_MEMORY_MMAP             = 1,
+    V4L2_MEMORY_USERPTR          = 2,
+    V4L2_MEMORY_OVERLAY          = 3,
+    V4L2_MEMORY_DMABUF           = 4,
+```
+
+OVERLAY는 생략하고 나머지를 보면 우선 MMAP은 드라이버가 버퍼를 할당하여
+userspace의 애플리케이션에서 매핑해서 사용하기 위한 목적의 메모리
+타입이다. USERPTR은 반대로 userspace application에서 메모리를 할당하여
+드라이버에서 사용하는 방식이다. 그리고 나머지 DMABUF는 다른 디바이스에서 이미
+할당한 'shared buffer'를 사용하기 위한 메모리 타입이다. 즉, v4l2 ioctl을
+이횽하여 아무리 애플리케이션에서 드라이버 쪽으로 request buffer를 해봤자 DMABUF
+방식에서는 memory allocation이 안된다는 점이다. 이미 다른 디바이스에서 할당한
+메모리를 사용하기 위한 목적이기 때문이다.
+
+# 마무리
+
+다음 주에 V4L2_MEMORY_MMAP으로 할당한 뒤, 이를 expbuf 를 이용하여 DMABUF
+방식으로 share buffer 형태로 정보를 가져온 뒤에 활용할 수 있도록 코드가 구현되어
+있는지, 어떻게 하면 개선할 수 있는지 좀 더 찾아보려 한다. 이제서야 DMABUF의
+이름이 디바이스에서 DMA를 위해 사용하는 버퍼들을 다른 디바이스에서 공유할 수
+있도록 하기 위해 명명된 것이라 이해할 수 있게 되었다.
