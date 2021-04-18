@@ -13,8 +13,8 @@
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/v4l2-dmabuf/</guid>
-      <description>개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 하루 만에 코드를 수정하니 기대한 결과값이 나왔다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석했다. 그리고 이제서야 왜 그동안 이해가 안됐었는지, 그리고 무엇이 잘못됐는지를 파악할 수 있었다.
-들어가기에 앞서, V4L2 (Video for Linux) 와 Video Buffer 에 대해 간단하게 설명하면, 우선 V4L2는 기본적으로 Video Streaming I/O 를 지원하기 위한 프레임워크이다.</description>
+      <description>개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를 파악할 수 있었다.
+본론에 들어가기에 앞서, V4L2 (Video for Linux) 와 Video Buffer 에 대해 간단하게 설명하면, V4L2는 Video Streaming I/O 를 지원하기 위한 프레임워크이다.</description>
     </item>
     
     <item>
