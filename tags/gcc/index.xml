@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gcc on A Developer&#39;s Note</title>
+    <link>https://seokbeomKim.github.io/tags/gcc/</link>
+    <description>Recent content in gcc on A Developer&#39;s Note</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Sep 2021 01:13:41 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>커널의 KASAN 코드가 삽입되는 방법</title>
+      <link>https://seokbeomKim.github.io/posts/kasan-with-gcc/</link>
+      <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/kasan-with-gcc/</guid>
+      <description>커널의 KASAN 코드가 삽입되는 방법 Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어 해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 static inline 형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만, 실제 코드를 보았을 때 함수와 EXPORT_SYMBOL 이 사용된 것 외에는 그 어디에도 inline 키워드는 사용도지 않았다.</description>
+    </item>
+    
+  </channel>
+</rss>

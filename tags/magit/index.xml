@@ -6,7 +6,11 @@
     <description>Recent content in magit on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jan 2021 13:42:08 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/magit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jan 2021 13:42:08 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/magit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Emacs에서 magit 최적화하기</title>
       <link>https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/</link>

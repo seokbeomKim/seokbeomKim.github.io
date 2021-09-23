@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.82.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -117,22 +117,22 @@
 <pre><code>#include &lt;stdio.h&gt;
 
 int main(void) {
-	unsigned long value = 0x12345678;
-	unsigned char* ptr = &amp;value;
+    unsigned long value = 0x12345678;
+    unsigned char* ptr = &amp;value;
 
-	int i;
+    int i;
 
-	for (i = 0; i &lt; 4; i++) {
+    for (i = 0; i &lt; 4; i++) {
         fprintf(stdout, &quot;value[%d] = 0x%x\n&quot;, i, *ptr++);
-	}
+    }
 
-	unsigned long long value2 = 0x12345678abcdefab;
-	ptr = &amp;value2;
-	for (i = 0; i &lt; sizeof(value2); i++) {
+    unsigned long long value2 = 0x12345678abcdefab;
+    ptr = &amp;value2;
+    for (i = 0; i &lt; sizeof(value2); i++) {
         fprintf(stdout, &quot;value2[%d] = 0x%x\n&quot;, i, *ptr++);
-	}
+    }
 	
-	return 0;
+    return 0;
 }
 </code></pre>
 <p>위의 코드를 컴파일하여 Mac OS 환경에서 실행하면 아래와 같은 결과를 얻을 수 있다.</p>

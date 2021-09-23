@@ -6,7 +6,11 @@
     <description>Recent content in haskell on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Sep 2020 00:05:37 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Sep 2020 00:05:37 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/categories/haskell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>하스켈 버전 관리</title>
       <link>https://seokbeomKim.github.io/posts/haskell-version-control/</link>

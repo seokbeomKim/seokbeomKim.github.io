@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.82.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/haskell-version-control/">하스켈 버전 관리</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-09-12T00:05:37&#43;09:00">
+        Sep 12, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10 까지 버전업 되어 있는 ghc 환경과 호환이 안되는 문제가 발생하였다. 이를 위해 하스켈의 전체적인 버전 관리를 해주는 패키지 매니저가 있을 것이라 생각하고 관련 내용으로 검색해보니 ghcup 이라는 버전 관리 매니저가 있었다.
+ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할 수 있으며 아래와 같이 원하는 ghc 버전들을 간편하게 설치하고 메인으로 관리할 수 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/haskell-version-control/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/coc/">리누즈게이트와 CoC</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -72,7 +94,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    자유 발언 구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &lsquo;개발자에게 중요한 것은 무엇인가&rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 &lsquo;자유 발언&rsquo;으로서 존중 받아야 할 것이다라고 얘기할 것이다.
+    자유 발언 구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &lsquo;개발자에게 중요한 것은 무엇인가&rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 &lsquo;자유 발언'으로서 존중 받아야 할 것이다라고 얘기할 것이다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/coc/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -141,29 +163,6 @@ Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascri
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/oop-in-kernel/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-compilation-on-mac-os/">맥 OS에서 리눅스 커널 컴파일하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-07-12T22:13:08&#43;09:00">
-        Jul 12, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 맥 환경에서 bare-metal이 아닌 리눅스 커널로 컴파일하는 것은 생각했던 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한 라이브러리와 경로들이 리눅스 환경과 다르기 때문에, 일반적인 리눅스 배포판에서처럼 크로스 컴파일러를 바이너리 형태로 설치한 뒤에 곧바로 커널 빌드를 할 수는 없다.
-이 포스팅은 맥에서 리눅스 커널을 빌드하려는 사람들을 위해 작성한 것으로, 아래 구성으로 간략하게 기술하겠다.
- 준비 사항 및 제약 사항 크로스 컴파일러 빌드 커널 빌드 끝맺음  본 포스팅에서 확인한 맥 환경은 아래와 같으며 단순 바이너리만 받고자 하는 경우 아래 링크에서 받도록 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kernel-compilation-on-mac-os/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.82.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">kernel</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/futex/">Futex</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-04-02T01:45:50&#43;09:00">
+        Apr 2, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Futex (Fast Userspace Mutexes) futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등의 라이브러리의 구현에 사용되기 때문에 애플리케이션으로부터 직접 이용하는 경우는 별로 없다고 생각되지만 POSIX Thread는 Java 스레드의 구현 등에도 이용되고 있어 동기 처리를 많이 이용하는 애플리케이션에는 이익이 있을 것이다. futex 시스템 콜의 주된 기능은 FUTEX_WAIT와 FUTEX_WAKE이다.
+pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock이 성공되면 종료 FUTEX_WAIT를 사용하여 pthread_mutex_t의 주소 상에서 슬립한다 시동 후, 1로 돌아간다  pthread_mutex_unlock  아토믹 명령을 사용해 unlock 처리를 실시 1의 결과, 슬립하고 있는 스레드가 있다면 FUTEX_WAKE를 사용하여 wakeup한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/futex/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -145,28 +167,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/ioctl-and-interrupt/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/buffering-in-linux/">리눅스에서의 버퍼링 방식</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-29T23:34:30&#43;09:00">
-        Feb 29, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    리눅스에서의 버퍼링 정책 리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
-만약 write 호출로 데이터를 쓰기 명령을 전달하면 해당 파일 작업을 위한 버퍼에 기록을 해 두었다가 정책에 따라 특정 시점에 물리적인 파일에 기록을 수행한다. 리눅스에서 제공하는 버퍼링 정책에는 버퍼가 꽉 차면 물리적인 파일에 기록하는 Full Buffering과 꽉 차거나 개행문자가 오면 처리하는 Line Buffering, 버퍼를 사용하는 않는 Null Buffering 정책을 제공하고 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/buffering-in-linux/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

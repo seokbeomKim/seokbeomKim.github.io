@@ -6,7 +6,11 @@
     <description>Recent content in tasklet on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 May 2019 17:32:26 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/tasklet/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 May 2019 17:32:26 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/tasklet/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>태스크릿(Tasklet)</title>
       <link>https://seokbeomKim.github.io/posts/tasklet/</link>

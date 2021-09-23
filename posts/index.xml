@@ -6,7 +6,20 @@
     <description>Recent content in Posts on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Apr 2021 00:32:27 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Sep 2021 01:13:41 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>커널의 KASAN 코드가 삽입되는 방법</title>
+      <link>https://seokbeomKim.github.io/posts/kasan-with-gcc/</link>
+      <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/kasan-with-gcc/</guid>
+      <description>커널의 KASAN 코드가 삽입되는 방법 Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어 해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 static inline 형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만, 실제 코드를 보았을 때 함수와 EXPORT_SYMBOL 이 사용된 것 외에는 그 어디에도 inline 키워드는 사용도지 않았다.</description>
+    </item>
+    
     <item>
       <title>V4L2 Memory Type</title>
       <link>https://seokbeomKim.github.io/posts/v4l2-dmabuf/</link>
@@ -85,7 +98,7 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/python-on-mac-with-brew/</guid>
-      <description>Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로 확장 라이브러리를 설치해도 찾지 못하는 경우이다. 문제가 발생할 때 파이썬의 경로를 살펴보면, `/usr/bin/python3&#39; 등으로 /usr/bin 아래에 놓여있는 것을 알 수 있다.
+      <description>Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로 확장 라이브러리를 설치해도 찾지 못하는 경우이다. 문제가 발생할 때 파이썬의 경로를 살펴보면, `/usr/bin/python3&amp;rsquo; 등으로 /usr/bin 아래에 놓여있는 것을 알 수 있다.
 이러한 경우, 아래와 같이 brew 명령어를 통해 다시 심볼릭 링크를 재정의해주자.
 brew link python@3.9 </description>
     </item>
@@ -172,7 +185,7 @@ ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/coc/</guid>
-      <description>자유 발언 구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것은 무엇인가&amp;rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 &amp;lsquo;자유 발언&amp;rsquo;으로서 존중 받아야 할 것이다라고 얘기할 것이다.</description>
+      <description>자유 발언 구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것은 무엇인가&amp;rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 &amp;lsquo;자유 발언&#39;으로서 존중 받아야 할 것이다라고 얘기할 것이다.</description>
     </item>
     
     <item>
@@ -262,7 +275,7 @@ mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신,
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/</guid>
-      <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &amp;lsquo;어떻게 가상 주소를 맵핑할 것인지&amp;rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &amp;lsquo;페이지 테이블&amp;rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.</description>
+      <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &amp;lsquo;어떻게 가상 주소를 맵핑할 것인지&#39;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &amp;lsquo;페이지 테이블&#39;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.</description>
     </item>
     
     <item>
@@ -668,7 +681,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&amp;rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&amp;rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&#39;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&#39;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
     </item>
     
     <item>
@@ -688,7 +701,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
-세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
+세마 포어의 카운트가 1인 락&#39;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에
 대한 사용 예를 기술하고자 한다.&lt;/p&gt;</description>
@@ -879,7 +892,7 @@ A model with a set of parameters transforms the input into an output, this gener
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/rest-api-model/</guid>
-      <description>개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &amp;lsquo;RESTful&amp;rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &amp;lsquo;Richardson Maturity Model&amp;rsquo;이라는 성숙도 모델을 기술한다.
+      <description>개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &amp;lsquo;RESTful&amp;rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &amp;lsquo;Richardson Maturity Model&#39;이라는 성숙도 모델을 기술한다.
 REST 소개 이 절은 Microsoft의 REST 소개를 발췌하여 정리한 것이다.
 REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키텍처 스타일로서 프로토콜과는 관련이 없는 용어이다. (일각에서 REST와 SOAP를 비교하는 글들이 많아 언급하였다.</description>
     </item>
@@ -953,7 +966,7 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/diff_http_https/</guid>
-      <description>HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&amp;rsquo;가 나타내는 Secure라는 의미로부터 HTTP에 &amp;lsquo;어떤 것&amp;rsquo;을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한&amp;rsquo;어떤 것&amp;rsquo;인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.</description>
+      <description>HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&#39;가 나타내는 Secure라는 의미로부터 HTTP에 &amp;lsquo;어떤 것&#39;을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한&#39;어떤 것&#39;인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.</description>
     </item>
     
   </channel>

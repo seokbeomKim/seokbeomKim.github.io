@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.82.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <link href="https://seokbeomKim.github.io/index.xml" rel="alternate" type="application/rss+xml" title="A Developer&#39;s Note" />
@@ -61,6 +61,28 @@
 
 
   
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/">Mac에서 GDB 이용한 커널 해킹하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-02-20T02:43:54&#43;09:00">
+        Feb 20, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
+(gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&#39;m sorry, Dave, I can&#39;t do that. Symbol format `elf64-littleaarch64&#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
   <article class="c-article p-list-article">
   <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/i3wm/">i3 window manager</a></h2>
@@ -116,7 +138,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로 확장 라이브러리를 설치해도 찾지 못하는 경우이다. 문제가 발생할 때 파이썬의 경로를 살펴보면, `/usr/bin/python3' 등으로 /usr/bin 아래에 놓여있는 것을 알 수 있다.
+    Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로 확장 라이브러리를 설치해도 찾지 못하는 경우이다. 문제가 발생할 때 파이썬의 경로를 살펴보면, `/usr/bin/python3&rsquo; 등으로 /usr/bin 아래에 놓여있는 것을 알 수 있다.
 이러한 경우, 아래와 같이 brew 명령어를 통해 다시 심볼릭 링크를 재정의해주자.
 brew link python@3.9 
   </div>
@@ -142,28 +164,6 @@ brew link python@3.9
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/uuid-compatibility-on-mac-os/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl-move-to-d/">WSL 가상 디스크 파일 D 드라이브에 옮기기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-12-23T01:00:00&#43;09:00">
-        Dec 23, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    lxrunoffline WSL 을 사용하다 보면 디스크 용량이 커져 C 드라이브의 용량이 부족해진다. 용량이 넉넉하면 문제가 없겠지만 필자와 같이 C 드라이브는 O/S만 설치하고 D 드라이브에 다른 것들을 모두 설치하도록 환경을 설정한 경우에는 이러한 저장 방식은 꽤 부담스러워진다. 예전에는 이러한 문제에 대해 해결 방법이 따로 없었던 것으로 알고 있었는데 찾아보니 lxrunoffline이라는 툴로 간단하게 해결할 수 있었다.
-윈도우즈 패키지 매니저인 choco 를 이용하여 lxrunoffline을 설치하고 이를 이용하여 WSL에 사용되는 가상 디스크 파일을 다른 드라이브로 옮길 수 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/wsl-move-to-d/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

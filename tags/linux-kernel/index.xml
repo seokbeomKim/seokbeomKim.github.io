@@ -6,7 +6,11 @@
     <description>Recent content in linux kernel on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 May 2019 18:59:15 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/linux-kernel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 May 2019 18:59:15 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/linux-kernel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>커널 해킹: 프로세스</title>
       <link>https://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/</link>

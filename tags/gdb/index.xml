@@ -6,7 +6,11 @@
     <description>Recent content in gdb on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Mac에서 GDB 이용한 커널 해킹하기</title>
       <link>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</link>

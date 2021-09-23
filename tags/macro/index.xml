@@ -6,7 +6,11 @@
     <description>Recent content in macro on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Feb 2020 00:23:10 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/macro/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Feb 2020 00:23:10 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/macro/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>ioctl()에 전달되는 cmd 관련 매크로 함수</title>
       <link>https://seokbeomKim.github.io/posts/ioctl_cmd_macro/</link>

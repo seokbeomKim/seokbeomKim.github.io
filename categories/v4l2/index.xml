@@ -6,7 +6,11 @@
     <description>Recent content in v4l2 on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Apr 2021 00:32:27 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/v4l2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Apr 2021 00:32:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/categories/v4l2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>V4L2 Memory Type</title>
       <link>https://seokbeomKim.github.io/posts/v4l2-dmabuf/</link>

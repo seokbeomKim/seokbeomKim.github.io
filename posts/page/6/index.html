@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.82.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,27 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/">가상주소와 페이지 테이블 크기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-04-11T18:25:16&#43;09:00">
+        Apr 11, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지'에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블'이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -144,27 +165,6 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/do-while/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/bsd_queue/">BSD 버전 Linked List</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-01T00:26:52&#43;09:00">
-        Apr 1, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 list.h 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 &lt;sys/queue.h&gt; 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/bsd_queue/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

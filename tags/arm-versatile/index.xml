@@ -6,7 +6,11 @@
     <description>Recent content in arm-versatile on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jun 2019 21:29:27 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/arm-versatile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jun 2019 21:29:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://seokbeomKim.github.io/tags/arm-versatile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>QEMU 이용한 임베디드 개발 환경 구축하기</title>
       <link>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</link>
