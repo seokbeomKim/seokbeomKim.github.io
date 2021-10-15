@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2021-10-16T02:19:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</loc>
+    <lastmod>2021-10-16T02:19:05+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
     <lastmod>2021-09-24T01:13:41+09:00</lastmod>
   </url>
@@ -19,11 +29,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2021-09-24T01:13:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
     <lastmod>2021-09-24T01:13:41+09:00</lastmod>
   </url>
   

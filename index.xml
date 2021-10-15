@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>컴파일 타임에 매크로 변수 값 확인하기</title>
+      <link>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</link>
+      <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</guid>
+      <description>개요 현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기 위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한 변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.
+그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma 와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.
+#include &amp;lt;stdio.h&amp;gt; /* #define VAR_NAME_VALUE(var) #var &amp;#34;=&amp;#34; VALUE(var) */ #define DO_PRAGMA(x) _Pragma (#x)  /* Some test definition here */ #define DEFINED_BUT_NO_VALUE #define DEFINED_INT 3 #define DEFINED_STR &amp;#34;ABC&amp;#34;  /* definition to expand macro then apply to pragma message */ #define VALUE_TO_STRING(x) #x #define VALUE(x) VALUE_TO_STRING(x) #define VAR_NAME_VALUE(var) #var &amp;#34;=&amp;#34; VALUE_TO_STRING(var)  /* Some example here */ #pragma message(VAR_NAME_VALUE(NOT_DEFINED)) #pragma message(VAR_NAME_VALUE(DEFINED_BUT_NO_VALUE)) #pragma message(VAR_NAME_VALUE(DEFINED_INT)) #pragma message(VAR_NAME_VALUE(DEFINED_STR))  #define PRINT_INT(x) DO_PRAGMA(message(VAR_NAME_VALUE(DEFINED_INT)))  PRINT_INT(DEFINED_INT); #if DEFINED_INT &amp;gt; 2 #warning &amp;#34;ERROR&amp;#34; #endif  int main(void) { printf(&amp;#34;This is sample application to make compiler to \ show the value of macro variable\n&amp;#34;); return 0; } 위와 같이 매크로를 정의하면, 컴파일 시에 PRINT_INT 매크로 뿐만 아니라 #pragma message(.</description>
+    </item>
+    
+    <item>
       <title>커널의 KASAN 코드가 삽입되는 방법</title>
       <link>https://seokbeomKim.github.io/posts/kasan-with-gcc/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
