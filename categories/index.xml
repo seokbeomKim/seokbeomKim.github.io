@@ -6,10 +6,15 @@
     <description>Recent content in Categories on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Sep 2021 01:13:41 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Sun, 23 Jan 2022 23:09:00 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>yocto</title>
+      <link>https://seokbeomKim.github.io/categories/yocto/</link>
+      <pubDate>Sun, 23 Jan 2022 23:09:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/yocto/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>kernel</title>
@@ -111,15 +116,6 @@
     </item>
     
     <item>
-      <title>c</title>
-      <link>https://seokbeomKim.github.io/categories/c/</link>
-      <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/c/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>coc</title>
       <link>https://seokbeomKim.github.io/categories/coc/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
@@ -170,6 +166,15 @@
       <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/memory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://seokbeomKim.github.io/categories/c/</link>
+      <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/c/</guid>
       <description></description>
     </item>
     

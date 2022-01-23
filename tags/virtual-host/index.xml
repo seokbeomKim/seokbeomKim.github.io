@@ -6,11 +6,7 @@
     <description>Recent content in virtual host on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 17:16:40 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/virtual-host/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 01 May 2019 17:16:40 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/virtual-host/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>가상호스트(Virtual Host)와 Host Header</title>
       <link>https://seokbeomKim.github.io/posts/vhost-host-header/</link>

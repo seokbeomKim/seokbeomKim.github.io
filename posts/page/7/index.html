@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/futex/">Futex</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-04-02T01:45:50&#43;09:00">
+        Apr 2, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Futex (Fast Userspace Mutexes) futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등의 라이브러리의 구현에 사용되기 때문에 애플리케이션으로부터 직접 이용하는 경우는 별로 없다고 생각되지만 POSIX Thread는 Java 스레드의 구현 등에도 이용되고 있어 동기 처리를 많이 이용하는 애플리케이션에는 이익이 있을 것이다. futex 시스템 콜의 주된 기능은 FUTEX_WAIT와 FUTEX_WAKE이다.
+pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock이 성공되면 종료 FUTEX_WAIT를 사용하여 pthread_mutex_t의 주소 상에서 슬립한다 시동 후, 1로 돌아간다  pthread_mutex_unlock  아토믹 명령을 사용해 unlock 처리를 실시 1의 결과, 슬립하고 있는 스레드가 있다면 FUTEX_WAKE를 사용하여 wakeup한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/futex/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -143,28 +165,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/goto-statement/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl2/">WSL2</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-03-15T23:23:15&#43;09:00">
-        Mar 15, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    몇주 전 맥북에 윈도우즈를 설치하며, WSL과 Hyper-V 의 지원으로 리눅스 환경을 사용하기 위해 듀얼 부트나 Unix 환경을 제공하는 맥을 사용할 필요가 없어지게 되었다는 포스팅을 작성했다. 대안으로 가상 머신과는 다른 구조로 하드웨어 자원을 사용할 수 있는 Hyper-V 컨테이너를 만들어 사용했었는데 오늘 윈도우즈 2004 버전에서 Hyper-V를 이용한 WSL2 버전이 곧 릴리즈 될 것이라는 기사를 접했다.
-릴리즈 될 때까지 기다릴 수 없어 Preview Insider 프로그램에 바로 참여하여 2004 버전을 내려받았다. https://aka.ms/wsl2kernel 에는 기존 WSL을 버전 2로 업데이트 하는 방법에 대해 자세히 설명되어 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/wsl2/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -267,7 +267,7 @@
       
         
         &nbsp;&bull;&nbsp;
-        2021
+        2022
 
         
           &nbsp;&bull;&nbsp;

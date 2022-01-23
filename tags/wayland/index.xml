@@ -6,11 +6,7 @@
     <description>Recent content in wayland on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 23:17:11 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/wayland/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 03 Feb 2020 23:17:11 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/wayland/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wayland과 Weston</title>
       <link>https://seokbeomKim.github.io/posts/wayland/</link>

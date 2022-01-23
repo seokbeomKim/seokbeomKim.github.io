@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/yocto-and-chroot/">Chroot 환경을 이용한 Yocto 환경 구성</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-01-23T23:09:00&#43;09:00">
+        Jan 23, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    우분투 버전과 Yocto 버전 AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다. 개인적으로 Rolling Release 배포판인 아치리눅스나 젠투 리눅스들을 선호하지만 사용자가 많고 프로젝트 대부분에서 데비안 타입의 패키징을 지원하므로, 익숙한 우분투를 사용하기로 했다.
+한 가지 중요한 것은 우분투의 경우 각 버전마다 빌드 환경이 다르고, Yocto의 경우 이러한 빌드 환경에 의존성을 가지고 있다는 것이다. 처음 Ubuntu 21.10 버전에서 레시피를 빌드했을 때 아래와 같은 에러 메시지에 맞딱드렸다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/yocto-and-chroot/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -143,29 +165,6 @@ KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/is_constexpr/">__is_constexpr macro in kernel</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-03-21T22:44:03&#43;09:00">
-        Mar 21, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.
-That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.
-#define __is_constexpr(x)	\ (sizeof(int) == sizeof(*(8 ?
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/is_constexpr/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -266,7 +265,7 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
       
         
         &nbsp;&bull;&nbsp;
-        2021
+        2022
 
         
           &nbsp;&bull;&nbsp;

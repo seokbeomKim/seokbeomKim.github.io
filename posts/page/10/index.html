@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/">WARN_ON, BUG_ON 매크로</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-21T00:12:34&#43;09:00">
+        Feb 21, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
+이 글에서는 BUG_ON, WARN_ON 등 커널에서 제공하는 assertion에 해당하는 매크로가 어떤 것들이 있는지 살펴보고 어떤 경우에 사용해야 하는지에 대해 간략히 정리하고자 한다. 이 외에 커널에서는 dump_stack(), save_stack_trace(), dump_trace(), backtrace() 등의 콜 스택 출력 방법을 제공한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -144,28 +166,6 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/ftrace/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/raspberry-pi-sub-projects/">Raspberry Pi를 이용한 사이드 프로젝트</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-05T00:53:22&#43;09:00">
-        Feb 5, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    카메라 포팅 건으로 불필요한 업무가 지속적으로 들어온다. 포팅을 위한 기본적인 것들을 자동화 하거나 유틸리티 형태로 제공할 수 있어야 한다는 것을 뼈저리게 느꼈다. 특히, 오늘은 고객사의 디바이스 트리 내 오타로 인해 Pin Control이 안됐던 원인을 찾고 나니 그러한 유틸리티의 필요성을 뼈저리게 느꼈다.
-사이드 프로젝트를 통해 개발에 대한 갈증을 해소하고 불필요하게 업무에 투입되는 시간을 줄이기 위해서라도 3개월 정도의 시간을 들여 만들고자 한다. 라즈베리파이를 이용해 유틸리티는 디바이스 모듈과 함께 연동되도록 설계하고 ncurses를 이용하여 UI를 제공하도록 할 계획이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/raspberry-pi-sub-projects/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -268,7 +268,7 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
       
         
         &nbsp;&bull;&nbsp;
-        2021
+        2022
 
         
           &nbsp;&bull;&nbsp;

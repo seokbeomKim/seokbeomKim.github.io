@@ -6,11 +6,7 @@
     <description>Recent content in sysrq on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Dec 2020 01:38:06 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/categories/sysrq/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 17 Dec 2020 01:38:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/sysrq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>sysrq 이용한 커널 패닉 발생시키기</title>
       <link>https://seokbeomKim.github.io/posts/sysrq/</link>

@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -183,7 +183,7 @@ DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생�
 <h1 id="샤딩-sharding">샤딩, Sharding</h1>
 <p>DBMS 한 개로 처리할 수 있는 데는 한계가 있으므로 데이터베이스 여러 개를 사용하는 방식으로 데이터 조회 한계를 극복해야 한다. 이를 위해 분산 환경을 고려해 만들어진 데이터베이스를 이용하는 방법도 있지만 범위 검색에 취약하거나 JOIN 연산을 사용할 수 없는 등 기능에 제약이 많다. 따라서 상대적으로 풍부한 기능을 사용하면서 데이터 확장을 꾀할 수 있는 방법은 RDBMS를 샤딩(sharding)하여 사용하는 것이다. 계속 증가하는 데이터에 장애 없이 효과적으로 대응할 수 있어야 하고 서비스마다 다른 데이터 특성과 모델에 어떻게 대처할 것인가가 샤딩 플랫폼의 핵심이다.</p>
 <h2 id="hphorizontal-partitioning과-샤딩sharding-비교">HP(Horizontal Partitioning)과 샤딩(Sharding) 비교</h2>
-<p>수평 분할(Horizontal Partitioning)이란 스키마가 같은 데이터를 두 개 이상의 테이블에 나누어 저장하는 디자인을 말한다. 가령 같은 주민 데이터를 처리하기 위해 스키마가 같은 &lsquo;서현동주민 테이블'과 &lsquo;정자동주민 테이블'을 사용하는 것을 말한다. 인덱스의 크기를 줄이고, 작업 동시성을 늘리기 위한 것이다. <strong>보통 수평 분할을 한다고 했을 때는 하나의 데이터베이스 안에서 이루어지는 경우를 지칭한다.</strong></p>
+<p>수평 분할(Horizontal Partitioning)이란 스키마가 같은 데이터를 두 개 이상의 테이블에 나누어 저장하는 디자인을 말한다. 가령 같은 주민 데이터를 처리하기 위해 스키마가 같은 &lsquo;서현동주민 테이블&rsquo;과 &lsquo;정자동주민 테이블&rsquo;을 사용하는 것을 말한다. 인덱스의 크기를 줄이고, 작업 동시성을 늘리기 위한 것이다. <strong>보통 수평 분할을 한다고 했을 때는 하나의 데이터베이스 안에서 이루어지는 경우를 지칭한다.</strong></p>
 <p>이에 비해, 샤딩은 물리적으로 다른 데이터베이스에 데이터를 수평 분할 방식으로 분산 저장하고 조회하는 방법을 말한다. &lsquo;주민&rsquo; 테이블이 여러 DB에 있을 때 서현동 주민에 대한 정보는 A DB에, 정자동 주민에 대한 정보는 B DB에 저장되도록 하는 방식이다. 여러 데이터베이스를 대상으로 작업해야 하기 때문에 경우에 따라서는 (JOIN 등) 기능에 제약이 있을 수 있고 일관성(consistency)과 복제(replication) 등에서 불리한 점이 많다. 예전의 샤딩은 애플리케이션 서버 레벨에서 구현하는 경우가 많았지만 최근에는 이를 플랫폼 차원에서 제공한다.</p>
 <p>&hellip; (중략)</p>
 <h2 id="샤딩sharding의-한계">샤딩(Sharding)의 한계</h2>
@@ -209,7 +209,7 @@ DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생�
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>&lsquo;데이터 조작어'라고 부르며 SELECT, INSERT, UPDATE, DELETE 등의 명령어가 여기에 포함된다. 그 외에 &lsquo;데이터 정의어&rsquo;(DDL: CREATE/ALTER/DROP/RENAME/TRUNCATE), 데이터 제어어(GRANT/REVOKE), 트랜잭션 제어어(TLC: COMMIT/ROLLBACK/SAVEPOINT) 등이 있다. 자세한 것은 <a href="http://brownbears.tistory.com/180">http://brownbears.tistory.com/180</a> 참고 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>&lsquo;데이터 조작어&rsquo;라고 부르며 SELECT, INSERT, UPDATE, DELETE 등의 명령어가 여기에 포함된다. 그 외에 &lsquo;데이터 정의어&rsquo;(DDL: CREATE/ALTER/DROP/RENAME/TRUNCATE), 데이터 제어어(GRANT/REVOKE), 트랜잭션 제어어(TLC: COMMIT/ROLLBACK/SAVEPOINT) 등이 있다. 자세한 것은 <a href="http://brownbears.tistory.com/180">http://brownbears.tistory.com/180</a> 참고 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
 <p>컴퓨터 시스템을 사용하는 트랜잭션 데이터 관리를 온라인 트랜잭션 처리(OLTP)라고 한다. OLTP 시스템은 조직의 일상적인 작업에서 발생하는 비지니스 상호작용을 기록하고 이 데이터를 쿼리하여 유추할 수 있도록 지원한다. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
@@ -381,7 +381,7 @@ DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생�
       
         
         &nbsp;&bull;&nbsp;
-        2021
+        2022
 
         
           &nbsp;&bull;&nbsp;

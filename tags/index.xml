@@ -6,10 +6,33 @@
     <description>Recent content in Tags on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Sep 2021 01:13:41 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jan 2022 23:09:00 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bitbake</title>
+      <link>https://seokbeomKim.github.io/tags/bitbake/</link>
+      <pubDate>Sun, 23 Jan 2022 23:09:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/bitbake/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>chroot</title>
+      <link>https://seokbeomKim.github.io/tags/chroot/</link>
+      <pubDate>Sun, 23 Jan 2022 23:09:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/chroot/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>yocto</title>
+      <link>https://seokbeomKim.github.io/tags/yocto/</link>
+      <pubDate>Sun, 23 Jan 2022 23:09:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/yocto/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>gcc</title>
@@ -111,15 +134,6 @@
     </item>
     
     <item>
-      <title>mac</title>
-      <link>https://seokbeomKim.github.io/tags/mac/</link>
-      <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>mac_os</title>
       <link>https://seokbeomKim.github.io/tags/mac_os/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
@@ -161,6 +175,15 @@
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/homebrew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>https://seokbeomKim.github.io/tags/mac/</link>
+      <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mac/</guid>
       <description></description>
     </item>
     
@@ -642,15 +665,6 @@
     </item>
     
     <item>
-      <title>mem</title>
-      <link>https://seokbeomKim.github.io/tags/mem/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/mem/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>memory map</title>
       <link>https://seokbeomKim.github.io/tags/memory-map/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
@@ -692,6 +706,15 @@
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/kmem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mem</title>
+      <link>https://seokbeomKim.github.io/tags/mem/</link>
+      <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/mem/</guid>
       <description></description>
     </item>
     
@@ -1155,15 +1178,6 @@
     </item>
     
     <item>
-      <title>http</title>
-      <link>https://seokbeomKim.github.io/tags/http/</link>
-      <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/http/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>http1.1</title>
       <link>https://seokbeomKim.github.io/tags/http1.1/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
@@ -1223,6 +1237,15 @@
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/sni/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>http</title>
+      <link>https://seokbeomKim.github.io/tags/http/</link>
+      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/http/</guid>
       <description></description>
     </item>
     

@@ -6,11 +6,7 @@
     <description>Recent content in video on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/categories/video/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/video/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>영상 출력 포맷</title>
       <link>https://seokbeomKim.github.io/posts/digital_output_formats/</link>

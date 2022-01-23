@@ -6,11 +6,7 @@
     <description>Recent content in switch on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Feb 2020 23:56:18 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/switch/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 26 Feb 2020 23:56:18 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/switch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>switch 구문과 if-else 구문</title>
       <link>https://seokbeomKim.github.io/posts/switch-statement/</link>

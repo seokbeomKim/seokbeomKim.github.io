@@ -6,11 +6,7 @@
     <description>Recent content in busybox on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 May 2019 15:10:46 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/busybox/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 23 May 2019 15:10:46 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/busybox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
       <link>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</link>

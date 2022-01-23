@@ -6,11 +6,7 @@
     <description>Recent content in spinlock on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 May 2019 00:59:34 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/spinlock/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 29 May 2019 00:59:34 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/spinlock/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>리눅스 커널 락 종류 (2/5)</title>
       <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</link>
@@ -28,7 +24,7 @@
       
       <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
-세마 포어의 카운트가 1인 락&#39;이라는 말도 안되는 내용으로 학교
+세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
 있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에
 대한 사용 예를 기술하고자 한다.&lt;/p&gt;</description>

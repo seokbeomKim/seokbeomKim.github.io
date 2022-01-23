@@ -6,11 +6,7 @@
     <description>Recent content in __is_constexpr on A Developer&#39;s Note</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Mar 2021 22:44:03 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/__is_constexpr/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 21 Mar 2021 22:44:03 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/__is_constexpr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>__is_constexpr macro in kernel</title>
       <link>https://seokbeomKim.github.io/posts/is_constexpr/</link>

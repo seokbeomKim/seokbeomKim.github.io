@@ -28,7 +28,7 @@
   <meta property="og:type" content="website" />
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -57,6 +57,28 @@
   <main id="main" class="l-main">
 
 <h2 class="c-title p-tag-title">Posts</h2>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/cache-line/">캐시 라인(Cache-Line)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-04-25T14:27:31&#43;09:00">
+        Apr 25, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    캐시를 꼭 사용해야 하나 SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다. 하지만 매번 간략하게 정리한 문서가 없다보니 기억에 잘 남지도 않고 전체적인 흐름을 읽지 못하는 것 같아 이번 포스팅을 통해서 대략적으로나마 정리하고자 한다.
+프로세서 캐시와 메모리의 불일치 문제는 다루기 까다로운 문제이다. 단순하게 프로세서가 싱글 코어라면 문제가 없겠지만 여러 개의 코어를 가지고 있는 프로세서라면 각각의 코어가 가지고 있는 캐시와 주 메모리를 동기화 시켜주어야 한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/cache-line/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
 
 
 
@@ -94,7 +116,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지'에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블'이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
+    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지&rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블&rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -143,28 +165,6 @@ DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수�
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/dmips/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/futex/">Futex</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-02T01:45:50&#43;09:00">
-        Apr 2, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Futex (Fast Userspace Mutexes) futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등의 라이브러리의 구현에 사용되기 때문에 애플리케이션으로부터 직접 이용하는 경우는 별로 없다고 생각되지만 POSIX Thread는 Java 스레드의 구현 등에도 이용되고 있어 동기 처리를 많이 이용하는 애플리케이션에는 이익이 있을 것이다. futex 시스템 콜의 주된 기능은 FUTEX_WAIT와 FUTEX_WAKE이다.
-pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock이 성공되면 종료 FUTEX_WAIT를 사용하여 pthread_mutex_t의 주소 상에서 슬립한다 시동 후, 1로 돌아간다  pthread_mutex_unlock  아토믹 명령을 사용해 unlock 처리를 실시 1의 결과, 슬립하고 있는 스레드가 있다면 FUTEX_WAKE를 사용하여 wakeup한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/futex/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -267,7 +267,7 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
       
         
         &nbsp;&bull;&nbsp;
-        2021
+        2022
 
         
           &nbsp;&bull;&nbsp;

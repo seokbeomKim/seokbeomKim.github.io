@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.68.3" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -124,7 +124,7 @@ dma_contig_sg를 사용한다. 이 경우 하드웨어 적으로 scatter/gather 
 하면서 DMABUF 방식을 지원하도록 지시를 받았는데 여기서 한 가지 문제가
 있었다. DMABUF 방식의 사용 목적을 고려하지 않았다는 점이다.</p>
 <p>할당자가 변경되어야 하는 배경은 이해했지만, DMABUF 방식은 이해할 수 없었다. &lsquo;왜
-이해가 안되는 것인지'가 머리로 이해가 안되는 답답함에 코드를 보고 있었는데,
+이해가 안되는 것인지&rsquo;가 머리로 이해가 안되는 답답함에 코드를 보고 있었는데,
 각각의 메모리 방식을 사용하는 이유에 대해서 우선적으로 알아보지 않았던 것이
 문제였다.</p>
 <p>V4L2 memory에는 아래와 같이 MMAP/USERPTR/OVERLAY/DMABUF 등이 제공된다.</p>
@@ -137,7 +137,7 @@ dma_contig_sg를 사용한다. 이 경우 하드웨어 적으로 scatter/gather 
 userspace의 애플리케이션에서 매핑해서 사용하기 위한 목적의 메모리
 타입이다. USERPTR은 반대로 userspace application에서 메모리를 할당하여
 드라이버에서 사용하는 방식이다. 그리고 나머지 DMABUF는 다른 디바이스에서 이미
-할당한 &lsquo;shared buffer'를 사용하기 위한 메모리 타입이다. 즉, v4l2 ioctl을
+할당한 &lsquo;shared buffer&rsquo;를 사용하기 위한 메모리 타입이다. 즉, v4l2 ioctl을
 이횽하여 아무리 애플리케이션에서 드라이버 쪽으로 request buffer를 해봤자 DMABUF
 방식에서는 memory allocation이 안된다는 점이다. 이미 다른 디바이스에서 할당한
 메모리를 사용하기 위한 목적이기 때문이다. 실제 코드를 보았을 때도, 문서를
@@ -267,7 +267,7 @@ importer 기능이 잘못 이해되어 request buffer 시에 메모리 할당을
       
         
         &nbsp;&bull;&nbsp;
-        2021
+        2022
 
         
           &nbsp;&bull;&nbsp;

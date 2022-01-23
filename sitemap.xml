@@ -3,18 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/bitbake/</loc>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/chroot/</loc>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/yocto-and-chroot/</loc>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2021-10-16T02:19:05+09:00</lastmod>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/yocto/</loc>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/yocto/</loc>
+    <lastmod>2022-01-23T23:09:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</loc>
     <lastmod>2021-10-16T02:19:05+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2021-09-24T01:13:41+09:00</lastmod>
   </url>
   
   <url>
@@ -29,11 +64,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2021-09-24T01:13:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
     <lastmod>2021-09-24T01:13:41+09:00</lastmod>
   </url>
   
@@ -133,11 +163,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/mac/</loc>
-    <lastmod>2021-02-20T02:43:54+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/mac_os/</loc>
     <lastmod>2021-02-20T02:43:54+09:00</lastmod>
   </url>
@@ -189,6 +214,11 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/posts/python-on-mac-with-brew/</loc>
+    <lastmod>2020-12-29T23:35:55+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/mac/</loc>
     <lastmod>2020-12-29T23:35:55+09:00</lastmod>
   </url>
   
@@ -290,11 +320,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/haskell-version-control/</loc>
     <lastmod>2020-09-12T00:05:37+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/c/</loc>
-    <lastmod>2020-09-05T09:50:58+09:00</lastmod>
   </url>
   
   <url>
@@ -430,6 +455,11 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/</loc>
     <lastmod>2020-04-11T18:25:16+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/c/</loc>
+    <lastmod>2020-04-10T00:13:53+09:00</lastmod>
   </url>
   
   <url>
@@ -748,11 +778,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/mem/</loc>
-    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/memory-map/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url>
@@ -789,6 +814,11 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/kmem/</loc>
+    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/mem/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url>
   
@@ -864,11 +894,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/about/</loc>
-    <lastmod>2020-01-25T22:47:44+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/</loc>
     <lastmod>2020-01-25T22:47:44+09:00</lastmod>
   </url>
   
@@ -1278,11 +1303,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/tags/http/</loc>
-    <lastmod>2019-05-01T17:29:25+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/posts/http1-http2/</loc>
     <lastmod>2019-05-01T17:29:25+09:00</lastmod>
   </url>
@@ -1340,6 +1360,11 @@
   <url>
     <loc>https://seokbeomKim.github.io/tags/sni/</loc>
     <lastmod>2019-05-01T17:12:34+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/http/</loc>
+    <lastmod>2019-05-01T16:53:27+09:00</lastmod>
   </url>
   
   <url>
