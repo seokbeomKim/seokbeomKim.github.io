@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on A Developer&#39;s Note</title>
+    <title>Categories on 범&#39;s 개발 블로그</title>
     <link>https://seokbeomKim.github.io/categories/</link>
-    <description>Recent content in Categories on A Developer&#39;s Note</description>
+    <description>Recent content in Categories on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jan 2022 23:09:00 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 15:00:45 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>yocto</title>
-      <link>https://seokbeomKim.github.io/categories/yocto/</link>
-      <pubDate>Sun, 23 Jan 2022 23:09:00 +0900</pubDate>
+      <title>OS</title>
+      <link>https://seokbeomKim.github.io/categories/os/</link>
+      <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/yocto/</guid>
+      <guid>https://seokbeomKim.github.io/categories/os/</guid>
       <description></description>
     </item>
     
@@ -229,6 +229,15 @@
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/side-project/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yocto</title>
+      <link>https://seokbeomKim.github.io/categories/yocto/</link>
+      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/categories/yocto/</guid>
       <description></description>
     </item>
     

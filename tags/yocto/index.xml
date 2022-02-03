@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>yocto on A Developer&#39;s Note</title>
+    <title>yocto on 범&#39;s 개발 블로그</title>
     <link>https://seokbeomKim.github.io/tags/yocto/</link>
-    <description>Recent content in yocto on A Developer&#39;s Note</description>
+    <description>Recent content in yocto on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jan 2022 23:09:00 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/yocto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Feb 2020 23:27:45 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/yocto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chroot 환경을 이용한 Yocto 환경 구성</title>
       <link>https://seokbeomKim.github.io/posts/yocto-and-chroot/</link>
-      <pubDate>Sun, 23 Jan 2022 23:09:00 +0900</pubDate>
+      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/yocto-and-chroot/</guid>
       <description>우분투 버전과 Yocto 버전 AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다. 개인적으로 Rolling Release 배포판인 아치리눅스나 젠투 리눅스들을 선호하지만 사용자가 많고 프로젝트 대부분에서 데비안 타입의 패키징을 지원하므로, 익숙한 우분투를 사용하기로 했다.

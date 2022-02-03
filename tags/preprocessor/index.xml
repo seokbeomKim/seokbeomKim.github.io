@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>preprocessor on 범&#39;s 개발 블로그</title>
+    <link>https://seokbeomKim.github.io/tags/preprocessor/</link>
+    <description>Recent content in preprocessor on 범&#39;s 개발 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Oct 2021 02:19:05 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/preprocessor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>컴파일 타임에 매크로 변수 값 확인하기</title>
+      <link>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</link>
+      <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</guid>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;
+&lt;p&gt;현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어
+사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기
+위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한
+변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.&lt;/p&gt;
+&lt;p&gt;그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma
+와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

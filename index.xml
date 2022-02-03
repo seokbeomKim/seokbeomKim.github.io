@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Developer&#39;s Note</title>
+    <title>범&#39;s 개발 블로그</title>
     <link>https://seokbeomKim.github.io/</link>
-    <description>Recent content on A Developer&#39;s Note</description>
+    <description>Recent content on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jan 2022 23:09:00 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 15:00:45 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Chroot 환경을 이용한 Yocto 환경 구성</title>
-      <link>https://seokbeomKim.github.io/posts/yocto-and-chroot/</link>
-      <pubDate>Sun, 23 Jan 2022 23:09:00 +0900</pubDate>
+      <title>Stack Protector와 디버깅 이야기</title>
+      <link>https://seokbeomKim.github.io/posts/stack-protector/</link>
+      <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/yocto-and-chroot/</guid>
-      <description>우분투 버전과 Yocto 버전 AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다. 개인적으로 Rolling Release 배포판인 아치리눅스나 젠투 리눅스들을 선호하지만 사용자가 많고 프로젝트 대부분에서 데비안 타입의 패키징을 지원하므로, 익숙한 우분투를 사용하기로 했다.
-한 가지 중요한 것은 우분투의 경우 각 버전마다 빌드 환경이 다르고, Yocto의 경우 이러한 빌드 환경에 의존성을 가지고 있다는 것이다. 처음 Ubuntu 21.10 버전에서 레시피를 빌드했을 때 아래와 같은 에러 메시지에 맞딱드렸다.</description>
+      <guid>https://seokbeomKim.github.io/posts/stack-protector/</guid>
+      <description>Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.
+하지만 이슈가 마무리 되고 Stack Protector 가 어떤 원리로 동작하는지 궁금했고 설 연휴를 맞아 자세하게 정리할 수 있었다. 그 과정에서 우분투에 잘못된 버그 리포트 티켓을 만들어내긴 했지만 말이다.
+Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-protector-strong 옵션을 통해 활성화할 수 있고 -fno-stack-protector 옵션으로 비활성화 할 수 있다.</description>
     </item>
     
     <item>
@@ -23,9 +24,13 @@
       <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</guid>
-      <description>개요 현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기 위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한 변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.
-그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma 와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.
-#include &amp;lt;stdio.h&amp;gt; /* #define VAR_NAME_VALUE(var) #var &amp;#34;=&amp;#34; VALUE(var) */ #define DO_PRAGMA(x) _Pragma (#x)  /* Some test definition here */ #define DEFINED_BUT_NO_VALUE #define DEFINED_INT 3 #define DEFINED_STR &amp;#34;ABC&amp;#34;  /* definition to expand macro then apply to pragma message */ #define VALUE_TO_STRING(x) #x #define VALUE(x) VALUE_TO_STRING(x) #define VAR_NAME_VALUE(var) #var &amp;#34;=&amp;#34; VALUE_TO_STRING(var)  /* Some example here */ #pragma message(VAR_NAME_VALUE(NOT_DEFINED)) #pragma message(VAR_NAME_VALUE(DEFINED_BUT_NO_VALUE)) #pragma message(VAR_NAME_VALUE(DEFINED_INT)) #pragma message(VAR_NAME_VALUE(DEFINED_STR))  #define PRINT_INT(x) DO_PRAGMA(message(VAR_NAME_VALUE(DEFINED_INT)))  PRINT_INT(DEFINED_INT); #if DEFINED_INT &amp;gt; 2 #warning &amp;#34;ERROR&amp;#34; #endif  int main(void) { printf(&amp;#34;This is sample application to make compiler to \ show the value of macro variable\n&amp;#34;); return 0; } 위와 같이 매크로를 정의하면, 컴파일 시에 PRINT_INT 매크로 뿐만 아니라 #pragma message(.</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;
+&lt;p&gt;현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어
+사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기
+위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한
+변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.&lt;/p&gt;
+&lt;p&gt;그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma
+와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -553,6 +558,16 @@ ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 �
     </item>
     
     <item>
+      <title>Chroot 환경을 이용한 Yocto 환경 구성</title>
+      <link>https://seokbeomKim.github.io/posts/yocto-and-chroot/</link>
+      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/yocto-and-chroot/</guid>
+      <description>우분투 버전과 Yocto 버전 AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다. 개인적으로 Rolling Release 배포판인 아치리눅스나 젠투 리눅스들을 선호하지만 사용자가 많고 프로젝트 대부분에서 데비안 타입의 패키징을 지원하므로, 익숙한 우분투를 사용하기로 했다.
+한 가지 중요한 것은 우분투의 경우 각 버전마다 빌드 환경이 다르고, Yocto의 경우 이러한 빌드 환경에 의존성을 가지고 있다는 것이다. 처음 Ubuntu 21.10 버전에서 레시피를 빌드했을 때 아래와 같은 에러 메시지에 맞딱드렸다.</description>
+    </item>
+    
+    <item>
       <title>GPIO Mapping</title>
       <link>https://seokbeomKim.github.io/posts/gpio_mapping/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
@@ -636,8 +651,7 @@ RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.</descrip
       <guid>https://seokbeomKim.github.io/about/</guid>
       <description>Sukbeom (Jason) Kim  BSP Engineer @: sukbeom.kim@gmail.com  Careers   2009 - 2016
  Kwangwoon Univ. Bachelor&amp;rsquo;s degree, Computer Engineering    2015 - 2016
- Alpha Labs, Software Engineer Smart Glasses Development  Device Driver &amp;amp; Android Framework Server Management      2017 - 2018
- LIG-Nex1, Research Engineer Korean military UAV project  Integration software for analysis system and control system      2019 - now</description>
+ Alpha Labs, Software Engineer Smart AR glasses Development  As a startup initial member, I worked on a project of AR glasses development. Gesture-R sensor device driver in Linux Kernel Modifying Android framework (Jellybean) for touch-based UI Android application to control AR glasses      2017 - 2018</description>
     </item>
     
     <item>

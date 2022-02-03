@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kernel on A Developer&#39;s Note</title>
+    <title>kernel on 범&#39;s 개발 블로그</title>
     <link>https://seokbeomKim.github.io/categories/kernel/</link>
-    <description>Recent content in kernel on A Developer&#39;s Note</description>
+    <description>Recent content in kernel on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 24 Sep 2021 01:13:41 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
