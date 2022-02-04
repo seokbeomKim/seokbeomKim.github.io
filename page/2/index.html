@@ -63,6 +63,28 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/">Kernel Debug With Kgdb</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-04-13T23:31:41&#43;09:00">
+        Apr 13, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는 방법에 대한 세미나를 보게 되었다. 유투브에서 «Using Serial kdb / kgdb to Debug the Linux Kernel - Douglas Anderson, Google» 검색한 영상인데, KDB와 KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을 테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.
+KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 없는 환경에서 매우 유용하다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/is_constexpr/">__is_constexpr macro in kernel</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -149,28 +171,6 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
 </article>
 
 
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/">Emacs에서 magit 최적화하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-01-01T13:42:08&#43;09:00">
-        Jan 1, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로그의 내용으로 문제를 해결할 수 있었다.
-링크된 블로그에서는 magit을 이용하면서 어디에서 속도가 느려지는지를 확인하기 위해 magit-refresh-verbose 을 이용하는 방법을 가이드해주고 있다. 커밋 메시지나 깃 상태를 확인할 때 실행되는 hook function 들에서 몇 초간 소모되는지를 나타내주는데, 이를 이용해서 태그와 브랜치 등의 헤더 정보, 코드 diff를 가져오는데 엄청난 시간이 걸린다는 것을 알게 되었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
 
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
@@ -185,7 +185,7 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 2 of 19</span>
+  <span class="c-pagination__count p-pagination__count">Page 2 of 20</span>
 </nav>
  
 

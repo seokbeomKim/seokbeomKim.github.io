@@ -63,6 +63,28 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ftrace/">ftrace 이용한 커널 디버깅</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-06T23:43:34&#43;09:00">
+        Feb 6, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.
+예전에 젠투 리눅스를 사용할 무렵, menuconfig에서 커널 해킹이라는 흥미로운 메뉴에서 알 수 없는 tracer라는 메뉴로만 본 것으로 이해하지 직접적으로 사용한 적은 없었는데, 실제 사용해보니 생각보다 많은 옵션, 정보들을 보여주었다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/ftrace/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/raspberry-pi-sub-projects/">Raspberry Pi를 이용한 사이드 프로젝트</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -147,29 +169,6 @@ ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 �
 </article>
 
 
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/gpio_mapping/">GPIO Mapping</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-31T23:48:06&#43;09:00">
-        Jan 31, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
-GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
- 디바이스 트리 이용 (최근 트렌드) Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의   (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/gpio_mapping/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
 
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
@@ -184,7 +183,7 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 11 of 19</span>
+  <span class="c-pagination__count p-pagination__count">Page 11 of 20</span>
 </nav>
  
 
