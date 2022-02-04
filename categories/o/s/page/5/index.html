@@ -63,51 +63,6 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/">커널 모듈과 드라이버의 차이</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-16T02:11:40&#43;09:00">
-        May 16, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
-커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
-arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용) 구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kernel-module-and-drivers/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/">비선점 스케쥴링(Nonpreemptive Scheduling)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-05-15T18:44:06&#43;09:00">
-        May 15, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    비선점 스케쥴링(Non-preemptive Scheduling) 비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록 허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가 생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로 프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을 적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.
-설명하기 전에 프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의 프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫 번째이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/deadlock/">교착상태(Deadlock)</a></h2>
     <p class="c-article__meta">
       Posted on

@@ -98,6 +98,15 @@
     </item>
     
     <item>
+      <title>kgdb</title>
+      <link>https://seokbeomKim.github.io/tags/kgdb/</link>
+      <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/kgdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>__is_constexpr</title>
       <link>https://seokbeomKim.github.io/tags/__is_constexpr/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
@@ -287,6 +296,15 @@
     </item>
     
     <item>
+      <title>coc</title>
+      <link>https://seokbeomKim.github.io/tags/coc/</link>
+      <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/coc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>일상</title>
       <link>https://seokbeomKim.github.io/tags/%EC%9D%BC%EC%83%81/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
@@ -323,20 +341,11 @@
     </item>
     
     <item>
-      <title>oop</title>
-      <link>https://seokbeomKim.github.io/tags/oop/</link>
-      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/oop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cross compile</title>
-      <link>https://seokbeomKim.github.io/tags/cross-compile/</link>
+      <title>Computer Science</title>
+      <link>https://seokbeomKim.github.io/tags/computer-science/</link>
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/cross-compile/</guid>
+      <guid>https://seokbeomKim.github.io/tags/computer-science/</guid>
       <description></description>
     </item>
     
@@ -391,6 +400,15 @@
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/type-check/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>benchmark</title>
+      <link>https://seokbeomKim.github.io/tags/benchmark/</link>
+      <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/benchmark/</guid>
       <description></description>
     </item>
     
@@ -1016,15 +1034,6 @@
     </item>
     
     <item>
-      <title>linux kernel</title>
-      <link>https://seokbeomKim.github.io/tags/linux-kernel/</link>
-      <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/linux-kernel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>process</title>
       <link>https://seokbeomKim.github.io/tags/process/</link>
       <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
@@ -1084,6 +1093,15 @@
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/nonpreemptive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scheduling</title>
+      <link>https://seokbeomKim.github.io/tags/scheduling/</link>
+      <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/scheduling/</guid>
       <description></description>
     </item>
     

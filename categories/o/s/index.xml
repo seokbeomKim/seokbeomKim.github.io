@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>o/s on 범&#39;s 개발 블로그</title>
+    <title>O/S on 범&#39;s 개발 블로그</title>
     <link>https://seokbeomKim.github.io/categories/o/s/</link>
-    <description>Recent content in o/s on 범&#39;s 개발 블로그</description>
+    <description>Recent content in O/S on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://seokbeomKim.github.io/categories/o/s/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -26,17 +26,6 @@
 위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.
 WSL 리소스 설정 먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.
 PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 PS C:\Windows\system32&amp;gt; wsl -t Ubuntu --shutdown PS C:\Windows\system32&amp;gt; PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Stopped 2 종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.</description>
-    </item>
-    
-    <item>
-      <title>캐시라인(cache-line) 구조 #2</title>
-      <link>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</link>
-      <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</guid>
-      <description>개요 &amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
-캐시 구조 캐시에 관련된 주요 용어는 아래와 같다.
- 태그 캐시라인 인덱스 웨이와 세트  태그 태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.</description>
     </item>
     
     <item>
@@ -89,27 +78,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     </item>
     
     <item>
-      <title>리눅스 커널 락 종류 (4/5)</title>
-      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</link>
-      <pubDate>Tue, 04 Jun 2019 16:40:28 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</guid>
-      <description>BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하기 위해 락(Lock)을 획득해야 커널 모드로 진입되었고 나머지 프로세서들은 락을 획득하기 위해 대기한다. 하지만 이 후, 성능, 실시간 애플리케이션에 대한 latency 이슈로 BKL(Big Kernel Lock)은 스핀락과 뮤텍스, RCU 등으로 대체되면서 현재는 거의 관련 코드가 제거되어 있는 상태이다.
- lock_kernel(): Acquires the BKL unlock_kernel(): Releases the BKL kernel_locked(): Returns nonzero if the lock is held and zero otherwise (UP always returns nonzero)  BKL은 프로세서들이 동시에 커널에 진입하는 것을 막아 동기화 문제를 해결한다.</description>
-    </item>
-    
-    <item>
-      <title>리눅스 커널 락 종류 (3/5)</title>
-      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/</link>
-      <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/</guid>
-      <description>이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
-세마포어는 아래와 같은 경우에 적합하다.
-태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.</description>
-    </item>
-    
-    <item>
       <title>Major와 Minor Numbers</title>
       <link>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
@@ -117,39 +85,6 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       <guid>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
 캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&amp;rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&amp;rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
-    </item>
-    
-    <item>
-      <title>리눅스 커널 락 종류 (2/5)</title>
-      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</link>
-      <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</guid>
-      <description>지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다. 많은 곳에서 뮤텍스는 세마포어의 카운트 값이 단순하게 1로 설정되었을 때를 말한다고 기술한다. 하지만 이것이 맞는 설명일까?
-참고 자료에 따르면 뮤텍스는 공유 자원으로의 접근(Access)에 대한 상호 배제(Mutual Exclusion)을 위한 수단이 Mutex라고 정의하고 있다. 이에 반해 세마포어(Semaphore)는 시그널 매커니즘으로서 스레드(또는 프로세스) 간 동기화가 주 목적으로, wait 함수를 호출한 스레드만이 뮤텍스를 신호를 보낼 수 있다는 점이 기능적인 특징이다.</description>
-    </item>
-    
-    <item>
-      <title>리눅스 커널 락 종류 (1/5)</title>
-      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</link>
-      <pubDate>Tue, 28 May 2019 17:45:51 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
-      <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
-세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
-선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
-있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에
-대한 사용 예를 기술하고자 한다.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>지피(Jiffies)</title>
-      <link>https://seokbeomKim.github.io/posts/jiffies/</link>
-      <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/jiffies/</guid>
-      <description>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.
-커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.</description>
     </item>
     
     <item>

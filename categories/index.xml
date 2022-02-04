@@ -8,16 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Feb 2022 15:00:45 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>OS</title>
-      <link>https://seokbeomKim.github.io/categories/os/</link>
+      <title>Computer Science</title>
+      <link>https://seokbeomKim.github.io/categories/computer-science/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/os/</guid>
+      <guid>https://seokbeomKim.github.io/categories/computer-science/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>kernel</title>
+      <title>Kernel</title>
       <link>https://seokbeomKim.github.io/categories/kernel/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       
@@ -26,83 +26,38 @@
     </item>
     
     <item>
-      <title>v4l2</title>
-      <link>https://seokbeomKim.github.io/categories/v4l2/</link>
-      <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/v4l2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kgdb</title>
-      <link>https://seokbeomKim.github.io/categories/kgdb/</link>
-      <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/kgdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://seokbeomKim.github.io/categories/linux/</link>
-      <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>term</title>
-      <link>https://seokbeomKim.github.io/categories/term/</link>
+      <title>Etc</title>
+      <link>https://seokbeomKim.github.io/categories/etc/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/term/</guid>
+      <guid>https://seokbeomKim.github.io/categories/etc/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>gdb</title>
-      <link>https://seokbeomKim.github.io/categories/gdb/</link>
-      <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
+      <title>python</title>
+      <link>https://seokbeomKim.github.io/categories/python/</link>
+      <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/gdb/</guid>
+      <guid>https://seokbeomKim.github.io/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Window Manager</title>
-      <link>https://seokbeomKim.github.io/categories/window-manager/</link>
-      <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
+      <title>mac</title>
+      <link>https://seokbeomKim.github.io/categories/mac/</link>
+      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/window-manager/</guid>
+      <guid>https://seokbeomKim.github.io/categories/mac/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>emacs</title>
-      <link>https://seokbeomKim.github.io/categories/emacs/</link>
-      <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
+      <title>Hardware</title>
+      <link>https://seokbeomKim.github.io/categories/hardware/</link>
+      <pubDate>Tue, 08 Dec 2020 15:04:30 +0000</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/emacs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Embedded</title>
-      <link>https://seokbeomKim.github.io/categories/embedded/</link>
-      <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/embedded/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sysrq</title>
-      <link>https://seokbeomKim.github.io/categories/sysrq/</link>
-      <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/sysrq/</guid>
+      <guid>https://seokbeomKim.github.io/categories/hardware/</guid>
       <description></description>
     </item>
     
@@ -116,24 +71,6 @@
     </item>
     
     <item>
-      <title>coc</title>
-      <link>https://seokbeomKim.github.io/categories/coc/</link>
-      <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/coc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mac</title>
-      <link>https://seokbeomKim.github.io/categories/mac/</link>
-      <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>design pattern</title>
       <link>https://seokbeomKim.github.io/categories/design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
@@ -143,29 +80,20 @@
     </item>
     
     <item>
-      <title>etc</title>
-      <link>https://seokbeomKim.github.io/categories/etc/</link>
-      <pubDate>Sun, 05 Jul 2020 02:52:23 +0900</pubDate>
+      <title>linux</title>
+      <link>https://seokbeomKim.github.io/categories/linux/</link>
+      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/etc/</guid>
+      <guid>https://seokbeomKim.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>mbp</title>
-      <link>https://seokbeomKim.github.io/categories/mbp/</link>
-      <pubDate>Sun, 05 Jul 2020 02:52:23 +0900</pubDate>
+      <title>oop</title>
+      <link>https://seokbeomKim.github.io/categories/oop/</link>
+      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/mbp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>memory</title>
-      <link>https://seokbeomKim.github.io/categories/memory/</link>
-      <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/memory/</guid>
+      <guid>https://seokbeomKim.github.io/categories/oop/</guid>
       <description></description>
     </item>
     
@@ -179,25 +107,7 @@
     </item>
     
     <item>
-      <title>benchmark</title>
-      <link>https://seokbeomKim.github.io/categories/benchmark/</link>
-      <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/benchmark/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>https://seokbeomKim.github.io/categories/programming/</link>
-      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>android</title>
+      <title>Android</title>
       <link>https://seokbeomKim.github.io/categories/android/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
       
@@ -215,24 +125,6 @@
     </item>
     
     <item>
-      <title>raspberry pi</title>
-      <link>https://seokbeomKim.github.io/categories/raspberry-pi/</link>
-      <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/raspberry-pi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>side project</title>
-      <link>https://seokbeomKim.github.io/categories/side-project/</link>
-      <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/side-project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>yocto</title>
       <link>https://seokbeomKim.github.io/categories/yocto/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
@@ -242,74 +134,11 @@
     </item>
     
     <item>
-      <title>video</title>
-      <link>https://seokbeomKim.github.io/categories/video/</link>
-      <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/video/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Build</title>
-      <link>https://seokbeomKim.github.io/categories/build/</link>
-      <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/build/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Error</title>
-      <link>https://seokbeomKim.github.io/categories/error/</link>
-      <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/error/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>qemu</title>
-      <link>https://seokbeomKim.github.io/categories/qemu/</link>
-      <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/qemu/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Network</title>
-      <link>https://seokbeomKim.github.io/categories/network/</link>
-      <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/network/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
+      <title>Web</title>
       <link>https://seokbeomKim.github.io/categories/web/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>scheduling</title>
-      <link>https://seokbeomKim.github.io/categories/scheduling/</link>
-      <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/scheduling/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programming Languages</title>
-      <link>https://seokbeomKim.github.io/categories/programming-languages/</link>
-      <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/programming-languages/</guid>
       <description></description>
     </item>
     
@@ -346,24 +175,6 @@
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/categories/database/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>protocol</title>
-      <link>https://seokbeomKim.github.io/categories/protocol/</link>
-      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/protocol/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>o/s</title>
-      <link>https://seokbeomKim.github.io/categories/o/s/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/categories/o/s/</guid>
       <description></description>
     </item>
     

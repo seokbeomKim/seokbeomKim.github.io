@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>kernel</title>
-  <meta property="og:title" content="kernel" />
-  <meta name="twitter:title" content="kernel" />
+  <title>Kernel</title>
+  <meta property="og:title" content="Kernel" />
+  <meta name="twitter:title" content="Kernel" />
   
 
   
@@ -56,7 +56,7 @@
   </header>
   <main id="main" class="l-main">
 
-<h2 class="c-title p-tag-title">kernel</h2>
+<h2 class="c-title p-tag-title">Kernel</h2>
 
 
 
@@ -106,20 +106,21 @@ KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 �
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/cache-line/">캐시 라인(Cache-Line)</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/is_constexpr/">__is_constexpr macro in kernel</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-04-25T14:27:31&#43;09:00">
-        Apr 25, 2020
+      <time datetime="2021-03-21T22:44:03&#43;09:00">
+        Mar 21, 2021
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    캐시를 꼭 사용해야 하나 SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다. 하지만 매번 간략하게 정리한 문서가 없다보니 기억에 잘 남지도 않고 전체적인 흐름을 읽지 못하는 것 같아 이번 포스팅을 통해서 대략적으로나마 정리하고자 한다.
-프로세서 캐시와 메모리의 불일치 문제는 다루기 까다로운 문제이다. 단순하게 프로세서가 싱글 코어라면 문제가 없겠지만 여러 개의 코어를 가지고 있는 프로세서라면 각각의 코어가 가지고 있는 캐시와 주 메모리를 동기화 시켜주어야 한다.
+    커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.
+That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.
+#define __is_constexpr(x)	\ (sizeof(int) == sizeof(*(8 ?
   </div>
   
-  <a href="https://seokbeomKim.github.io/posts/cache-line/" class="c-article__btn p-list-article__btn">Read more</a>
+  <a href="https://seokbeomKim.github.io/posts/is_constexpr/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -128,20 +129,20 @@ KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 �
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/vmlinux/">Vmlinux</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/">Mac에서 GDB 이용한 커널 해킹하기</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-04-21T06:04:17&#43;09:00">
-        Apr 21, 2020
+      <time datetime="2021-02-20T02:43:54&#43;09:00">
+        Feb 20, 2021
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    커널 패닉 정보를 바탕으로 패닉이 정확히 어디서 발생했는지를 알아내기 위해 vmlinux 파일을 이용하는 방법을 알게 되었다. addr2line 명령어를 이용하여 PC 또는 LR에 들어있던 주소를 이용하여 실행된 명령어가 코드상으로 어디에 위치했는지를 알아내는 것인데 어떤 이유로 디버깅이 가능한지 궁금했기에 이 포스팅에서는 addr2line을 이용한 커널패닉 분석 방법과 vmlinux에 관련된 파일 종류에 대해 간단히 언급하고자 한다.
-커널 패닉 메시지 분석하기 출처로 명시된 페이지에서 기술되어 있듯 아래와 같은 커널 패닉 메시지가 나왔다고 가정했을 때 addr2line 명령어와 vmlinux 파일을 이용해 실행 위치를 알아낼 수 있다.
+    개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
+(gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&#39;m sorry, Dave, I can&#39;t do that. Symbol format `elf64-littleaarch64&#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.
   </div>
   
-  <a href="https://seokbeomKim.github.io/posts/vmlinux/" class="c-article__btn p-list-article__btn">Read more</a>
+  <a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -150,19 +151,22 @@ KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 �
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/">가상주소와 페이지 테이블 크기</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sysrq/">sysrq 이용한 커널 패닉 발생시키기</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-04-11T18:25:16&#43;09:00">
-        Apr 11, 2020
+      <time datetime="2020-12-17T01:38:06&#43;09:00">
+        Dec 17, 2020
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지&rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블&rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
+    개요 현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에 대해서 정리하도록 한다.
+기능 활성화 SysRq 이 컴파일된 커널을 실행하면 /proc/sys/kernel/sysrq 를 통해서 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은 /proc/sys/kernel/sysrq 내에 정의되어 있으며 기본값들은 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE 값으로 설정한다.
+  0 - disable sysrq completely
+  1 - enable all functions of sysrq
   </div>
   
-  <a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/" class="c-article__btn p-list-article__btn">Read more</a>
+  <a href="https://seokbeomKim.github.io/posts/sysrq/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

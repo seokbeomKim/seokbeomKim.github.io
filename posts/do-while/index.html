@@ -71,8 +71,6 @@
       
       <a href="https://seokbeomkim.github.io/tags/do_while" class="c-tag">do_while</a>
       
-      <a href="https://seokbeomkim.github.io/tags/c" class="c-tag">c</a>
-      
     </div>
   </header>
   
@@ -96,16 +94,16 @@
 </code></pre></div><p>그리고 이 구문에 매크로가 적용된 것을 살펴보면,</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">if</span> (blah <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>)
     printf(<span style="color:#e6db74">&#34;arg is %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, blah);
-    do_something_useful(blah);; 
+    do_something_useful(blah);;
 </code></pre></div><p>위의 코드처럼 적용될 것이다. 이 때 문제가 되는 것은 <code>do_something_useful(blah);</code>가 조건에 관계없이 수행된다는 점이다. 이러한 매크로가 조건문에서 싱글라인 구문으로 사용된다면 문제가 될 수 있기에, do { &hellip; } while(0) 을 사용하여 이러한 문제를 방지한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">if</span> (blah <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>) 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">if</span> (blah <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>)
     <span style="color:#66d9ef">do</span> {
         printf(<span style="color:#e6db74">&#34;arg is %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, blah);
         do_something_useful(blah);
     } <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">0</span>);
 </code></pre></div><p>아래와 같이 일반적인 블록 구문을 사용한다고 가정했을 때, 특정한 경우에 위 코드는 동작하지 않는다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define exch(x,y) { int tmp; tmp=x; x=y; y=tmp; }
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span> y) 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span> y)
     exch(x,y);
 <span style="color:#66d9ef">else</span>
     <span style="color:#a6e22e">do_something</span>();

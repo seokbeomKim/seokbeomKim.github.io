@@ -123,7 +123,7 @@ int main(void) {
 	for (i = 0; i &lt; sizeof(value2); i++) {
         fprintf(stdout, &quot;value2[%d] = 0x%x\n&quot;, i, *ptr++);
 	}
-	
+
 	return 0;
 }
 </code></pre>
@@ -183,7 +183,7 @@ typedef __u32 __bitwise __wsum;
 
 main() {
     foo.i = 1;
-    if (foo.c[0] == 1) 
+    if (foo.c[0] == 1)
         printf(&quot;Little endian\n&quot;);
     else
         printf(&quot;Big endian\n&quot;);
