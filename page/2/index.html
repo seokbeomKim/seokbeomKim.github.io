@@ -63,6 +63,28 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/v4l2-dmabuf/">V4L2 Memory Type</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-04-18T00:32:27&#43;09:00">
+        Apr 18, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를 파악할 수 있었다.
+본론에 들어가기에 앞서, V4L2 (Video for Linux) 와 Video Buffer 에 대해 간단하게 설명하면, V4L2는 Video Streaming I/O 를 지원하기 위한 프레임워크이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/v4l2-dmabuf/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/">Kernel Debug With Kgdb</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -145,28 +167,6 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/i3wm/">i3 window manager</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-02-11T18:20:10&#43;09:00">
-        Feb 11, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    우분투 데스크탑 환경 삭제하기 개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
-리소스 부족의 원인을 살펴보니 불필요한 서비스들이 너무 많이 돌고 있었다. 예를 들어, goa (gnome online accounts), snapd (snap package manager) 등 원하지도 않는 서비스들이 설치되어 리소스들을 좀먹고 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/i3wm/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

@@ -63,6 +63,30 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl-customize-resource/">WSL 리소스 조정하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-11-28T23:00:00&#43;09:00">
+        Nov 28, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한 내용은 다른 블로그에서도 동일하게 재현되고 있었다.
+위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.
+WSL 리소스 설정 먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.
+PS C:\Windows\system32&gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 PS C:\Windows\system32&gt; wsl -t Ubuntu --shutdown PS C:\Windows\system32&gt; PS C:\Windows\system32&gt; wsl -l -v NAME STATE VERSION * Ubuntu Stopped 2 종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/wsl-customize-resource/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/coc/">리누즈게이트와 CoC</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -99,28 +123,6 @@ mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신,
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/setting-mu4e/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl2/">WSL2</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-03-15T23:23:15&#43;09:00">
-        Mar 15, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    몇주 전 맥북에 윈도우즈를 설치하며, WSL과 Hyper-V 의 지원으로 리눅스 환경을 사용하기 위해 듀얼 부트나 Unix 환경을 제공하는 맥을 사용할 필요가 없어지게 되었다는 포스팅을 작성했다. 대안으로 가상 머신과는 다른 구조로 하드웨어 자원을 사용할 수 있는 Hyper-V 컨테이너를 만들어 사용했었는데 오늘 윈도우즈 2004 버전에서 Hyper-V를 이용한 WSL2 버전이 곧 릴리즈 될 것이라는 기사를 접했다.
-릴리즈 될 때까지 기다릴 수 없어 Preview Insider 프로그램에 바로 참여하여 2004 버전을 내려받았다. https://aka.ms/wsl2kernel 에는 기존 WSL을 버전 2로 업데이트 하는 방법에 대해 자세히 설명되어 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/wsl2/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

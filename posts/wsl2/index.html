@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>WSL2</title>
-  <meta property="og:title" content="WSL2" />
-  <meta name="twitter:title" content="WSL2" />
+  <title>WSL2 - VPN 문제 해결하기</title>
+  <meta property="og:title" content="WSL2 - VPN 문제 해결하기" />
+  <meta name="twitter:title" content="WSL2 - VPN 문제 해결하기" />
   
 
   
@@ -60,26 +60,51 @@
 
 <article class="p-article">
   <header>
-    <h1>WSL2</h1>
+    <h1>WSL2 - VPN 문제 해결하기</h1>
     <div>
       <div class="c-time">
         Posted on
-        <time datetime="2020-03-15T23:23:15&#43;09:00">
-          Mar 15, 2020
+        <time datetime="2022-02-12T17:23:15&#43;09:00">
+          Feb 12, 2022
         </time>
       </div>
       
       <a href="https://seokbeomkim.github.io/tags/wsl" class="c-tag">WSL</a>
+      
+      <a href="https://seokbeomkim.github.io/tags/vpn" class="c-tag">VPN</a>
       
     </div>
   </header>
   
   
   <section id="js-article" class="p-article__body">
-    <p>몇주 전 맥북에 윈도우즈를 설치하며, WSL과 Hyper-V 의 지원으로 리눅스 환경을 사용하기 위해 듀얼 부트나 Unix 환경을 제공하는 맥을 사용할 필요가 없어지게 되었다는 포스팅을 작성했다. 대안으로 가상 머신과는 다른 구조로 하드웨어 자원을 사용할 수 있는 Hyper-V 컨테이너를 만들어 사용했었는데 오늘 윈도우즈 2004 버전에서 Hyper-V를 이용한 WSL2 버전이 곧 릴리즈 될 것이라는 기사를 접했다.</p>
-<p>릴리즈 될 때까지 기다릴 수 없어 Preview Insider 프로그램에 바로 참여하여 2004 버전을 내려받았다. <a href="https://aka.ms/wsl2kernel">https://aka.ms/wsl2kernel</a> 에는 기존 WSL을 버전 2로 업데이트 하는 방법에 대해 자세히 설명되어 있었다. 기존 WSL 버전 1과 비교했을 때 얼만큼의 성능 차이가 있는지 궁금했다. 그리고 완벽하지 않은 서브 시스템으로 크로스 컴파일을 할 수 없었던 기존 환경에서 이번에 새로 나온 WSL2에서는 Hyper-V 도입으로 크로스 컴파일이 가능한지도 매우 궁금했다.</p>
-<p>결과는 예상했던대로 만족스러웠다. 크로스 컴파일도 지원되며 리얼머신에서 동작하는 것만큼 매우 부드럽게 작업할 수 있었다. 대학교에 입학한 이래, 십여년 동안 윈도우즈와 리눅스를 동시에 사용하고 싶었던 오랜 소원(?)이 이루어진 느낌이라 이루 말할 수가 없다. 이제는 정말로 윈도우즈를 메인 O/S 로써 사용해도 무방할 듯하다. 이맥스 만큼은 아니지만 그보다도 설정이 편한 VS Code가 지원되고 있고 이를 WSL과 함께 사용할 수 있다는 점이 정말 매력적인 포인트다.</p>
-<p>이제는 더 이상 리눅스를 부팅하기 위해 옛날처럼 <code>defconfig &amp;&amp; genkernel all</code>을 하지 않아도 되는 세상이 되었다. 최근 몇 년간의 MS의 행보와 여러 리눅스 배포판을 이끄는 리딩 커뮤니티의 분열 등은 마치 자본주의 대 공산주의처럼 학창시절 FSF 에 대한 이상과 목표를 갖고 있었던 내게 정말 많은 생각이 들게 해준다.</p>
+    <h2 id="visual-studio-code의-한계">Visual Studio Code의 한계</h2>
+<p>Yocto와 C언어 기반의 리눅스 커널과 U-Boot 부트로더에서 작업하는 업무 조건에서
+Visual studio code의 몇몇 한계가 있었다. 기본으로 제공하는 C/C++ 플러그인의 태깅
+기능의 성능이 너무 안좋았고 확장 프로그램들이 사용하는 리소스가 너무 많았다.</p>
+<p>우선, 마이크로소프트에서 제공하는 C/C++ 플러그인이 불편하다. 커널과 같이
+코드량이 방대한 경우 전체를 파싱하는데 오랜 시간이 걸리기 때문이다. 업무 특성상
+여러 개의 SDK를 다뤄야하는데, 매번 받을 때마다 상당한 리소스와 시간이 코드를
+파싱하는데 소모되었다. 대체 가능한 플러그인들이 있지만 어느 것도 안정화가 잘
+되었다는 느낌을 주지 못했다.</p>
+<p>Remote-SSH 플러그인 사용 시 서버에서 노드 서버가 동작하는데 여기에서 잡아먹는
+리소스도 무시하지 못했다. 특히 File Watcher 개수가 제한된 빌드 서버에서 Yocto 를
+이용하는 경우 부족한 리소스 때문에 빌드가 안되는 경우도 종종 발생했다. 혼자
+서버를 사용하는 경우에는 해당되지 않겠지만 한 서버를 여러명이 동시에 사용하는
+경우 문제가 발생한다.</p>
+<h2 id="wsl2-vpn-문제-해결하기">WSL2: VPN 문제 해결하기</h2>
+<p>위 두 가지의 문제가 있는 상태에서 원활하게 개발하는 방법은 Code를 대체할 수 있는
+다른 IDE를 WSL2에서 사용하는 것이다. 필자는 이맥스를 이용하므로 Visual Studio
+Code 대신 이맥스를 WSL2로 실행하면 되지만 한 가지 문제가 있었다. 회사 네트워크에
+접속하기 위해 WSL2를 이용하는 경우 VPN이 정상적으로 동작하지 않는 점이다.</p>
+<p>WSL1에서는 문제없이 동작했지만 I/O 속도가 차이나이게 WSL2를 이용하면서 VPN을
+이용할 수 있는 방법이 없을까 검색하다가 <code>wsl-vpnkit</code>이라는 프로젝트를
+찾아냈다. gvisor-tap-vsock 를 이용하여 VPN을 연결할 수 있도록 네트워크를
+구성하는 방식이라는데 <a href="https://github.com/sakai135/wsl-vpnkit">https://github.com/sakai135/wsl-vpnkit</a> 에 관련된 설치
+방법이 자세하게 나와 있다. VPN 네트워크 접속을 위해 WSL 인스턴스가 2개 동작해야
+하는 점은 단점이지만, 2개 인스턴스 모두가 차지하는 리소스도 생각보다 많지 않았고
+내가 원하던 I/O의 속도를 유지하면서 이맥스를 사용할 수 있어 만족스러웠다. WSL2
+에서 VPN 네트워크 때문에 고생하는 사람들은 wsl-vpnkit 을 이용해보자.</p>
 
   </section>
   <footer>
@@ -100,12 +125,11 @@
       <div class="c-pagination__ctrl">
         <div class="c-pagination__newer">
           
-          <a href="https://seokbeomKim.github.io/posts/goto-statement/">Newer</a>
           
         </div>
         <div class="c-pagination__older">
           
-          <a href="https://seokbeomKim.github.io/posts/android-partitions/">Older</a>
+          <a href="https://seokbeomKim.github.io/posts/algorithms/156-contiguous-array/">Older</a>
           
         </div>
       </div>

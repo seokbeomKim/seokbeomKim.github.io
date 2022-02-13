@@ -6,7 +6,17 @@
     <description>Recent content on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Feb 2022 23:21:10 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Feb 2022 17:23:15 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2 - VPN 문제 해결하기</title>
+      <link>https://seokbeomKim.github.io/posts/wsl2/</link>
+      <pubDate>Sat, 12 Feb 2022 17:23:15 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/wsl2/</guid>
+      <description>Visual Studio Code의 한계 Yocto와 C언어 기반의 리눅스 커널과 U-Boot 부트로더에서 작업하는 업무 조건에서 Visual studio code의 몇몇 한계가 있었다. 기본으로 제공하는 C/C++ 플러그인의 태깅 기능의 성능이 너무 안좋았고 확장 프로그램들이 사용하는 리소스가 너무 많았다.
+우선, 마이크로소프트에서 제공하는 C/C++ 플러그인이 불편하다. 커널과 같이 코드량이 방대한 경우 전체를 파싱하는데 오랜 시간이 걸리기 때문이다. 업무 특성상 여러 개의 SDK를 다뤄야하는데, 매번 받을 때마다 상당한 리소스와 시간이 코드를 파싱하는데 소모되었다. 대체 가능한 플러그인들이 있지만 어느 것도 안정화가 잘 되었다는 느낌을 주지 못했다.</description>
+    </item>
+    
     <item>
       <title>525. Contiguous Array</title>
       <link>https://seokbeomKim.github.io/posts/algorithms/156-contiguous-array/</link>
@@ -378,16 +388,6 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
       <guid>https://seokbeomKim.github.io/posts/goto-statement/</guid>
       <description>개요 학부 시절 c언어를 배울 때 &amp;lsquo;goto&amp;rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를 사용하지 않고 분기나 객체를 이용하도록 코딩을 했었고 저학년에서 고학년으로 올라갈수록 c언어 대신 자바나 c++, c# 등을 배우면서 goto는 머릿속에서 잊혀져갔다.
 입사하고 나서 드라이버 코드를 보니 간간히 goto 문이 사용된 것들을 보고 이것이 과연 리팩토링을 해야하는 대상인가에 대해 잠시 생각해보았다. 만약 아래와 같이 코드가 진행될 경우, 반드시 나머지 코드를 분기문으로 처리해야할 필요가 있을까?</description>
-    </item>
-    
-    <item>
-      <title>WSL2</title>
-      <link>https://seokbeomKim.github.io/posts/wsl2/</link>
-      <pubDate>Sun, 15 Mar 2020 23:23:15 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/posts/wsl2/</guid>
-      <description>몇주 전 맥북에 윈도우즈를 설치하며, WSL과 Hyper-V 의 지원으로 리눅스 환경을 사용하기 위해 듀얼 부트나 Unix 환경을 제공하는 맥을 사용할 필요가 없어지게 되었다는 포스팅을 작성했다. 대안으로 가상 머신과는 다른 구조로 하드웨어 자원을 사용할 수 있는 Hyper-V 컨테이너를 만들어 사용했었는데 오늘 윈도우즈 2004 버전에서 Hyper-V를 이용한 WSL2 버전이 곧 릴리즈 될 것이라는 기사를 접했다.
-릴리즈 될 때까지 기다릴 수 없어 Preview Insider 프로그램에 바로 참여하여 2004 버전을 내려받았다. https://aka.ms/wsl2kernel 에는 기존 WSL을 버전 2로 업데이트 하는 방법에 대해 자세히 설명되어 있었다.</description>
     </item>
     
     <item>

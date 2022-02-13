@@ -3,6 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://seokbeomKim.github.io/categories/</loc>
+    <lastmod>2022-02-12T17:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/etc/</loc>
+    <lastmod>2022-02-12T17:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2022-02-12T17:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2022-02-12T17:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/vpn/</loc>
+    <lastmod>2022-02-12T17:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/wsl/</loc>
+    <lastmod>2022-02-12T17:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/wsl2/</loc>
+    <lastmod>2022-02-12T17:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2022-02-12T17:23:15+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://seokbeomKim.github.io/posts/algorithms/156-contiguous-array/</loc>
     <lastmod>2022-02-04T23:21:10+09:00</lastmod>
   </url>
@@ -13,32 +53,12 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2022-02-04T23:21:10+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/hashmap/</loc>
     <lastmod>2022-02-04T23:21:10+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/leetcode/</loc>
-    <lastmod>2022-02-04T23:21:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2022-02-04T23:21:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
-    <lastmod>2022-02-04T23:21:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/</loc>
     <lastmod>2022-02-04T23:21:10+09:00</lastmod>
   </url>
   
@@ -148,11 +168,6 @@
   </url>
   
   <url>
-    <loc>https://seokbeomKim.github.io/categories/etc/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://seokbeomKim.github.io/tags/state/</loc>
     <lastmod>2021-02-28T12:27:08+09:00</lastmod>
   </url>
@@ -254,11 +269,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/vmmem/</loc>
-    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/wsl/</loc>
     <lastmod>2020-12-23T01:00:00+09:00</lastmod>
   </url>
   
@@ -535,11 +545,6 @@
   <url>
     <loc>https://seokbeomKim.github.io/posts/goto-statement/</loc>
     <lastmod>2020-03-25T00:47:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/wsl2/</loc>
-    <lastmod>2020-03-15T23:23:15+09:00</lastmod>
   </url>
   
   <url>
