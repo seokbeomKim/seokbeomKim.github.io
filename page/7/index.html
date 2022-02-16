@@ -63,29 +63,6 @@
   
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/type-check-in-c/">C언어에서의 type-check</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-10T00:13:53&#43;09:00">
-        Apr 10, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입 체크에 대해 정리하고 내용이 추가될 때마다 페이지를 업데이트 하도록 한다.
-페이지 테이블에서의 타입 체크 ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게 작성되어 있는 부분을 찾을 수 있었다.
-typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pgdval_t; .
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/type-check-in-c/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/dmips/">DMIPS (Dhrystone Million Instructions Per Second)</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -169,6 +146,29 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
 </article>
 
 
+  
+    
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/c-arraysize-macro/">C ARRAY_SIZE 매크로와 포인터 기초</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-03-28T00:54:01&#43;09:00">
+        Mar 28, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 https://kldp.org/node/34268과 같은 원인이라는 것을 알게되고 C 기초를 또 다시 한번 공부하게 되었다.
+커널에서 사용하는 ARRAY_SIZE는 아래와 같이 구현되어 있다.
+#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))  // examples for (idx = 0; idx &lt; ARRAY_SIZE(pArr); idx++) { // do something }) 본래 의도한대로라면, 배열의 크기만큼 for 구문을 반복해서 수행해야 하지만, pArr 자체가 함수의 인자로써 전달된 것이라면 얘기가 달라진다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/c-arraysize-macro/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
 
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
@@ -183,7 +183,7 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 7 of 20</span>
+  <span class="c-pagination__count p-pagination__count">Page 7 of 19</span>
 </nav>
  
 

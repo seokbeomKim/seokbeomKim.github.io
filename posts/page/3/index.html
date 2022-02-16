@@ -63,28 +63,6 @@
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/i3wm/">i3 window manager</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-02-11T18:20:10&#43;09:00">
-        Feb 11, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    우분투 데스크탑 환경 삭제하기 개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
-리소스 부족의 원인을 살펴보니 불필요한 서비스들이 너무 많이 돌고 있었다. 예를 들어, goa (gnome online accounts), snapd (snap package manager) 등 원하지도 않는 서비스들이 설치되어 리소스들을 좀먹고 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/i3wm/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/">Emacs에서 magit 최적화하기</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -169,6 +147,30 @@ brew link python@3.9
 
 
 
+
+<article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sysrq/">sysrq 이용한 커널 패닉 발생시키기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-12-17T01:38:06&#43;09:00">
+        Dec 17, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에 대해서 정리하도록 한다.
+기능 활성화 SysRq 이 컴파일된 커널을 실행하면 /proc/sys/kernel/sysrq 를 통해서 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은 /proc/sys/kernel/sysrq 내에 정의되어 있으며 기본값들은 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE 값으로 설정한다.
+  0 - disable sysrq completely
+  1 - enable all functions of sysrq
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/sysrq/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -182,7 +184,7 @@ brew link python@3.9
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 3 of 20</span>
+  <span class="c-pagination__count p-pagination__count">Page 3 of 19</span>
 </nav>
 
 

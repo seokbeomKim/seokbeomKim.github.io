@@ -6,25 +6,7 @@
     <description>Recent content in Tags on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Feb 2022 17:23:15 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>VPN</title>
-      <link>https://seokbeomKim.github.io/tags/vpn/</link>
-      <pubDate>Sat, 12 Feb 2022 17:23:15 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/vpn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>WSL</title>
-      <link>https://seokbeomKim.github.io/tags/wsl/</link>
-      <pubDate>Sat, 12 Feb 2022 17:23:15 +0900</pubDate>
-      
-      <guid>https://seokbeomKim.github.io/tags/wsl/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Fri, 04 Feb 2022 23:21:10 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>525번</title>
       <link>https://seokbeomKim.github.io/tags/525%EB%B2%88/</link>
@@ -274,6 +256,15 @@
       <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/tags/vmmem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WSL</title>
+      <link>https://seokbeomKim.github.io/tags/wsl/</link>
+      <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/tags/wsl/</guid>
       <description></description>
     </item>
     
