@@ -63,29 +63,6 @@
   
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/pll-and-pms/">PLL (Phase Locked Loop)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-12-08T15:04:30Z">
-        Dec 8, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 업무 상에서 클럭 소스를 컨트롤 하기 위해 사용되는 것이 바로 PLL (Phase Locked Loop) 이다. 회로를 통해서 일정한 주파수를 생섬해주는 역할을 한다. 현업에서는 PLL 설정을 위한 값으로 PMS 를 사용하지만 출처에 따르면 M/N 이라는 기호로 나타낸 것을 알 수 있다.
-PLL 회로 사용 예 아래 회로는 10 MHz 클럭 소스를 이용하여 100 MHz Fout 을 만들어내는 PLL 회로이다.
-TCXO 는 심장과 같이 10 MHz 짜리 클럭 소스로 PLL 에 넣어준다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/pll-and-pms/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl-customize-resource/">WSL 리소스 조정하기</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -168,6 +145,28 @@ ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/coc/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/nfd-on-mac-os/">Mac OS에서의 자모 분리 현상 해결하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-08-24T22:55:11&#43;09:00">
+        Aug 24, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반대로 맥에서 동기화한 파일을 윈도우즈나 리눅스에서 보면 한글 자모가 분리되는 현상이 있었다. 자세히 살펴보니 유니코드 정규화 방식의 차이 때문이었다.
+유니코드 정규화 유니코드 정규화는 모양이 같은 여러 문자들이 있을 경우 이를 기준에 따라 하나로 통합해주는 역할을 하며 해당 기준으로 NFD, NFC, NFKD, NFKC 등이 이다. 윈도우즈나 리눅스에서는 NFC 를 기준으로 유니코드 정규화를 하지만 맥에서는 이와 다른 NFD 를 기준으로 유니코드를 정규화하기에 이와 같은 문제가 발생하는 것이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/nfd-on-mac-os/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

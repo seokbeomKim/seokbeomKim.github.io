@@ -63,29 +63,6 @@
   
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/">안드로이드의 uevent, ueventd</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-01-30T23:34:30&#43;09:00">
-        Jan 30, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. ueventd.rc 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.
-본 포스팅에서는 uevent와 ueventd가 무엇인지 살펴보고 안드로이드 init 과정에서 어떻게 활용되는지 살펴보기로 한다.
-여담으로 안드로이드의 uevent는 리눅스의 udev 와 비슷한 역할을 하면서도 조금 다르다. 리눅스의 일반적인 환경 구성이 devfs + udev 로 디바이스 노드 파일들을 관리한다면, 안드로이드는 ueventd를 이용하여 노드 파일들을 관리한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/mem_vs_kmem/">/dev/mem vs. /dev/kmem</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -169,6 +146,29 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/digital_output_formats/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/color-space/">색 공간(Color Space)</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-01-26T16:39:36&#43;09:00">
+        Jan 26, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.
+색 포맷에 대한 비트 구성은 표준에 따르지 않고 각 플랫폼 환경에 따라 달라지므로 SoC 데이터시트를 참고하여 컴포넌트에서 어떻게 구성되는지 확인해야 한다.
+RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/color-space/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

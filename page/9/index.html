@@ -63,28 +63,6 @@
   
   <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/static-ipaddr-for-hyper-v/">Hyper-V 가상 환경에서 고정 아이피 주소 사용하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-03-01T17:12:34&#43;09:00">
-        Mar 1, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 윈도우즈에서 리눅스 환경을 이용하기 위해서는 docker 컨테이너를 이용하거나 hyper-v, vmware, virtualbox 등과 같은 가상머신을 이용해야 한다. 이번에는 hyper-v를 이용해 리눅스 환경을 구축하고 SSH를 통해 접속하여 필요한 작업을 하려 했는데 문제는 IP가 계속해서 동적으로 바뀌는 것이었다. 이를 해결하기 위해 네트워크 구성 방법과 간단한 가이드를 작성하고자 한다. 향후 Hyper-V 를 사용하면서 요구되는 시나리오가 추가되면 본 포스팅 문서를 수정하여 정리하도록 한다.
-가상머신 클라이언트에 static ip 할당하기 가상머신에 고정 아이피를 할당하기 위해서는 가상 스위치 장치를 이용해야 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/static-ipaddr-for-hyper-v/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/buffering-in-linux/">리눅스에서의 버퍼링 방식</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -167,6 +145,28 @@ linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/idmap/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/">WARN_ON, BUG_ON 매크로</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-21T00:12:34&#43;09:00">
+        Feb 21, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
+이 글에서는 BUG_ON, WARN_ON 등 커널에서 제공하는 assertion에 해당하는 매크로가 어떤 것들이 있는지 살펴보고 어떤 경우에 사용해야 하는지에 대해 간략히 정리하고자 한다. 이 외에 커널에서는 dump_stack(), save_stack_trace(), dump_trace(), backtrace() 등의 콜 스택 출력 방법을 제공한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/warn_on-and-bug_on/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
