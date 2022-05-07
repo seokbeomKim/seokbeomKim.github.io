@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ubuntu on A Developer&#39;s Note</title>
+    <title>ubuntu on 범&#39;s 개발 블로그</title>
     <link>https://seokbeomKim.github.io/tags/ubuntu/</link>
-    <description>Recent content in ubuntu on A Developer&#39;s Note</description>
+    <description>Recent content in ubuntu on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Feb 2020 18:41:53 +0900</lastBuildDate>
-    
-	<atom:link href="https://seokbeomKim.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 22 Feb 2020 18:41:53 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>맥북에 리눅스 설치, 그리고 hyper-v</title>
       <link>https://seokbeomKim.github.io/posts/linux-on-macbook/</link>

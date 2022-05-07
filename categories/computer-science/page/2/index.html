@@ -63,6 +63,27 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/">가상주소와 페이지 테이블 크기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-04-11T18:25:16&#43;09:00">
+        Apr 11, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &lsquo;어떻게 가상 주소를 맵핑할 것인지&rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &lsquo;페이지 테이블&rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/dmips/">DMIPS (Dhrystone Million Instructions Per Second)</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -151,28 +172,6 @@ RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.
 
 
 
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/bootloader/">부트로더(Bootloader)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2019-06-23T22:47:44&#43;09:00">
-        Jun 23, 2019
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램, 네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.
-브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면 메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽 카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test) 과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를 찾아 부팅한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/bootloader/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
 <nav class="c-pagination p-pagination">
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
@@ -186,7 +185,7 @@ RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.
       
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 2 of 4</span>
+  <span class="c-pagination__count p-pagination__count">Page 2 of 5</span>
 </nav>
 
 

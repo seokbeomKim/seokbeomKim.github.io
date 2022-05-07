@@ -63,6 +63,30 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sysrq/">sysrq 이용한 커널 패닉 발생시키기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-12-17T01:38:06&#43;09:00">
+        Dec 17, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에 대해서 정리하도록 한다.
+기능 활성화 SysRq 이 컴파일된 커널을 실행하면 /proc/sys/kernel/sysrq 를 통해서 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은 /proc/sys/kernel/sysrq 내에 정의되어 있으며 기본값들은 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE 값으로 설정한다.
+  0 - disable sysrq completely
+  1 - enable all functions of sysrq
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/sysrq/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl-customize-resource/">WSL 리소스 조정하기</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -145,28 +169,6 @@ ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/coc/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/nfd-on-mac-os/">Mac OS에서의 자모 분리 현상 해결하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-08-24T22:55:11&#43;09:00">
-        Aug 24, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반대로 맥에서 동기화한 파일을 윈도우즈나 리눅스에서 보면 한글 자모가 분리되는 현상이 있었다. 자세히 살펴보니 유니코드 정규화 방식의 차이 때문이었다.
-유니코드 정규화 유니코드 정규화는 모양이 같은 여러 문자들이 있을 경우 이를 기준에 따라 하나로 통합해주는 역할을 하며 해당 기준으로 NFD, NFC, NFKD, NFKC 등이 이다. 윈도우즈나 리눅스에서는 NFC 를 기준으로 유니코드 정규화를 하지만 맥에서는 이와 다른 NFD 를 기준으로 유니코드를 정규화하기에 이와 같은 문제가 발생하는 것이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/nfd-on-mac-os/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

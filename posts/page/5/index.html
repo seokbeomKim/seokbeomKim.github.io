@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/nfd-on-mac-os/">Mac OS에서의 자모 분리 현상 해결하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-08-24T22:55:11&#43;09:00">
+        Aug 24, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반대로 맥에서 동기화한 파일을 윈도우즈나 리눅스에서 보면 한글 자모가 분리되는 현상이 있었다. 자세히 살펴보니 유니코드 정규화 방식의 차이 때문이었다.
+유니코드 정규화 유니코드 정규화는 모양이 같은 여러 문자들이 있을 경우 이를 기준에 따라 하나로 통합해주는 역할을 하며 해당 기준으로 NFD, NFC, NFKD, NFKC 등이 이다. 윈도우즈나 리눅스에서는 NFC 를 기준으로 유니코드 정규화를 하지만 맥에서는 이와 다른 NFD 를 기준으로 유니코드를 정규화하기에 이와 같은 문제가 발생하는 것이다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/nfd-on-mac-os/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/real-haskell-chapter-04/">(.) 와 ($) 의 차이</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -143,29 +165,6 @@ Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascri
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/linux-on-mbp/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/setting-mu4e/">mu4e 설정하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-06-26T01:36:36&#43;09:00">
-        Jun 26, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.
-단점은 환경 설정하는 것이 단점인데 mu4e를 단독으로 사용할 수 없을 뿐더러 메일 클라이언트로서 일반 사용자가 사용하기에는 무리가 있다.
-mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신, 공식 문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/setting-mu4e/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
