@@ -63,6 +63,30 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sysrq/">sysrq 이용한 커널 패닉 발생시키기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-12-17T01:38:06&#43;09:00">
+        Dec 17, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에 대해서 정리하도록 한다.
+기능 활성화 SysRq 이 컴파일된 커널을 실행하면 /proc/sys/kernel/sysrq 를 통해서 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은 /proc/sys/kernel/sysrq 내에 정의되어 있으며 기본값들은 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE 값으로 설정한다.
+  0 - disable sysrq completely
+  1 - enable all functions of sysrq
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/sysrq/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/vmlinux/">Vmlinux</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -144,29 +168,6 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ioctl-and-interrupt/">IOCTL과 인터럽트</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-03-03T00:00:10&#43;09:00">
-        Mar 3, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackOverflow에서 재미있는 질문을 찾았다.
- [[https://stackoverflow.com/questions/60088342/does-context-switching-occurs-when-ioctl-is-issued-from-user-space-while-kernel]]  문제 자체는 커널 모듈 안에 있는 critical section에서 스핀락을 사용하지 않을 때 irq나 softirq를 비활성화하지 않고도 데드락에 빠지지 않고 정상적으로 동작이 가능한가에 대한 질문이다. 질문에 대한 답변부터 살펴보면,
-  IRQ/SoftIRQ는 시스템 콜과 아무런 영향이 없다. 단지 인터럽트 컨텍스트 안에서 사용되는 데이터 구조들을 보호하기 위해 IRQ와 softIRQ를 비활성화하는 것 뿐이다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/ioctl-and-interrupt/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

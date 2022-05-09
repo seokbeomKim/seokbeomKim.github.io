@@ -4,7 +4,37 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2022-05-08T01:37:45+09:00</lastmod>
+    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/file-descriptor/</loc>
+    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
+    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://seokbeomKim.github.io/posts/file-close-on-exit/</loc>
+    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
   </url>
   
   <url>
@@ -29,21 +59,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/overlay/</loc>
-    <lastmod>2022-05-08T01:37:45+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2022-05-08T01:37:45+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
-    <lastmod>2022-05-08T01:37:45+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/</loc>
     <lastmod>2022-05-08T01:37:45+09:00</lastmod>
   </url>
   
@@ -104,11 +119,6 @@
   
   <url>
     <loc>https://seokbeomKim.github.io/tags/kasan/</loc>
-    <lastmod>2021-09-24T01:13:41+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
     <lastmod>2021-09-24T01:13:41+09:00</lastmod>
   </url>
   

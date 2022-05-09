@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
   
-  <title>Posts</title>
-  <meta property="og:title" content="Posts" />
-  <meta name="twitter:title" content="Posts" />
+  <title>file descriptor</title>
+  <meta property="og:title" content="file descriptor" />
+  <meta name="twitter:title" content="file descriptor" />
   
 
   
@@ -17,7 +17,7 @@
 
   <meta name="author" content=""/>
   <meta property="og:site_name" content="범&#39;s 개발 블로그" />
-  <meta property="og:url" content="https://seokbeomKim.github.io/posts/" />
+  <meta property="og:url" content="https://seokbeomKim.github.io/tags/file-descriptor/" />
 
   
   <meta name="twitter:card" content="summary" />
@@ -56,115 +56,26 @@
   </header>
   <main id="main" class="l-main">
 
-<h2 class="c-title p-tag-title">Posts</h2>
+<h2 class="c-title p-tag-title">file descriptor</h2>
 
 
 
 
 <article class="c-article p-list-article">
   <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/type-check-in-c/">C언어에서의 type-check</a></h2>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/file-close-on-exit/">프로세스 종료와 파일 디스크립터</a></h2>
     <p class="c-article__meta">
       Posted on
-      <time datetime="2020-04-10T00:13:53&#43;09:00">
-        Apr 10, 2020
+      <time datetime="2022-05-10T00:03:20&#43;09:00">
+        May 10, 2022
       </time>
     </p>
   </header>
   <div class="c-article__summary">
-    개요 리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입 체크에 대해 정리하고 내용이 추가될 때마다 페이지를 업데이트 하도록 한다.
-페이지 테이블에서의 타입 체크 ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게 작성되어 있는 부분을 찾을 수 있었다.
-typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pgdval_t; .
+    파일을 open 했는데 close를 안하면? stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 태스크가 파일을 열면 얻게 되는 고유 id값 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?
   </div>
   
-  <a href="https://seokbeomKim.github.io/posts/type-check-in-c/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/dmips/">DMIPS (Dhrystone Million Instructions Per Second)</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-03T01:41:29&#43;09:00">
-        Apr 3, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS라는 것이어서 이번에 확실하게 정리하고 가고자 한다.
-DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수화해서 이를 하중한 값으로 비교하는 방법으로 프로세서 성능 비교에 이용하는 지표이다. 예를 들어, ARM 32bit Cortex-M3 CPU - 72 MHz maximum frequency 모델의 경우 1.25 DMIS/MHz 인데 여기에 CPU 사용량을 이용하면 해당 프로세서가 가지는 Full DMIPS (72MHz 일 때의 DMIPS) 대비 측정하고자 하는 프로세스에 대한 DMIPS 지표를 얻을 수 있다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/dmips/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/futex/">Futex</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-02T01:45:50&#43;09:00">
-        Apr 2, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Futex (Fast Userspace Mutexes) futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등의 라이브러리의 구현에 사용되기 때문에 애플리케이션으로부터 직접 이용하는 경우는 별로 없다고 생각되지만 POSIX Thread는 Java 스레드의 구현 등에도 이용되고 있어 동기 처리를 많이 이용하는 애플리케이션에는 이익이 있을 것이다. futex 시스템 콜의 주된 기능은 FUTEX_WAIT와 FUTEX_WAKE이다.
-pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock이 성공되면 종료 FUTEX_WAIT를 사용하여 pthread_mutex_t의 주소 상에서 슬립한다 시동 후, 1로 돌아간다  pthread_mutex_unlock  아토믹 명령을 사용해 unlock 처리를 실시 1의 결과, 슬립하고 있는 스레드가 있다면 FUTEX_WAKE를 사용하여 wakeup한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/futex/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/do-while/">Do While</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-01T23:55:32&#43;09:00">
-        Apr 1, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. https://kernelnewbies.org/FAQ/DoWhile0 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.
- 빈 구문(empty statement)는 컴파일러가 경고를 낸다. 지역 변수를 선언할 수 있는 구역을 만들어준다. 조건문을 포함한 코드에서 복잡한 형태의 매크로를 사용할 수 있도록 해준다.  조건문을 포함한 코드에서의 매크로 사용 #define FOO(x) \ printf(&#34;arg is %s\n&#34;, x); \ do_something_useful(x); 이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/do-while/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/bsd_queue/">BSD 버전 Linked List</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-04-01T00:26:52&#43;09:00">
-        Apr 1, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 list.h 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 &lt;sys/queue.h&gt; 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/bsd_queue/" class="c-article__btn p-list-article__btn">Read more</a>
+  <a href="https://seokbeomKim.github.io/posts/file-close-on-exit/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
@@ -174,16 +85,12 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
   <div class="c-pagination__ctrl">
     <div class="c-pagination__newer">
       
-      <a href="/posts/page/6/">Newer</a>
-      
     </div>
     <div class="c-pagination__older">
       
-      <a href="/posts/page/8/">Older</a>
-      
     </div>
   </div>
-  <span class="c-pagination__count p-pagination__count">Page 7 of 20</span>
+  <span class="c-pagination__count p-pagination__count">Page 1 of 1</span>
 </nav>
 
 

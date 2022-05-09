@@ -63,6 +63,27 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/file-close-on-exit/">프로세스 종료와 파일 디스크립터</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-05-10T00:03:20&#43;09:00">
+        May 10, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    파일을 open 했는데 close를 안하면? stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 태스크가 파일을 열면 얻게 되는 고유 id값 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/file-close-on-exit/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kasan-with-gcc/">커널의 KASAN 코드가 삽입되는 방법</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -143,30 +164,6 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sysrq/">sysrq 이용한 커널 패닉 발생시키기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-12-17T01:38:06&#43;09:00">
-        Dec 17, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에 대해서 정리하도록 한다.
-기능 활성화 SysRq 이 컴파일된 커널을 실행하면 /proc/sys/kernel/sysrq 를 통해서 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은 /proc/sys/kernel/sysrq 내에 정의되어 있으며 기본값들은 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE 값으로 설정한다.
-  0 - disable sysrq completely
-  1 - enable all functions of sysrq
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/sysrq/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
