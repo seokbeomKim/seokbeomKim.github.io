@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -95,7 +95,7 @@
 <li>
 <p>&gt;1 - bitmask of allowed sysrq functions (see below for detailed
 function description):</p>
-<pre><code>
+<pre tabindex="0"><code>
   2 =   0x2 - enable control of console logging level
   4 =   0x4 - enable control of keyboard (SAK, unraw)
   8 =   0x8 - enable debugging dumps of processes etc.
@@ -110,7 +110,7 @@ function description):</p>
 <p><a href="https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html">https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html</a>
 페이지에 따르면 <em>/proc/sysrq-trigger</em> 에 아래와 같이 특정 캐릭터를
 사용하여 커맨드 키를 호출할 수 있다.</p>
-<pre><code>echo t &gt; /proc/sysrq-trigger
+<pre tabindex="0"><code>echo t &gt; /proc/sysrq-trigger
 </code></pre><p>통상 커널 디버깅을 위해 사용한다고 생각하며, 다양한 디버깅 상황을
 발생시키기 위해 유용하게 사용할 수 있다.</p>
 <h1 id="출처">출처</h1>

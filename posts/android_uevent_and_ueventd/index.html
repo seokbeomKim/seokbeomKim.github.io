@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -95,7 +95,7 @@
 <p>출처에 따르면 cold plug 방식에 대해서, <code>ueventd</code>가 실행되기 전에 디바이스 드라이버가 /sys 디렉토리 아래에 디바이스 노드를 생성하기 위한 정보들을 저장한 후, <code>ueventd</code>가 실행되면서 디바이스 노드를 생성하지 못한 디바이스 드라이버에 대해서 강제로 uevent 를 발생시켜 cold plug 처리를 한다고 설명하고 있다.</p>
 <h1 id="init-process와-ueventd">init process와 ueventd</h1>
 <p>안드로이드 init 과정에서 <code>ueventd</code>를 부른다. <code>ueventd</code> 에서는 내부적으로 아래의 <code>ueventd_main</code> 함수를 호출한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">ueventd_main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">ueventd_main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv)
 {
     <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">pollfd</span> ufd;
     <span style="color:#66d9ef">int</span> nr;
@@ -140,13 +140,13 @@
     }
 }
 </code></pre></div><p>여기서 중요한 함수는 <code>ueventd_parse_config_file</code>와 <code>device_init</code>함수이다. <code>ueventd_parse_config_file</code>함수는 <code>ueventd.rc</code>파일과 <code>ueventd.%hardware%.rc</code> 파일을 읽어 디바이스 노드 파일을 만드는 정보를 얻는다. 이 파일에 저장되어 있는 정보는 device 이름, permission, gid, uid 이다. 아래는 업무에서 사용한 실제 ueventd.rc 파일로서 문제가 된 videosource에 대한 내용들이 추가되어야 했다.</p>
-<pre><code>/dev/switch_gpio_reverse	0666	system		system
+<pre tabindex="0"><code>/dev/switch_gpio_reverse	0666	system		system
 #/dev/videosource* 로 가능
 /dev/videosource0	0666	system		system
 /dev/videosource1	0666	system		system
 </code></pre><p>이 때, 별도로 저장되어 있지 않는 디바이스는 디폴트로 600, 0, 0이 세팅된다. <code>device_init</code> 함수는 <code>uevent_socket</code>을 열고 coldboot 함수를 실행한다.</p>
 <p>여기서 연 소켓은 uevent를 보낼때 쓰이는 것이 아니라 나중에 발생한 uevent를 받을때 쓰인다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">device_init</span>(<span style="color:#66d9ef">void</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">device_init</span>(<span style="color:#66d9ef">void</span>)
 {
     suseconds_t t0, t1;
     <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">stat</span> info;
@@ -174,7 +174,7 @@
     }
 }
 </code></pre></div><p>호출되는 coldboot는 내부적으로 <code>do_coldboot</code>를 호출한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">do_coldboot</span>(DIR <span style="color:#f92672">*</span>d)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">do_coldboot</span>(DIR <span style="color:#f92672">*</span>d)
 {
     <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">dirent</span> <span style="color:#f92672">*</span>de;
     <span style="color:#66d9ef">int</span> dfd, fd;

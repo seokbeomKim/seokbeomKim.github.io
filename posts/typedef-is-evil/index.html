@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -87,7 +87,7 @@ evil</a> 이라는
 제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을
 비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이
 되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">foo</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">foo</span> {
 	<span style="color:#66d9ef">int</span> bar;
 	<span style="color:#66d9ef">int</span> baz;
 } foot_t, <span style="color:#f92672">*</span>pfoo_t;
@@ -98,7 +98,7 @@ evil</a> 이라는
 크기가 정해져 있고 이를 데이터시트에 적합하도록 코딩하기 위해서는
 dword와 word 라는 키워드를 정의하여 사용하는 것이 가독성에 유리할
 것이라 생각하기 때문이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> { pgdval_t pgd; } pgd_t;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> { pgdval_t pgd; } pgd_t;
 <span style="color:#75715e">#define pgd_val(x)	((x).pgd)
 </span><span style="color:#75715e">#define __pgd(x)	((pgd_t) { (x) } )
 </span></code></pre></div><p>위는 ARM64 페이징 관련 코드를 살펴보다가 발견한 구조체 정의
@@ -106,7 +106,7 @@ dword와 word 라는 키워드를 정의하여 사용하는 것이 가독성에 
 u32 대신 <code>pgdval_t</code>를 사용하고 있다. 커널 소스 내의 문서를 살펴보면
 이러한 내용에 대해 아래와 같이 정의하고 있으며 좋지 않은 사례로써
 pgdval_t 와 유사한 것을 인용하고 있다.</p>
-<pre><code>Please don't use things like ``vps_t``.
+<pre tabindex="0"><code>Please don't use things like ``vps_t``.
 It's a **mistake** to use typedef for structures and pointers. When you see a
 
 	vps_t a;

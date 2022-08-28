@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -86,11 +86,11 @@
 </code></pre>
 <p>추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고
 아래와 같이 정의한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define __is_constexpr(x)						\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define __is_constexpr(x)						\
 </span><span style="color:#75715e">	(sizeof(int) == sizeof(*(8 ? ((void *)((long)(x) * 0l)) : (int *)8)))
 </span></code></pre></div><p>이러한 매크로는 VLA (Variable Length Arrays)를 제거하기 위한 패치의 일부인데,
 GCC의 -Wvla 옵션으로는 아래와 같은 상황을 구분하지 못하고 경고를 출력한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define BTRFS_NAME_LEN 255
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define BTRFS_NAME_LEN 255
 </span><span style="color:#75715e">#define XATTR_NAME_MAX 255
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">char</span> namebuf[max(BTRFS_NAME_LEN, XATTR_NAME_MAX)];

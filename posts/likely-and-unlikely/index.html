@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -93,7 +93,7 @@ prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 �
 <h1 id="likely-unlikely">likely(), unlikely()</h1>
 <p>함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을
 위한 매크로이다. 출처에는 아래와 같은 예제를 제공하고 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">bvl <span style="color:#f92672">=</span> bvec_alloc(gfp_mask, nr_iovecs, <span style="color:#f92672">&amp;</span>idx);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">bvl <span style="color:#f92672">=</span> bvec_alloc(gfp_mask, nr_iovecs, <span style="color:#f92672">&amp;</span>idx);
 <span style="color:#66d9ef">if</span> (unlikely(<span style="color:#f92672">!</span>bvl)) {
 	mempool_free(bio, bio_pool);
 	bio <span style="color:#f92672">=</span> NULL;
@@ -107,7 +107,7 @@ prediction 을 위한 용도로 사용된다. 즉, 결과값이 대부분 false�
 예상된다면 <code>unlikely()</code>를, true로 예상된다면 <code>likely()</code>를 사용함으로서
 컴파일러를 통한 분기 예측을 이용하여 성능 향상을 꾀할 수 있다.</p>
 <p>각각의 정의를 살펴보면, 아래와 같이 되어 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define likely(x)       __builtin_expect(!!(x), 1)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define likely(x)       __builtin_expect(!!(x), 1)
 </span><span style="color:#75715e">#define unlikely(x)     __builtin_expect(!!(x), 0)
 </span></code></pre></div><h1 id="__built-in-function">__built-in function</h1>
 <p><code>__builtin_expect</code>를 사용하는 것은 컴파일러에게 분기 예측(branch
@@ -118,7 +118,7 @@ prediction) 정보를 제공하기 위한 것이다. 일반적으로 개발자�
 있다.</p>
 <h1 id="예제">예제</h1>
 <p>아래의 예제를 통해 성능 향상이 어떻게 가능한지 살펴보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define likely(x)    __builtin_expect(!!(x), 1)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define likely(x)    __builtin_expect(!!(x), 1)
 </span><span style="color:#75715e">#define unlikely(x)  __builtin_expect(!!(x), 0)
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
@@ -137,7 +137,7 @@ prediction) 정보를 제공하기 위한 것이다. 일반적으로 개발자�
 }
 </code></pre></div><p>위 예제를 컴파일 한 다음, objdump로 살펴보면 아래와 같이 main 부분을
 발견할 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gcc -o unlikely unlikely.c
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gcc -o unlikely unlikely.c
 $ objdump -S unlikely
 
 

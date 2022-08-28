@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -125,7 +125,7 @@
 아키텍처별 코드가 정의돼 있으며, 실제 사용하는 인터페이스는
 <code>&lt;linux/spinlock.h&gt;</code>에 들어있다. 이제 실제 코드를 살펴보자.</p>
 <h2 id="스핀락-커널-코드">스핀락 커널 코드</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// 스핀락 선언
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// 스핀락 선언
 </span><span style="color:#75715e"></span><span style="color:#75715e">#define DEFINE_SPINLOCK(x)	spinlock_t x = __SPIN_LOCK_UNLOCKED(x)
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// 스핀락을 얻는 함수 spin_lock
@@ -168,7 +168,7 @@ EXPORT_SYMBOL(_raw_spin_lock);
 </code></pre></div><p>마지막으로 <code>raw_spin_lock_init</code>을 gtags으로 계속 찾아 들어가면
 <code>_raw_spin_lock</code>에 대해서 아래와 같이 <code>spinlock_api_up.h</code>과
 <code>spinlock_api_smp.h</code>로 각각 구분되어 정의되어 있는 것을 알 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/Volumes/KernelHacking/Workspaces/linux-4.20.9/include/linux/spinlock_api_up.h
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/Volumes/KernelHacking/Workspaces/linux-4.20.9/include/linux/spinlock_api_up.h
 58: #define _raw_spin_lock(
 /Volumes/KernelHacking/Workspaces/linux-4.20.9/include/linux/spinlock_api_smp.h
 47: #define _raw_spin_lock(

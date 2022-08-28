@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -164,7 +164,7 @@ $ make menuconfig</p>
 해줘야한다는 점이다. 기본값이 eth0으로 되어있을텐데, init 스크립트에서
 해당 인터페이스가 로드될 때까지 기다리며 없을 경우에는 셸이 실행되지
 않게된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Build options ---&gt; Location to save buildroot config ---&gt; $(BR2_EXTERNAL)/configs/mini_linux_defconfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Build options ---&gt; Location to save buildroot config ---&gt; $(BR2_EXTERNAL)/configs/mini_linux_defconfig
 Build options ---&gt; Download dir ---&gt; /some/where/buildroot_dl
 Build options ---&gt; Number of jobs to run simultaneously (0 for auto) ---&gt; 8
 Build options ---&gt; Enable compiler cache ---&gt; yes
@@ -187,7 +187,7 @@ Kernel ---&gt; Linux Kernel ---&gt; no
 Filesystem images ---&gt; cpio the root filesystem (for use as an initial RAM filesystem) ---&gt; yes
 Filesystem images ---&gt; Compression method ---&gt; gzip
 </code></pre></div><p>아래와 같이 설정 저장 후 init 스크립트를 추가해준뒤 빌드한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ make savedefconfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ make savedefconfig
 $ vim $BUILDROOT_BUILD/overlay/init
 
 #!/bin/sh
@@ -209,7 +209,7 @@ exec /bin/sh
 $ chmod +x overlay/init
 $ make
 </code></pre></div><p>이제 qemu를 통해 실행시켜보면 정상적으로 실행되는 것을 확인할 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">qemu-system-x86_64 -kernel $LINUX_BUILD/arch/x86_64/boot/bzImage \
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">qemu-system-x86_64 -kernel $LINUX_BUILD/arch/x86_64/boot/bzImage \
   -initrd $BUILDROOT_BUILD/images/rootfs.cpio.gz -nographic \
   -append &#34;console=ttyS0&#34;
 </code></pre></div><h1 id="출처">출처</h1>

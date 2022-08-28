@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -90,7 +90,7 @@ McCray</a>
 몇 초간 소모되는지를 나타내주는데, 이를 이용해서 태그와 브랜치 등의
 헤더 정보, 코드 diff를 가져오는데 엄청난 시간이 걸린다는 것을 알게
 되었다.</p>
-<pre><code>Refreshing buffer ‘magit: example-repo’...
+<pre tabindex="0"><code>Refreshing buffer ‘magit: example-repo’...
   magit-insert-error-header                          1e-06
   magit-insert-diff-filter-header                    2.3e-05
   magit-insert-head-branch-header                    0.026227
@@ -118,7 +118,7 @@ Refreshing buffer ‘magit: example-repo’...done (4.003s)
 함수들이 사용하는데 잘 쓰이지 않는다면 과감하게 아래와 같이
 제거해주자. 필자는 변경된 코드 확인과 커밋 메시지만을 주로 확인하므로
 아래와 같이 설정하였다.</p>
-<pre><code>  ;; remove unnecessary magit function on revision section hook
+<pre tabindex="0"><code>  ;; remove unnecessary magit function on revision section hook
   (remove-hook 'magit-revision-sections-hook 'magit-insert-revision-headers)
   (remove-hook 'magit-revision-sections-hook 'magit-insert-revision-notes)
   (remove-hook 'magit-revision-sections-hook 'magit-insert-revision-diff)

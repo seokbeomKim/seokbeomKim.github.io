@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -83,7 +83,7 @@
 변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.</p>
 <p>그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma
 와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">/* #define VAR_NAME_VALUE(var) #var &#34;=&#34;  VALUE(var) */</span>
 <span style="color:#75715e">#define DO_PRAGMA(x) _Pragma (#x)
@@ -123,7 +123,7 @@ PRINT_INT(DEFINED_INT);
 <p>이제 커널의 fixmap 영역이 정의된 부분에서 확인해보자. (사실 fixmap 영역에서
 사용하는 값들을 직접 확인해보기 위함이었는데 enum 으로 정의되어 있는 부분은
 제대로 출력되지 않았다.)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp">...
 };
 
 <span style="color:#75715e">#pragma message(VAR_NAME_VALUE(FIX_FDT_SIZE))

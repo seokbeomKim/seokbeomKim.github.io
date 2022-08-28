@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -116,24 +116,24 @@ case-insensitive 이므로 반드시 case-sensitive 파티션을 추가로 구�
 <p>그리고 기본 컴파일러로서 GNU gcc가 아닌 clang을 이용하므로, <code>homebrew</code>
 패키지 관리자를 통해 openssl, gcc 등을 설치해야 한다. <code>openssl</code>은
 반드시 <a href="mailto:openssl@1.1">openssl@1.1</a>을 설치한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install openssl@1.1 gcc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install openssl@1.1 gcc
 </code></pre></div><h1 id="크로스-컴파일러-빌드-ct-ng">크로스 컴파일러 빌드: ct-ng</h1>
 <p>크로스 컴파일러는 <code>Crosstool-NG(ct-ng)</code>를 이용하여 빌드한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install ct-ng
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install ct-ng
 $ mkdir -p ~/workspace/ct-ng-rpi3 <span style="color:#f92672">&amp;&amp;</span> cd ~/workspace/ct-ng-rpi3
 $ ct-ng armv8-rpi3-linux-gnueabihf
 </code></pre></div><p><code>armv8-rpi3-linux-gnueabihf</code>는 <code>ct-ng</code>에서 제공하는 샘플 중 하나로서
 샘플들은 아래와 같이 확인할 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ct-ng list-samples
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ct-ng list-samples
 </code></pre></div><p>gdb 빌드 도중에 발생하는 파이썬 에러를 방지하기 위해 아래와 같이
 <code>menuconfig</code>를 통해 파이썬의 바이너리 경로를 설정해주자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ct-ng menuconfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ct-ng menuconfig
 
 <span style="color:#75715e"># menuconfig 창에서 아래 설정 메뉴를 통해 파이썬 바이너리 경로를 설정한다.</span>
 Debug facilities -&gt; gdb -&gt; Python binary to use <span style="color:#f92672">(</span>/usr/bin/python<span style="color:#f92672">)</span>
 </code></pre></div><p>또한, 필자처럼 binutils 에서 string 관련 에러가 난다면, 아래와 같이
 직접 <code>&lt;string&gt;</code> 헤더파일을 include 하도록 수정해줘야 한다.</p>
-<pre><code>$ $home/workspace/ct-ng/rpi3b/.build/src/binutils-2.32
+<pre tabindex="0"><code>$ $home/workspace/ct-ng/rpi3b/.build/src/binutils-2.32
 $ vi gold/errors.h
 
 // 아래 include 에 &lt;string&gt;을 추가한다.
@@ -161,7 +161,7 @@ $ vi gold/errors.h
 경로(<a href="https://www.rockbox.org/tracker/task/9006?getfile=16683">https://www.rockbox.org/tracker/task/9006?getfile=16683</a>)에서
 다운로드 하여 include 경로(<code>/usr/local/include</code>)에 추가해준다.</p>
 <p>이제 마지막으로 라이브러리와 INCLUDE 경로를 설정해주며 빌드를 해주자.</p>
-<pre><code>$ KERNEL=kernel7 ARCH=arm make bcm2709_defconfig
+<pre tabindex="0"><code>$ KERNEL=kernel7 ARCH=arm make bcm2709_defconfig
 $ KERNEL=kernel7 ARCH=arm HOSTCFLAGS=&quot;-I/usr/local/include -I/usr/local/opt/openssl@1.1/include -L/usr/local/opt/openssl/lib&quot;  make -j4
 </code></pre><p>빌드가 완료되면, 아래와 같이 커널 이미지(<code>zImage</code>)가 만들어진 것을 확인할 수 있다.</p>
 <p><img src="/img/kernel-compilation-success.png" alt="커널 빌드 완료"></p>

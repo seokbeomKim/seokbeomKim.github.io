@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -109,7 +109,7 @@ Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점�
 <h3 id="비활성화-시의-레이아웃">비활성화 시의 레이아웃</h3>
 <p>먼저, Stack Protector를 비활성화/활성화 되었을 때의 각각 콜스택이 어떻게 되는지 살펴보자.</p>
 <p>먼저, 아래와 같이 간단한 코드를 준비하였다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mul</span>(<span style="color:#66d9ef">int</span> a)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mul</span>(<span style="color:#66d9ef">int</span> a)
 {
         a <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
 }
@@ -135,7 +135,7 @@ Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점�
 }
 </code></pre></div><p>호출 전/후로 ARM64 아키텍처에서의 Calling Convention을 확인하기 편하도록 최대한 코드를
 할당 중심으로 작성하였다. 위 코드를 아래의 명령어로 컴파일한 후 다시 어셈블리로 바꿔주자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aarch64-linux-gnu-gcc callstack.c     <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aarch64-linux-gnu-gcc callstack.c     <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>        -fno-stack-protector            <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>        -fno-asynchronous-unwind-tables <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>        -fno-exceptions                 <span style="color:#ae81ff">\
@@ -146,7 +146,7 @@ $ aarch64-linux-gnu-objdump -dS callstack.o &gt; callstack.disassemble
 </code></pre></div><p>위와 같이 오브젝트 파일을 만들었다가 다시 dump 하는 이유는 불필요한 어셈블리 레이블을
 없애기 위해서다. 실제로 gcc의 -S 옵션을 사용하여 단순하게 어셈블리 코드를 만들어내면 원하는
 어셈 코드를 얻기 힘들다. 이제 얻어낸 어셈블리 코드를 살펴보자.</p>
-<pre><code>0000000000000714 &lt;mul&gt;:
+<pre tabindex="0"><code>0000000000000714 &lt;mul&gt;:
  714:	d10043ff 	sub	sp, sp, #0x10
  718:	b9000fe0 	str	w0, [sp, #12]
  71c:	b9400fe0 	ldr	w0, [sp, #12]
@@ -210,7 +210,7 @@ sp (스택 포인터)에 저장하고 Stack Frame을 확보하는 것을 알 수
 x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return Address를 갖고 있다고
 생각하면 된다. add 함수가 mul 함수에서 각각 stack frame을 확보하는 어셈블리 명령어가
 다르게 나와있다. add 함수를 먼저 살펴보면 아래와 같다.</p>
-<pre><code>stp     x29, x30, [sp, #-48]!
+<pre tabindex="0"><code>stp     x29, x30, [sp, #-48]!
 </code></pre><p>이는 x29, x30 값을 [sp]에 저장(sp가 갖고 있는 메모리 주소에)한 다음 sp를 -48 오프셋만큼
 이동하라는 뜻이다. 이 때, 스택 할당은 메모리 반대 방향으로 확보되는 점에 주목하자. mul 함수는
 별도의 백업 없이 곧바로 스택 프레임을 확보하는 것을 볼 수 있다.</p>
@@ -221,7 +221,7 @@ x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return 
 <h3 id="활성화-시의-레이아웃">활성화 시의 레이아웃</h3>
 <p>그렇다면 stack protector가 활성화된 메모리 레이아웃은 어떻게 될까? 이번에는
 -fstack-protector-all 옵션을 이용하여 어셈블리 코드를 생성해주자.</p>
-<pre><code>000000000000086c &lt;add&gt;:
+<pre tabindex="0"><code>000000000000086c &lt;add&gt;:
  86c:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
  870:	910003fd 	mov	x29, sp
  874:	b9001fe0 	str	w0, [sp, #28]
@@ -266,7 +266,7 @@ x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return 
  910:	d65f03c0 	ret
 </code></pre><p>보기에도 이전에 살펴봤던 add 함수보다 훨씬 코드가 길어졌다. 여기서 중요한 건 함수 초기에
 스택 포인터를 움직인 후 canary 영역을 스택에 저장하는 부분이다.</p>
-<pre><code> 884:	90000080 	adrp	x0, 10000 &lt;__FRAME_END__+0xf520&gt;
+<pre tabindex="0"><code> 884:	90000080 	adrp	x0, 10000 &lt;__FRAME_END__+0xf520&gt;
  888:	f947f400 	ldr	x0, [x0, #4072]
  88c:	f9400001 	ldr	x1, [x0]
  890:	f9001fe1 	str	x1, [sp, #56]
@@ -287,7 +287,7 @@ x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return 
 (<a href="https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value">https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value</a>)
 그런데 fs:0x28 값이 처음부터 하위 1바이트가 초기화되어 있다는 것은 커널 쪽 코드에 의한 것이라고
 생각하고 살펴보니, 커널 include/linux/random.h 파일에 아래의 코드가 있었다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
 </span><span style="color:#75715e"> * On 64-bit architectures, protect against non-terminated C string overflows
 </span><span style="color:#75715e"> * by zeroing out the first byte of the canary; this leaves 56 bits of entropy.
 </span><span style="color:#75715e"> */</span>

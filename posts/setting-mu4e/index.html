@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -116,7 +116,7 @@
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Isync">https://wiki.archlinux.org/index.php/Isync</a></li>
 </ul>
-<pre><code># GMAIL #1
+<pre tabindex="0"><code># GMAIL #1
 IMAPAccount sukbeom.kim
 Host imap.gmail.com
 User sukbeom.kim@gmail.com
@@ -237,7 +237,7 @@ Channel chaoxifer-all
 Channel chaoxifer-starred
 </code></pre><p>설정에서 gpg를 이용하여 계정 암호를 설정파일에 그대로 넣지 않고
 암호화한 파일을 사용하도록 한다. gpg 파일을 만드는 방법은 아래와 같다.</p>
-<pre><code>$ echo &quot;mypassword!&quot; &gt; ~/.mbsyncpass
+<pre tabindex="0"><code>$ echo &quot;mypassword!&quot; &gt; ~/.mbsyncpass
 $ gpg --output ~/.emacs.d/personal/chaoxifer.gpg --symmetric ~/.mbsyncpass
 $ # 입력 창에 passphrase 를 입력한다. 위 설정에서는 mu4e를 passphase로 입력했다.
 </code></pre><p>이제 mbsync를 사용하기 위한 설정이 완료되었다. 필요한 디렉토리들을
@@ -250,7 +250,7 @@ $ # 입력 창에 passphrase 를 입력한다. 위 설정에서는 mu4e를 passp
 <h2 id="이맥스-설정">이맥스 설정</h2>
 <p>이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은
 mu4e의 공식 문서에 자세히 기술되어 있다.</p>
-<pre><code>(if (eq running-env &quot;private&quot;)
+<pre tabindex="0"><code>(if (eq running-env &quot;private&quot;)
 (if (eq system-type 'darwin)
 (add-to-list 'load-path &quot;/usr/local/Cellar/mu/HEAD-281a4cc/share/emacs/site-lisp/mu/mu4e/&quot;))
 

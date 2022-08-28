@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -122,7 +122,7 @@ dma_contig_sg를 사용한다. 이 경우 하드웨어 적으로 scatter/gather 
 각각의 메모리 방식을 사용하는 이유에 대해서 우선적으로 알아보지 않았던 것이
 문제였다.</p>
 <p>V4L2 memory에는 아래와 같이 MMAP/USERPTR/OVERLAY/DMABUF 등이 제공된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">enum</span> v4l2_memory {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">enum</span> v4l2_memory {
     V4L2_MEMORY_MMAP             <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
     V4L2_MEMORY_USERPTR          <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>,
     V4L2_MEMORY_OVERLAY          <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>,

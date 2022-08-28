@@ -19,13 +19,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'KoPubDotumMedium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .slick-slider {
   position: relative;
   display: block;
@@ -439,7 +432,7 @@ html {
 body {
   color: #555;
   font-size: 1rem;
-  font-family: -apple-system, "KoPubDotumMedium", BlinkMacSystemFont, YakuHanJP, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, YakuHanJP, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   line-height: 1.57
 }
 

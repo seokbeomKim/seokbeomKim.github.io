@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -92,7 +92,7 @@
 <h1 id="warn_on-bug_on">WARN_ON, BUG_ON</h1>
 <p>출처에 따르면, 리눅스 디바이스 드라이버에서 가장 빈번하게 나타나는
 매크로는 <code>BUG_ON/BUG</code>와 <code>WARN_ON</code>이라고 설명하고 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">BUG_ON(condition)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">BUG_ON(condition)
 <span style="color:#75715e">// 또는
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (condition)
 	BUG()
@@ -113,7 +113,7 @@
 아래와 같이 주석을 달아놓은 것을 확인할 수 있다. 정말로 대안이 없을
 경우에만 사용하도록 하며, 정말로 복구할 방법이 없을 때에만 사용하도록
 하자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/*
 </span><span style="color:#75715e"> * Don&#39;t use BUG() or BUG_ON() unless there&#39;s really no way out; one
 </span><span style="color:#75715e"> * example might be detecting data structure corruption in the middle
 </span><span style="color:#75715e"> * of an operation that can&#39;t be backed out of.  If the (sub)system

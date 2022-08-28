@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -112,14 +112,14 @@ git://git.kernel.org/pub/scm/utils/kernel/kgdb/agent-proxy.git 에서 다운받�
 사용하도록 하자.</p>
 <p>kdmx 를 빌드한 뒤에 아래와 같이 실행해주면, pseudo tty가 만들어진 것을 확인할 수
 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">┌─<span style="color:#f92672">[</span>sukbeom@Sukbeomui-MacBookPro<span style="color:#f92672">]</span> - <span style="color:#f92672">[</span>~/Workspaces/kdmx/kdmx<span style="color:#f92672">]</span> - <span style="color:#f92672">[</span>3061<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">┌─<span style="color:#f92672">[</span>sukbeom@Sukbeomui-MacBookPro<span style="color:#f92672">]</span> - <span style="color:#f92672">[</span>~/Workspaces/kdmx/kdmx<span style="color:#f92672">]</span> - <span style="color:#f92672">[</span>3061<span style="color:#f92672">]</span>
 └─<span style="color:#f92672">[</span>$<span style="color:#f92672">]</span> ./kdmx -p /dev/tty.usbserial-0001 -b <span style="color:#ae81ff">115200</span>                                                                         <span style="color:#f92672">[</span>23:37:07<span style="color:#f92672">]</span>
 /dev/ttys000 is slave pty <span style="color:#66d9ef">for</span> terminal emulator
 /dev/ttys003 is slave pty <span style="color:#66d9ef">for</span> gdb
 
 Use &lt;ctrl&gt;C to terminate program
 </code></pre></div><p>테스트를 위해 /dev/ttys000 를 열어 아래와 같이 확인해보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ minicom -D /dev/ttys000 -b 115200
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ minicom -D /dev/ttys000 -b 115200
 
 Welcome to minicom 2.8
 
@@ -131,7 +131,7 @@ Press Meta-Z for help on special keys
 </code></pre></div><h1 id="kernel-configuration">Kernel Configuration</h1>
 <p>아래의 커널 설정 플래그들을 확인한다. 커널 컴파일 하는 방법은 디버깅 환경 구성과
 다른 내용이므로 이 포스팅에서 자세하게 설명하지 않겠다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">CONFIG_KGDB_KDB=y
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">CONFIG_KGDB_KDB=y
 CONFIG_KDB_DEFAULT_ENABLE=0x1
 CONFIG_KDB_KEYBOARD=y
 CONFIG_KDB_CONTINUE_CATASTROPHIC=0
@@ -154,11 +154,11 @@ CONFIG_MAGIC_SYSRQ_SERIAL_SEQUENCE=&#34;.&#34;
 진입하여 kgdb를 붙인 뒤 고의로 커널 패닉을 발생시켜 gdb로 어떻게 분석 가능한지를
 보일 것이다.</p>
 <p>먼저, kgdb 에서 사용할 시리얼을 아래와 같이 설정해준다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@raspberrypi:/home/pi# who | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span> &gt; /sys/module/kgdboc/parameters/kgdboc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@raspberrypi:/home/pi# who | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span> &gt; /sys/module/kgdboc/parameters/kgdboc
 root@raspberrypi:/home/pi# cat /sys/module/kgdboc/parameters/kgdboc
 ttyS0
 </code></pre></div><p>이제 sysrq 를 이용하여 KDB로 진입한 뒤 kgdb 를 실행한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@raspberrypi:/home/pi# echo g &gt; /proc/sysrq-trigger
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@raspberrypi:/home/pi# echo g &gt; /proc/sysrq-trigger
 <span style="color:#f92672">[</span> 1141.184978<span style="color:#f92672">]</span> sysrq: DEBUG
 
 Entering kdb <span style="color:#f92672">(</span>current<span style="color:#f92672">=</span>0x836b8000, pid 552<span style="color:#f92672">)</span> on processor <span style="color:#ae81ff">0</span> due to Keyboard Entry
@@ -170,7 +170,7 @@ Entering please attach debugger or use + or
 
 </code></pre></div><p>이제 호스트에서 GDB를 실행한 뒤 시리얼 통신으로 붙여준다. 아래와 같이 정상적으로
 attach 가 된 것을 알 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./arm-linux-gnueabihf-gdb ~/Workspaces/rpi/vmlinux
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ./arm-linux-gnueabihf-gdb ~/Workspaces/rpi/vmlinux
 <span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> file ~/Workspace/rpi/vmlinux
 <span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> cd /Volumes/Kernel/rpi_kernel
 <span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> target remote /dev/ttys003

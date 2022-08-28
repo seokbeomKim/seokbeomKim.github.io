@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -96,7 +96,7 @@
 점은 없었다. 어째서 라즈베리파이 bsp에서는 정상적으로 빌드되는데 공식
 커널에서는 빌드되지 않는 것일까.</p>
 <p>빌드 시 나오는 에러는 아래와 같다.</p>
-<pre><code>
+<pre tabindex="0"><code>
 HOSTCC  scripts/mod/file2alias.o
 scripts/mod/file2alias.c:47:3: error: typedef redefinition with different types ('struct uuid_t' vs '__darwin_uuid_t' (aka 'unsigned char [16]'))
 } uuid_t;
@@ -111,7 +111,7 @@ scripts/mod/file2alias.c:1305:42: error: array initializer must be an initialize
 </code></pre><p>이에 여기저기 뒤져보니 10달 전에 이미 <a href="https://gitce.net/mirrors/openwrt/commit/0b7ad6f7f061e0cd7a3f267b23d411cc2bd44e00">관련된
 패치</a>가
 OpenWRT에 나와있었다. (역시 안될 리가 없다.)</p>
-<pre><code>diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+<pre tabindex="0"><code>diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
 index c91eba751804..e756fd80b721 100644
 --- a/scripts/mod/file2alias.c
 +++ b/scripts/mod/file2alias.c

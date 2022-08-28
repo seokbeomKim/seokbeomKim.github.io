@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -89,7 +89,7 @@
 <p>위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.</p>
 <h2 id="wsl-리소스-설정">WSL 리소스 설정</h2>
 <p>먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Windows\system32&gt; wsl -l -v
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Windows\system32&gt; wsl -l -v
   NAME      STATE           VERSION
 * Ubuntu    Running         2
 PS C:\Windows\system32&gt; wsl -t Ubuntu --shutdown
@@ -98,9 +98,9 @@ PS C:\Windows\system32&gt; wsl -l -v
   NAME      STATE           VERSION
 * Ubuntu    Stopped         2
 </code></pre></div><p>종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Windows\system32&gt; notepad $env:USERPROFILE\.wslconfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Windows\system32&gt; notepad $env:USERPROFILE\.wslconfig
 </code></pre></div><p>이제 아래와 같이 설정해주자. 이제 WSL2에서 사용할 메모리는 최대 4G로 제한된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[wsl2]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[wsl2]
 #kernel=&lt;path&gt;              # An absolute Windows path to a custom Linux kernel.
 memory=4G              	    # How much memory to assign to the WSL2 VM.
 #processors=&lt;number&gt;        # How many processors to assign to the WSL2 VM.

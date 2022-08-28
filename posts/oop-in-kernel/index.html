@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -114,7 +114,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 테이블을 사용한다. 예를 들어, media framework로 유명한 <code>V4L2</code>를
 이용하는 <code>videobuf2</code>를 살펴보자. 영상 프레임을 관리하는 큐에서 메모리
 관리에 관련된 메서드는 아래와 같이 정의하여 사용한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">vb2_queue</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">vb2_queue</span> {
 	<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span>			type;
 	<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span>			io_modes;
 	<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">device</span>			<span style="color:#f92672">*</span>dev;
@@ -126,7 +126,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 	...
 </code></pre></div><p>그리고 <code>vb2_queue</code>에서 메서드 dispatch를 위해서 사용하는 메모리 관련
 메서드는 아래와 같이 정의한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">vb2_mem_ops</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">vb2_mem_ops</span> {
     <span style="color:#66d9ef">void</span>		<span style="color:#f92672">*</span>(<span style="color:#f92672">*</span>alloc)(<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">device</span> <span style="color:#f92672">*</span>dev, <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> attrs,
 				  <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> size,
 				  <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">dma_data_direction</span> dma_dir,
@@ -176,7 +176,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 </ul>
 <h2 id="union을-이용한-데이터-상속">union을 이용한 데이터 상속</h2>
 <p><code>struct inode</code>를 살펴보면 아래와 같은 코드를 살펴볼 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> <span style="color:#66d9ef">union</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> <span style="color:#66d9ef">union</span> {
                <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">minix_inode_info</span> minix_i;
                <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ext_inode_info</span> ext_i;
                <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">msdos_inode_info</span> msdos_i;
@@ -203,7 +203,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 테이블을 이용하는 등 객체 지향 패턴을 적용하는데 무리가 없다. 여러
 파일시스템의 코드를 살펴보면 아래와 같이 기본적인 <code>inode</code>에 대한
 데이터 자체를 아래와 같이 내포한 형태로 사용하는 것을 알 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/* in memory btrfs inode */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/* in memory btrfs inode */</span>
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">btrfs_inode</span> {
     <span style="color:#75715e">/* which subvolume this inode belongs to */</span>
     <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">btrfs_root</span> <span style="color:#f92672">*</span>root;

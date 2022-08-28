@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -125,7 +125,7 @@
 </ol>
 <p>이러한 Simple Request 방식에서 클라이언트는 서버로 요청을 한 번 보내고, 마찬가지로 서버도 회신을 한 번 보내는 것으로 요청에 대한 응답이 종료된다.</p>
 <p>아래는 Simple requests를 사용하는 자바스크립트 예제이다. 아래 코드가 <code>http://foo.example</code> 서버로부터 제공되어 <code>http://bar.other</code>라는 외부 도메인으로부터 리소스를 받아오려 한다는 상황을 가정해보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">invocation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">invocation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://bar.other/resources/public-data/&#39;</span>;
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callOtherDomain</span>() {
@@ -138,7 +138,7 @@
 </code></pre></div><p>위 코드를 통해 웹 브라우저가 서버로 Request를 보내고 서버로부터 Response를 받는 과정을 아래와 같이 간략하게 나타낼 수 있다.</p>
 <p><img src="/img/cors_simple_req.png" alt="An example of CORS Simple Request"></p>
 <p>이 때, 실제 Request와 Response가 어떤 식으로 오고 가는지 아래 텍스트를 보자. Request의 <code>Origin</code>, Response의 <code>Access-Control-Allow-Origin</code> 부분을 중심으로 살펴보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">GET</span> /resources/public-data/ <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">GET</span> /resources/public-data/ <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
 Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">bar.other</span>
 User-Agent<span style="color:#f92672">:</span> <span style="color:#ae81ff">Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre</span>
 Accept<span style="color:#f92672">:</span> <span style="color:#ae81ff">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span>
@@ -149,7 +149,7 @@ Connection<span style="color:#f92672">:</span> <span style="color:#ae81ff">keep-
 Referer<span style="color:#f92672">:</span> <span style="color:#ae81ff">http://foo.example/examples/access-control/simpleXSInvocation.html</span>
 Origin<span style="color:#f92672">:</span> <span style="color:#ae81ff">http://foo.example</span>
 </code></pre></div><p>먼저, 위는 예제 코드가 서버로 보내는 Request를 나타내며 Origin 헤더부분은 컨텐츠가 <code>http://foo.example</code>로부터 오는 것이라고 서버에게 알리는 역할을 한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
 Date<span style="color:#f92672">:</span> <span style="color:#ae81ff">Mon, 01 Dec 2008 00:23:53 GMT</span>
 Server<span style="color:#f92672">:</span> <span style="color:#ae81ff">Apache/2.0.61</span>
 Access-Control-Allow-Origin<span style="color:#f92672">:</span> <span style="color:#ae81ff">*</span>
@@ -158,7 +158,7 @@ Connection<span style="color:#f92672">:</span> <span style="color:#ae81ff">Keep-
 Transfer-Encoding<span style="color:#f92672">:</span> <span style="color:#ae81ff">chunked</span>
 Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">application/xml</span>
 </code></pre></div><p>위는 서버가 클라이언트로 보내는 Response를 나타내며, <code>Access-Control-Allow-Origin: *</code>은 모든 도메인의 cross-site 방식으로부터 액세스가 가능하다고 클라이언트에게 알리는 역할을 한다. 하지만 만약 이 헤더가</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#960050;background-color:#1e0010">Access-Control-Allow-Origin: http://foo.example
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#960050;background-color:#1e0010">Access-Control-Allow-Origin: http://foo.example
 </span></code></pre></div><p>처럼 왔다면 <code>http://foo.example</code>을 제외한 다른 도메인들에서는 cross-site 방식으로 해당 리소스에 접근할 수 없다는 것을 의미한다.</p>
 <h3 id="preflighted-requests">Preflighted Requests</h3>
 <p><code>Simple Requests</code>와 다르게 &ldquo;preflighted&rdquo; requests(사전 전달 요청)는 먼저 <code>OPTIONS</code> 메서드를 이용하여 HTTP request를 먼저 보내 실제 요청이 보내기에 안전한지 확인한다. 아래 조건들 중 하나라도 만족하면 <code>Preflighted Requests</code>로 간주한다.</p>
@@ -197,7 +197,7 @@ Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">app
 <li><code>ReadableStream</code>이 Request 안에서 사용된 경우</li>
 </ol>
 <p>아래는 preflighted 요청을 위한 자바스크립트 예제이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">invocation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">invocation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://bar.other/resources/post-here/&#39;</span>;
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">body</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;?xml version=&#34;1.0&#34;?&gt;&lt;person&gt;&lt;name&gt;Arun&lt;/name&gt;&lt;/person&gt;&#39;</span>;
 
@@ -216,7 +216,7 @@ Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">app
 <p><img src="/img/cors_preflight.png" alt="CORS Preflighted_request"></p>
 <p>위 그림에서 주의해야할 것은 아래의 실제 REQUEST/REPONSE 코드에서 보겠지만 실제 POST request 안에는 <code>Access-Control-Request-*</code> 헤더가 없다는 점이다. 해당 헤더들은 모두 <code>OPTIONS</code> request에서만 필요하다. 또한, preflighted request의 경우 메인 Request를 보내기 전에 Preflighted Request를 한번 더 보낸다는 점이 주의하자.</p>
 <p>아래는 위 다이어그램에 대한 실제 Request &amp; Response 내용이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">OPTIONS</span> /resources/post-here/ <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">OPTIONS</span> /resources/post-here/ <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
 Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">bar.other</span>
 User-Agent<span style="color:#f92672">:</span> <span style="color:#ae81ff">Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre</span>
 Accept<span style="color:#f92672">:</span> <span style="color:#ae81ff">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span>
@@ -243,12 +243,12 @@ Keep-Alive: timeout=2, max=100
 Connection: Keep-Alive
 Content-Type: text/plain
 </code></pre></div><p>먼저, <code>preflighted request</code>와 그 응답에 대해 살펴보자. <code>Access-Control-Request-Method</code> 해더는 서버에게 실제 Request가 보내졌을 때 해당 Request의 메서드와 <code>X-PINGOTHER, Content-Type</code> 등의 custom header들을 함께 전송할 것이라고 미리 알린다. 서버는 클라이언트로부터 이러한 정보를 미리 <code>preflighted request</code>를 통해 전달받고 실제 request를 받을 것인지를 결정한 뒤 알려준다. 위에 나타난 Reponse 코드 중 유심해야할 부분은 다음과 같다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#960050;background-color:#1e0010">Access-Control-Allow-Origin: http://foo.example
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#960050;background-color:#1e0010">Access-Control-Allow-Origin: http://foo.example
 </span><span style="color:#960050;background-color:#1e0010">Access-Control-Allow-Methods: POST, GET
 </span><span style="color:#960050;background-color:#1e0010">Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
 </span><span style="color:#960050;background-color:#1e0010">Access-Control-Max-Age: 86400
 </span></code></pre></div><p>서버는 preflighted request에 대한 응답을 통해 클라이언트로 사용 가능한 메서드와 헤더, 그리고 해당 리소스 접근을 위해 허용된 origin을 <code>http://foo.example</code>로 제한하여 보내주고 있다. 마지막으로 <code>Access-Control-Max-Age</code>는 해당 reponse가 또다른 preflight request를 보내지 않고 얼마 동안 캐시되어 있는지를 클라이언트에게 알려주는 역할을 한다. 여기서 86400은 86400초를 나타내어 24시간동안 cached response가 유효하다고 알린다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">POST</span> /resources/post-here/ <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">POST</span> /resources/post-here/ <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
 Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">bar.other</span>
 User-Agent<span style="color:#f92672">:</span> <span style="color:#ae81ff">Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre</span>
 Accept<span style="color:#f92672">:</span> <span style="color:#ae81ff">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span>
@@ -283,7 +283,7 @@ Content-Type: text/plain
 <p>마지막으로 Credential, Non-Credential을 구분할 CORS Request 종류에 대해 기술한다.
 이 &ldquo;credentialed&rdquo; requests는 HTTP Cookie와 HTTP Authentication information의 취약점에 대비하여 만들어진 request 타입이다. 기본으로 웹 브라우저는 cross-site XMLHttpRequest와 Fetch invocation에서 credential을 보내지 않는다.</p>
 <p>아래 코드를 예로 들어보자. <code>http://bar.other/</code>로부터 받은 컨텐츠가 쿠키를 설정하는 리소스라고 가정하고, 아래 자바스크립트 코드가 <code>http://foo.example</code>내에서 동작하는 코드라고 생각하자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">invocation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">invocation</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;http://bar.other/resources/credentialed-content/&#39;</span>;
 
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callOtherDomain</span>(){

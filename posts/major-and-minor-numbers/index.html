@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -92,7 +92,7 @@
 특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로
 식별할 수 있다. 아래와 같이 <code>ls</code> 명령어를 사용하면 각 디바이스 파일에
 번호가 할당되어 있는 것을 알 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">drwxr-xr-x   <span style="color:#ae81ff">2</span> root    root           <span style="color:#ae81ff">60</span> May <span style="color:#ae81ff">31</span> 23:18 vfio
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">drwxr-xr-x   <span style="color:#ae81ff">2</span> root    root           <span style="color:#ae81ff">60</span> May <span style="color:#ae81ff">31</span> 23:18 vfio
 crw-------   <span style="color:#ae81ff">1</span> root    root    10,    <span style="color:#ae81ff">63</span> May <span style="color:#ae81ff">31</span> 23:18 vga_arbiter
 crw-------   <span style="color:#ae81ff">1</span> root    root    10,   <span style="color:#ae81ff">137</span> May <span style="color:#ae81ff">31</span> 23:18 vhci
 crw-rw----+  <span style="color:#ae81ff">1</span> root    kvm     10,   <span style="color:#ae81ff">238</span> May <span style="color:#ae81ff">31</span> 23:18 vhost-net
@@ -107,7 +107,7 @@ crw-rw-rw-   <span style="color:#ae81ff">1</span> root    root     1,     <span 
 <code>/dev/watchdog0</code>은 드라이버 246이 관리한다. <code>minor number</code>는
 드라이버가 맡고 있는 장치들을 분류하기 위한 것으로 아래와 같이 같은
 <code>major number</code>를 가지고 있는 장치들을 분류할 때 사용한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ ls -l /dev | egrep <span style="color:#e6db74">&#39;^c.*.(\s)1,&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ ls -l /dev | egrep <span style="color:#e6db74">&#39;^c.*.(\s)1,&#39;</span>
 crw-rw-rw-  <span style="color:#ae81ff">1</span> root    root     1,     <span style="color:#ae81ff">7</span> May <span style="color:#ae81ff">31</span> 23:18 full
 crw-r--r--  <span style="color:#ae81ff">1</span> root    root     1,    <span style="color:#ae81ff">11</span> May <span style="color:#ae81ff">31</span> 23:18 kmsg
 crw-r-----  <span style="color:#ae81ff">1</span> root    kmem     1,     <span style="color:#ae81ff">1</span> May <span style="color:#ae81ff">31</span> 23:18 mem
@@ -123,7 +123,7 @@ crw-rw-rw-  <span style="color:#ae81ff">1</span> root    root     1,     <span s
 <p><code>devfs</code>를 사용하지 않을 경우, <code>시스템에 드라이버를 새로 추가한다</code>는
 의미는 새로운 <code>major number</code>를 할당한다는 의미와 같다. 그래서 아래와
 같은 코드를 이용해 직접 그 숫자를 할당해줘야 한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// return: success or failure(&lt;0)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// return: success or failure(&lt;0)
 </span><span style="color:#75715e">// major: major number being requested
 </span><span style="color:#75715e">// name: name of the device (which will appear in /proc/devices)
 </span><span style="color:#75715e">// fops: driver&#39;s entry point
@@ -138,7 +138,7 @@ crw-rw-rw-  <span style="color:#ae81ff">1</span> root    root     1,     <span s
 시에 정의했던 <code>file_operations</code> 구조체의 각 함수들을 이용하게
 된다. 하지만 코드가 아닌 실제 명령어를 통해 이러한 등록 과정을 아주
 간단히 할 수가 있는데 그것이 바로 <code>mknod</code> 명령어이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mknod /dev/scull0 c <span style="color:#ae81ff">254</span> <span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mknod /dev/scull0 c <span style="color:#ae81ff">254</span> <span style="color:#ae81ff">0</span>
 $ rm /dev/scull0
 </code></pre></div><p>위처럼 major number가 254, minor number가 0인 캐릭터 디바이스(c)를
 생성하고 해당 디바이스를 삭제할 수 있다. 하지만 이렇게 정적으로
@@ -158,7 +158,7 @@ $ rm /dev/scull0
 것처럼 <code>/proc/devices</code>의 정보를 사용하면 되기 때문이다.</p>
 <p>동적으로 생성하는 방법은 아래와 같은 코드를 이용하면 된다. 이 때,
 <code>scull_major</code> 값을 0으로 주어지면 동적 할당을 사용한다는 의미이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">result <span style="color:#f92672">=</span> register_chrdev(scull_major, <span style="color:#e6db74">&#34;scull&#34;</span>, <span style="color:#f92672">&amp;</span>scull_fops);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">result <span style="color:#f92672">=</span> register_chrdev(scull_major, <span style="color:#e6db74">&#34;scull&#34;</span>, <span style="color:#f92672">&amp;</span>scull_fops);
 <span style="color:#66d9ef">if</span> (result <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
     printk(KERN_WARNING <span style="color:#e6db74">&#34;scull: can&#39;t get major %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, scull_major);
     <span style="color:#66d9ef">return</span> resul;t
@@ -183,7 +183,7 @@ unregister_chrdev(scull_major, <span style="color:#e6db74">&#34;scull&#34;</span
 변경되더라도 디바이스 드라이버에서 해당 변경에 대해 별다른 변경 작업을
 할 필요가 없도록 설계되었다. <code>kdev_t</code>를 이용하기 위해서는 직접 사용할
 필요가 없고 아래와 같이 제공되는 함수 또는 매크로를 이용한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// Extract the major number from a kdev_t structure.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// Extract the major number from a kdev_t structure.
 </span><span style="color:#75715e"></span><span style="color:#75715e">#define MAJOR(dev)	((unsigned int) ((dev) &gt;&gt; MINORBITS))
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// Extract the minor number.

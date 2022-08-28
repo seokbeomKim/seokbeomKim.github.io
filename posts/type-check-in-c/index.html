@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -83,7 +83,7 @@
 <h2 id="페이지-테이블에서의-타입-체크">페이지 테이블에서의 타입 체크</h2>
 <p>ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게
 작성되어 있는 부분을 찾을 수 있었다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> u64 pteval_t;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">typedef</span> u64 pteval_t;
 <span style="color:#66d9ef">typedef</span> u64 pmdval_t;
 <span style="color:#66d9ef">typedef</span> u64 pudval_t;
 <span style="color:#66d9ef">typedef</span> u64 pgdval_t;
@@ -115,7 +115,7 @@
 비교한다. 이는 런타임에 인자로 전달된 x, y를 비교하기 위함이 아니라 컴파일
 타임에 에러를 발생시키기 위한 용도이며 <code>!!</code> 를 통해서 두 개 변수의 크기를
 비교하여 안전하게 <code>boolean</code> 형태로 변환하는 것도 확인할 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define __typecheck(x, y) \
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define __typecheck(x, y) \
 </span><span style="color:#75715e">	(!!(sizeof((typeof(x) *)1 == (typeof(y) *)1)))
 </span></code></pre></div>
   </section>

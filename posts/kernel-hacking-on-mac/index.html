@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -84,7 +84,7 @@
 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, <code>aarch64</code>
 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는
 누구인가?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">(gdb) file <span style="color:#f92672">~/</span>Workspaces<span style="color:#f92672">/</span>kernel_dev<span style="color:#f92672">/</span>vmlinux
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">(gdb) file <span style="color:#f92672">~/</span>Workspaces<span style="color:#f92672">/</span>kernel_dev<span style="color:#f92672">/</span>vmlinux
 Reading symbols from <span style="color:#f92672">~/</span>Workspaces<span style="color:#f92672">/</span>kernel_dev<span style="color:#f92672">/</span>vmlinux...
 I<span style="color:#960050;background-color:#1e0010">&#39;</span>m sorry, Dave, I can<span style="color:#960050;background-color:#1e0010">&#39;</span>t <span style="color:#66d9ef">do</span> that.  Symbol format <span style="color:#960050;background-color:#1e0010">`</span>elf64<span style="color:#f92672">-</span>littleaarch64<span style="color:#960050;background-color:#1e0010">&#39;</span> unknown.
 </code></pre></div><p>이에 해결을 위한 시나리오는 아래와 같이 구성했다.</p>
@@ -104,12 +104,12 @@ Guest OS를 올려 컴파일 서버로 만든다.</p>
 <h2 id="guest-os-및-포트포워딩-ssh-서버-설정">Guest OS 및 포트포워딩, ssh 서버 설정</h2>
 <p>Guest OS는 lisa-qemu 설치를 위해서 우분투를 사용하였다. 우분투 설치 후 아래와
 갈이 스위치 설정을 해준다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">New-VMSwitch -SwitchName <span style="color:#e6db74">&#34;KeyNATSwitch&#34;</span> -SwitchType Internal
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">New-VMSwitch -SwitchName <span style="color:#e6db74">&#34;KeyNATSwitch&#34;</span> -SwitchType Internal
 New-NetIPAddress -IPAddress 10.0.2.1 -PrefixLength 24-InterfaceAlias <span style="color:#e6db74">&#34;vEthernet (KeyNATSwitch)&#34;</span>
 </code></pre></div><p>그리고 hyper-v guest 설정 - 네트워크 어댑터 - 가상 스위치 설정에서
 KeyNATSwitch를 선택해준다.</p>
 <p>이제 우분투로 돌아가 스위치에 물리기 위한 netplan을 아래와 같이 설정한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">     network:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">     network:
        version: <span style="color:#ae81ff">2</span>
        renderer: NetworkManager
        ethernets:
@@ -123,7 +123,7 @@ KeyNATSwitch를 선택해준다.</p>
 </code></pre></div><p>설정 후에 <code>sudo netplan apply</code> 로 설정을 적용한다. 이제 마지막으로 포트포워딩을
 설정해준다. External Port 는 아래와 같이 동일하게 해도 되나, 귀찮게 구는
 중국으로부터의 트래픽을 피하고 싶다면 반드시 다른 포트로 설정해주자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">New-NetNAT -Name <span style="color:#e6db74">&#34;NATNetwork&#34;</span> -InternalIPInterfaceAddressPrefix 10.0.2.0/24
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">New-NetNAT -Name <span style="color:#e6db74">&#34;NATNetwork&#34;</span> -InternalIPInterfaceAddressPrefix 10.0.2.0/24
      Add-NetNatStaticMapping -ExternalIPAddress <span style="color:#e6db74">&#34;0.0.0.0/24&#34;</span>
      -ExternalPort <span style="color:#ae81ff">22</span> -Protocol TCP -InternalIPAddress <span style="color:#e6db74">&#34;10.0.2.4&#34;</span>
      -InternalPort <span style="color:#ae81ff">22</span> -NatName KeyNATNetwork
@@ -132,13 +132,13 @@ KeyNATSwitch를 선택해준다.</p>
 <h2 id="aarch64-target-용-gdb-빌드">aarch64 target 용 gdb 빌드</h2>
 <p>먼저, gdb-10.1(<a href="https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz">https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz</a>)을 받은 뒤 압축을
 풀고, 맥에서 빌드시 문제가 되는 부분을 아래와 같이 수정해주자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi bfd/elf-bfd.h
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi bfd/elf-bfd.h
 
 <span style="color:#75715e">#define _LIBELF_H_ 1</span>
 +#include &lt;string.h&gt;
 </code></pre></div><p><code>&lt;string.h&gt;</code> 헤더파일을 추가해준 뒤, target만 지정해주고 컴파일해준다. 그리고
 마지막으로 빌드된 gdb 바이너리를 bin 디렉토리에 복사해준다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ /configure --disable-debug --disable-dependency-tracking --without-python --target<span style="color:#f92672">=</span>aarch64-linux-gnu --prefix<span style="color:#f92672">=</span>$HOME/xtools
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ /configure --disable-debug --disable-dependency-tracking --without-python --target<span style="color:#f92672">=</span>aarch64-linux-gnu --prefix<span style="color:#f92672">=</span>$HOME/xtools
 
 $ make <span style="color:#f92672">&amp;&amp;</span> make install
 $ cp $gdb-10.1/gdb/gdb $HOME/xtools/bin

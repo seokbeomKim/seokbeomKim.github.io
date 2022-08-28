@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
@@ -192,10 +192,10 @@
 <h2 id="rgb-to-yuv-변환">RGB-to-YUV 변환</h2>
 <p>YUV 데이터는 일반적으로 RGB 데이터를 변환하여 얻을 수 있으며, 일반적인 변환 공식은 아래와 같다. 변환 공식은 영상 출력에 사용하는 표준 또는 포맷에 따라 달라질 수 있다. <code>BT.601</code>의 경우 아래와 같다.</p>
 <p>$$
-W_R = 0.299, \\<br>
-W_G = 1 - W_R - W_B = 0.587, \\<br>
-W_B = 0.114,\\<br>
-U_{max} = 0.436,\\<br>
+W_R = 0.299, \\
+W_G = 1 - W_R - W_B = 0.587, \\
+W_B = 0.114,\\
+U_{max} = 0.436,\\
 V_{max} = 0.615$$</p>
 <p>이 때, RGB 채널 각각에 대한 가중치를 이용하여 Y, U, V 채널 값을 아래와 같이 구할 수 있다.</p>
 <p>$$Y' = W_RR + W_GG + W_BB = 0.299R + 0.587G + 0.114B,\\U = U_{max}((B - Y')/(1 - W_R)) =~ 0.492 (B - Y'),\\V=V_{max}(R-Y')/(1-W_R) = 0.877(R-Y')$$</p>

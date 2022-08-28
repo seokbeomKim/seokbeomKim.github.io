@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -97,7 +97,7 @@ inline 키워드는 사용도지 않았다. 컴파일러가 해당 코드를 삽
 <p>GCC 코드(<code>$gcc_root/gcc/sanitizer.def</code>)에는 커널에서 _<em>asan</em>* 형태로 정의해놓은
 심볼에 대해 <code>DEF_SANITIZER_BUILTIN</code> 이라는 매크로와 함께 아래와 같이
 정의해놓았다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD1, <span style="color:#e6db74">&#34;__asan_load1&#34;</span>,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD1, <span style="color:#e6db74">&#34;__asan_load1&#34;</span>,
 		      BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST)
 DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD2, <span style="color:#e6db74">&#34;__asan_load2&#34;</span>,
 		      BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST)
@@ -124,7 +124,7 @@ DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_STOREN, <span style="color:#e6db74">&#34;__a
 <code>gcc_root/gcc/sanopt.c</code> 경로에 <code>pass_sanopt::execute</code> 메서드로 아래와 같이 enum
 형태로 정의되어 있다. 호출 스택은 <code>pass_sanopt::execute</code> →
 <code>asan_expand_check_ifn</code> → <code>check_func</code> 으로 구성된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> tree
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> tree
 <span style="color:#a6e22e">check_func</span> (<span style="color:#66d9ef">bool</span> is_store, <span style="color:#66d9ef">bool</span> recover_p, HOST_WIDE_INT size_in_bytes,
 	    <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>nargs)
 {

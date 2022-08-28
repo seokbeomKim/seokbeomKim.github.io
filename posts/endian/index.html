@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -115,13 +115,13 @@ int main(void) {
 	int i;
 
 	for (i = 0; i &lt; 4; i++) {
-        fprintf(stdout, &quot;value[%d] = 0x%x\n&quot;, i, *ptr++);
+		fprintf(stdout, &quot;value[%d] = 0x%x\n&quot;, i, *ptr++);
 	}
 
 	unsigned long long value2 = 0x12345678abcdefab;
 	ptr = &amp;value2;
 	for (i = 0; i &lt; sizeof(value2); i++) {
-        fprintf(stdout, &quot;value2[%d] = 0x%x\n&quot;, i, *ptr++);
+		fprintf(stdout, &quot;value2[%d] = 0x%x\n&quot;, i, *ptr++);
 	}
 
 	return 0;

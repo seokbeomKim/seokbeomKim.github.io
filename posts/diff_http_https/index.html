@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -151,7 +151,7 @@ SSL이라는 용어를 혼용해서 사용하고 있다. 이 때문에 많은 �
 <h2 id="공개키public-key-cryptosystem와-대칭키symmetric-key-cryptosystem">공개키(Public-Key Cryptosystem)와 대칭키(Symmetric-Key Cryptosystem)</h2>
 <h3 id="대칭키symmetric-key-cryptosystem">대칭키(Symmetric-Key Cryptosystem)</h3>
 <p>암호를 만드는 행위인 암호화를 할 때 사용하는 비밀번호를 키(key)라고 한다. 이 키에 따라 암호화 결과가 달라지기 때문에 키를 정확하게 알지 않는 한 복호화가 불가능하다. 쉽게 설명하면 동일한 키로 암호화 또는 복호화를 할 수 있으므로 어떤 값을 암호화 할 때 1234라는 값을 사용했다면 복호화를 할 때도 1234라는 값을 입력해야 한다는 것이다. 아래는 이러한 공개키를 실제로 사용하는 예시이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ echo <span style="color:#e6db74">&#39;this is the plain text&#39;</span> &gt; plaintext.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ echo <span style="color:#e6db74">&#39;this is the plain text&#39;</span> &gt; plaintext.txt
 $ openssl enc -e -des3 -salt -in plaintext.txt -out ciphertext.bin
 enter des-ede3-cbc encryption password:
 Verifying - enter des-ede3-cbc encryption password:

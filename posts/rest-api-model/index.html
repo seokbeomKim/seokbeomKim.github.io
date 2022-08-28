@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -108,11 +108,11 @@
 <li>REST API는 <strong>리소스</strong>를 중심으로 디자인되며 클라이언트에서 액세스할 수 있는 모든 종류의 개체, 데이터 또는 서비스가 리소스에 포함된다.</li>
 <li>리소스마다 해당 리소스를 고유하게 식별하는 URI인 <strong>식별자</strong>가 있다. 예를 들어 특정 고객 주문의 URI는 아래와 같다.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">https://adventure-works.com/orders/1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">https://adventure-works.com/orders/1
 </code></pre></div><ul>
 <li>클라이언트가 리소스의 <strong>표현</strong>을 교환하여 서비스와 상호 작용한다. 많은 Web API가 교환 형식으로 JSON을 사용한다. 예를 들어 위에 나열된 URI에 대한 GET 요청은 아래의 응답을 반환할 수 있다.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;orderID&#34;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&#34;orderValue&#34;</span>:<span style="color:#ae81ff">99</span>, <span style="color:#f92672">&#34;productId&#34;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&#34;quantity&#34;</span>: <span style="color:#ae81ff">1</span>}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{<span style="color:#f92672">&#34;orderID&#34;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&#34;orderValue&#34;</span>:<span style="color:#ae81ff">99</span>, <span style="color:#f92672">&#34;productId&#34;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&#34;quantity&#34;</span>: <span style="color:#ae81ff">1</span>}
 </code></pre></div><ul>
 <li>
 <p>REST API는 균일한 인터페이스를 사용하므로 클라이언트와 서비스 구현을 분리하는데 도움이 된다. HTTP 기반의 REST API의 경우 리소스에 표준 HTTP 동사 수행 작업을 사용하는 것이 균일한 인터페이스에 포함된다. 가장 일반적인 작업은 GET, POST, PUT, PATCH, DELETE 등이다.</p>
@@ -124,7 +124,7 @@
 <p>REST API는 표현에 포함된 하이퍼미디어 링크에 따라 구동된다. 예를 들어 아래는 주문 요청을 JSON 형식으로 나타낸 것이다. 해당 요청에는 주문과 관련된 고객 정보를 가져오고 업데이트하는 링크를 포함하고 있다.</p>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;orderId&#34;</span>: <span style="color:#ae81ff">3</span>,
   <span style="color:#f92672">&#34;productId&#34;</span>: <span style="color:#ae81ff">2</span>,
   <span style="color:#f92672">&#34;quantity&#34;</span>: <span style="color:#ae81ff">4</span>,
@@ -144,7 +144,7 @@
 <p><img src="./images/RMM.png" alt="RMM" title="Richardson Maturity Model"></p>
 <h2 id="레벨-0">레벨 0</h2>
 <p>이 모델의 시작점은 웹 매커니즘은 전혀 사용하지 않고 HTTP를 단순히 원격 통신을 위한 전송 시스템으로 사용하는 것이다. 여기서는 원격 프로시저 호출(Remote Precedure Invocation)에 기반한 원격 통신 매커니즘을 위한 터널링 매커니즘으로서 HTTP를 사용하는 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">            |                             |
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">            |                             |
             |                             |
             o-----------------------------x AppointmentService
             | POST/OpenSlotRequest        |
@@ -163,7 +163,7 @@
 </code></pre></div><p>레벨 0 단계에서는 단순히 POX(Plain Old XML)을 주고 받는 단순한 RPC 스타일 시스템에 불과하다.</p>
 <h2 id="레벨-1-리소스-사용">레벨 1: 리소스 사용</h2>
 <p>이 단계는 리소스를 도입하는 것이다. 레벨 0에서처럼 모든 요청을 단일 서비스 엔드포인트로 보내는 것이 아니라 개별 리소스와 통신하도록 설계하는 단계이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">           |                                  |
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">           |                                  |
            |                                  |
            | POST/OpenSlotRequest             |
            O----------------------------------X doctors/mjones
@@ -181,19 +181,19 @@
            |          RESPONSE/Appointment    |
            |                                  |
 </code></pre></div><p>위 그림에서 첫 요청에서 해당 의사에 대한 리소스를 먼저 아래와 같이 POST로 요청하고 해당 결과 값을 받아올 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">POST</span> /doctors/mjones <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">POST</span> /doctors/mjones <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
 <span style="color:#960050;background-color:#1e0010">[various</span> <span style="color:#ae81ff">other headers]</span>
 
 &lt;OpenSlotRequest date=&#34;2018-01-01&#34; /&gt;
 </code></pre></div><p>이 때, 중요한 것은 응답은 같은 기본 정보를 제공하지만 각 시간대는 이제 개별적으로 어드레싱이 가능한 리소스라는 점이다. 의사 정보를 요청하는 것과 마찬가지로 예약은 특정 시간대로 요청을 보내는 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">POST</span> /slots/1234 <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">POST</span> /slots/1234 <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
 <span style="color:#960050;background-color:#1e0010">[various</span> <span style="color:#ae81ff">other headers]</span>
 
 &lt;RequestAppointment&gt;
     &lt;patient id=&#34;jsmith&#34; /&gt;
 &lt;/RequestAppointment&gt;
 </code></pre></div><p>여기에 문제가 없다면 아래와 같은 응답을 받을 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
 <span style="color:#960050;background-color:#1e0010">[various</span> <span style="color:#ae81ff">headers]</span>
 
 &lt;appointment&gt;
@@ -202,7 +202,7 @@
 &lt;/appointment&gt;
 </code></pre></div><h2 id="레벨-2-http-메서드-사용verbs">레벨 2: HTTP 메서드 사용(Verbs)</h2>
 <p>레벨 0, 레벨 1의 모든 통신에서 HTTP POST 메서드를 사용했지만 레벨 2에서는 HTTP 사용법에 가능한 가깝게 HTTP 메서드를 사용하여 API를 구현한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">
         |                                       |
         | GET/?date=20180101&amp;status=open        |
         o---------------------------------------x doctors/mjones/slots
@@ -221,7 +221,7 @@
 <h2 id="레벨-3-하이퍼미디어-컨트롤-도입">레벨 3: 하이퍼미디어 컨트롤 도입</h2>
 <p>마지막 레벨은 HATEOAS(Hypertext As The Engine Of Application state)라는 약어로 종종 언급되는 것을 도입하는 단계이다. 예시에 적용하여 설명하자면, 예약을 하기 위해 필요한 요청을, 가능한 시간대 목록을 가져오면서 알 수 있는 디자인 방법이다.</p>
 <p>먼저 아래의 다이어그램을 보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">        |                                       |
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">        |                                       |
         o---------------------------------------&gt; doctors/mjones/slots
         | GET ?date=20180101&amp;status=open        |
         |                                       |
@@ -240,10 +240,10 @@
         | Location: /slots/1234/appointment     |
         |                                       |
 </code></pre></div><p>레벨 2에서 보냈던 GET과 동일한 요청으로 시작한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">GET</span> /doctors/mjones/slots?date=20100104&amp;status=open <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a6e22e">GET</span> /doctors/mjones/slots?date=20100104&amp;status=open <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
 Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">royalhope.nhs.uk</span>
 </code></pre></div><p>하지만 여기에 대한 응답은 새로운 요소를 가진다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
 <span style="color:#960050;background-color:#1e0010">[various</span> <span style="color:#ae81ff">headers]</span>
 
 &lt;openSlotList&gt;

@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -105,14 +105,14 @@ Control Block이라고도 불린다. 프로세스의 전반적인 정보들을 �
 <ol>
 <li>
 <p>프로세스가 사용 중인 파일</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">files_struct</span> <span style="color:#f92672">*</span>files;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">files_struct</span> <span style="color:#f92672">*</span>files;
 </code></pre></div><p>파일 디스크립터 테이블을 포함한다. 이 정보는 태스크(프로세스를 커널
 내부에서는 Task라 일컫는다.) 간에 공유할 수 있으며 <code>CLONE_FILES</code>를
 이용해 특정할 수 있다.</p>
 </li>
 <li>
 <p>파일시스템 정보</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">fs_struct</span> <span style="color:#f92672">*</span>fs;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">fs_struct</span> <span style="color:#f92672">*</span>fs;
 </code></pre></div><p>처음 소스를 보자마자 이해하기 어려운 부분이었다. 어째서 프로세스가
 파일시스템 정보까지 가지고 있어야 하는가? 출처에서 이 부분은 아래와
 같이 설명하고 있다.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
@@ -127,14 +127,14 @@ Control Block이라고도 불린다. 프로세스의 전반적인 정보들을 �
 </li>
 <li>
 <p>대기 중인 시그널과 시그널 핸들러</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">signal_struct</span> <span style="color:#f92672">*</span>signal;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">signal_struct</span> <span style="color:#f92672">*</span>signal;
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">sighand_struct</span> <span style="color:#f92672">*</span>sighand;
 </code></pre></div><p>파일시스템 정보와 마찬가지로 <code>clone</code> 된 태스크들과 공유할 수 있는
 정보이며 <code>CLONE_SIGHAND</code>를 통해서 특정할 수 있다.</p>
 </li>
 <li>
 <p>프로세서 상태</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/* -1 unrunnable, 0 runnable, &gt;0 stopped */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/* -1 unrunnable, 0 runnable, &gt;0 stopped */</span>
 <span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">long</span> state;
 </code></pre></div><p>프로세스의 상태를 <code>volatile</code>이라는 키워드와 함께한 변수로 담고
 있으며 단순하게 unrunnable, runnable, stopped 등으로 구분하고
@@ -174,11 +174,11 @@ volatile이 여전히 필요하다면 대부분 코드 어딘가에 버그가 �
 <p>메모리 관리용 데이터 구조로서(객체라는 말은 사용하지 않겠다.)
 task_struct 안에는 해당 정보들을 받아올 수 있는 <code>mm_struct</code>를
 포함하고 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">mm_struct</span> <span style="color:#f92672">*</span>mm, <span style="color:#f92672">*</span>active_mm;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">mm_struct</span> <span style="color:#f92672">*</span>mm, <span style="color:#f92672">*</span>active_mm;
 </code></pre></div></li>
 <li>
 <p>실행 중인 하나 이상의 스레드 정보</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/* CPU-specific state of this task */</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/* CPU-specific state of this task */</span>
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">thread_struct</span> <span style="color:#66d9ef">thread</span>;
 </code></pre></div><p>역시 다른 정보들과 마찬가지로 thread에 대한 정보를 가지고
 있다. 리눅스에서는 프로세스와 스레드를 구분하지 않고 모두 스레드로

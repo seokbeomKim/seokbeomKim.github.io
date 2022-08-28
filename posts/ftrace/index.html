@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -111,7 +111,7 @@
 </ol>
 <h1 id="커널에서-ftrace-활성화하기">커널에서 ftrace 활성화하기</h1>
 <p><code>ftrace</code>를 사용하기 위해서는 관련된 설정 플래그를 활성화해줘야 한다.</p>
-<pre><code>CONFIG_FTRACE=y
+<pre tabindex="0"><code>CONFIG_FTRACE=y
 CONFIG_DYNAMIC_FTRACE=y
 CONFIG_FUNCTION_TRACER=y
 CONFIG_FUNCTION_GRAPH_TRACER=y
@@ -125,12 +125,12 @@ CONFIG_TRACER_SNAPSHOT=y
 시스템에서도 사용 가능하다.</p>
 <p>커널 2.6.28 버전부터 포함된 기본 기능으로서 아래와 같이 <code>debugfs</code>를
 마운트 시켜서 사용할 수 있다.</p>
-<pre><code>mount -t debugfs nodev /sys/kernel/debug
+<pre tabindex="0"><code>mount -t debugfs nodev /sys/kernel/debug
 </code></pre><h1 id="ftracer-설정-방법"><code>ftracer</code> 설정 방법</h1>
 <p>아래와 같이 셸 스크립트를 이용하여 설정도 가능하지만 기본적으로는
 <code>sysfs</code>를 이용하여 설정을 한다. 설정 시나리오는 tracer를 OFF 한 뒤에
 옵션들을 설정해주고 다시 ON하는 방식으로 설정한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>
 echo <span style="color:#ae81ff">0</span> &gt; /sys/kernel/debug/tracing/tracing_on
 sleep <span style="color:#ae81ff">1</span>
@@ -184,13 +184,13 @@ echo <span style="color:#e6db74">&#34;events disabled&#34;</span>
 <h2 id="커널-함수-추적하기">커널 함수 추적하기</h2>
 <p>커널 함수들이 호출되는 과정을 살펴본다. 우선 tracing 디렉토리로
 이동해서 추적할 수 있는 항목들을 알아보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tracing $ cat available_tracers
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tracing $ cat available_tracers
 blk kmemtrace function_graph wakeup_rt wakeup <span style="color:#66d9ef">function</span> sysprof sched_switch initcall nop
 
 tracing $ echo <span style="color:#66d9ef">function</span> &gt; ./current_tracer
 </code></pre></div><p>위에서처럼 tracer의 모드를 설정한 후 <code>vi</code>로 trace 파일을 열어보면
 아래와 같은 내용을 볼 수 있다.</p>
-<pre><code># tracer: function
+<pre tabindex="0"><code># tracer: function
 #
 #           TASK-PID    CPU#    TIMESTAMP  FUNCTION
 #              | |       |          |         |
@@ -202,7 +202,7 @@ tracing $ echo <span style="color:#66d9ef">function</span> &gt; ./current_tracer
             sshd-15219 [000] 159421.106066: fget_light &lt;-do_select
             sshd-15219 [000] 159421.106066: pipe_poll &lt;-do_select
 </code></pre><p>또한, 프로세스 별로 호출하고 있는 커널 함수를 직접 살펴볼 수도 있다.</p>
-<pre><code>[root@server tracing]# echo function_graph &gt; ./current_tracer
+<pre tabindex="0"><code>[root@server tracing]# echo function_graph &gt; ./current_tracer
 
  0)               |    do_vfs_ioctl() {
  0)               |      vfs_ioctl() {

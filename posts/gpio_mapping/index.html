@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -107,7 +107,7 @@
 <li>gpio2 controller는 cell 1개를 사용하여 디바이스 드라이버가 인자 1개를 받아 처리한다.</li>
 <li>지정되지 않는 경우 2 cell 방식을 사용한다.</li>
 </ul>
-<pre><code>gpio1: gpio1 {
+<pre tabindex="0"><code>gpio1: gpio1 {
     gpio-controller;
     #gpio-cells = &lt;2&gt;;
 };
@@ -121,7 +121,7 @@ data-gpios = &lt;&amp;gpio1 12 0&gt;, &lt;&amp;gpio1 13 0&gt;, &lt;&amp;gpio1 14
 </code></pre><h2 id="pin-control-subsystem과의-연동">Pin control subsystem과의 연동</h2>
 <p><code>pin control subsystem</code>과의 연동은 gpio controller 노드에서 &ldquo;gpio-ranges&rdquo; 속성을 사용한다.
 &ldquo;gpio-ranges&rdquo; 속성이 가리키는 phandle은 연계된 pin controller 노드를 가리켜야 한다. 그리고 1~3개의 인자를 사용할 수 있으며, 배열 사용을 지원한다.</p>
-<pre><code>iomux: iomux@FF10601c {
+<pre tabindex="0"><code>iomux: iomux@FF10601c {
         compatible = &quot;abilis,tb10x-iomux&quot;;
         reg = &lt;0xFF10601c 0x4&gt;;
         pctl_gpio_a: pctl-gpio-a {
@@ -152,7 +152,7 @@ gpioa: gpio@FF140000 {
 };
 </code></pre><h1 id="acpi-펌웨어를-사용하는-gpio-매핑">ACPI 펌웨어를 사용하는 GPIO 매핑</h1>
 <p>디바이스 트리를 사용하는 방법과 유사하게 ACPI 디스크립션을 사용하는 방법이 있다. ACPI 5.1에서 소개된 [[[_DSD (Device Specific Data)|https://www.kernel.org/doc/Documentation/acpi/gpio-properties.txt]]를 참고한다.</p>
-<pre><code>Device (FOO) {
+<pre tabindex="0"><code>Device (FOO) {
     Name (_CRS, ResourceTemplate () {
         GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
             &quot;\\_SB.GPI0&quot;) {15} // red
@@ -184,10 +184,10 @@ gpioa: gpio@FF140000 {
 }
 </code></pre><h1 id="platform-데이터에-gpio-맵핑-deprecated">Platform 데이터에 GPIO 맵핑 (deprecated)</h1>
 <p>일부 시스템에서 아래의 매크로 함수, API를 사용하여 플랫폼 데이터에 저장한 후, 이를 lookup 하여 사용하는데 지금은 사용하지 않는 방법이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">GPIO_LOOKUP(chip_label, chip_hwnum, con_id, flag)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">GPIO_LOOKUP(chip_label, chip_hwnum, con_id, flag)
 GPIO_LOOKUP_IDX(chip_label, chip_hwnum, con_id, idx, flags)
 </code></pre></div><p>아래와 같이 GPIO Lookup Table을 정의한 후에 아래와 같이 사용할 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">gpiod_lookup_table</span> gpios_table <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">gpiod_lookup_table</span> gpios_table <span style="color:#f92672">=</span> {
     .dev_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;foo.0&#34;</span>,
     .table <span style="color:#f92672">=</span> {
         GPIO_LOOKUP_IDX(<span style="color:#e6db74">&#34;gpio.0&#34;</span>, <span style="color:#ae81ff">15</span>, <span style="color:#e6db74">&#34;led&#34;</span>, <span style="color:#ae81ff">0</span>, GPIO_ACTIVE_HIGH),

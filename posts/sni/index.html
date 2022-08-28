@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -90,7 +90,7 @@
 <h2 id="서버에서-sni-설정-방법예시-apache-사용">서버에서 SNI 설정 방법(예시. Apache 사용)</h2>
 <p>SNI 설정을 위해서는 두 가지 방법이 있다. (설정 파일 변경 방법)</p>
 <p>첫 번째는 하나의 가상 호스트만 정의하고 나머지는 SSLSNIMap을 통해 호스트 이름과 인증서 레이블을 맵핑하는 방법이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#f92672">&lt;virtualhost</span> <span style="color:#e6db74">*:443</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#f92672">&lt;virtualhost</span> <span style="color:#e6db74">*:443</span><span style="color:#f92672">&gt;</span>
   ServerName example.com
   SSLEnable SNI
   SSLServerCert default
@@ -99,7 +99,7 @@
   SSLSNIMap b.example.com sni2
 <span style="color:#f92672">&lt;/virtualhost&gt;</span>
 </code></pre></div><p>두 번째는 가상호스트에 맵핑할 호스트명과 인증서 레이블을 각각 나누어 명시해주는 방법이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#f92672">&lt;virtualhost</span> <span style="color:#e6db74">*:443</span><span style="color:#f92672">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#f92672">&lt;virtualhost</span> <span style="color:#e6db74">*:443</span><span style="color:#f92672">&gt;</span>
   ServerName example.com
   SSLEnable SNI
 <span style="color:#f92672">&lt;/virtualhost&gt;</span>
@@ -115,7 +115,7 @@
   SSLServerCert sni2
 <span style="color:#f92672">&lt;/virtualhost&gt;</span>
 </code></pre></div><h2 id="실제-sni-패킷">실제 SNI 패킷</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> good_data_2[] <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> good_data_2[] <span style="color:#f92672">=</span> {
     <span style="color:#75715e">// TLS record
 </span><span style="color:#75715e"></span>    <span style="color:#ae81ff">0x16</span>, <span style="color:#75715e">// Content Type: Handshake
 </span><span style="color:#75715e"></span>    <span style="color:#ae81ff">0x03</span>, <span style="color:#ae81ff">0x01</span>, <span style="color:#75715e">// Version: TLS 1.0

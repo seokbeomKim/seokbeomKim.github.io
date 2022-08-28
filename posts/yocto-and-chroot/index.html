@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -93,7 +93,7 @@
 <p>한 가지 중요한 것은 우분투의 경우 각 버전마다 빌드 환경이 다르고, Yocto의 경우
 이러한 빌드 환경에 의존성을 가지고 있다는 것이다. 처음 Ubuntu 21.10 버전에서
 레시피를 빌드했을 때 아래와 같은 에러 메시지에 맞딱드렸다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">In file included from ../include/QtCore/qfloat16.h:1,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">In file included from ../include/QtCore/qfloat16.h:1,
 	from ../include/QtCore/../../../git/src/corelib/global/qendian.h:44,
 	from ../include/QtCore/qendian.h:1,
 	from /home/sukbeom/Workspace/AGL/build/tmp/work/x86_64-linux/qtbase-native/5.14.2+gitAUTOINC+3a6d8df521-r0/git/src/corelib/codecs/qutfcodec.cpp:43:
@@ -124,7 +124,7 @@ chroot을 위한 fakeroot 환경을 구성해주면 된다. 다행이도 우분�
 때 중요한 것은 focal 대신에 다른 릴리즈된 이름으로 변경 가능하다는 점이다.
 <a href="https://wiki.ubuntu.com/Releases">https://wiki.ubuntu.com/Releases</a> 페이지를 참고하여 변경하고자 하는 우분투
 버전으로 임시 시스템 환경을 구성한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo debootstrap --variant<span style="color:#f92672">=</span>buildd focal AGL-chroot
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo debootstrap --variant<span style="color:#f92672">=</span>buildd focal AGL-chroot
 $ sudo mount -t proc /proc AGL-chroot/proc
 $ sudo mount --rbind /sys/ AGL-chroot/sys
 $ sudo mount --rbind /dev AGL-chroot/dev
@@ -132,14 +132,14 @@ $ sudo chroot AGL-chroot /bin/bash
 </code></pre></div><p><strong>sources.list 수정하기</strong></p>
 <p>chroot 환경에서 필요한 build 패키지들을 설치하기 위해 아래와 같이 sources.list
 를 변경한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ root@sukbeom-P65-67HSHP:~# vi /etc/apt/sources.list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ root@sukbeom-P65-67HSHP:~# vi /etc/apt/sources.list
 deb http://ftp.daum.net/ubuntu focal main
 deb http://ftp.daum.net/ubuntu/ focal universe
 </code></pre></div><p><strong>builduser 생성하기</strong></p>
 <p>일반적으로 yocto 에서는 root 유저는 빌드할 수 없다. (sanity.conf 에서 수정할
 수는 있지만 기본값대로 진행하기 위해 사용자를 별도로 생성하였다.) 이를 위해
 builduser 를 아래와 같이 생성해주자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ useradd builduser
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ useradd builduser
 $ mkdir -p /home/builduser <span style="color:#f92672">&amp;&amp;</span> chown -R builduser:builduser /home/builduser
 $ su - builduser
 </code></pre></div><h1 id="마무리">마무리</h1>

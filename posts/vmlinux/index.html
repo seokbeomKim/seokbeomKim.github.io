@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -88,7 +88,7 @@
     <p>커널 패닉 정보를 바탕으로 패닉이 정확히 어디서 발생했는지를 알아내기 위해 vmlinux 파일을 이용하는 방법을 알게 되었다. <code>addr2line</code> 명령어를 이용하여 PC 또는 LR에 들어있던 주소를 이용하여 실행된 명령어가 코드상으로 어디에 위치했는지를 알아내는 것인데 어떤 이유로 디버깅이 가능한지 궁금했기에 이 포스팅에서는 addr2line을 이용한 커널패닉 분석 방법과 vmlinux에 관련된 파일 종류에 대해 간단히 언급하고자 한다.</p>
 <h2 id="커널-패닉-메시지-분석하기">커널 패닉 메시지 분석하기</h2>
 <p>출처로 명시된 페이지에서 기술되어 있듯 아래와 같은 커널 패닉 메시지가 나왔다고 가정했을 때 <code>addr2line</code> 명령어와 <code>vmlinux</code> 파일을 이용해 실행 위치를 알아낼 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[    0.167728] BUG: unable to handle kernel NULL pointer dereference at 0000000000000050
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[    0.167728] BUG: unable to handle kernel NULL pointer dereference at 0000000000000050
 [    0.167733] IP: [&lt;ffffffff810b6fda&gt;] task_tick_fair+0xea/0x9e0
 [    0.167734] PGD 0
 [    0.167736] Oops: 0000 [#1] SMP
@@ -144,7 +144,7 @@
 [    0.477095] ---[ end Kernel panic - not syncing: Fatal exception in interrupt
 
 </code></pre></div><p>여기서는 X86 계열의 명령어가 보이므로 IP(Instruction Pointer)에 저장된 주소를 이용해야 한다. <code>IP</code>가 나타내고 있는 주소값을 이용하여 아래와 같이 명령어를 이용하면 코드 레벨에서 어느 위치를 실행하고 있었는지를 단번에 알아낼 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">addr2line -e vmlinux ffffffff810b6fda
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">addr2line -e vmlinux ffffffff810b6fda
 /home/xpenguin/groupamp/linux-4.6.4/kernel/sched/fair.c:3705
 </code></pre></div><p>그렇다면, vmlinux 파일이 무엇이길래 이러한 디버깅이 가능한 것일까? 여기에 대해 간단하게 명시된 스택오버플로우 페이지가 있었다. 출처로써 명시하기에는 민망하지만, vmlinux 관련 포맷에 대해 간략하게 설명되어 있기에 출처로써 작성하였다.</p>
 <ul>

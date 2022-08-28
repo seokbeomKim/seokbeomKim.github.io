@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -100,14 +100,14 @@
 <li>네트워크 설정
 &lsquo;제어판 - 네트워크 및 인터넷 - 네트워크 설정&rsquo; 에서 내부 가상 스위치의 속성으로 들어가 고정아이피를 직접 할당한다. 아래는 직접 사용한 설정 정보이다.</li>
 </ol>
-<pre><code>IP: 192.168.137.1
+<pre tabindex="0"><code>IP: 192.168.137.1
 subnet mask: 255.255.255.0
 </code></pre><p>스위치에 대한 네트워크 설정을 마쳤으면 이더넷 또는 와이파이 어댑터의 속성에서 공유 탭의 &lsquo;인터넷 연결 공유&rsquo;에 &lsquo;다른 네트워크 사용자가 이 컴퓨터의 인터넷 연결을 통해 연결할 수 있도록 허용&rsquo; 옵션을 활성화해준다.</p>
 <ol start="3">
 <li>가상머신에서 네트워크 설정
 이제 거의 끝났다. 가상머신에서 직접 아래와 같이 네트워크 설정을 해준다. 위에서 설정한 스위치 아이피를 gateway로 설정하고 원하는 고정아이피로 설정하면 끝이다.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ifconfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ifconfig
 eth0: flags<span style="color:#f92672">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span style="color:#ae81ff">1500</span>
         inet 192.168.137.10  netmask 255.255.255.0  broadcast 192.168.137.255
         inet6 fe80::87d1:e5b6:b588:1e48  prefixlen <span style="color:#ae81ff">64</span>  scopeid 0x20&lt;link&gt;

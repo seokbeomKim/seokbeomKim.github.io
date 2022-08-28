@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -101,7 +101,7 @@
 사용하는 시스템이라면 젠투 쪽의 위키페이지를 참고하기를 바란다.</p>
 <p>먼저 <code>~/.config/systemd/user/emacs.service</code> 파일을 아래와 같이
 생성한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Unit<span style="color:#f92672">]</span>
 Description<span style="color:#f92672">=</span>Emacs text editor
 Documentation<span style="color:#f92672">=</span>info:emacs man:emacs<span style="color:#f92672">(</span>1<span style="color:#f92672">)</span> https://gnu.org/software/emacs/
 
@@ -115,14 +115,14 @@ Restart<span style="color:#f92672">=</span>on-failure
 <span style="color:#f92672">[</span>Install<span style="color:#f92672">]</span>
 WantedBy<span style="color:#f92672">=</span>default.target
 </code></pre></div><p>그 뒤, <code>systemctl</code> 명령어를 이용해 해당 서비스를 활성화한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl enable --user emacs
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl enable --user emacs
 systemctl disable --user emacs
 </code></pre></div><h1 id="gnome-application-아이템-조정하기">gnome application 아이템 조정하기</h1>
 <p>gnome에서 파일을 열 때 <code>mime type</code>에 따라 기본으로 열기 위한
 애플리케이션을 미리 정의해놓는다. 아래와 같이
 <code>/usr/share/applications/emacs.desktop</code> 파일을 열어서 <code>emacsclient</code>를
 이용하도록 설정한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Desktop Entry<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Desktop Entry<span style="color:#f92672">]</span>
 Name<span style="color:#f92672">=</span>Emacs
 GenericName<span style="color:#f92672">=</span>Text Editor
 Comment<span style="color:#f92672">=</span>Edit text

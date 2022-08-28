@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -113,9 +113,9 @@ unsigned long data;           // The parameter func is started with
 <p>태스크릿은 아래의 매크로를 이용하거나 init 함수를 사용하여 초기화한다.</p>
 <p>extern void tasklet_init(struct tasklet_struct *t,
 void (*func)(unsigned long), unsigned long data);</p>
-<p>#define DECLARE_TASKLET(name, func, data)<br>
+<p>#define DECLARE_TASKLET(name, func, data) <br>
 struct tasklet_struct name = { NULL, 0, ATOMIC_INIT(0), func, data }</p>
-<p>#define DECLARE_TASKLET_DISABLED(name, func, data)<br>
+<p>#define DECLARE_TASKLET_DISABLED(name, func, data) <br>
 struct tasklet_struct name = { NULL, 0, ATOMIC_INIT(1), func, data }</p>
 <p>태스크릿은 우선순위에 따라 단방향 링크드 리스트로 구성된 큐에 삽입되며
 해당 큐는 각 CPU별로 할당된다.</p>

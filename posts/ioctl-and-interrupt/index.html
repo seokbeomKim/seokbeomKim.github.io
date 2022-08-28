@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -92,7 +92,7 @@
 <p>ioctl 시스템 호출이 일어나면 user-mode에서의 컨텍스트는 kernel-mode 컨텍스트로 진입하게 된다. 하지만 커널 모드에서 스핀락을 holding 하고 있는 경우 컨텍스트 스위칭은 일어날 수 없는데, 이유는 스핀락 자체가 preemption을 막기 때문이다.</p>
 </li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">__raw_spin_lock</span>(raw_spinlock_t <span style="color:#f92672">*</span>lock)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">__raw_spin_lock</span>(raw_spinlock_t <span style="color:#f92672">*</span>lock)
 {
     preempt_disable();
     spin_acquire(<span style="color:#f92672">&amp;</span>lock<span style="color:#f92672">-&gt;</span>dep_map, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, _RET_IP_);
