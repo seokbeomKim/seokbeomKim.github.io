@@ -95,9 +95,9 @@
   
   <section id="js-article" class="p-article__body">
     <h2 id="개요">개요</h2>
-<p>회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여
-정적분석을 하는 도중, <code>strcpy</code> 에 대한 warning 을 어떻게 처리할까 고민하다가
-한달 쯤 전에 LWN 에서 <a href="https://lwn.net/Articles/905777/">Ushering out strlcpy()</a>
+<p>한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을
+이용하여 정적분석을 하는 도중, <code>strcpy</code> 에 대한 warning 을 어떻게 처리할까
+고민하다가 LWN 에서 <a href="https://lwn.net/Articles/905777/">Ushering out strlcpy()</a>
 라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고
 했는데 이제서야 겨우 정리할 수 있게 되었다.</p>
 <p>리눅스 커널에서 문자열 복사를 위해 만들어진 매크로들은 다양하다. 몇 개의
