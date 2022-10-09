@@ -63,6 +63,28 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/">Mac에서 GDB 이용한 커널 해킹하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-02-20T02:43:54&#43;09:00">
+        Feb 20, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
+(gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&#39;m sorry, Dave, I can&#39;t do that. Symbol format `elf64-littleaarch64&#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/sysrq/">sysrq 이용한 커널 패닉 발생시키기</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -145,29 +167,6 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/poll-and-poll_wait/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/">MICOM과 MPU</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-03-08T23:30:44&#43;09:00">
-        Mar 8, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
-마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
-본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &ldquo;Adv&quot;는 Advanced Topic의 줄임말로서 사용한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/micom-vs-mpu/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

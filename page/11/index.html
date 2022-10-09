@@ -63,6 +63,28 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/">이맥스 기본 에디터로 사용하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-02-09T03:09:59Z">
+        Feb 9, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
+데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/emacs-as-default-editor/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/ftrace/">ftrace 이용한 커널 디버깅</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -143,28 +165,6 @@ ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/yocto-and-chroot/">Chroot 환경을 이용한 Yocto 환경 구성</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-01T23:27:45&#43;09:00">
-        Feb 1, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    우분투 버전과 Yocto 버전 AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다. 개인적으로 Rolling Release 배포판인 아치리눅스나 젠투 리눅스들을 선호하지만 사용자가 많고 프로젝트 대부분에서 데비안 타입의 패키징을 지원하므로, 익숙한 우분투를 사용하기로 했다.
-한 가지 중요한 것은 우분투의 경우 각 버전마다 빌드 환경이 다르고, Yocto의 경우 이러한 빌드 환경에 의존성을 가지고 있다는 것이다. 처음 Ubuntu 21.10 버전에서 레시피를 빌드했을 때 아래와 같은 에러 메시지에 맞딱드렸다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/yocto-and-chroot/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/strscpy/">strcpy</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-10-09T14:00:05&#43;09:00">
+        Oct 9, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 한달 쯤 전에 LWN 에서 Ushering out strlcpy() 라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고 했는데 이제서야 겨우 정리할 수 있게 되었다.
+리눅스 커널에서 문자열 복사를 위해 만들어진 매크로들은 다양하다. 몇 개의 시리즈(?)가 있는데 정리해보면 다음과 같다.
+ strcpy strncpy strlcpy strscpy  strcpy strcpy를 나타내면 아래와 같이 간단하다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/strscpy/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/file-close-on-exit/">프로세스 종료와 파일 디스크립터</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -142,28 +165,6 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/is_constexpr/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/">Mac에서 GDB 이용한 커널 해킹하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-02-20T02:43:54&#43;09:00">
-        Feb 20, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
-(gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&#39;m sorry, Dave, I can&#39;t do that. Symbol format `elf64-littleaarch64&#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

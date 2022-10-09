@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/">컴파일 타임에 매크로 변수 값 확인하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-10-16T02:19:05&#43;09:00">
+        Oct 16, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기 위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한 변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.
+그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma 와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.
+
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/kasan-with-gcc/">커널의 KASAN 코드가 삽입되는 방법</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -143,29 +166,6 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/is_constexpr/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/state-vs-status/">state vs status</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-02-28T12:27:08&#43;09:00">
-        Feb 28, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state” or “status”? When should a variable name contain the word “state”, and when should a variable name instead contain the word “status”? 스택오버플로우에 이미 관련된 질문이 올라와 있었다.
-둘의 차이점은 간단 명료하게 아래와 같이 정리할 수 있다.
- status: 결과 (success/fail); &ldquo;마지막 상태&rdquo; state: 상태 (pending/dispatched)  앞으로는 둘을 잘 구분해서 사용해야겠다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/state-vs-status/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

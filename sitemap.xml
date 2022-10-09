@@ -3,21 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/tags/file-descriptor/</loc>
-    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
-    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/tags/strcpy/</loc>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/posts/strscpy/</loc>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/tags/strlcpy/</loc>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/tags/strscpy/</loc>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/</loc>
-    <lastmod>2022-05-10T00:03:20+09:00</lastmod>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/tags/file-descriptor/</loc>
     <lastmod>2022-05-10T00:03:20+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/posts/file-close-on-exit/</loc>
