@@ -63,6 +63,30 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wsl-customize-resource/">WSL 리소스 조정하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-11-28T23:00:00&#43;09:00">
+        Nov 28, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    개요 커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한 내용은 다른 블로그에서도 동일하게 재현되고 있었다.
+위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.
+WSL 리소스 설정 먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.
+PS C:\Windows\system32&gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 PS C:\Windows\system32&gt; wsl -t Ubuntu --shutdown PS C:\Windows\system32&gt; PS C:\Windows\system32&gt; wsl -l -v NAME STATE VERSION * Ubuntu Stopped 2 종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/wsl-customize-resource/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/coc/">리누즈게이트와 CoC</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -143,28 +167,6 @@ mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신,
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/raspberry-pi-sub-projects/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/wayland/">Wayland과 Weston</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-02-03T23:17:11&#43;09:00">
-        Feb 3, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을 맞추고 gnome이나 kde, xfce가 아닌 fluxbox, blackbox, i3, xmonad, enlightenment 등을 이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서 사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도 몰랐다.
-이번 포스팅에서는 사내 위키의 내용을 출처로 하여, wayland, weston에 대한 구조를 살펴보고 클라이언트 예제를 기술하고자 한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/wayland/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

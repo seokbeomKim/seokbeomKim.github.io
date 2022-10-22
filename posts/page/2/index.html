@@ -63,6 +63,29 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/stack-protector/">Stack Protector와 디버깅 이야기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2022-02-03T15:00:45&#43;09:00">
+        Feb 3, 2022
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.
+하지만 이슈가 마무리 되고 Stack Protector 가 어떤 원리로 동작하는지 궁금했고 설 연휴를 맞아 자세하게 정리할 수 있었다. 그 과정에서 우분투에 잘못된 버그 리포트 티켓을 만들어내긴 했지만 말이다.
+Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-protector-strong 옵션을 통해 활성화할 수 있고 -fno-stack-protector 옵션으로 비활성화 할 수 있다.
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/stack-protector/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/">컴파일 타임에 매크로 변수 값 확인하기</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -143,29 +166,6 @@ KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 �
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/is_constexpr/">__is_constexpr macro in kernel</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2021-03-21T22:44:03&#43;09:00">
-        Mar 21, 2021
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.
-That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.
-#define __is_constexpr(x)	\ (sizeof(int) == sizeof(*(8 ?
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/is_constexpr/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 

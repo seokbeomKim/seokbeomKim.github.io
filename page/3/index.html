@@ -63,6 +63,29 @@
   
   <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/is_constexpr/">__is_constexpr macro in kernel</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2021-03-21T22:44:03&#43;09:00">
+        Mar 21, 2021
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.
+That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.
+#define __is_constexpr(x)	\ (sizeof(int) == sizeof(*(8 ?
+  </div>
+  
+  <a href="https://seokbeomKim.github.io/posts/is_constexpr/" class="c-article__btn p-list-article__btn">Read more</a>
+  
+</article>
+
+
+  
+    
+  <article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/state-vs-status/">state vs status</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -144,27 +167,6 @@
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-  
-    
-  <article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/python-on-mac-with-brew/">Homebrew python 설치하기</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-12-29T23:35:55&#43;09:00">
-        Dec 29, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로 확장 라이브러리를 설치해도 찾지 못하는 경우이다. 문제가 발생할 때 파이썬의 경로를 살펴보면, `/usr/bin/python3' 등으로 /usr/bin 아래에 놓여있는 것을 알 수 있다.
-이러한 경우, 아래와 같이 brew 명령어를 통해 다시 심볼릭 링크를 재정의해주자.
-brew link python@3.9 
-  </div>
   
 </article>
 

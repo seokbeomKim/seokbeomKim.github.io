@@ -3,12 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://seokbeomKim.github.io/categories/</loc>
-    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
+    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
-    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
+    <loc>https://seokbeomKim.github.io/categories/etc/</loc>
+    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/posts/</loc>
+    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/tags/</loc>
+    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/posts/health/</loc>
+    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/tags/%EB%82%9C%EC%B2%AD/</loc>
+    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/</loc>
+    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomKim.github.io/categories/kernel/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/strcpy/</loc>
@@ -21,12 +36,6 @@
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/strscpy/</loc>
-    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/tags/</loc>
-    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/file-descriptor/</loc>
@@ -118,9 +127,6 @@
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/c/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomKim.github.io/categories/etc/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomKim.github.io/tags/state/</loc>
     <lastmod>2021-02-28T12:27:08+09:00</lastmod>

@@ -63,6 +63,27 @@
 
 <article class="c-article p-list-article">
   <header>
+    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/python-on-mac-with-brew/">Homebrew python 설치하기</a></h2>
+    <p class="c-article__meta">
+      Posted on
+      <time datetime="2020-12-29T23:35:55&#43;09:00">
+        Dec 29, 2020
+      </time>
+    </p>
+  </header>
+  <div class="c-article__summary">
+    Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로 확장 라이브러리를 설치해도 찾지 못하는 경우이다. 문제가 발생할 때 파이썬의 경로를 살펴보면, `/usr/bin/python3' 등으로 /usr/bin 아래에 놓여있는 것을 알 수 있다.
+이러한 경우, 아래와 같이 brew 명령어를 통해 다시 심볼릭 링크를 재정의해주자.
+brew link python@3.9 
+  </div>
+  
+</article>
+
+
+
+
+<article class="c-article p-list-article">
+  <header>
     <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/uuid-compatibility-on-mac-os/">리눅스 커널 빌드 시 맥 O/S uuid_t 호환성</a></h2>
     <p class="c-article__meta">
       Posted on
@@ -147,29 +168,6 @@ PS C:\Windows\system32&gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 PS C:
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/wsl-customize-resource/" class="c-article__btn p-list-article__btn">Read more</a>
-  
-</article>
-
-
-
-
-<article class="c-article p-list-article">
-  <header>
-    <h2 class="c-title c-article__title"><a href="https://seokbeomKim.github.io/posts/a-structure-of-cacheline/">캐시라인(cache-line) 구조 #2</a></h2>
-    <p class="c-article__meta">
-      Posted on
-      <time datetime="2020-09-13T21:30:10&#43;09:00">
-        Sep 13, 2020
-      </time>
-    </p>
-  </header>
-  <div class="c-article__summary">
-    개요 &laquo;코드로 알아보는 ARM 리눅스 커널&raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
-캐시 구조 캐시에 관련된 주요 용어는 아래와 같다.
- 태그 캐시라인 인덱스 웨이와 세트  태그 태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.
-  </div>
-  
-  <a href="https://seokbeomKim.github.io/posts/a-structure-of-cacheline/" class="c-article__btn p-list-article__btn">Read more</a>
   
 </article>
 
