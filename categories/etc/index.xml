@@ -6,7 +6,19 @@
     <description>Recent content in Etc on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Oct 2022 17:00:05 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/etc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/etc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>노션보다 더 나은 obsidian</title>
+      <link>https://seokbeomKim.github.io/posts/obsidian/</link>
+      <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/obsidian/</guid>
+      <description>Notion에서 Obsidian으로 갈아타기
+요즘에 많은 사람들이 노션을 사용한다. 이력서나 개인 위키, 심지어 업무 협업툴로써 사용한다. 필자는 개인 위키 용도로 노션을 1년 정도 넘게 사용했다. 그 전에 사용해오던 이맥스의 org나 dokuwiki와 달리 별도의 서버 관리도 필요하지 않고 인터페이스도 미려했다. 애플리케이션까지 제공돼 매우 편리했다. 또한 기존 도구들이 가지고 있던 고질적인 문제였던 기기 간의 동기화 문제를 해결해 주었다.
+하지만 노션에는 몇 가지 단점이 있다.
+첫 번째는 확장성이 떨어진다. 여러 기능들이 추가되는 것 같기는 하지만 유저들이 직접 개발해서 사용할 수 없다.</description>
+    </item>
+    
     <item>
       <title>급성 저음성 난청</title>
       <link>https://seokbeomKim.github.io/posts/health/</link>
