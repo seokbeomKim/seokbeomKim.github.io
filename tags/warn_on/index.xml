@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WARN_ON on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/warn_on/</link>
+    <link>https://localhost:1313/tags/warn_on/</link>
     <description>Recent content in WARN_ON on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Feb 2020 00:12:34 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/warn_on/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Feb 2020 00:12:34 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/warn_on/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>WARN_ON, BUG_ON 매크로</title>
-      <link>https://seokbeomKim.github.io/posts/warn_on-and-bug_on/</link>
+      <link>https://localhost:1313/posts/warn_on-and-bug_on/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/warn_on-and-bug_on/</guid>
+      <guid>https://localhost:1313/posts/warn_on-and-bug_on/</guid>
       <description>개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
 이 글에서는 BUG_ON, WARN_ON 등 커널에서 제공하는 assertion에 해당하는 매크로가 어떤 것들이 있는지 살펴보고 어떤 경우에 사용해야 하는지에 대해 간략히 정리하고자 한다. 이 외에 커널에서는 dump_stack(), save_stack_trace(), dump_trace(), backtrace() 등의 콜 스택 출력 방법을 제공한다.</description>
     </item>

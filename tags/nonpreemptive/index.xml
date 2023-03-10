@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nonpreemptive on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/nonpreemptive/</link>
+    <link>https://localhost:1313/tags/nonpreemptive/</link>
     <description>Recent content in nonpreemptive on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 May 2019 18:44:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/nonpreemptive/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 May 2019 18:44:06 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/nonpreemptive/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>비선점 스케쥴링(Nonpreemptive Scheduling)</title>
-      <link>https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</link>
+      <link>https://localhost:1313/posts/nonpreemptive_scheduling/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</guid>
+      <guid>https://localhost:1313/posts/nonpreemptive_scheduling/</guid>
       <description>비선점 스케쥴링(Non-preemptive Scheduling) 비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록 허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가 생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로 프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을 적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.
 설명하기 전에 프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의 프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫 번째이다.</description>
     </item>

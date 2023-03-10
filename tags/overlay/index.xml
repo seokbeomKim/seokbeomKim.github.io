@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>overlay on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/overlay/</link>
+    <link>https://localhost:1313/tags/overlay/</link>
     <description>Recent content in overlay on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 May 2022 01:37:45 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/overlay/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 01:37:45 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/overlay/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Device Tree Overlay</title>
-      <link>https://seokbeomKim.github.io/posts/dtbo/</link>
+      <link>https://localhost:1313/posts/dtbo/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/dtbo/</guid>
+      <guid>https://localhost:1313/posts/dtbo/</guid>
       <description>Ramoops 덕분에 알게된 오버레이 며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나 user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어 최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.
 이러한 로거를 현업에서 사용하기 위해 사내 평가보드에서 먼저 확인해보았다.</description>
     </item>

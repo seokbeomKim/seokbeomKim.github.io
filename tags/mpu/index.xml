@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mpu on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/mpu/</link>
+    <link>https://localhost:1313/tags/mpu/</link>
     <description>Recent content in mpu on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Mar 2020 23:30:44 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/mpu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Mar 2020 23:30:44 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/mpu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MICOM과 MPU</title>
-      <link>https://seokbeomKim.github.io/posts/micom-vs-mpu/</link>
+      <link>https://localhost:1313/posts/micom-vs-mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/micom-vs-mpu/</guid>
+      <guid>https://localhost:1313/posts/micom-vs-mpu/</guid>
       <description>개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
 마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
 본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &amp;ldquo;Adv&amp;quot;는 Advanced Topic의 줄임말로서 사용한다.</description>

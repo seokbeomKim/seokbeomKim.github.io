@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SNI on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/sni/</link>
+    <link>https://localhost:1313/tags/sni/</link>
     <description>Recent content in SNI on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 17:12:34 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/sni/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 May 2019 17:12:34 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/sni/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Server Name Indication(SNI)</title>
-      <link>https://seokbeomKim.github.io/posts/sni/</link>
+      <link>https://localhost:1313/posts/sni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/sni/</guid>
+      <guid>https://localhost:1313/posts/sni/</guid>
       <description>Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다.</description>
     </item>
     

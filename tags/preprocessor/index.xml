@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>preprocessor on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/preprocessor/</link>
+    <link>https://localhost:1313/tags/preprocessor/</link>
     <description>Recent content in preprocessor on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Oct 2021 02:19:05 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/preprocessor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Oct 2021 02:19:05 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/preprocessor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>컴파일 타임에 매크로 변수 값 확인하기</title>
-      <link>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</link>
+      <link>https://localhost:1313/posts/preprocessor-and-macro-variable/</link>
       <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</guid>
+      <guid>https://localhost:1313/posts/preprocessor-and-macro-variable/</guid>
       <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;
 &lt;p&gt;현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어
 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기

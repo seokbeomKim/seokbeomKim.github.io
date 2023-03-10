@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>busybox on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/busybox/</link>
+    <link>https://localhost:1313/tags/busybox/</link>
     <description>Recent content in busybox on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 May 2019 15:10:46 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/busybox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 May 2019 15:10:46 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/busybox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
-      <link>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</link>
+      <link>https://localhost:1313/posts/build-kernel-and-busybox2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</guid>
+      <guid>https://localhost:1313/posts/build-kernel-and-busybox2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던 기회였다.
 두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 crosstool-ng라는 크로스 컴파일러 생성 스크립트 도구와 buildroot라는 Makefile 패키지를 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.
 Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.
@@ -21,10 +21,10 @@ Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미�
     
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</title>
-      <link>https://seokbeomKim.github.io/posts/build-kernel-and-busybox/</link>
+      <link>https://localhost:1313/posts/build-kernel-and-busybox/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/build-kernel-and-busybox/</guid>
+      <guid>https://localhost:1313/posts/build-kernel-and-busybox/</guid>
       <description>취업은 언제하나&amp;hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접 확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도 나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방 해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은 마운트하지 않는다는 제한은 있다.
 이 문서는 참고한 페이지를 토대로 필요한 정보들을 중간에 좀 더 추가한 형태로 정리하였다.</description>
     </item>

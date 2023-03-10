@@ -2,1394 +2,1394 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/</link>
+    <link>https://localhost:1313/tags/</link>
     <description>Recent content in Tags on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>obsidian</title>
-      <link>https://seokbeomKim.github.io/tags/obsidian/</link>
+      <link>https://localhost:1313/tags/obsidian/</link>
       <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/obsidian/</guid>
+      <guid>https://localhost:1313/tags/obsidian/</guid>
       <description></description>
     </item>
     
     <item>
       <title>난청</title>
-      <link>https://seokbeomKim.github.io/tags/%EB%82%9C%EC%B2%AD/</link>
+      <link>https://localhost:1313/tags/%EB%82%9C%EC%B2%AD/</link>
       <pubDate>Sat, 22 Oct 2022 17:00:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/%EB%82%9C%EC%B2%AD/</guid>
+      <guid>https://localhost:1313/tags/%EB%82%9C%EC%B2%AD/</guid>
       <description></description>
     </item>
     
     <item>
       <title>strcpy</title>
-      <link>https://seokbeomKim.github.io/tags/strcpy/</link>
+      <link>https://localhost:1313/tags/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/strcpy/</guid>
+      <guid>https://localhost:1313/tags/strcpy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>strlcpy</title>
-      <link>https://seokbeomKim.github.io/tags/strlcpy/</link>
+      <link>https://localhost:1313/tags/strlcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/strlcpy/</guid>
+      <guid>https://localhost:1313/tags/strlcpy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>strscpy</title>
-      <link>https://seokbeomKim.github.io/tags/strscpy/</link>
+      <link>https://localhost:1313/tags/strscpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/strscpy/</guid>
+      <guid>https://localhost:1313/tags/strscpy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>file descriptor</title>
-      <link>https://seokbeomKim.github.io/tags/file-descriptor/</link>
+      <link>https://localhost:1313/tags/file-descriptor/</link>
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/file-descriptor/</guid>
+      <guid>https://localhost:1313/tags/file-descriptor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>device tree</title>
-      <link>https://seokbeomKim.github.io/tags/device-tree/</link>
+      <link>https://localhost:1313/tags/device-tree/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/device-tree/</guid>
+      <guid>https://localhost:1313/tags/device-tree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kernel</title>
-      <link>https://seokbeomKim.github.io/tags/kernel/</link>
+      <link>https://localhost:1313/tags/kernel/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/kernel/</guid>
+      <guid>https://localhost:1313/tags/kernel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>overlay</title>
-      <link>https://seokbeomKim.github.io/tags/overlay/</link>
+      <link>https://localhost:1313/tags/overlay/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/overlay/</guid>
+      <guid>https://localhost:1313/tags/overlay/</guid>
       <description></description>
     </item>
     
     <item>
       <title>525번</title>
-      <link>https://seokbeomKim.github.io/tags/525%EB%B2%88/</link>
+      <link>https://localhost:1313/tags/525%EB%B2%88/</link>
       <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/525%EB%B2%88/</guid>
+      <guid>https://localhost:1313/tags/525%EB%B2%88/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HashMap</title>
-      <link>https://seokbeomKim.github.io/tags/hashmap/</link>
+      <link>https://localhost:1313/tags/hashmap/</link>
       <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/hashmap/</guid>
+      <guid>https://localhost:1313/tags/hashmap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>canary</title>
-      <link>https://seokbeomKim.github.io/tags/canary/</link>
+      <link>https://localhost:1313/tags/canary/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/canary/</guid>
+      <guid>https://localhost:1313/tags/canary/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ssp</title>
-      <link>https://seokbeomKim.github.io/tags/ssp/</link>
+      <link>https://localhost:1313/tags/ssp/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/ssp/</guid>
+      <guid>https://localhost:1313/tags/ssp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>stack</title>
-      <link>https://seokbeomKim.github.io/tags/stack/</link>
+      <link>https://localhost:1313/tags/stack/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/stack/</guid>
+      <guid>https://localhost:1313/tags/stack/</guid>
       <description></description>
     </item>
     
     <item>
       <title>preprocessor</title>
-      <link>https://seokbeomKim.github.io/tags/preprocessor/</link>
+      <link>https://localhost:1313/tags/preprocessor/</link>
       <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/preprocessor/</guid>
+      <guid>https://localhost:1313/tags/preprocessor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gcc</title>
-      <link>https://seokbeomKim.github.io/tags/gcc/</link>
+      <link>https://localhost:1313/tags/gcc/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/gcc/</guid>
+      <guid>https://localhost:1313/tags/gcc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kasan</title>
-      <link>https://seokbeomKim.github.io/tags/kasan/</link>
+      <link>https://localhost:1313/tags/kasan/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/kasan/</guid>
+      <guid>https://localhost:1313/tags/kasan/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dmabuf</title>
-      <link>https://seokbeomKim.github.io/tags/dmabuf/</link>
+      <link>https://localhost:1313/tags/dmabuf/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/dmabuf/</guid>
+      <guid>https://localhost:1313/tags/dmabuf/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mmap</title>
-      <link>https://seokbeomKim.github.io/tags/mmap/</link>
+      <link>https://localhost:1313/tags/mmap/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/mmap/</guid>
+      <guid>https://localhost:1313/tags/mmap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>v4l2</title>
-      <link>https://seokbeomKim.github.io/tags/v4l2/</link>
+      <link>https://localhost:1313/tags/v4l2/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/v4l2/</guid>
+      <guid>https://localhost:1313/tags/v4l2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vb2</title>
-      <link>https://seokbeomKim.github.io/tags/vb2/</link>
+      <link>https://localhost:1313/tags/vb2/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/vb2/</guid>
+      <guid>https://localhost:1313/tags/vb2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kgdb</title>
-      <link>https://seokbeomKim.github.io/tags/kgdb/</link>
+      <link>https://localhost:1313/tags/kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/kgdb/</guid>
+      <guid>https://localhost:1313/tags/kgdb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>__is_constexpr</title>
-      <link>https://seokbeomKim.github.io/tags/__is_constexpr/</link>
+      <link>https://localhost:1313/tags/__is_constexpr/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/__is_constexpr/</guid>
+      <guid>https://localhost:1313/tags/__is_constexpr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>c</title>
-      <link>https://seokbeomKim.github.io/tags/c/</link>
+      <link>https://localhost:1313/tags/c/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/c/</guid>
+      <guid>https://localhost:1313/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>state</title>
-      <link>https://seokbeomKim.github.io/tags/state/</link>
+      <link>https://localhost:1313/tags/state/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/state/</guid>
+      <guid>https://localhost:1313/tags/state/</guid>
       <description></description>
     </item>
     
     <item>
       <title>status</title>
-      <link>https://seokbeomKim.github.io/tags/status/</link>
+      <link>https://localhost:1313/tags/status/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/status/</guid>
+      <guid>https://localhost:1313/tags/status/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gdb</title>
-      <link>https://seokbeomKim.github.io/tags/gdb/</link>
+      <link>https://localhost:1313/tags/gdb/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/gdb/</guid>
+      <guid>https://localhost:1313/tags/gdb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mac_os</title>
-      <link>https://seokbeomKim.github.io/tags/mac_os/</link>
+      <link>https://localhost:1313/tags/mac_os/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/mac_os/</guid>
+      <guid>https://localhost:1313/tags/mac_os/</guid>
       <description></description>
     </item>
     
     <item>
       <title>i3wm</title>
-      <link>https://seokbeomKim.github.io/tags/i3wm/</link>
+      <link>https://localhost:1313/tags/i3wm/</link>
       <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/i3wm/</guid>
+      <guid>https://localhost:1313/tags/i3wm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emacs</title>
-      <link>https://seokbeomKim.github.io/tags/emacs/</link>
+      <link>https://localhost:1313/tags/emacs/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/emacs/</guid>
+      <guid>https://localhost:1313/tags/emacs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>magit</title>
-      <link>https://seokbeomKim.github.io/tags/magit/</link>
+      <link>https://localhost:1313/tags/magit/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/magit/</guid>
+      <guid>https://localhost:1313/tags/magit/</guid>
       <description></description>
     </item>
     
     <item>
       <title>homebrew</title>
-      <link>https://seokbeomKim.github.io/tags/homebrew/</link>
+      <link>https://localhost:1313/tags/homebrew/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/homebrew/</guid>
+      <guid>https://localhost:1313/tags/homebrew/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mac</title>
-      <link>https://seokbeomKim.github.io/tags/mac/</link>
+      <link>https://localhost:1313/tags/mac/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/mac/</guid>
+      <guid>https://localhost:1313/tags/mac/</guid>
       <description></description>
     </item>
     
     <item>
       <title>file2alias</title>
-      <link>https://seokbeomKim.github.io/tags/file2alias/</link>
+      <link>https://localhost:1313/tags/file2alias/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/file2alias/</guid>
+      <guid>https://localhost:1313/tags/file2alias/</guid>
       <description></description>
     </item>
     
     <item>
       <title>uuid</title>
-      <link>https://seokbeomKim.github.io/tags/uuid/</link>
+      <link>https://localhost:1313/tags/uuid/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/uuid/</guid>
+      <guid>https://localhost:1313/tags/uuid/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vmmem</title>
-      <link>https://seokbeomKim.github.io/tags/vmmem/</link>
+      <link>https://localhost:1313/tags/vmmem/</link>
       <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/vmmem/</guid>
+      <guid>https://localhost:1313/tags/vmmem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WSL</title>
-      <link>https://seokbeomKim.github.io/tags/wsl/</link>
+      <link>https://localhost:1313/tags/wsl/</link>
       <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/wsl/</guid>
+      <guid>https://localhost:1313/tags/wsl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sysrq</title>
-      <link>https://seokbeomKim.github.io/tags/sysrq/</link>
+      <link>https://localhost:1313/tags/sysrq/</link>
       <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/sysrq/</guid>
+      <guid>https://localhost:1313/tags/sysrq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cache</title>
-      <link>https://seokbeomKim.github.io/tags/cache/</link>
+      <link>https://localhost:1313/tags/cache/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/cache/</guid>
+      <guid>https://localhost:1313/tags/cache/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cache-line</title>
-      <link>https://seokbeomKim.github.io/tags/cache-line/</link>
+      <link>https://localhost:1313/tags/cache-line/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/cache-line/</guid>
+      <guid>https://localhost:1313/tags/cache-line/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ghcup</title>
-      <link>https://seokbeomKim.github.io/tags/ghcup/</link>
+      <link>https://localhost:1313/tags/ghcup/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/ghcup/</guid>
+      <guid>https://localhost:1313/tags/ghcup/</guid>
       <description></description>
     </item>
     
     <item>
       <title>coc</title>
-      <link>https://seokbeomKim.github.io/tags/coc/</link>
+      <link>https://localhost:1313/tags/coc/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/coc/</guid>
+      <guid>https://localhost:1313/tags/coc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>일상</title>
-      <link>https://seokbeomKim.github.io/tags/%EC%9D%BC%EC%83%81/</link>
+      <link>https://localhost:1313/tags/%EC%9D%BC%EC%83%81/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/%EC%9D%BC%EC%83%81/</guid>
+      <guid>https://localhost:1313/tags/%EC%9D%BC%EC%83%81/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nfc</title>
-      <link>https://seokbeomKim.github.io/tags/nfc/</link>
+      <link>https://localhost:1313/tags/nfc/</link>
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/nfc/</guid>
+      <guid>https://localhost:1313/tags/nfc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nfd</title>
-      <link>https://seokbeomKim.github.io/tags/nfd/</link>
+      <link>https://localhost:1313/tags/nfd/</link>
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/nfd/</guid>
+      <guid>https://localhost:1313/tags/nfd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>function application</title>
-      <link>https://seokbeomKim.github.io/tags/function-application/</link>
+      <link>https://localhost:1313/tags/function-application/</link>
       <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/function-application/</guid>
+      <guid>https://localhost:1313/tags/function-application/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Computer Science</title>
-      <link>https://seokbeomKim.github.io/tags/computer-science/</link>
+      <link>https://localhost:1313/tags/computer-science/</link>
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/computer-science/</guid>
+      <guid>https://localhost:1313/tags/computer-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mu4e</title>
-      <link>https://seokbeomKim.github.io/tags/mu4e/</link>
+      <link>https://localhost:1313/tags/mu4e/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/mu4e/</guid>
+      <guid>https://localhost:1313/tags/mu4e/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vmlinux</title>
-      <link>https://seokbeomKim.github.io/tags/vmlinux/</link>
+      <link>https://localhost:1313/tags/vmlinux/</link>
       <pubDate>Tue, 21 Apr 2020 06:04:17 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/vmlinux/</guid>
+      <guid>https://localhost:1313/tags/vmlinux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>page table</title>
-      <link>https://seokbeomKim.github.io/tags/page-table/</link>
+      <link>https://localhost:1313/tags/page-table/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/page-table/</guid>
+      <guid>https://localhost:1313/tags/page-table/</guid>
       <description></description>
     </item>
     
     <item>
       <title>VA_BITS</title>
-      <link>https://seokbeomKim.github.io/tags/va_bits/</link>
+      <link>https://localhost:1313/tags/va_bits/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/va_bits/</guid>
+      <guid>https://localhost:1313/tags/va_bits/</guid>
       <description></description>
     </item>
     
     <item>
       <title>virtual address</title>
-      <link>https://seokbeomKim.github.io/tags/virtual-address/</link>
+      <link>https://localhost:1313/tags/virtual-address/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/virtual-address/</guid>
+      <guid>https://localhost:1313/tags/virtual-address/</guid>
       <description></description>
     </item>
     
     <item>
       <title>type check</title>
-      <link>https://seokbeomKim.github.io/tags/type-check/</link>
+      <link>https://localhost:1313/tags/type-check/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/type-check/</guid>
+      <guid>https://localhost:1313/tags/type-check/</guid>
       <description></description>
     </item>
     
     <item>
       <title>benchmark</title>
-      <link>https://seokbeomKim.github.io/tags/benchmark/</link>
+      <link>https://localhost:1313/tags/benchmark/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/benchmark/</guid>
+      <guid>https://localhost:1313/tags/benchmark/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dmips</title>
-      <link>https://seokbeomKim.github.io/tags/dmips/</link>
+      <link>https://localhost:1313/tags/dmips/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/dmips/</guid>
+      <guid>https://localhost:1313/tags/dmips/</guid>
       <description></description>
     </item>
     
     <item>
       <title>futex</title>
-      <link>https://seokbeomKim.github.io/tags/futex/</link>
+      <link>https://localhost:1313/tags/futex/</link>
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/futex/</guid>
+      <guid>https://localhost:1313/tags/futex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>do_while</title>
-      <link>https://seokbeomKim.github.io/tags/do_while/</link>
+      <link>https://localhost:1313/tags/do_while/</link>
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/do_while/</guid>
+      <guid>https://localhost:1313/tags/do_while/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bsd</title>
-      <link>https://seokbeomKim.github.io/tags/bsd/</link>
+      <link>https://localhost:1313/tags/bsd/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/bsd/</guid>
+      <guid>https://localhost:1313/tags/bsd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>list</title>
-      <link>https://seokbeomKim.github.io/tags/list/</link>
+      <link>https://localhost:1313/tags/list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/list/</guid>
+      <guid>https://localhost:1313/tags/list/</guid>
       <description></description>
     </item>
     
     <item>
       <title>queue</title>
-      <link>https://seokbeomKim.github.io/tags/queue/</link>
+      <link>https://localhost:1313/tags/queue/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/queue/</guid>
+      <guid>https://localhost:1313/tags/queue/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ARRAY_SIZE</title>
-      <link>https://seokbeomKim.github.io/tags/array_size/</link>
+      <link>https://localhost:1313/tags/array_size/</link>
       <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/array_size/</guid>
+      <guid>https://localhost:1313/tags/array_size/</guid>
       <description></description>
     </item>
     
     <item>
       <title>goto</title>
-      <link>https://seokbeomKim.github.io/tags/goto/</link>
+      <link>https://localhost:1313/tags/goto/</link>
       <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/goto/</guid>
+      <guid>https://localhost:1313/tags/goto/</guid>
       <description></description>
     </item>
     
     <item>
       <title>partition</title>
-      <link>https://seokbeomKim.github.io/tags/partition/</link>
+      <link>https://localhost:1313/tags/partition/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/partition/</guid>
+      <guid>https://localhost:1313/tags/partition/</guid>
       <description></description>
     </item>
     
     <item>
       <title>poll</title>
-      <link>https://seokbeomKim.github.io/tags/poll/</link>
+      <link>https://localhost:1313/tags/poll/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/poll/</guid>
+      <guid>https://localhost:1313/tags/poll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>poll_wait</title>
-      <link>https://seokbeomKim.github.io/tags/poll_wait/</link>
+      <link>https://localhost:1313/tags/poll_wait/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/poll_wait/</guid>
+      <guid>https://localhost:1313/tags/poll_wait/</guid>
       <description></description>
     </item>
     
     <item>
       <title>micom</title>
-      <link>https://seokbeomKim.github.io/tags/micom/</link>
+      <link>https://localhost:1313/tags/micom/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/micom/</guid>
+      <guid>https://localhost:1313/tags/micom/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mpu</title>
-      <link>https://seokbeomKim.github.io/tags/mpu/</link>
+      <link>https://localhost:1313/tags/mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/mpu/</guid>
+      <guid>https://localhost:1313/tags/mpu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>interrupt</title>
-      <link>https://seokbeomKim.github.io/tags/interrupt/</link>
+      <link>https://localhost:1313/tags/interrupt/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/interrupt/</guid>
+      <guid>https://localhost:1313/tags/interrupt/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ioctl</title>
-      <link>https://seokbeomKim.github.io/tags/ioctl/</link>
+      <link>https://localhost:1313/tags/ioctl/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/ioctl/</guid>
+      <guid>https://localhost:1313/tags/ioctl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hyper-v</title>
-      <link>https://seokbeomKim.github.io/tags/hyper-v/</link>
+      <link>https://localhost:1313/tags/hyper-v/</link>
       <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/hyper-v/</guid>
+      <guid>https://localhost:1313/tags/hyper-v/</guid>
       <description></description>
     </item>
     
     <item>
       <title>buffering</title>
-      <link>https://seokbeomKim.github.io/tags/buffering/</link>
+      <link>https://localhost:1313/tags/buffering/</link>
       <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/buffering/</guid>
+      <guid>https://localhost:1313/tags/buffering/</guid>
       <description></description>
     </item>
     
     <item>
       <title>macro</title>
-      <link>https://seokbeomKim.github.io/tags/macro/</link>
+      <link>https://localhost:1313/tags/macro/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/macro/</guid>
+      <guid>https://localhost:1313/tags/macro/</guid>
       <description></description>
     </item>
     
     <item>
       <title>switch</title>
-      <link>https://seokbeomKim.github.io/tags/switch/</link>
+      <link>https://localhost:1313/tags/switch/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/switch/</guid>
+      <guid>https://localhost:1313/tags/switch/</guid>
       <description></description>
     </item>
     
     <item>
       <title>idmap</title>
-      <link>https://seokbeomKim.github.io/tags/idmap/</link>
+      <link>https://localhost:1313/tags/idmap/</link>
       <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/idmap/</guid>
+      <guid>https://localhost:1313/tags/idmap/</guid>
       <description></description>
     </item>
     
     <item>
       <title>BUG_ON</title>
-      <link>https://seokbeomKim.github.io/tags/bug_on/</link>
+      <link>https://localhost:1313/tags/bug_on/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/bug_on/</guid>
+      <guid>https://localhost:1313/tags/bug_on/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WARN_ON</title>
-      <link>https://seokbeomKim.github.io/tags/warn_on/</link>
+      <link>https://localhost:1313/tags/warn_on/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/warn_on/</guid>
+      <guid>https://localhost:1313/tags/warn_on/</guid>
       <description></description>
     </item>
     
     <item>
       <title>likely</title>
-      <link>https://seokbeomKim.github.io/tags/likely/</link>
+      <link>https://localhost:1313/tags/likely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/likely/</guid>
+      <guid>https://localhost:1313/tags/likely/</guid>
       <description></description>
     </item>
     
     <item>
       <title>unlikely</title>
-      <link>https://seokbeomKim.github.io/tags/unlikely/</link>
+      <link>https://localhost:1313/tags/unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/unlikely/</guid>
+      <guid>https://localhost:1313/tags/unlikely/</guid>
       <description></description>
     </item>
     
     <item>
       <title>typedef</title>
-      <link>https://seokbeomKim.github.io/tags/typedef/</link>
+      <link>https://localhost:1313/tags/typedef/</link>
       <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/typedef/</guid>
+      <guid>https://localhost:1313/tags/typedef/</guid>
       <description></description>
     </item>
     
     <item>
       <title>debug</title>
-      <link>https://seokbeomKim.github.io/tags/debug/</link>
+      <link>https://localhost:1313/tags/debug/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/debug/</guid>
+      <guid>https://localhost:1313/tags/debug/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ftrace</title>
-      <link>https://seokbeomKim.github.io/tags/ftrace/</link>
+      <link>https://localhost:1313/tags/ftrace/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/ftrace/</guid>
+      <guid>https://localhost:1313/tags/ftrace/</guid>
       <description></description>
     </item>
     
     <item>
       <title>raspberry pi</title>
-      <link>https://seokbeomKim.github.io/tags/raspberry-pi/</link>
+      <link>https://localhost:1313/tags/raspberry-pi/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/raspberry-pi/</guid>
+      <guid>https://localhost:1313/tags/raspberry-pi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>side project</title>
-      <link>https://seokbeomKim.github.io/tags/side-project/</link>
+      <link>https://localhost:1313/tags/side-project/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/side-project/</guid>
+      <guid>https://localhost:1313/tags/side-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>wayland</title>
-      <link>https://seokbeomKim.github.io/tags/wayland/</link>
+      <link>https://localhost:1313/tags/wayland/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/wayland/</guid>
+      <guid>https://localhost:1313/tags/wayland/</guid>
       <description></description>
     </item>
     
     <item>
       <title>weston</title>
-      <link>https://seokbeomKim.github.io/tags/weston/</link>
+      <link>https://localhost:1313/tags/weston/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/weston/</guid>
+      <guid>https://localhost:1313/tags/weston/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bitbake</title>
-      <link>https://seokbeomKim.github.io/tags/bitbake/</link>
+      <link>https://localhost:1313/tags/bitbake/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/bitbake/</guid>
+      <guid>https://localhost:1313/tags/bitbake/</guid>
       <description></description>
     </item>
     
     <item>
       <title>chroot</title>
-      <link>https://seokbeomKim.github.io/tags/chroot/</link>
+      <link>https://localhost:1313/tags/chroot/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/chroot/</guid>
+      <guid>https://localhost:1313/tags/chroot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>memory map</title>
-      <link>https://seokbeomKim.github.io/tags/memory-map/</link>
+      <link>https://localhost:1313/tags/memory-map/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/memory-map/</guid>
+      <guid>https://localhost:1313/tags/memory-map/</guid>
       <description></description>
     </item>
     
     <item>
       <title>yocto</title>
-      <link>https://seokbeomKim.github.io/tags/yocto/</link>
+      <link>https://localhost:1313/tags/yocto/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/yocto/</guid>
+      <guid>https://localhost:1313/tags/yocto/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gpio</title>
-      <link>https://seokbeomKim.github.io/tags/gpio/</link>
+      <link>https://localhost:1313/tags/gpio/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/gpio/</guid>
+      <guid>https://localhost:1313/tags/gpio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>uevent</title>
-      <link>https://seokbeomKim.github.io/tags/uevent/</link>
+      <link>https://localhost:1313/tags/uevent/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/uevent/</guid>
+      <guid>https://localhost:1313/tags/uevent/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ueventd</title>
-      <link>https://seokbeomKim.github.io/tags/ueventd/</link>
+      <link>https://localhost:1313/tags/ueventd/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/ueventd/</guid>
+      <guid>https://localhost:1313/tags/ueventd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kmem</title>
-      <link>https://seokbeomKim.github.io/tags/kmem/</link>
+      <link>https://localhost:1313/tags/kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/kmem/</guid>
+      <guid>https://localhost:1313/tags/kmem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mem</title>
-      <link>https://seokbeomKim.github.io/tags/mem/</link>
+      <link>https://localhost:1313/tags/mem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/mem/</guid>
+      <guid>https://localhost:1313/tags/mem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kobject</title>
-      <link>https://seokbeomKim.github.io/tags/kobject/</link>
+      <link>https://localhost:1313/tags/kobject/</link>
       <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/kobject/</guid>
+      <guid>https://localhost:1313/tags/kobject/</guid>
       <description></description>
     </item>
     
     <item>
       <title>big endian</title>
-      <link>https://seokbeomKim.github.io/tags/big-endian/</link>
+      <link>https://localhost:1313/tags/big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/big-endian/</guid>
+      <guid>https://localhost:1313/tags/big-endian/</guid>
       <description></description>
     </item>
     
     <item>
       <title>endian</title>
-      <link>https://seokbeomKim.github.io/tags/endian/</link>
+      <link>https://localhost:1313/tags/endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/endian/</guid>
+      <guid>https://localhost:1313/tags/endian/</guid>
       <description></description>
     </item>
     
     <item>
       <title>little endian</title>
-      <link>https://seokbeomKim.github.io/tags/little-endian/</link>
+      <link>https://localhost:1313/tags/little-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/little-endian/</guid>
+      <guid>https://localhost:1313/tags/little-endian/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bt.601</title>
-      <link>https://seokbeomKim.github.io/tags/bt.601/</link>
+      <link>https://localhost:1313/tags/bt.601/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/bt.601/</guid>
+      <guid>https://localhost:1313/tags/bt.601/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bt.656</title>
-      <link>https://seokbeomKim.github.io/tags/bt.656/</link>
+      <link>https://localhost:1313/tags/bt.656/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/bt.656/</guid>
+      <guid>https://localhost:1313/tags/bt.656/</guid>
       <description></description>
     </item>
     
     <item>
       <title>colorspace</title>
-      <link>https://seokbeomKim.github.io/tags/colorspace/</link>
+      <link>https://localhost:1313/tags/colorspace/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/colorspace/</guid>
+      <guid>https://localhost:1313/tags/colorspace/</guid>
       <description></description>
     </item>
     
     <item>
       <title>rgb</title>
-      <link>https://seokbeomKim.github.io/tags/rgb/</link>
+      <link>https://localhost:1313/tags/rgb/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/rgb/</guid>
+      <guid>https://localhost:1313/tags/rgb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>yuv</title>
-      <link>https://seokbeomKim.github.io/tags/yuv/</link>
+      <link>https://localhost:1313/tags/yuv/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/yuv/</guid>
+      <guid>https://localhost:1313/tags/yuv/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bootloader</title>
-      <link>https://seokbeomKim.github.io/tags/bootloader/</link>
+      <link>https://localhost:1313/tags/bootloader/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/bootloader/</guid>
+      <guid>https://localhost:1313/tags/bootloader/</guid>
       <description></description>
     </item>
     
     <item>
       <title>embedded_linux</title>
-      <link>https://seokbeomKim.github.io/tags/embedded_linux/</link>
+      <link>https://localhost:1313/tags/embedded_linux/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/embedded_linux/</guid>
+      <guid>https://localhost:1313/tags/embedded_linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>posix-spawn</title>
-      <link>https://seokbeomKim.github.io/tags/posix-spawn/</link>
+      <link>https://localhost:1313/tags/posix-spawn/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/posix-spawn/</guid>
+      <guid>https://localhost:1313/tags/posix-spawn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>arm-versatile</title>
-      <link>https://seokbeomKim.github.io/tags/arm-versatile/</link>
+      <link>https://localhost:1313/tags/arm-versatile/</link>
       <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/arm-versatile/</guid>
+      <guid>https://localhost:1313/tags/arm-versatile/</guid>
       <description></description>
     </item>
     
     <item>
       <title>qemu</title>
-      <link>https://seokbeomKim.github.io/tags/qemu/</link>
+      <link>https://localhost:1313/tags/qemu/</link>
       <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/qemu/</guid>
+      <guid>https://localhost:1313/tags/qemu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RCU</title>
-      <link>https://seokbeomKim.github.io/tags/rcu/</link>
+      <link>https://localhost:1313/tags/rcu/</link>
       <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/rcu/</guid>
+      <guid>https://localhost:1313/tags/rcu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>BKL</title>
-      <link>https://seokbeomKim.github.io/tags/bkl/</link>
+      <link>https://localhost:1313/tags/bkl/</link>
       <pubDate>Tue, 04 Jun 2019 16:40:28 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/bkl/</guid>
+      <guid>https://localhost:1313/tags/bkl/</guid>
       <description></description>
     </item>
     
     <item>
       <title>semaphore</title>
-      <link>https://seokbeomKim.github.io/tags/semaphore/</link>
+      <link>https://localhost:1313/tags/semaphore/</link>
       <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/semaphore/</guid>
+      <guid>https://localhost:1313/tags/semaphore/</guid>
       <description></description>
     </item>
     
     <item>
       <title>major number</title>
-      <link>https://seokbeomKim.github.io/tags/major-number/</link>
+      <link>https://localhost:1313/tags/major-number/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/major-number/</guid>
+      <guid>https://localhost:1313/tags/major-number/</guid>
       <description></description>
     </item>
     
     <item>
       <title>minor number</title>
-      <link>https://seokbeomKim.github.io/tags/minor-number/</link>
+      <link>https://localhost:1313/tags/minor-number/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/minor-number/</guid>
+      <guid>https://localhost:1313/tags/minor-number/</guid>
       <description></description>
     </item>
     
     <item>
       <title>global kernel lock</title>
-      <link>https://seokbeomKim.github.io/tags/global-kernel-lock/</link>
+      <link>https://localhost:1313/tags/global-kernel-lock/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/global-kernel-lock/</guid>
+      <guid>https://localhost:1313/tags/global-kernel-lock/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mutex</title>
-      <link>https://seokbeomKim.github.io/tags/mutex/</link>
+      <link>https://localhost:1313/tags/mutex/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/mutex/</guid>
+      <guid>https://localhost:1313/tags/mutex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spinlock</title>
-      <link>https://seokbeomKim.github.io/tags/spinlock/</link>
+      <link>https://localhost:1313/tags/spinlock/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/spinlock/</guid>
+      <guid>https://localhost:1313/tags/spinlock/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jiffies</title>
-      <link>https://seokbeomKim.github.io/tags/jiffies/</link>
+      <link>https://localhost:1313/tags/jiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/jiffies/</guid>
+      <guid>https://localhost:1313/tags/jiffies/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tasklet</title>
-      <link>https://seokbeomKim.github.io/tags/tasklet/</link>
+      <link>https://localhost:1313/tags/tasklet/</link>
       <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/tasklet/</guid>
+      <guid>https://localhost:1313/tags/tasklet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>buildroot</title>
-      <link>https://seokbeomKim.github.io/tags/buildroot/</link>
+      <link>https://localhost:1313/tags/buildroot/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/buildroot/</guid>
+      <guid>https://localhost:1313/tags/buildroot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>busybox</title>
-      <link>https://seokbeomKim.github.io/tags/busybox/</link>
+      <link>https://localhost:1313/tags/busybox/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/busybox/</guid>
+      <guid>https://localhost:1313/tags/busybox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OSI 7 Layers</title>
-      <link>https://seokbeomKim.github.io/tags/osi-7-layers/</link>
+      <link>https://localhost:1313/tags/osi-7-layers/</link>
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/osi-7-layers/</guid>
+      <guid>https://localhost:1313/tags/osi-7-layers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tcp</title>
-      <link>https://seokbeomKim.github.io/tags/tcp/</link>
+      <link>https://localhost:1313/tags/tcp/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/tcp/</guid>
+      <guid>https://localhost:1313/tags/tcp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>udp</title>
-      <link>https://seokbeomKim.github.io/tags/udp/</link>
+      <link>https://localhost:1313/tags/udp/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/udp/</guid>
+      <guid>https://localhost:1313/tags/udp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>process</title>
-      <link>https://seokbeomKim.github.io/tags/process/</link>
+      <link>https://localhost:1313/tags/process/</link>
       <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/process/</guid>
+      <guid>https://localhost:1313/tags/process/</guid>
       <description></description>
     </item>
     
     <item>
       <title>COW</title>
-      <link>https://seokbeomKim.github.io/tags/cow/</link>
+      <link>https://localhost:1313/tags/cow/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/cow/</guid>
+      <guid>https://localhost:1313/tags/cow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>implicit sharing</title>
-      <link>https://seokbeomKim.github.io/tags/implicit-sharing/</link>
+      <link>https://localhost:1313/tags/implicit-sharing/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/implicit-sharing/</guid>
+      <guid>https://localhost:1313/tags/implicit-sharing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shadowing</title>
-      <link>https://seokbeomKim.github.io/tags/shadowing/</link>
+      <link>https://localhost:1313/tags/shadowing/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/shadowing/</guid>
+      <guid>https://localhost:1313/tags/shadowing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>drivers</title>
-      <link>https://seokbeomKim.github.io/tags/drivers/</link>
+      <link>https://localhost:1313/tags/drivers/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/drivers/</guid>
+      <guid>https://localhost:1313/tags/drivers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>modules</title>
-      <link>https://seokbeomKim.github.io/tags/modules/</link>
+      <link>https://localhost:1313/tags/modules/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/modules/</guid>
+      <guid>https://localhost:1313/tags/modules/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nonpreemptive</title>
-      <link>https://seokbeomKim.github.io/tags/nonpreemptive/</link>
+      <link>https://localhost:1313/tags/nonpreemptive/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/nonpreemptive/</guid>
+      <guid>https://localhost:1313/tags/nonpreemptive/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scheduling</title>
-      <link>https://seokbeomKim.github.io/tags/scheduling/</link>
+      <link>https://localhost:1313/tags/scheduling/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/scheduling/</guid>
+      <guid>https://localhost:1313/tags/scheduling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>deadlock</title>
-      <link>https://seokbeomKim.github.io/tags/deadlock/</link>
+      <link>https://localhost:1313/tags/deadlock/</link>
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/deadlock/</guid>
+      <guid>https://localhost:1313/tags/deadlock/</guid>
       <description></description>
     </item>
     
     <item>
       <title>default export</title>
-      <link>https://seokbeomKim.github.io/tags/default-export/</link>
+      <link>https://localhost:1313/tags/default-export/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/default-export/</guid>
+      <guid>https://localhost:1313/tags/default-export/</guid>
       <description></description>
     </item>
     
     <item>
       <title>named export</title>
-      <link>https://seokbeomKim.github.io/tags/named-export/</link>
+      <link>https://localhost:1313/tags/named-export/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/named-export/</guid>
+      <guid>https://localhost:1313/tags/named-export/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scikit learn</title>
-      <link>https://seokbeomKim.github.io/tags/scikit-learn/</link>
+      <link>https://localhost:1313/tags/scikit-learn/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/scikit-learn/</guid>
+      <guid>https://localhost:1313/tags/scikit-learn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tensorflow</title>
-      <link>https://seokbeomKim.github.io/tags/tensorflow/</link>
+      <link>https://localhost:1313/tags/tensorflow/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/tensorflow/</guid>
+      <guid>https://localhost:1313/tags/tensorflow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>비지도 학습</title>
-      <link>https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
+      <link>https://localhost:1313/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
+      <guid>https://localhost:1313/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>지도 학습</title>
-      <link>https://seokbeomKim.github.io/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
+      <link>https://localhost:1313/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
+      <guid>https://localhost:1313/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nested class</title>
-      <link>https://seokbeomKim.github.io/tags/nested-class/</link>
+      <link>https://localhost:1313/tags/nested-class/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/nested-class/</guid>
+      <guid>https://localhost:1313/tags/nested-class/</guid>
       <description></description>
     </item>
     
     <item>
       <title>apache_httpd</title>
-      <link>https://seokbeomKim.github.io/tags/apache_httpd/</link>
+      <link>https://localhost:1313/tags/apache_httpd/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/apache_httpd/</guid>
+      <guid>https://localhost:1313/tags/apache_httpd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>servlet_container</title>
-      <link>https://seokbeomKim.github.io/tags/servlet_container/</link>
+      <link>https://localhost:1313/tags/servlet_container/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/servlet_container/</guid>
+      <guid>https://localhost:1313/tags/servlet_container/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shard</title>
-      <link>https://seokbeomKim.github.io/tags/shard/</link>
+      <link>https://localhost:1313/tags/shard/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/shard/</guid>
+      <guid>https://localhost:1313/tags/shard/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Restful</title>
-      <link>https://seokbeomKim.github.io/tags/restful/</link>
+      <link>https://localhost:1313/tags/restful/</link>
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/restful/</guid>
+      <guid>https://localhost:1313/tags/restful/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RMM</title>
-      <link>https://seokbeomKim.github.io/tags/rmm/</link>
+      <link>https://localhost:1313/tags/rmm/</link>
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/rmm/</guid>
+      <guid>https://localhost:1313/tags/rmm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>folding</title>
-      <link>https://seokbeomKim.github.io/tags/folding/</link>
+      <link>https://localhost:1313/tags/folding/</link>
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/folding/</guid>
+      <guid>https://localhost:1313/tags/folding/</guid>
       <description></description>
     </item>
     
     <item>
       <title>http1.1</title>
-      <link>https://seokbeomKim.github.io/tags/http1.1/</link>
+      <link>https://localhost:1313/tags/http1.1/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/http1.1/</guid>
+      <guid>https://localhost:1313/tags/http1.1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>http2</title>
-      <link>https://seokbeomKim.github.io/tags/http2/</link>
+      <link>https://localhost:1313/tags/http2/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/http2/</guid>
+      <guid>https://localhost:1313/tags/http2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cors</title>
-      <link>https://seokbeomKim.github.io/tags/cors/</link>
+      <link>https://localhost:1313/tags/cors/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/cors/</guid>
+      <guid>https://localhost:1313/tags/cors/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cdn</title>
-      <link>https://seokbeomKim.github.io/tags/cdn/</link>
+      <link>https://localhost:1313/tags/cdn/</link>
       <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/cdn/</guid>
+      <guid>https://localhost:1313/tags/cdn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>host header</title>
-      <link>https://seokbeomKim.github.io/tags/host-header/</link>
+      <link>https://localhost:1313/tags/host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/host-header/</guid>
+      <guid>https://localhost:1313/tags/host-header/</guid>
       <description></description>
     </item>
     
     <item>
       <title>virtual host</title>
-      <link>https://seokbeomKim.github.io/tags/virtual-host/</link>
+      <link>https://localhost:1313/tags/virtual-host/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/virtual-host/</guid>
+      <guid>https://localhost:1313/tags/virtual-host/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SNI</title>
-      <link>https://seokbeomKim.github.io/tags/sni/</link>
+      <link>https://localhost:1313/tags/sni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/sni/</guid>
+      <guid>https://localhost:1313/tags/sni/</guid>
       <description></description>
     </item>
     
     <item>
       <title>http</title>
-      <link>https://seokbeomKim.github.io/tags/http/</link>
+      <link>https://localhost:1313/tags/http/</link>
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/http/</guid>
+      <guid>https://localhost:1313/tags/http/</guid>
       <description></description>
     </item>
     
     <item>
       <title>https</title>
-      <link>https://seokbeomKim.github.io/tags/https/</link>
+      <link>https://localhost:1313/tags/https/</link>
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/tags/https/</guid>
+      <guid>https://localhost:1313/tags/https/</guid>
       <description></description>
     </item>
     

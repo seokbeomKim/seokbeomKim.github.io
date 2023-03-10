@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>likely on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/likely/</link>
+    <link>https://localhost:1313/tags/likely/</link>
     <description>Recent content in likely on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Feb 2020 23:27:51 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/likely/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Feb 2020 23:27:51 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/likely/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Likely and Unlikely</title>
-      <link>https://seokbeomKim.github.io/posts/likely-and-unlikely/</link>
+      <link>https://localhost:1313/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/likely-and-unlikely/</guid>
+      <guid>https://localhost:1313/posts/likely-and-unlikely/</guid>
       <description>개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.
 회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.
 likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다.</description>

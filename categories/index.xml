@@ -2,179 +2,179 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/categories/</link>
+    <link>https://localhost:1313/categories/</link>
     <description>Recent content in Categories on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Etc</title>
-      <link>https://seokbeomKim.github.io/categories/etc/</link>
+      <link>https://localhost:1313/categories/etc/</link>
       <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/etc/</guid>
+      <guid>https://localhost:1313/categories/etc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kernel</title>
-      <link>https://seokbeomKim.github.io/categories/kernel/</link>
+      <link>https://localhost:1313/categories/kernel/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/kernel/</guid>
+      <guid>https://localhost:1313/categories/kernel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Computer Science</title>
-      <link>https://seokbeomKim.github.io/categories/computer-science/</link>
+      <link>https://localhost:1313/categories/computer-science/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/computer-science/</guid>
+      <guid>https://localhost:1313/categories/computer-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Leetcode</title>
-      <link>https://seokbeomKim.github.io/categories/leetcode/</link>
+      <link>https://localhost:1313/categories/leetcode/</link>
       <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/leetcode/</guid>
+      <guid>https://localhost:1313/categories/leetcode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>https://seokbeomKim.github.io/categories/python/</link>
+      <link>https://localhost:1313/categories/python/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/python/</guid>
+      <guid>https://localhost:1313/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mac</title>
-      <link>https://seokbeomKim.github.io/categories/mac/</link>
+      <link>https://localhost:1313/categories/mac/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/mac/</guid>
+      <guid>https://localhost:1313/categories/mac/</guid>
       <description></description>
     </item>
     
     <item>
       <title>haskell</title>
-      <link>https://seokbeomKim.github.io/categories/haskell/</link>
+      <link>https://localhost:1313/categories/haskell/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/haskell/</guid>
+      <guid>https://localhost:1313/categories/haskell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>design pattern</title>
-      <link>https://seokbeomKim.github.io/categories/design-pattern/</link>
+      <link>https://localhost:1313/categories/design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/design-pattern/</guid>
+      <guid>https://localhost:1313/categories/design-pattern/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://seokbeomKim.github.io/categories/linux/</link>
+      <link>https://localhost:1313/categories/linux/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/linux/</guid>
+      <guid>https://localhost:1313/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>oop</title>
-      <link>https://seokbeomKim.github.io/categories/oop/</link>
+      <link>https://localhost:1313/categories/oop/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/oop/</guid>
+      <guid>https://localhost:1313/categories/oop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>c</title>
-      <link>https://seokbeomKim.github.io/categories/c/</link>
+      <link>https://localhost:1313/categories/c/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/c/</guid>
+      <guid>https://localhost:1313/categories/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Android</title>
-      <link>https://seokbeomKim.github.io/categories/android/</link>
+      <link>https://localhost:1313/categories/android/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/android/</guid>
+      <guid>https://localhost:1313/categories/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>virtualization</title>
-      <link>https://seokbeomKim.github.io/categories/virtualization/</link>
+      <link>https://localhost:1313/categories/virtualization/</link>
       <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/virtualization/</guid>
+      <guid>https://localhost:1313/categories/virtualization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>yocto</title>
-      <link>https://seokbeomKim.github.io/categories/yocto/</link>
+      <link>https://localhost:1313/categories/yocto/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/yocto/</guid>
+      <guid>https://localhost:1313/categories/yocto/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://seokbeomKim.github.io/categories/web/</link>
+      <link>https://localhost:1313/categories/web/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/web/</guid>
+      <guid>https://localhost:1313/categories/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>typescript</title>
-      <link>https://seokbeomKim.github.io/categories/typescript/</link>
+      <link>https://localhost:1313/categories/typescript/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/typescript/</guid>
+      <guid>https://localhost:1313/categories/typescript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://seokbeomKim.github.io/categories/machine-learning/</link>
+      <link>https://localhost:1313/categories/machine-learning/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/machine-learning/</guid>
+      <guid>https://localhost:1313/categories/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>https://seokbeomKim.github.io/categories/java/</link>
+      <link>https://localhost:1313/categories/java/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/java/</guid>
+      <guid>https://localhost:1313/categories/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>database</title>
-      <link>https://seokbeomKim.github.io/categories/database/</link>
+      <link>https://localhost:1313/categories/database/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/categories/database/</guid>
+      <guid>https://localhost:1313/categories/database/</guid>
       <description></description>
     </item>
     

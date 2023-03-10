@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kobject on 범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/tags/kobject/</link>
+    <link>https://localhost:1313/tags/kobject/</link>
     <description>Recent content in kobject on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/kobject/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/kobject/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kobject</title>
-      <link>https://seokbeomKim.github.io/posts/kobject/</link>
+      <link>https://localhost:1313/posts/kobject/</link>
       <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/kobject/</guid>
+      <guid>https://localhost:1313/posts/kobject/</guid>
       <description>kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
 61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.</description>
     </item>

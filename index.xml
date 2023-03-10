@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>범&#39;s 개발 블로그</title>
-    <link>https://seokbeomKim.github.io/</link>
+    <link>https://localhost:1313/</link>
     <description>Recent content on 범&#39;s 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obsidian</title>
-      <link>https://seokbeomKim.github.io/posts/obsidian/</link>
+      <link>https://localhost:1313/posts/obsidian/</link>
       <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/obsidian/</guid>
+      <guid>https://localhost:1313/posts/obsidian/</guid>
       <description>Notion에서 Obsidian으로 갈아타기
 요즘에 많은 사람들이 노션을 사용한다. 이력서나 개인 위키, 심지어 업무 협업툴로써 사용한다. 필자는 개인 위키 용도로 노션을 1년 정도 넘게 사용했다. 그 전에 사용해오던 이맥스의 org나 dokuwiki와 달리 별도의 서버 관리도 필요하지 않고 인터페이스도 미려했다. 애플리케이션까지 제공돼 매우 편리했다. 또한 기존 도구들이 가지고 있던 고질적인 문제였던 기기 간의 동기화 문제를 해결해 주었다.
 하지만 노션에는 몇 가지 단점이 있다.
@@ -21,20 +21,20 @@
     
     <item>
       <title>급성 저음성 난청</title>
-      <link>https://seokbeomKim.github.io/posts/health/</link>
+      <link>https://localhost:1313/posts/health/</link>
       <pubDate>Sat, 22 Oct 2022 17:00:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/health/</guid>
+      <guid>https://localhost:1313/posts/health/</guid>
       <description>지난 월요일 아침 눈을 뜨고 평소처럼 회사 출근 준비를 하려는데 한쪽 귀가 멍하더니 소리가 잘 들리지 않았다. 예전에 백신을 맞고 돌발성 난청이 왔었는데 그 때와는 약간 다른 느낌이라 회사에 도착하자마자 근처 이비인후과를 방문했다. 약을 처방받고 일을 하려는데 시끄러운 기내 소음같이 사람들이 얘기할 때마다 현기증이 날 정도로 소음이 너무 심해 결국 조퇴를 했다.
 결국 다음날 인천에 좀 더 큰 병원을 가서 스트레스로 인한 난청이라는 진단을 받고 다량의 스테로이드를 처방받았다. 예전 돌발성 난청 때는 하루 이틀만에 약을 먹고 바로 나았었는데 바람소리, 기내 소음같은 저음성 이명이 일주일 째 없어지질 않는다.</description>
     </item>
     
     <item>
       <title>strcpy</title>
-      <link>https://seokbeomKim.github.io/posts/strscpy/</link>
+      <link>https://localhost:1313/posts/strscpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/strscpy/</guid>
+      <guid>https://localhost:1313/posts/strscpy/</guid>
       <description>개요 한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고 했는데 이제서야 겨우 정리할 수 있게 되었다.
 리눅스 커널에서 문자열 복사를 위해 만들어진 매크로들은 다양하다. 몇 개의 시리즈(?)가 있는데 정리해보면 다음과 같다.
  strcpy strncpy strlcpy strscpy  strcpy strcpy를 나타내면 아래와 같이 간단하다.</description>
@@ -42,38 +42,38 @@
     
     <item>
       <title>프로세스 종료와 파일 디스크립터</title>
-      <link>https://seokbeomKim.github.io/posts/file-close-on-exit/</link>
+      <link>https://localhost:1313/posts/file-close-on-exit/</link>
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/file-close-on-exit/</guid>
+      <guid>https://localhost:1313/posts/file-close-on-exit/</guid>
       <description>파일을 open 했는데 close를 안하면? stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 태스크가 파일을 열면 얻게 되는 고유 id값 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?</description>
     </item>
     
     <item>
       <title>Device Tree Overlay</title>
-      <link>https://seokbeomKim.github.io/posts/dtbo/</link>
+      <link>https://localhost:1313/posts/dtbo/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/dtbo/</guid>
+      <guid>https://localhost:1313/posts/dtbo/</guid>
       <description>Ramoops 덕분에 알게된 오버레이 며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나 user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어 최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.
 이러한 로거를 현업에서 사용하기 위해 사내 평가보드에서 먼저 확인해보았다.</description>
     </item>
     
     <item>
       <title>525. Contiguous Array</title>
-      <link>https://seokbeomKim.github.io/posts/algorithms/156-contiguous-array/</link>
+      <link>https://localhost:1313/posts/algorithms/156-contiguous-array/</link>
       <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/algorithms/156-contiguous-array/</guid>
+      <guid>https://localhost:1313/posts/algorithms/156-contiguous-array/</guid>
       <description>HashMap을 이용한 문제 문제를 읽고 HashMap을 이용한 방법이 한번에 와닿지 않아 이를 다시 한번 더 정리하고자 한다. 이번 &amp;ldquo;Contiguous Array&amp;rdquo; 문제는 배열 내의 0, 1 개수가 동일한 최대 길이를 구하는 문제이다. 즉, [0,1,0], [0,1,0,1,1] 등은 각각 2, 4가 된다. 이를 풀기 위해서는 {count: index} 로 구성된 HashMap 을 이용한다. 이 때 count 값은 0부터 시작하여 0일 경우 -1, 1일 경우 +1을 더하여 구하면 주어진 배열에 대해 아래와 같이 1차원 그래프가 나온다.</description>
     </item>
     
     <item>
       <title>Stack Protector와 디버깅 이야기</title>
-      <link>https://seokbeomKim.github.io/posts/stack-protector/</link>
+      <link>https://localhost:1313/posts/stack-protector/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/stack-protector/</guid>
+      <guid>https://localhost:1313/posts/stack-protector/</guid>
       <description>Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.
 하지만 이슈가 마무리 되고 Stack Protector 가 어떤 원리로 동작하는지 궁금했고 설 연휴를 맞아 자세하게 정리할 수 있었다. 그 과정에서 우분투에 잘못된 버그 리포트 티켓을 만들어내긴 했지만 말이다.
 Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-protector-strong 옵션을 통해 활성화할 수 있고 -fno-stack-protector 옵션으로 비활성화 할 수 있다.</description>
@@ -81,10 +81,10 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
     
     <item>
       <title>컴파일 타임에 매크로 변수 값 확인하기</title>
-      <link>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</link>
+      <link>https://localhost:1313/posts/preprocessor-and-macro-variable/</link>
       <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/preprocessor-and-macro-variable/</guid>
+      <guid>https://localhost:1313/posts/preprocessor-and-macro-variable/</guid>
       <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;
 &lt;p&gt;현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어
 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기
@@ -96,39 +96,39 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
     
     <item>
       <title>커널의 KASAN 코드가 삽입되는 방법</title>
-      <link>https://seokbeomKim.github.io/posts/kasan-with-gcc/</link>
+      <link>https://localhost:1313/posts/kasan-with-gcc/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/kasan-with-gcc/</guid>
+      <guid>https://localhost:1313/posts/kasan-with-gcc/</guid>
       <description>커널의 KASAN 코드가 삽입되는 방법 Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어 해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 static inline 형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만, 실제 코드를 보았을 때 함수와 EXPORT_SYMBOL 이 사용된 것 외에는 그 어디에도 inline 키워드는 사용도지 않았다.</description>
     </item>
     
     <item>
       <title>V4L2 Memory Type</title>
-      <link>https://seokbeomKim.github.io/posts/v4l2-dmabuf/</link>
+      <link>https://localhost:1313/posts/v4l2-dmabuf/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/v4l2-dmabuf/</guid>
+      <guid>https://localhost:1313/posts/v4l2-dmabuf/</guid>
       <description>개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를 파악할 수 있었다.
 본론에 들어가기에 앞서, V4L2 (Video for Linux) 와 Video Buffer 에 대해 간단하게 설명하면, V4L2는 Video Streaming I/O 를 지원하기 위한 프레임워크이다.</description>
     </item>
     
     <item>
       <title>Kernel Debug With Kgdb</title>
-      <link>https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/</link>
+      <link>https://localhost:1313/posts/kernel-debug-with-kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/</guid>
+      <guid>https://localhost:1313/posts/kernel-debug-with-kgdb/</guid>
       <description>개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는 방법에 대한 세미나를 보게 되었다. 유투브에서 «Using Serial kdb / kgdb to Debug the Linux Kernel - Douglas Anderson, Google» 검색한 영상인데, KDB와 KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을 테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.
 KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 없는 환경에서 매우 유용하다.</description>
     </item>
     
     <item>
       <title>__is_constexpr macro in kernel</title>
-      <link>https://seokbeomKim.github.io/posts/is_constexpr/</link>
+      <link>https://localhost:1313/posts/is_constexpr/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/is_constexpr/</guid>
+      <guid>https://localhost:1313/posts/is_constexpr/</guid>
       <description>커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.
 That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.
 #define __is_constexpr(x)	\ (sizeof(int) == sizeof(*(8 ?</description>
@@ -136,10 +136,10 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
     
     <item>
       <title>state vs status</title>
-      <link>https://seokbeomKim.github.io/posts/state-vs-status/</link>
+      <link>https://localhost:1313/posts/state-vs-status/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/state-vs-status/</guid>
+      <guid>https://localhost:1313/posts/state-vs-status/</guid>
       <description>개요 코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state” or “status”? When should a variable name contain the word “state”, and when should a variable name instead contain the word “status”? 스택오버플로우에 이미 관련된 질문이 올라와 있었다.
 둘의 차이점은 간단 명료하게 아래와 같이 정리할 수 있다.
  status: 결과 (success/fail); &amp;ldquo;마지막 상태&amp;rdquo; state: 상태 (pending/dispatched)  앞으로는 둘을 잘 구분해서 사용해야겠다.</description>
@@ -147,40 +147,40 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
     
     <item>
       <title>Mac에서 GDB 이용한 커널 해킹하기</title>
-      <link>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</link>
+      <link>https://localhost:1313/posts/kernel-hacking-on-mac/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</guid>
+      <guid>https://localhost:1313/posts/kernel-hacking-on-mac/</guid>
       <description>개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
 (gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&amp;#39;m sorry, Dave, I can&amp;#39;t do that. Symbol format `elf64-littleaarch64&amp;#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.</description>
     </item>
     
     <item>
       <title>i3 window manager</title>
-      <link>https://seokbeomKim.github.io/posts/i3wm/</link>
+      <link>https://localhost:1313/posts/i3wm/</link>
       <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/i3wm/</guid>
+      <guid>https://localhost:1313/posts/i3wm/</guid>
       <description>우분투 데스크탑 환경 삭제하기 개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
 리소스 부족의 원인을 살펴보니 불필요한 서비스들이 너무 많이 돌고 있었다. 예를 들어, goa (gnome online accounts), snapd (snap package manager) 등 원하지도 않는 서비스들이 설치되어 리소스들을 좀먹고 있었다.</description>
     </item>
     
     <item>
       <title>Emacs에서 magit 최적화하기</title>
-      <link>https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/</link>
+      <link>https://localhost:1313/posts/magit-optimization-for-emacs/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/</guid>
+      <guid>https://localhost:1313/posts/magit-optimization-for-emacs/</guid>
       <description>개요 이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로그의 내용으로 문제를 해결할 수 있었다.
 링크된 블로그에서는 magit을 이용하면서 어디에서 속도가 느려지는지를 확인하기 위해 magit-refresh-verbose 을 이용하는 방법을 가이드해주고 있다. 커밋 메시지나 깃 상태를 확인할 때 실행되는 hook function 들에서 몇 초간 소모되는지를 나타내주는데, 이를 이용해서 태그와 브랜치 등의 헤더 정보, 코드 diff를 가져오는데 엄청난 시간이 걸린다는 것을 알게 되었다.</description>
     </item>
     
     <item>
       <title>Homebrew python 설치하기</title>
-      <link>https://seokbeomKim.github.io/posts/python-on-mac-with-brew/</link>
+      <link>https://localhost:1313/posts/python-on-mac-with-brew/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/python-on-mac-with-brew/</guid>
+      <guid>https://localhost:1313/posts/python-on-mac-with-brew/</guid>
       <description>Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로 확장 라이브러리를 설치해도 찾지 못하는 경우이다. 문제가 발생할 때 파이썬의 경로를 살펴보면, `/usr/bin/python3&#39; 등으로 /usr/bin 아래에 놓여있는 것을 알 수 있다.
 이러한 경우, 아래와 같이 brew 명령어를 통해 다시 심볼릭 링크를 재정의해주자.
 brew link python@3.9 </description>
@@ -188,30 +188,30 @@ brew link python@3.9 </description>
     
     <item>
       <title>리눅스 커널 빌드 시 맥 O/S uuid_t 호환성</title>
-      <link>https://seokbeomKim.github.io/posts/uuid-compatibility-on-mac-os/</link>
+      <link>https://localhost:1313/posts/uuid-compatibility-on-mac-os/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/uuid-compatibility-on-mac-os/</guid>
+      <guid>https://localhost:1313/posts/uuid-compatibility-on-mac-os/</guid>
       <description>개요 BSD 기반의 맥에서 리눅스 커널 빌드가 안될리 없다고 생각하고 나서 어떻게든 맥에서 리눅스 커널을 빌드하기 위해 이런저런 삽질을 했다. 회사에서의 BSP 업무는 모두 리눅스 환경 아래에서 작업하기 때문에 사실상 큰 의미는 없겠으나, 빌드만을 위해서 맥에서 도커까지 사용해야 하는 솔루션을 납득할 수 없었다.
 이에, 지난 포스팅에서 열심히 정리해놓은 가이드를 따라 크로스 컴파일러 준비 후, 커널 빌드를 시도하였으나 어찌된 영문인지 file2alias.c 파일에서 계속해서 빌드 에러가 났다. commit 로그를 뒤져보았는데 uuid_t 관련해서 크게 달라진 점은 없었다.</description>
     </item>
     
     <item>
       <title>WSL 가상 디스크 파일 D 드라이브에 옮기기</title>
-      <link>https://seokbeomKim.github.io/posts/wsl-move-to-d/</link>
+      <link>https://localhost:1313/posts/wsl-move-to-d/</link>
       <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/wsl-move-to-d/</guid>
+      <guid>https://localhost:1313/posts/wsl-move-to-d/</guid>
       <description>lxrunoffline WSL 을 사용하다 보면 디스크 용량이 커져 C 드라이브의 용량이 부족해진다. 용량이 넉넉하면 문제가 없겠지만 필자와 같이 C 드라이브는 O/S만 설치하고 D 드라이브에 다른 것들을 모두 설치하도록 환경을 설정한 경우에는 이러한 저장 방식은 꽤 부담스러워진다. 예전에는 이러한 문제에 대해 해결 방법이 따로 없었던 것으로 알고 있었는데 찾아보니 lxrunoffline이라는 툴로 간단하게 해결할 수 있었다.
 윈도우즈 패키지 매니저인 choco 를 이용하여 lxrunoffline을 설치하고 이를 이용하여 WSL에 사용되는 가상 디스크 파일을 다른 드라이브로 옮길 수 있다.</description>
     </item>
     
     <item>
       <title>sysrq 이용한 커널 패닉 발생시키기</title>
-      <link>https://seokbeomKim.github.io/posts/sysrq/</link>
+      <link>https://localhost:1313/posts/sysrq/</link>
       <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/sysrq/</guid>
+      <guid>https://localhost:1313/posts/sysrq/</guid>
       <description>개요 현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에 대해서 정리하도록 한다.
 기능 활성화 SysRq 이 컴파일된 커널을 실행하면 /proc/sys/kernel/sysrq 를 통해서 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은 /proc/sys/kernel/sysrq 내에 정의되어 있으며 기본값들은 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE 값으로 설정한다.
   0 - disable sysrq completely
@@ -220,10 +220,10 @@ brew link python@3.9 </description>
     
     <item>
       <title>WSL 리소스 조정하기</title>
-      <link>https://seokbeomKim.github.io/posts/wsl-customize-resource/</link>
+      <link>https://localhost:1313/posts/wsl-customize-resource/</link>
       <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/wsl-customize-resource/</guid>
+      <guid>https://localhost:1313/posts/wsl-customize-resource/</guid>
       <description>개요 커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한 내용은 다른 블로그에서도 동일하게 재현되고 있었다.
 위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.
 WSL 리소스 설정 먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.
@@ -232,10 +232,10 @@ PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 P
     
     <item>
       <title>캐시라인(cache-line) 구조 #2</title>
-      <link>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</link>
+      <link>https://localhost:1313/posts/a-structure-of-cacheline/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</guid>
+      <guid>https://localhost:1313/posts/a-structure-of-cacheline/</guid>
       <description>개요 &amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
 캐시 구조 캐시에 관련된 주요 용어는 아래와 같다.
  태그 캐시라인 인덱스 웨이와 세트  태그 태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.</description>
@@ -243,58 +243,58 @@ PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 P
     
     <item>
       <title>하스켈 버전 관리</title>
-      <link>https://seokbeomKim.github.io/posts/haskell-version-control/</link>
+      <link>https://localhost:1313/posts/haskell-version-control/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/haskell-version-control/</guid>
+      <guid>https://localhost:1313/posts/haskell-version-control/</guid>
       <description>개요 IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10 까지 버전업 되어 있는 ghc 환경과 호환이 안되는 문제가 발생하였다. 이를 위해 하스켈의 전체적인 버전 관리를 해주는 패키지 매니저가 있을 것이라 생각하고 관련 내용으로 검색해보니 ghcup 이라는 버전 관리 매니저가 있었다.
 ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할 수 있으며 아래와 같이 원하는 ghc 버전들을 간편하게 설치하고 메인으로 관리할 수 있다.</description>
     </item>
     
     <item>
       <title>리누즈게이트와 CoC</title>
-      <link>https://seokbeomKim.github.io/posts/coc/</link>
+      <link>https://localhost:1313/posts/coc/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/coc/</guid>
+      <guid>https://localhost:1313/posts/coc/</guid>
       <description>자유 발언 구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것은 무엇인가&amp;rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 &amp;lsquo;자유 발언&amp;rsquo;으로서 존중 받아야 할 것이다라고 얘기할 것이다.</description>
     </item>
     
     <item>
       <title>Mac OS에서의 자모 분리 현상 해결하기</title>
-      <link>https://seokbeomKim.github.io/posts/nfd-on-mac-os/</link>
+      <link>https://localhost:1313/posts/nfd-on-mac-os/</link>
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/nfd-on-mac-os/</guid>
+      <guid>https://localhost:1313/posts/nfd-on-mac-os/</guid>
       <description>개요 드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반대로 맥에서 동기화한 파일을 윈도우즈나 리눅스에서 보면 한글 자모가 분리되는 현상이 있었다. 자세히 살펴보니 유니코드 정규화 방식의 차이 때문이었다.
 유니코드 정규화 유니코드 정규화는 모양이 같은 여러 문자들이 있을 경우 이를 기준에 따라 하나로 통합해주는 역할을 하며 해당 기준으로 NFD, NFC, NFKD, NFKC 등이 이다. 윈도우즈나 리눅스에서는 NFC 를 기준으로 유니코드 정규화를 하지만 맥에서는 이와 다른 NFD 를 기준으로 유니코드를 정규화하기에 이와 같은 문제가 발생하는 것이다.</description>
     </item>
     
     <item>
       <title>(.) 와 ($) 의 차이</title>
-      <link>https://seokbeomKim.github.io/posts/real-haskell-chapter-04/</link>
+      <link>https://localhost:1313/posts/real-haskell-chapter-04/</link>
       <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/real-haskell-chapter-04/</guid>
+      <guid>https://localhost:1313/posts/real-haskell-chapter-04/</guid>
       <description>개요 최근 하스켈로 조그만 프로젝트를 시작하기 위해 Real World Haskell 이라는 책 한 권을 구입하여 공부하기 시작했다. Functional Programming 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결하기 위한 접근 방식부터 차근차근 배워나가려 하고 있지만 쉽지 않다. 여타 주요 언어에서 제공하는 loop의 개념이 없고 함수만으로 이루어진 recursive와 pattern matching 또는 function application 등으로 표현되기에 쉽지가 않다. Higher-order function으로 이루어지는 하스켈의 함수에서는 currying을 통해 여러 개의 인자를 갖는 함수를 표현할 수 있다. 이러한 개념과 함께 설명되는 것이 포스팅의 타이틀에 해당하는 (.</description>
     </item>
     
     <item>
       <title>커널에서의 Object-Oriented Design Pattern</title>
-      <link>https://seokbeomKim.github.io/posts/oop-in-kernel/</link>
+      <link>https://localhost:1313/posts/oop-in-kernel/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/oop-in-kernel/</guid>
+      <guid>https://localhost:1313/posts/oop-in-kernel/</guid>
       <description>개요 현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패턴은 이미 오래 전부터 적용되어 왔지만 BSP에 포함된 솔루션 코드로서 추가되는 코드에는 그러한 디자인 패턴이 보이지 않는다.
 Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascript에서도 객체 지향적인 디자인 패턴이 적용되어 있다. 그렇다면, C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 어떻게 적용되어 있을까. 여기에 대한 좋은 참고 자료로서 LWN의 한 기사를 찾을 수 있었다.</description>
     </item>
     
     <item>
       <title>맥 OS에서 리눅스 커널 컴파일하기</title>
-      <link>https://seokbeomKim.github.io/posts/kernel-compilation-on-mac-os/</link>
+      <link>https://localhost:1313/posts/kernel-compilation-on-mac-os/</link>
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/kernel-compilation-on-mac-os/</guid>
+      <guid>https://localhost:1313/posts/kernel-compilation-on-mac-os/</guid>
       <description>개요 맥 환경에서 bare-metal이 아닌 리눅스 커널로 컴파일하는 것은 생각했던 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한 라이브러리와 경로들이 리눅스 환경과 다르기 때문에, 일반적인 리눅스 배포판에서처럼 크로스 컴파일러를 바이너리 형태로 설치한 뒤에 곧바로 커널 빌드를 할 수는 없다.
 이 포스팅은 맥에서 리눅스 커널을 빌드하려는 사람들을 위해 작성한 것으로, 아래 구성으로 간략하게 기술하겠다.
  준비 사항 및 제약 사항 크로스 컴파일러 빌드 커널 빌드 끝맺음  본 포스팅에서 확인한 맥 환경은 아래와 같으며 단순 바이너리만 받고자 하는 경우 아래 링크에서 받도록 한다.</description>
@@ -302,20 +302,20 @@ Java나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascri
     
     <item>
       <title>맥북에 리눅스 설치하기</title>
-      <link>https://seokbeomKim.github.io/posts/linux-on-mbp/</link>
+      <link>https://localhost:1313/posts/linux-on-mbp/</link>
       <pubDate>Sun, 05 Jul 2020 02:52:23 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/linux-on-mbp/</guid>
+      <guid>https://localhost:1313/posts/linux-on-mbp/</guid>
       <description>개요 맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는 그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의 개발자라면 각종 IDE나 유닉스 환경의 맥에서도 충분히 리눅스 계열의 애플리케이션들을 포팅해서 사용할 수 있기에 제약사항이 많지 않다. 하지만 리눅스 커널 컴파일을 하려면 얘기가 달라진다. GNU GCC 자체도 포팅된 것을 준비해야할 뿐 아니라, glibc를 포함한 build essentials 패키지들이 리눅스용으로 설치되어 있어야 한다.
 그리고 시리얼 통신을 지원하는 애플리케이션의 경우 맥에서 사용할 수 있는게 많지 않다.</description>
     </item>
     
     <item>
       <title>mu4e 설정하기</title>
-      <link>https://seokbeomKim.github.io/posts/setting-mu4e/</link>
+      <link>https://localhost:1313/posts/setting-mu4e/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/setting-mu4e/</guid>
+      <guid>https://localhost:1313/posts/setting-mu4e/</guid>
       <description>개요 이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.
 단점은 환경 설정하는 것이 단점인데 mu4e를 단독으로 사용할 수 없을 뿐더러 메일 클라이언트로서 일반 사용자가 사용하기에는 무리가 있다.
 mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신, 공식 문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.</description>
@@ -323,39 +323,39 @@ mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신,
     
     <item>
       <title>캐시 라인(Cache-Line)</title>
-      <link>https://seokbeomKim.github.io/posts/cache-line/</link>
+      <link>https://localhost:1313/posts/cache-line/</link>
       <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/cache-line/</guid>
+      <guid>https://localhost:1313/posts/cache-line/</guid>
       <description>캐시를 꼭 사용해야 하나 SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다. 하지만 매번 간략하게 정리한 문서가 없다보니 기억에 잘 남지도 않고 전체적인 흐름을 읽지 못하는 것 같아 이번 포스팅을 통해서 대략적으로나마 정리하고자 한다.
 프로세서 캐시와 메모리의 불일치 문제는 다루기 까다로운 문제이다. 단순하게 프로세서가 싱글 코어라면 문제가 없겠지만 여러 개의 코어를 가지고 있는 프로세서라면 각각의 코어가 가지고 있는 캐시와 주 메모리를 동기화 시켜주어야 한다.</description>
     </item>
     
     <item>
       <title>Vmlinux</title>
-      <link>https://seokbeomKim.github.io/posts/vmlinux/</link>
+      <link>https://localhost:1313/posts/vmlinux/</link>
       <pubDate>Tue, 21 Apr 2020 06:04:17 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/vmlinux/</guid>
+      <guid>https://localhost:1313/posts/vmlinux/</guid>
       <description>커널 패닉 정보를 바탕으로 패닉이 정확히 어디서 발생했는지를 알아내기 위해 vmlinux 파일을 이용하는 방법을 알게 되었다. addr2line 명령어를 이용하여 PC 또는 LR에 들어있던 주소를 이용하여 실행된 명령어가 코드상으로 어디에 위치했는지를 알아내는 것인데 어떤 이유로 디버깅이 가능한지 궁금했기에 이 포스팅에서는 addr2line을 이용한 커널패닉 분석 방법과 vmlinux에 관련된 파일 종류에 대해 간단히 언급하고자 한다.
 커널 패닉 메시지 분석하기 출처로 명시된 페이지에서 기술되어 있듯 아래와 같은 커널 패닉 메시지가 나왔다고 가정했을 때 addr2line 명령어와 vmlinux 파일을 이용해 실행 위치를 알아낼 수 있다.</description>
     </item>
     
     <item>
       <title>가상주소와 페이지 테이블 크기</title>
-      <link>https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/</link>
+      <link>https://localhost:1313/posts/page-table-entry-and-va-bits/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/page-table-entry-and-va-bits/</guid>
+      <guid>https://localhost:1313/posts/page-table-entry-and-va-bits/</guid>
       <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &amp;lsquo;어떻게 가상 주소를 맵핑할 것인지&amp;rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &amp;lsquo;페이지 테이블&amp;rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(VA_BITS)로서 36, 39, 42, 47, 48비트 등을 사용한다.</description>
     </item>
     
     <item>
       <title>C언어에서의 type-check</title>
-      <link>https://seokbeomKim.github.io/posts/type-check-in-c/</link>
+      <link>https://localhost:1313/posts/type-check-in-c/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/type-check-in-c/</guid>
+      <guid>https://localhost:1313/posts/type-check-in-c/</guid>
       <description>개요 리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입 체크에 대해 정리하고 내용이 추가될 때마다 페이지를 업데이트 하도록 한다.
 페이지 테이블에서의 타입 체크 ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게 작성되어 있는 부분을 찾을 수 있었다.
 typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pgdval_t; .</description>
@@ -363,49 +363,49 @@ typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pg
     
     <item>
       <title>DMIPS (Dhrystone Million Instructions Per Second)</title>
-      <link>https://seokbeomKim.github.io/posts/dmips/</link>
+      <link>https://localhost:1313/posts/dmips/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/dmips/</guid>
+      <guid>https://localhost:1313/posts/dmips/</guid>
       <description>개요 프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS라는 것이어서 이번에 확실하게 정리하고 가고자 한다.
 DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수화해서 이를 하중한 값으로 비교하는 방법으로 프로세서 성능 비교에 이용하는 지표이다. 예를 들어, ARM 32bit Cortex-M3 CPU - 72 MHz maximum frequency 모델의 경우 1.25 DMIS/MHz 인데 여기에 CPU 사용량을 이용하면 해당 프로세서가 가지는 Full DMIPS (72MHz 일 때의 DMIPS) 대비 측정하고자 하는 프로세스에 대한 DMIPS 지표를 얻을 수 있다.</description>
     </item>
     
     <item>
       <title>Futex</title>
-      <link>https://seokbeomKim.github.io/posts/futex/</link>
+      <link>https://localhost:1313/posts/futex/</link>
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/futex/</guid>
+      <guid>https://localhost:1313/posts/futex/</guid>
       <description>Futex (Fast Userspace Mutexes) futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등의 라이브러리의 구현에 사용되기 때문에 애플리케이션으로부터 직접 이용하는 경우는 별로 없다고 생각되지만 POSIX Thread는 Java 스레드의 구현 등에도 이용되고 있어 동기 처리를 많이 이용하는 애플리케이션에는 이익이 있을 것이다. futex 시스템 콜의 주된 기능은 FUTEX_WAIT와 FUTEX_WAKE이다.
 pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock이 성공되면 종료 FUTEX_WAIT를 사용하여 pthread_mutex_t의 주소 상에서 슬립한다 시동 후, 1로 돌아간다  pthread_mutex_unlock  아토믹 명령을 사용해 unlock 처리를 실시 1의 결과, 슬립하고 있는 스레드가 있다면 FUTEX_WAKE를 사용하여 wakeup한다.</description>
     </item>
     
     <item>
       <title>Do While</title>
-      <link>https://seokbeomKim.github.io/posts/do-while/</link>
+      <link>https://localhost:1313/posts/do-while/</link>
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/do-while/</guid>
+      <guid>https://localhost:1313/posts/do-while/</guid>
       <description>개요 커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. https://kernelnewbies.org/FAQ/DoWhile0 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.
  빈 구문(empty statement)는 컴파일러가 경고를 낸다. 지역 변수를 선언할 수 있는 구역을 만들어준다. 조건문을 포함한 코드에서 복잡한 형태의 매크로를 사용할 수 있도록 해준다.  조건문을 포함한 코드에서의 매크로 사용 #define FOO(x) \ printf(&amp;#34;arg is %s\n&amp;#34;, x); \ do_something_useful(x); 이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.</description>
     </item>
     
     <item>
       <title>BSD 버전 Linked List</title>
-      <link>https://seokbeomKim.github.io/posts/bsd_queue/</link>
+      <link>https://localhost:1313/posts/bsd_queue/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/bsd_queue/</guid>
+      <guid>https://localhost:1313/posts/bsd_queue/</guid>
       <description>개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 list.h 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 &amp;lt;sys/queue.h&amp;gt; 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다.</description>
     </item>
     
     <item>
       <title>C ARRAY_SIZE 매크로와 포인터 기초</title>
-      <link>https://seokbeomKim.github.io/posts/c-arraysize-macro/</link>
+      <link>https://localhost:1313/posts/c-arraysize-macro/</link>
       <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/c-arraysize-macro/</guid>
+      <guid>https://localhost:1313/posts/c-arraysize-macro/</guid>
       <description>개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 https://kldp.org/node/34268과 같은 원인이라는 것을 알게되고 C 기초를 또 다시 한번 공부하게 되었다.
 커널에서 사용하는 ARRAY_SIZE는 아래와 같이 구현되어 있다.
 #define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))  // examples for (idx = 0; idx &amp;lt; ARRAY_SIZE(pArr); idx++) { // do something }) 본래 의도한대로라면, 배열의 크기만큼 for 구문을 반복해서 수행해야 하지만, pArr 자체가 함수의 인자로써 전달된 것이라면 얘기가 달라진다.</description>
@@ -413,20 +413,20 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
     
     <item>
       <title>goto statement</title>
-      <link>https://seokbeomKim.github.io/posts/goto-statement/</link>
+      <link>https://localhost:1313/posts/goto-statement/</link>
       <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/goto-statement/</guid>
+      <guid>https://localhost:1313/posts/goto-statement/</guid>
       <description>개요 학부 시절 c언어를 배울 때 &amp;lsquo;goto&amp;rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를 사용하지 않고 분기나 객체를 이용하도록 코딩을 했었고 저학년에서 고학년으로 올라갈수록 c언어 대신 자바나 c++, c# 등을 배우면서 goto는 머릿속에서 잊혀져갔다.
 입사하고 나서 드라이버 코드를 보니 간간히 goto 문이 사용된 것들을 보고 이것이 과연 리팩토링을 해야하는 대상인가에 대해 잠시 생각해보았다. 만약 아래와 같이 코드가 진행될 경우, 반드시 나머지 코드를 분기문으로 처리해야할 필요가 있을까?</description>
     </item>
     
     <item>
       <title>안드로이드 파티션</title>
-      <link>https://seokbeomKim.github.io/posts/android-partitions/</link>
+      <link>https://localhost:1313/posts/android-partitions/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/android-partitions/</guid>
+      <guid>https://localhost:1313/posts/android-partitions/</guid>
       <description>개요 안드로이드 기본 내용이지만 파티션을 착각한 탓에 수정 사항을 반영하지 못해 시간을 날리고 말았다. 커널의 수정사항이라 부트 이미지만 적용하면 변경 사항이 적용될 거라 생각했지만 커널 모듈로 빌드되는 경우 vendor 이미지로 별도로 관리될 수도 있기 때문에 해당 이미지도 함께 추가해서 해당 파티션도 업데이트 해줘야 한다.
 안드로이드 파티션 안드로이드 레퍼런스 문서에 따르면 boot, system, vendor, radio를 다음과 같이 설명하고 있다.
   boot: boot 파티션에는 mkbootimg를 통해 결합된 커널 이미지와 RAM 디스크가 포함된다.</description>
@@ -434,20 +434,20 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
     
     <item>
       <title>poll() 그리고 poll_wait()</title>
-      <link>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</link>
+      <link>https://localhost:1313/posts/poll-and-poll_wait/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</guid>
+      <guid>https://localhost:1313/posts/poll-and-poll_wait/</guid>
       <description>개요 업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다소 오래되었기에 살펴보아야 하는 드라이버 코드도 레거시에 가까웠지만 poll을 이용하여 디바이스 드라이버의 인터럽트를 처리하는 것으로 확인하여 관련 내용을 정리하고자 한다.
 리눅스 커널에서 제공하는 poll 함수에 대해서 원문으로 작성된 여러 출처들이 있었지만 아무래도 처음부터 원문을 읽고 이해하기에는 다소 어려움이 있었다. falinux에 작성된 문서를 기반으로 아래와 같이 개념적인 내용만 재정리하는 방식으로 포스팅을 작성하려 한다.</description>
     </item>
     
     <item>
       <title>MICOM과 MPU</title>
-      <link>https://seokbeomKim.github.io/posts/micom-vs-mpu/</link>
+      <link>https://localhost:1313/posts/micom-vs-mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/micom-vs-mpu/</guid>
+      <guid>https://localhost:1313/posts/micom-vs-mpu/</guid>
       <description>개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
 마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
 본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &amp;ldquo;Adv&amp;quot;는 Advanced Topic의 줄임말로서 사용한다.</description>
@@ -455,10 +455,10 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
     
     <item>
       <title>IOCTL과 인터럽트</title>
-      <link>https://seokbeomKim.github.io/posts/ioctl-and-interrupt/</link>
+      <link>https://localhost:1313/posts/ioctl-and-interrupt/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/ioctl-and-interrupt/</guid>
+      <guid>https://localhost:1313/posts/ioctl-and-interrupt/</guid>
       <description>개요 디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackOverflow에서 재미있는 질문을 찾았다.
  [[https://stackoverflow.com/questions/60088342/does-context-switching-occurs-when-ioctl-is-issued-from-user-space-while-kernel]]  문제 자체는 커널 모듈 안에 있는 critical section에서 스핀락을 사용하지 않을 때 irq나 softirq를 비활성화하지 않고도 데드락에 빠지지 않고 정상적으로 동작이 가능한가에 대한 질문이다. 질문에 대한 답변부터 살펴보면,
   IRQ/SoftIRQ는 시스템 콜과 아무런 영향이 없다. 단지 인터럽트 컨텍스트 안에서 사용되는 데이터 구조들을 보호하기 위해 IRQ와 softIRQ를 비활성화하는 것 뿐이다.</description>
@@ -466,30 +466,30 @@ pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock
     
     <item>
       <title>Hyper-V 가상 환경에서 고정 아이피 주소 사용하기</title>
-      <link>https://seokbeomKim.github.io/posts/static-ipaddr-for-hyper-v/</link>
+      <link>https://localhost:1313/posts/static-ipaddr-for-hyper-v/</link>
       <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/static-ipaddr-for-hyper-v/</guid>
+      <guid>https://localhost:1313/posts/static-ipaddr-for-hyper-v/</guid>
       <description>개요 윈도우즈에서 리눅스 환경을 이용하기 위해서는 docker 컨테이너를 이용하거나 hyper-v, vmware, virtualbox 등과 같은 가상머신을 이용해야 한다. 이번에는 hyper-v를 이용해 리눅스 환경을 구축하고 SSH를 통해 접속하여 필요한 작업을 하려 했는데 문제는 IP가 계속해서 동적으로 바뀌는 것이었다. 이를 해결하기 위해 네트워크 구성 방법과 간단한 가이드를 작성하고자 한다. 향후 Hyper-V 를 사용하면서 요구되는 시나리오가 추가되면 본 포스팅 문서를 수정하여 정리하도록 한다.
 가상머신 클라이언트에 static ip 할당하기 가상머신에 고정 아이피를 할당하기 위해서는 가상 스위치 장치를 이용해야 한다.</description>
     </item>
     
     <item>
       <title>리눅스에서의 버퍼링 방식</title>
-      <link>https://seokbeomKim.github.io/posts/buffering-in-linux/</link>
+      <link>https://localhost:1313/posts/buffering-in-linux/</link>
       <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/buffering-in-linux/</guid>
+      <guid>https://localhost:1313/posts/buffering-in-linux/</guid>
       <description>리눅스에서의 버퍼링 정책 리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
 만약 write 호출로 데이터를 쓰기 명령을 전달하면 해당 파일 작업을 위한 버퍼에 기록을 해 두었다가 정책에 따라 특정 시점에 물리적인 파일에 기록을 수행한다. 리눅스에서 제공하는 버퍼링 정책에는 버퍼가 꽉 차면 물리적인 파일에 기록하는 Full Buffering과 꽉 차거나 개행문자가 오면 처리하는 Line Buffering, 버퍼를 사용하는 않는 Null Buffering 정책을 제공하고 있다.</description>
     </item>
     
     <item>
       <title>ioctl()에 전달되는 cmd 관련 매크로 함수</title>
-      <link>https://seokbeomKim.github.io/posts/ioctl_cmd_macro/</link>
+      <link>https://localhost:1313/posts/ioctl_cmd_macro/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/ioctl_cmd_macro/</guid>
+      <guid>https://localhost:1313/posts/ioctl_cmd_macro/</guid>
       <description>드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한다.
 저수준 파일 입출력 함수인 ioctl()을 디바이스 파일에 적용시키면 디바이스 파일에 연결된 디바이스 드라이버의 file_operation 구조체의 ioctl 필드에 선언된 함수가 호출된다. ioctl 함수는 디바이스마다 고유하게 선언하여 사용하는데, 일반적으로 하드에워의 제어나 상태를 얻기 위해 사용한다.
 cmd 구성 디바이스 드라이버의 ioctl() 함수에 전달되는 매개변수 cmd는 응용 프로그램이 디바이스 드라이버에게 요구한 처리를 구별하기 위한 구별값이다.</description>
@@ -497,20 +497,20 @@ cmd 구성 디바이스 드라이버의 ioctl() 함수에 전달되는 매개변
     
     <item>
       <title>switch 구문과 if-else 구문</title>
-      <link>https://seokbeomKim.github.io/posts/switch-statement/</link>
+      <link>https://localhost:1313/posts/switch-statement/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/switch-statement/</guid>
+      <guid>https://localhost:1313/posts/switch-statement/</guid>
       <description>개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다.
 int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	break; case FLAG_B: // do B 	break; case blabla: // blabla... 	break; default: printk(KERN_ERR &amp;#34;ERROR!\n&amp;#34;); } return 0; } 함수 포인터 배열 사용하기 if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를 들었던 기억이 났다.</description>
     </item>
     
     <item>
       <title>Identity Mapping</title>
-      <link>https://seokbeomKim.github.io/posts/idmap/</link>
+      <link>https://localhost:1313/posts/idmap/</link>
       <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/idmap/</guid>
+      <guid>https://localhost:1313/posts/idmap/</guid>
       <description>ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
  idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
 linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.</description>
@@ -518,20 +518,20 @@ linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 �
     
     <item>
       <title>WARN_ON, BUG_ON 매크로</title>
-      <link>https://seokbeomKim.github.io/posts/warn_on-and-bug_on/</link>
+      <link>https://localhost:1313/posts/warn_on-and-bug_on/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/warn_on-and-bug_on/</guid>
+      <guid>https://localhost:1313/posts/warn_on-and-bug_on/</guid>
       <description>개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
 이 글에서는 BUG_ON, WARN_ON 등 커널에서 제공하는 assertion에 해당하는 매크로가 어떤 것들이 있는지 살펴보고 어떤 경우에 사용해야 하는지에 대해 간략히 정리하고자 한다. 이 외에 커널에서는 dump_stack(), save_stack_trace(), dump_trace(), backtrace() 등의 콜 스택 출력 방법을 제공한다.</description>
     </item>
     
     <item>
       <title>Likely and Unlikely</title>
-      <link>https://seokbeomKim.github.io/posts/likely-and-unlikely/</link>
+      <link>https://localhost:1313/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/likely-and-unlikely/</guid>
+      <guid>https://localhost:1313/posts/likely-and-unlikely/</guid>
       <description>개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.
 회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.
 likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다.</description>
@@ -539,80 +539,80 @@ likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 �
     
     <item>
       <title>typedef is evil</title>
-      <link>https://seokbeomKim.github.io/posts/typedef-is-evil/</link>
+      <link>https://localhost:1313/posts/typedef-is-evil/</link>
       <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/typedef-is-evil/</guid>
+      <guid>https://localhost:1313/posts/typedef-is-evil/</guid>
       <description>커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을 비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이 되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.
 typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조체에 대한 포인터를 정의할 때 typedef을 이용하지 말 것을 당부한다. 또한, typedef unsigned long DWORD 와 같은 것도 비판한다.</description>
     </item>
     
     <item>
       <title>이맥스 기본 에디터로 사용하기</title>
-      <link>https://seokbeomKim.github.io/posts/emacs-as-default-editor/</link>
+      <link>https://localhost:1313/posts/emacs-as-default-editor/</link>
       <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/emacs-as-default-editor/</guid>
+      <guid>https://localhost:1313/posts/emacs-as-default-editor/</guid>
       <description>개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
 데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다.</description>
     </item>
     
     <item>
       <title>ftrace 이용한 커널 디버깅</title>
-      <link>https://seokbeomKim.github.io/posts/ftrace/</link>
+      <link>https://localhost:1313/posts/ftrace/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/ftrace/</guid>
+      <guid>https://localhost:1313/posts/ftrace/</guid>
       <description>개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.
 예전에 젠투 리눅스를 사용할 무렵, menuconfig에서 커널 해킹이라는 흥미로운 메뉴에서 알 수 없는 tracer라는 메뉴로만 본 것으로 이해하지 직접적으로 사용한 적은 없었는데, 실제 사용해보니 생각보다 많은 옵션, 정보들을 보여주었다.</description>
     </item>
     
     <item>
       <title>Raspberry Pi를 이용한 사이드 프로젝트</title>
-      <link>https://seokbeomKim.github.io/posts/raspberry-pi-sub-projects/</link>
+      <link>https://localhost:1313/posts/raspberry-pi-sub-projects/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/raspberry-pi-sub-projects/</guid>
+      <guid>https://localhost:1313/posts/raspberry-pi-sub-projects/</guid>
       <description>카메라 포팅 건으로 불필요한 업무가 지속적으로 들어온다. 포팅을 위한 기본적인 것들을 자동화 하거나 유틸리티 형태로 제공할 수 있어야 한다는 것을 뼈저리게 느꼈다. 특히, 오늘은 고객사의 디바이스 트리 내 오타로 인해 Pin Control이 안됐던 원인을 찾고 나니 그러한 유틸리티의 필요성을 뼈저리게 느꼈다.
 사이드 프로젝트를 통해 개발에 대한 갈증을 해소하고 불필요하게 업무에 투입되는 시간을 줄이기 위해서라도 3개월 정도의 시간을 들여 만들고자 한다. 라즈베리파이를 이용해 유틸리티는 디바이스 모듈과 함께 연동되도록 설계하고 ncurses를 이용하여 UI를 제공하도록 할 계획이다.</description>
     </item>
     
     <item>
       <title>Wayland과 Weston</title>
-      <link>https://seokbeomKim.github.io/posts/wayland/</link>
+      <link>https://localhost:1313/posts/wayland/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/wayland/</guid>
+      <guid>https://localhost:1313/posts/wayland/</guid>
       <description>개요 직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을 맞추고 gnome이나 kde, xfce가 아닌 fluxbox, blackbox, i3, xmonad, enlightenment 등을 이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서 사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도 몰랐다.
 이번 포스팅에서는 사내 위키의 내용을 출처로 하여, wayland, weston에 대한 구조를 살펴보고 클라이언트 예제를 기술하고자 한다.</description>
     </item>
     
     <item>
       <title>ARM64에서의 커널 메모리 맵</title>
-      <link>https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/</link>
+      <link>https://localhost:1313/posts/arm64_kernel_memory_map/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/</guid>
+      <guid>https://localhost:1313/posts/arm64_kernel_memory_map/</guid>
       <description>ARM64에서의 커널 메모리 맵 &amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;quot;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
 ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을 사용한다. 이 때, 가상 주소 기준으로 각 끝 영역을 사용한다는 점에 유의해야 한다.</description>
     </item>
     
     <item>
       <title>Chroot 환경을 이용한 Yocto 환경 구성</title>
-      <link>https://seokbeomKim.github.io/posts/yocto-and-chroot/</link>
+      <link>https://localhost:1313/posts/yocto-and-chroot/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/yocto-and-chroot/</guid>
+      <guid>https://localhost:1313/posts/yocto-and-chroot/</guid>
       <description>우분투 버전과 Yocto 버전 AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다. 개인적으로 Rolling Release 배포판인 아치리눅스나 젠투 리눅스들을 선호하지만 사용자가 많고 프로젝트 대부분에서 데비안 타입의 패키징을 지원하므로, 익숙한 우분투를 사용하기로 했다.
 한 가지 중요한 것은 우분투의 경우 각 버전마다 빌드 환경이 다르고, Yocto의 경우 이러한 빌드 환경에 의존성을 가지고 있다는 것이다. 처음 Ubuntu 21.10 버전에서 레시피를 빌드했을 때 아래와 같은 에러 메시지에 맞딱드렸다.</description>
     </item>
     
     <item>
       <title>GPIO Mapping</title>
-      <link>https://seokbeomKim.github.io/posts/gpio_mapping/</link>
+      <link>https://localhost:1313/posts/gpio_mapping/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/gpio_mapping/</guid>
+      <guid>https://localhost:1313/posts/gpio_mapping/</guid>
       <description>GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
 GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
  디바이스 트리 이용 (최근 트렌드) Legacy Board &amp;amp; Machine Specific Code에서 플랫폼 데이터로 정의   (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.</description>
@@ -620,10 +620,10 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
     
     <item>
       <title>안드로이드의 uevent, ueventd</title>
-      <link>https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/</link>
+      <link>https://localhost:1313/posts/android_uevent_and_ueventd/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/android_uevent_and_ueventd/</guid>
+      <guid>https://localhost:1313/posts/android_uevent_and_ueventd/</guid>
       <description>개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. ueventd.rc 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.
 본 포스팅에서는 uevent와 ueventd가 무엇인지 살펴보고 안드로이드 init 과정에서 어떻게 활용되는지 살펴보기로 한다.
 여담으로 안드로이드의 uevent는 리눅스의 udev 와 비슷한 역할을 하면서도 조금 다르다. 리눅스의 일반적인 환경 구성이 devfs + udev 로 디바이스 노드 파일들을 관리한다면, 안드로이드는 ueventd를 이용하여 노드 파일들을 관리한다.</description>
@@ -631,10 +631,10 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
     
     <item>
       <title>/dev/mem vs. /dev/kmem</title>
-      <link>https://seokbeomKim.github.io/posts/mem_vs_kmem/</link>
+      <link>https://localhost:1313/posts/mem_vs_kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/mem_vs_kmem/</guid>
+      <guid>https://localhost:1313/posts/mem_vs_kmem/</guid>
       <description>개요 업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때, /dev/mem 디바이스 노드가 반드시 있어야 한다고 들었기에 Kconfig에서 관련 설정 플래그를 찾던 중 kmem 이라는 것도 있다는 것을 알게 되었다. 문득 이 둘의 차이점과 공식적(?)인 디버깅 툴이 어떤 것이 있는지 알아보고자 한다.
 /dev/mem vs. /dev/kmem 이 둘의 차이점은 출처에 따르면 아래와 같이 나와있다.
  /dev/mem is a device file that directly represents physical memory, so an open(/dev/mem)/seek(1000)/read(10) system call combination ends up reading 10 bytes from RAM address 1000.</description>
@@ -642,20 +642,20 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
     
     <item>
       <title>Kobject</title>
-      <link>https://seokbeomKim.github.io/posts/kobject/</link>
+      <link>https://localhost:1313/posts/kobject/</link>
       <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/kobject/</guid>
+      <guid>https://localhost:1313/posts/kobject/</guid>
       <description>kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
 61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.</description>
     </item>
     
     <item>
       <title>Little Endian vs. Big Endian</title>
-      <link>https://seokbeomKim.github.io/posts/endian/</link>
+      <link>https://localhost:1313/posts/endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/endian/</guid>
+      <guid>https://localhost:1313/posts/endian/</guid>
       <description>개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
 엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
  Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.</description>
@@ -663,10 +663,10 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
     
     <item>
       <title>영상 출력 포맷</title>
-      <link>https://seokbeomKim.github.io/posts/digital_output_formats/</link>
+      <link>https://localhost:1313/posts/digital_output_formats/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/digital_output_formats/</guid>
+      <guid>https://localhost:1313/posts/digital_output_formats/</guid>
       <description>디지널 출력 포맷 아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타겟으로 한 표준들이 나오고 있다. 디지털 텔레비전의 부호화 파라미터들을 정의한 권고안으로서 601은 모든 컴포넌트 디지털 영상 표준에 대한 기초가 되었다.
 규격 내용 각 표준에는 아래와 같은 내용들을 정의한다.
  화면비 휘도 및 색 신호에 대한 처리 영상 포맷 형식 기준 주파수 샘플링 주파수 샘플링 및 코딩 형식  BT.</description>
@@ -674,10 +674,10 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
     
     <item>
       <title>색 공간(Color Space)</title>
-      <link>https://seokbeomKim.github.io/posts/color-space/</link>
+      <link>https://localhost:1313/posts/color-space/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/color-space/</guid>
+      <guid>https://localhost:1313/posts/color-space/</guid>
       <description>색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.
 색 포맷에 대한 비트 구성은 표준에 따르지 않고 각 플랫폼 환경에 따라 달라지므로 SoC 데이터시트를 참고하여 컴포넌트에서 어떻게 구성되는지 확인해야 한다.
 RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.</description>
@@ -685,10 +685,10 @@ RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.</descrip
     
     <item>
       <title></title>
-      <link>https://seokbeomKim.github.io/about/</link>
+      <link>https://localhost:1313/about/</link>
       <pubDate>Sat, 25 Jan 2020 22:47:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/about/</guid>
+      <guid>https://localhost:1313/about/</guid>
       <description>Sukbeom (Jason) Kim  BSP Engineer @: sukbeom.kim@gmail.com  Careers   2009 - 2016
  Kwangwoon Univ. Bachelor&amp;rsquo;s degree, Computer Engineering    2015 - 2016
  Alpha Labs, Software Engineer Smart AR glasses Development  As a startup initial member, I worked on a project of AR glasses development. Gesture-R sensor device driver in Linux Kernel Modifying Android framework (Jellybean) for touch-based UI Android application to control AR glasses      2017 - 2018</description>
@@ -696,20 +696,20 @@ RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.</descrip
     
     <item>
       <title>부트로더(Bootloader)</title>
-      <link>https://seokbeomKim.github.io/posts/bootloader/</link>
+      <link>https://localhost:1313/posts/bootloader/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/bootloader/</guid>
+      <guid>https://localhost:1313/posts/bootloader/</guid>
       <description>이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램, 네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.
 브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면 메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽 카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test) 과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를 찾아 부팅한다.</description>
     </item>
     
     <item>
       <title>command: posix_spawn failed: Resource temporarily unavailable</title>
-      <link>https://seokbeomKim.github.io/posts/posix-spawn-errors/</link>
+      <link>https://localhost:1313/posts/posix-spawn-errors/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/posix-spawn-errors/</guid>
+      <guid>https://localhost:1313/posts/posix-spawn-errors/</guid>
       <description>QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.
 이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이
 sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
@@ -718,40 +718,40 @@ sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
     
     <item>
       <title>QEMU 이용한 임베디드 개발 환경 구축하기</title>
-      <link>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</link>
+      <link>https://localhost:1313/posts/qemu-arm-versatile/</link>
       <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/qemu-arm-versatile/</guid>
+      <guid>https://localhost:1313/posts/qemu-arm-versatile/</guid>
       <description>임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
 개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.</description>
     </item>
     
     <item>
       <title>RCU (Read, Copy, Update)</title>
-      <link>https://seokbeomKim.github.io/posts/rcu/</link>
+      <link>https://localhost:1313/posts/rcu/</link>
       <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/rcu/</guid>
+      <guid>https://localhost:1313/posts/rcu/</guid>
       <description>1. 들어가기 전에 &amp;hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
 RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (4/5)</title>
-      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</link>
+      <link>https://localhost:1313/posts/locks-in-the-kernel-4/</link>
       <pubDate>Tue, 04 Jun 2019 16:40:28 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-4/</guid>
+      <guid>https://localhost:1313/posts/locks-in-the-kernel-4/</guid>
       <description>BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하기 위해 락(Lock)을 획득해야 커널 모드로 진입되었고 나머지 프로세서들은 락을 획득하기 위해 대기한다. 하지만 이 후, 성능, 실시간 애플리케이션에 대한 latency 이슈로 BKL(Big Kernel Lock)은 스핀락과 뮤텍스, RCU 등으로 대체되면서 현재는 거의 관련 코드가 제거되어 있는 상태이다.
  lock_kernel(): Acquires the BKL unlock_kernel(): Releases the BKL kernel_locked(): Returns nonzero if the lock is held and zero otherwise (UP always returns nonzero)  BKL은 프로세서들이 동시에 커널에 진입하는 것을 막아 동기화 문제를 해결한다.</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (3/5)</title>
-      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/</link>
+      <link>https://localhost:1313/posts/locks-in-the-kernel-3/</link>
       <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-3/</guid>
+      <guid>https://localhost:1313/posts/locks-in-the-kernel-3/</guid>
       <description>이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
 세마포어는 아래와 같은 경우에 적합하다.
 태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.</description>
@@ -759,30 +759,30 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     
     <item>
       <title>Major와 Minor Numbers</title>
-      <link>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</link>
+      <link>https://localhost:1313/posts/major-and-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/major-and-minor-numbers/</guid>
+      <guid>https://localhost:1313/posts/major-and-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
 캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&amp;rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&amp;rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (2/5)</title>
-      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</link>
+      <link>https://localhost:1313/posts/locks-in-the-kernel-2/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-2/</guid>
+      <guid>https://localhost:1313/posts/locks-in-the-kernel-2/</guid>
       <description>지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다. 많은 곳에서 뮤텍스는 세마포어의 카운트 값이 단순하게 1로 설정되었을 때를 말한다고 기술한다. 하지만 이것이 맞는 설명일까?
 참고 자료에 따르면 뮤텍스는 공유 자원으로의 접근(Access)에 대한 상호 배제(Mutual Exclusion)을 위한 수단이 Mutex라고 정의하고 있다. 이에 반해 세마포어(Semaphore)는 시그널 매커니즘으로서 스레드(또는 프로세스) 간 동기화가 주 목적으로, wait 함수를 호출한 스레드만이 뮤텍스를 신호를 보낼 수 있다는 점이 기능적인 특징이다.</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (1/5)</title>
-      <link>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</link>
+      <link>https://localhost:1313/posts/locks-in-the-kernel-1/</link>
       <pubDate>Tue, 28 May 2019 17:45:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/locks-in-the-kernel-1/</guid>
+      <guid>https://localhost:1313/posts/locks-in-the-kernel-1/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
 세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
@@ -792,20 +792,20 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     
     <item>
       <title>지피(Jiffies)</title>
-      <link>https://seokbeomKim.github.io/posts/jiffies/</link>
+      <link>https://localhost:1313/posts/jiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/jiffies/</guid>
+      <guid>https://localhost:1313/posts/jiffies/</guid>
       <description>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.
 커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.</description>
     </item>
     
     <item>
       <title>태스크릿(Tasklet)</title>
-      <link>https://seokbeomKim.github.io/posts/tasklet/</link>
+      <link>https://localhost:1313/posts/tasklet/</link>
       <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/tasklet/</guid>
+      <guid>https://localhost:1313/posts/tasklet/</guid>
       <description>커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.
 간단히 말해 tasklet은 스택이나 자체 컨텍스트가 없는 스레드와 같은 것으로 설명하고 있다.
 태스크릿(Tasklet)의 특성  태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.</description>
@@ -813,10 +813,10 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
     
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
-      <link>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</link>
+      <link>https://localhost:1313/posts/build-kernel-and-busybox2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</guid>
+      <guid>https://localhost:1313/posts/build-kernel-and-busybox2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던 기회였다.
 두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 crosstool-ng라는 크로스 컴파일러 생성 스크립트 도구와 buildroot라는 Makefile 패키지를 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.
 Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.
@@ -825,50 +825,50 @@ Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미�
     
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</title>
-      <link>https://seokbeomKim.github.io/posts/build-kernel-and-busybox/</link>
+      <link>https://localhost:1313/posts/build-kernel-and-busybox/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/build-kernel-and-busybox/</guid>
+      <guid>https://localhost:1313/posts/build-kernel-and-busybox/</guid>
       <description>취업은 언제하나&amp;hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접 확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도 나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방 해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은 마운트하지 않는다는 제한은 있다.
 이 문서는 참고한 페이지를 토대로 필요한 정보들을 중간에 좀 더 추가한 형태로 정리하였다.</description>
     </item>
     
     <item>
       <title>OSI 7-Layers</title>
-      <link>https://seokbeomKim.github.io/posts/osi-7-layers/</link>
+      <link>https://localhost:1313/posts/osi-7-layers/</link>
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/osi-7-layers/</guid>
+      <guid>https://localhost:1313/posts/osi-7-layers/</guid>
       <description>네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을 이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.
 OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.L1. 물리 계층, Physical Layer 물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다.</description>
     </item>
     
     <item>
       <title>TCP와 UDP의 차이점</title>
-      <link>https://seokbeomKim.github.io/posts/tcp-and-udp/</link>
+      <link>https://localhost:1313/posts/tcp-and-udp/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/tcp-and-udp/</guid>
+      <guid>https://localhost:1313/posts/tcp-and-udp/</guid>
       <description>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올 경우 포스팅을 업데이트 할 예정이다.
 방산 업체에서 무인 정찰기를 개발할 당시에도 중요 데이터는 모두 TCP를 이용해 송수신하고 영상과 같은 정보는 UDP를 이용해 전달받았다. 당시에 구현된 코드를 보면서 이전에 프로토콜 사용에 있어서 어디부터 어디까지를 UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했지만 코드를 변경할 수 없어 아쉬웠던 적이 있었다.</description>
     </item>
     
     <item>
       <title>커널 해킹: 프로세스</title>
-      <link>https://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/</link>
+      <link>https://localhost:1313/posts/kernel-hacking-chapter-process/</link>
       <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/kernel-hacking-chapter-process/</guid>
+      <guid>https://localhost:1313/posts/kernel-hacking-chapter-process/</guid>
       <description>앞으로 리눅스 커널 공부를 해가면서 포스팅으로 정리해둘 계획이다. 디바이스 드라이버 개발 이전에 리눅스라는 운영체제에 대해 개인적으로 정리해야할 필요성을 느꼈다. 그리고 최신 커널을 사용하기 보다 상대적으로 오래된 커널을 시작으로 공부하고자 한다. 기본 틀은 크게 변하지 않았을거라 생각하고 충분히 이해한 뒤에 최근 버전을 받아 개발 흐름을 이해하는 것이 옳은 방법이라 생각하였다.
 이 문서에서는 리눅스/유닉스 운영체제의 기본 추상화 개념 중 하나인 프로세스에 대해 정리하고자 한다. 정리에 필요한 정보 수집을 위해서 Linux kernel development(3rd edition) 책과 LWN 등의 사이트들을 참고한다.</description>
     </item>
     
     <item>
       <title>Copy on Write (CoW or COW)</title>
-      <link>https://seokbeomKim.github.io/posts/copy-on-write/</link>
+      <link>https://localhost:1313/posts/copy-on-write/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/copy-on-write/</guid>
+      <guid>https://localhost:1313/posts/copy-on-write/</guid>
       <description>Copy-on-write은 리눅스 커널의 fork() 함수에서 사용하는 기법이다.
 전통적인 fork()는 부모 프로세스의 모든 자원을 복사해 자식 프로세스에게 넘겨준다. 하지만 이러한 방식은 공유가 가능한 많은 데이터를 복사하므로 단순하고 비효율적이다. 게다가 새로 만든 프로세스가 곧바로 다른 프로그램을 실행한다면 복사 작업이 모두 헛수고가 되고 만다.
 이러한 문제를 해결하기 위해 리눅스에서는 Copy-on-write, COW 기법을 이용하는데 기록사항 발생 시에 복사하는 기능으로 즉각적인 데이터의 복사를 지연하거나 방지하는 기법이다. 때문에 fork()를 사용하게 되면 프로세스의 주소 공간을 모두 복사하는 대신, 부모와 자식 프로세스가 같은 공간을 공유하고 있다가 기록 사항이 발생했을 때 사본을 만든다.</description>
@@ -876,10 +876,10 @@ OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경�
     
     <item>
       <title>커널 모듈과 드라이버의 차이</title>
-      <link>https://seokbeomKim.github.io/posts/kernel-module-and-drivers/</link>
+      <link>https://localhost:1313/posts/kernel-module-and-drivers/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/kernel-module-and-drivers/</guid>
+      <guid>https://localhost:1313/posts/kernel-module-and-drivers/</guid>
       <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자 한다.
 커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 drivers와 modules의 차이점이 이해하기가 어려웠다.
 arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위해 포함하는 include 파일들 init/ - 커널 초기화 코드 mm/ - 메모리 관리 코드 drivers/ - 드라이버 ipc/ - IPC (Inter Process Communication) modules/ - 커널 모듈 fs/ - 파일시스템 kernel/ - 커널 코드 net/ - 네트워킹 코드 lib/ - 커널에서 사용하는 라이브러리 scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용) 구글링을 해보니 역시나 같은 생각을 한 사람이 있었다.</description>
@@ -887,30 +887,30 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
     
     <item>
       <title>비선점 스케쥴링(Nonpreemptive Scheduling)</title>
-      <link>https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</link>
+      <link>https://localhost:1313/posts/nonpreemptive_scheduling/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</guid>
+      <guid>https://localhost:1313/posts/nonpreemptive_scheduling/</guid>
       <description>비선점 스케쥴링(Non-preemptive Scheduling) 비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록 허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가 생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로 프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을 적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.
 설명하기 전에 프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의 프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫 번째이다.</description>
     </item>
     
     <item>
       <title>교착상태(Deadlock)</title>
-      <link>https://seokbeomKim.github.io/posts/deadlock/</link>
+      <link>https://localhost:1313/posts/deadlock/</link>
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/deadlock/</guid>
+      <guid>https://localhost:1313/posts/deadlock/</guid>
       <description>교착 상태(Deadlock) 두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결하는 일반적인 방법은 아직 없는 상태다.
 교착 상태는 하나의 사다리에 두 명이 사람이 매달려 있는 상황을 예상할 수 있다. 위쪽의 사람은 아래로 내려오려고 하고 아래에 있는 사람은 위로 올라가려고 한다면 서로 상대방이 사다리에서 비켜줄 때까지 계속 기다리고 있을 것이고 결과적으로 아무도 사다리에서 내려오거나 올라가지 못하듯이 교착 상태란 다중 프로그래밍 환경에서 흔히 발생할 수 있는 문제이다.</description>
     </item>
     
     <item>
       <title>Named export와 Default export</title>
-      <link>https://seokbeomKim.github.io/posts/default-export-in-typescript/</link>
+      <link>https://localhost:1313/posts/default-export-in-typescript/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/default-export-in-typescript/</guid>
+      <guid>https://localhost:1313/posts/default-export-in-typescript/</guid>
       <description>개요 모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때 이해가 되지 않았다. 특히 default export와 named export 라는 export 방식과 자바스크립트 버전에 따른 문법 호환 때문에 모듈 export와 import, require를 사용하는 코드를 이해하기 힘들었다.
 이 문서에서는 타입스크립트를 이용하여 default, named export 각각을 구현한 뒤 import, require 키워드 각각을 이용하였을 때 레퍼런스 변수가 어떤 값을 가지고 있는지 확인한다.
 직접 확인해보자 첫 번째 테스트 먼저 export할 테스트 클래스를 간단하게 구현한다.
@@ -919,10 +919,10 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
     
     <item>
       <title>텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이</title>
-      <link>https://seokbeomKim.github.io/posts/tensorflow-scikit-learn/</link>
+      <link>https://localhost:1313/posts/tensorflow-scikit-learn/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/tensorflow-scikit-learn/</guid>
+      <guid>https://localhost:1313/posts/tensorflow-scikit-learn/</guid>
       <description>책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.
 각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득 텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로 머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는 이유가 있을까 궁금해졌다.
 왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류, 회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습 방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도 있다.</description>
@@ -930,10 +930,10 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
     
     <item>
       <title>비지도 학습 알고리즘과 지도 학습</title>
-      <link>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</link>
+      <link>https://localhost:1313/posts/unsupervised-supervised-learning/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</guid>
+      <guid>https://localhost:1313/posts/unsupervised-supervised-learning/</guid>
       <description>개요 프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(Unsupervised Learning)이었는데 어디에도 학습이 정확이 무엇인지에 대한 내용이 없었다.
 학습이란 무엇인가? 질문에 대한 답은 쉽게 찾을 수 있었다.(해당 링크)
 A model with a set of parameters transforms the input into an output, this generates a signal from which the model updates the parameters to produce a new output. In the supervised learning scenario, the signal is the error between the model&amp;#39;s estimate and the ground truth (the correct answer).</description>
@@ -941,20 +941,20 @@ A model with a set of parameters transforms the input into an output, this gener
     
     <item>
       <title>자바의 중첩 클래스(Nested Class)</title>
-      <link>https://seokbeomKim.github.io/posts/java-inner-class/</link>
+      <link>https://localhost:1313/posts/java-inner-class/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/java-inner-class/</guid>
+      <guid>https://localhost:1313/posts/java-inner-class/</guid>
       <description>개요 중첩 클래스(Nested Class)에 대해서 여러 사이트에서 설명해놓은 것이 있지만 잘못 설명되어 있는 부분도 있었다. &amp;lsquo;Nested Class는 Inner Class와 같다.&amp;rsquo; 라는 식으로 기술해놓은 페이지가 많아 이번 기회에 확실하게 정리해놓고자 한다.
 중첩 클래스(Nested Class)는 내부 클래스(Inner Class)와 같은 개념이 아니라 포함 관계이다. 중첩 클래스는 static사용 여부에 따라, 정적 중첩 클래스(Static nested class)와 비정적 중첩 클래스(Non-static nested class)로 구분하며, 통상적으로 각각을 정적 중첩 클래스(Static Nested Class), 내부 클래스(Inner Class)라고 한다. 중첩 클래스와 내부 클래스를 같은 개념으로 혼용하는 용례가 많다는데 static 여부에 따라 구분되어 서로 다르다는 것을 반드시 알고 있자.</description>
     </item>
     
     <item>
       <title>서블릿 컨테이너와 서버와의 관계</title>
-      <link>https://seokbeomKim.github.io/posts/servlet-container/</link>
+      <link>https://localhost:1313/posts/servlet-container/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/servlet-container/</guid>
+      <guid>https://localhost:1313/posts/servlet-container/</guid>
       <description>개요 아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을 올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는 애플리케이션은 개발해 본 적이 없다. 때문에 서블릿이라는 용어 자체가 생소하고 웹 서버에서 이를 어떻게 관리하는지에 대해 궁금한 점을 중점으로 정리하고자 한다.
 정리하고자 하는 질문은 아래와 같다.
  Apache나 Nginx에서 서블릿 컨테이너로 어떤 방식을 통해서 클라이언트 요청을 넘겨주는가? 서블릿 컨테이너가 만들어진 이유는 무엇인가? 애플리케이션의 서블릿은 서블릿 컨테이너가 가지고 있는 라이프사이클 중 언제 추가되는가? 애플리케이션이 가지는 서블릿은 서블릿 컨테이너에 어떤 형태로 추가되는가?</description>
@@ -962,19 +962,19 @@ A model with a set of parameters transforms the input into an output, this gener
     
     <item>
       <title>파티셔닝(Partitioning)과 샤딩(Sharding)</title>
-      <link>https://seokbeomKim.github.io/posts/partition-and-sharding/</link>
+      <link>https://localhost:1313/posts/partition-and-sharding/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/partition-and-sharding/</guid>
+      <guid>https://localhost:1313/posts/partition-and-sharding/</guid>
       <description>개요 데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로 나누어 분산시키기 위한 기술 용어들인데 모두 서비스 크기 증가에 따른 DB 크기 증가, 성능 이슈에 따른 것이다. 일명 VLDB(Very Large DBMS)라 불리는, DBMS 하나로 전체 데이터베이스를 다룰 수 없는 데이터베이스가 자연스럽게 등장하였고 DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생기게 되었는데 이를 해결하기 위한 것이 바로 파티셔닝(partitioning) 과 샤딩(Sharding)이다.</description>
     </item>
     
     <item>
       <title>RESTful 성숙도 모델, Richardson Maturity Model(RMM)</title>
-      <link>https://seokbeomKim.github.io/posts/rest-api-model/</link>
+      <link>https://localhost:1313/posts/rest-api-model/</link>
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/rest-api-model/</guid>
+      <guid>https://localhost:1313/posts/rest-api-model/</guid>
       <description>개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &amp;lsquo;RESTful&amp;rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &amp;lsquo;Richardson Maturity Model&amp;rsquo;이라는 성숙도 모델을 기술한다.
 REST 소개 이 절은 Microsoft의 REST 소개를 발췌하여 정리한 것이다.
 REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키텍처 스타일로서 프로토콜과는 관련이 없는 용어이다. (일각에서 REST와 SOAP를 비교하는 글들이 많아 언급하였다.</description>
@@ -982,10 +982,10 @@ REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키
     
     <item>
       <title>Folding in Haskell</title>
-      <link>https://seokbeomKim.github.io/posts/folding-in-haskell/</link>
+      <link>https://localhost:1313/posts/folding-in-haskell/</link>
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/folding-in-haskell/</guid>
+      <guid>https://localhost:1313/posts/folding-in-haskell/</guid>
       <description>Folding in Haskell 취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고리즘이나 데이터베이스 등 배울 것이 많은 데 갈수록 태산이다.) 대학교 시절, xmonad 윈도우즈 매니저를 사용하면서 접한 언어를 이렇게 뒤늦게 배우게 될 줄은 꿈에도 몰랐다.
 대표적인 함수형 언어로 알려진 Haskell 에는 Folding 이라는 특별한 개념이 등장한다. Haskell Wiki에서는 Folding을 아래와 같이 설명하고 있다.
  In functional programming, fold (or reduce) is a family of higher order functions that process a data structure in some order and build a return value.</description>
@@ -993,10 +993,10 @@ REST는 하이퍼미디어 기반 분산 시스템을 구축하기 위한 아키
     
     <item>
       <title>HTTP/1.1과 HTTP/2의 차이점</title>
-      <link>https://seokbeomKim.github.io/posts/http1-http2/</link>
+      <link>https://localhost:1313/posts/http1-http2/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/http1-http2/</guid>
+      <guid>https://localhost:1313/posts/http1-http2/</guid>
       <description>HTTP/1.1 vs HTTP/2 HTTP 프로토콜에 대해서는 관심이 없다가 문득 텔레그램의 봇을 통해 우연히 HTTP/2의 개념을 처음으로 접하게 되었다. 이 문서는 HTTP/1.1과 HTTP/2 의 차이점을 설명하고 1.1에서 2로 변화하면서 어떻게 개선되었는지 기술한다.
 HTTP/1.1 동작 방식 HTTP(HyperText Transfer Protocol)은 웹에서 클라이언트(웹 브라우저)가 웹 서버(httpd, nginx, etc&amp;hellip;)와 통신하기 위한 프로토콜 중 하나이다. HTTP 1.1은 클라이언트와 서버 간의 통신을 위해 다음과 같은 과정을 거친다.
 위 그림에서 알 수 있듯이 HTTP/1.1은 기본적으로 Connection 한 개당 하나의 요청을 처리하도록 설계되어 있다.</description>
@@ -1004,10 +1004,10 @@ HTTP/1.1 동작 방식 HTTP(HyperText Transfer Protocol)은 웹에서 클라이�
     
     <item>
       <title>CORS(Cross-Origin Resource Sharing)</title>
-      <link>https://seokbeomKim.github.io/posts/cors/</link>
+      <link>https://localhost:1313/posts/cors/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/cors/</guid>
+      <guid>https://localhost:1313/posts/cors/</guid>
       <description>CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(Origin)는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.
 하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 CORS(Cross-Origin Resource Sharing)이라는 추가 정책이 나오게 되었다.
 CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.</description>
@@ -1015,10 +1015,10 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
     
     <item>
       <title>컨텐츠 전송 네트워크, CDN(Content Delivery Network)</title>
-      <link>https://seokbeomKim.github.io/posts/cdn/</link>
+      <link>https://localhost:1313/posts/cdn/</link>
       <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/cdn/</guid>
+      <guid>https://localhost:1313/posts/cdn/</guid>
       <description>CDN(Content Delivery Network) Content Delivery Network 또는 Content Distribution Network라고 불리는 네트워크는 컨텐츠를 효율적으로 전달하기 위해 여러 노드를 가진 네트워크에 데이터를 저장하여 제공하는 시스템을 말한다. 관련된 질문으로는 &amp;lsquo;CDN vs. Cache, 무엇이 더 효율적인가?&amp;lsquo;라는 것이 있다. CDN은 오늘날 텐스트, 그래픽, 스크립트, 미디어 파일, 소프트웨어, 문서 등의 다운로드가 가능한 객체들 뿐만 아니라 어플리케이션, 라이브 스트리밍 미디어 등의 다양한 컨텐츠들을 망라하여 제공하고 있다.
 아래의 그림을 살펴보자.
 왼쪽의 그림은 컨텐츠가 End User들에게 직접 제공되는 반면에 오른쪽 그림은 End-User에서 가장 가까운 CDN 서버를 통해 간접적으로 전달된다.</description>
@@ -1026,38 +1026,38 @@ CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조
     
     <item>
       <title>가상호스트(Virtual Host)와 Host Header</title>
-      <link>https://seokbeomKim.github.io/posts/vhost-host-header/</link>
+      <link>https://localhost:1313/posts/vhost-host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/vhost-host-header/</guid>
+      <guid>https://localhost:1313/posts/vhost-host-header/</guid>
       <description>Virtual Host and Host Header 문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가상 호스트와 호스트 헤더 간에는 무슨 관계가 있는 것일까. 이 문서에서는 가상 호스트와 가상호스트 종류, 그리고 마지막으로 호스트 헤더와 어떤 식으로 연관되는지에 대해 설명하겠다.
 가상 호스트(Virtual Host) 가상호스트란 싱글 서버(또는 서버 풀)에서 여러 개의 도메인 이름으로 호스팅하기 위한 방법이다. 가상 호스트를 사용함으로써 얻는 이점은 하나의 서버로 해당 서버의 리소스(메모리, 프로세서 사이클 등)를 공유할 수 있다는 점이다.</description>
     </item>
     
     <item>
       <title>Server Name Indication(SNI)</title>
-      <link>https://seokbeomKim.github.io/posts/sni/</link>
+      <link>https://localhost:1313/posts/sni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/sni/</guid>
+      <guid>https://localhost:1313/posts/sni/</guid>
       <description>Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다.</description>
     </item>
     
     <item>
       <title>HTTP와 HTTPS의 차이점</title>
-      <link>https://seokbeomKim.github.io/posts/diff_http_https/</link>
+      <link>https://localhost:1313/posts/diff_http_https/</link>
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       
-      <guid>https://seokbeomKim.github.io/posts/diff_http_https/</guid>
+      <guid>https://localhost:1313/posts/diff_http_https/</guid>
       <description>HTTP와 HTTPS의 차이점 HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&amp;rsquo;가 나타내는 Secure라는 의미로부터 HTTP에 &amp;lsquo;어떤 것&amp;rsquo;을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한&amp;rsquo;어떤 것&amp;rsquo;인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://seokbeomKim.github.io/diagrams/pgt_diagram/</link>
+      <link>https://localhost:1313/diagrams/pgt_diagram/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://seokbeomKim.github.io/diagrams/pgt_diagram/</guid>
+      <guid>https://localhost:1313/diagrams/pgt_diagram/</guid>
       <description>@startuml
 @enduml</description>
     </item>
