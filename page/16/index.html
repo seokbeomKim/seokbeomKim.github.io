@@ -74,7 +74,7 @@
   <div class="c-article__summary">
     커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.
 간단히 말해 tasklet은 스택이나 자체 컨텍스트가 없는 스레드와 같은 것으로 설명하고 있다.
-태스크릿(Tasklet)의 특성 🔗 태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.
+태스크릿(Tasklet)의 특성  태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/tasklet/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -97,7 +97,7 @@
   <div class="c-article__summary">
     지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던 기회였다.
 두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 crosstool-ng라는 크로스 컴파일러 생성 스크립트 도구와 buildroot라는 Makefile 패키지를 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.
-Crosstool-ng 이용하여 크로스 컴파일러 만들기 🔗crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.
+Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.
 먼저 crosstool-ng를 받는다.
   </div>
   
@@ -142,7 +142,7 @@ Crosstool-ng 이용하여 크로스 컴파일러 만들기 🔗crosstool-ng는 �
   </header>
   <div class="c-article__summary">
     네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을 이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.
-OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.L1. 물리 계층, Physical Layer 🔗물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다.
+OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.L1. 물리 계층, Physical Layer 물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/osi-7-layers/" class="c-article__btn p-list-article__btn">Read more</a>

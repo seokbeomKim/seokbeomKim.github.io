@@ -92,12 +92,14 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h2 id="ramoops-덕분에-알게된-오버레이">Ramoops 덕분에 알게된 오버레이 <a href="#ramoops-%eb%8d%95%eb%b6%84%ec%97%90-%ec%95%8c%ea%b2%8c%eb%90%9c-%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4" class="anchor">🔗</a></h2><p>며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다.
+    <h2 id="ramoops-덕분에-알게된-오버레이">Ramoops 덕분에 알게된 오버레이</h2>
+<p>며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다.
 ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나
 user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어
 최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.</p>
 <p>이러한 로거를 현업에서 사용하기 위해 사내 평가보드에서 먼저 확인해보았다. 평가보드에서는 간단하게 memblock의 reserved memory 영역에 ramoops 영역을 추가함으로써 정상 동작하는 것을 금방 확인할 수 있었다. 하지만, 개인적으로 갖고 있던 라즈베리파이 보드에서는 이같은 방법이 제대로 동작하지 않았다.  이에 구글링을 하던 도중 디바이스 트리 오버레이로 ramoops 에 대한 디바이스 트리를 수정하는 방법을 접하면서, 오버레이가 특정 벤더의 BSP에서만 사용 가능한 것이 아닌 OF의 API로서 커널 내에 구현되어 있다는 사실 또한 함께 알게 되었다. (부끄럽게도 이제서야 알게 되었다.)</p>
-<h2 id="오버레이-작성">오버레이 작성 <a href="#%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4-%ec%9e%91%ec%84%b1" class="anchor">🔗</a></h2><p>오버레이는 런타임에 FDT (Flattened Device Tree) 를 수정할 수 있는 방법이다. 여기서 FDT란, 메모리에 로드된 디바이스 트리를 말한다.
+<h2 id="오버레이-작성">오버레이 작성</h2>
+<p>오버레이는 런타임에 FDT (Flattened Device Tree) 를 수정할 수 있는 방법이다. 여기서 FDT란, 메모리에 로드된 디바이스 트리를 말한다.
 DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만, 이전 방법으로는 아래와 같이 작성할 수 있다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/dts-v1/;
 /plugin/;
@@ -126,7 +128,8 @@ DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만
 };
 </code></pre></div><p>그리고 이를 아래와 같이 컴파일한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ dtc -@ -O dtb -o ramoops.dtbo ramoops-overlay.dts
-</code></pre></div><h2 id="configfs">configfs <a href="#configfs" class="anchor">🔗</a></h2><p>앞서 컴파일한 오버레이를 사용하기 위해서는 디바이스 트리를 사용했던 것과 마찬가지로 특정 메모리 영역에 dtbo 파일을 두고 오버레이 인터페이스를 통해 접근해야 한다.
+</code></pre></div><h2 id="configfs">configfs</h2>
+<p>앞서 컴파일한 오버레이를 사용하기 위해서는 디바이스 트리를 사용했던 것과 마찬가지로 특정 메모리 영역에 dtbo 파일을 두고 오버레이 인터페이스를 통해 접근해야 한다.
 하지만 overlay에 관련된 API 를 직접 호출할 필요 없이도 configfs 를 통해 쉽게 오버레이를 추가하거나 제거할 수 있다. 커널에서는 아래와 같이 DT overlay interface 로서 CONFIGFS 를 제공한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">CONFIG_OF_CONFIGFS:
 
@@ -171,11 +174,13 @@ Binary file /sys/kernel/config/device-tree/overlays/test/dtbo matches
 /sys/kernel/config/device-tree/overlays/test/status:applied
 </code></pre></div><p>이렇게 오버레이를 통해 노드를 로드한 뒤에는 드라이버도 함께 신경써줘야 한다. 만약 관련된 드라이버가 built-in 되어 컴파일된 경우라면 자동으로 로드되지만 모듈로 빌드된 경우에는 반드시 modprobe 명령어로 로드해줘야 한다. 더이상 필요하지 않은 경우에는 아래와 같이 단순하게 디렉토리를 삭제해주면 된다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rmdir /sys/kernel/config/device-tree/overlays/test/
-</code></pre></div><h2 id="언제-사용할까">언제 사용할까? <a href="#%ec%96%b8%ec%a0%9c-%ec%82%ac%ec%9a%a9%ed%95%a0%ea%b9%8c" class="anchor">🔗</a></h2><p>오버레이를 통해 런타임에 동적으로 FDT 의 내용을 변경할 수 있다는 점은 충분히 매력적이다. 어째서 라즈베리파이에서 상당 부분의 모듈들을 오버레이를 통해 제공하고 있는지도 함께 이해할 수 있었다. 현재 현업에서는 오버레이는 적용되지 않은채 디바이스 트리의 상속을 통해서 구조화 시킨채 FDT는 고정적으로 사용하고 있다. 만약 시나리오에 따라 디바이스 트리가 변경되도록 BSP를 개발해야 하는 때가 온거나 현재 커널 내에 구현된 유닛테스트와 같이 고정된 테스트 코드에 동적인 설정값들을 사용해야 한다면 오버레이가 그 해답이 될 수 있을 것이라 생각한다.</p>
-<h2 id="참고-자료">참고 자료 <a href="#%ec%b0%b8%ea%b3%a0-%ec%9e%90%eb%a3%8c" class="anchor">🔗</a></h2><ul>
-<li><a href="https://source.android.com/devices/architecture/dto" target="_blank" rel="noopener">Android Device Tree Overlay</a></li>
-<li><a href="https://github.com/ikwzm/dtbocfg" target="_blank" rel="noopener">dtbocfg</a></li>
-<li><a href="https://www.96boards.org/documentation/consumer/dragonboard/dragonboard410c/guides/dt-overlays.md.html#32-loading-overlays-via-configfs" target="_blank" rel="noopener">Dynamically Loading Device Tree Overlay</a></li>
+</code></pre></div><h2 id="언제-사용할까">언제 사용할까?</h2>
+<p>오버레이를 통해 런타임에 동적으로 FDT 의 내용을 변경할 수 있다는 점은 충분히 매력적이다. 어째서 라즈베리파이에서 상당 부분의 모듈들을 오버레이를 통해 제공하고 있는지도 함께 이해할 수 있었다. 현재 현업에서는 오버레이는 적용되지 않은채 디바이스 트리의 상속을 통해서 구조화 시킨채 FDT는 고정적으로 사용하고 있다. 만약 시나리오에 따라 디바이스 트리가 변경되도록 BSP를 개발해야 하는 때가 온거나 현재 커널 내에 구현된 유닛테스트와 같이 고정된 테스트 코드에 동적인 설정값들을 사용해야 한다면 오버레이가 그 해답이 될 수 있을 것이라 생각한다.</p>
+<h2 id="참고-자료">참고 자료</h2>
+<ul>
+<li><a href="https://source.android.com/devices/architecture/dto">Android Device Tree Overlay</a></li>
+<li><a href="https://github.com/ikwzm/dtbocfg">dtbocfg</a></li>
+<li><a href="https://www.96boards.org/documentation/consumer/dragonboard/dragonboard410c/guides/dt-overlays.md.html#32-loading-overlays-via-configfs">Dynamically Loading Device Tree Overlay</a></li>
 </ul>
 
   </section>

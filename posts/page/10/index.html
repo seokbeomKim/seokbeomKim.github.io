@@ -72,7 +72,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    리눅스에서의 버퍼링 정책 🔗리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
+    리눅스에서의 버퍼링 정책 리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
 만약 write 호출로 데이터를 쓰기 명령을 전달하면 해당 파일 작업을 위한 버퍼에 기록을 해 두었다가 정책에 따라 특정 시점에 물리적인 파일에 기록을 수행한다. 리눅스에서 제공하는 버퍼링 정책에는 버퍼가 꽉 차면 물리적인 파일에 기록하는 Full Buffering과 꽉 차거나 개행문자가 오면 처리하는 Line Buffering, 버퍼를 사용하는 않는 Null Buffering 정책을 제공하고 있다.
   </div>
   
@@ -96,7 +96,7 @@
   <div class="c-article__summary">
     드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한다.
 저수준 파일 입출력 함수인 ioctl()을 디바이스 파일에 적용시키면 디바이스 파일에 연결된 디바이스 드라이버의 file_operation 구조체의 ioctl 필드에 선언된 함수가 호출된다. ioctl 함수는 디바이스마다 고유하게 선언하여 사용하는데, 일반적으로 하드에워의 제어나 상태를 얻기 위해 사용한다.
-cmd 구성 🔗디바이스 드라이버의 ioctl() 함수에 전달되는 매개변수 cmd는 응용 프로그램이 디바이스 드라이버에게 요구한 처리를 구별하기 위한 구별값이다.
+cmd 구성 디바이스 드라이버의 ioctl() 함수에 전달되는 매개변수 cmd는 응용 프로그램이 디바이스 드라이버에게 요구한 처리를 구별하기 위한 구별값이다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/ioctl_cmd_macro/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -117,8 +117,8 @@ cmd 구성 🔗디바이스 드라이버의 ioctl() 함수에 전달되는 매�
     </p>
   </header>
   <div class="c-article__summary">
-    개요 🔗실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다.
-int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	break; case FLAG_B: // do B 	break; case blabla: // blabla... 	break; default: printk(KERN_ERR &#34;ERROR!\n&#34;); } return 0; } 함수 포인터 배열 사용하기 🔗if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를 들었던 기억이 났다.
+    개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다.
+int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	break; case FLAG_B: // do B 	break; case blabla: // blabla... 	break; default: printk(KERN_ERR &#34;ERROR!\n&#34;); } return 0; } 함수 포인터 배열 사용하기 if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를 들었던 기억이 났다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/switch-statement/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -140,8 +140,8 @@ int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A 	br
   </header>
   <div class="c-article__summary">
     ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
- idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 🔗가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
-linear 영역 🔗가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.
+ idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
+linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/idmap/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -162,7 +162,7 @@ linear 영역 🔗가상주소 + offset = 물리주소 와 같이 주소 변환�
     </p>
   </header>
   <div class="c-article__summary">
-    개요 🔗업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
+    개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
 이 글에서는 BUG_ON, WARN_ON 등 커널에서 제공하는 assertion에 해당하는 매크로가 어떤 것들이 있는지 살펴보고 어떤 경우에 사용해야 하는지에 대해 간략히 정리하고자 한다. 이 외에 커널에서는 dump_stack(), save_stack_trace(), dump_trace(), backtrace() 등의 콜 스택 출력 방법을 제공한다.
   </div>
   

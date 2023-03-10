@@ -13,9 +13,9 @@
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/cors/</guid>
-      <description>CORS(Cross-Origin Resource Sharing) 🔗웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(Origin)는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.
+      <description>CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(Origin)는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.
 하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 CORS(Cross-Origin Resource Sharing)이라는 추가 정책이 나오게 되었다.
-CORS 요청 🔗CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.</description>
+CORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.</description>
     </item>
     
   </channel>

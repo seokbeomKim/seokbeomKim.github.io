@@ -13,9 +13,9 @@
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/strscpy/</guid>
-      <description>개요 🔗한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고 했는데 이제서야 겨우 정리할 수 있게 되었다.
+      <description>개요 한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고 했는데 이제서야 겨우 정리할 수 있게 되었다.
 리눅스 커널에서 문자열 복사를 위해 만들어진 매크로들은 다양하다. 몇 개의 시리즈(?)가 있는데 정리해보면 다음과 같다.
- strcpy strncpy strlcpy strscpy  strcpy 🔗strcpy를 나타내면 아래와 같이 간단하다.</description>
+ strcpy strncpy strlcpy strscpy  strcpy strcpy를 나타내면 아래와 같이 간단하다.</description>
     </item>
     
     <item>
@@ -24,7 +24,7 @@
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/file-close-on-exit/</guid>
-      <description>파일을 open 했는데 close를 안하면? 🔗stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 태스크가 파일을 열면 얻게 되는 고유 id값 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?</description>
+      <description>파일을 open 했는데 close를 안하면? stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 태스크가 파일을 열면 얻게 되는 고유 id값 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?</description>
     </item>
     
     <item>
@@ -33,7 +33,7 @@
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/kasan-with-gcc/</guid>
-      <description>커널의 KASAN 코드가 삽입되는 방법 🔗Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어 해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 static inline 형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만, 실제 코드를 보았을 때 함수와 EXPORT_SYMBOL 이 사용된 것 외에는 그 어디에도 inline 키워드는 사용도지 않았다.</description>
+      <description>커널의 KASAN 코드가 삽입되는 방법 Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어 해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 static inline 형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만, 실제 코드를 보았을 때 함수와 EXPORT_SYMBOL 이 사용된 것 외에는 그 어디에도 inline 키워드는 사용도지 않았다.</description>
     </item>
     
     <item>
@@ -42,7 +42,7 @@
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/kernel-debug-with-kgdb/</guid>
-      <description>개요 🔗필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는 방법에 대한 세미나를 보게 되었다. 유투브에서 «Using Serial kdb / kgdb to Debug the Linux Kernel - Douglas Anderson, Google» 검색한 영상인데, KDB와 KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을 테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.
+      <description>개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는 방법에 대한 세미나를 보게 되었다. 유투브에서 «Using Serial kdb / kgdb to Debug the Linux Kernel - Douglas Anderson, Google» 검색한 영상인데, KDB와 KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을 테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.
 KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 없는 환경에서 매우 유용하다.</description>
     </item>
     
@@ -63,7 +63,7 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</guid>
-      <description>개요 🔗맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
+      <description>개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
 (gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&amp;#39;m sorry, Dave, I can&amp;#39;t do that. Symbol format `elf64-littleaarch64&amp;#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.</description>
     </item>
     
@@ -73,8 +73,8 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
       <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/sysrq/</guid>
-      <description>개요 🔗현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에 대해서 정리하도록 한다.
-기능 활성화 🔗SysRq 이 컴파일된 커널을 실행하면 /proc/sys/kernel/sysrq 를 통해서 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은 /proc/sys/kernel/sysrq 내에 정의되어 있으며 기본값들은 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE 값으로 설정한다.
+      <description>개요 현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에 대해서 정리하도록 한다.
+기능 활성화 SysRq 이 컴파일된 커널을 실행하면 /proc/sys/kernel/sysrq 를 통해서 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은 /proc/sys/kernel/sysrq 내에 정의되어 있으며 기본값들은 CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE 값으로 설정한다.
   0 - disable sysrq completely
   1 - enable all functions of sysrq</description>
     </item>
@@ -86,7 +86,7 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
       
       <guid>https://seokbeomKim.github.io/posts/vmlinux/</guid>
       <description>커널 패닉 정보를 바탕으로 패닉이 정확히 어디서 발생했는지를 알아내기 위해 vmlinux 파일을 이용하는 방법을 알게 되었다. addr2line 명령어를 이용하여 PC 또는 LR에 들어있던 주소를 이용하여 실행된 명령어가 코드상으로 어디에 위치했는지를 알아내는 것인데 어떤 이유로 디버깅이 가능한지 궁금했기에 이 포스팅에서는 addr2line을 이용한 커널패닉 분석 방법과 vmlinux에 관련된 파일 종류에 대해 간단히 언급하고자 한다.
-커널 패닉 메시지 분석하기 🔗출처로 명시된 페이지에서 기술되어 있듯 아래와 같은 커널 패닉 메시지가 나왔다고 가정했을 때 addr2line 명령어와 vmlinux 파일을 이용해 실행 위치를 알아낼 수 있다.</description>
+커널 패닉 메시지 분석하기 출처로 명시된 페이지에서 기술되어 있듯 아래와 같은 커널 패닉 메시지가 나왔다고 가정했을 때 addr2line 명령어와 vmlinux 파일을 이용해 실행 위치를 알아낼 수 있다.</description>
     </item>
     
     <item>
@@ -95,8 +95,8 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/futex/</guid>
-      <description>Futex (Fast Userspace Mutexes) 🔗futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등의 라이브러리의 구현에 사용되기 때문에 애플리케이션으로부터 직접 이용하는 경우는 별로 없다고 생각되지만 POSIX Thread는 Java 스레드의 구현 등에도 이용되고 있어 동기 처리를 많이 이용하는 애플리케이션에는 이익이 있을 것이다. futex 시스템 콜의 주된 기능은 FUTEX_WAIT와 FUTEX_WAKE이다.
-pthread_mutex_lock 🔗 아토믹 명령을 사용하여 lock을 시도 1에서 lock이 성공되면 종료 FUTEX_WAIT를 사용하여 pthread_mutex_t의 주소 상에서 슬립한다 시동 후, 1로 돌아간다  pthread_mutex_unlock 🔗 아토믹 명령을 사용해 unlock 처리를 실시 1의 결과, 슬립하고 있는 스레드가 있다면 FUTEX_WAKE를 사용하여 wakeup한다.</description>
+      <description>Futex (Fast Userspace Mutexes) futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등의 라이브러리의 구현에 사용되기 때문에 애플리케이션으로부터 직접 이용하는 경우는 별로 없다고 생각되지만 POSIX Thread는 Java 스레드의 구현 등에도 이용되고 있어 동기 처리를 많이 이용하는 애플리케이션에는 이익이 있을 것이다. futex 시스템 콜의 주된 기능은 FUTEX_WAIT와 FUTEX_WAKE이다.
+pthread_mutex_lock  아토믹 명령을 사용하여 lock을 시도 1에서 lock이 성공되면 종료 FUTEX_WAIT를 사용하여 pthread_mutex_t의 주소 상에서 슬립한다 시동 후, 1로 돌아간다  pthread_mutex_unlock  아토믹 명령을 사용해 unlock 처리를 실시 1의 결과, 슬립하고 있는 스레드가 있다면 FUTEX_WAKE를 사용하여 wakeup한다.</description>
     </item>
     
     <item>
@@ -105,7 +105,7 @@ pthread_mutex_lock 🔗 아토믹 명령을 사용하여 lock을 시도 1에서 
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/poll-and-poll_wait/</guid>
-      <description>개요 🔗업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다소 오래되었기에 살펴보아야 하는 드라이버 코드도 레거시에 가까웠지만 poll을 이용하여 디바이스 드라이버의 인터럽트를 처리하는 것으로 확인하여 관련 내용을 정리하고자 한다.
+      <description>개요 업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다소 오래되었기에 살펴보아야 하는 드라이버 코드도 레거시에 가까웠지만 poll을 이용하여 디바이스 드라이버의 인터럽트를 처리하는 것으로 확인하여 관련 내용을 정리하고자 한다.
 리눅스 커널에서 제공하는 poll 함수에 대해서 원문으로 작성된 여러 출처들이 있었지만 아무래도 처음부터 원문을 읽고 이해하기에는 다소 어려움이 있었다. falinux에 작성된 문서를 기반으로 아래와 같이 개념적인 내용만 재정리하는 방식으로 포스팅을 작성하려 한다.</description>
     </item>
     
@@ -115,9 +115,9 @@ pthread_mutex_lock 🔗 아토믹 명령을 사용하여 lock을 시도 1에서 
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/micom-vs-mpu/</guid>
-      <description>개요 🔗카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
+      <description>개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.
 마침 한 블로그에 마이컴에 대해 간략하게 정리가 되어 있고 연관된 토픽 별로 정리해놓은 페이지가 있어 필요한 부분만 간추려 본 페이지로 정리하기로 한다.
-본문 🔗출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &amp;ldquo;Adv&amp;quot;는 Advanced Topic의 줄임말로서 사용한다.</description>
+본문 출처 내용 그대로 uC는 MicroController, uP는 MicroProcessor, &amp;ldquo;Adv&amp;quot;는 Advanced Topic의 줄임말로서 사용한다.</description>
     </item>
     
     <item>
@@ -126,7 +126,7 @@ pthread_mutex_lock 🔗 아토믹 명령을 사용하여 lock을 시도 1에서 
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/ioctl-and-interrupt/</guid>
-      <description>개요 🔗디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackOverflow에서 재미있는 질문을 찾았다.
+      <description>개요 디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackOverflow에서 재미있는 질문을 찾았다.
  [[https://stackoverflow.com/questions/60088342/does-context-switching-occurs-when-ioctl-is-issued-from-user-space-while-kernel]]  문제 자체는 커널 모듈 안에 있는 critical section에서 스핀락을 사용하지 않을 때 irq나 softirq를 비활성화하지 않고도 데드락에 빠지지 않고 정상적으로 동작이 가능한가에 대한 질문이다. 질문에 대한 답변부터 살펴보면,
   IRQ/SoftIRQ는 시스템 콜과 아무런 영향이 없다. 단지 인터럽트 컨텍스트 안에서 사용되는 데이터 구조들을 보호하기 위해 IRQ와 softIRQ를 비활성화하는 것 뿐이다.</description>
     </item>
@@ -137,7 +137,7 @@ pthread_mutex_lock 🔗 아토믹 명령을 사용하여 lock을 시도 1에서 
       <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/buffering-in-linux/</guid>
-      <description>리눅스에서의 버퍼링 정책 🔗리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
+      <description>리눅스에서의 버퍼링 정책 리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다.
 만약 write 호출로 데이터를 쓰기 명령을 전달하면 해당 파일 작업을 위한 버퍼에 기록을 해 두었다가 정책에 따라 특정 시점에 물리적인 파일에 기록을 수행한다. 리눅스에서 제공하는 버퍼링 정책에는 버퍼가 꽉 차면 물리적인 파일에 기록하는 Full Buffering과 꽉 차거나 개행문자가 오면 처리하는 Line Buffering, 버퍼를 사용하는 않는 Null Buffering 정책을 제공하고 있다.</description>
     </item>
     
@@ -149,7 +149,7 @@ pthread_mutex_lock 🔗 아토믹 명령을 사용하여 lock을 시도 1에서 
       <guid>https://seokbeomKim.github.io/posts/ioctl_cmd_macro/</guid>
       <description>드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한다.
 저수준 파일 입출력 함수인 ioctl()을 디바이스 파일에 적용시키면 디바이스 파일에 연결된 디바이스 드라이버의 file_operation 구조체의 ioctl 필드에 선언된 함수가 호출된다. ioctl 함수는 디바이스마다 고유하게 선언하여 사용하는데, 일반적으로 하드에워의 제어나 상태를 얻기 위해 사용한다.
-cmd 구성 🔗디바이스 드라이버의 ioctl() 함수에 전달되는 매개변수 cmd는 응용 프로그램이 디바이스 드라이버에게 요구한 처리를 구별하기 위한 구별값이다.</description>
+cmd 구성 디바이스 드라이버의 ioctl() 함수에 전달되는 매개변수 cmd는 응용 프로그램이 디바이스 드라이버에게 요구한 처리를 구별하기 위한 구별값이다.</description>
     </item>
     
     <item>
@@ -159,8 +159,8 @@ cmd 구성 🔗디바이스 드라이버의 ioctl() 함수에 전달되는 매�
       
       <guid>https://seokbeomKim.github.io/posts/idmap/</guid>
       <description>ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.
- idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 🔗가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
-linear 영역 🔗가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.</description>
+ idmap이 무엇이고 왜 필요한가? idmap 을 사용하는 코드는 어떤 것이 있는가? ARM 리눅스 커널에서는 어떻게 활용하고 있는가?  idmap (Identity Mapping) 가상주소와 물리주소가 매핑되는 방식 중의 한 가지다. 리눅스 커널에서 사용하는 주소 매핑 방식을 아래와 같이 3가지로 구분할 수 있다.
+linear 영역 가상주소 + offset = 물리주소 와 같이 주소 변환이 가능한 방식이다.</description>
     </item>
     
     <item>
@@ -169,7 +169,7 @@ linear 영역 🔗가상주소 + offset = 물리주소 와 같이 주소 변환�
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/warn_on-and-bug_on/</guid>
-      <description>개요 🔗업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
+      <description>개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 WARN_ON으로 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로 보여주는 내용이 조금 달랐다.
 이 글에서는 BUG_ON, WARN_ON 등 커널에서 제공하는 assertion에 해당하는 매크로가 어떤 것들이 있는지 살펴보고 어떤 경우에 사용해야 하는지에 대해 간략히 정리하고자 한다. 이 외에 커널에서는 dump_stack(), save_stack_trace(), dump_trace(), backtrace() 등의 콜 스택 출력 방법을 제공한다.</description>
     </item>
     
@@ -179,9 +179,9 @@ linear 영역 🔗가상주소 + offset = 물리주소 와 같이 주소 변환�
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/likely-and-unlikely/</guid>
-      <description>개요 🔗예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.
+      <description>개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.
 회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.
-likely(), unlikely() 🔗함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다.</description>
+likely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다.</description>
     </item>
     
     <item>
@@ -200,7 +200,7 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/ftrace/</guid>
-      <description>개요 🔗커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.
+      <description>개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.
 예전에 젠투 리눅스를 사용할 무렵, menuconfig에서 커널 해킹이라는 흥미로운 메뉴에서 알 수 없는 tracer라는 메뉴로만 본 것으로 이해하지 직접적으로 사용한 적은 없었는데, 실제 사용해보니 생각보다 많은 옵션, 정보들을 보여주었다.</description>
     </item>
     
@@ -210,7 +210,7 @@ typedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조�
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/arm64_kernel_memory_map/</guid>
-      <description>ARM64에서의 커널 메모리 맵 🔗&amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;quot;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
+      <description>ARM64에서의 커널 메모리 맵 &amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;quot;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
 ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을 사용한다. 이 때, 가상 주소 기준으로 각 끝 영역을 사용한다는 점에 유의해야 한다.</description>
     </item>
     
@@ -220,7 +220,7 @@ ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 �
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/gpio_mapping/</guid>
-      <description>GPIO 맵핑하기 🔗오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
+      <description>GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
 GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
  디바이스 트리 이용 (최근 트렌드) Legacy Board &amp;amp; Machine Specific Code에서 플랫폼 데이터로 정의   (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.</description>
     </item>
@@ -231,8 +231,8 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/mem_vs_kmem/</guid>
-      <description>개요 🔗업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때, /dev/mem 디바이스 노드가 반드시 있어야 한다고 들었기에 Kconfig에서 관련 설정 플래그를 찾던 중 kmem 이라는 것도 있다는 것을 알게 되었다. 문득 이 둘의 차이점과 공식적(?)인 디버깅 툴이 어떤 것이 있는지 알아보고자 한다.
-/dev/mem vs. /dev/kmem 🔗이 둘의 차이점은 출처에 따르면 아래와 같이 나와있다.
+      <description>개요 업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때, /dev/mem 디바이스 노드가 반드시 있어야 한다고 들었기에 Kconfig에서 관련 설정 플래그를 찾던 중 kmem 이라는 것도 있다는 것을 알게 되었다. 문득 이 둘의 차이점과 공식적(?)인 디버깅 툴이 어떤 것이 있는지 알아보고자 한다.
+/dev/mem vs. /dev/kmem 이 둘의 차이점은 출처에 따르면 아래와 같이 나와있다.
  /dev/mem is a device file that directly represents physical memory, so an open(/dev/mem)/seek(1000)/read(10) system call combination ends up reading 10 bytes from RAM address 1000.</description>
     </item>
     
@@ -242,7 +242,7 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
       <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/kobject/</guid>
-      <description>kobjects, ktypes, ksets 🔗디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
+      <description>kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
 61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; 커널 문서(https://www.</description>
     </item>
     
@@ -264,7 +264,7 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
       <guid>https://seokbeomKim.github.io/posts/tasklet/</guid>
       <description>커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.
 간단히 말해 tasklet은 스택이나 자체 컨텍스트가 없는 스레드와 같은 것으로 설명하고 있다.
-태스크릿(Tasklet)의 특성 🔗 태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.</description>
+태스크릿(Tasklet)의 특성  태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단, spinlock은 가능하다. ISR보다 유연한 컨텍스트(softer context)로 불린다. 때문에 태스크릿의 컨텍스트 도중 하드웨어 인터럽트가 발생하는 것을 허용한다.</description>
     </item>
     
     <item>
@@ -275,7 +275,7 @@ GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 �
       <guid>https://seokbeomKim.github.io/posts/build-kernel-and-busybox2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던 기회였다.
 두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 crosstool-ng라는 크로스 컴파일러 생성 스크립트 도구와 buildroot라는 Makefile 패키지를 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.
-Crosstool-ng 이용하여 크로스 컴파일러 만들기 🔗crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.
+Crosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.
 먼저 crosstool-ng를 받는다.</description>
     </item>
     
@@ -306,8 +306,8 @@ arch/ - 특정 아키텍처에 국한된 코드 include/ - 커널 빌드를 위�
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/nonpreemptive_scheduling/</guid>
-      <description>비선점 스케쥴링(Non-preemptive Scheduling) 🔗비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록 허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가 생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로 프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을 적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.
-설명하기 전에 🔗프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의 프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫 번째이다.</description>
+      <description>비선점 스케쥴링(Non-preemptive Scheduling) 비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록 허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가 생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로 프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을 적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.
+설명하기 전에 프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의 프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫 번째이다.</description>
     </item>
     
   </channel>

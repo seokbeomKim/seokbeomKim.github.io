@@ -13,7 +13,7 @@
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/dtbo/</guid>
-      <description>Ramoops 덕분에 알게된 오버레이 🔗며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나 user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어 최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.
+      <description>Ramoops 덕분에 알게된 오버레이 며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나 user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어 최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.
 이러한 로거를 현업에서 사용하기 위해 사내 평가보드에서 먼저 확인해보았다.</description>
     </item>
     
@@ -23,7 +23,7 @@
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/stack-protector/</guid>
-      <description>Stack Protector, 넌 뭐하는 놈이냐? 🔗현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.
+      <description>Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.
 하지만 이슈가 마무리 되고 Stack Protector 가 어떤 원리로 동작하는지 궁금했고 설 연휴를 맞아 자세하게 정리할 수 있었다. 그 과정에서 우분투에 잘못된 버그 리포트 티켓을 만들어내긴 했지만 말이다.
 Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-protector-strong 옵션을 통해 활성화할 수 있고 -fno-stack-protector 옵션으로 비활성화 할 수 있다.</description>
     </item>
@@ -34,7 +34,7 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/v4l2-dmabuf/</guid>
-      <description>개요 🔗최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를 파악할 수 있었다.
+      <description>개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를 파악할 수 있었다.
 본론에 들어가기에 앞서, V4L2 (Video for Linux) 와 Video Buffer 에 대해 간단하게 설명하면, V4L2는 Video Streaming I/O 를 지원하기 위한 프레임워크이다.</description>
     </item>
     
@@ -44,9 +44,9 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/a-structure-of-cacheline/</guid>
-      <description>개요 🔗&amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
-캐시 구조 🔗캐시에 관련된 주요 용어는 아래와 같다.
- 태그 캐시라인 인덱스 웨이와 세트  태그 🔗태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.</description>
+      <description>개요 &amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데 문제가 없을 거라 생각했는데 역시나 기억력에 한계가 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 분명히 다시 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.
+캐시 구조 캐시에 관련된 주요 용어는 아래와 같다.
+ 태그 캐시라인 인덱스 웨이와 세트  태그 태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.</description>
     </item>
     
     <item>
@@ -55,7 +55,7 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
       <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/cache-line/</guid>
-      <description>캐시를 꼭 사용해야 하나 🔗SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다. 하지만 매번 간략하게 정리한 문서가 없다보니 기억에 잘 남지도 않고 전체적인 흐름을 읽지 못하는 것 같아 이번 포스팅을 통해서 대략적으로나마 정리하고자 한다.
+      <description>캐시를 꼭 사용해야 하나 SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다. 하지만 매번 간략하게 정리한 문서가 없다보니 기억에 잘 남지도 않고 전체적인 흐름을 읽지 못하는 것 같아 이번 포스팅을 통해서 대략적으로나마 정리하고자 한다.
 프로세서 캐시와 메모리의 불일치 문제는 다루기 까다로운 문제이다. 단순하게 프로세서가 싱글 코어라면 문제가 없겠지만 여러 개의 코어를 가지고 있는 프로세서라면 각각의 코어가 가지고 있는 캐시와 주 메모리를 동기화 시켜주어야 한다.</description>
     </item>
     
@@ -74,7 +74,7 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/dmips/</guid>
-      <description>개요 🔗프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS라는 것이어서 이번에 확실하게 정리하고 가고자 한다.
+      <description>개요 프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS라는 것이어서 이번에 확실하게 정리하고 가고자 한다.
 DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수화해서 이를 하중한 값으로 비교하는 방법으로 프로세서 성능 비교에 이용하는 지표이다. 예를 들어, ARM 32bit Cortex-M3 CPU - 72 MHz maximum frequency 모델의 경우 1.25 DMIS/MHz 인데 여기에 CPU 사용량을 이용하면 해당 프로세서가 가지는 Full DMIPS (72MHz 일 때의 DMIPS) 대비 측정하고자 하는 프로세스에 대한 DMIPS 지표를 얻을 수 있다.</description>
     </item>
     
@@ -84,9 +84,9 @@ DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수�
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/endian/</guid>
-      <description>개요 🔗빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
+      <description>개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
 엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
- Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 🔗예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.</description>
+ Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식  예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.</description>
     </item>
     
     <item>
@@ -95,8 +95,8 @@ DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수�
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/digital_output_formats/</guid>
-      <description>디지널 출력 포맷 🔗아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타겟으로 한 표준들이 나오고 있다. 디지털 텔레비전의 부호화 파라미터들을 정의한 권고안으로서 601은 모든 컴포넌트 디지털 영상 표준에 대한 기초가 되었다.
-규격 내용 🔗각 표준에는 아래와 같은 내용들을 정의한다.
+      <description>디지널 출력 포맷 아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타겟으로 한 표준들이 나오고 있다. 디지털 텔레비전의 부호화 파라미터들을 정의한 권고안으로서 601은 모든 컴포넌트 디지털 영상 표준에 대한 기초가 되었다.
+규격 내용 각 표준에는 아래와 같은 내용들을 정의한다.
  화면비 휘도 및 색 신호에 대한 처리 영상 포맷 형식 기준 주파수 샘플링 주파수 샘플링 및 코딩 형식  BT.</description>
     </item>
     
@@ -106,9 +106,9 @@ DMIPS는 드라이스톤(Dhrystone) 벤치마크 테스트의 결과를 정수�
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/color-space/</guid>
-      <description>색 공간 포맷 🔗업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.
+      <description>색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.
 색 포맷에 대한 비트 구성은 표준에 따르지 않고 각 플랫폼 환경에 따라 달라지므로 SoC 데이터시트를 참고하여 컴포넌트에서 어떻게 구성되는지 확인해야 한다.
-RGB 🔗RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.</description>
+RGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.</description>
     </item>
     
     <item>
@@ -127,7 +127,7 @@ RGB 🔗RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다.</des
       <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/rcu/</guid>
-      <description>1. 들어가기 전에 &amp;hellip; 🔗앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
+      <description>1. 들어가기 전에 &amp;hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
 RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.</description>
     </item>
     
@@ -192,7 +192,7 @@ RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 �
       
       <guid>https://seokbeomKim.github.io/posts/osi-7-layers/</guid>
       <description>네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을 이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.
-OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.L1. 물리 계층, Physical Layer 🔗물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다.</description>
+OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.L1. 물리 계층, Physical Layer 물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다.</description>
     </item>
     
     <item>
@@ -222,7 +222,7 @@ OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경�
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/deadlock/</guid>
-      <description>교착 상태(Deadlock) 🔗두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결하는 일반적인 방법은 아직 없는 상태다.
+      <description>교착 상태(Deadlock) 두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결하는 일반적인 방법은 아직 없는 상태다.
 교착 상태는 하나의 사다리에 두 명이 사람이 매달려 있는 상황을 예상할 수 있다. 위쪽의 사람은 아래로 내려오려고 하고 아래에 있는 사람은 위로 올라가려고 한다면 서로 상대방이 사다리에서 비켜줄 때까지 계속 기다리고 있을 것이고 결과적으로 아무도 사다리에서 내려오거나 올라가지 못하듯이 교착 상태란 다중 프로그래밍 환경에서 흔히 발생할 수 있는 문제이다.</description>
     </item>
     

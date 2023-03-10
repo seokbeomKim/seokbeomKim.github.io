@@ -13,7 +13,7 @@
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/kernel-hacking-on-mac/</guid>
-      <description>개요 🔗맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
+      <description>개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
 (gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&amp;#39;m sorry, Dave, I can&amp;#39;t do that. Symbol format `elf64-littleaarch64&amp;#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.</description>
     </item>
     

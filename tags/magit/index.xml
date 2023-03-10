@@ -13,7 +13,7 @@
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/</guid>
-      <description>개요 🔗이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로그의 내용으로 문제를 해결할 수 있었다.
+      <description>개요 이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로그의 내용으로 문제를 해결할 수 있었다.
 링크된 블로그에서는 magit을 이용하면서 어디에서 속도가 느려지는지를 확인하기 위해 magit-refresh-verbose 을 이용하는 방법을 가이드해주고 있다. 커밋 메시지나 깃 상태를 확인할 때 실행되는 hook function 들에서 몇 초간 소모되는지를 나타내주는데, 이를 이용해서 태그와 브랜치 등의 헤더 정보, 코드 diff를 가져오는데 엄청난 시간이 걸린다는 것을 알게 되었다.</description>
     </item>
     

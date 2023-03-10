@@ -81,7 +81,8 @@
 사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.</p>
 <p>간단히 말해 <code>tasklet</code>은 스택이나 자체 컨텍스트가 없는 스레드와 같은
 것으로 설명하고 있다.</p>
-<h1 id="태스크릿tasklet의-특성">태스크릿(Tasklet)의 특성 <a href="#%ed%83%9c%ec%8a%a4%ed%81%ac%eb%a6%bftasklet%ec%9d%98-%ed%8a%b9%ec%84%b1" class="anchor">🔗</a></h1><ul>
+<h1 id="태스크릿tasklet의-특성">태스크릿(Tasklet)의 특성</h1>
+<ul>
 <li>태스크릿(tasklet)은 원자성을 가지고 있기 때문에 mutex, semaphore와
 같은 동기화 수단을 사용하거나 sleep() 을 사용할 수 없다. 단,
 <code>spinlock</code>은 가능하다.</li>
@@ -100,7 +101,8 @@
 있다. 이럴 때, 해당 연산이 &lsquo;Atomic&rsquo;인 경우, 해당 연산이 다른 것에 의해
 방해될 수 없으며 연산의 실패 또는 롤백의 단위가 오로지 연산 자체임을
 보장하게 된다.</p>
-<h1 id="태스크릿-구조-살펴보기">태스크릿 구조 살펴보기 <a href="#%ed%83%9c%ec%8a%a4%ed%81%ac%eb%a6%bf-%ea%b5%ac%ec%a1%b0-%ec%82%b4%ed%8e%b4%eb%b3%b4%ea%b8%b0" class="anchor">🔗</a></h1><p>struct tasklet_struct
+<h1 id="태스크릿-구조-살펴보기">태스크릿 구조 살펴보기</h1>
+<p>struct tasklet_struct
 {
 struct tasklet_struct <em>next;  /</em> The next tasklet in line for scheduling <em>/
 unsigned long state;          /</em> TASKLET_STATE_SCHED or TASKLET_STATE_RUN */
@@ -117,13 +119,15 @@ struct tasklet_struct name = { NULL, 0, ATOMIC_INIT(0), func, data }</p>
 struct tasklet_struct name = { NULL, 0, ATOMIC_INIT(1), func, data }</p>
 <p>태스크릿은 우선순위에 따라 단방향 링크드 리스트로 구성된 큐에 삽입되며
 해당 큐는 각 CPU별로 할당된다.</p>
-<h1 id="태스크릿-상태">태스크릿 상태 <a href="#%ed%83%9c%ec%8a%a4%ed%81%ac%eb%a6%bf-%ec%83%81%ed%83%9c" class="anchor">🔗</a></h1><p>태스크릿이 스케쥴링되면 상태는 <code>TASKLET_STATE_SCHED</code>로 설정되고 큐에
+<h1 id="태스크릿-상태">태스크릿 상태</h1>
+<p>태스크릿이 스케쥴링되면 상태는 <code>TASKLET_STATE_SCHED</code>로 설정되고 큐에
 삽입된다. 일단 태스크릿이 한번 이 상태에 있게 되면, 다시 스케쥴 될 수
 없다. 태스크릿이 <code>TASKLET_STATE_RUN</code> 상태에 있게 되면 스케쥴이었던
 상태가 제거되며 이 상태에 있게 되면 해당 스케쥴링을 스케쥴할 수 있게
 된다.</p>
-<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
-<li><a href="https://kukuruku.co/post/multitasking-in-the-linux-kernel-interrupts-and-tasklets/" target="_blank" rel="noopener">Multitasking in the linux kernel interrupts and
+<h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://kukuruku.co/post/multitasking-in-the-linux-kernel-interrupts-and-tasklets/">Multitasking in the linux kernel interrupts and
 tasklets</a></li>
 </ul>
 

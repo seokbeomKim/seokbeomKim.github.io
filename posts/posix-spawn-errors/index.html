@@ -77,10 +77,8 @@
   
   <section id="js-article" class="p-article__body">
     <p>QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.</p>
-<p><p class="markdown-image">
-  <img src="/img/posix-spawn.png" alt=""  />
-</p></p>
-<p>이를 위한 해결 방법은 <a href="https://www.gowhich.com/blog/108" target="_blank" rel="noopener">링크</a>에서
+<p><img src="/img/posix-spawn.png" alt=""></p>
+<p>이를 위한 해결 방법은 <a href="https://www.gowhich.com/blog/108">링크</a>에서
 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이
 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이</p>
 <p>sudo sysctl -w kern.maxproc=2500

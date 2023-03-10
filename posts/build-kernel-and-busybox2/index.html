@@ -91,16 +91,17 @@
 <p>두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 <code>crosstool-ng</code>라는
 크로스 컴파일러 생성 스크립트 도구와 <code>buildroot</code>라는 Makefile 패키지를
 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.</p>
-<h1 id="crosstool-ng-이용하여-크로스-컴파일러-만들기">Crosstool-ng 이용하여 크로스 컴파일러 만들기 <a href="#crosstool-ng-%ec%9d%b4%ec%9a%a9%ed%95%98%ec%97%ac-%ed%81%ac%eb%a1%9c%ec%8a%a4-%ec%bb%b4%ed%8c%8c%ec%9d%bc%eb%9f%ac-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h1><p>crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를
+<h1 id="crosstool-ng-이용하여-크로스-컴파일러-만들기">Crosstool-ng 이용하여 크로스 컴파일러 만들기</h1>
+<p>crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를
 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.</p>
 <p>먼저 crosstool-ng를 받는다. 이 때,
-<a href="https://github.com/crosstool-ng/crosstool-ng" target="_blank" rel="noopener">깃허브</a>에 있는 경로를
+<a href="https://github.com/crosstool-ng/crosstool-ng">깃허브</a>에 있는 경로를
 이용해 직접 받아쓰는 경우가 있을텐데 만약, 받아쓰는 경우라면 반드시
 릴리즈 버전으로 checkout해서 사용해야 한다. master로 그냥 받아서
 사용하면 이상한데서 고생하게 된다. git을 사용하지 않는 경우는
-<a href="http://crosstool-ng.org/download/crosstool-ng/" target="_blank" rel="noopener">여기</a>를 통해
+<a href="http://crosstool-ng.org/download/crosstool-ng/">여기</a>를 통해
 홈페이지에서 직접 받아서 사용할 수 있다.</p>
-<p>$ git clone <a href="https://github.com/crosstool-ng/crosstool-ng" target="_blank" rel="noopener">https://github.com/crosstool-ng/crosstool-ng</a>
+<p>$ git clone <a href="https://github.com/crosstool-ng/crosstool-ng">https://github.com/crosstool-ng/crosstool-ng</a>
 $ git fetch &ndash;all
 $ git checkout tags/crosstool-ng-1.24.0-rc3</p>
 <p>압축을 푼 후 내부에서 아래와 갈이 설정해준다.</p>
@@ -141,7 +142,8 @@ O (OBSOLETE)    : sample needs to be upgraded</p>
 <p>$ ./ct-ng x86_64-unknown-linux-gnu
 $ ./ct-ng menuconfig # 옵션을 추가로 선택할 경우
 $ ./ct-ng build</p>
-<h1 id="buildroot-이용하여-rootfs-만들기">BuildRoot 이용하여 rootfs 만들기 <a href="#buildroot-%ec%9d%b4%ec%9a%a9%ed%95%98%ec%97%ac-rootfs-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h1><p>앞서 빌드한 크로스 컴파일러들을
+<h1 id="buildroot-이용하여-rootfs-만들기">BuildRoot 이용하여 rootfs 만들기</h1>
+<p>앞서 빌드한 크로스 컴파일러들을
 /opt/crosstool/x86_64-unknown-linux-gnu 경로에 설치했다고 가정하고
 <code>buildroot</code>를 이용하여 이미지 파일을 생성한다. buildroot 를 이용할
 경우 크로스컴파일러를 이용해 컴파일한 응용 프로그램과 커널 모듈을 함께
@@ -210,10 +212,11 @@ $ make
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">qemu-system-x86_64 -kernel $LINUX_BUILD/arch/x86_64/boot/bzImage \
   -initrd $BUILDROOT_BUILD/images/rootfs.cpio.gz -nographic \
   -append &#34;console=ttyS0&#34;
-</code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
-<li><a href="https://gist.github.com/seokbeomKim/9cff93b073573fe535534c522c6e53e1" target="_blank" rel="noopener">Build and run minimal
+</code></pre></div><h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://gist.github.com/seokbeomKim/9cff93b073573fe535534c522c6e53e1">Build and run minimal
 linux</a></li>
-<li><a href="https://briolidz.wordpress.com/2012/02/07/building-embedded-arm-systems-with-crosstool-ng/" target="_blank" rel="noopener">Building embedded ARM systems with
+<li><a href="https://briolidz.wordpress.com/2012/02/07/building-embedded-arm-systems-with-crosstool-ng/">Building embedded ARM systems with
 Crosstool-NG</a></li>
 </ul>
 

@@ -104,9 +104,10 @@ GCC의 -Wvla 옵션으로는 아래와 같은 상황을 구분하지 못하고 �
 된다. 이 때 리턴 값은 <code>(void *) NULL</code> 이 아니라, 삼항 연산자의 마지막 항 <code>(int *)8</code>에 의해 자동으로 <code>(int *) NULL</code>이 되어 <code>sizeof(int) == sizeoof(*(int *)NULL)</code> 을 만족하게 된다. 만약 ICE가 아닌 경우에는, 위 값은 <code>(void *)(possible values)</code> 가 되고 결국 <code>sizeof(*(void *)value) == 1</code> 이 된다.</p>
 <p>내부적으로 long으로 캐스팅하고 난 뒤에 0L으로 곱하는 이유는 아키텍처에 따라
 64비트 변수에 대해 발생할 수 있는 컴파일러 에러를 없애기 위함이다.</p>
-<h2 id="참고-링크">참고 링크 <a href="#%ec%b0%b8%ea%b3%a0-%eb%a7%81%ed%81%ac" class="anchor">🔗</a></h2><ul>
-<li><a href="https://stackoverflow.com/questions/49481217/linux-kernels-is-constexpr-macro" target="_blank" rel="noopener">https://stackoverflow.com/questions/49481217/linux-kernels-is-constexpr-macro</a></li>
-<li><a href="https://lkml.org/lkml/2018/3/20/845" target="_blank" rel="noopener">https://lkml.org/lkml/2018/3/20/845</a></li>
+<h2 id="참고-링크">참고 링크</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/49481217/linux-kernels-is-constexpr-macro">https://stackoverflow.com/questions/49481217/linux-kernels-is-constexpr-macro</a></li>
+<li><a href="https://lkml.org/lkml/2018/3/20/845">https://lkml.org/lkml/2018/3/20/845</a></li>
 </ul>
 
   </section>

@@ -99,7 +99,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="1-들어가기-전에-">1. 들어가기 전에 &hellip; <a href="#1-%eb%93%a4%ec%96%b4%ea%b0%80%ea%b8%b0-%ec%a0%84%ec%97%90-" class="anchor">🔗</a></h1><p>앞으로 기술하는 내용은 <a href="http://jake.dothome.co.kr/rcu/#comment-214230" target="_blank" rel="noopener">http://jake.dothome.co.kr/rcu/#comment-214230</a>
+    <h1 id="1-들어가기-전에-">1. 들어가기 전에 &hellip;</h1>
+<p>앞으로 기술하는 내용은 <a href="http://jake.dothome.co.kr/rcu/#comment-214230">http://jake.dothome.co.kr/rcu/#comment-214230</a>
 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서
 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에
 대해 정말 자세하게 정리가 잘 되어있다.</p>
@@ -110,7 +111,8 @@ RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 
 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이
 있다. 대신 쓰기 연산의 오버헤드가 상당하고 쓰기에 필요한 동기화의 시간
 복잡도가 최소한 RCU로 보호되는 객체의 크기에 비례한다.</p>
-<h1 id="2-rcu란">2. RCU란? <a href="#2-rcu%eb%9e%80" class="anchor">🔗</a></h1><ul>
+<h1 id="2-rcu란">2. RCU란?</h1>
+<ul>
 <li>
 <p>불변 객체(Immutable Object)에 대한 쓰레드는 안전하다. 즉, 어떤 코드
 영역을 수행하는 동안 공유되는 메모리 구간이 불변인 경우라면, 코드로
@@ -149,37 +151,45 @@ Reader 입장에서 더 이상 접근할 방도가 없는 객체인 경우만 �
 읽기 구간 역시 끝나게 된다. 선점형 커널을 사용하고 있는 경우 문맥
 교환이 한번씩 이루어지고 비선점형 커널인 경우 읽기가 끝나면 모든
 동작들이 종료된 것이므로 메모리를 안전하게 해제할 수 있다.</p>
-<h1 id="3-rcu의-장단점">3. RCU의 장/단점 <a href="#3-rcu%ec%9d%98-%ec%9e%a5%eb%8b%a8%ec%a0%90" class="anchor">🔗</a></h1><p>RCU는 <code>read-side overhead</code>를 최소화하는데 목적이 있기 때문에 동기화
+<h1 id="3-rcu의-장단점">3. RCU의 장/단점</h1>
+<p>RCU는 <code>read-side overhead</code>를 최소화하는데 목적이 있기 때문에 동기화
 로직이 읽기 동작에 더 많은 비율로 사용되는 경우만 사용한다. 수정
 동작이 10% 이상인 경우에는 오히려 성능이 떨어지므로 RCU 대신 다른
 동기화 기법을 선택해야 한다.</p>
-<h2 id="3-1-장점">3-1. 장점 <a href="#3-1-%ec%9e%a5%ec%a0%90" class="anchor">🔗</a></h2><ol>
+<h2 id="3-1-장점">3-1. 장점</h2>
+<ol>
 <li><code>read-side overhead</code>가 거의 없다. (zero wait, zero overhead)</li>
 <li>Deadlock 이슈 없음</li>
 <li>Priority Inversion 이슈 없음</li>
 <li>Unbounded Latency 이슈 없음</li>
 <li>Memory Leak Hazard 이슈 없음</li>
 </ol>
-<h2 id="3-2-단점">3-2. 단점 <a href="#3-2-%eb%8b%a8%ec%a0%90" class="anchor">🔗</a></h2><ol>
+<h2 id="3-2-단점">3-2. 단점</h2>
+<ol>
 <li>사용이 복잡하다.</li>
 <li>쓰기 동작에서 다른 동기화 기법보다 느리다.</li>
 </ol>
-<h1 id="4-기본-요소-및-개념들">4. 기본 요소 및 개념들 <a href="#4-%ea%b8%b0%eb%b3%b8-%ec%9a%94%ec%86%8c-%eb%b0%8f-%ea%b0%9c%eb%85%90%eb%93%a4" class="anchor">🔗</a></h1><p>커널 문서를 읽기에 앞서 기본 요소에 대해서 미리 알고 읽는 것이 훨씬
+<h1 id="4-기본-요소-및-개념들">4. 기본 요소 및 개념들</h1>
+<p>커널 문서를 읽기에 앞서 기본 요소에 대해서 미리 알고 읽는 것이 훨씬
 낫다. 이름이 낯설기 때문에 관련 용어들에 대해 미리 알아야 한다. RCU는
 아래와 같이 3가지 기본 요소와 특징이 있다.</p>
-<h2 id="4-1-reader">4-1. Reader <a href="#4-1-reader" class="anchor">🔗</a></h2><p>Reader는 <code>rcu_read_lock()</code>과 <code>rcu_read_unlock()</code> 코드 범위의
+<h2 id="4-1-reader">4-1. Reader</h2>
+<p>Reader는 <code>rcu_read_lock()</code>과 <code>rcu_read_unlock()</code> 코드 범위의
 <code>Read-side critical section</code>이다.</p>
 <p>RCU에서 보호해야 하는 데이터에 접근할 때 항상 이 영역 내에서만
 접근해야 한다는 점이다. 이 영역을 벗어난 사용은 RCU 규칙을 벗어난
 것이며 존재하지 않는 데이터 또는 잘못된 데이터로의 접근이 될 수
 있다. 그리고 반드시 보호해야 할 데이터에 접근하기 전, 메모리 배리어를
 사용한 후에 참조해야 한다.</p>
-<h2 id="4-2-updater">4-2. Updater <a href="#4-2-updater" class="anchor">🔗</a></h2><p>기존의 여러가지 락 중 하나를 사용하여 데이터를 보호하고 수정한다.</p>
-<h2 id="4-3-reclaimer">4-3. Reclaimer <a href="#4-3-reclaimer" class="anchor">🔗</a></h2><p><code>Updater</code>에서 최종 수정한 객체가 아닌 사용이 완료된 객체들에 대해
+<h2 id="4-2-updater">4-2. Updater</h2>
+<p>기존의 여러가지 락 중 하나를 사용하여 데이터를 보호하고 수정한다.</p>
+<h2 id="4-3-reclaimer">4-3. Reclaimer</h2>
+<p><code>Updater</code>에서 최종 수정한 객체가 아닌 사용이 완료된 객체들에 대해
 메모리 해제하는 작업을 한다. 이 때, 안전하게 메모리 해제가 되도록
 삭제할 데이터에 접근하는 <code>Reader</code>들이 없음을 보장하기 위해 반드시
 <code>Grace Period</code>가 지난 후에 <code>Reclaimer</code>가 동작하도록 한다.</p>
-<h2 id="4-4-grace-period-gp">4-4. Grace Period (GP) <a href="#4-4-grace-period-gp" class="anchor">🔗</a></h2><p><code>Grace Period</code>를 사전에서 찾아보니 <code>유예기간</code>이라는 의미로
+<h2 id="4-4-grace-period-gp">4-4. Grace Period (GP)</h2>
+<p><code>Grace Period</code>를 사전에서 찾아보니 <code>유예기간</code>이라는 의미로
 해석되었다. 한 마디로 정리하면, 동기화를 위해 <strong>업데이트 해야 할
 내용을 곧바로 반영하지 않고 기존 Reader들이 읽기를 모두 완료할 때까지
 기다리는 시간</strong>이다.</p>
@@ -193,18 +203,21 @@ Reader 입장에서 더 이상 접근할 방도가 없는 객체인 경우만 �
 </ul>
 <p>이 때, RCU에서는 업데이트가 발생하는 시점부터 각 처리 과정을 아래와
 같이 세 가지 단계(Removal, Grace Period, Reclamation)로 구분한다.</p>
-<h3 id="1단계-removal">1단계. Removal <a href="#1%eb%8b%a8%ea%b3%84-removal" class="anchor">🔗</a></h3><p><code>write-side critical section</code> 구간에서는 데이터를 읽은 뒤 사본을
+<h3 id="1단계-removal">1단계. Removal</h3>
+<p><code>write-side critical section</code> 구간에서는 데이터를 읽은 뒤 사본을
 만들고 해당 사본을 변경한다.  Removal(Read-Copy-Update)이 진행되는
 동안 해당 데이터에 접근하고 있는 Reader들을 보호하기 위해 기존에
 접근하고 있는 자료는 곧바로 수정하지 않고 이를 Copy한 후 Update하여
 사용한다. 즉, Reader들을 원본 자료에만 접근하므로 데이터에 안전하게
 접근할 수 있다.</p>
-<h3 id="2단계-grace-period">2단계. Grace Period <a href="#2%eb%8b%a8%ea%b3%84-grace-period" class="anchor">🔗</a></h3><p><code>Removal</code> 단계의 데이터에 관련된 <code>Reader</code>가 완료됨을 보장할 수 있도록
+<h3 id="2단계-grace-period">2단계. Grace Period</h3>
+<p><code>Removal</code> 단계의 데이터에 관련된 <code>Reader</code>가 완료됨을 보장할 수 있도록
 대기하는 단계이다. 앞서 설명한 1단계(Removal)에서 생성된 사본을 원본에
 반영해야 하는데, 곧바로 반영하면 각 cpu가 동시에 처리하고 있는
 Reader에 문제가 생긴다. 따라서, Removal 기간 동안 같은 자료에 접근한
 Reader의 처리가 모두 완료될 때까지 기다려야 하는데 이 구간을 <code>GP(Grace Period)</code>라고 한다.</p>
-<h3 id="3단계-reclamation">3단계. Reclamation <a href="#3%eb%8b%a8%ea%b3%84-reclamation" class="anchor">🔗</a></h3><p>사본을 원본에 적용하는 구간이다. 2단계 GP의 완료를 인지하면 사본을
+<h3 id="3단계-reclamation">3단계. Reclamation</h3>
+<p>사본을 원본에 적용하는 구간이다. 2단계 GP의 완료를 인지하면 사본을
 원본에 반영하고 필요 없어진 기존 데이터는 폐기하는 Reclamation 구간이
 시작된다. 이러한 처리들은 RCU의 후 CB(Call-Back) 함수를 리스트에
 보관해 두었다가 Reclamation 구간에서 호출하여 처리한다.</p>
@@ -212,7 +225,8 @@ Reader의 처리가 모두 완료될 때까지 기다려야 하는데 이 구간
 출처에 따르면, <code>Grace Period</code> 자체는 개념적인 의미이고 실제로는 <code>Min Grace Period</code>라고 불린다고 한다. Removal 기간 중 관련된 Reader 들의 끝
 부분이 곧바로 인식되지 않으므로 Grace Period가 끝나는 시점을 감지하는
 방법을 사용한다는데, 사실 직감적으로는 이해가 되지 않는다.</p>
-<h2 id="4-5-qsquiescent-state">4-5. QS(Quiescent State) <a href="#4-5-qsquiescent-state" class="anchor">🔗</a></h2><p>QS(Quiescent State)의 <code>quiescent</code>는 &lsquo;진행이 중단된, 조용한,
+<h2 id="4-5-qsquiescent-state">4-5. QS(Quiescent State)</h2>
+<p>QS(Quiescent State)의 <code>quiescent</code>는 &lsquo;진행이 중단된, 조용한,
 잠잠한&rsquo;이라는 뜻을 가지고 있다. 이 상태는 Reader 간의 사이 시간 상태로
 GP 구간 전에 이미 진행되고 있었던 Reader 의 구간이 끝난 것을 인지할
 목적으로 사용된다. QS 상태가 지났는지 여부는 아래와 같은 방법들을
@@ -237,10 +251,11 @@ Reader의 완료를 보장한다.</li>
 </ol>
 <p>개념 수준에서 QS(Quiescent State)는 <code>Reader</code> 간의 시간으로 기존
 Reader의 처리가 완료되었음을 보장하는 기간이다.</p>
-<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
-<li><a href="https://www.kernel.org/doc/Documentation/RCU/whatisRCU.txt" target="_blank" rel="noopener">https://www.kernel.org/doc/Documentation/RCU/whatisRCU.txt</a></li>
-<li><a href="https://summerlight.tistory.com/entry/%EB%8F%99%EA%B8%B0%ED%99%94-%EA%B8%B0%EB%B2%95-Read-Copy-Update" target="_blank" rel="noopener">https://summerlight.tistory.com/entry/%EB%8F%99%EA%B8%B0%ED%99%94-%EA%B8%B0%EB%B2%95-Read-Copy-Update</a></li>
-<li><a href="http://jake.dothome.co.kr/rcu/#comment-214230" target="_blank" rel="noopener">http://jake.dothome.co.kr/rcu/#comment-214230</a></li>
+<h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://www.kernel.org/doc/Documentation/RCU/whatisRCU.txt">https://www.kernel.org/doc/Documentation/RCU/whatisRCU.txt</a></li>
+<li><a href="https://summerlight.tistory.com/entry/%EB%8F%99%EA%B8%B0%ED%99%94-%EA%B8%B0%EB%B2%95-Read-Copy-Update">https://summerlight.tistory.com/entry/%EB%8F%99%EA%B8%B0%ED%99%94-%EA%B8%B0%EB%B2%95-Read-Copy-Update</a></li>
+<li><a href="http://jake.dothome.co.kr/rcu/#comment-214230">http://jake.dothome.co.kr/rcu/#comment-214230</a></li>
 </ul>
 
   </section>

@@ -90,7 +90,7 @@
 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자
 한다. 많은 곳에서 뮤텍스는 세마포어의 카운트 값이 단순하게 1로
 설정되었을 때를 말한다고 기술한다. 하지만 이것이 맞는 설명일까?</p>
-<p><a href="https://www.tutorialspoint.com/mutex-vs-semaphore" target="_blank" rel="noopener">참고 자료</a>에
+<p><a href="https://www.tutorialspoint.com/mutex-vs-semaphore">참고 자료</a>에
 따르면 뮤텍스는 공유 자원으로의 접근(Access)에 대한 상호 배제(Mutual
 Exclusion)을 위한 수단이 <code>Mutex</code>라고 정의하고 있다. 이에 반해
 <code>세마포어(Semaphore)</code>는 시그널 매커니즘으로서 스레드(또는 프로세스) 간
@@ -214,7 +214,7 @@ return 0;
 <p><code>void* trythis(void* arg)</code> 함수 내 뮤텍스로 인해 스레드가 락을 얻은
 순서(Thread 1 -&gt; Thread 2)대로 실행되는 것을 확인할 수 있다.</p>
 <p>그렇다면, 유저 레벨 애플리케이션이 아닌 커널 모듈에서는 뮤텍스를 어떤
-식으로 사용할 수 있을까? 여기에 대한 예제는 <a href="https://www.kernel.org/doc/htmldocs/kernel-locking/Examples.html" target="_blank" rel="noopener">커널
+식으로 사용할 수 있을까? 여기에 대한 예제는 <a href="https://www.kernel.org/doc/htmldocs/kernel-locking/Examples.html">커널
 문서</a>에서
 쉽게 찾을 수 있었다.</p>
 <p>#include &lt;linux/list.h&gt;
@@ -303,14 +303,15 @@ int ret = -ENOENT;</p>
     return ret;
 </code></pre>
 <p>}</p>
-<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
-<li><a href="https://www.tutorialspoint.com/mutex-vs-semaphore" target="_blank" rel="noopener">Mutex
+<h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://www.tutorialspoint.com/mutex-vs-semaphore">Mutex
 vs. Semaphore</a></li>
-<li><a href="http://tuxthink.blogspot.com/2011/05/using-semaphores-in-linux.html" target="_blank" rel="noopener">Using Semaphore in
+<li><a href="http://tuxthink.blogspot.com/2011/05/using-semaphores-in-linux.html">Using Semaphore in
 Linux</a></li>
-<li><a href="https://www.geeksforgeeks.org/mutex-lock-for-linux-thread-synchronization/" target="_blank" rel="noopener">mutex lock for linux thread
+<li><a href="https://www.geeksforgeeks.org/mutex-lock-for-linux-thread-synchronization/">mutex lock for linux thread
 synchronization</a></li>
-<li><a href="https://www.kernel.org/doc/htmldocs/kernel-locking/Examples.html" target="_blank" rel="noopener">An example of Kernel Locking</a></li>
+<li><a href="https://www.kernel.org/doc/htmldocs/kernel-locking/Examples.html">An example of Kernel Locking</a></li>
 </ul>
 
   </section>

@@ -96,13 +96,15 @@
 기법이다. <code>write</code>라는 연산이 발생할 가능성이 있는 상태에서는 <code>write</code>가
 전혀 발생하지 않을 가능성도 있는 법이다. 이러한 경우 <code>Copy-on-write</code>
 기법은 자원 관리 측면에서 좋은 최적화 기법이 될 수 있다.</p>
-<h1 id="예제">예제 <a href="#%ec%98%88%ec%a0%9c" class="anchor">🔗</a></h1><p>아래는 위키 페이지에 나와있는 간단한 예제이다. 변수를 위한 메모리
+<h1 id="예제">예제</h1>
+<p>아래는 위키 페이지에 나와있는 간단한 예제이다. 변수를 위한 메모리
 할당에 있어서 아래 상황에서 <code>COW</code>를 사용할 수 있다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">std<span style="color:#f92672">::</span>string x(<span style="color:#e6db74">&#34;Hello&#34;</span>);
 std<span style="color:#f92672">::</span>string y <span style="color:#f92672">=</span> x;      <span style="color:#75715e">// x and y use the same buffer
 </span><span style="color:#75715e"></span>y <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;, World!&#34;</span>;        <span style="color:#75715e">// now y uses a different buffer, x still uses the same old buffer
-</span></code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
-<li><a href="https://en.wikipedia.org/wiki/Copy-on-write" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Copy-on-write</a></li>
+</span></code></pre></div><h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Copy-on-write">https://en.wikipedia.org/wiki/Copy-on-write</a></li>
 <li>Chapter 3. Process in &ldquo;Linux Kernel Development 3rd Edition&rdquo;</li>
 </ul>
 

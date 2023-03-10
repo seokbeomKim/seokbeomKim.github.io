@@ -78,7 +78,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게
+    <h2 id="개요">개요</h2>
+<p>맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게
 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게
 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, <code>aarch64</code>
 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는
@@ -100,7 +101,8 @@ Guest OS를 올려 컴파일 서버로 만든다.</p>
 <p>gdb 클라이언트로 gdb server에 접속하여 디버깅을 한다.</p>
 </li>
 </ol>
-<h2 id="guest-os-및-포트포워딩-ssh-서버-설정">Guest OS 및 포트포워딩, ssh 서버 설정 <a href="#guest-os-%eb%b0%8f-%ed%8f%ac%ed%8a%b8%ed%8f%ac%ec%9b%8c%eb%94%a9-ssh-%ec%84%9c%eb%b2%84-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>Guest OS는 lisa-qemu 설치를 위해서 우분투를 사용하였다. 우분투 설치 후 아래와
+<h2 id="guest-os-및-포트포워딩-ssh-서버-설정">Guest OS 및 포트포워딩, ssh 서버 설정</h2>
+<p>Guest OS는 lisa-qemu 설치를 위해서 우분투를 사용하였다. 우분투 설치 후 아래와
 갈이 스위치 설정을 해준다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">New-VMSwitch -SwitchName <span style="color:#e6db74">&#34;KeyNATSwitch&#34;</span> -SwitchType Internal
 New-NetIPAddress -IPAddress 10.0.2.1 -PrefixLength 24-InterfaceAlias <span style="color:#e6db74">&#34;vEthernet (KeyNATSwitch)&#34;</span>
@@ -127,7 +129,8 @@ KeyNATSwitch를 선택해준다.</p>
      -InternalPort <span style="color:#ae81ff">22</span> -NatName KeyNATNetwork
 </code></pre></div><p>이제 컴파일러 서버가 준비되었으니 lisa-qemu를 설치하고 커널 부트 이미지를
 준비한다. 이 부분은 이미 lisa-qemu 에 쉽게 가이드가 있으므로 생략한다.</p>
-<h2 id="aarch64-target-용-gdb-빌드">aarch64 target 용 gdb 빌드 <a href="#aarch64-target-%ec%9a%a9-gdb-%eb%b9%8c%eb%93%9c" class="anchor">🔗</a></h2><p>먼저, gdb-10.1(<a href="https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz" target="_blank" rel="noopener">https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz</a>)을 받은 뒤 압축을
+<h2 id="aarch64-target-용-gdb-빌드">aarch64 target 용 gdb 빌드</h2>
+<p>먼저, gdb-10.1(<a href="https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz">https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz</a>)을 받은 뒤 압축을
 풀고, 맥에서 빌드시 문제가 되는 부분을 아래와 같이 수정해주자.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi bfd/elf-bfd.h
 
@@ -142,9 +145,7 @@ $ cp $gdb-10.1/gdb/gdb $HOME/xtools/bin
 </code></pre></div><p>이제 모든게 준비가 되었다. lisa-qemu 를 디버깅 옵션으로 실행해주고 gdb 를
 붙여주면 아래와 같이 맥에서도 디버깅이 가능해진다. 거기에 컴파일 서버까지 생긴건
 덤이다.</p>
-<p><p class="markdown-image">
-  <img src="/img/kernel-hacking-on-mac.png" alt="kernel-hacking-on-mac-os"  />
-</p></p>
+<p><img src="/img/kernel-hacking-on-mac.png" alt="kernel-hacking-on-mac-os"></p>
 
   </section>
   <footer>

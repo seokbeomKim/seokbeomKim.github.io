@@ -80,7 +80,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>맥 환경에서 <code>bare-metal</code>이 아닌 리눅스 커널로 컴파일하는 것은 생각했던
+    <h1 id="개요">개요</h1>
+<p>맥 환경에서 <code>bare-metal</code>이 아닌 리눅스 커널로 컴파일하는 것은 생각했던
 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한
 라이브러리와 경로들이 리눅스 환경과 다르기 때문에, 일반적인 리눅스
 배포판에서처럼 크로스 컴파일러를 바이너리 형태로 설치한 뒤에 곧바로
@@ -94,11 +95,10 @@
 <li>끝맺음</li>
 </ol>
 <p>본 포스팅에서 확인한 맥 환경은 아래와 같으며 단순 바이너리만 받고자
-하는 경우 아래 링크에서 받도록 한다. <a href="https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf" target="_blank" rel="noopener">https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf</a></p>
-<p><p class="markdown-image">
-  <img src="/img/my-mac.png" alt=""  />
-</p></p>
-<h1 id="준비-사항-및-제약-사항">준비 사항 및 제약 사항 <a href="#%ec%a4%80%eb%b9%84-%ec%82%ac%ed%95%ad-%eb%b0%8f-%ec%a0%9c%ec%95%bd-%ec%82%ac%ed%95%ad" class="anchor">🔗</a></h1><p>맥에서 리눅스 커널을 컴파일을 할 경우에는 크로스 컴파일러를 직접
+하는 경우 아래 링크에서 받도록 한다. <a href="https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf">https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf</a></p>
+<p><img src="/img/my-mac.png" alt=""></p>
+<h1 id="준비-사항-및-제약-사항">준비 사항 및 제약 사항</h1>
+<p>맥에서 리눅스 커널을 컴파일을 할 경우에는 크로스 컴파일러를 직접
 빌드해줘야 한다. 우분투와 같이 바이너리 형태로 패키지 관리자에서
 제공해주는 경우에는 손쉽게 받을 수 있지만 그렇지 않은 배포판이나 맥의
 경우에는 직접 만들어 사용해야 한다.</p>
@@ -117,7 +117,8 @@ case-insensitive 이므로 반드시 case-sensitive 파티션을 추가로 구�
 패키지 관리자를 통해 openssl, gcc 등을 설치해야 한다. <code>openssl</code>은
 반드시 <a href="mailto:openssl@1.1">openssl@1.1</a>을 설치한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install openssl@1.1 gcc
-</code></pre></div><h1 id="크로스-컴파일러-빌드-ct-ng">크로스 컴파일러 빌드: ct-ng <a href="#%ed%81%ac%eb%a1%9c%ec%8a%a4-%ec%bb%b4%ed%8c%8c%ec%9d%bc%eb%9f%ac-%eb%b9%8c%eb%93%9c-ct-ng" class="anchor">🔗</a></h1><p>크로스 컴파일러는 <code>Crosstool-NG(ct-ng)</code>를 이용하여 빌드한다.</p>
+</code></pre></div><h1 id="크로스-컴파일러-빌드-ct-ng">크로스 컴파일러 빌드: ct-ng</h1>
+<p>크로스 컴파일러는 <code>Crosstool-NG(ct-ng)</code>를 이용하여 빌드한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install ct-ng
 $ mkdir -p ~/workspace/ct-ng-rpi3 <span style="color:#f92672">&amp;&amp;</span> cd ~/workspace/ct-ng-rpi3
 $ ct-ng armv8-rpi3-linux-gnueabihf
@@ -152,21 +153,21 @@ $ vi gold/errors.h
 발생하는 에러는 맥 운영체제로 인한 것이 아니라 크로스 컴파일 환경과
 타겟 gcc 버전의 호환성 문제로 인한 것이 대부분이다. 이러한 문제들은
 구글링으로 관련 정보를 손쉽게 찾을 수 있다.</p>
-<h1 id="라즈베리파이-커널-빌드">라즈베리파이 커널 빌드 <a href="#%eb%9d%bc%ec%a6%88%eb%b2%a0%eb%a6%ac%ed%8c%8c%ec%9d%b4-%ec%bb%a4%eb%84%90-%eb%b9%8c%eb%93%9c" class="anchor">🔗</a></h1><p>이제 라즈베리파이 커널을 예로 빌드해보자. 맥에서 커널 빌드시 첫 번째로
+<h1 id="라즈베리파이-커널-빌드">라즈베리파이 커널 빌드</h1>
+<p>이제 라즈베리파이 커널을 예로 빌드해보자. 맥에서 커널 빌드시 첫 번째로
 문제가 되는 것은 <code>elf.h</code> 파일이다. 맥에서는 이 파일을 사용하지 않기
 때문에 기본으로 include 경로에 포함되어 있지 않다. 빌드 시에는 필수
 파일이므로,
-경로(<a href="https://www.rockbox.org/tracker/task/9006?getfile=16683" target="_blank" rel="noopener">https://www.rockbox.org/tracker/task/9006?getfile=16683</a>)에서
+경로(<a href="https://www.rockbox.org/tracker/task/9006?getfile=16683">https://www.rockbox.org/tracker/task/9006?getfile=16683</a>)에서
 다운로드 하여 include 경로(<code>/usr/local/include</code>)에 추가해준다.</p>
 <p>이제 마지막으로 라이브러리와 INCLUDE 경로를 설정해주며 빌드를 해주자.</p>
 <pre tabindex="0"><code>$ KERNEL=kernel7 ARCH=arm make bcm2709_defconfig
 $ KERNEL=kernel7 ARCH=arm HOSTCFLAGS=&quot;-I/usr/local/include -I/usr/local/opt/openssl@1.1/include -L/usr/local/opt/openssl/lib&quot;  make -j4
 </code></pre><p>빌드가 완료되면, 아래와 같이 커널 이미지(<code>zImage</code>)가 만들어진 것을 확인할 수 있다.</p>
-<p><p class="markdown-image">
-  <img src="/img/kernel-compilation-success.png" alt="커널 빌드 완료"  />
-</p></p>
-<h1 id="끝맺음">끝맺음 <a href="#%eb%81%9d%eb%a7%ba%ec%9d%8c" class="anchor">🔗</a></h1><p>위의 과정들을 하지 않고 단순하게 바이너리만 받고 싶다면
-<a href="https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf" target="_blank" rel="noopener">https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf</a> 에서 받도록
+<p><img src="/img/kernel-compilation-success.png" alt="커널 빌드 완료"></p>
+<h1 id="끝맺음">끝맺음</h1>
+<p>위의 과정들을 하지 않고 단순하게 바이너리만 받고 싶다면
+<a href="https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf">https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf</a> 에서 받도록
 한다. 앞서 기술한 방법대로 빌드한 크로스 컴파일러로서 성능에 따라
 컴파일 타임은 차이가 나지만 CPU 성능이 안좋은 경우 필자처럼 한 시간이
 넘게 걸리기도 한다.</p>
@@ -175,12 +176,13 @@ $ KERNEL=kernel7 ARCH=arm HOSTCFLAGS=&quot;-I/usr/local/include -I/usr/local/opt
 습관이다. 하지만, 이번처럼 맥/BSD에서 리눅스의 ELF로 동작하거나
 컴파일할 수 있도록 고생했던 삽질의 내용들은 되도록이면 오랫동안 기억할
 수 있었으면 좋겠다.</p>
-<h1 id="참고-자료">참고 자료 <a href="#%ec%b0%b8%ea%b3%a0-%ec%9e%90%eb%a3%8c" class="anchor">🔗</a></h1><ul>
-<li><a href="https://www.rockbox.org/tracker/task/9006" target="_blank" rel="noopener">https://www.rockbox.org/tracker/task/9006</a></li>
-<li><a href="https://wiki.osdev.org/GCC_Cross-Compiler" target="_blank" rel="noopener">https://wiki.osdev.org/GCC_Cross-Compiler</a></li>
-<li><a href="https://github.com/raspberrypi/linux" target="_blank" rel="noopener">https://github.com/raspberrypi/linux</a></li>
-<li><a href="https://github.com/crosstool-ng/crosstool-ng/issues/844" target="_blank" rel="noopener">https://github.com/crosstool-ng/crosstool-ng/issues/844</a></li>
-<li><a href="https://www.jaredwolff.com/cross-compiling-on-mac-osx-for-raspberry-pi/" target="_blank" rel="noopener">https://www.jaredwolff.com/cross-compiling-on-mac-osx-for-raspberry-pi/</a></li>
+<h1 id="참고-자료">참고 자료</h1>
+<ul>
+<li><a href="https://www.rockbox.org/tracker/task/9006">https://www.rockbox.org/tracker/task/9006</a></li>
+<li><a href="https://wiki.osdev.org/GCC_Cross-Compiler">https://wiki.osdev.org/GCC_Cross-Compiler</a></li>
+<li><a href="https://github.com/raspberrypi/linux">https://github.com/raspberrypi/linux</a></li>
+<li><a href="https://github.com/crosstool-ng/crosstool-ng/issues/844">https://github.com/crosstool-ng/crosstool-ng/issues/844</a></li>
+<li><a href="https://www.jaredwolff.com/cross-compiling-on-mac-osx-for-raspberry-pi/">https://www.jaredwolff.com/cross-compiling-on-mac-osx-for-raspberry-pi/</a></li>
 </ul>
 
   </section>

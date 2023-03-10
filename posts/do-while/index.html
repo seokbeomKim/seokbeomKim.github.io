@@ -76,13 +76,15 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>커널 매크로에 <code>do { .. } while(0)</code> 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. <a href="https://kernelnewbies.org/FAQ/DoWhile0" target="_blank" rel="noopener">https://kernelnewbies.org/FAQ/DoWhile0</a> 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.</p>
+    <h2 id="개요">개요</h2>
+<p>커널 매크로에 <code>do { .. } while(0)</code> 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. <a href="https://kernelnewbies.org/FAQ/DoWhile0">https://kernelnewbies.org/FAQ/DoWhile0</a> 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.</p>
 <ol>
 <li>빈 구문(empty statement)는 컴파일러가 경고를 낸다.</li>
 <li>지역 변수를 선언할 수 있는 구역을 만들어준다.</li>
 <li>조건문을 포함한 코드에서 복잡한 형태의 매크로를 사용할 수 있도록 해준다.</li>
 </ol>
-<h2 id="조건문을-포함한-코드에서의-매크로-사용">조건문을 포함한 코드에서의 매크로 사용 <a href="#%ec%a1%b0%ea%b1%b4%eb%ac%b8%ec%9d%84-%ed%8f%ac%ed%95%a8%ed%95%9c-%ec%bd%94%eb%93%9c%ec%97%90%ec%84%9c%ec%9d%98-%eb%a7%a4%ed%81%ac%eb%a1%9c-%ec%82%ac%ec%9a%a9" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define FOO(x) \
+<h2 id="조건문을-포함한-코드에서의-매크로-사용">조건문을 포함한 코드에서의 매크로 사용</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define FOO(x) \
 </span><span style="color:#75715e">    printf(&#34;arg is %s\n&#34;, x); \
 </span><span style="color:#75715e">    do_something_useful(x);
 </span></code></pre></div><p>이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.</p>
@@ -125,7 +127,8 @@
     } <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">0</span>);
 <span style="color:#66d9ef">else</span>
     <span style="color:#a6e22e">do_something</span>();
-</code></pre></div><h2 id="대체-구문">대체 구문 <a href="#%eb%8c%80%ec%b2%b4-%ea%b5%ac%eb%ac%b8" class="anchor">🔗</a></h2><p><code>gcc</code>에서 이 do-while-0 구문을 대체할 수 있는 구문 표현을 추가했다. 아래와 같은 이러한 표현은 언급한 모든 이점을 갖는 동시에 가독성도 보장된다.</p>
+</code></pre></div><h2 id="대체-구문">대체 구문</h2>
+<p><code>gcc</code>에서 이 do-while-0 구문을 대체할 수 있는 구문 표현을 추가했다. 아래와 같은 이러한 표현은 언급한 모든 이점을 갖는 동시에 가독성도 보장된다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define FOO(arg) ({
 </span><span style="color:#75715e"></span>    typeof(arg) lcl;
     lcl <span style="color:#f92672">=</span> bar(arg);

@@ -13,8 +13,8 @@
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/do-while/</guid>
-      <description>개요 🔗커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. https://kernelnewbies.org/FAQ/DoWhile0 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.
- 빈 구문(empty statement)는 컴파일러가 경고를 낸다. 지역 변수를 선언할 수 있는 구역을 만들어준다. 조건문을 포함한 코드에서 복잡한 형태의 매크로를 사용할 수 있도록 해준다.  조건문을 포함한 코드에서의 매크로 사용 🔗#define FOO(x) \ printf(&amp;#34;arg is %s\n&amp;#34;, x); \ do_something_useful(x); 이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.</description>
+      <description>개요 커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. https://kernelnewbies.org/FAQ/DoWhile0 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.
+ 빈 구문(empty statement)는 컴파일러가 경고를 낸다. 지역 변수를 선언할 수 있는 구역을 만들어준다. 조건문을 포함한 코드에서 복잡한 형태의 매크로를 사용할 수 있도록 해준다.  조건문을 포함한 코드에서의 매크로 사용 #define FOO(x) \ printf(&amp;#34;arg is %s\n&amp;#34;, x); \ do_something_useful(x); 이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.</description>
     </item>
     
   </channel>

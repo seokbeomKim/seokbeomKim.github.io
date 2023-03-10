@@ -105,7 +105,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>직접적으로 연관된 업무는 아니지만 팀 내에서 <code>wayland</code>, <code>weston</code> 이라는
+    <h1 id="개요">개요</h1>
+<p>직접적으로 연관된 업무는 아니지만 팀 내에서 <code>wayland</code>, <code>weston</code> 이라는
 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아
 <code>X11</code> 기반으로 최소한의 작업 환경을 맞추고 <code>gnome</code>이나 <code>kde</code>, <code>xfce</code>가
 아닌 <code>fluxbox</code>, <code>blackbox</code>, <code>i3</code>, <code>xmonad</code>, <code>enlightenment</code> 등을
@@ -114,7 +115,8 @@
 몰랐다.</p>
 <p>이번 포스팅에서는 사내 위키의 내용을 출처로 하여, <code>wayland</code>,
 <code>weston</code>에 대한 구조를 살펴보고 클라이언트 예제를 기술하고자 한다.</p>
-<h1 id="wayland">Wayland <a href="#wayland" class="anchor">🔗</a></h1><p><code>wayland</code>는 display server protocol이다. 윈도우즈와 달리 리눅스는 GUI
+<h1 id="wayland">Wayland</h1>
+<p><code>wayland</code>는 display server protocol이다. 윈도우즈와 달리 리눅스는 GUI
 환경에 대해서도 server - clients 개념으로 처음 구현되었고 X11 라는
 이름으로 사용되었다. 그러나 복잡한 프로토콜과 라이브러리들로 인해
 불필요한 호출이 많았고 이를 경량화하기 위한 노력의 결과가 바로
@@ -139,23 +141,24 @@ compositor가 통합되어 두 컴포넌트 간의 불필요한 통신이 감소
 복잡도가 감소함</p>
 </li>
 </ul>
-<h2 id="android에서-wayland를-사용하지-않는-이유">Android에서 Wayland를 사용하지 않는 이유 <a href="#android%ec%97%90%ec%84%9c-wayland%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%98%ec%a7%80-%ec%95%8a%eb%8a%94-%ec%9d%b4%ec%9c%a0" class="anchor">🔗</a></h2><p>Android Graphic에서는 <code>SurfaceFlinger</code>, <code>Gralloc</code> 솔루션을
+<h2 id="android에서-wayland를-사용하지-않는-이유">Android에서 Wayland를 사용하지 않는 이유</h2>
+<p>Android Graphic에서는 <code>SurfaceFlinger</code>, <code>Gralloc</code> 솔루션을
 사용한다. 각각에 대한 내용은 아래를 살펴보자.</p>
-<h3 id="surfaceflinger">SurfaceFlinger <a href="#surfaceflinger" class="anchor">🔗</a></h3><p><code>SurfaceFlinger</code>는 사용자 프로세스나 앱에서 생성한 화면을 관리하고
+<h3 id="surfaceflinger">SurfaceFlinger</h3>
+<p><code>SurfaceFlinger</code>는 사용자 프로세스나 앱에서 생성한 화면을 관리하고
 화면의 위치나 표시 순서, 색상 등을 관리한다. 또한, 커널에 위치한
 프레임 버퍼 드라이버와 연동하여 생성된 최종 이미지를 프레임 버퍼
 드라이버를 통해 화면에 출력할 수 있도록 프레임 버퍼와 연동하는 역할을
 한다.
-<p class="markdown-image">
-  <img src="/img/surfaceflinger.jpg" alt="SurfaceFlinger"  />
-</p></p>
-<h3 id="gralloc">Gralloc <a href="#gralloc" class="anchor">🔗</a></h3><p>Android에서 그래픽 버퍼의 할당과 해제를 담당한다.</p>
-<h2 id="윈도우즈와-맥에서-사용하지-않는-이유">윈도우즈와 맥에서 사용하지 않는 이유 <a href="#%ec%9c%88%eb%8f%84%ec%9a%b0%ec%a6%88%ec%99%80-%eb%a7%a5%ec%97%90%ec%84%9c-%ec%82%ac%ec%9a%a9%ed%95%98%ec%a7%80-%ec%95%8a%eb%8a%94-%ec%9d%b4%ec%9c%a0" class="anchor">🔗</a></h2><p>윈도우즈는 DWM (Desktop Window Manager)를, 맥은 Quartz Compositor를 사용한다.</p>
-<h2 id="serverclient-model">Server/Client Model <a href="#serverclient-model" class="anchor">🔗</a></h2><p><code>Wayland</code>는 여러 개의 인터페이스를 정의하여 사용할 수 있고 각각의
+<img src="/img/surfaceflinger.jpg" alt="SurfaceFlinger"></p>
+<h3 id="gralloc">Gralloc</h3>
+<p>Android에서 그래픽 버퍼의 할당과 해제를 담당한다.</p>
+<h2 id="윈도우즈와-맥에서-사용하지-않는-이유">윈도우즈와 맥에서 사용하지 않는 이유</h2>
+<p>윈도우즈는 DWM (Desktop Window Manager)를, 맥은 Quartz Compositor를 사용한다.</p>
+<h2 id="serverclient-model">Server/Client Model</h2>
+<p><code>Wayland</code>는 여러 개의 인터페이스를 정의하여 사용할 수 있고 각각의
 인터페이스는 <code>request</code>와 <code>event</code>로 구성된다.</p>
-<p><p class="markdown-image">
-  <img src="/img/wayland-architecture.png" alt="Wayland Architecture"  />
-</p></p>
+<p><img src="/img/wayland-architecture.png" alt="Wayland Architecture"></p>
 <ol>
 <li>kernel의 이벤트를 받으면 wayland compositor로 전달한다. kernel의
 드라이버를 재사용할 수 있다.</li>
@@ -166,10 +169,12 @@ compositor가 통합되어 두 컴포넌트 간의 불필요한 통신이 감소
 <li>compositor는 client로부터 요청을 받은 후에 화면을 재구성한다. 그
 뒤, ioctl을 통해 KMS에게 재구성 된 화면을 전송한다.</li>
 </ol>
-<h1 id="그래픽-라이브러리-종류">그래픽 라이브러리 종류 <a href="#%ea%b7%b8%eb%9e%98%ed%94%bd-%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac-%ec%a2%85%eb%a5%98" class="anchor">🔗</a></h1><p>출처에서는 모듈이라는 용어를 사용했는데 그래픽 라이브러리가 더 적절할
+<h1 id="그래픽-라이브러리-종류">그래픽 라이브러리 종류</h1>
+<p>출처에서는 모듈이라는 용어를 사용했는데 그래픽 라이브러리가 더 적절할
 것이라 생각하여 그래픽 라이브러리로 기술하겠다. 이전에 보지 못했던
 라이브러리들(clutter, SDL)이 있어 함께 정리하고자 한다.</p>
-<h2 id="qt5">QT5 <a href="#qt5" class="anchor">🔗</a></h2><p>이전에는 qt4, qt5의 호환성으로 엄청나게 욕을 먹었었는데 최근에는
+<h2 id="qt5">QT5</h2>
+<p>이전에는 qt4, qt5의 호환성으로 엄청나게 욕을 먹었었는데 최근에는
 해결된 것으로 보인다. 리눅스, 안드로이드, 윈도우즈 등의 운영체제를
 지원하며, qt의 대표적인 모듈은 아래와 같다.</p>
 <ul>
@@ -180,32 +185,39 @@ compositor가 통합되어 두 컴포넌트 간의 불필요한 통신이 감소
 <li>QtSQL: ODBC, SQLite, MySQL 사용가능하도록 지원</li>
 <li>QtWayland: Wayland 기능 사용할 수 있도록 API 제공</li>
 </ul>
-<h2 id="gtk">GTK+ <a href="#gtk" class="anchor">🔗</a></h2><p>GTK+ (GIMP Toolkit+)는 GUI를 위한 라이브러리로서 실제 사용해보면
+<h2 id="gtk">GTK+</h2>
+<p>GTK+ (GIMP Toolkit+)는 GUI를 위한 라이브러리로서 실제 사용해보면
 알겠지만, 제공되는 프레임워크 API나 결과물의 코드가 더럽다. GTK에
 대해서는 별도로 언급하지 않겠다.</p>
-<h2 id="clutter">Clutter <a href="#clutter" class="anchor">🔗</a></h2><p>인텔에 합병된 OpenedHand에서 C언어로 구현한 2D 그래픽 라이브러리로
+<h2 id="clutter">Clutter</h2>
+<p>인텔에 합병된 OpenedHand에서 C언어로 구현한 2D 그래픽 라이브러리로
 객체 Actor와 이를 그리는 Canvas라는 추상화된 개념이 있다. OpenGL ES를
 사용하기 때문에 데스크탑 뿐만 아니라 다양한 플랫폼에 적용할 수 있다.</p>
-<h2 id="sdl-simple-directmedia-layer">SDL (Simple DirectMedia Layer) <a href="#sdl-simple-directmedia-layer" class="anchor">🔗</a></h2><p>오디오, 키보드, 마우스, 조이스틱 등 하드웨어가 OpenGL 및 Direct3D에
+<h2 id="sdl-simple-directmedia-layer">SDL (Simple DirectMedia Layer)</h2>
+<p>오디오, 키보드, 마우스, 조이스틱 등 하드웨어가 OpenGL 및 Direct3D에
 대한 접근을 제공하도록 설계된 크로스 플랫폼 라이브러리이다. SDL은
 윈도우즈용 게임을 리눅스로 쉽게 포팅하기 위한 라이브러리를 만들기 위해
 개발되었고 현재는 멀티 플랫폼 상에서 게임 개발 및 포팅 목적으로 널리
 이용되고 있다.</p>
-<h2 id="efl">EFL <a href="#efl" class="anchor">🔗</a></h2><p>Enlightenment Foundation Library로 Enlightenment에 코어 그래픽
+<h2 id="efl">EFL</h2>
+<p>Enlightenment Foundation Library로 Enlightenment에 코어 그래픽
 라이브러리로 사용되는 라이브러리이다.</p>
-<h1 id="weston">Weston <a href="#weston" class="anchor">🔗</a></h1><p>weston은 wayland compositor의 참조 구현(하드웨어 또는 소프트웨어
+<h1 id="weston">Weston</h1>
+<p>weston은 wayland compositor의 참조 구현(하드웨어 또는 소프트웨어
 구현을 돕기 위해 제공하는 샘플 프로그램)이다. Desktop, 자동차,
 키오스크, 셋톱박스 등을 위한 라이브러리를 제공하며 Wayland API에 대한
 기본적인 내용을 담고 있기 때문에 기본적으로 창관리와 composite 기능을
 갖고 있다.</p>
-<h2 id="기본-역할">기본 역할 <a href="#%ea%b8%b0%eb%b3%b8-%ec%97%ad%ed%95%a0" class="anchor">🔗</a></h2><p>Weston의 기본 역할은 아래와 같다.</p>
+<h2 id="기본-역할">기본 역할</h2>
+<p>Weston의 기본 역할은 아래와 같다.</p>
 <ul>
 <li>윈도우들을 여러 계층으로 구분하여 관리한다.</li>
 <li>shell(윈도우 관리 규칙)을 이용해 출력되는 윈도우의 순서를 결정한다.</li>
 <li>윈도우를 화면에 나타나게 하거나 위치를 옮기고 화면 크기 변경을
 관리한다.</li>
 </ul>
-<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<h1 id="출처">출처</h1>
+<ul>
 <li>Telechips, Graphic Framework</li>
 </ul>
 

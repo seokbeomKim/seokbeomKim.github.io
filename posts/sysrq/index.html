@@ -76,10 +76,12 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 <em>sysrq</em> 를
+    <h1 id="개요">개요</h1>
+<p>현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 <em>sysrq</em> 를
 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한
 개념과 사용 방법 등에 대해서 정리하도록 한다.</p>
-<h2 id="기능-활성화">기능 활성화 <a href="#%ea%b8%b0%eb%8a%a5-%ed%99%9c%ec%84%b1%ed%99%94" class="anchor">🔗</a></h2><p><em>SysRq</em> 이 컴파일된 커널을 실행하면 <em>/proc/sys/kernel/sysrq</em> 를 통해서
+<h2 id="기능-활성화">기능 활성화</h2>
+<p><em>SysRq</em> 이 컴파일된 커널을 실행하면 <em>/proc/sys/kernel/sysrq</em> 를 통해서
 원하는 기능을 활성화/비활성화 할 수 있다. 사용 가능한 sysrq 값들은
 <em>/proc/sys/kernel/sysrq</em> 내에 정의되어 있으며 기본값들은
 <em>CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE</em> 값으로 설정한다.</p>
@@ -104,15 +106,17 @@ function description):</p>
 256 = 0x100 - allow nicing of all RT tasks
 </code></pre></li>
 </ul>
-<h2 id="사용법">사용법 <a href="#%ec%82%ac%ec%9a%a9%eb%b2%95" class="anchor">🔗</a></h2><p><a href="https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html" target="_blank" rel="noopener">https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html</a>
+<h2 id="사용법">사용법</h2>
+<p><a href="https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html">https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html</a>
 페이지에 따르면 <em>/proc/sysrq-trigger</em> 에 아래와 같이 특정 캐릭터를
 사용하여 커맨드 키를 호출할 수 있다.</p>
 <pre tabindex="0"><code>echo t &gt; /proc/sysrq-trigger
 </code></pre><p>통상 커널 디버깅을 위해 사용한다고 생각하며, 다양한 디버깅 상황을
 발생시키기 위해 유용하게 사용할 수 있다.</p>
-<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
-<li><a href="https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html" target="_blank" rel="noopener">https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html</a></li>
-<li><a href="https://unix.stackexchange.com/questions/66197/how-to-cause-kernel-panic-with-a-single-command" target="_blank" rel="noopener">https://unix.stackexchange.com/questions/66197/how-to-cause-kernel-panic-with-a-single-command</a></li>
+<h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html">https://www.kernel.org/doc/html/v4.11/admin-guide/sysrq.html</a></li>
+<li><a href="https://unix.stackexchange.com/questions/66197/how-to-cause-kernel-panic-with-a-single-command">https://unix.stackexchange.com/questions/66197/how-to-cause-kernel-panic-with-a-single-command</a></li>
 </ul>
 
   </section>

@@ -86,7 +86,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>이맥스에서 사용할 수 있는 이메일 클라이언트로서 <code>mu4e</code>라는 것이
+    <h1 id="개요">개요</h1>
+<p>이맥스에서 사용할 수 있는 이메일 클라이언트로서 <code>mu4e</code>라는 것이
 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을
 인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을
 간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.</p>
@@ -95,8 +96,8 @@
 <p><code>mu4e</code>를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신, 공식
 문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.</p>
 <ul>
-<li><a href="https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/" target="_blank" rel="noopener">https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/</a></li>
-<li><a href="http://pragmaticemacs.com/mu4e-tutorials/" target="_blank" rel="noopener">http://pragmaticemacs.com/mu4e-tutorials/</a></li>
+<li><a href="https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/">https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/</a></li>
+<li><a href="http://pragmaticemacs.com/mu4e-tutorials/">http://pragmaticemacs.com/mu4e-tutorials/</a></li>
 </ul>
 <p>mu4e를 설정하는 순서는 대략 아래와 같다.</p>
 <ol>
@@ -108,11 +109,12 @@
 <p><code>mu4e</code>를 사용하기 위해 이맥스를 설정한다.</p>
 </li>
 </ol>
-<h2 id="isync-설치하기">isync 설치하기 <a href="#isync-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><p><code>mbsync</code> 명령어는 <code>isync</code> 패키지 안에 포함된다. 아치리눅스 위키
+<h2 id="isync-설치하기">isync 설치하기</h2>
+<p><code>mbsync</code> 명령어는 <code>isync</code> 패키지 안에 포함된다. 아치리눅스 위키
 페이지에 패키지에 대한 설명이 자세히 기술되어 있다. 설치 후에는 아래
 링크 또는 포스팅에 있는 예제 파일들을 참고하여 설정 파일을 작성한다.</p>
 <ul>
-<li><a href="https://wiki.archlinux.org/index.php/Isync" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Isync</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Isync">https://wiki.archlinux.org/index.php/Isync</a></li>
 </ul>
 <pre tabindex="0"><code># GMAIL #1
 IMAPAccount sukbeom.kim
@@ -240,11 +242,13 @@ $ gpg --output ~/.emacs.d/personal/chaoxifer.gpg --symmetric ~/.mbsyncpass
 $ # 입력 창에 passphrase 를 입력한다. 위 설정에서는 mu4e를 passphase로 입력했다.
 </code></pre><p>이제 mbsync를 사용하기 위한 설정이 완료되었다. 필요한 디렉토리들을
 만들고 <code>mbsync init</code>, <code>mbsync -a</code>를 통해 메일 박스를 동기화한다.</p>
-<h2 id="mu-설치">mu 설치 <a href="#mu-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h2><p><code>mu4e</code> 사용을 위해, <code>mu</code> 패키지를 설치한다. 이 때 컴파일 옵션으로
+<h2 id="mu-설치">mu 설치</h2>
+<p><code>mu4e</code> 사용을 위해, <code>mu</code> 패키지를 설치한다. 이 때 컴파일 옵션으로
 이맥스 옵션이 있으니 확인하자. 기본적으로 이맥스 옵션이 활성화되어
 패키지가 설치되므로 특별한 경우가 아니라면 별도로 설정하지 않아도
 된다.</p>
-<h2 id="이맥스-설정">이맥스 설정 <a href="#%ec%9d%b4%eb%a7%a5%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은
+<h2 id="이맥스-설정">이맥스 설정</h2>
+<p>이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은
 mu4e의 공식 문서에 자세히 기술되어 있다.</p>
 <pre tabindex="0"><code>(if (eq running-env &quot;private&quot;)
 (if (eq system-type 'darwin)
@@ -281,7 +285,8 @@ mu4e-update-interval (* 20 60))
 shr-color-visible-luminance-min 80
 shr-color-visible-distance-min 5))
 
-</code></pre><h1 id="마무리">마무리 <a href="#%eb%a7%88%eb%ac%b4%eb%a6%ac" class="anchor">🔗</a></h1><p>이제 필요한 설정이 모두 마무리 되었다. <code>M-x mu4e</code>를 통해 수신한
+</code></pre><h1 id="마무리">마무리</h1>
+<p>이제 필요한 설정이 모두 마무리 되었다. <code>M-x mu4e</code>를 통해 수신한
 메일들을 관리하거나 지정되어 있는 smtp 서버를 통해 메일을 주고받을 수
 있다. <code>mu4e</code>는 <code>thunderbird</code>의 마크다운 지원하는 메일 작성의 개념과
 비슷하지만 모드를 자유자재로 선택할 수 있다는 점에서 더 유연하다는

@@ -13,7 +13,7 @@
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/haskell-version-control/</guid>
-      <description>개요 🔗IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10 까지 버전업 되어 있는 ghc 환경과 호환이 안되는 문제가 발생하였다. 이를 위해 하스켈의 전체적인 버전 관리를 해주는 패키지 매니저가 있을 것이라 생각하고 관련 내용으로 검색해보니 ghcup 이라는 버전 관리 매니저가 있었다.
+      <description>개요 IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10 까지 버전업 되어 있는 ghc 환경과 호환이 안되는 문제가 발생하였다. 이를 위해 하스켈의 전체적인 버전 관리를 해주는 패키지 매니저가 있을 것이라 생각하고 관련 내용으로 검색해보니 ghcup 이라는 버전 관리 매니저가 있었다.
 ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할 수 있으며 아래와 같이 원하는 ghc 버전들을 간편하게 설치하고 메인으로 관리할 수 있다.</description>
     </item>
     

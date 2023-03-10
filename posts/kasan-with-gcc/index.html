@@ -78,7 +78,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="커널의-kasan-코드가-삽입되는-방법">커널의 KASAN 코드가 삽입되는 방법 <a href="#%ec%bb%a4%eb%84%90%ec%9d%98-kasan-%ec%bd%94%eb%93%9c%ea%b0%80-%ec%82%bd%ec%9e%85%eb%90%98%eb%8a%94-%eb%b0%a9%eb%b2%95" class="anchor">🔗</a></h1><p>Generic KASAN 의 경우, 위와 같이 <code>__asan_load</code>와 <code>__asan_store</code> 함수가 정의되어
+    <h1 id="커널의-kasan-코드가-삽입되는-방법">커널의 KASAN 코드가 삽입되는 방법</h1>
+<p>Generic KASAN 의 경우, 위와 같이 <code>__asan_load</code>와 <code>__asan_store</code> 함수가 정의되어
 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에
 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에
 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어
@@ -92,7 +93,8 @@ inline 키워드는 사용도지 않았다. 컴파일러가 해당 코드를 삽
 찾을 수 없었다.</p>
 <p>KASAN 지원 여부가 컴파일러 버전에 따라 달라지는 것을 확인하고, 이에 컴파일러가
 관련된 코드를 삽입하는 것을 직접 확인하기 위해 GCC 코드를 살펴보았다.</p>
-<h1 id="gcc-코드">GCC 코드 <a href="#gcc-%ec%bd%94%eb%93%9c" class="anchor">🔗</a></h1><p>GCC 코드(<code>$gcc_root/gcc/sanitizer.def</code>)에는 커널에서 _<em>asan</em>* 형태로 정의해놓은
+<h1 id="gcc-코드">GCC 코드</h1>
+<p>GCC 코드(<code>$gcc_root/gcc/sanitizer.def</code>)에는 커널에서 _<em>asan</em>* 형태로 정의해놓은
 심볼에 대해 <code>DEF_SANITIZER_BUILTIN</code> 이라는 매크로와 함께 아래와 같이
 정의해놓았다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD1, <span style="color:#e6db74">&#34;__asan_load1&#34;</span>,
