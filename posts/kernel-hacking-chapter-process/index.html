@@ -96,10 +96,8 @@ Linux kernel development(3rd edition) 책과 LWN 등의 사이트들을
 참고한다.</p>
 <p>문서는 계속해서 업데이트할 예정이며, 내용이 추가되면 문서를 분리하거나
 링크를 통해 업데이트할 예정이다.</p>
-<h1 id="프로세스process란">프로세스(Process)란?</h1>
-<p>프로세스는 실행 중인 프로그램으로 다음과 같은 리소스들을 포함한다.</p>
-<h2 id="프로세스-디스크립터-pcb">프로세스 디스크립터, PCB</h2>
-<p>프로세스 디스크립트(Process Descriptor)는 Task Descriptor 또는 Process
+<h1 id="프로세스process란">프로세스(Process)란? <a href="#%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4process%eb%9e%80" class="anchor">🔗</a></h1><p>프로세스는 실행 중인 프로그램으로 다음과 같은 리소스들을 포함한다.</p>
+<h2 id="프로세스-디스크립터-pcb">프로세스 디스크립터, PCB <a href="#%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4-%eb%94%94%ec%8a%a4%ed%81%ac%eb%a6%bd%ed%84%b0-pcb" class="anchor">🔗</a></h2><p>프로세스 디스크립트(Process Descriptor)는 Task Descriptor 또는 Process
 Control Block이라고도 불린다. 프로세스의 전반적인 정보들을 담고 있으며
 대표적인 것들은 아래와 같다.</p>
 <ol>
@@ -142,7 +140,7 @@ Control Block이라고도 불린다. 프로세스의 전반적인 정보들을 �
 <blockquote>
 <p>여기서 <code>volatile</code>은 왜 사용된 걸까? TLDP 출처에는 &ldquo;The volatile
 in p-&gt;state declaration means it can be modified asynchronously
-(from interrupt handler) 라고 설명되어 있다. 그런데 <a href="https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html">커널
+(from interrupt handler) 라고 설명되어 있다. 그런데 <a href="https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html" target="_blank" rel="noopener">커널
 문서</a>를
 살펴보면 &ldquo;volatile&rdquo; 타입 클래스를 사용해서는 안되는지에 대한
 설명이 나와있는데 실제로 state 변수를 제외하고는 sched.h 나머지
@@ -187,12 +185,11 @@ task_struct 안에는 해당 정보들을 받아올 수 있는 <code>mm_struct</
 커널 내부에서는 프로세스가 아닌 스레드 한 개가 생성된 것과 같다.</p>
 </li>
 </ol>
-<h1 id="출처">출처</h1>
-<ul>
-<li><a href="https://www.tldp.org/LDP/tlk/tlk.html">https://www.tldp.org/LDP/tlk/tlk.html</a></li>
-<li><a href="https://www.tldp.org/LDP/lki/lki-2.html">https://www.tldp.org/LDP/lki/lki-2.html</a></li>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://www.tldp.org/LDP/tlk/tlk.html" target="_blank" rel="noopener">https://www.tldp.org/LDP/tlk/tlk.html</a></li>
+<li><a href="https://www.tldp.org/LDP/lki/lki-2.html" target="_blank" rel="noopener">https://www.tldp.org/LDP/lki/lki-2.html</a></li>
 <li>Linux Kernel Development 3rd edition</li>
-<li><a href="https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html">https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html</a></li>
+<li><a href="https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html" target="_blank" rel="noopener">https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html</a></li>
 </ul>
 
   </section>

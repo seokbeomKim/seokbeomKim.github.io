@@ -85,10 +85,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="server-name-indication">Server Name Indication</h1>
-<p>Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다. 이러한 문제를 해결하기 위해 Server Name Indication(SNI)라는 Extension을 사용하여 아래와 같이 문제를 해결할 수 있다.</p>
-<h2 id="서버에서-sni-설정-방법예시-apache-사용">서버에서 SNI 설정 방법(예시. Apache 사용)</h2>
-<p>SNI 설정을 위해서는 두 가지 방법이 있다. (설정 파일 변경 방법)</p>
+    <h1 id="server-name-indication">Server Name Indication <a href="#server-name-indication" class="anchor">🔗</a></h1><p>Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다. 이러한 문제를 해결하기 위해 Server Name Indication(SNI)라는 Extension을 사용하여 아래와 같이 문제를 해결할 수 있다.</p>
+<h2 id="서버에서-sni-설정-방법예시-apache-사용">서버에서 SNI 설정 방법(예시. Apache 사용) <a href="#%ec%84%9c%eb%b2%84%ec%97%90%ec%84%9c-sni-%ec%84%a4%ec%a0%95-%eb%b0%a9%eb%b2%95%ec%98%88%ec%8b%9c-apache-%ec%82%ac%ec%9a%a9" class="anchor">🔗</a></h2><p>SNI 설정을 위해서는 두 가지 방법이 있다. (설정 파일 변경 방법)</p>
 <p>첫 번째는 하나의 가상 호스트만 정의하고 나머지는 SSLSNIMap을 통해 호스트 이름과 인증서 레이블을 맵핑하는 방법이다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#f92672">&lt;virtualhost</span> <span style="color:#e6db74">*:443</span><span style="color:#f92672">&gt;</span>
   ServerName example.com
@@ -114,8 +112,7 @@
   SSLEnable
   SSLServerCert sni2
 <span style="color:#f92672">&lt;/virtualhost&gt;</span>
-</code></pre></div><h2 id="실제-sni-패킷">실제 SNI 패킷</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> good_data_2[] <span style="color:#f92672">=</span> {
+</code></pre></div><h2 id="실제-sni-패킷">실제 SNI 패킷 <a href="#%ec%8b%a4%ec%a0%9c-sni-%ed%8c%a8%ed%82%b7" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> good_data_2[] <span style="color:#f92672">=</span> {
     <span style="color:#75715e">// TLS record
 </span><span style="color:#75715e"></span>    <span style="color:#ae81ff">0x16</span>, <span style="color:#75715e">// Content Type: Handshake
 </span><span style="color:#75715e"></span>    <span style="color:#ae81ff">0x03</span>, <span style="color:#ae81ff">0x01</span>, <span style="color:#75715e">// Version: TLS 1.0
@@ -159,10 +156,9 @@
 </span><span style="color:#75715e"></span>            <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x01</span>, <span style="color:#75715e">// Length (skip past since this is the wrong extension)
 </span><span style="color:#75715e"></span>            <span style="color:#ae81ff">0x01</span> <span style="color:#75715e">// Mode: Peer allows to send requests
 </span><span style="color:#75715e"></span>};
-</code></pre></div><h1 id="출처">출처</h1>
-<ul>
-<li><a href="https://www.ibm.com/support/knowledgecenter/ko/SSEQTJ_9.0.0/com.ibm.websphere.ihs.doc/ihs/rihs_sni.html">SNI(Server Name Indication) - IBM Knowledge Center</a></li>
-<li><a href="https://stackoverflow.com/questions/17832592/extract-server-name-indication-sni-from-tls-client-hello">Extract Server Name Indication (SNI) from TLS client hello
+</code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://www.ibm.com/support/knowledgecenter/ko/SSEQTJ_9.0.0/com.ibm.websphere.ihs.doc/ihs/rihs_sni.html" target="_blank" rel="noopener">SNI(Server Name Indication) - IBM Knowledge Center</a></li>
+<li><a href="https://stackoverflow.com/questions/17832592/extract-server-name-indication-sni-from-tls-client-hello" target="_blank" rel="noopener">Extract Server Name Indication (SNI) from TLS client hello
 </a></li>
 </ul>
 

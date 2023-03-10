@@ -80,10 +80,8 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h2 id="개요">개요</h2>
-<p>사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 <code>list.h</code> 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 <code>&lt;sys/queue.h&gt;</code> 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다. 라이센스에 전혀 문제가 되지 않을 뿐만 아니라 필요한 메시지 큐를 구현하기 위한 매크로가 알기 쉽게 정의되어 있어 작성하는데에는 크게 어렵지 않았다. 대신, 불필요하게 잘못된 메모리 접근으로 인한 코드를 디버깅하는데 시간이 많이 걸렸다.</p>
-<h2 id="queueh">queue.h</h2>
-<p>작업에 사용했던 queue.h 파일(<a href="https://github.com/freebsd/freebsd/blob/master/sys/sys/queue.h">https://github.com/freebsd/freebsd/blob/master/sys/sys/queue.h</a> 참고)에는 LIST와 TAILQ, CIRCLEQ가 구현되어 있었다. 링크는 최신버전의 라이브러리라 Circular Queue가 사라져있을 것이다. 리눅스의 <code>list.h</code>와 마찬가지로 BSD의 <code>queue.h</code>도 리스트를 사용하기 위해 재미있는 방법을 사용한다. 먼저 man-page에 기술되어 있는 예시를 시작으로 하나씩 살펴보자.</p>
+    <h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 <code>list.h</code> 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 <code>&lt;sys/queue.h&gt;</code> 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다. 라이센스에 전혀 문제가 되지 않을 뿐만 아니라 필요한 메시지 큐를 구현하기 위한 매크로가 알기 쉽게 정의되어 있어 작성하는데에는 크게 어렵지 않았다. 대신, 불필요하게 잘못된 메모리 접근으로 인한 코드를 디버깅하는데 시간이 많이 걸렸다.</p>
+<h2 id="queueh">queue.h <a href="#queueh" class="anchor">🔗</a></h2><p>작업에 사용했던 queue.h 파일(<a href="https://github.com/freebsd/freebsd/blob/master/sys/sys/queue.h" target="_blank" rel="noopener">https://github.com/freebsd/freebsd/blob/master/sys/sys/queue.h</a> 참고)에는 LIST와 TAILQ, CIRCLEQ가 구현되어 있었다. 링크는 최신버전의 라이브러리라 Circular Queue가 사라져있을 것이다. 리눅스의 <code>list.h</code>와 마찬가지로 BSD의 <code>queue.h</code>도 리스트를 사용하기 위해 재미있는 방법을 사용한다. 먼저 man-page에 기술되어 있는 예시를 시작으로 하나씩 살펴보자.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">TAILQ_HEAD(tailhead, entry) head <span style="color:#f92672">=</span> TAILQ_HEAD_INITIALIZER(head);
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">tailhead</span> <span style="color:#f92672">*</span>headp;		     <span style="color:#75715e">/*	Tail queue head. */</span>
 <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">entry</span> {
@@ -133,7 +131,9 @@ TAILQ_HEAD(msg_head, message) head; <span style="color:#75715e">// struct msg_he
 </span><span style="color:#75715e">	TRACEBUF							\
 </span><span style="color:#75715e">}
 </span></code></pre></div><p>전체적인 연결을 다이어그램으로 나타내면 아래와 같다.
-<img src="/img/TAILQ_BSD.png" alt="TAILQ in BSD"></p>
+<p class="markdown-image">
+  <img src="/img/TAILQ_BSD.png" alt="TAILQ in BSD"  />
+</p></p>
 
   </section>
   <footer>

@@ -96,8 +96,7 @@
 <p>커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기
 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이
 필요한 경우에는 이 차이(offset)값을 빼야 한다.</p>
-<h1 id="지피-비교를-위한-매크로">지피 비교를 위한 매크로</h1>
-<p><code>jiffies</code>는 <code>unsigned long</code> 타입으로 언젠가는 오버플로우가 발생하게
+<h1 id="지피-비교를-위한-매크로">지피 비교를 위한 매크로 <a href="#%ec%a7%80%ed%94%bc-%eb%b9%84%ea%b5%90%eb%a5%bc-%ec%9c%84%ed%95%9c-%eb%a7%a4%ed%81%ac%eb%a1%9c" class="anchor">🔗</a></h1><p><code>jiffies</code>는 <code>unsigned long</code> 타입으로 언젠가는 오버플로우가 발생하게
 된다. 오버플로우에 대한 내용을 찾던 중 재미있는 함수를 발견했는데 이와
 관련해 잠깐 설명하고자 한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#define time_after(a,b)		\
@@ -157,8 +156,7 @@ case 3-1: t3 - t1 as long: -1
 case 3-2: t4 - (t4 + 1): -1
 </code></pre><p>즉, 앞서가는 unsigned, signed의 특성 상 앞서가는 포인트에 대해 signed
 범위 안에서 값을 비교하면 그 결과 범위가 양수 또는 음수로 나오게 된다.</p>
-<h1 id="매크로-속-typecheck">매크로 속 typecheck</h1>
-<p>여기서 사용된 <code>typecheck</code> 함수를 잠깐 살펴보자. typecheck는 무조건
+<h1 id="매크로-속-typecheck">매크로 속 typecheck <a href="#%eb%a7%a4%ed%81%ac%eb%a1%9c-%ec%86%8d-typecheck" class="anchor">🔗</a></h1><p>여기서 사용된 <code>typecheck</code> 함수를 잠깐 살펴보자. typecheck는 무조건
 참(1) 값을 반환하는 매크로 함수이다. 그럼에도 사용하는 이유는 컴파일
 타임에서 인자로 전달한 타입과 변수의 타입을 서로 비교하여 같은지
 여부를 나타낼 수 있는 일종의 트릭을 사용하고 있기 때문이다. (커널
@@ -187,14 +185,14 @@ case 3-2: t4 - (t4 + 1): -1
     printf(<span style="color:#e6db74">&#34;a value is not int</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
 }
 
-</code></pre></div><p><img src="/img/gcc_werror.png" alt="컴파일 타임 에러"></p>
-<h1 id="지피jiffies는-누가-증가시키는가">지피(jiffies)는 누가 증가시키는가?</h1>
-<p>앞서, <code>&quot;지피(jiffies)에는 시스템 시작 이후 발생한 진동 횟수(tick)가 저장된다.&quot;</code>라고 말했다. 그렇다면 그러한 tick은 누가 발생시킬까? 이를
+</code></pre></div><p><p class="markdown-image">
+  <img src="/img/gcc_werror.png" alt="컴파일 타임 에러"  />
+</p></p>
+<h1 id="지피jiffies는-누가-증가시키는가">지피(jiffies)는 누가 증가시키는가? <a href="#%ec%a7%80%ed%94%bcjiffies%eb%8a%94-%eb%88%84%ea%b0%80-%ec%a6%9d%ea%b0%80%ec%8b%9c%ed%82%a4%eb%8a%94%ea%b0%80" class="anchor">🔗</a></h1><p>앞서, <code>&quot;지피(jiffies)에는 시스템 시작 이후 발생한 진동 횟수(tick)가 저장된다.&quot;</code>라고 말했다. 그렇다면 그러한 tick은 누가 발생시킬까? 이를
 위한 것이 바로 시스템 타이머이다.</p>
 <p>시간 기록을 위해서 리눅스에서는 RTC(Real Time Clock), 시스템 타이머를
 이용한다.</p>
-<h2 id="시간에-관련된-하드웨어">&lsquo;시간&rsquo;에 관련된 하드웨어</h2>
-<p>RTC는 보통 시스템 기판에 붙어 있는 원형 배터리를 통해 시스템이 꺼져
+<h2 id="시간에-관련된-하드웨어">&lsquo;시간&rsquo;에 관련된 하드웨어 <a href="#%ec%8b%9c%ea%b0%84%ec%97%90-%ea%b4%80%eb%a0%a8%eb%90%9c-%ed%95%98%eb%93%9c%ec%9b%a8%ec%96%b4" class="anchor">🔗</a></h2><p>RTC는 보통 시스템 기판에 붙어 있는 원형 배터리를 통해 시스템이 꺼져
 있는 동안에도 시간을 기록하며 일반적인 PC 아키텍처인 경우 RTC와 CMOS가
 통합되어 있는 것을 확인할 수 있다.<!-- raw HTML omitted -->커널은 시스템 시작 시 RTC를 읽고
 <code>xtime</code>변수에 저장되는 현재 시간을 초기화한다. 보통 커널은 최초
@@ -210,8 +208,7 @@ init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽�
 <li>갱신된 현재 시간을 주기적으로 실시간 시계에 반영한다.</li>
 <li><strong>아키텍처 종속적</strong> 타이머 함수인 <code>tick_periodic()</code> 함수를 호출한다.</li>
 </ol>
-<h2 id="커널-코드-속-시스템-타이머-인터럽트-핸들러">커널 코드 속 시스템 타이머 인터럽트 핸들러</h2>
-<p>그렇다면, 직접 타이머 인터럽트 핸들러를 따라가보자. 커널 분석 책에는
+<h2 id="커널-코드-속-시스템-타이머-인터럽트-핸들러">커널 코드 속 시스템 타이머 인터럽트 핸들러 <a href="#%ec%bb%a4%eb%84%90-%ec%bd%94%eb%93%9c-%ec%86%8d-%ec%8b%9c%ec%8a%a4%ed%85%9c-%ed%83%80%ec%9d%b4%eb%a8%b8-%ec%9d%b8%ed%84%b0%eb%9f%bd%ed%8a%b8-%ed%95%b8%eb%93%a4%eb%9f%ac" class="anchor">🔗</a></h2><p>그렇다면, 직접 타이머 인터럽트 핸들러를 따라가보자. 커널 분석 책에는
 아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러 형태로 되어
 있으며 타이머 인터럽트가 발생했을 때 실행된다고 되어 있다. 하지만 실제
 커널(v4.20.x)에는 <code>tick-common.h</code> 안에 하나로 통합되어
@@ -332,9 +329,8 @@ init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽�
 }
 </code></pre></div><p><code>update_process_times</code>는 <code>run_local_timers()</code>를 통해 로컬 타이머, 즉
 softirq를 발생시켜 시간이 만료된 타이머를 실행한다.</p>
-<h1 id="출처">출처</h1>
-<ul>
-<li><a href="https://stackoverflow.com/questions/8206762/how-does-linux-handle-overflow-in-jiffies">how does linux handle overflow in
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://stackoverflow.com/questions/8206762/how-does-linux-handle-overflow-in-jiffies" target="_blank" rel="noopener">how does linux handle overflow in
 jiffies</a></li>
 </ul>
 

@@ -13,7 +13,7 @@
       <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/cdn/</guid>
-      <description>CDN(Content Delivery Network) Content Delivery Network 또는 Content Distribution Network라고 불리는 네트워크는 컨텐츠를 효율적으로 전달하기 위해 여러 노드를 가진 네트워크에 데이터를 저장하여 제공하는 시스템을 말한다. 관련된 질문으로는 &amp;lsquo;CDN vs. Cache, 무엇이 더 효율적인가?&amp;lsquo;라는 것이 있다. CDN은 오늘날 텐스트, 그래픽, 스크립트, 미디어 파일, 소프트웨어, 문서 등의 다운로드가 가능한 객체들 뿐만 아니라 어플리케이션, 라이브 스트리밍 미디어 등의 다양한 컨텐츠들을 망라하여 제공하고 있다.
+      <description>CDN(Content Delivery Network) 🔗Content Delivery Network 또는 Content Distribution Network라고 불리는 네트워크는 컨텐츠를 효율적으로 전달하기 위해 여러 노드를 가진 네트워크에 데이터를 저장하여 제공하는 시스템을 말한다. 관련된 질문으로는 &amp;lsquo;CDN vs. Cache, 무엇이 더 효율적인가?&amp;lsquo;라는 것이 있다. CDN은 오늘날 텐스트, 그래픽, 스크립트, 미디어 파일, 소프트웨어, 문서 등의 다운로드가 가능한 객체들 뿐만 아니라 어플리케이션, 라이브 스트리밍 미디어 등의 다양한 컨텐츠들을 망라하여 제공하고 있다.
 아래의 그림을 살펴보자.
 왼쪽의 그림은 컨텐츠가 End User들에게 직접 제공되는 반면에 오른쪽 그림은 End-User에서 가장 가까운 CDN 서버를 통해 간접적으로 전달된다.</description>
     </item>

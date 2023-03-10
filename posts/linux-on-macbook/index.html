@@ -29,7 +29,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.80.0" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
+  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://seokbeomKim.github.io/css/style.css" />
   
   <link rel="stylesheet" href="https://seokbeomKim.github.io/css/img.css">
   
@@ -86,8 +86,7 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="개요">개요</h1>
-<p>맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반
+    <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반
 동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한
 운영체제였지만 동시에 맥 만의 단점을 갖고 있었고 생각보다 매우 영향이 컸다.</p>
 <p>PIM은 기본이고 상위 레벨 프로그래밍을 위해서, 맥 만큼 좋은
@@ -107,27 +106,23 @@ bare-metal 크로스 컴파일러를 구성한다면 상관없겠지만,
 포함되기 시작하면 매우 까다로운 작업이 된다. 맥에서 LFS (Linux From
 Scratch) 프로젝트를 할 것도 아닌데, 그만큼의 노력과 시간이 요구되는
 아이러니한 상황이 펼쳐진다.</p>
-<h1 id="맥북과-커널의-호환성">맥북과 커널의 호환성</h1>
-<p>현재, mbp 기준 리눅스 커널의 기본 드라이버들과의 호환성은 그닥 좋지
-않다. 호환성은 <a href="https://github.com/Dunedan/mbp-2016-linux#bluetooth">https://github.com/Dunedan/mbp-2016-linux#bluetooth</a>
+<h1 id="맥북과-커널의-호환성">맥북과 커널의 호환성 <a href="#%eb%a7%a5%eb%b6%81%ea%b3%bc-%ec%bb%a4%eb%84%90%ec%9d%98-%ed%98%b8%ed%99%98%ec%84%b1" class="anchor">🔗</a></h1><p>현재, mbp 기준 리눅스 커널의 기본 드라이버들과의 호환성은 그닥 좋지
+않다. 호환성은 <a href="https://github.com/Dunedan/mbp-2016-linux#bluetooth" target="_blank" rel="noopener">https://github.com/Dunedan/mbp-2016-linux#bluetooth</a>
 페이지에서 확인해볼 수 있다. 논터치바 13인치 모델(13,1)을 제외하고는
 와이파이조차 안된다는 점에 유의하자.</p>
-<h1 id="우분투-설치">우분투 설치</h1>
-<p>개인적으로 우분투는 별로 좋아하지 않지만 설치 후 서드 파티 드라이버
+<h1 id="우분투-설치">우분투 설치 <a href="#%ec%9a%b0%eb%b6%84%ed%88%ac-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h1><p>개인적으로 우분투는 별로 좋아하지 않지만 설치 후 서드 파티 드라이버
 설치를 간편하게 하기 위해 우분투를 설치하기로 했다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hdiutil convert -format UDRW -o ~/Desktop/ubuntu.img ~/Downloads/ubuntu.iso
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hdiutil convert -format UDRW -o ~/Desktop/ubuntu.img ~/Downloads/ubuntu.iso
 $ dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>ubuntu.img of<span style="color:#f92672">=</span>/dev/disk2 bs<span style="color:#f92672">=</span>1m <span style="color:#75715e"># /dev/disk2 는 반드시 직접 확인해야 한다.</span>
 </code></pre></div><p>dd 명령어로 img 파일을 USB 에 구울 때 busy resource 에러가 나온다면,
 디스크 유틸리티에서 해당 파티션을 unmount 해주고 다시 실행해야 한다.</p>
 <p>나머지는 간단하다. USB를 넣고 맥북 재부팅 시 option키를 눌러
 이동식디스크로 부트해주면 설치를 진행할 수 있다.</p>
-<h1 id="호환성-문제">호환성 문제</h1>
-<p>우분투를 설치하고 나서 여러가지 고질적인 하드웨어 문제들이 나타나기 시작했다.
+<h1 id="호환성-문제">호환성 문제 <a href="#%ed%98%b8%ed%99%98%ec%84%b1-%eb%ac%b8%ec%a0%9c" class="anchor">🔗</a></h1><p>우분투를 설치하고 나서 여러가지 고질적인 하드웨어 문제들이 나타나기 시작했다.
 블투루스와 5g 와이파이가 안되는 문제, 소리가 안들리는 문제 등 드라이버를 온전하게
 지원하지 않고 있었다. 단순하게 컴파일만을 하기 위해서는 문제가 없었으나 그 이상의
 작업을 위해서 불편하게 재부팅해야 하는 문제가 있었다.</p>
-<h1 id="부트캠프-윈도우즈-설치">부트캠프 윈도우즈 설치</h1>
-<p>부트캠프를 이용해 윈도우즈를 설치하고 나머지 맥 파티션은 모두 밀어버렸다.
+<h1 id="부트캠프-윈도우즈-설치">부트캠프 윈도우즈 설치 <a href="#%eb%b6%80%ed%8a%b8%ec%ba%a0%ed%94%84-%ec%9c%88%eb%8f%84%ec%9a%b0%ec%a6%88-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h1><p>부트캠프를 이용해 윈도우즈를 설치하고 나머지 맥 파티션은 모두 밀어버렸다.
 맥에서의 패러럴은 내게 아무런 장점도 갖고 있지 않았다. VM의 GUI 환경이 필요없는 내게
 심리즈 모드나 불필요하게 리소스를 잡아먹는 게 한두가지가 아니었고 virtualbox, vmware 들은
 윈도우즈에서 지원하는 hyper-v의 성능의 기대에 크게 못미쳤다.</p>
@@ -135,8 +130,7 @@ $ dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>ub
 github에서 서드파티로 개발되어 있는 터치패드 드라이버를 설치했다.
 이맥스는 터미널 환경에서의 작업을 위해 구성하고 vscode를 이용하여 hyper-v 가상머신으로 접속하니,
 맥에서 보던 리소스 문제도 없고 완벽하게 윈하는 만큼의 리눅스 환경을 즐길 수 있게 되었다.</p>
-<h1 id="끝맺음">끝맺음</h1>
-<p>한동안 맥을 정말 좋아했는데 최근에 들어서는 윈도우즈에 한참 못미치는 모습이다.
+<h1 id="끝맺음">끝맺음 <a href="#%eb%81%9d%eb%a7%ba%ec%9d%8c" class="anchor">🔗</a></h1><p>한동안 맥을 정말 좋아했는데 최근에 들어서는 윈도우즈에 한참 못미치는 모습이다.
 대학 시절 우분투, 레드햇, 아치와 젠투 리눅스로 리눅스를 접하고 netbsd와 freebsd 등으로 bsd를 접하다가 마침내
 맥을 접했을 때, 내가 원하는 개발 환경을 지원하면서 동시에, 카카오톡과 같은 유틸리티를 wine 없이도 맘껏 돌릴 수 있다는 것이 큰 장점이었다. 하지만 그 매력도 이제는 점점 사라져간다. WSL로 왠만한 리눅스 배포판에 포함되는 tui 툴은 사용가능하고
 이마저도 hyper-v를 이용해 가상머신으로 완벽하게 돌릴 수 있다.

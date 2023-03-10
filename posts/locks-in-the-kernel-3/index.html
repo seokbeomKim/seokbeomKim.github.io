@@ -97,8 +97,7 @@ TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE
 TASK_RUNNING(실행 대기) 상태로 변경된다. 실행 대기 중인 프로세스는
 CPU에 attach 되면 실행되며 이 때의 상태값 또한 TASK_RUNNING이라는 점에
 유의하자.</p>
-<h1 id="세마포어-특징">세마포어 특징</h1>
-<ul>
+<h1 id="세마포어-특징">세마포어 특징 <a href="#%ec%84%b8%eb%a7%88%ed%8f%ac%ec%96%b4-%ed%8a%b9%ec%a7%95" class="anchor">🔗</a></h1><ul>
 <li>락을 기다리는 태스크가 휴면 상태(TASK_INTERRUPTIBLE)로 전환되므로,
 세마포어는 오랫동안 락을 사용하는 경우에 적합하다.</li>
 <li>반대로 락 사용 시간이 짧은 경우에는 휴면 상태 전환 및 대기큐 관리,
@@ -121,15 +120,13 @@ CPU에 attach 되면 실행되며 이 때의 상태값 또한 TASK_RUNNING이라
 락을 쥐고 있는 시간으로 결정해야 하며, 스핀락과 달리 세마포어는 커널
 선점을 비활성화시키지 않기 때문에 세마포어를 잡고 있는 코드 또한
 선점될 수 있다.</p>
-<h1 id="세마포어-종류">세마포어 종류</h1>
-<p>세마포어는 아래와 같은 종류가 있다.</p>
+<h1 id="세마포어-종류">세마포어 종류 <a href="#%ec%84%b8%eb%a7%88%ed%8f%ac%ec%96%b4-%ec%a2%85%eb%a5%98" class="anchor">🔗</a></h1><p>세마포어는 아래와 같은 종류가 있다.</p>
 <ul>
 <li>카운팅 세마포어</li>
 <li>바이너리 세마포어: 카운트 값이 최대 1이 되는 카운팅 세마포어</li>
 <li>리더-라이터 세마포어</li>
 </ul>
-<h2 id="리더-라이터-세마포어">리더-라이터 세마포어</h2>
-<p>#include &lt;linux/module.h&gt;
+<h2 id="리더-라이터-세마포어">리더-라이터 세마포어 <a href="#%eb%a6%ac%eb%8d%94-%eb%9d%bc%ec%9d%b4%ed%84%b0-%ec%84%b8%eb%a7%88%ed%8f%ac%ec%96%b4" class="anchor">🔗</a></h2><p>#include &lt;linux/module.h&gt;
 #include &lt;linux/kernel.h&gt;
 #include &lt;linux/fs.h&gt;
 #include &lt;linux/cdev.h&gt;

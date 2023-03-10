@@ -78,34 +78,31 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h2 id="개요">개요</h2>
-<p>&laquo;코드로 알아보는 ARM 리눅스 커널&raquo;이라는 커널 분석 책으로 스터디를
+    <h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>&laquo;코드로 알아보는 ARM 리눅스 커널&raquo;이라는 커널 분석 책으로 스터디를
 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데
 문제가 없을 거라 생각했는데 역시나 기억력에 한계가
 있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고
 방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 <em>분명히</em> 다시
 살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.</p>
-<h2 id="캐시-구조">캐시 구조</h2>
-<p>캐시에 관련된 주요 용어는 아래와 같다.</p>
+<h2 id="캐시-구조">캐시 구조 <a href="#%ec%ba%90%ec%8b%9c-%ea%b5%ac%ec%a1%b0" class="anchor">🔗</a></h2><p>캐시에 관련된 주요 용어는 아래와 같다.</p>
 <ul>
 <li>태그</li>
 <li>캐시라인</li>
 <li>인덱스</li>
 <li>웨이와 세트</li>
 </ul>
-<h3 id="태그">태그</h3>
-<p>태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.</p>
-<h3 id="캐시라인">캐시라인</h3>
-<p>태그를 각 워드마다 붙이는 것은 비효율적이므로 여러 워드를 함께 묶는다. 캐시라인은 load, flush와 같은 캐시 연산의 가장 작은 단위이며, 메모리에서 연속된 워드 블록이다. 캐시 라인이 캐싱된 데이터나 인스트럭션을 포함하고 있을 때 유효하며, 그렇지 않을 때 무효하다.</p>
-<h3 id="인덱스">인덱스</h3>
-<p>캐시 라인을 찾기 위해 사용되는 메모리 주소의 일부 비트를 인덱스라고 한다.</p>
-<h2 id="웨이와-세트">웨이와 세트</h2>
-<p>캐시 탐색 과정에서 태그가 일치할 확률을 높이기 위해 동일 인덱스에 해당하는 태그/캐시라인을 여러 쌍 두는데 이 때 태그/캐시라인 쌍 각각을 웨이라고 한다.</p>
-<p><img src="/img/a_structure_of_cache.png" alt="A structure of Cache"></p>
-<p><a href="https://aidanbae.github.io/code/devops/computer/cpucache/">링크</a>에서의 그림과 같은 내용이며, 한 개의 인덱스에 대해 여러 개의 캐시라인을 사용하는 개념을 알 수 있다. 위 그림에서는 Index #0 에 대해서 2개의 캐시라인을 사용하는 것을 알 수 있는데 이 경우, 2-way로 구성되어 있다고 말할 수 있다. 즉, 메인 메모리에서의 64비트 주소로 매핑될 때 사용되는 인덱스 #n 에 대해 몇 개의 캐시라인을 사용했는지를 way라는 용어로 나타내는 것이고 같은 index 로 묶인 이러한 웨이들의 집합을 set 이라고 일컫는다.</p>
-<h3 id="64비트-주소">64비트 주소</h3>
-<p>64비트 주소는 아래 구조로 구성되어 있다.</p>
-<p><img src="/img/a_structure_of_logical_address.png" alt="Virtual Address"></p>
+<h3 id="태그">태그 <a href="#%ed%83%9c%ea%b7%b8" class="anchor">🔗</a></h3><p>태그는 캐시 탐색 시에 저장되는 메모리 주소의 일부를 만한다.</p>
+<h3 id="캐시라인">캐시라인 <a href="#%ec%ba%90%ec%8b%9c%eb%9d%bc%ec%9d%b8" class="anchor">🔗</a></h3><p>태그를 각 워드마다 붙이는 것은 비효율적이므로 여러 워드를 함께 묶는다. 캐시라인은 load, flush와 같은 캐시 연산의 가장 작은 단위이며, 메모리에서 연속된 워드 블록이다. 캐시 라인이 캐싱된 데이터나 인스트럭션을 포함하고 있을 때 유효하며, 그렇지 않을 때 무효하다.</p>
+<h3 id="인덱스">인덱스 <a href="#%ec%9d%b8%eb%8d%b1%ec%8a%a4" class="anchor">🔗</a></h3><p>캐시 라인을 찾기 위해 사용되는 메모리 주소의 일부 비트를 인덱스라고 한다.</p>
+<h2 id="웨이와-세트">웨이와 세트 <a href="#%ec%9b%a8%ec%9d%b4%ec%99%80-%ec%84%b8%ed%8a%b8" class="anchor">🔗</a></h2><p>캐시 탐색 과정에서 태그가 일치할 확률을 높이기 위해 동일 인덱스에 해당하는 태그/캐시라인을 여러 쌍 두는데 이 때 태그/캐시라인 쌍 각각을 웨이라고 한다.</p>
+<p><p class="markdown-image">
+  <img src="/img/a_structure_of_cache.png" alt="A structure of Cache"  />
+</p></p>
+<p><a href="https://aidanbae.github.io/code/devops/computer/cpucache/" target="_blank" rel="noopener">링크</a>에서의 그림과 같은 내용이며, 한 개의 인덱스에 대해 여러 개의 캐시라인을 사용하는 개념을 알 수 있다. 위 그림에서는 Index #0 에 대해서 2개의 캐시라인을 사용하는 것을 알 수 있는데 이 경우, 2-way로 구성되어 있다고 말할 수 있다. 즉, 메인 메모리에서의 64비트 주소로 매핑될 때 사용되는 인덱스 #n 에 대해 몇 개의 캐시라인을 사용했는지를 way라는 용어로 나타내는 것이고 같은 index 로 묶인 이러한 웨이들의 집합을 set 이라고 일컫는다.</p>
+<h3 id="64비트-주소">64비트 주소 <a href="#64%eb%b9%84%ed%8a%b8-%ec%a3%bc%ec%86%8c" class="anchor">🔗</a></h3><p>64비트 주소는 아래 구조로 구성되어 있다.</p>
+<p><p class="markdown-image">
+  <img src="/img/a_structure_of_logical_address.png" alt="Virtual Address"  />
+</p></p>
 <p>태그와 인덱스 그리고 오프셋으로 주소로 이루어져 있으며 위의 캐시 구조를 살펴보면 각각이 어떻게 응용되는지 미리 예상해볼 수 있다.</p>
 
   </section>

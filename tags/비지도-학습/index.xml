@@ -13,8 +13,8 @@
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/unsupervised-supervised-learning/</guid>
-      <description>개요 프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(Unsupervised Learning)이었는데 어디에도 학습이 정확이 무엇인지에 대한 내용이 없었다.
-학습이란 무엇인가? 질문에 대한 답은 쉽게 찾을 수 있었다.(해당 링크)
+      <description>개요 🔗프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(Unsupervised Learning)이었는데 어디에도 학습이 정확이 무엇인지에 대한 내용이 없었다.
+학습이란 무엇인가? 🔗질문에 대한 답은 쉽게 찾을 수 있었다.(해당 링크)
 A model with a set of parameters transforms the input into an output, this generates a signal from which the model updates the parameters to produce a new output. In the supervised learning scenario, the signal is the error between the model&amp;#39;s estimate and the ground truth (the correct answer).</description>
     </item>
     

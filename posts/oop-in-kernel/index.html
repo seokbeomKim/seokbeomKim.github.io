@@ -86,8 +86,7 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="개요">개요</h1>
-<p>현업에서 BSP 코드를 수정하다가 문득 든 생각은 &lsquo;왜 객체 지향의 디자인
+    <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>현업에서 BSP 코드를 수정하다가 문득 든 생각은 &lsquo;왜 객체 지향의 디자인
 패턴을 적용하지 않는 걸까?&rsquo; 라는 것이다. 그러한 디자인 패턴은 이미
 오래 전부터 적용되어 왔지만 BSP에 포함된 솔루션 코드로서 추가되는
 코드에는 그러한 디자인 패턴이 보이지 않는다.</p>
@@ -97,7 +96,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 적용되어 있을까. 여기에 대한 좋은 참고 자료로서 LWN의 한 기사를 찾을
 수 있었다.</p>
 <ul>
-<li><a href="https://lwn.net/Articles/446317/">https://lwn.net/Articles/446317/</a></li>
+<li><a href="https://lwn.net/Articles/446317/" target="_blank" rel="noopener">https://lwn.net/Articles/446317/</a></li>
 </ul>
 <p>학부 시절부터 오랫동안 들어온 객체의 정의는 <code>state</code>와
 <code>behavior</code>이다. 이들은 각각 클래스의 멤버 변수와 메서드 형태로
@@ -107,8 +106,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 <p>이 포스팅에서는 커널 코드에서 활용하는 객체지향 디자인 패턴의 기본적인
 개념만을 언급한다. 좀 더 자세한 내용이나 실제 코드는 참고자료로 활용한
 링크와 커널 코드를 살펴보자.</p>
-<h1 id="메서드">메서드</h1>
-<p>일반적으로 메서드를 생각하면, C에서 함수 포인터를 구조체에 정의하는
+<h1 id="메서드">메서드 <a href="#%eb%a9%94%ec%84%9c%eb%93%9c" class="anchor">🔗</a></h1><p>일반적으로 메서드를 생각하면, C에서 함수 포인터를 구조체에 정의하는
 것을 떠올린다. 하지만 커널에서는 직접적으로 구조체 안에 함수 포인터를
 사용하는 대신에 <code>vtable</code>을 만들어 <code>_ops</code> 으로 명명한 별도의 함수
 테이블을 사용한다. 예를 들어, media framework로 유명한 <code>V4L2</code>를
@@ -166,16 +164,14 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 <code>closure</code>와 같은 다른 언어에서 <code>mixin</code>이라 표현하는 것처럼 응용할 수
 있다. 서로 다른 객체에 대해 같은 메서드를 사용할 수 있도록 하는
 방법이다.</p>
-<h1 id="데이터-상속">데이터 상속</h1>
-<p>예전부터 데이터 상속은 여러 형태로 존재해왔는데, 여기서는 아래 세 가지
+<h1 id="데이터-상속">데이터 상속 <a href="#%eb%8d%b0%ec%9d%b4%ed%84%b0-%ec%83%81%ec%86%8d" class="anchor">🔗</a></h1><p>예전부터 데이터 상속은 여러 형태로 존재해왔는데, 여기서는 아래 세 가지
 형태의 데이터 상속을 다루도록 한다.</p>
 <ul>
 <li><code>union</code>을 이용한 데이터 상속</li>
 <li><code>void*</code>를 이용한 데이터 상속</li>
 <li>상속하고자 하는 데이터 직접 내포</li>
 </ul>
-<h2 id="union을-이용한-데이터-상속">union을 이용한 데이터 상속</h2>
-<p><code>struct inode</code>를 살펴보면 아래와 같은 코드를 살펴볼 수 있다.</p>
+<h2 id="union을-이용한-데이터-상속">union을 이용한 데이터 상속 <a href="#union%ec%9d%84-%ec%9d%b4%ec%9a%a9%ed%95%9c-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ec%83%81%ec%86%8d" class="anchor">🔗</a></h2><p><code>struct inode</code>를 살펴보면 아래와 같은 코드를 살펴볼 수 있다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> <span style="color:#66d9ef">union</span> {
                <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">minix_inode_info</span> minix_i;
                <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ext_inode_info</span> ext_i;
@@ -186,8 +182,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 상속하게 된다. 이는 직관적으로 코드를 이해할 수 있다는 장점이 있지만,
 <code>union</code>을 사용하는 까닭에 padding을 위해 필요한 메모리 낭비로 이어질
 수 있다.</p>
-<h2 id="void-이용한-데이터-상속">void* 이용한 데이터 상속</h2>
-<p>커널에 정의된 프레임워크를 이용하다 보면 종종 <code>void* private;</code> 으로
+<h2 id="void-이용한-데이터-상속">void* 이용한 데이터 상속 <a href="#void-%ec%9d%b4%ec%9a%a9%ed%95%9c-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ec%83%81%ec%86%8d" class="anchor">🔗</a></h2><p>커널에 정의된 프레임워크를 이용하다 보면 종종 <code>void* private;</code> 으로
 정의된 것이 구조체 안에 정의되어 있는 것을 알 수 있다. 위에서
 <code>union</code>을 사용한 것과 달리 <code>void*</code> 사용하게 되면 불필요한 메모리는
 줄일 수 있고 데이터 상속에 대한 유연성을 갖출 수 있지만 **실제로 어떤
@@ -195,8 +190,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 못한다. 여전히 V4L 프레임워크와 같이 몇 군데에서 <code>void* private;</code>
 형태로 사용되고 있지만 문서화와 쉽게 코드를 파악할 수 있는 구조가
 아니라면, 이러한 포인터 형태는 지양되어야 한다.</p>
-<h2 id="embedded-structure">embedded structure</h2>
-<p>직접적으로 필요한 데이터들을 구조체 안에 멤버 변수로 정의하고,
+<h2 id="embedded-structure">embedded structure <a href="#embedded-structure" class="anchor">🔗</a></h2><p>직접적으로 필요한 데이터들을 구조체 안에 멤버 변수로 정의하고,
 <code>container_of</code> 매크로를 통해 부모 객체에 접근하도록 구현하는
 방법이다. <code>void*</code> 에 비해 유연성은 떨어지지만 명시적으로 어떤 데이터를
 상속하는지 나타낼 수 있고 매크로를 통해 부모에 정의되어 있는 함수
@@ -217,8 +211,7 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 
     <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">inode</span> vfs_inode;
 };
-</code></pre></div><h1 id="결론">결론</h1>
-<p>객체지향 패턴을 적용하는 것은 중요하지만 만능은 아니다. 모든 곳에
+</code></pre></div><h1 id="결론">결론 <a href="#%ea%b2%b0%eb%a1%a0" class="anchor">🔗</a></h1><p>객체지향 패턴을 적용하는 것은 중요하지만 만능은 아니다. 모든 곳에
 이러한 객체 지향 디자인 패턴을 적용해야 하는 것은 잘못된 것이고 오히려
 분석을 어렵게 만들 수도 있다. 디자인 패턴은 어디까지나 디자인 패턴일
 뿐. 언어 때문에 특정 디자인 패턴을 적용할 수 없다는 얘기도 반은 맞고

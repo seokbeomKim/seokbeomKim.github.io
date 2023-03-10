@@ -80,11 +80,10 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="우분투-데스크탑-환경-삭제하기">우분투 데스크탑 환경 삭제하기</h1>
-<p>개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한
+    <h1 id="우분투-데스크탑-환경-삭제하기">우분투 데스크탑 환경 삭제하기 <a href="#%ec%9a%b0%eb%b6%84%ed%88%ac-%eb%8d%b0%ec%8a%a4%ed%81%ac%ed%83%91-%ed%99%98%ea%b2%bd-%ec%82%ad%ec%a0%9c%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한
 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기
 위해 우분투를
-설치하였다. (<a href="https://seokbeomkim.github.io/posts/linux-on-mbp/)">https://seokbeomkim.github.io/posts/linux-on-mbp/)</a>. 우분투를 설치한
+설치하였다. (<a href="https://seokbeomkim.github.io/posts/linux-on-mbp/%29" target="_blank" rel="noopener">https://seokbeomkim.github.io/posts/linux-on-mbp/)</a>. 우분투를 설치한
 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로
 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데
 이렇게 힘들어하니 이해할 수가 없었다.</p>
@@ -106,8 +105,7 @@ plymouth 도 함께 제거해주었다.</p>
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> ! <span style="color:#e6db74">${</span>DISPLAY<span style="color:#e6db74">}</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#e6db74">${</span>XDG_VTNR<span style="color:#e6db74">}</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
     exec startx
 <span style="color:#66d9ef">fi</span>
-</code></pre></div><h1 id="윈도우-매니저-설치-후-리소스-사용량">윈도우 매니저 설치 후 리소스 사용량</h1>
-<p>그놈을 설치하여 부팅 후의 메모리 사용량은 대략 2GB 를 초과한다. 하지만 windows
+</code></pre></div><h1 id="윈도우-매니저-설치-후-리소스-사용량">윈도우 매니저 설치 후 리소스 사용량 <a href="#%ec%9c%88%eb%8f%84%ec%9a%b0-%eb%a7%a4%eb%8b%88%ec%a0%80-%ec%84%a4%ec%b9%98-%ed%9b%84-%eb%a6%ac%ec%86%8c%ec%8a%a4-%ec%82%ac%ec%9a%a9%eb%9f%89" class="anchor">🔗</a></h1><p>그놈을 설치하여 부팅 후의 메모리 사용량은 대략 2GB 를 초과한다. 하지만 windows
 manager (개인적으로는 xmonad, i3를 선호한다)만을 사용하여 간결하게 구성하면 부트
 후에 700 ~ 800 MB 정도의 메모리 사용으로 충분하게 구성할 수 있다. 이렇게 차이가
 많이 나니, 8GB 메모리를 가지고 있는 지금의 랩탑에서 그놈 환경이라면, 인터넷
@@ -115,21 +113,21 @@ manager (개인적으로는 xmonad, i3를 선호한다)만을 사용하여 간�
 메모리 최소 요구사항이 4 GB 인 것을 감안하면 커널 분석 환경 자체가 정말
 간당간당하게 돌아가고 디버깅을 하다보면 어쩔 수 없이 가상머신이 램 부족으로
 죽어버린다.</p>
-<h1 id="shared-input-method-와-i3wm-성능-문제">shared input method 와 i3wm 성능 문제</h1>
-<p>환경을 구성하다 보니 한 가지 이슈가 있었는데, ibus 의 현재 설정된 input method
+<h1 id="shared-input-method-와-i3wm-성능-문제">shared input method 와 i3wm 성능 문제 <a href="#shared-input-method-%ec%99%80-i3wm-%ec%84%b1%eb%8a%a5-%eb%ac%b8%ec%a0%9c" class="anchor">🔗</a></h1><p>환경을 구성하다 보니 한 가지 이슈가 있었는데, ibus 의 현재 설정된 input method
 을 다른 window와 공유하지 않게 설정할 경우 창 관리자의 성능이 급격하게 저하하는
 이슈가 있다. 널리 퍼져 있는 내용은 아니지만, 아래 링크에서 관련된 내용을 참고할
-수 있다. (<a href="https://github.com/i3/i3/issues/3924">https://github.com/i3/i3/issues/3924</a>)</p>
-<h1 id="rofi-alternative-to-dmenu">Rofi (alternative to dmenu)</h1>
-<p>몇 년 전까지만 해도 dmenu 만을 알고 사용했었는데, rofi 라는 패키지가 있다는 것을
+수 있다. (<a href="https://github.com/i3/i3/issues/3924" target="_blank" rel="noopener">https://github.com/i3/i3/issues/3924</a>)</p>
+<h1 id="rofi-alternative-to-dmenu">Rofi (alternative to dmenu) <a href="#rofi-alternative-to-dmenu" class="anchor">🔗</a></h1><p>몇 년 전까지만 해도 dmenu 만을 알고 사용했었는데, rofi 라는 패키지가 있다는 것을
 새로 알게됐다. 인터페이스도 dmenu 보다 훨씬 더 미려할 뿐만 아니라 설정 가능한
 부분이 많아 dmenu 보다 유용했다. rofi 를 이용해서 디스플레이나 마운트 등을 할 수
 있도록 간단하게 스크립트를 짜놓으니 아래와 같이 다양하게 활용할 수 있었다. bash
 스크립트로 정말 간단하게 스크립트만 짜면 아래와 같이 현재 플러그인 되어 있는
 장치들을 리스트하여 마운트 또는 언마운트 할 수 있다. 관련 스크립트는
-<a href="https://github.com/seokbeomKim/ShellScriptRepo/tree/master/i3_stuff">https://github.com/seokbeomKim/ShellScriptRepo/tree/master/i3_stuff</a> 에
+<a href="https://github.com/seokbeomKim/ShellScriptRepo/tree/master/i3_stuff" target="_blank" rel="noopener">https://github.com/seokbeomKim/ShellScriptRepo/tree/master/i3_stuff</a> 에
 올려놓았다.</p>
-<p><img src="/img/i3wm.gif" alt=""></p>
+<p><p class="markdown-image">
+  <img src="/img/i3wm.gif" alt=""  />
+</p></p>
 
   </section>
   <footer>

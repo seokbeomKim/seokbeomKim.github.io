@@ -72,7 +72,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    HashMap을 이용한 문제 문제를 읽고 HashMap을 이용한 방법이 한번에 와닿지 않아 이를 다시 한번 더 정리하고자 한다. 이번 &ldquo;Contiguous Array&rdquo; 문제는 배열 내의 0, 1 개수가 동일한 최대 길이를 구하는 문제이다. 즉, [0,1,0], [0,1,0,1,1] 등은 각각 2, 4가 된다. 이를 풀기 위해서는 {count: index} 로 구성된 HashMap 을 이용한다. 이 때 count 값은 0부터 시작하여 0일 경우 -1, 1일 경우 +1을 더하여 구하면 주어진 배열에 대해 아래와 같이 1차원 그래프가 나온다.
+    HashMap을 이용한 문제 🔗문제를 읽고 HashMap을 이용한 방법이 한번에 와닿지 않아 이를 다시 한번 더 정리하고자 한다. 이번 &ldquo;Contiguous Array&rdquo; 문제는 배열 내의 0, 1 개수가 동일한 최대 길이를 구하는 문제이다. 즉, [0,1,0], [0,1,0,1,1] 등은 각각 2, 4가 된다. 이를 풀기 위해서는 {count: index} 로 구성된 HashMap 을 이용한다. 이 때 count 값은 0부터 시작하여 0일 경우 -1, 1일 경우 +1을 더하여 구하면 주어진 배열에 대해 아래와 같이 1차원 그래프가 나온다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/algorithms/156-contiguous-array/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -93,7 +93,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.
+    Stack Protector, 넌 뭐하는 놈이냐? 🔗현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.
 하지만 이슈가 마무리 되고 Stack Protector 가 어떤 원리로 동작하는지 궁금했고 설 연휴를 맞아 자세하게 정리할 수 있었다. 그 과정에서 우분투에 잘못된 버그 리포트 티켓을 만들어내긴 했지만 말이다.
 Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-protector-strong 옵션을 통해 활성화할 수 있고 -fno-stack-protector 옵션으로 비활성화 할 수 있다.
   </div>
@@ -116,7 +116,7 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
     </p>
   </header>
   <div class="c-article__summary">
-    개요 현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기 위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한 변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.
+    개요 🔗현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기 위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한 변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.
 그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma 와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.
 
   </div>
@@ -139,7 +139,7 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
     </p>
   </header>
   <div class="c-article__summary">
-    커널의 KASAN 코드가 삽입되는 방법 Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어 해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 static inline 형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만, 실제 코드를 보았을 때 함수와 EXPORT_SYMBOL 이 사용된 것 외에는 그 어디에도 inline 키워드는 사용도지 않았다.
+    커널의 KASAN 코드가 삽입되는 방법 🔗Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어 해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 static inline 형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만, 실제 코드를 보았을 때 함수와 EXPORT_SYMBOL 이 사용된 것 외에는 그 어디에도 inline 키워드는 사용도지 않았다.
   </div>
   
   <a href="https://seokbeomKim.github.io/posts/kasan-with-gcc/" class="c-article__btn p-list-article__btn">Read more</a>
@@ -160,7 +160,7 @@ Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-pro
     </p>
   </header>
   <div class="c-article__summary">
-    개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를 파악할 수 있었다.
+    개요 🔗최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를 파악할 수 있었다.
 본론에 들어가기에 앞서, V4L2 (Video for Linux) 와 Video Buffer 에 대해 간단하게 설명하면, V4L2는 Video Streaming I/O 를 지원하기 위한 프레임워크이다.
   </div>
   

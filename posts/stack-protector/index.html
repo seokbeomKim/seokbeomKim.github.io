@@ -96,8 +96,7 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h2 id="stack-protector-넌-뭐하는-놈이냐">Stack Protector, 넌 뭐하는 놈이냐?</h2>
-<p>현업에서 커널의 <code>CONFIG_STACK_PROTECTOR</code> 를 활성화하면 커널 부트가 안된다는 이슈가
+    <h2 id="stack-protector-넌-뭐하는-놈이냐">Stack Protector, 넌 뭐하는 놈이냐? <a href="#stack-protector-%eb%84%8c-%eb%ad%90%ed%95%98%eb%8a%94-%eb%86%88%ec%9d%b4%eb%83%90" class="anchor">🔗</a></h2><p>현업에서 커널의 <code>CONFIG_STACK_PROTECTOR</code> 를 활성화하면 커널 부트가 안된다는 이슈가
 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에
 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.</p>
 <p>하지만 이슈가 마무리 되고 Stack Protector 가 어떤 원리로 동작하는지 궁금했고 설 연휴를
@@ -105,9 +104,7 @@ Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점�
 만들어내긴 했지만 말이다.</p>
 <p>Stack Protection은 GCC의 <code>-fstack-protector, -fstack-protector-all, -fstack-protector-strong</code>
 옵션을 통해 활성화할 수 있고 <code>-fno-stack-protector</code> 옵션으로 비활성화 할 수 있다.</p>
-<h2 id="스택-레이아웃-살펴보기">스택 레이아웃 살펴보기</h2>
-<h3 id="비활성화-시의-레이아웃">비활성화 시의 레이아웃</h3>
-<p>먼저, Stack Protector를 비활성화/활성화 되었을 때의 각각 콜스택이 어떻게 되는지 살펴보자.</p>
+<h2 id="스택-레이아웃-살펴보기">스택 레이아웃 살펴보기 <a href="#%ec%8a%a4%ed%83%9d-%eb%a0%88%ec%9d%b4%ec%95%84%ec%9b%83-%ec%82%b4%ed%8e%b4%eb%b3%b4%ea%b8%b0" class="anchor">🔗</a></h2><h3 id="비활성화-시의-레이아웃">비활성화 시의 레이아웃 <a href="#%eb%b9%84%ed%99%9c%ec%84%b1%ed%99%94-%ec%8b%9c%ec%9d%98-%eb%a0%88%ec%9d%b4%ec%95%84%ec%9b%83" class="anchor">🔗</a></h3><p>먼저, Stack Protector를 비활성화/활성화 되었을 때의 각각 콜스택이 어떻게 되는지 살펴보자.</p>
 <p>먼저, 아래와 같이 간단한 코드를 준비하였다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">mul</span>(<span style="color:#66d9ef">int</span> a)
 {
@@ -217,9 +214,10 @@ x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return 
 <p>계속해서 add 함수를 살펴보면 스택 프레임을 확보한 후 int d, e, f에 해당하는 지역 변수들을
 스택에 저장하는 것을 알 수 있다. x29는 stack frame pointer, x30은 return address를
 저장하고 있다.</p>
-<p><img src="/img/stack-protector_figure_1.png" alt="Stack Layout without Stack Protector"></p>
-<h3 id="활성화-시의-레이아웃">활성화 시의 레이아웃</h3>
-<p>그렇다면 stack protector가 활성화된 메모리 레이아웃은 어떻게 될까? 이번에는
+<p><p class="markdown-image">
+  <img src="/img/stack-protector_figure_1.png" alt="Stack Layout without Stack Protector"  />
+</p></p>
+<h3 id="활성화-시의-레이아웃">활성화 시의 레이아웃 <a href="#%ed%99%9c%ec%84%b1%ed%99%94-%ec%8b%9c%ec%9d%98-%eb%a0%88%ec%9d%b4%ec%95%84%ec%9b%83" class="anchor">🔗</a></h3><p>그렇다면 stack protector가 활성화된 메모리 레이아웃은 어떻게 될까? 이번에는
 -fstack-protector-all 옵션을 이용하여 어셈블리 코드를 생성해주자.</p>
 <pre tabindex="0"><code>000000000000086c &lt;add&gt;:
  86c:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
@@ -272,19 +270,22 @@ x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return 
  890:	f9001fe1 	str	x1, [sp, #56]
  ...
  908:	97ffff66 	bl	6a0 &lt;__stack_chk_fail@plt&gt;
-</code></pre><p><img src="/img/stack-protector_figure_2.png" alt="Stack Layout without Stack Protector"></p>
+</code></pre><p><p class="markdown-image">
+  <img src="/img/stack-protector_figure_2.png" alt="Stack Layout without Stack Protector"  />
+</p></p>
 <p>Stack Frame Pointer와 Link Register 정보를 스택 하위에 두고 일반적으로는 곧바로
 지역변수들이 위치하지만 Stack Protector 를 활성화하면 이 영역이 canary 영역으로 채워지는
 것을 알 수 있다.</p>
-<h2 id="stack-smashing-에러가-안난다-canary-boundary">Stack Smashing 에러가 안난다? Canary Boundary</h2>
-<p>ARM Reference 문서에 나와있는 예제
-(<a href="https://developer.arm.com/documentation/101754/0616/armclang-Reference/armclang-Command-line-Options/-fstack-protector---fstack-protector-all---fstack-protector-strong---fno-stack-protector">https://developer.arm.com/documentation/101754/0616/armclang-Reference/armclang-Command-line-Options/-fstack-protector---fstack-protector-all---fstack-protector-strong---fno-stack-protector</a>)
+<h2 id="stack-smashing-에러가-안난다-canary-boundary">Stack Smashing 에러가 안난다? Canary Boundary <a href="#stack-smashing-%ec%97%90%eb%9f%ac%ea%b0%80-%ec%95%88%eb%82%9c%eb%8b%a4-canary-boundary" class="anchor">🔗</a></h2><p>ARM Reference 문서에 나와있는 예제
+(<a href="https://developer.arm.com/documentation/101754/0616/armclang-Reference/armclang-Command-line-Options/-fstack-protector---fstack-protector-all---fstack-protector-strong---fno-stack-protector" target="_blank" rel="noopener">https://developer.arm.com/documentation/101754/0616/armclang-Reference/armclang-Command-line-Options/-fstack-protector---fstack-protector-all---fstack-protector-strong---fno-stack-protector</a>)
 로 직접 확인해보려 했지만 의도된대로 에러가 발생하지 않았다. 이에 직접 GDB 를 이용하여 디버깅을
 해보니 아래와 같이 fs:0x28, 즉 canary value의 하위 8비트가 0으로 초기화되어 있었다.</p>
-<p><img src="/img/stack-protector_figure_3.png" alt="Stack Layout without Stack Protector"></p>
+<p><p class="markdown-image">
+  <img src="/img/stack-protector_figure_3.png" alt="Stack Layout without Stack Protector"  />
+</p></p>
 <p>fs, gs 레지스터는 특별한 운영체제의 자료구조에 접근하기 위한 것이다. 특히, FS:0x28은
 리눅스에서 stack-guard 값을 저장하고 stack-guard check 루틴에서 사용된다.
-(<a href="https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value">https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value</a>)
+(<a href="https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value" target="_blank" rel="noopener">https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value</a>)
 그런데 fs:0x28 값이 처음부터 하위 1바이트가 초기화되어 있다는 것은 커널 쪽 코드에 의한 것이라고
 생각하고 살펴보니, 커널 include/linux/random.h 파일에 아래의 코드가 있었다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
@@ -311,14 +312,13 @@ x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return 
 value를 바로 출력하지 못하도록 NULL 문자를 이용해 boundary를 생성하기 위한 용도라는 것을
 알게됐다. 이로써 stack protector가 스택에서 어떻게 위치하는지, 그리고 왜 ARM 레퍼런스 문서에
 있는 예제가 동작을 하지 않는지, canary boundary 값이 왜 NULL로 되어있는지 등을 알 수 있었다.</p>
-<h2 id="참고-자료">참고 자료</h2>
-<ul>
-<li><a href="https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value">FS/GS 레지스터 in Stackoverflow</a></li>
-<li><a href="https://wolchok.org/posts/how-to-read-arm64-assembly-language/">stp 레지스터 사용 예</a></li>
-<li><a href="https://www.cs.princeton.edu/courses/archive/spr19/cos217/lectures/15_AssemblyFunctions.pdf">ARM 어셈블리 강좌 자료 - Function Calls</a></li>
-<li><a href="https://thinkingeek.com/2017/05/29/exploring-aarch64-assembler-chapter-8/">ARM64 스택 분석 자료</a></li>
-<li><a href="https://stackoverflow.com/questions/38552116/how-to-remove-noise-from-gcc-clang-assembly-output">GCC 어셈블리 strip 방법 #1</a></li>
-<li><a href="https://stackoverflow.com/questions/2529185/what-are-cfi-directives-in-gnu-assembler-gas-used-for">GCC 어셈블리 strip 방법 #2</a></li>
+<h2 id="참고-자료">참고 자료 <a href="#%ec%b0%b8%ea%b3%a0-%ec%9e%90%eb%a3%8c" class="anchor">🔗</a></h2><ul>
+<li><a href="https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value" target="_blank" rel="noopener">FS/GS 레지스터 in Stackoverflow</a></li>
+<li><a href="https://wolchok.org/posts/how-to-read-arm64-assembly-language/" target="_blank" rel="noopener">stp 레지스터 사용 예</a></li>
+<li><a href="https://www.cs.princeton.edu/courses/archive/spr19/cos217/lectures/15_AssemblyFunctions.pdf" target="_blank" rel="noopener">ARM 어셈블리 강좌 자료 - Function Calls</a></li>
+<li><a href="https://thinkingeek.com/2017/05/29/exploring-aarch64-assembler-chapter-8/" target="_blank" rel="noopener">ARM64 스택 분석 자료</a></li>
+<li><a href="https://stackoverflow.com/questions/38552116/how-to-remove-noise-from-gcc-clang-assembly-output" target="_blank" rel="noopener">GCC 어셈블리 strip 방법 #1</a></li>
+<li><a href="https://stackoverflow.com/questions/2529185/what-are-cfi-directives-in-gnu-assembler-gas-used-for" target="_blank" rel="noopener">GCC 어셈블리 strip 방법 #2</a></li>
 </ul>
 
   </section>

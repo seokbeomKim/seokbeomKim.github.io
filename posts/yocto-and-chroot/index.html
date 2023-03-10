@@ -84,8 +84,7 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="우분투-버전과-yocto-버전">우분투 버전과 Yocto 버전</h1>
-<p>AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발
+    <h1 id="우분투-버전과-yocto-버전">우분투 버전과 Yocto 버전 <a href="#%ec%9a%b0%eb%b6%84%ed%88%ac-%eb%b2%84%ec%a0%84%ea%b3%bc-yocto-%eb%b2%84%ec%a0%84" class="anchor">🔗</a></h1><p>AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발
 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로
 구성하였다. 개인적으로 Rolling Release 배포판인 아치리눅스나 젠투 리눅스들을
 선호하지만 사용자가 많고 프로젝트 대부분에서 데비안 타입의 패키징을 지원하므로,
@@ -118,11 +117,10 @@
 Yocto 버전에 따라 요구하는 빌드 환경이 있으니 서버에 설치되어 있는 시스템에서
 chroot을 위한 fakeroot 환경을 구성해주면 된다. 다행이도 우분투에서는 이를 위해
 <code>debootstra</code> 이라는 것을 이용하여 간단하게 환경을 만들 수 있었다.</p>
-<h1 id="chroot-환경-구성">chroot 환경 구성</h1>
-<p><strong>debootstrap 이용하기</strong></p>
+<h1 id="chroot-환경-구성">chroot 환경 구성 <a href="#chroot-%ed%99%98%ea%b2%bd-%ea%b5%ac%ec%84%b1" class="anchor">🔗</a></h1><p><strong>debootstrap 이용하기</strong></p>
 <p>chroot 하기 위한 임시 rootfs 구조를 debootstrap 명령어를 이용하여 구성한다. 이
 때 중요한 것은 focal 대신에 다른 릴리즈된 이름으로 변경 가능하다는 점이다.
-<a href="https://wiki.ubuntu.com/Releases">https://wiki.ubuntu.com/Releases</a> 페이지를 참고하여 변경하고자 하는 우분투
+<a href="https://wiki.ubuntu.com/Releases" target="_blank" rel="noopener">https://wiki.ubuntu.com/Releases</a> 페이지를 참고하여 변경하고자 하는 우분투
 버전으로 임시 시스템 환경을 구성한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo debootstrap --variant<span style="color:#f92672">=</span>buildd focal AGL-chroot
 $ sudo mount -t proc /proc AGL-chroot/proc
@@ -142,8 +140,7 @@ builduser 를 아래와 같이 생성해주자.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ useradd builduser
 $ mkdir -p /home/builduser <span style="color:#f92672">&amp;&amp;</span> chown -R builduser:builduser /home/builduser
 $ su - builduser
-</code></pre></div><h1 id="마무리">마무리</h1>
-<p>이제 빌드를 위한 환경 구성은 마무리 되었다. Yocto 빌드도 컴파일 에러 없이
+</code></pre></div><h1 id="마무리">마무리 <a href="#%eb%a7%88%eb%ac%b4%eb%a6%ac" class="anchor">🔗</a></h1><p>이제 빌드를 위한 환경 구성은 마무리 되었다. Yocto 빌드도 컴파일 에러 없이
 정상적으로 빌드 되는 것을 확인할 수 있을 것이다. 빌드가 마무리 되고 환경을
 정리하려면 앞서 마운트했던 디렉토리들을 그대로 unmount 해주면 된다.</p>
 <p>업무에 관련된 오픈 소스에 참여해볼 수 있는 좋은 기회를 찾은 것 같아 기쁘다.

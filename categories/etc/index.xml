@@ -35,7 +35,7 @@
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/state-vs-status/</guid>
-      <description>개요 코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state” or “status”? When should a variable name contain the word “state”, and when should a variable name instead contain the word “status”? 스택오버플로우에 이미 관련된 질문이 올라와 있었다.
+      <description>개요 🔗코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state” or “status”? When should a variable name contain the word “state”, and when should a variable name instead contain the word “status”? 스택오버플로우에 이미 관련된 질문이 올라와 있었다.
 둘의 차이점은 간단 명료하게 아래와 같이 정리할 수 있다.
  status: 결과 (success/fail); &amp;ldquo;마지막 상태&amp;rdquo; state: 상태 (pending/dispatched)  앞으로는 둘을 잘 구분해서 사용해야겠다.</description>
     </item>
@@ -46,7 +46,7 @@
       <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/i3wm/</guid>
-      <description>우분투 데스크탑 환경 삭제하기 개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
+      <description>우분투 데스크탑 환경 삭제하기 🔗개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
 리소스 부족의 원인을 살펴보니 불필요한 서비스들이 너무 많이 돌고 있었다. 예를 들어, goa (gnome online accounts), snapd (snap package manager) 등 원하지도 않는 서비스들이 설치되어 리소스들을 좀먹고 있었다.</description>
     </item>
     
@@ -56,7 +56,7 @@
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/magit-optimization-for-emacs/</guid>
-      <description>개요 이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로그의 내용으로 문제를 해결할 수 있었다.
+      <description>개요 🔗이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로그의 내용으로 문제를 해결할 수 있었다.
 링크된 블로그에서는 magit을 이용하면서 어디에서 속도가 느려지는지를 확인하기 위해 magit-refresh-verbose 을 이용하는 방법을 가이드해주고 있다. 커밋 메시지나 깃 상태를 확인할 때 실행되는 hook function 들에서 몇 초간 소모되는지를 나타내주는데, 이를 이용해서 태그와 브랜치 등의 헤더 정보, 코드 diff를 가져오는데 엄청난 시간이 걸린다는 것을 알게 되었다.</description>
     </item>
     
@@ -66,7 +66,7 @@
       <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/wsl-move-to-d/</guid>
-      <description>lxrunoffline WSL 을 사용하다 보면 디스크 용량이 커져 C 드라이브의 용량이 부족해진다. 용량이 넉넉하면 문제가 없겠지만 필자와 같이 C 드라이브는 O/S만 설치하고 D 드라이브에 다른 것들을 모두 설치하도록 환경을 설정한 경우에는 이러한 저장 방식은 꽤 부담스러워진다. 예전에는 이러한 문제에 대해 해결 방법이 따로 없었던 것으로 알고 있었는데 찾아보니 lxrunoffline이라는 툴로 간단하게 해결할 수 있었다.
+      <description>lxrunoffline 🔗WSL 을 사용하다 보면 디스크 용량이 커져 C 드라이브의 용량이 부족해진다. 용량이 넉넉하면 문제가 없겠지만 필자와 같이 C 드라이브는 O/S만 설치하고 D 드라이브에 다른 것들을 모두 설치하도록 환경을 설정한 경우에는 이러한 저장 방식은 꽤 부담스러워진다. 예전에는 이러한 문제에 대해 해결 방법이 따로 없었던 것으로 알고 있었는데 찾아보니 lxrunoffline이라는 툴로 간단하게 해결할 수 있었다.
 윈도우즈 패키지 매니저인 choco 를 이용하여 lxrunoffline을 설치하고 이를 이용하여 WSL에 사용되는 가상 디스크 파일을 다른 드라이브로 옮길 수 있다.</description>
     </item>
     
@@ -76,9 +76,9 @@
       <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/wsl-customize-resource/</guid>
-      <description>개요 커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한 내용은 다른 블로그에서도 동일하게 재현되고 있었다.
+      <description>개요 🔗커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한 내용은 다른 블로그에서도 동일하게 재현되고 있었다.
 위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.
-WSL 리소스 설정 먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.
+WSL 리소스 설정 🔗먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.
 PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 PS C:\Windows\system32&amp;gt; wsl -t Ubuntu --shutdown PS C:\Windows\system32&amp;gt; PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Stopped 2 종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.</description>
     </item>
     
@@ -88,7 +88,7 @@ PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 P
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/coc/</guid>
-      <description>자유 발언 구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것은 무엇인가&amp;rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 &amp;lsquo;자유 발언&amp;rsquo;으로서 존중 받아야 할 것이다라고 얘기할 것이다.</description>
+      <description>자유 발언 🔗구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것은 무엇인가&amp;rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 &amp;lsquo;자유 발언&amp;rsquo;으로서 존중 받아야 할 것이다라고 얘기할 것이다.</description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@ PS C:\Windows\system32&amp;gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 P
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/setting-mu4e/</guid>
-      <description>개요 이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.
+      <description>개요 🔗이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.
 단점은 환경 설정하는 것이 단점인데 mu4e를 단독으로 사용할 수 없을 뿐더러 메일 클라이언트로서 일반 사용자가 사용하기에는 무리가 있다.
 mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신, 공식 문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.</description>
     </item>
@@ -108,7 +108,7 @@ mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신,
       <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/emacs-as-default-editor/</guid>
-      <description>개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
+      <description>개요 🔗이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
 데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다.</description>
     </item>
     
@@ -128,7 +128,7 @@ mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신,
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/wayland/</guid>
-      <description>개요 직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을 맞추고 gnome이나 kde, xfce가 아닌 fluxbox, blackbox, i3, xmonad, enlightenment 등을 이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서 사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도 몰랐다.
+      <description>개요 🔗직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을 맞추고 gnome이나 kde, xfce가 아닌 fluxbox, blackbox, i3, xmonad, enlightenment 등을 이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서 사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도 몰랐다.
 이번 포스팅에서는 사내 위키의 내용을 출처로 하여, wayland, weston에 대한 구조를 살펴보고 클라이언트 예제를 기술하고자 한다.</description>
     </item>
     

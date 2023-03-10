@@ -13,7 +13,7 @@
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/haskell-version-control/</guid>
-      <description>개요 IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10 까지 버전업 되어 있는 ghc 환경과 호환이 안되는 문제가 발생하였다. 이를 위해 하스켈의 전체적인 버전 관리를 해주는 패키지 매니저가 있을 것이라 생각하고 관련 내용으로 검색해보니 ghcup 이라는 버전 관리 매니저가 있었다.
+      <description>개요 🔗IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10 까지 버전업 되어 있는 ghc 환경과 호환이 안되는 문제가 발생하였다. 이를 위해 하스켈의 전체적인 버전 관리를 해주는 패키지 매니저가 있을 것이라 생각하고 관련 내용으로 검색해보니 ghcup 이라는 버전 관리 매니저가 있었다.
 ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할 수 있으며 아래와 같이 원하는 ghc 버전들을 간편하게 설치하고 메인으로 관리할 수 있다.</description>
     </item>
     
@@ -23,7 +23,7 @@ ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할
       <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/real-haskell-chapter-04/</guid>
-      <description>개요 최근 하스켈로 조그만 프로젝트를 시작하기 위해 Real World Haskell 이라는 책 한 권을 구입하여 공부하기 시작했다. Functional Programming 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결하기 위한 접근 방식부터 차근차근 배워나가려 하고 있지만 쉽지 않다. 여타 주요 언어에서 제공하는 loop의 개념이 없고 함수만으로 이루어진 recursive와 pattern matching 또는 function application 등으로 표현되기에 쉽지가 않다. Higher-order function으로 이루어지는 하스켈의 함수에서는 currying을 통해 여러 개의 인자를 갖는 함수를 표현할 수 있다. 이러한 개념과 함께 설명되는 것이 포스팅의 타이틀에 해당하는 (.</description>
+      <description>개요 🔗최근 하스켈로 조그만 프로젝트를 시작하기 위해 Real World Haskell 이라는 책 한 권을 구입하여 공부하기 시작했다. Functional Programming 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결하기 위한 접근 방식부터 차근차근 배워나가려 하고 있지만 쉽지 않다. 여타 주요 언어에서 제공하는 loop의 개념이 없고 함수만으로 이루어진 recursive와 pattern matching 또는 function application 등으로 표현되기에 쉽지가 않다. Higher-order function으로 이루어지는 하스켈의 함수에서는 currying을 통해 여러 개의 인자를 갖는 함수를 표현할 수 있다. 이러한 개념과 함께 설명되는 것이 포스팅의 타이틀에 해당하는 (.</description>
     </item>
     
     <item>
@@ -32,7 +32,7 @@ ghcup은 아치리눅스의 경우 AUR에서 ghcup-hs-bin 패키지로 설치할
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/folding-in-haskell/</guid>
-      <description>Folding in Haskell 취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고리즘이나 데이터베이스 등 배울 것이 많은 데 갈수록 태산이다.) 대학교 시절, xmonad 윈도우즈 매니저를 사용하면서 접한 언어를 이렇게 뒤늦게 배우게 될 줄은 꿈에도 몰랐다.
+      <description>Folding in Haskell 🔗취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고리즘이나 데이터베이스 등 배울 것이 많은 데 갈수록 태산이다.) 대학교 시절, xmonad 윈도우즈 매니저를 사용하면서 접한 언어를 이렇게 뒤늦게 배우게 될 줄은 꿈에도 몰랐다.
 대표적인 함수형 언어로 알려진 Haskell 에는 Folding 이라는 특별한 개념이 등장한다. Haskell Wiki에서는 Folding을 아래와 같이 설명하고 있다.
  In functional programming, fold (or reduce) is a family of higher order functions that process a data structure in some order and build a return value.</description>
     </item>

@@ -13,9 +13,9 @@
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
       <guid>https://seokbeomKim.github.io/posts/strscpy/</guid>
-      <description>개요 한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고 했는데 이제서야 겨우 정리할 수 있게 되었다.
+      <description>개요 🔗한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고 했는데 이제서야 겨우 정리할 수 있게 되었다.
 리눅스 커널에서 문자열 복사를 위해 만들어진 매크로들은 다양하다. 몇 개의 시리즈(?)가 있는데 정리해보면 다음과 같다.
- strcpy strncpy strlcpy strscpy  strcpy strcpy를 나타내면 아래와 같이 간단하다.</description>
+ strcpy strncpy strlcpy strscpy  strcpy 🔗strcpy를 나타내면 아래와 같이 간단하다.</description>
     </item>
     
   </channel>

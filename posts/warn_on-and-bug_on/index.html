@@ -78,8 +78,7 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="개요">개요</h1>
-<p>업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를
+    <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를
 살펴보니, <code>BUG_ON</code> 매크로 사용에 의한 것으로 파악했다. 커널 패닉을
 일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 <code>WARN_ON</code>으로
 변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로
@@ -89,8 +88,7 @@
 하는지에 대해 간략히 정리하고자 한다</strong>. 이 외에 커널에서는
 <code>dump_stack()</code>, <code>save_stack_trace()</code>, <code>dump_trace()</code>, <code>backtrace()</code>
 등의 콜 스택 출력 방법을 제공한다.</p>
-<h1 id="warn_on-bug_on">WARN_ON, BUG_ON</h1>
-<p>출처에 따르면, 리눅스 디바이스 드라이버에서 가장 빈번하게 나타나는
+<h1 id="warn_on-bug_on">WARN_ON, BUG_ON <a href="#warn_on-bug_on" class="anchor">🔗</a></h1><p>출처에 따르면, 리눅스 디바이스 드라이버에서 가장 빈번하게 나타나는
 매크로는 <code>BUG_ON/BUG</code>와 <code>WARN_ON</code>이라고 설명하고 있다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">BUG_ON(condition)
 <span style="color:#75715e">// 또는
@@ -98,14 +96,12 @@
 	BUG()
 </code></pre></div><p>위 예시처럼 매크로를 사용할 수 있으며 각각의 매크로가 하는 역할은
 다음과 같다.</p>
-<h2 id="bug">BUG()</h2>
-<ul>
+<h2 id="bug">BUG() <a href="#bug" class="anchor">🔗</a></h2><ul>
 <li>레지스터 내용 출력</li>
 <li>Stack Trace 출력</li>
 <li>커널 패닉 발생</li>
 </ul>
-<h2 id="warn">WARN()</h2>
-<ul>
+<h2 id="warn">WARN() <a href="#warn" class="anchor">🔗</a></h2><ul>
 <li>레지스터 내용 출력</li>
 <li>Stack Trace 출력</li>
 </ul>
@@ -124,10 +120,9 @@
 </span><span style="color:#75715e"> * really the *only* solution?  There are usually better options, where
 </span><span style="color:#75715e"> * users don&#39;t need to reboot ASAP and can mostly shut down cleanly.
 </span><span style="color:#75715e"> */</span>
-</code></pre></div><h1 id="출처">출처</h1>
-<ul>
-<li><a href="http://embeddedguruji.blogspot.com/2018/12/bugon-vs-warnon-macros-in-linux-kernel.html">http://embeddedguruji.blogspot.com/2018/12/bugon-vs-warnon-macros-in-linux-kernel.html</a></li>
-<li><a href="https://dreamlog.tistory.com/343">https://dreamlog.tistory.com/343</a></li>
+</code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="http://embeddedguruji.blogspot.com/2018/12/bugon-vs-warnon-macros-in-linux-kernel.html" target="_blank" rel="noopener">http://embeddedguruji.blogspot.com/2018/12/bugon-vs-warnon-macros-in-linux-kernel.html</a></li>
+<li><a href="https://dreamlog.tistory.com/343" target="_blank" rel="noopener">https://dreamlog.tistory.com/343</a></li>
 </ul>
 
   </section>

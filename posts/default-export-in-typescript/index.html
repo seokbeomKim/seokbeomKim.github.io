@@ -79,17 +79,14 @@
   
   <section id="js-article" class="p-article__body">
     <!-- raw HTML omitted -->
-<h1 id="개요">개요</h1>
-<p>모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때
+<h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때
 이해가 되지 않았다. 특히 default export와 named export 라는 export
 방식과 자바스크립트 버전에 따른 문법 호환 때문에 모듈 export와 import,
 require를 사용하는 코드를 이해하기 힘들었다.</p>
 <p>이 문서에서는 타입스크립트를 이용하여 default, named export 각각을
 구현한 뒤 <code>import</code>, <code>require</code> 키워드 각각을 이용하였을 때 레퍼런스
 변수가 어떤 값을 가지고 있는지 확인한다.</p>
-<h1 id="직접-확인해보자">직접 확인해보자</h1>
-<h2 id="첫-번째-테스트">첫 번째 테스트</h2>
-<p>먼저 export할 테스트 클래스를 간단하게 구현한다.</p>
+<h1 id="직접-확인해보자">직접 확인해보자 <a href="#%ec%a7%81%ec%a0%91-%ed%99%95%ec%9d%b8%ed%95%b4%eb%b3%b4%ec%9e%90" class="anchor">🔗</a></h1><h2 id="첫-번째-테스트">첫 번째 테스트 <a href="#%ec%b2%ab-%eb%b2%88%ec%a7%b8-%ed%85%8c%ec%8a%a4%ed%8a%b8" class="anchor">🔗</a></h2><p>먼저 export할 테스트 클래스를 간단하게 구현한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Named Export를 위한 클래스
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NamedExportClass</span> {
     <span style="color:#a6e22e">test</span>() {
@@ -121,8 +118,7 @@ import했다는 것이다. 소스 내의 이름 <code>DefaultClass</code> 이름
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  jsImport git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ tsc *.ts <span style="color:#f92672">&amp;&amp;</span> node importTest
 Default Export Class
 Named Export Class
-</code></pre></div><h2 id="두-번째-테스트">두 번째 테스트</h2>
-<p>이번에는 <code>import</code> 시에 <code>require</code> 키워드를 이용해서 그 결과를 확인해보자.</p>
+</code></pre></div><h2 id="두-번째-테스트">두 번째 테스트 <a href="#%eb%91%90-%eb%b2%88%ec%a7%b8-%ed%85%8c%ec%8a%a4%ed%8a%b8" class="anchor">🔗</a></h2><p>이번에는 <code>import</code> 시에 <code>require</code> 키워드를 이용해서 그 결과를 확인해보자.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">constObj</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./exportObj&#39;</span>)
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">constObj</span>)
 </code></pre></div><p>테스트 결과는 아래와 같다.</p>
@@ -130,8 +126,7 @@ Named Export Class
   NamedExportClass: [Function: NamedExportClass],
   default: [Function: DefaultExportClass] }
 </code></pre></div><p>즉, export 객체 자체를 반환하게 된다.</p>
-<h2 id="세-번째-테스트">세 번째 테스트</h2>
-<p>그렇다면, 클래스가 아닌 객체를 <code>defaul export</code> 로 정의하면 어떻게
+<h2 id="세-번째-테스트">세 번째 테스트 <a href="#%ec%84%b8-%eb%b2%88%ec%a7%b8-%ed%85%8c%ec%8a%a4%ed%8a%b8" class="anchor">🔗</a></h2><p>그렇다면, 클래스가 아닌 객체를 <code>defaul export</code> 로 정의하면 어떻게
 될까? 기존 코드에서 <code>new DefaultClass()</code>는 실행이 불가능한 코드가 되고
 <code>DefaultClass</code> 자체가 객체를 가리키게 된다. 하지만 <code>require</code>를 이용해
 가져온 <code>constObj</code>는 <code>export</code>를 가리키므로 아래와 같은 결과를 가지게 된다.</p>
@@ -141,13 +136,11 @@ Named Export Class
   NamedExportClass: [Function: NamedExportClass],
   DefaultExportClass: [Function: DefaultExportClass],
   default: DefaultExportClass {} }
-</code></pre></div><h1 id="정리">정리</h1>
-<p>간단히 정리하면, <code>require</code>를 이용해 import를 할 경우에는 <code>export</code> 객체
+</code></pre></div><h1 id="정리">정리 <a href="#%ec%a0%95%eb%a6%ac" class="anchor">🔗</a></h1><p>간단히 정리하면, <code>require</code>를 이용해 import를 할 경우에는 <code>export</code> 객체
 자체를 가져오며, default export와 named export를 구분해서 제대로
 사용하고자 한다면 <code>import</code>를 이용해 대괄호(<code>{ }</code>)를 이용해 사용한다.</p>
-<h1 id="출처">출처</h1>
-<ul>
-<li><a href="https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910">https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910</a></li>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910" target="_blank" rel="noopener">https://medium.com/@etherealm/named-export-vs-default-export-in-es6-affb483a0910</a></li>
 </ul>
 
   </section>

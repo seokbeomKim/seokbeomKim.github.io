@@ -104,8 +104,7 @@
 <li>Read/Write Lock(rwlock)</li>
 <li>Big Kernel Lock</li>
 </ol>
-<h1 id="스핀락spinlock">스핀락(Spinlock)</h1>
-<p>커널 락의 주요 타입에는 스핀락(spinlock)과 뮤텍스(mutex)가
+<h1 id="스핀락spinlock">스핀락(Spinlock) <a href="#%ec%8a%a4%ed%95%80%eb%9d%bdspinlock" class="anchor">🔗</a></h1><p>커널 락의 주요 타입에는 스핀락(spinlock)과 뮤텍스(mutex)가
 있다. 스핀락은 이름 그대로 임계구역(critical section)에 진입이
 불가능할 때, 진입기 가능할 때까지 루프를 돌면서 재시도를 하는 방식으로
 구현된 락을 가리킨다. 즉, 락을 획득할 때까지 해당 스레드가 계속 돌고
@@ -124,8 +123,7 @@
 <p>스핀락은 아키텍처별로 어셈블리어로 구현된다. <code>&lt;asm/spinlock.h&gt;</code> 파일에
 아키텍처별 코드가 정의돼 있으며, 실제 사용하는 인터페이스는
 <code>&lt;linux/spinlock.h&gt;</code>에 들어있다. 이제 실제 코드를 살펴보자.</p>
-<h2 id="스핀락-커널-코드">스핀락 커널 코드</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// 스핀락 선언
+<h2 id="스핀락-커널-코드">스핀락 커널 코드 <a href="#%ec%8a%a4%ed%95%80%eb%9d%bd-%ec%bb%a4%eb%84%90-%ec%bd%94%eb%93%9c" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// 스핀락 선언
 </span><span style="color:#75715e"></span><span style="color:#75715e">#define DEFINE_SPINLOCK(x)	spinlock_t x = __SPIN_LOCK_UNLOCKED(x)
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// 스핀락을 얻는 함수 spin_lock
@@ -187,8 +185,7 @@ Section) 내에서 락을 잡고 있는 스레드가 선정됐다는 상황을
 스케쥴링 되더라도 스핀락 자체가 매우 짧은 시간동안 언락된다면
 스케쥴링된 새로운 스레드가 해당 락을 잡게 되어 &lsquo;Uni-Processor&rsquo;처럼
 클럭 낭비를 줄일 수 있다.</p>
-<h2 id="스핀락과-후반부-처리">스핀락과 후반부 처리</h2>
-<p>스핀락은 인터럽트 핸들러에서 종종 사용된다고 언급했다. 특히, &ldquo;후반부
+<h2 id="스핀락과-후반부-처리">스핀락과 후반부 처리 <a href="#%ec%8a%a4%ed%95%80%eb%9d%bd%ea%b3%bc-%ed%9b%84%eb%b0%98%eb%b6%80-%ec%b2%98%eb%a6%ac" class="anchor">🔗</a></h2><p>스핀락은 인터럽트 핸들러에서 종종 사용된다고 언급했다. 특히, &ldquo;후반부
 처리와 지연된 작업&quot;에서 후반부 처리를 진행할 때는 락에 대해 특별한
 주의를 기울여야 한다. <code>spin_lock_bh()</code> 또는 <code>spin_unlock_bh()</code> 함수와
 같은 경우 지정한 락을 걸고 모든 후반부 처리 작업을 비활성화
@@ -196,10 +193,9 @@ Section) 내에서 락을 잡고 있는 스레드가 선정됐다는 상황을
 코드를 선점할 수 있기 때문이다.</strong> 만약 후반부 처리와 프로세스 컨텍스트
 간에 공유하는 데이터가 있다면 반드시 데이터를 보호하기 위해서 락을
 걸고 후반부 처리를 비활성화 시켜야 한다.</p>
-<h1 id="출처">출처</h1>
-<ul>
-<li><a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%95%80%EB%9D%BD">스핀락 &mdash; 위키피디아</a></li>
-<li><a href="https://wiki.openvz.org/Different_kernel_flavors_(UP,_SMP,_ENTERPRISE,_ENTNOSPLIT)">Different kernel flavors (UP, SMP, ENTERPRISE,
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%95%80%EB%9D%BD" target="_blank" rel="noopener">스핀락 &mdash; 위키피디아</a></li>
+<li><a href="https://wiki.openvz.org/Different_kernel_flavors_%28UP,_SMP,_ENTERPRISE,_ENTNOSPLIT%29" target="_blank" rel="noopener">Different kernel flavors (UP, SMP, ENTERPRISE,
 ENTNOSPLIT)</a></li>
 </ul>
   </section>

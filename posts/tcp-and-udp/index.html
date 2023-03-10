@@ -89,8 +89,7 @@ UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했
 변경할 수 없어 아쉬웠던 적이 있었다.</p>
 <p>각설하고 이 포스팅에서는 리눅스 커널 소스에서 TCP와 UDP, 즉 L4
 전송계층에 대한 구현이 어떤 식으로 되어있는지 살펴볼 것이다.</p>
-<h1 id="tcp-transmission-control-protocol">TCP (Transmission Control Protocol)</h1>
-<p>먼저, TCP(Transmission Control Protocol)는 <code>connection-oriented</code>
+<h1 id="tcp-transmission-control-protocol">TCP (Transmission Control Protocol) <a href="#tcp-transmission-control-protocol" class="anchor">🔗</a></h1><p>먼저, TCP(Transmission Control Protocol)는 <code>connection-oriented</code>
 프로토콜이다. 연결이 수립되기 전까지는 데이터를 송수신하지 않으며,
 데이터 송수신이 종료되면 반드시 연결을 닫아야 한다. 이러한 특성 덕분에
 TCP는 아래와 같은 특징을 갖는다.</p>
@@ -119,8 +118,7 @@ export 하지 않는다.<!-- raw HTML omitted -->또 한가지 재밌는 점은 
 대한 정보를 전달하게 되어 있어 같은 라이센스 구릅인지 아닌지를
 구분하여 액세스 여부를 허용/거부 하도록 되어 있다.</p>
 </blockquote>
-<h2 id="초기화-코드">초기화 코드</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> __init <span style="color:#a6e22e">tcp_init</span>(<span style="color:#66d9ef">void</span>)
+<h2 id="초기화-코드">초기화 코드 <a href="#%ec%b4%88%ea%b8%b0%ed%99%94-%ec%bd%94%eb%93%9c" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> __init <span style="color:#a6e22e">tcp_init</span>(<span style="color:#66d9ef">void</span>)
 {
     <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">sk_buff</span> <span style="color:#f92672">*</span>skb <span style="color:#f92672">=</span> NULL;
     <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> nr_pages, limit;
@@ -139,15 +137,14 @@ export 하지 않는다.<!-- raw HTML omitted -->또 한가지 재밌는 점은 
 역할을 한다. 커널은 초기화 프로세스 도중에 초기화에 관련된 것으로
 간주하고 메모리 리소스를 해제하거나 초기화 프로세스 과정에서 표시된
 함수나 데이터들을 이용한다.<!-- raw HTML omitted -->
-<a href="https://stackoverflow.com/questions/8832114/what-does-init-mean-in-the-linux-kernel-code">링크</a>를
+<a href="https://stackoverflow.com/questions/8832114/what-does-init-mean-in-the-linux-kernel-code" target="_blank" rel="noopener">링크</a>를
 살펴보면 재미있는 예시가 하나 있다. &lsquo;Freeing unused kernel memory&rsquo;와
 같은 메시지를 나타내는 것을 그 예로 들 수 있다.</p>
 </blockquote>
-<h1 id="출처">출처</h1>
-<ul>
-<li><a href="https://www.geeksforgeeks.org/differences-between-tcp-and-udp/">https://www.geeksforgeeks.org/differences-between-tcp-and-udp/</a></li>
-<li><a href="https://lwn.net/Articles/154602/">LWN - On the value of EXPORT_SYMBOL_GPL</a></li>
-<li><a href="https://d2.naver.com/helloworld/47667">Naver D2 - TCP/IP 스택 이해하기</a></li>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://www.geeksforgeeks.org/differences-between-tcp-and-udp/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/differences-between-tcp-and-udp/</a></li>
+<li><a href="https://lwn.net/Articles/154602/" target="_blank" rel="noopener">LWN - On the value of EXPORT_SYMBOL_GPL</a></li>
+<li><a href="https://d2.naver.com/helloworld/47667" target="_blank" rel="noopener">Naver D2 - TCP/IP 스택 이해하기</a></li>
 </ul>
 
   </section>

@@ -72,7 +72,7 @@
     </p>
   </header>
   <div class="c-article__summary">
-    개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는 방법에 대한 세미나를 보게 되었다. 유투브에서 «Using Serial kdb / kgdb to Debug the Linux Kernel - Douglas Anderson, Google» 검색한 영상인데, KDB와 KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을 테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.
+    개요 🔗필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는 방법에 대한 세미나를 보게 되었다. 유투브에서 «Using Serial kdb / kgdb to Debug the Linux Kernel - Douglas Anderson, Google» 검색한 영상인데, KDB와 KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을 테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.
 KDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 없는 환경에서 매우 유용하다.
   </div>
   
@@ -117,7 +117,7 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
     </p>
   </header>
   <div class="c-article__summary">
-    개요 코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state” or “status”? When should a variable name contain the word “state”, and when should a variable name instead contain the word “status”? 스택오버플로우에 이미 관련된 질문이 올라와 있었다.
+    개요 🔗코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state” or “status”? When should a variable name contain the word “state”, and when should a variable name instead contain the word “status”? 스택오버플로우에 이미 관련된 질문이 올라와 있었다.
 둘의 차이점은 간단 명료하게 아래와 같이 정리할 수 있다.
  status: 결과 (success/fail); &ldquo;마지막 상태&rdquo; state: 상태 (pending/dispatched)  앞으로는 둘을 잘 구분해서 사용해야겠다.
   </div>
@@ -140,7 +140,7 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
     </p>
   </header>
   <div class="c-article__summary">
-    개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
+    개요 🔗맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
 (gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&#39;m sorry, Dave, I can&#39;t do that. Symbol format `elf64-littleaarch64&#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.
   </div>
   
@@ -162,7 +162,7 @@ That is either genius, or a seriously diseased mind.  추가한 매크로는 ICE
     </p>
   </header>
   <div class="c-article__summary">
-    우분투 데스크탑 환경 삭제하기 개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
+    우분투 데스크탑 환경 삭제하기 🔗개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기 위해 우분투를 설치하였다. (https://seokbeomkim.github.io/posts/linux-on-mbp/). 우분투를 설치한 뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로 가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데 이렇게 힘들어하니 이해할 수가 없었다.
 리소스 부족의 원인을 살펴보니 불필요한 서비스들이 너무 많이 돌고 있었다. 예를 들어, goa (gnome online accounts), snapd (snap package manager) 등 원하지도 않는 서비스들이 설치되어 리소스들을 좀먹고 있었다.
   </div>
   

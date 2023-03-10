@@ -79,16 +79,14 @@
   
   <section id="js-article" class="p-article__body">
     <!-- raw HTML omitted -->
-<h2 id="개요">개요</h2>
-<p>커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는
+<h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는
 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이
 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한
-내용은 <a href="https://blog.simonpeterdebbarma.com/2020-04-memory-and-wsl/">다른
+내용은 <a href="https://blog.simonpeterdebbarma.com/2020-04-memory-and-wsl/" target="_blank" rel="noopener">다른
 블로그</a>에서도
 동일하게 재현되고 있었다.</p>
 <p>위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.</p>
-<h2 id="wsl-리소스-설정">WSL 리소스 설정</h2>
-<p>먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.</p>
+<h2 id="wsl-리소스-설정">WSL 리소스 설정 <a href="#wsl-%eb%a6%ac%ec%86%8c%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">PS C:\Windows\system32&gt; wsl -l -v
   NAME      STATE           VERSION
 * Ubuntu    Running         2
@@ -111,10 +109,11 @@ memory=4G              	    # How much memory to assign to the WSL2 VM.
 # &lt;path&gt; entries must be absolute Windows paths with escaped backslashes, for example C:\\Users\\Ben\\kernel
 # &lt;size&gt; entries must be size followed by unit, for example 8GB or 512MB
 </code></pre></div><p>이제 설치한 WSL의 바로가기를 눌러 WSL을 다시 실행시킨다. 윈도우즈의 Task Manager를 보면 아래와 같이 설정한 값으로 메모리 사용이 제한되는 것을 알 수 있다.</p>
-<p><img src="/img/taskmgr_wsl_mem_set.png" alt="조정된 vmmem 메모리"></p>
-<h1 id="출처">출처</h1>
-<ul>
-<li><a href="https://treeroad.tistory.com/entry/Flash-Memory%EC%99%80-EEPROM-%EC%B0%A8%EC%9D%B4%EC%A0%90">https://treeroad.tistory.com/entry/Flash-Memory%EC%99%80-EEPROM-%EC%B0%A8%EC%9D%B4%EC%A0%90</a></li>
+<p><p class="markdown-image">
+  <img src="/img/taskmgr_wsl_mem_set.png" alt="조정된 vmmem 메모리"  />
+</p></p>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://treeroad.tistory.com/entry/Flash-Memory%EC%99%80-EEPROM-%EC%B0%A8%EC%9D%B4%EC%A0%90" target="_blank" rel="noopener">https://treeroad.tistory.com/entry/Flash-Memory%EC%99%80-EEPROM-%EC%B0%A8%EC%9D%B4%EC%A0%90</a></li>
 </ul>
 
   </section>

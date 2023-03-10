@@ -88,8 +88,7 @@
   
   
   <section id="js-article" class="p-article__body">
-    <h1 id="arm64에서의-커널-메모리-맵">ARM64에서의 커널 메모리 맵</h1>
-<p>&lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&quot;이라는 챕터를
+    <h1 id="arm64에서의-커널-메모리-맵">ARM64에서의 커널 메모리 맵 <a href="#arm64%ec%97%90%ec%84%9c%ec%9d%98-%ec%bb%a4%eb%84%90-%eb%a9%94%eb%aa%a8%eb%a6%ac-%eb%a7%b5" class="anchor">🔗</a></h1><p>&lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&quot;이라는 챕터를
 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자
 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을
 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소
@@ -97,9 +96,10 @@
 <p>ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을
 사용한다. 이 때, <strong>가상 주소</strong> 기준으로 각 끝 영역을 사용한다는 점에
 유의해야 한다.</p>
-<h1 id="가상-주소-공간">가상 주소 공간</h1>
-<p>ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 가상 주소 공간을 사용한다. 각각의 공간은 서로 다른 TTBR(Translation Table Base Register)를 사용하기 때문에 각자의 페이지 테이블을 갖고 있다. 이 때, 커널 주소 공간은 TTBR1, 사용자 주소 공간은 TTBR0를 사용하며 각각의 레지스터는 MMU 디바이스 내부에 저장된다.</p>
-<p><img src="/img/kernel-user-space-in-mem.png" alt="Kernel-space and User-space in memory"></p>
+<h1 id="가상-주소-공간">가상 주소 공간 <a href="#%ea%b0%80%ec%83%81-%ec%a3%bc%ec%86%8c-%ea%b3%b5%ea%b0%84" class="anchor">🔗</a></h1><p>ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 가상 주소 공간을 사용한다. 각각의 공간은 서로 다른 TTBR(Translation Table Base Register)를 사용하기 때문에 각자의 페이지 테이블을 갖고 있다. 이 때, 커널 주소 공간은 TTBR1, 사용자 주소 공간은 TTBR0를 사용하며 각각의 레지스터는 MMU 디바이스 내부에 저장된다.</p>
+<p><p class="markdown-image">
+  <img src="/img/kernel-user-space-in-mem.png" alt="Kernel-space and User-space in memory"  />
+</p></p>
 <p>페이지 테이블을 엔트리 여러 개로 구성되며, 페이지 테이블 엔트리 하나는 페이지 1개에 대한 물리주소로 변환하는데 사용한다. ARM64 커널에서는 페이지 크기로 4KB, 16KB, 64KB 중 하나를 사용할 수 있다(기본 4KB). 중요한 점은 ARM64 커널이 64비트 가상 주소 전체를 사용하는 것이 아니라 36, 39, 42, 47 및 최대 48비트와 같이 아키텍처가 지원하는 비트만을 선택해 사용할 수 있고 이 범위를 가상 주소로 사용한다. 이러한 비트는 <code>VA_BITS</code> 값으로 설정하며 <strong>페이지 크기</strong>와 <strong>페이지 테이블 엔트리 인덱스</strong>, <strong>페이지 오프셋 크기 구성</strong>에 따라 페이지 테이블 엔트리의 수가 결정된다.</p>
 <p>커널에서 레벨에 따라 페이지 테이블 명칭은 아래와 같이 구분한다.</p>
 <ul>
@@ -109,12 +109,14 @@
 <li>4단계: PTE (Page Table Entry)</li>
 </ul>
 <p>예를 들어, VA_BITS 를 36으로 설정한다면, 아래와 같이 64비트 가상주소 중에서 테이블 엔트리 인덱스와 페이지 오프셋을 포함한 비트가 36비트를 차지한다. 그리고 2단계 페이지 테이블을 구성한다면, 16K 페이지를 사용한다고 가정했을 때 아래와 같이 가상주소의 구성을 생각할 수 있다.</p>
-<p><img src="/img/va-address.png" alt="Virtual Address"></p>
-<h2 id="arm64-커널의-기본-구성인-3단계-페이지-테이블">ARM64 커널의 기본 구성인 3단계 페이지 테이블</h2>
-<p>커널의 기본 구성인 4K 페이지와 <code>VA_BITS = 39</code>로 구성된 3단계 페이지 테이블을 사용하는 경우를 살펴보자. 64비트 중 39비트에 포함하지 않는 상위 25비트는 커널(모두 1)과 유저 주소 공간(모두 0) 구분에 사용하고, 나머지 39비트를 각각 9비트/9비트/9비트/12비트(페이지 오프셋용) 으로 나누어 사용한다. 상위 비트에 따라 TTBR을 어떤 것을 사용할지를 결정한다.</p>
-<p><img src="/img/vaddr-page-table-mapping.png" alt="Virtual Address and Page Table Mapping"></p>
-<h1 id="arm64-커널-메모리-맵">ARM64 커널 메모리 맵</h1>
-<p>커널용 가상 주소 영역도 독특하게 사용한다. 상위 절반은 물리 메모리를 1:1로 미리 매핑하여 사용하며 나머지 절반에 대해 <code>fixmap</code>, <code>vmalloc</code>, <code>vmemmap</code>, <code>pci-iomap</code> 등의 영역과 커널 이미지 영역으로 나누어 사용한다.</p>
+<p><p class="markdown-image">
+  <img src="/img/va-address.png" alt="Virtual Address"  />
+</p></p>
+<h2 id="arm64-커널의-기본-구성인-3단계-페이지-테이블">ARM64 커널의 기본 구성인 3단계 페이지 테이블 <a href="#arm64-%ec%bb%a4%eb%84%90%ec%9d%98-%ea%b8%b0%eb%b3%b8-%ea%b5%ac%ec%84%b1%ec%9d%b8-3%eb%8b%a8%ea%b3%84-%ed%8e%98%ec%9d%b4%ec%a7%80-%ed%85%8c%ec%9d%b4%eb%b8%94" class="anchor">🔗</a></h2><p>커널의 기본 구성인 4K 페이지와 <code>VA_BITS = 39</code>로 구성된 3단계 페이지 테이블을 사용하는 경우를 살펴보자. 64비트 중 39비트에 포함하지 않는 상위 25비트는 커널(모두 1)과 유저 주소 공간(모두 0) 구분에 사용하고, 나머지 39비트를 각각 9비트/9비트/9비트/12비트(페이지 오프셋용) 으로 나누어 사용한다. 상위 비트에 따라 TTBR을 어떤 것을 사용할지를 결정한다.</p>
+<p><p class="markdown-image">
+  <img src="/img/vaddr-page-table-mapping.png" alt="Virtual Address and Page Table Mapping"  />
+</p></p>
+<h1 id="arm64-커널-메모리-맵">ARM64 커널 메모리 맵 <a href="#arm64-%ec%bb%a4%eb%84%90-%eb%a9%94%eb%aa%a8%eb%a6%ac-%eb%a7%b5" class="anchor">🔗</a></h1><p>커널용 가상 주소 영역도 독특하게 사용한다. 상위 절반은 물리 메모리를 1:1로 미리 매핑하여 사용하며 나머지 절반에 대해 <code>fixmap</code>, <code>vmalloc</code>, <code>vmemmap</code>, <code>pci-iomap</code> 등의 영역과 커널 이미지 영역으로 나누어 사용한다.</p>
 <ul>
 <li>fixmap: 컴파일 테임에 목적에 따라 가상 주소 공간이 이미 결정된 매핑 영역이다.</li>
 <li>vmalloc: 런타임에 연속된 가상 주소 공간을 자유롭게 매핑할 수 있는 영역이다. <code>vmalloc()</code> 함수가 <code>vmap()</code> 함수를 통해 이용하는 곳이고 <code>ioremap()</code> 역시 사용하는 영역이다.</li>
