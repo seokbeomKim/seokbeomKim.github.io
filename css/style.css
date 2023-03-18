@@ -257,7 +257,6 @@ nav.navigation a.button {
 .profile .avatar {
   display: inline-block;
   width: 80px;
-  height: 80px;
   border-radius: 50%;
 }
 
@@ -268,6 +267,7 @@ nav.navigation a.button {
   color: #404040;
   margin-bottom: 0;
   margin-top: 0;
+  visibility: hidden;
 }
 
 .profile h2 {
