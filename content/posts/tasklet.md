@@ -68,8 +68,6 @@ struct tasklet_struct name = { NULL, 0, ATOMIC_INIT(1), func, data }
 상태가 제거되며 이 상태에 있게 되면 해당 스케쥴링을 스케쥴할 수 있게
 된다.
 
-
-
 # 출처
 * [Multitasking in the linux kernel interrupts and
   tasklets](https://kukuruku.co/post/multitasking-in-the-linux-kernel-interrupts-and-tasklets/)
