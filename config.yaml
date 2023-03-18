@@ -44,7 +44,7 @@ params:
   # Site Author
   author: Sukbeom Kim
   # Author biography
-  bio: BSP Engineer
+  bio:
   # Site Description, used in HTML meat
   description: 개발 삽질기 모음집
 
@@ -68,7 +68,7 @@ params:
   # To hidden post summary in home page, you could set `hiddenPostSummaryInHomePage: true`, default is `false`
   hiddenPostSummaryInHomePage: false
   # Website copy write, default: '© Copyright 2021 ❤️ {params.author}'
-  copyright: '' 
+  copyright: 'Copyright - Sukbeom Kim'
 
   # Extra links in navigation
   links:

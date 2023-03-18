@@ -19,6 +19,7 @@ toc: false
 아래는 ARM architecture manual 에서 Normal memory 의 속성 중 한 가지에 대한
 설명을 물어보았을 때 받은 답변이다.
 
+```
 what does it mean "Read accesses can be repeated with no side-effects"?
 
 "Read accesses can be repeated with no side-effects" means that it is safe to
@@ -34,6 +35,7 @@ to read the resource concurrently without worrying about interference or race
 conditions. It can also allow for better performance and scalability in systems
 where the resource is frequently accessed, as it reduces the need for
 synchronization and locking mechanisms.
+```
 
 놀랍다. 단순하게 구글링을 해서 얻는 정보와 달리 상당히 정제되어 있고 피곤하게
 찾을 필요도 없으며 기술 전문가와 1:1로 대화하는 것 같아 너무나 좋았다. 이런
@@ -45,6 +47,7 @@ synchronization and locking mechanisms.
 
 아래는 MISRA-C 코딩 룰을 어떻게 가이드 해주는지 테스트해본 것이다.
 
+```text
 Can you fix the following code with MISRA-C?
 int a = 0; int b = 0; int c = a + b * 2;
 
@@ -64,13 +67,17 @@ c = a + (b * 2);
 These are just a few suggestions for how you could modify the code to comply
 with the MISRA-C guidelines. There may be other issues with the code that would
 need to be addressed as well. Is there anything else I can help you with?
+```
 
 괄호 뿐만 아니라 const 까지 가이드 해준다. 이번엔 커널의 mutex_unlock 부분을
 제거해보고 코드리뷰를 맡겨보자.
 
+```
 Please check if the problem exists:
-static void timer_update_keys(struct work_struct *work) {  mutex_lock(&timer_keys_mutex);
-timers_update_migration(); static_branch_enable(&timers_nohz_active);
+static void timer_update_keys(struct work_struct *work) 
+{
+    mutex_lock(&timer_keys_mutex);
+    timers_update_migration(); static_branch_enable(&timers_nohz_active);
 }
 
 Based on the code you have provided, it appears that there is a problem with the
@@ -80,13 +87,21 @@ locked after the function returns. This could lead to a deadlock if other code
 attempts to acquire the same mutex while it is still locked.
 
 To fix this issue, you should add a call to mutex_unlock at the end of the
-function, like this:Copy codestatic void timer_update_keys(struct work_struct
-*work) { mutex_lock(&timer_keys_mutex); timers_update_migration();
-static_branch_enable(&timers_nohz_active); mutex_unlock(&timer_keys_mutex); }
+function, like this:
+Copy code
+
+static void timer_update_keys(struct work_struct *work) 
+{
+    mutex_lock(&timer_keys_mutex); 
+    timers_update_migration();
+    static_branch_enable(&timers_nohz_active); 
+    mutex_unlock(&timer_keys_mutex); 
+}
 
 This will ensure that the mutex is properly unlocked when the function
 completes, avoiding the potential for a deadlock. Is there anything else I can
 help you with?
+```
 
 커널을 공부하면서 힘들었던 이유는 자료를 찾기도 힘들 뿐더러 내가 이해하는 게
 과연 맞는 것인지, 문서에 기재된 내용이 어떤 문맥으로 작성된 것인지 알기 힘들었기
