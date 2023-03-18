@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ftrace on Hugo</title>
-    <link>https://example.com/tags/ftrace/</link>
-    <description>Recent content in ftrace on Hugo</description>
+    <title>ftrace on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/ftrace/</link>
+    <description>Recent content in ftrace on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Feb 2020 23:43:34 +0900</lastBuildDate><atom:link href="https://example.com/tags/ftrace/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Feb 2020 23:43:34 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/ftrace/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ftrace 이용한 커널 디버깅</title>
-      <link>https://example.com/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
+      <link>https://seokbeomkim.github.io/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       
-      <guid>https://example.com/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
+      <guid>https://seokbeomkim.github.io/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
       <description>개요 🔗커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수</description>
     </item>
     

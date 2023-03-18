@@ -1,270 +1,270 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kernel on Hugo</title>
-    <link>https://example.com/categories/kernel/</link>
-    <description>Recent content in Kernel on Hugo</description>
+    <title>Kernel on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/categories/kernel/</link>
+    <description>Recent content in Kernel on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Oct 2022 14:00:05 +0900</lastBuildDate><atom:link href="https://example.com/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 14:00:05 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>strcpy</title>
-      <link>https://example.com/posts/strcpy/</link>
+      <link>https://seokbeomkim.github.io/posts/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
-      <guid>https://example.com/posts/strcpy/</guid>
+      <guid>https://seokbeomkim.github.io/posts/strcpy/</guid>
       <description>개요 🔗한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는</description>
     </item>
     
     <item>
       <title>프로세스 종료와 파일 디스크립터</title>
-      <link>https://example.com/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</link>
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       
-      <guid>https://example.com/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</guid>
       <description>파일을 open 했는데 close를 안하면? 🔗stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던</description>
     </item>
     
     <item>
       <title>커널의 KASAN 코드가 삽입되는 방법</title>
-      <link>https://example.com/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</guid>
       <description>커널의 KASAN 코드가 삽입되는 방법 🔗Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을</description>
     </item>
     
     <item>
       <title>Kernel Debug With Kgdb</title>
-      <link>https://example.com/posts/kernel-debug-with-kgdb/</link>
+      <link>https://seokbeomkim.github.io/posts/kernel-debug-with-kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       
-      <guid>https://example.com/posts/kernel-debug-with-kgdb/</guid>
+      <guid>https://seokbeomkim.github.io/posts/kernel-debug-with-kgdb/</guid>
       <description>개요 🔗필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용</description>
     </item>
     
     <item>
       <title>__is_constexpr macro in kernel</title>
-      <link>https://example.com/posts/__is_constexpr-macro-in-kernel/</link>
+      <link>https://seokbeomkim.github.io/posts/__is_constexpr-macro-in-kernel/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       
-      <guid>https://example.com/posts/__is_constexpr-macro-in-kernel/</guid>
+      <guid>https://seokbeomkim.github.io/posts/__is_constexpr-macro-in-kernel/</guid>
       <description>커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러</description>
     </item>
     
     <item>
       <title>Mac에서 GDB 이용한 커널 해킹하기</title>
-      <link>https://example.com/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       
-      <guid>https://example.com/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없</description>
     </item>
     
     <item>
       <title>sysrq 이용한 커널 패닉 발생시키기</title>
-      <link>https://example.com/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</link>
       <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
       
-      <guid>https://example.com/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</guid>
       <description>개요 🔗현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등</description>
     </item>
     
     <item>
       <title>Vmlinux</title>
-      <link>https://example.com/posts/vmlinux/</link>
+      <link>https://seokbeomkim.github.io/posts/vmlinux/</link>
       <pubDate>Tue, 21 Apr 2020 06:04:17 +0900</pubDate>
       
-      <guid>https://example.com/posts/vmlinux/</guid>
+      <guid>https://seokbeomkim.github.io/posts/vmlinux/</guid>
       <description>커널 패닉 정보를 바탕으로 패닉이 정확히 어디서 발생했는지를 알아내기 위해 vmlinux 파일을 이용하는 방법을 알게 되었다. addr2line 명령어를 이용하여 PC 또는 LR에 들어있던 주소</description>
     </item>
     
     <item>
       <title>Futex</title>
-      <link>https://example.com/posts/futex/</link>
+      <link>https://seokbeomkim.github.io/posts/futex/</link>
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       
-      <guid>https://example.com/posts/futex/</guid>
+      <guid>https://seokbeomkim.github.io/posts/futex/</guid>
       <description>Futex (Fast Userspace Mutexes) 🔗futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library)</description>
     </item>
     
     <item>
       <title>poll() 그리고 poll_wait()</title>
-      <link>https://example.com/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</link>
+      <link>https://seokbeomkim.github.io/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       
-      <guid>https://example.com/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</guid>
+      <guid>https://seokbeomkim.github.io/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</guid>
       <description>개요 🔗업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다</description>
     </item>
     
     <item>
       <title>MICOM과 MPU</title>
-      <link>https://example.com/posts/micom%EA%B3%BC-mpu/</link>
+      <link>https://seokbeomkim.github.io/posts/micom%EA%B3%BC-mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://example.com/posts/micom%EA%B3%BC-mpu/</guid>
+      <guid>https://seokbeomkim.github.io/posts/micom%EA%B3%BC-mpu/</guid>
       <description>개요 🔗카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까</description>
     </item>
     
     <item>
       <title>IOCTL과 인터럽트</title>
-      <link>https://example.com/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</link>
+      <link>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       
-      <guid>https://example.com/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</guid>
+      <guid>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</guid>
       <description>개요 🔗디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackO</description>
     </item>
     
     <item>
       <title>리눅스에서의 버퍼링 방식</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</link>
       <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</guid>
       <description>리눅스에서의 버퍼링 정책 🔗리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다. 만약</description>
     </item>
     
     <item>
       <title>ioctl()에 전달되는 cmd 관련 매크로 함수</title>
-      <link>https://example.com/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
+      <link>https://seokbeomkim.github.io/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       
-      <guid>https://example.com/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
+      <guid>https://seokbeomkim.github.io/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
       <description>드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한</description>
     </item>
     
     <item>
       <title>Identity Mapping</title>
-      <link>https://example.com/posts/identity-mapping/</link>
+      <link>https://seokbeomkim.github.io/posts/identity-mapping/</link>
       <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
       
-      <guid>https://example.com/posts/identity-mapping/</guid>
+      <guid>https://seokbeomkim.github.io/posts/identity-mapping/</guid>
       <description>ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오</description>
     </item>
     
     <item>
       <title>WARN_ON, BUG_ON 매크로</title>
-      <link>https://example.com/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</link>
+      <link>https://seokbeomkim.github.io/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
       
-      <guid>https://example.com/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</guid>
+      <guid>https://seokbeomkim.github.io/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</guid>
       <description>개요 🔗업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은</description>
     </item>
     
     <item>
       <title>Likely and Unlikely</title>
-      <link>https://example.com/posts/likely-and-unlikely/</link>
+      <link>https://seokbeomkim.github.io/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       
-      <guid>https://example.com/posts/likely-and-unlikely/</guid>
+      <guid>https://seokbeomkim.github.io/posts/likely-and-unlikely/</guid>
       <description>개요 🔗예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlik</description>
     </item>
     
     <item>
       <title>typedef is evil</title>
-      <link>https://example.com/posts/typedef-is-evil/</link>
+      <link>https://seokbeomkim.github.io/posts/typedef-is-evil/</link>
       <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
       
-      <guid>https://example.com/posts/typedef-is-evil/</guid>
+      <guid>https://seokbeomkim.github.io/posts/typedef-is-evil/</guid>
       <description>커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목</description>
     </item>
     
     <item>
       <title>ftrace 이용한 커널 디버깅</title>
-      <link>https://example.com/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
+      <link>https://seokbeomkim.github.io/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       
-      <guid>https://example.com/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
+      <guid>https://seokbeomkim.github.io/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
       <description>개요 🔗커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수</description>
     </item>
     
     <item>
       <title>ARM64에서의 커널 메모리 맵</title>
-      <link>https://example.com/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</link>
+      <link>https://seokbeomkim.github.io/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       
-      <guid>https://example.com/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</guid>
+      <guid>https://seokbeomkim.github.io/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</guid>
       <description>ARM64에서의 커널 메모리 맵 🔗&amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;quot;이라는 챕터를 읽으면서 커널</description>
     </item>
     
     <item>
       <title>GPIO Mapping</title>
-      <link>https://example.com/posts/gpio-mapping/</link>
+      <link>https://seokbeomkim.github.io/posts/gpio-mapping/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       
-      <guid>https://example.com/posts/gpio-mapping/</guid>
+      <guid>https://seokbeomkim.github.io/posts/gpio-mapping/</guid>
       <description>GPIO 맵핑하기 🔗오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만,</description>
     </item>
     
     <item>
       <title>/dev/mem vs. /dev/kmem</title>
-      <link>https://example.com/posts/dev/mem-vs.-/dev/kmem/</link>
+      <link>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://example.com/posts/dev/mem-vs.-/dev/kmem/</guid>
+      <guid>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</guid>
       <description>개요 🔗업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이</description>
     </item>
     
     <item>
       <title>Kobject</title>
-      <link>https://example.com/posts/kobject/</link>
+      <link>https://seokbeomkim.github.io/posts/kobject/</link>
       <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
       
-      <guid>https://example.com/posts/kobject/</guid>
+      <guid>https://seokbeomkim.github.io/posts/kobject/</guid>
       <description>kobjects, ktypes, ksets 🔗디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다. 61 struct</description>
     </item>
     
     <item>
       <title>Major와 Minor Numbers</title>
-      <link>https://example.com/posts/major%EC%99%80-minor-numbers/</link>
+      <link>https://seokbeomkim.github.io/posts/major%EC%99%80-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       
-      <guid>https://example.com/posts/major%EC%99%80-minor-numbers/</guid>
+      <guid>https://seokbeomkim.github.io/posts/major%EC%99%80-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변</description>
     </item>
     
     <item>
       <title>태스크릿(Tasklet)</title>
-      <link>https://example.com/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
+      <link>https://seokbeomkim.github.io/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
       <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
       
-      <guid>https://example.com/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
       <description>커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에</description>
     </item>
     
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
-      <link>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
+      <link>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       
-      <guid>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
+      <guid>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</description>
     </item>
     
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</title>
-      <link>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</link>
+      <link>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
       
-      <guid>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</guid>
+      <guid>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</guid>
       <description>취업은 언제하나&amp;hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물</description>
     </item>
     
     <item>
       <title>커널 모듈과 드라이버의 차이</title>
-      <link>https://example.com/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
       <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자</description>
     </item>
     
     <item>
       <title>비선점 스케쥴링(Nonpreemptive Scheduling)</title>
-      <link>https://example.com/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</guid>
       <description>비선점 스케쥴링(Non-preemptive Scheduling) 🔗비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았</description>
     </item>
     

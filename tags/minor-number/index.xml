@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>minor number on Hugo</title>
-    <link>https://example.com/tags/minor-number/</link>
-    <description>Recent content in minor number on Hugo</description>
+    <title>minor number on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/minor-number/</link>
+    <description>Recent content in minor number on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 May 2019 18:37:25 +0900</lastBuildDate><atom:link href="https://example.com/tags/minor-number/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 May 2019 18:37:25 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/minor-number/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Major와 Minor Numbers</title>
-      <link>https://example.com/posts/major%EC%99%80-minor-numbers/</link>
+      <link>https://seokbeomkim.github.io/posts/major%EC%99%80-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       
-      <guid>https://example.com/posts/major%EC%99%80-minor-numbers/</guid>
+      <guid>https://seokbeomkim.github.io/posts/major%EC%99%80-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변</description>
     </item>
     

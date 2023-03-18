@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nfd on Hugo</title>
-    <link>https://example.com/tags/nfd/</link>
-    <description>Recent content in nfd on Hugo</description>
+    <title>nfd on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/nfd/</link>
+    <description>Recent content in nfd on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2020 22:55:11 +0900</lastBuildDate><atom:link href="https://example.com/tags/nfd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Aug 2020 22:55:11 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/nfd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac OS에서의 자모 분리 현상 해결하기</title>
-      <link>https://example.com/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</link>
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
       
-      <guid>https://example.com/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반</description>
     </item>
     

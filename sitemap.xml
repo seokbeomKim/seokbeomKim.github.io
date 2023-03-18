@@ -2,839 +2,839 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://seokbeomkim.github.io/categories/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/etc/</loc>
+    <loc>https://seokbeomkim.github.io/categories/etc/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://seokbeomkim.github.io/posts/obsidian/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/obsidian/</loc>
+    <loc>https://seokbeomkim.github.io/tags/obsidian/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/obsidian/</loc>
+    <loc>https://seokbeomkim.github.io/posts/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/</loc>
+    <loc>https://seokbeomkim.github.io/tags/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://seokbeomkim.github.io/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</loc>
     <lastmod>2022-10-22T17:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/%EB%82%9C%EC%B2%AD/</loc>
+    <loc>https://seokbeomkim.github.io/tags/%EB%82%9C%EC%B2%AD/</loc>
     <lastmod>2022-10-22T17:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/kernel/</loc>
+    <loc>https://seokbeomkim.github.io/categories/kernel/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/strcpy/</loc>
+    <loc>https://seokbeomkim.github.io/tags/strcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/strcpy/</loc>
+    <loc>https://seokbeomkim.github.io/posts/strcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/strlcpy/</loc>
+    <loc>https://seokbeomkim.github.io/tags/strlcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/strscpy/</loc>
+    <loc>https://seokbeomkim.github.io/tags/strscpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/file-descriptor/</loc>
+    <loc>https://seokbeomkim.github.io/tags/file-descriptor/</loc>
     <lastmod>2022-05-10T00:03:20+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</loc>
     <lastmod>2022-05-10T00:03:20+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/computer-science/</loc>
+    <loc>https://seokbeomkim.github.io/categories/computer-science/</loc>
     <lastmod>2022-05-08T01:37:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/device-tree/</loc>
+    <loc>https://seokbeomkim.github.io/tags/device-tree/</loc>
     <lastmod>2022-05-08T01:37:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/device-tree-overlay/</loc>
+    <loc>https://seokbeomkim.github.io/posts/device-tree-overlay/</loc>
     <lastmod>2022-05-08T01:37:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/kernel/</loc>
+    <loc>https://seokbeomkim.github.io/tags/kernel/</loc>
     <lastmod>2022-05-08T01:37:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/overlay/</loc>
+    <loc>https://seokbeomkim.github.io/tags/overlay/</loc>
     <lastmod>2022-05-08T01:37:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/525.-contiguous-array/</loc>
+    <loc>https://seokbeomkim.github.io/posts/525.-contiguous-array/</loc>
     <lastmod>2022-02-04T23:21:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/525%EB%B2%88/</loc>
+    <loc>https://seokbeomkim.github.io/tags/525%EB%B2%88/</loc>
     <lastmod>2022-02-04T23:21:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/hashmap/</loc>
+    <loc>https://seokbeomkim.github.io/tags/hashmap/</loc>
     <lastmod>2022-02-04T23:21:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/leetcode/</loc>
+    <loc>https://seokbeomkim.github.io/categories/leetcode/</loc>
     <lastmod>2022-02-04T23:21:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/canary/</loc>
+    <loc>https://seokbeomkim.github.io/tags/canary/</loc>
     <lastmod>2022-02-03T15:00:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ssp/</loc>
+    <loc>https://seokbeomkim.github.io/tags/ssp/</loc>
     <lastmod>2022-02-03T15:00:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/stack/</loc>
+    <loc>https://seokbeomkim.github.io/tags/stack/</loc>
     <lastmod>2022-02-03T15:00:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</loc>
     <lastmod>2022-02-03T15:00:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/preprocessor/</loc>
+    <loc>https://seokbeomkim.github.io/tags/preprocessor/</loc>
     <lastmod>2021-10-16T02:19:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2021-10-16T02:19:05+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/gcc/</loc>
+    <loc>https://seokbeomkim.github.io/tags/gcc/</loc>
     <lastmod>2021-09-24T01:13:41+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/kasan/</loc>
+    <loc>https://seokbeomkim.github.io/tags/kasan/</loc>
     <lastmod>2021-09-24T01:13:41+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</loc>
     <lastmod>2021-09-24T01:13:41+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/dmabuf/</loc>
+    <loc>https://seokbeomkim.github.io/tags/dmabuf/</loc>
     <lastmod>2021-04-18T00:32:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/mmap/</loc>
+    <loc>https://seokbeomkim.github.io/tags/mmap/</loc>
     <lastmod>2021-04-18T00:32:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/v4l2/</loc>
+    <loc>https://seokbeomkim.github.io/tags/v4l2/</loc>
     <lastmod>2021-04-18T00:32:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/v4l2-memory-type/</loc>
+    <loc>https://seokbeomkim.github.io/posts/v4l2-memory-type/</loc>
     <lastmod>2021-04-18T00:32:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/vb2/</loc>
+    <loc>https://seokbeomkim.github.io/tags/vb2/</loc>
     <lastmod>2021-04-18T00:32:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/kernel-debug-with-kgdb/</loc>
+    <loc>https://seokbeomkim.github.io/posts/kernel-debug-with-kgdb/</loc>
     <lastmod>2021-04-13T23:31:41+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/kgdb/</loc>
+    <loc>https://seokbeomkim.github.io/tags/kgdb/</loc>
     <lastmod>2021-04-13T23:31:41+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/__is_constexpr/</loc>
+    <loc>https://seokbeomkim.github.io/tags/__is_constexpr/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/__is_constexpr-macro-in-kernel/</loc>
+    <loc>https://seokbeomkim.github.io/posts/__is_constexpr-macro-in-kernel/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/c/</loc>
+    <loc>https://seokbeomkim.github.io/tags/c/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/state/</loc>
+    <loc>https://seokbeomkim.github.io/tags/state/</loc>
     <lastmod>2021-02-28T12:27:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/state-vs-status/</loc>
+    <loc>https://seokbeomkim.github.io/posts/state-vs-status/</loc>
     <lastmod>2021-02-28T12:27:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/status/</loc>
+    <loc>https://seokbeomkim.github.io/tags/status/</loc>
     <lastmod>2021-02-28T12:27:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/gdb/</loc>
+    <loc>https://seokbeomkim.github.io/tags/gdb/</loc>
     <lastmod>2021-02-20T02:43:54+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/mac_os/</loc>
+    <loc>https://seokbeomkim.github.io/tags/mac_os/</loc>
     <lastmod>2021-02-20T02:43:54+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2021-02-20T02:43:54+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/i3-window-manager/</loc>
+    <loc>https://seokbeomkim.github.io/posts/i3-window-manager/</loc>
     <lastmod>2021-02-11T18:20:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/i3wm/</loc>
+    <loc>https://seokbeomkim.github.io/tags/i3wm/</loc>
     <lastmod>2021-02-11T18:20:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/emacs/</loc>
+    <loc>https://seokbeomkim.github.io/tags/emacs/</loc>
     <lastmod>2021-01-01T13:42:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2021-01-01T13:42:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/magit/</loc>
+    <loc>https://seokbeomkim.github.io/tags/magit/</loc>
     <lastmod>2021-01-01T13:42:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/homebrew/</loc>
+    <loc>https://seokbeomkim.github.io/tags/homebrew/</loc>
     <lastmod>2020-12-29T23:35:55+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-12-29T23:35:55+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/mac/</loc>
+    <loc>https://seokbeomkim.github.io/tags/mac/</loc>
     <lastmod>2020-12-29T23:35:55+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/python/</loc>
+    <loc>https://seokbeomkim.github.io/categories/python/</loc>
     <lastmod>2020-12-29T23:35:55+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/file2alias/</loc>
+    <loc>https://seokbeomkim.github.io/tags/file2alias/</loc>
     <lastmod>2020-12-24T00:56:38+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/mac/</loc>
+    <loc>https://seokbeomkim.github.io/categories/mac/</loc>
     <lastmod>2020-12-24T00:56:38+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/uuid/</loc>
+    <loc>https://seokbeomkim.github.io/tags/uuid/</loc>
     <lastmod>2020-12-24T00:56:38+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</loc>
     <lastmod>2020-12-24T00:56:38+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/vmmem/</loc>
+    <loc>https://seokbeomkim.github.io/tags/vmmem/</loc>
     <lastmod>2020-12-23T01:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/wsl/</loc>
+    <loc>https://seokbeomkim.github.io/tags/wsl/</loc>
     <lastmod>2020-12-23T01:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</loc>
     <lastmod>2020-12-23T01:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/sysrq/</loc>
+    <loc>https://seokbeomkim.github.io/tags/sysrq/</loc>
     <lastmod>2020-12-17T01:38:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</loc>
     <lastmod>2020-12-17T01:38:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-11-28T23:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cache/</loc>
+    <loc>https://seokbeomkim.github.io/tags/cache/</loc>
     <lastmod>2020-09-13T21:30:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cache-line/</loc>
+    <loc>https://seokbeomkim.github.io/tags/cache-line/</loc>
     <lastmod>2020-09-13T21:30:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</loc>
     <lastmod>2020-09-13T21:30:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ghcup/</loc>
+    <loc>https://seokbeomkim.github.io/tags/ghcup/</loc>
     <lastmod>2020-09-12T00:05:37+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/haskell/</loc>
+    <loc>https://seokbeomkim.github.io/categories/haskell/</loc>
     <lastmod>2020-09-12T00:05:37+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</loc>
     <lastmod>2020-09-12T00:05:37+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/coc/</loc>
+    <loc>https://seokbeomkim.github.io/tags/coc/</loc>
     <lastmod>2020-09-05T09:50:58+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</loc>
     <lastmod>2020-09-05T09:50:58+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/%EC%9D%BC%EC%83%81/</loc>
+    <loc>https://seokbeomkim.github.io/tags/%EC%9D%BC%EC%83%81/</loc>
     <lastmod>2020-09-05T09:50:58+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-08-24T22:55:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/nfc/</loc>
+    <loc>https://seokbeomkim.github.io/tags/nfc/</loc>
     <lastmod>2020-08-24T22:55:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/nfd/</loc>
+    <loc>https://seokbeomkim.github.io/tags/nfd/</loc>
     <lastmod>2020-08-24T22:55:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
+    <loc>https://seokbeomkim.github.io/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
     <lastmod>2020-08-17T18:08:58+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/function-application/</loc>
+    <loc>https://seokbeomkim.github.io/tags/function-application/</loc>
     <lastmod>2020-08-17T18:08:58+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/design-pattern/</loc>
+    <loc>https://seokbeomkim.github.io/categories/design-pattern/</loc>
     <lastmod>2020-07-25T16:25:23+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/linux/</loc>
+    <loc>https://seokbeomkim.github.io/categories/linux/</loc>
     <lastmod>2020-07-25T16:25:23+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/oop/</loc>
+    <loc>https://seokbeomkim.github.io/categories/oop/</loc>
     <lastmod>2020-07-25T16:25:23+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</loc>
     <lastmod>2020-07-25T16:25:23+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/computer-science/</loc>
+    <loc>https://seokbeomkim.github.io/tags/computer-science/</loc>
     <lastmod>2020-07-12T22:13:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-07-12T22:13:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-07-05T02:52:23+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/mu4e/</loc>
+    <loc>https://seokbeomkim.github.io/tags/mu4e/</loc>
     <lastmod>2020-06-26T01:36:36+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-06-26T01:36:36+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</loc>
     <lastmod>2020-04-25T14:27:31+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/vmlinux/</loc>
+    <loc>https://seokbeomkim.github.io/posts/vmlinux/</loc>
     <lastmod>2020-04-21T06:04:17+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/vmlinux/</loc>
+    <loc>https://seokbeomkim.github.io/tags/vmlinux/</loc>
     <lastmod>2020-04-21T06:04:17+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/page-table/</loc>
+    <loc>https://seokbeomkim.github.io/tags/page-table/</loc>
     <lastmod>2020-04-11T18:25:16+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/va_bits/</loc>
+    <loc>https://seokbeomkim.github.io/tags/va_bits/</loc>
     <lastmod>2020-04-11T18:25:16+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/virtual-address/</loc>
+    <loc>https://seokbeomkim.github.io/tags/virtual-address/</loc>
     <lastmod>2020-04-11T18:25:16+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</loc>
     <lastmod>2020-04-11T18:25:16+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/c/</loc>
+    <loc>https://seokbeomkim.github.io/categories/c/</loc>
     <lastmod>2020-04-10T00:13:53+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</loc>
+    <loc>https://seokbeomkim.github.io/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</loc>
     <lastmod>2020-04-10T00:13:53+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/type-check/</loc>
+    <loc>https://seokbeomkim.github.io/tags/type-check/</loc>
     <lastmod>2020-04-10T00:13:53+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/benchmark/</loc>
+    <loc>https://seokbeomkim.github.io/tags/benchmark/</loc>
     <lastmod>2020-04-03T01:41:29+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/dmips/</loc>
+    <loc>https://seokbeomkim.github.io/tags/dmips/</loc>
     <lastmod>2020-04-03T01:41:29+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/dmips-dhrystone-million-instructions-per-second/</loc>
+    <loc>https://seokbeomkim.github.io/posts/dmips-dhrystone-million-instructions-per-second/</loc>
     <lastmod>2020-04-03T01:41:29+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/futex/</loc>
+    <loc>https://seokbeomkim.github.io/posts/futex/</loc>
     <lastmod>2020-04-02T01:45:50+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/futex/</loc>
+    <loc>https://seokbeomkim.github.io/tags/futex/</loc>
     <lastmod>2020-04-02T01:45:50+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/do-while/</loc>
+    <loc>https://seokbeomkim.github.io/posts/do-while/</loc>
     <lastmod>2020-04-01T23:55:32+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/do_while/</loc>
+    <loc>https://seokbeomkim.github.io/tags/do_while/</loc>
     <lastmod>2020-04-01T23:55:32+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/bsd/</loc>
+    <loc>https://seokbeomkim.github.io/tags/bsd/</loc>
     <lastmod>2020-04-01T00:26:52+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</loc>
+    <loc>https://seokbeomkim.github.io/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</loc>
     <lastmod>2020-04-01T00:26:52+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/list/</loc>
+    <loc>https://seokbeomkim.github.io/tags/list/</loc>
     <lastmod>2020-04-01T00:26:52+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/queue/</loc>
+    <loc>https://seokbeomkim.github.io/tags/queue/</loc>
     <lastmod>2020-04-01T00:26:52+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/array_size/</loc>
+    <loc>https://seokbeomkim.github.io/tags/array_size/</loc>
     <lastmod>2020-03-28T00:54:01+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</loc>
+    <loc>https://seokbeomkim.github.io/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</loc>
     <lastmod>2020-03-28T00:54:01+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/goto/</loc>
+    <loc>https://seokbeomkim.github.io/tags/goto/</loc>
     <lastmod>2020-03-25T00:47:49+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/goto-statement/</loc>
+    <loc>https://seokbeomkim.github.io/posts/goto-statement/</loc>
     <lastmod>2020-03-25T00:47:49+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/android/</loc>
+    <loc>https://seokbeomkim.github.io/categories/android/</loc>
     <lastmod>2020-03-12T00:26:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/partition/</loc>
+    <loc>https://seokbeomkim.github.io/tags/partition/</loc>
     <lastmod>2020-03-12T00:26:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</loc>
     <lastmod>2020-03-12T00:26:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/poll/</loc>
+    <loc>https://seokbeomkim.github.io/tags/poll/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</loc>
+    <loc>https://seokbeomkim.github.io/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/poll_wait/</loc>
+    <loc>https://seokbeomkim.github.io/tags/poll_wait/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/micom/</loc>
+    <loc>https://seokbeomkim.github.io/tags/micom/</loc>
     <lastmod>2020-03-08T23:30:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/micom%EA%B3%BC-mpu/</loc>
+    <loc>https://seokbeomkim.github.io/posts/micom%EA%B3%BC-mpu/</loc>
     <lastmod>2020-03-08T23:30:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/mpu/</loc>
+    <loc>https://seokbeomkim.github.io/tags/mpu/</loc>
     <lastmod>2020-03-08T23:30:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/interrupt/</loc>
+    <loc>https://seokbeomkim.github.io/tags/interrupt/</loc>
     <lastmod>2020-03-03T00:00:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ioctl/</loc>
+    <loc>https://seokbeomkim.github.io/tags/ioctl/</loc>
     <lastmod>2020-03-03T00:00:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</loc>
+    <loc>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</loc>
     <lastmod>2020-03-03T00:00:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/hyper-v/</loc>
+    <loc>https://seokbeomkim.github.io/tags/hyper-v/</loc>
     <lastmod>2020-03-01T17:12:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-03-01T17:12:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/virtualization/</loc>
+    <loc>https://seokbeomkim.github.io/categories/virtualization/</loc>
     <lastmod>2020-03-01T17:12:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/buffering/</loc>
+    <loc>https://seokbeomkim.github.io/tags/buffering/</loc>
     <lastmod>2020-02-29T23:34:30+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</loc>
     <lastmod>2020-02-29T23:34:30+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</loc>
+    <loc>https://seokbeomkim.github.io/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</loc>
     <lastmod>2020-02-27T00:23:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/macro/</loc>
+    <loc>https://seokbeomkim.github.io/tags/macro/</loc>
     <lastmod>2020-02-27T00:23:10+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/switch/</loc>
+    <loc>https://seokbeomkim.github.io/tags/switch/</loc>
     <lastmod>2020-02-26T23:56:18+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</loc>
+    <loc>https://seokbeomkim.github.io/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</loc>
     <lastmod>2020-02-26T23:56:18+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/identity-mapping/</loc>
+    <loc>https://seokbeomkim.github.io/posts/identity-mapping/</loc>
     <lastmod>2020-02-24T23:01:54+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/idmap/</loc>
+    <loc>https://seokbeomkim.github.io/tags/idmap/</loc>
     <lastmod>2020-02-24T23:01:54+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/bug_on/</loc>
+    <loc>https://seokbeomkim.github.io/tags/bug_on/</loc>
     <lastmod>2020-02-21T00:12:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/warn_on/</loc>
+    <loc>https://seokbeomkim.github.io/tags/warn_on/</loc>
     <lastmod>2020-02-21T00:12:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</loc>
+    <loc>https://seokbeomkim.github.io/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</loc>
     <lastmod>2020-02-21T00:12:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/likely/</loc>
+    <loc>https://seokbeomkim.github.io/tags/likely/</loc>
     <lastmod>2020-02-13T23:27:51+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/likely-and-unlikely/</loc>
+    <loc>https://seokbeomkim.github.io/posts/likely-and-unlikely/</loc>
     <lastmod>2020-02-13T23:27:51+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/unlikely/</loc>
+    <loc>https://seokbeomkim.github.io/tags/unlikely/</loc>
     <lastmod>2020-02-13T23:27:51+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/typedef/</loc>
+    <loc>https://seokbeomkim.github.io/tags/typedef/</loc>
     <lastmod>2020-02-13T01:12:37+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/typedef-is-evil/</loc>
+    <loc>https://seokbeomkim.github.io/posts/typedef-is-evil/</loc>
     <lastmod>2020-02-13T01:12:37+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-02-09T03:09:59+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/debug/</loc>
+    <loc>https://seokbeomkim.github.io/tags/debug/</loc>
     <lastmod>2020-02-06T23:43:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ftrace/</loc>
+    <loc>https://seokbeomkim.github.io/tags/ftrace/</loc>
     <lastmod>2020-02-06T23:43:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</loc>
+    <loc>https://seokbeomkim.github.io/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</loc>
     <lastmod>2020-02-06T23:43:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/raspberry-pi/</loc>
+    <loc>https://seokbeomkim.github.io/tags/raspberry-pi/</loc>
     <lastmod>2020-02-05T00:53:22+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</loc>
+    <loc>https://seokbeomkim.github.io/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</loc>
     <lastmod>2020-02-05T00:53:22+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/side-project/</loc>
+    <loc>https://seokbeomkim.github.io/tags/side-project/</loc>
     <lastmod>2020-02-05T00:53:22+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/wayland/</loc>
+    <loc>https://seokbeomkim.github.io/tags/wayland/</loc>
     <lastmod>2020-02-03T23:17:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/wayland%EA%B3%BC-weston/</loc>
+    <loc>https://seokbeomkim.github.io/posts/wayland%EA%B3%BC-weston/</loc>
     <lastmod>2020-02-03T23:17:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/weston/</loc>
+    <loc>https://seokbeomkim.github.io/tags/weston/</loc>
     <lastmod>2020-02-03T23:17:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</loc>
+    <loc>https://seokbeomkim.github.io/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/bitbake/</loc>
+    <loc>https://seokbeomkim.github.io/tags/bitbake/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/chroot/</loc>
+    <loc>https://seokbeomkim.github.io/tags/chroot/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</loc>
+    <loc>https://seokbeomkim.github.io/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/memory-map/</loc>
+    <loc>https://seokbeomkim.github.io/tags/memory-map/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/yocto/</loc>
+    <loc>https://seokbeomkim.github.io/tags/yocto/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/yocto/</loc>
+    <loc>https://seokbeomkim.github.io/categories/yocto/</loc>
     <lastmod>2020-02-01T23:27:45+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/gpio/</loc>
+    <loc>https://seokbeomkim.github.io/tags/gpio/</loc>
     <lastmod>2020-01-31T23:48:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/gpio-mapping/</loc>
+    <loc>https://seokbeomkim.github.io/posts/gpio-mapping/</loc>
     <lastmod>2020-01-31T23:48:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/uevent/</loc>
+    <loc>https://seokbeomkim.github.io/tags/uevent/</loc>
     <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/ueventd/</loc>
+    <loc>https://seokbeomkim.github.io/tags/ueventd/</loc>
     <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</loc>
     <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/dev/mem-vs.-/dev/kmem/</loc>
+    <loc>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/kmem/</loc>
+    <loc>https://seokbeomkim.github.io/tags/kmem/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/mem/</loc>
+    <loc>https://seokbeomkim.github.io/tags/mem/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/kobject/</loc>
+    <loc>https://seokbeomkim.github.io/posts/kobject/</loc>
     <lastmod>2020-01-28T22:25:50+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/kobject/</loc>
+    <loc>https://seokbeomkim.github.io/tags/kobject/</loc>
     <lastmod>2020-01-28T22:25:50+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/big-endian/</loc>
+    <loc>https://seokbeomkim.github.io/tags/big-endian/</loc>
     <lastmod>2020-01-27T22:27:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/endian/</loc>
+    <loc>https://seokbeomkim.github.io/tags/endian/</loc>
     <lastmod>2020-01-27T22:27:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/little-endian/</loc>
+    <loc>https://seokbeomkim.github.io/tags/little-endian/</loc>
     <lastmod>2020-01-27T22:27:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/little-endian-vs.-big-endian/</loc>
+    <loc>https://seokbeomkim.github.io/posts/little-endian-vs.-big-endian/</loc>
     <lastmod>2020-01-27T22:27:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/bt.601/</loc>
+    <loc>https://seokbeomkim.github.io/tags/bt.601/</loc>
     <lastmod>2020-01-26T17:44:18+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/bt.656/</loc>
+    <loc>https://seokbeomkim.github.io/tags/bt.656/</loc>
     <lastmod>2020-01-26T17:44:18+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</loc>
     <lastmod>2020-01-26T17:44:18+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/colorspace/</loc>
+    <loc>https://seokbeomkim.github.io/tags/colorspace/</loc>
     <lastmod>2020-01-26T16:39:36+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/rgb/</loc>
+    <loc>https://seokbeomkim.github.io/tags/rgb/</loc>
     <lastmod>2020-01-26T16:39:36+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/yuv/</loc>
+    <loc>https://seokbeomkim.github.io/tags/yuv/</loc>
     <lastmod>2020-01-26T16:39:36+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</loc>
     <lastmod>2020-01-26T16:39:36+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://seokbeomkim.github.io/about/</loc>
     <lastmod>2020-01-25T22:47:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/bootloader/</loc>
+    <loc>https://seokbeomkim.github.io/tags/bootloader/</loc>
     <lastmod>2019-06-23T22:47:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/embedded_linux/</loc>
+    <loc>https://seokbeomkim.github.io/tags/embedded_linux/</loc>
     <lastmod>2019-06-23T22:47:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</loc>
     <lastmod>2019-06-23T22:47:44+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</loc>
+    <loc>https://seokbeomkim.github.io/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</loc>
     <lastmod>2019-06-23T10:46:29+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/posix-spawn/</loc>
+    <loc>https://seokbeomkim.github.io/tags/posix-spawn/</loc>
     <lastmod>2019-06-23T10:46:29+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/arm-versatile/</loc>
+    <loc>https://seokbeomkim.github.io/tags/arm-versatile/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/qemu/</loc>
+    <loc>https://seokbeomkim.github.io/tags/qemu/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</loc>
+    <loc>https://seokbeomkim.github.io/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2019-06-22T21:29:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/rcu/</loc>
+    <loc>https://seokbeomkim.github.io/tags/rcu/</loc>
     <lastmod>2019-06-04T17:34:42+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/rcu-read-copy-update/</loc>
+    <loc>https://seokbeomkim.github.io/posts/rcu-read-copy-update/</loc>
     <lastmod>2019-06-04T17:34:42+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/bkl/</loc>
+    <loc>https://seokbeomkim.github.io/tags/bkl/</loc>
     <lastmod>2019-06-04T16:40:28+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</loc>
     <lastmod>2019-06-04T16:40:28+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/semaphore/</loc>
+    <loc>https://seokbeomkim.github.io/tags/semaphore/</loc>
     <lastmod>2019-06-04T11:40:12+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</loc>
     <lastmod>2019-06-04T11:40:12+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/major-number/</loc>
+    <loc>https://seokbeomkim.github.io/tags/major-number/</loc>
     <lastmod>2019-05-31T18:37:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/major%EC%99%80-minor-numbers/</loc>
+    <loc>https://seokbeomkim.github.io/posts/major%EC%99%80-minor-numbers/</loc>
     <lastmod>2019-05-31T18:37:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/minor-number/</loc>
+    <loc>https://seokbeomkim.github.io/tags/minor-number/</loc>
     <lastmod>2019-05-31T18:37:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/global-kernel-lock/</loc>
+    <loc>https://seokbeomkim.github.io/tags/global-kernel-lock/</loc>
     <lastmod>2019-05-29T00:59:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/mutex/</loc>
+    <loc>https://seokbeomkim.github.io/tags/mutex/</loc>
     <lastmod>2019-05-29T00:59:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/spinlock/</loc>
+    <loc>https://seokbeomkim.github.io/tags/spinlock/</loc>
     <lastmod>2019-05-29T00:59:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</loc>
     <lastmod>2019-05-29T00:59:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</loc>
     <lastmod>2019-05-28T17:45:51+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/jiffies/</loc>
+    <loc>https://seokbeomkim.github.io/tags/jiffies/</loc>
     <lastmod>2019-05-26T10:38:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%A7%80%ED%94%BCjiffies/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%A7%80%ED%94%BCjiffies/</loc>
     <lastmod>2019-05-26T10:38:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/tasklet/</loc>
+    <loc>https://seokbeomkim.github.io/tags/tasklet/</loc>
     <lastmod>2019-05-25T17:32:26+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</loc>
     <lastmod>2019-05-25T17:32:26+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/buildroot/</loc>
+    <loc>https://seokbeomkim.github.io/tags/buildroot/</loc>
     <lastmod>2019-05-23T15:10:46+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/busybox/</loc>
+    <loc>https://seokbeomkim.github.io/tags/busybox/</loc>
     <lastmod>2019-05-23T15:10:46+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</loc>
+    <loc>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</loc>
     <lastmod>2019-05-23T15:10:46+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</loc>
+    <loc>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</loc>
     <lastmod>2019-05-22T19:35:04+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/osi-7-layers/</loc>
+    <loc>https://seokbeomkim.github.io/tags/osi-7-layers/</loc>
     <lastmod>2019-05-21T16:10:20+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/osi-7-layers/</loc>
+    <loc>https://seokbeomkim.github.io/posts/osi-7-layers/</loc>
     <lastmod>2019-05-21T16:10:20+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/tcp/</loc>
+    <loc>https://seokbeomkim.github.io/tags/tcp/</loc>
     <lastmod>2019-05-21T15:27:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
+    <loc>https://seokbeomkim.github.io/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
     <lastmod>2019-05-21T15:27:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/udp/</loc>
+    <loc>https://seokbeomkim.github.io/tags/udp/</loc>
     <lastmod>2019-05-21T15:27:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/web/</loc>
+    <loc>https://seokbeomkim.github.io/categories/web/</loc>
     <lastmod>2019-05-21T15:27:08+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/process/</loc>
+    <loc>https://seokbeomkim.github.io/tags/process/</loc>
     <lastmod>2019-05-16T18:59:15+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</loc>
     <lastmod>2019-05-16T18:59:15+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/copy-on-write-cow-or-cow/</loc>
+    <loc>https://seokbeomkim.github.io/posts/copy-on-write-cow-or-cow/</loc>
     <lastmod>2019-05-16T18:24:16+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cow/</loc>
+    <loc>https://seokbeomkim.github.io/tags/cow/</loc>
     <lastmod>2019-05-16T18:24:16+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/implicit-sharing/</loc>
+    <loc>https://seokbeomkim.github.io/tags/implicit-sharing/</loc>
     <lastmod>2019-05-16T18:24:16+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/shadowing/</loc>
+    <loc>https://seokbeomkim.github.io/tags/shadowing/</loc>
     <lastmod>2019-05-16T18:24:16+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/drivers/</loc>
+    <loc>https://seokbeomkim.github.io/tags/drivers/</loc>
     <lastmod>2019-05-16T02:11:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/modules/</loc>
+    <loc>https://seokbeomkim.github.io/tags/modules/</loc>
     <lastmod>2019-05-16T02:11:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
     <lastmod>2019-05-16T02:11:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/nonpreemptive/</loc>
+    <loc>https://seokbeomkim.github.io/tags/nonpreemptive/</loc>
     <lastmod>2019-05-15T18:44:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/scheduling/</loc>
+    <loc>https://seokbeomkim.github.io/tags/scheduling/</loc>
     <lastmod>2019-05-15T18:44:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</loc>
     <lastmod>2019-05-15T18:44:06+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/deadlock/</loc>
+    <loc>https://seokbeomkim.github.io/tags/deadlock/</loc>
     <lastmod>2019-05-15T17:40:14+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</loc>
     <lastmod>2019-05-15T17:40:14+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/default-export/</loc>
+    <loc>https://seokbeomkim.github.io/tags/default-export/</loc>
     <lastmod>2019-05-07T16:30:51+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/named-export/</loc>
+    <loc>https://seokbeomkim.github.io/tags/named-export/</loc>
     <lastmod>2019-05-07T16:30:51+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/named-export%EC%99%80-default-export/</loc>
+    <loc>https://seokbeomkim.github.io/posts/named-export%EC%99%80-default-export/</loc>
     <lastmod>2019-05-07T16:30:51+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/typescript/</loc>
+    <loc>https://seokbeomkim.github.io/categories/typescript/</loc>
     <lastmod>2019-05-07T16:30:51+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/machine-learning/</loc>
+    <loc>https://seokbeomkim.github.io/categories/machine-learning/</loc>
     <lastmod>2019-05-06T17:05:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/scikit-learn/</loc>
+    <loc>https://seokbeomkim.github.io/tags/scikit-learn/</loc>
     <lastmod>2019-05-06T17:05:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/tensorflow/</loc>
+    <loc>https://seokbeomkim.github.io/tags/tensorflow/</loc>
     <lastmod>2019-05-06T17:05:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
     <lastmod>2019-05-06T17:05:11+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
+    <loc>https://seokbeomkim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
     <lastmod>2019-05-06T15:31:38+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
     <lastmod>2019-05-06T15:31:38+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
+    <loc>https://seokbeomkim.github.io/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
     <lastmod>2019-05-06T15:31:38+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/java/</loc>
+    <loc>https://seokbeomkim.github.io/categories/java/</loc>
     <lastmod>2019-05-03T20:38:14+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/nested-class/</loc>
+    <loc>https://seokbeomkim.github.io/tags/nested-class/</loc>
     <lastmod>2019-05-03T20:38:14+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</loc>
     <lastmod>2019-05-03T20:38:14+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/apache_httpd/</loc>
+    <loc>https://seokbeomkim.github.io/tags/apache_httpd/</loc>
     <lastmod>2019-05-03T17:50:32+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/servlet_container/</loc>
+    <loc>https://seokbeomkim.github.io/tags/servlet_container/</loc>
     <lastmod>2019-05-03T17:50:32+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</loc>
     <lastmod>2019-05-03T17:50:32+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/database/</loc>
+    <loc>https://seokbeomkim.github.io/categories/database/</loc>
     <lastmod>2019-05-01T20:29:02+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/shard/</loc>
+    <loc>https://seokbeomkim.github.io/tags/shard/</loc>
     <lastmod>2019-05-01T20:29:02+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</loc>
     <lastmod>2019-05-01T20:29:02+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/restful/</loc>
+    <loc>https://seokbeomkim.github.io/tags/restful/</loc>
     <lastmod>2019-05-01T18:38:22+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</loc>
+    <loc>https://seokbeomkim.github.io/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</loc>
     <lastmod>2019-05-01T18:38:22+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/rmm/</loc>
+    <loc>https://seokbeomkim.github.io/tags/rmm/</loc>
     <lastmod>2019-05-01T18:38:22+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/folding/</loc>
+    <loc>https://seokbeomkim.github.io/tags/folding/</loc>
     <lastmod>2019-05-01T17:56:20+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/folding-in-haskell/</loc>
+    <loc>https://seokbeomkim.github.io/posts/folding-in-haskell/</loc>
     <lastmod>2019-05-01T17:56:20+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
+    <loc>https://seokbeomkim.github.io/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
     <lastmod>2019-05-01T17:29:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/http1.1/</loc>
+    <loc>https://seokbeomkim.github.io/tags/http1.1/</loc>
     <lastmod>2019-05-01T17:29:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/http2/</loc>
+    <loc>https://seokbeomkim.github.io/tags/http2/</loc>
     <lastmod>2019-05-01T17:29:25+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cors/</loc>
+    <loc>https://seokbeomkim.github.io/tags/cors/</loc>
     <lastmod>2019-05-01T17:20:49+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/corscross-origin-resource-sharing/</loc>
+    <loc>https://seokbeomkim.github.io/posts/corscross-origin-resource-sharing/</loc>
     <lastmod>2019-05-01T17:20:49+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/cdn/</loc>
+    <loc>https://seokbeomkim.github.io/tags/cdn/</loc>
     <lastmod>2019-05-01T17:19:18+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</loc>
     <lastmod>2019-05-01T17:19:18+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/host-header/</loc>
+    <loc>https://seokbeomkim.github.io/tags/host-header/</loc>
     <lastmod>2019-05-01T17:16:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/virtual-host/</loc>
+    <loc>https://seokbeomkim.github.io/tags/virtual-host/</loc>
     <lastmod>2019-05-01T17:16:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</loc>
     <lastmod>2019-05-01T17:16:40+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/server-name-indicationsni/</loc>
+    <loc>https://seokbeomkim.github.io/posts/server-name-indicationsni/</loc>
     <lastmod>2019-05-01T17:12:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/sni/</loc>
+    <loc>https://seokbeomkim.github.io/tags/sni/</loc>
     <lastmod>2019-05-01T17:12:34+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/http/</loc>
+    <loc>https://seokbeomkim.github.io/tags/http/</loc>
     <lastmod>2019-05-01T16:53:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/tags/https/</loc>
+    <loc>https://seokbeomkim.github.io/tags/https/</loc>
     <lastmod>2019-05-01T16:53:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
+    <loc>https://seokbeomkim.github.io/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
     <lastmod>2019-05-01T16:53:27+09:00</lastmod>
   </url><url>
-    <loc>https://example.com/diagrams/pgt_diagram/</loc>
+    <loc>https://seokbeomkim.github.io/diagrams/pgt_diagram/</loc>
   </url><url>
-    <loc>https://example.com/diagrams/</loc>
+    <loc>https://seokbeomkim.github.io/diagrams/</loc>
   </url>
 </urlset>

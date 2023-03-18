@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>switch on Hugo</title>
-    <link>https://example.com/tags/switch/</link>
-    <description>Recent content in switch on Hugo</description>
+    <title>switch on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/switch/</link>
+    <description>Recent content in switch on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Feb 2020 23:56:18 +0900</lastBuildDate><atom:link href="https://example.com/tags/switch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Feb 2020 23:56:18 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/switch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>switch 구문과 if-else 구문</title>
-      <link>https://example.com/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
+      <link>https://seokbeomkim.github.io/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
       
-      <guid>https://example.com/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
+      <guid>https://seokbeomkim.github.io/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
       <description>개요 🔗실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다. int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A break; case FLAG_B: // do B break; case blabla: // blabla... break; default: printk(KERN_ERR &amp;#34;ERROR!\n&amp;#34;); } return 0;</description>
     </item>
     

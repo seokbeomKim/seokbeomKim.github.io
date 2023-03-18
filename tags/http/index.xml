@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>http on Hugo</title>
-    <link>https://example.com/tags/http/</link>
-    <description>Recent content in http on Hugo</description>
+    <title>http on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/http/</link>
+    <description>Recent content in http on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 16:53:27 +0900</lastBuildDate><atom:link href="https://example.com/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 May 2019 16:53:27 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTP와 HTTPS의 차이점</title>
-      <link>https://example.com/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
+      <link>https://seokbeomkim.github.io/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       
-      <guid>https://example.com/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
+      <guid>https://seokbeomkim.github.io/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
       <description>HTTP와 HTTPS의 차이점 🔗HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&amp;rsquo;가 나타</description>
     </item>
     

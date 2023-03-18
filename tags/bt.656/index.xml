@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bt.656 on Hugo</title>
-    <link>https://example.com/tags/bt.656/</link>
-    <description>Recent content in bt.656 on Hugo</description>
+    <title>bt.656 on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/bt.656/</link>
+    <description>Recent content in bt.656 on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate><atom:link href="https://example.com/tags/bt.656/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/bt.656/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>영상 출력 포맷</title>
-      <link>https://example.com/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</guid>
       <description>디지널 출력 포맷 🔗아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을</description>
     </item>
     

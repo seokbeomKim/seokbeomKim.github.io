@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kernel on Hugo</title>
-    <link>https://example.com/tags/kernel/</link>
-    <description>Recent content in kernel on Hugo</description>
+    <title>kernel on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/kernel/</link>
+    <description>Recent content in kernel on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 May 2022 01:37:45 +0900</lastBuildDate><atom:link href="https://example.com/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 01:37:45 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Device Tree Overlay</title>
-      <link>https://example.com/posts/device-tree-overlay/</link>
+      <link>https://seokbeomkim.github.io/posts/device-tree-overlay/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
-      <guid>https://example.com/posts/device-tree-overlay/</guid>
+      <guid>https://seokbeomkim.github.io/posts/device-tree-overlay/</guid>
       <description>Ramoops 덕분에 알게된 오버레이 🔗며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면</description>
     </item>
     
     <item>
       <title>리눅스 커널 빌드 시 맥 O/S uuid_t 호환성</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</guid>
       <description>개요 🔗BSD 기반의 맥에서 리눅스 커널 빌드가 안될리 없다고 생각하고 나서 어떻게든 맥에서 리눅스 커널을 빌드하기 위해 이런저런 삽질을 했다. 회사에서의 BSP 업무는</description>
     </item>
     
     <item>
       <title>커널에서의 Object-Oriented Design Pattern</title>
-      <link>https://example.com/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</guid>
       <description>개요 🔗현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패</description>
     </item>
     
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
-      <link>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
+      <link>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       
-      <guid>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
+      <guid>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</description>
     </item>
     

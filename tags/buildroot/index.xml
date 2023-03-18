@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>buildroot on Hugo</title>
-    <link>https://example.com/tags/buildroot/</link>
-    <description>Recent content in buildroot on Hugo</description>
+    <title>buildroot on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/buildroot/</link>
+    <description>Recent content in buildroot on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 May 2019 15:10:46 +0900</lastBuildDate><atom:link href="https://example.com/tags/buildroot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 May 2019 15:10:46 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/buildroot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
-      <link>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
+      <link>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       
-      <guid>https://example.com/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
+      <guid>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</description>
     </item>
     

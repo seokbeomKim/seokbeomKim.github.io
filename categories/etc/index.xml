@@ -1,126 +1,126 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Etc on Hugo</title>
-    <link>https://example.com/categories/etc/</link>
-    <description>Recent content in Etc on Hugo</description>
+    <title>Etc on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/categories/etc/</link>
+    <description>Recent content in Etc on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://example.com/categories/etc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/etc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obsidian</title>
-      <link>https://example.com/posts/obsidian/</link>
+      <link>https://seokbeomkim.github.io/posts/obsidian/</link>
       <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
       
-      <guid>https://example.com/posts/obsidian/</guid>
+      <guid>https://seokbeomkim.github.io/posts/obsidian/</guid>
       <description>Notion에서 Obsidian으로 갈아타기 요즘에 많은 사람들이 노션을 사용한다. 이력서나 개인 위키, 심지어 업무 협업툴로써 사용한다. 필자는 개인 위키</description>
     </item>
     
     <item>
       <title>급성 저음성 난청</title>
-      <link>https://example.com/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</link>
+      <link>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</link>
       <pubDate>Sat, 22 Oct 2022 17:00:05 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</guid>
       <description>지난 월요일 아침 눈을 뜨고 평소처럼 회사 출근 준비를 하려는데 한쪽 귀가 멍하더니 소리가 잘 들리지 않았다. 예전에 백신을 맞고 돌발성 난청이 왔었는데 그 때와는 약간 다</description>
     </item>
     
     <item>
       <title>state vs status</title>
-      <link>https://example.com/posts/state-vs-status/</link>
+      <link>https://seokbeomkim.github.io/posts/state-vs-status/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       
-      <guid>https://example.com/posts/state-vs-status/</guid>
+      <guid>https://seokbeomkim.github.io/posts/state-vs-status/</guid>
       <description>개요 🔗코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “stat</description>
     </item>
     
     <item>
       <title>i3 window manager</title>
-      <link>https://example.com/posts/i3-window-manager/</link>
+      <link>https://seokbeomkim.github.io/posts/i3-window-manager/</link>
       <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
       
-      <guid>https://example.com/posts/i3-window-manager/</guid>
+      <guid>https://seokbeomkim.github.io/posts/i3-window-manager/</guid>
       <description>우분투 데스크탑 환경 삭제하기 🔗개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되</description>
     </item>
     
     <item>
       <title>Emacs에서 magit 최적화하기</title>
-      <link>https://example.com/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       
-      <guid>https://example.com/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블</description>
     </item>
     
     <item>
       <title>WSL 가상 디스크 파일 D 드라이브에 옮기기</title>
-      <link>https://example.com/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</link>
       <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
       
-      <guid>https://example.com/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</guid>
       <description>lxrunoffline 🔗WSL 을 사용하다 보면 디스크 용량이 커져 C 드라이브의 용량이 부족해진다. 용량이 넉넉하면 문제가 없겠지만 필자와 같이 C 드라이브는 O/S만 설치하고 D 드</description>
     </item>
     
     <item>
       <title>WSL 리소스 조정하기</title>
-      <link>https://example.com/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       
-      <guid>https://example.com/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일</description>
     </item>
     
     <item>
       <title>리누즈게이트와 CoC</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</guid>
       <description>자유 발언 🔗구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것</description>
     </item>
     
     <item>
       <title>mu4e 설정하기</title>
-      <link>https://example.com/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       
-      <guid>https://example.com/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르</description>
     </item>
     
     <item>
       <title>이맥스 기본 에디터로 사용하기</title>
-      <link>https://example.com/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
       
-      <guid>https://example.com/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는</description>
     </item>
     
     <item>
       <title>Raspberry Pi를 이용한 사이드 프로젝트</title>
-      <link>https://example.com/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</link>
+      <link>https://seokbeomkim.github.io/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
       
-      <guid>https://example.com/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</guid>
+      <guid>https://seokbeomkim.github.io/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</guid>
       <description>카메라 포팅 건으로 불필요한 업무가 지속적으로 들어온다. 포팅을 위한 기본적인 것들을 자동화 하거나 유틸리티 형태로 제공할 수 있어야 한다는 것을 뼈저리게 느꼈다.</description>
     </item>
     
     <item>
       <title>Wayland과 Weston</title>
-      <link>https://example.com/posts/wayland%EA%B3%BC-weston/</link>
+      <link>https://seokbeomkim.github.io/posts/wayland%EA%B3%BC-weston/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
       
-      <guid>https://example.com/posts/wayland%EA%B3%BC-weston/</guid>
+      <guid>https://seokbeomkim.github.io/posts/wayland%EA%B3%BC-weston/</guid>
       <description>개요 🔗직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을</description>
     </item>
     
     <item>
       <title>command: posix_spawn failed: Resource temporarily unavailable</title>
-      <link>https://example.com/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</link>
+      <link>https://seokbeomkim.github.io/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
       
-      <guid>https://example.com/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</guid>
+      <guid>https://seokbeomkim.github.io/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</guid>
       <description>QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다. 이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무</description>
     </item>
     

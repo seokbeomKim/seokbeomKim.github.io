@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mem on Hugo</title>
-    <link>https://example.com/tags/mem/</link>
-    <description>Recent content in mem on Hugo</description>
+    <title>mem on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/mem/</link>
+    <description>Recent content in mem on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jan 2020 23:30:44 +0900</lastBuildDate><atom:link href="https://example.com/tags/mem/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jan 2020 23:30:44 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/mem/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>/dev/mem vs. /dev/kmem</title>
-      <link>https://example.com/posts/dev/mem-vs.-/dev/kmem/</link>
+      <link>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       
-      <guid>https://example.com/posts/dev/mem-vs.-/dev/kmem/</guid>
+      <guid>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</guid>
       <description>개요 🔗업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이</description>
     </item>
     

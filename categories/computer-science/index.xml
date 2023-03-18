@@ -1,153 +1,153 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Computer Science on Hugo</title>
-    <link>https://example.com/categories/computer-science/</link>
-    <description>Recent content in Computer Science on Hugo</description>
+    <title>Computer Science on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/categories/computer-science/</link>
+    <description>Recent content in Computer Science on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 May 2022 01:37:45 +0900</lastBuildDate><atom:link href="https://example.com/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 May 2022 01:37:45 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/computer-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Device Tree Overlay</title>
-      <link>https://example.com/posts/device-tree-overlay/</link>
+      <link>https://seokbeomkim.github.io/posts/device-tree-overlay/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       
-      <guid>https://example.com/posts/device-tree-overlay/</guid>
+      <guid>https://seokbeomkim.github.io/posts/device-tree-overlay/</guid>
       <description>Ramoops 덕분에 알게된 오버레이 🔗며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면</description>
     </item>
     
     <item>
       <title>Stack Protector와 디버깅 이야기</title>
-      <link>https://example.com/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://example.com/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</guid>
       <description>Stack Protector, 넌 뭐하는 놈이냐? 🔗현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바</description>
     </item>
     
     <item>
       <title>V4L2 Memory Type</title>
-      <link>https://example.com/posts/v4l2-memory-type/</link>
+      <link>https://seokbeomkim.github.io/posts/v4l2-memory-type/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       
-      <guid>https://example.com/posts/v4l2-memory-type/</guid>
+      <guid>https://seokbeomkim.github.io/posts/v4l2-memory-type/</guid>
       <description>개요 🔗최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니</description>
     </item>
     
     <item>
       <title>캐시라인(cache-line) 구조 #2</title>
-      <link>https://example.com/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</guid>
       <description>개요 🔗&amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는</description>
     </item>
     
     <item>
       <title>캐시 라인(Cache-Line)</title>
-      <link>https://example.com/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</link>
       <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</guid>
       <description>캐시를 꼭 사용해야 하나 🔗SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다.</description>
     </item>
     
     <item>
       <title>가상주소와 페이지 테이블 크기</title>
-      <link>https://example.com/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</link>
+      <link>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</guid>
       <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이</description>
     </item>
     
     <item>
       <title>DMIPS (Dhrystone Million Instructions Per Second)</title>
-      <link>https://example.com/posts/dmips-dhrystone-million-instructions-per-second/</link>
+      <link>https://seokbeomkim.github.io/posts/dmips-dhrystone-million-instructions-per-second/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       
-      <guid>https://example.com/posts/dmips-dhrystone-million-instructions-per-second/</guid>
+      <guid>https://seokbeomkim.github.io/posts/dmips-dhrystone-million-instructions-per-second/</guid>
       <description>개요 🔗프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS</description>
     </item>
     
     <item>
       <title>Little Endian vs. Big Endian</title>
-      <link>https://example.com/posts/little-endian-vs.-big-endian/</link>
+      <link>https://seokbeomkim.github.io/posts/little-endian-vs.-big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       
-      <guid>https://example.com/posts/little-endian-vs.-big-endian/</guid>
+      <guid>https://seokbeomkim.github.io/posts/little-endian-vs.-big-endian/</guid>
       <description>개요 🔗빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다. 엔디안(Endianness</description>
     </item>
     
     <item>
       <title>영상 출력 포맷</title>
-      <link>https://example.com/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</guid>
       <description>디지널 출력 포맷 🔗아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을</description>
     </item>
     
     <item>
       <title>색 공간(Color Space)</title>
-      <link>https://example.com/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
       <description>색 공간 포맷 🔗업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다</description>
     </item>
     
     <item>
       <title>부트로더(Bootloader)</title>
-      <link>https://example.com/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</guid>
       <description>이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해</description>
     </item>
     
     <item>
       <title>RCU (Read, Copy, Update)</title>
-      <link>https://example.com/posts/rcu-read-copy-update/</link>
+      <link>https://seokbeomkim.github.io/posts/rcu-read-copy-update/</link>
       <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
       
-      <guid>https://example.com/posts/rcu-read-copy-update/</guid>
+      <guid>https://seokbeomkim.github.io/posts/rcu-read-copy-update/</guid>
       <description>1. 들어가기 전에 &amp;hellip; 🔗앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (4/5)</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</link>
       <pubDate>Tue, 04 Jun 2019 16:40:28 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</guid>
       <description>BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (3/5)</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</link>
       <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</guid>
       <description>이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (2/5)</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</guid>
       <description>지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (1/5)</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</link>
       <pubDate>Tue, 28 May 2019 17:45:51 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
 세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이
@@ -157,46 +157,46 @@
     
     <item>
       <title>지피(Jiffies)</title>
-      <link>https://example.com/posts/%EC%A7%80%ED%94%BCjiffies/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%A7%80%ED%94%BCjiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
       <description>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시</description>
     </item>
     
     <item>
       <title>OSI 7-Layers</title>
-      <link>https://example.com/posts/osi-7-layers/</link>
+      <link>https://seokbeomkim.github.io/posts/osi-7-layers/</link>
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
       
-      <guid>https://example.com/posts/osi-7-layers/</guid>
+      <guid>https://seokbeomkim.github.io/posts/osi-7-layers/</guid>
       <description>네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보</description>
     </item>
     
     <item>
       <title>커널 해킹: 프로세스</title>
-      <link>https://example.com/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</link>
       <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</guid>
       <description>앞으로 리눅스 커널 공부를 해가면서 포스팅으로 정리해둘 계획이다. 디바이스 드라이버 개발 이전에 리눅스라는 운영체제에 대해 개인적으로 정리해야할 필요성을 느꼈</description>
     </item>
     
     <item>
       <title>Copy on Write (CoW or COW)</title>
-      <link>https://example.com/posts/copy-on-write-cow-or-cow/</link>
+      <link>https://seokbeomkim.github.io/posts/copy-on-write-cow-or-cow/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       
-      <guid>https://example.com/posts/copy-on-write-cow-or-cow/</guid>
+      <guid>https://seokbeomkim.github.io/posts/copy-on-write-cow-or-cow/</guid>
       <description>Copy-on-write은 리눅스 커널의 fork() 함수에서 사용하는 기법이다. 전통적인 fork()는 부모 프로세스의 모든 자원을 복사해 자식 프로세스에게 넘겨</description>
     </item>
     
     <item>
       <title>교착상태(Deadlock)</title>
-      <link>https://example.com/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</link>
+      <link>https://seokbeomkim.github.io/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</link>
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</guid>
       <description>교착 상태(Deadlock) 🔗두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결</description>
     </item>
     

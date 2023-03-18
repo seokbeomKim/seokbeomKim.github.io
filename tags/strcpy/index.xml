@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>strcpy on Hugo</title>
-    <link>https://example.com/tags/strcpy/</link>
-    <description>Recent content in strcpy on Hugo</description>
+    <title>strcpy on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/strcpy/</link>
+    <description>Recent content in strcpy on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Oct 2022 14:00:05 +0900</lastBuildDate><atom:link href="https://example.com/tags/strcpy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 14:00:05 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/strcpy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>strcpy</title>
-      <link>https://example.com/posts/strcpy/</link>
+      <link>https://seokbeomkim.github.io/posts/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       
-      <guid>https://example.com/posts/strcpy/</guid>
+      <guid>https://seokbeomkim.github.io/posts/strcpy/</guid>
       <description>개요 🔗한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는</description>
     </item>
     

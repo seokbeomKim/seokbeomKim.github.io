@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>state on Hugo</title>
-    <link>https://example.com/tags/state/</link>
-    <description>Recent content in state on Hugo</description>
+    <title>state on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/state/</link>
+    <description>Recent content in state on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Feb 2021 12:27:08 +0900</lastBuildDate><atom:link href="https://example.com/tags/state/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 12:27:08 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/state/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>state vs status</title>
-      <link>https://example.com/posts/state-vs-status/</link>
+      <link>https://seokbeomkim.github.io/posts/state-vs-status/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       
-      <guid>https://example.com/posts/state-vs-status/</guid>
+      <guid>https://seokbeomkim.github.io/posts/state-vs-status/</guid>
       <description>개요 🔗코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “stat</description>
     </item>
     

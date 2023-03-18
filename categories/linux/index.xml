@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on Hugo</title>
-    <link>https://example.com/categories/linux/</link>
-    <description>Recent content in linux on Hugo</description>
+    <title>linux on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/categories/linux/</link>
+    <description>Recent content in linux on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jul 2020 16:25:23 +0900</lastBuildDate><atom:link href="https://example.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jul 2020 16:25:23 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>커널에서의 Object-Oriented Design Pattern</title>
-      <link>https://example.com/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</guid>
       <description>개요 🔗현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패</description>
     </item>
     
