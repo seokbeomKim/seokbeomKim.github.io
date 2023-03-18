@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>색 공간(Color Space) | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="색 공간 포맷 🔗업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">색 공간(Color Space)</h1>
+
+    <div class="tip">
+        <time datetime="2020-01-26 16:39:36 &#43;0900 KST">Jan 26, 2020</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1614 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          4 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rgb-8-bits">RGB 8 BITS</a></li>
+    <li><a href="#rgb-16-bits">RGB 16 BITS</a></li>
+    <li><a href="#rgb-24-bits">RGB 24 BITS</a></li>
+    <li><a href="#rgb-32-bits">RGB 32 BITS</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#rgb-to-yuv-변환">RGB-to-YUV 변환</a>
+      <ul>
+        <li><a href="#일반적인-rgb-to-yuv-예제">일반적인 RGB-to-YUV 예제</a></li>
+      </ul>
+    </li>
+    <li><a href="#sub-sampling-에-따른-포맷">Sub-Sampling 에 따른 포맷</a>
+      <ul>
+        <li><a href="#yuv444">YUV444</a></li>
+        <li><a href="#yuv422">YUV422</a></li>
+        <li><a href="#yuv411">YUV411</a></li>
+        <li><a href="#yuv420">YUV420</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="색-공간-포맷">색 공간 포맷 <a href="#%ec%83%89-%ea%b3%b5%ea%b0%84-%ed%8f%ac%eb%a7%b7" class="anchor">🔗</a></h1><p>업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.</p>
+<p>색 포맷에 대한 비트 구성은 표준에 따르지 않고 각 플랫폼 환경에 따라 달라지므로 SoC 데이터시트를 참고하여 컴포넌트에서 어떻게 구성되는지 확인해야 한다.</p>
+<h1 id="rgb">RGB <a href="#rgb" class="anchor">🔗</a></h1><p>RGB의 대표적인 포맷으로는 <code>ARGB8888</code>, <code>RGB888</code> 등이 있다. 각 채널 별로 2 bytes 씩이다. R/G/B 각각의 색상 정보에 대한 모든 정보를 가지고 있기 때문에 색 표현에 있어서 정확하지만 픽셀 한 개를 위해 필요한 비트가 최소 24비트나 차지하기 때문에 데이터 전송 면에 있어서 YUV 포맷보다 비효율적이다.</p>
+<h2 id="rgb-8-bits">RGB 8 BITS <a href="#rgb-8-bits" class="anchor">🔗</a></h2><p>RGB 8비트는 모든 색상 중에서 256개만을 선택하여 사용하며 모든 색상을 한번에 다 표현하지 못하기 때문에 팔레트라는 개념을 사용한다. 8비트 색상 정보는 256개의 팔레트 정보를 가지고 있고, 1 바이트의 점을 표현하는데, 이 때 1 바이트에 해당하는 것을 인덱스 컬러라고 하며, 어떤 팔레트인지를 나타낸다.</p>
+<h2 id="rgb-16-bits">RGB 16 BITS <a href="#rgb-16-bits" class="anchor">🔗</a></h2><p>8비트 RGB와는 달리 팔레트 개념이 없으며 RGB 요소를 공평하게 갖기 위해 5 비트씩 구성하거나 G 색상에 6 비트를 할당하여 <code>RGB555</code>, <code>RGB565</code> 등으로 나뉜다.</p>
+<h2 id="rgb-24-bits">RGB 24 BITS <a href="#rgb-24-bits" class="anchor">🔗</a></h2><p>16비트 RGB에서 5비트씩 나눈 것을 8비트씩 나눈 포맷이다.</p>
+<h2 id="rgb-32-bits">RGB 32 BITS <a href="#rgb-32-bits" class="anchor">🔗</a></h2><p>Alpha 채널이 추가된 RGB 형식으로 ARGB8888, RGBA8888 등의 포맷이 있다.</p>
+<h1 id="yuv">YUV <a href="#yuv" class="anchor">🔗</a></h1><p>색상을 나타내기 위해 삼원색을 표현하는 RGB 방식과 달리 빛의 밝기를 나타내는 휘도(Y)와 색상 신호(U, V)로 표현하는 방식이다. 티비나 비디오 카메라에서 많이 사용하는 방식이며, 사람의 눈이 색상 신호보다 밝기 신호에 더 둔하다는 점을 고려하여 만든 색 공간이기에 실제 RGB 신호와 YUV 신호의 차이를 잘 느끼지 못한다.</p>
+<p>YUV는 Packed format 과 Planar format 등으로 아래와 같이 나눌 수 있다.</p>
+<ul>
+<li>
+<p>Packed format: Y와 UV가 섞여 macro pixel을 이루는 방식 (YUYV a.k.a. {YUY2, YUNV, V422}, UYVY a.k.a. {Y422, UYNV})</p>
+<p><p class="markdown-image">
+  <img src="/img/packed_format.png" alt="Packed Format"  />
+</p></p>
+</li>
+<li>
+<p>Planar format: Y, UV가 각각의 다른 영역에 나뉘어 픽셀 정보를 이루는 방식 (YUV422, YUV420(NV12, NV21))</p>
+<p><p class="markdown-image">
+  <img src="/img/planar_format.png" alt="Planar Format"  />
+</p></p>
+</li>
+</ul>
+<h2 id="rgb-to-yuv-변환">RGB-to-YUV 변환 <a href="#rgb-to-yuv-%eb%b3%80%ed%99%98" class="anchor">🔗</a></h2><p>YUV 데이터는 일반적으로 RGB 데이터를 변환하여 얻을 수 있으며, 일반적인 변환 공식은 아래와 같다. 변환 공식은 영상 출력에 사용하는 표준 또는 포맷에 따라 달라질 수 있다. <code>BT.601</code>의 경우 아래와 같다.</p>
+<p>$$
+W_R = 0.299, \\
+W_G = 1 - W_R - W_B = 0.587, \\
+W_B = 0.114,\\
+U_{max} = 0.436,\\
+V_{max} = 0.615$$</p>
+<p>이 때, RGB 채널 각각에 대한 가중치를 이용하여 Y, U, V 채널 값을 아래와 같이 구할 수 있다.</p>
+<p>$$Y' = W_RR + W_GG + W_BB = 0.299R + 0.587G + 0.114B,\\U = U_{max}((B - Y')/(1 - W_R)) =~ 0.492 (B - Y'),\\V=V_{max}(R-Y')/(1-W_R) = 0.877(R-Y')$$</p>
+<p>BT.809의 경우는 R과 B에 대한 가중치를 아래와 같이 갖는다.</p>
+<p>$$W_R=0.2126, W_B=0.0722$$</p>
+<h3 id="일반적인-rgb-to-yuv-예제">일반적인 RGB-to-YUV 예제 <a href="#%ec%9d%bc%eb%b0%98%ec%a0%81%ec%9d%b8-rgb-to-yuv-%ec%98%88%ec%a0%9c" class="anchor">🔗</a></h3><p>출처에서 가져온 변환 예제로 사용하는 표준, 포맷, 환경에 따라 가중치를 다르게 하여 변환할 수 있다.</p>
+<p><p class="markdown-image">
+  <img src="/img/RGB-to-YUV.png" alt="RGB-to-YUV"  />
+</p></p>
+<h2 id="sub-sampling-에-따른-포맷">Sub-Sampling 에 따른 포맷 <a href="#sub-sampling-%ec%97%90-%eb%94%b0%eb%a5%b8-%ed%8f%ac%eb%a7%b7" class="anchor">🔗</a></h2><p>같은 YUV 포맷이라도 해도, 이를 다시 서브샘플링하여 압축함으로써 전송 효율을 높일 수 있다. 이 때, YUV 의 각 채널에 대한 기호로 아래와 같이 나타낸다.</p>
+<p>$$Y: Y, \\U: P_B(orC_B)\\V:P_R(orC_R)$$</p>
+<h3 id="yuv444">YUV444 <a href="#yuv444" class="anchor">🔗</a></h3><p>원본 YUV 색상으로서 Y가 4 바이트 사용될 때 U와 V 채널에도 각각 4바이트를 사용한다. 왼쪽에서 오른쪽으로 픽셀 배열이 있다고 가정했을 때, 세로로 표현한 픽셀 한 개를 구성하는 각 채널은 Y', Cb, Cr 모두 동일한 비율로 구성되어 있다. 메모리 상으로 살펴 보았을 때, <code>YCbCr, YCbCr, ...</code> 등이 된다.</p>
+<p><p class="markdown-image">
+  <img src="/img/yuv444.png" alt="YUV444"  />
+</p></p>
+<h3 id="yuv422">YUV422 <a href="#yuv422" class="anchor">🔗</a></h3><p>YUV444와 달리 Cb, Cr 채널에 대해 픽셀 두 개에 대한 Cb, Cr 정보를 한 개로 하여 서브샘플링한 것을 나타낸다. 즉, Y 값이 두 개 올 때 나머지 채널은 1개씩 오게 되어 결국 4:2:2 의 비율을 갖게 된다. 메모리 상으로 살펴 보았을 때, <code>YCbYCr, YCbYCr, ...</code> 등이 된다.</p>
+<p><p class="markdown-image">
+  <img src="/img/yuv422.png" alt="YUV422"  />
+</p></p>
+<h3 id="yuv411">YUV411 <a href="#yuv411" class="anchor">🔗</a></h3><p>이전까지 다뤘던 내용처럼 밝기 신호인 Y가 4바이트 올 때 U, V 신호가 각각 1바이트씩 위치한다.</p>
+<p><p class="markdown-image">
+  <img src="/img/yuv411.png" alt="YUV411"  />
+</p></p>
+<p>메모리 상으로 살펴보면 YYYCb, YYYCr, YYYCb, YYYCr, &hellip; 등이 된다. 밝기에 비해 색상의 해상도가 <code>1/4</code>로 떨어진다.</p>
+<h3 id="yuv420">YUV420 <a href="#yuv420" class="anchor">🔗</a></h3><p>안드로이드 카메라 클래스에서 제공하는 YUV 데이터 포맷이다. 12비트 데이터 포맷으로 4가지 종류 (YV12, NV12, IMC2, IMC4 등)가 존재하며, Y가 4개 오면 U와 V가 1바이트씩 위치하며 4개의 Y값이 U와 V값을 공유한다. YYYYCb, YYYYCr, YYYYCb , YYYYCr, &hellip; 등의 메모리 구성을 갖는다.</p>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://m.blog.naver.com/PostView.nhn?blogId=wndrlf2003&amp;logNo=220253497246&amp;proxyReferer=https%3A%2F%2Fwww.google.com%2F" target="_blank" rel="noopener">https://m.blog.naver.com/PostView.nhn?blogId=wndrlf2003&amp;logNo=220253497246&amp;proxyReferer=https%3A%2F%2Fwww.google.com%2F</a></li>
+<li><a href="https://en.wikipedia.org/wiki/YUV#Y%E2%80%B2UV411_to_RGB888_conversion" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/YUV#Y′UV411_to_RGB888_conversion</a></li>
+<li><a href="https://imagej.tistory.com/150" target="_blank" rel="noopener">https://imagej.tistory.com/150</a></li>
+<li><a href="https://seoduckchan.tistory.com/entry/yuv-color" target="_blank" rel="noopener">https://seoduckchan.tistory.com/entry/yuv-color</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/rgb">rgb</a>
+            
+                <a href="https://example.com/tags/yuv">yuv</a>
+            
+                <a href="https://example.com/tags/colorspace">colorspace</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VPN on 범&#39;s 개발 블로그</title>
+    <link>https://seokbeomKim.github.io/tags/vpn/</link>
+    <description>Recent content in VPN on 범&#39;s 개발 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Feb 2022 17:23:15 +0900</lastBuildDate><atom:link href="https://seokbeomKim.github.io/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WSL2 - VPN 문제 해결하기</title>
+      <link>https://seokbeomKim.github.io/posts/wsl2/</link>
+      <pubDate>Sat, 12 Feb 2022 17:23:15 +0900</pubDate>
+      
+      <guid>https://seokbeomKim.github.io/posts/wsl2/</guid>
+      <description>Visual Studio Code의 한계 Yocto와 C언어 기반의 리눅스 커널과 U-Boot 부트로더에서 작업하는 업무 조건에서 Visual studio code의 몇몇 한계가 있었다. 기본으로 제공하는 C/C++ 플러그인의 태깅 기능의 성능이 너무 안좋았고 확장 프로그램들이 사용하는 리소스가 너무 많았다.
+우선, 마이크로소프트에서 제공하는 C/C++ 플러그인이 불편하다. 커널과 같이 코드량이 방대한 경우 전체를 파싱하는데 오랜 시간이 걸리기 때문이다. 업무 특성상 여러 개의 SDK를 다뤄야하는데, 매번 받을 때마다 상당한 리소스와 시간이 코드를 파싱하는데 소모되었다. 대체 가능한 플러그인들이 있지만 어느 것도 안정화가 잘 되었다는 느낌을 주지 못했다.</description>
+    </item>
+    
+  </channel>
+</rss>

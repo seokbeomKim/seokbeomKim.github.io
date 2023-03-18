@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>파티셔닝(Partitioning)과 샤딩(Sharding) | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="개요 🔗데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">파티셔닝(Partitioning)과 샤딩(Sharding)</h1>
+
+    <div class="tip">
+        <time datetime="2019-05-01 20:29:02 &#43;0900 KST">May 1, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2368 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#장점">장점</a></li>
+        <li><a href="#단점">단점</a></li>
+      </ul>
+    </li>
+    <li><a href="#파티셔닝-범위">파티셔닝 범위</a></li>
+    <li><a href="#파티셔닝-방법">파티셔닝 방법</a>
+      <ul>
+        <li><a href="#horizontal-partitioning">Horizontal Partitioning</a></li>
+        <li><a href="#vertical-partitioning">Vertical Partitioning</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#hphorizontal-partitioning과-샤딩sharding-비교">HP(Horizontal Partitioning)과 샤딩(Sharding) 비교</a></li>
+    <li><a href="#샤딩sharding의-한계">샤딩(Sharding)의 한계</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <!-- toc -->
+<h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>데이터베이스에 관련된 문서를 보다보니 <code>Partition</code>, <code>Sharding</code>이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그
+대로 데이터베이스를 여러 개로 나누어 분산시키기 위한 기술 용어들인데 모두 서비스 크기 증가에 따른 DB 크기 증가, 성능 이슈에 따른 것이다.
+일명 VLDB(Very Large DBMS)라 불리는, DBMS 하나로 전체 데이터베이스를 다룰 수 없는 데이터베이스가 자연스럽게 등장하였고
+DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생기게 되었는데 이를 해결하기 위한 것이 바로 <code>파티셔닝(partitioning) 과 샤딩(Sharding)</code>이다.</p>
+<h1 id="파티셔닝partitioning">파티셔닝(Partitioning) <a href="#%ed%8c%8c%ed%8b%b0%ec%85%94%eb%8b%9dpartitioning" class="anchor">🔗</a></h1><p>큰 테이블이나 인덱스를 관리하기 쉬운 크기로 분리하는 방법이다.</p>
+<h3 id="장점">장점 <a href="#%ec%9e%a5%ec%a0%90" class="anchor">🔗</a></h3><ol>
+<li>가용성(Availability): 물리적인 노드 분리에 따라 전체 DB 내의 데이터 손상 가능성이 줄어들고, 데이터 가용성이 향상된다.</li>
+<li>관리 용이성(Manageability): 큰 테이블을 제거하여 관리를 쉽게 할 수 있다.</li>
+<li>성능(Performance): 특정 DML(Data Manipuation Language)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>과 Query 성능을 향상시키며 대용량 데이터 <code>write</code> 환경에서 효율적이다.</li>
+</ol>
+<ul>
+<li><code>insert</code>가 많은 OLTP(Online Transaction Processing)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> 시스템에서 insert 작업들을 로드 밸런싱을 통해 분산시켜 성능상의 이점이 있다.</li>
+</ul>
+<h3 id="단점">단점 <a href="#%eb%8b%a8%ec%a0%90" class="anchor">🔗</a></h3><ol>
+<li>테이블 간 <code>join</code> 비용 증가</li>
+<li>파티션 제약: 테이블과 인덱스를 별도로 파티션 할 수 없다.</li>
+</ol>
+<h2 id="파티셔닝-범위">파티셔닝 범위 <a href="#%ed%8c%8c%ed%8b%b0%ec%85%94%eb%8b%9d-%eb%b2%94%ec%9c%84" class="anchor">🔗</a></h2><ol>
+<li>Range Partitioning</li>
+</ol>
+<ul>
+<li>연속적인 숫자나 날짜 기준으로 파티셔닝한다.</li>
+<li>손쉬운 관리 기법 제공에 따라 관리 시간을 단축할 수 있다.</li>
+<li>우편번호, 일별, 월별, 분기별 등의 데이터에 적합하다.</li>
+</ul>
+<ol start="2">
+<li>List Partitioning</li>
+</ol>
+<ul>
+<li>특정 Partition에 저장될 데이터에 대한 명시적 제어가 가능하다.</li>
+<li>분포도가 비슷하여 많은 SQL에서 해당 컬럼의 조건이 많이 들어오는 경우에 유용하다.</li>
+<li>Multi-Column Partition Key를 제공하기 힘들다.</li>
+<li>(한국, 일본, 중국 -&gt; 아시아)(노르웨이, 스웨덴, 핀란드 -&gt; 북유럽) 등의 예시 가능</li>
+</ul>
+<ol start="3">
+<li>Composite Partitioning</li>
+</ol>
+<ul>
+<li>Composite Partition은 파티션의 Sub-Partitioning을 말한다.</li>
+<li>큰 파티션에 대한 I/O 요청을 여러 파티션으로 분산할 수 있다.</li>
+<li>Range Partitioning을 수행할 수 있는 컬럼이 있지만 파티셔닝을 수행한 결과의 파티션이 너무 커서 효과적으로 관리할 수 없을 때 유용하다.</li>
+<li>Range-List, Range-Hash</li>
+</ul>
+<ol start="4">
+<li>Hash Partitioning</li>
+</ol>
+<ul>
+<li>Partition Key의 해시값에 의한 파티셔닝(데이터 균등 분할 가능)</li>
+<li>Select시 조건과 무관하게 병렬 Degree 제공 (질의 성능 향상)</li>
+<li>특정 데이터가 어느 Hash Partition에 있는지 판단 불가</li>
+<li>Hash Partition은 파티션을 위한 범위가 없는 데이터에 적합</li>
+</ul>
+<h2 id="파티셔닝-방법">파티셔닝 방법 <a href="#%ed%8c%8c%ed%8b%b0%ec%85%94%eb%8b%9d-%eb%b0%a9%eb%b2%95" class="anchor">🔗</a></h2><h3 id="horizontal-partitioning">Horizontal Partitioning <a href="#horizontal-partitioning" class="anchor">🔗</a></h3><ul>
+<li>데이터 개수를 기준으로 나누어 Partitioning 하는 방법이다. <code>Sharding</code>이 Horizontal Partitioning과 관련되는데, <code>같은 테이블 스키마를 가진 데이터를 데이터베이스 여러 개에 분산하여 저장하는 방법을 일컫는 용어이기 때문이다. 때문에 </code>Sharding<code>을 </code>Horizontal Partition`이라고 볼 수도 있다.</li>
+</ul>
+<h3 id="vertical-partitioning">Vertical Partitioning <a href="#vertical-partitioning" class="anchor">🔗</a></h3><ul>
+<li>테이블의 컬럼을 기준으로 데이터를 나눈다.</li>
+<li>이미 정규화된 데이터를 분리하는 과정으로 생각해야 한다.</li>
+<li>자주 사용하는 컬럼을 분리하여 성능 향상을 꾀할 수 있다.</li>
+</ul>
+<h1 id="샤딩-sharding">샤딩, Sharding <a href="#%ec%83%a4%eb%94%a9-sharding" class="anchor">🔗</a></h1><p>DBMS 한 개로 처리할 수 있는 데는 한계가 있으므로 데이터베이스 여러 개를 사용하는 방식으로 데이터 조회 한계를 극복해야 한다. 이를 위해 분산 환경을 고려해 만들어진 데이터베이스를 이용하는 방법도 있지만 범위 검색에 취약하거나 JOIN 연산을 사용할 수 없는 등 기능에 제약이 많다. 따라서 상대적으로 풍부한 기능을 사용하면서 데이터 확장을 꾀할 수 있는 방법은 RDBMS를 샤딩(sharding)하여 사용하는 것이다. 계속 증가하는 데이터에 장애 없이 효과적으로 대응할 수 있어야 하고 서비스마다 다른 데이터 특성과 모델에 어떻게 대처할 것인가가 샤딩 플랫폼의 핵심이다.</p>
+<h2 id="hphorizontal-partitioning과-샤딩sharding-비교">HP(Horizontal Partitioning)과 샤딩(Sharding) 비교 <a href="#hphorizontal-partitioning%ea%b3%bc-%ec%83%a4%eb%94%a9sharding-%eb%b9%84%ea%b5%90" class="anchor">🔗</a></h2><p>수평 분할(Horizontal Partitioning)이란 스키마가 같은 데이터를 두 개 이상의 테이블에 나누어 저장하는 디자인을 말한다. 가령 같은 주민 데이터를 처리하기 위해 스키마가 같은 &lsquo;서현동주민 테이블&rsquo;과 &lsquo;정자동주민 테이블&rsquo;을 사용하는 것을 말한다. 인덱스의 크기를 줄이고, 작업 동시성을 늘리기 위한 것이다. <strong>보통 수평 분할을 한다고 했을 때는 하나의 데이터베이스 안에서 이루어지는 경우를 지칭한다.</strong></p>
+<p>이에 비해, 샤딩은 물리적으로 다른 데이터베이스에 데이터를 수평 분할 방식으로 분산 저장하고 조회하는 방법을 말한다. &lsquo;주민&rsquo; 테이블이 여러 DB에 있을 때 서현동 주민에 대한 정보는 A DB에, 정자동 주민에 대한 정보는 B DB에 저장되도록 하는 방식이다. 여러 데이터베이스를 대상으로 작업해야 하기 때문에 경우에 따라서는 (JOIN 등) 기능에 제약이 있을 수 있고 일관성(consistency)과 복제(replication) 등에서 불리한 점이 많다. 예전의 샤딩은 애플리케이션 서버 레벨에서 구현하는 경우가 많았지만 최근에는 이를 플랫폼 차원에서 제공한다.</p>
+<p>&hellip; (중략)</p>
+<h2 id="샤딩sharding의-한계">샤딩(Sharding)의 한계 <a href="#%ec%83%a4%eb%94%a9sharding%ec%9d%98-%ed%95%9c%ea%b3%84" class="anchor">🔗</a></h2><p>샤딩의 대표적인 제약 사항은 아래와 같다.</p>
+<ul>
+<li>두 개 이상의 샤드에 대한 JOIN 연산을 할 수 없다.</li>
+<li>auto increment 등은 샤드 별로 달라질 수 있다.</li>
+<li>last_insert_id() 값은 유효하지 않다.</li>
+<li>shard key column 값은 update하면 안된다.</li>
+<li>하나의 트랜잭션에서 두 개 이상의 샤드에 접근할 수 없다.</li>
+</ul>
+<p>따라서, 샤딩을 사용할 때는 위와 같은 제약 사항에 문제가 되지 않도록 데이터 모델링을 하는 것이 중요하다.</p>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://nesoy.github.io/articles/2018-05/Database-Shard" target="_blank" rel="noopener">https://nesoy.github.io/articles/2018-05/Database-Shard</a></li>
+<li><a href="https://nesoy.github.io/articles/2018-02/Database-Partitioning" target="_blank" rel="noopener">https://nesoy.github.io/articles/2018-02/Database-Partitioning</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shard_%28database_architecture%29" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Shard_(database_architecture)</a></li>
+<li><a href="http://bcho.tistory.com/670" target="_blank" rel="noopener">Sharding &amp; Query Off Loading</a></li>
+<li><a href="https://d2.naver.com/helloworld/14822" target="_blank" rel="noopener">https://d2.naver.com/helloworld/14822</a></li>
+</ul>
+<h1 id="각주">각주 <a href="#%ea%b0%81%ec%a3%bc" class="anchor">🔗</a></h1><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>&lsquo;데이터 조작어&rsquo;라고 부르며 SELECT, INSERT, UPDATE, DELETE 등의 명령어가 여기에 포함된다. 그 외에 &lsquo;데이터 정의어&rsquo;(DDL: CREATE/ALTER/DROP/RENAME/TRUNCATE), 데이터 제어어(GRANT/REVOKE), 트랜잭션 제어어(TLC: COMMIT/ROLLBACK/SAVEPOINT) 등이 있다. 자세한 것은 <a href="http://brownbears.tistory.com/180" target="_blank" rel="noopener">http://brownbears.tistory.com/180</a> 참고&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>컴퓨터 시스템을 사용하는 트랜잭션 데이터 관리를 온라인 트랜잭션 처리(OLTP)라고 한다. OLTP 시스템은 조직의 일상적인 작업에서 발생하는 비지니스 상호작용을 기록하고 이 데이터를 쿼리하여 유추할 수 있도록 지원한다.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/partition">partition</a>
+            
+                <a href="https://example.com/tags/shard">shard</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

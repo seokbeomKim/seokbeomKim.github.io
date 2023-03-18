@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kobject on Hugo</title>
+    <link>https://example.com/tags/kobject/</link>
+    <description>Recent content in kobject on Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jan 2020 22:25:50 +0900</lastBuildDate><atom:link href="https://example.com/tags/kobject/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kobject</title>
+      <link>https://example.com/posts/kobject/</link>
+      <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
+      
+      <guid>https://example.com/posts/kobject/</guid>
+      <description>kobjects, ktypes, ksets 🔗디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다. 61 struct</description>
+    </item>
+    
+  </channel>
+</rss>

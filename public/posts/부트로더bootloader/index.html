@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>부트로더(Bootloader) | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">부트로더(Bootloader)</h1>
+
+    <div class="tip">
+        <time datetime="2019-06-23 22:47:44 &#43;0900 KST">Jun 23, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1648 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          4 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#타깃-초기화">타깃 초기화</a></li>
+    <li><a href="#타깃-동작-환경-설정">타깃 동작 환경 설정</a></li>
+    <li><a href="#시스템-운영체제-부팅">시스템 운영체제 부팅</a></li>
+    <li><a href="#플래시-메모리-관리">플래시 메모리 관리</a></li>
+    <li><a href="#모니터-기능">모니터 기능</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <!--toc-->
+<p>이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해
+중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를
+탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램,
+네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.</p>
+<p>브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output
+System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면
+메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽
+카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test)
+과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를
+찾아 부팅한다.</p>
+<h1 id="부트로더의-역할">부트로더의 역할 <a href="#%eb%b6%80%ed%8a%b8%eb%a1%9c%eb%8d%94%ec%9d%98-%ec%97%ad%ed%95%a0" class="anchor">🔗</a></h1><h2 id="타깃-초기화">타깃 초기화 <a href="#%ed%83%80%ea%b9%83-%ec%b4%88%ea%b8%b0%ed%99%94" class="anchor">🔗</a></h2><p>부트로더는 전원이 입력되면 타깃이 정상 동작하도록 하드웨어 및
+소프트웨어 환경을 설정한다. 이 과정은 시스템 리셋 핸들러의 동작과
+같다. 불필요한 하드웨어의 동작 중지, 시스템 클록 설정, 메모리 제어기
+설정, 필요에 따라 MMU(Memory Management Unit)나 MPU(Micro-Processing
+Unit)를 설정한다.</p>
+<p>시스템 동작에 필요한 하드웨어 설정이 완료된 후에는 실제 프로그램
+동작에 필요한 재배치와 스택 영역 설정 및 C에서 사용하는 변수 영역을
+설정한 다음 C로 작성된 함수를 호출한다. 필요에 따라 IRQ와 같은 예외
+처리 벡터 및 핸들러도 제공해야 한다.</p>
+<h2 id="타깃-동작-환경-설정">타깃 동작 환경 설정 <a href="#%ed%83%80%ea%b9%83-%eb%8f%99%ec%9e%91-%ed%99%98%ea%b2%bd-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>타깃의 동작 환경 설정은 BIOS의 CMOS 설정과 유사하며, 부트 방법, 부트
+디바이스, 네트워크를 이용한 부트를 지원하기 위한 네트워크 설정, IP
+주소 설정 등 부트로더 동작에 필요한 정보를 설정한다.</p>
+<p><strong>일반적으로 설정된 환경 변수값은 플래시 메모리 또는 EEPROM에 저장
+관리된다.</strong></p>
+<p><strong>EEPROM vs. 플래시 메모리</strong><br><br>
+이 둘의 공통점은 <strong>임베디드 분야에서 저장장치로 사용되는 메모리</strong>라는
+점이다. 흔히, PC에 비유해보자면 EEPROM을 BIOS로, 플래시 메모리는
+하드디스크로 비유할 수 있겠다.</p>
+<p>EEPROM(Electrically Erasable PROM)은 On-Board 상태에서 사용자가 내용을
+바이트 단위로 읽거나 쓸 수 있으므로 사실상 SRAM 처럼 사용할 수 있는
+비휘발성 메모리이다. 하지만 읽기 동작은 다소 느릴지라도 SRAM과
+유사하여 별 문제가 없지만 쓰기 동작을 수행하는 경우에 1 바이트를 write
+할 때마다 수 ms 이상의 지연 시간이 필요하여 SRAM과 동일하게 사용될 수
+없다. 따라서 EEPROM은 실시간으로 사용되는 변수를 저장하는 메모리로써는
+사용 불가능하고 <strong>지워져서는 안되는 중요한 데이터를 백업해 둬야 하는
+설정값 저장용 메모리</strong>로 주로 사용된다. 이 메모리 소자는 28Cxxx의
+형태로 이름을 짓는 경우가 많다.</p>
+<p>플래시 메모리는 흔히 디지털 카메라, 스마트폰을 예로 들 수
+있다. 일반적인 데이터를 저장하고 컴퓨터 사이에 데이터를 옮기는
+용도로서 USB 드라이브를 사용하는데 이 때도 플래시 메모리가
+사용된다. 임베디드용 하드디스크라고 생각하면 쉬우며, NOR 플래시
+메모리와 달리 NAND 플래시 메모리의 경우는 주소가 없기 때문에 저장된
+코드를 곧바로 실행할 수 없다는 단점을 가지고 있다.</p>
+<h2 id="시스템-운영체제-부팅">시스템 운영체제 부팅 <a href="#%ec%8b%9c%ec%8a%a4%ed%85%9c-%ec%9a%b4%ec%98%81%ec%b2%b4%ec%a0%9c-%eb%b6%80%ed%8c%85" class="anchor">🔗</a></h2><p>일반적으로 임베디드 시스템의 운영체제는 플래시 메모리에 탑재되어
+있으므로 부팅 과정에서 주메모리(일반적으로 DRAM 사용)에 탑재한 후
+실행한다. 따라서 부트로더는 플래시 메모리에 있는 운영체제를 DRAM에
+복사하고 제어권을 운영체제의 시작점으로 넘겨주는 기능을 제공한다.</p>
+<h2 id="플래시-메모리-관리">플래시 메모리 관리 <a href="#%ed%94%8c%eb%9e%98%ec%8b%9c-%eb%a9%94%eb%aa%a8%eb%a6%ac-%ea%b4%80%eb%a6%ac" class="anchor">🔗</a></h2><p>임베디드 시스템에서 플래시 메모리는 다양한 용도로 사용되기 때문에 가장
+효율적인 보조 기억장치라고 할 수 있다. 보통 플래시 메모리에 부트로더가
+탑재된다.</p>
+<h2 id="모니터-기능">모니터 기능 <a href="#%eb%aa%a8%eb%8b%88%ed%84%b0-%ea%b8%b0%eb%8a%a5" class="anchor">🔗</a></h2><p>모니터 기능이란 시스템의 동작 상태를 감시하고 하드웨어 정상 동작 여부
+검사, 메모리 검사를 비롯한 POST(Power-On Self Test) 등의 기능을
+말한다. 부트로더는 필요에 따라 이와 같은 모니터 기능을 가진다.</p>
+<h1 id="부트로더-특징">부트로더 특징 <a href="#%eb%b6%80%ed%8a%b8%eb%a1%9c%eb%8d%94-%ed%8a%b9%ec%a7%95" class="anchor">🔗</a></h1><p>부트로더는 하드웨어 의존성이 강하다. 일반적으로 클록, 메모리 제어기
+설정 등의 하드웨어 설정을 먼저 수행한다. 따라서 부트로더를 작성하려면
+프로세서 구조와 특징 및 사용법을 알아야 한다. 특히 부트로더의 시작
+부분은 어셈블리어로 작성되기 때문에 명령어 사용법을 알고 있어야 한다.</p>
+<p>또한, 부트로더 콘솔을 구현하기 위해서는 UART 제어기의 구조와 제어
+방법을 알고 있어야 하며 네트워크, USB를 이용하려면 이더넷 제어기 및
+USB 디바이스 제어기에 대해서도 알아야 한다.</p>
+<p>하지만 직접 구현은 힘들기 때문에 LILO, GRUB, Loadlin, EtherBoot, Blob,
+PMON, RedBoot, U-Boot과 같은 부트로더를 이용한다.</p>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://treeroad.tistory.com/entry/Flash-Memory%EC%99%80-EEPROM-%EC%B0%A8%EC%9D%B4%EC%A0%90" target="_blank" rel="noopener">https://treeroad.tistory.com/entry/Flash-Memory%EC%99%80-EEPROM-%EC%B0%A8%EC%9D%B4%EC%A0%90</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/bootloader">bootloader</a>
+            
+                <a href="https://example.com/tags/embedded_linux">embedded_linux</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

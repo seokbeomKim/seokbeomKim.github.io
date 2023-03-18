@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>커널 해킹: 프로세스 | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="앞으로 리눅스 커널 공부를 해가면서 포스팅으로 정리해둘 계획이다. 디바이스 드라이버 개발 이전에 리눅스라는 운영체제에 대해 개인적으로 정리해야할 필요성을 느꼈">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">커널 해킹: 프로세스</h1>
+
+    <div class="tip">
+        <time datetime="2019-05-16 18:59:15 &#43;0900 KST">May 16, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1704 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          4 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#프로세스-디스크립터-pcb">프로세스 디스크립터, PCB</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <p>앞으로 리눅스 커널 공부를 해가면서 포스팅으로 정리해둘
+계획이다. 디바이스 드라이버 개발 이전에 리눅스라는 운영체제에 대해
+개인적으로 정리해야할 필요성을 느꼈다. 그리고 최신 커널을 사용하기
+보다 상대적으로 오래된 커널을 시작으로 공부하고자 한다. 기본 틀은 크게
+변하지 않았을거라 생각하고 충분히 이해한 뒤에 최근 버전을 받아 개발
+흐름을 이해하는 것이 옳은 방법이라 생각하였다.</p>
+<p>이 문서에서는 리눅스/유닉스 운영체제의 기본 추상화 개념 중 하나인
+프로세스에 대해 정리하고자 한다. 정리에 필요한 정보 수집을 위해서
+Linux kernel development(3rd edition) 책과 LWN 등의 사이트들을
+참고한다.</p>
+<p>문서는 계속해서 업데이트할 예정이며, 내용이 추가되면 문서를 분리하거나
+링크를 통해 업데이트할 예정이다.</p>
+<h1 id="프로세스process란">프로세스(Process)란? <a href="#%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4process%eb%9e%80" class="anchor">🔗</a></h1><p>프로세스는 실행 중인 프로그램으로 다음과 같은 리소스들을 포함한다.</p>
+<h2 id="프로세스-디스크립터-pcb">프로세스 디스크립터, PCB <a href="#%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4-%eb%94%94%ec%8a%a4%ed%81%ac%eb%a6%bd%ed%84%b0-pcb" class="anchor">🔗</a></h2><p>프로세스 디스크립트(Process Descriptor)는 Task Descriptor 또는 Process
+Control Block이라고도 불린다. 프로세스의 전반적인 정보들을 담고 있으며
+대표적인 것들은 아래와 같다.</p>
+<ol>
+<li>
+<p>프로세스가 사용 중인 파일</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">files_struct</span> <span style="color:#666">*</span>files;
+</code></pre></div><p>파일 디스크립터 테이블을 포함한다. 이 정보는 태스크(프로세스를 커널
+내부에서는 Task라 일컫는다.) 간에 공유할 수 있으며 <code>CLONE_FILES</code>를
+이용해 특정할 수 있다.</p>
+</li>
+<li>
+<p>파일시스템 정보</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">fs_struct</span> <span style="color:#666">*</span>fs;
+</code></pre></div><p>처음 소스를 보자마자 이해하기 어려운 부분이었다. 어째서 프로세스가
+파일시스템 정보까지 가지고 있어야 하는가? 출처에서 이 부분은 아래와
+같이 설명하고 있다.<br><br></p>
+<ul>
+<li>root directory&rsquo;s dentry and mountpoint.</li>
+<li>alternate root directory&rsquo;s dentry and mountpoint.</li>
+<li>current working directory&rsquo;s dentry and mountpoint.</li>
+</ul>
+<p>즉, <code>ext4, xfs</code> 와 같은 파일시스템의 정보가 아니라 프로세스 실행
+환경을 위한 루트 디렉토리의 엔트리 정보와 마운트 포인트 정보를 가지고
+있는 것이다. 이 부분에 대해서는 나중에 좀 더 알아봐야겠다.</p>
+</li>
+<li>
+<p>대기 중인 시그널과 시그널 핸들러</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">signal_struct</span> <span style="color:#666">*</span>signal;
+<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">sighand_struct</span> <span style="color:#666">*</span>sighand;
+</code></pre></div><p>파일시스템 정보와 마찬가지로 <code>clone</code> 된 태스크들과 공유할 수 있는
+정보이며 <code>CLONE_SIGHAND</code>를 통해서 특정할 수 있다.</p>
+</li>
+<li>
+<p>프로세서 상태</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/* -1 unrunnable, 0 runnable, &gt;0 stopped */</span>
+<span style="color:#a2f;font-weight:bold">volatile</span> <span style="color:#0b0;font-weight:bold">long</span> state;
+</code></pre></div><p>프로세스의 상태를 <code>volatile</code>이라는 키워드와 함께한 변수로 담고
+있으며 단순하게 unrunnable, runnable, stopped 등으로 구분하고
+있다.</p>
+<blockquote>
+<p>여기서 <code>volatile</code>은 왜 사용된 걸까? TLDP 출처에는 &ldquo;The volatile
+in p-&gt;state declaration means it can be modified asynchronously
+(from interrupt handler) 라고 설명되어 있다. 그런데 <a href="https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html" target="_blank" rel="noopener">커널
+문서</a>를
+살펴보면 &ldquo;volatile&rdquo; 타입 클래스를 사용해서는 안되는지에 대한
+설명이 나와있는데 실제로 state 변수를 제외하고는 sched.h 나머지
+어디에도 사용되고 있지 않다. 그 이유는 다음과 같다:</p>
+<p>volatile의 목적은 최적화를 막는 것이다. 커널은 데이터 구조들을
+원치 않은 동시 접근(concurrent access)로부터 철저하게 보호해야
+하는데 그러한 보호 과정으로 최적화에 관련된 문제들을 더 효과적인
+방법으로 피해갈 수 있다.</p>
+<p>volatile과 같이 커널에는 동시 접근으로부터 데이터를 보호하기
+위해 spinlocks, mutexes, memory barriers 등으로 원치 않은
+최적화를 막기 위해 설계했다. 문서에는 &ldquo;그러한 설계된 도구들을
+충분히 잘 활용할 수 있다면 volatile을 사용할 이유가 없고,
+volatile이 여전히 필요하다면 대부분 코드 어딘가에 버그가 내재된
+것이다&rdquo; 라고 설명하고 있다.</p>
+<p>하지만, 프로세스 상태와 같이 멀티 프로세스 환경에서 반드시 여러
+개의 쓰레드에 공유되어야 하는 변수들은 volatile을 사용하여
+컴파일러가 최적화하는 것을 막는다.</p>
+</blockquote>
+<p>프로세스의 상태는 매크로 형태로 정의되어 있다. 커널
+버전(5.x)에서는 값들이 Hex 값으로 정의되어 있는 반면, 2.6.x
+버전에서는 단순히 정수형으로 정의되어 있다. 이전 커널과의 주요
+차이점은 Task의 상태를 <code>TASK_RUNNING</code>, <code>TASK_INTERRUPTIBLE</code>,
+<code>TASK_UNINTERRUPTIBLE</code>, <code>TASK_DEAD</code>, <code>TASK_WAKEKILL</code>,
+<code>TASK_WAKING</code> 등으로 구분하고 종료 시점의 상태를 별도로 구분하여
+<code>EXIT_ZOMBIE</code>, <code>EXIT_DEAD</code> 등으로 정의해 놓았다는 점이다.</p>
+</li>
+<li>
+<p>하나 이상의 물리적 메모리 영역이 할당된 메모리 주소 공간</p>
+<p>메모리 관리용 데이터 구조로서(객체라는 말은 사용하지 않겠다.)
+task_struct 안에는 해당 정보들을 받아올 수 있는 <code>mm_struct</code>를
+포함하고 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">mm_struct</span> <span style="color:#666">*</span>mm, <span style="color:#666">*</span>active_mm;
+</code></pre></div></li>
+<li>
+<p>실행 중인 하나 이상의 스레드 정보</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/* CPU-specific state of this task */</span>
+<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">thread_struct</span> <span style="color:#a2f;font-weight:bold">thread</span>;
+</code></pre></div><p>역시 다른 정보들과 마찬가지로 thread에 대한 정보를 가지고
+있다. 리눅스에서는 프로세스와 스레드를 구분하지 않고 모두 스레드로
+관리하고 스케쥴링한다. 둘의 차이점은 공유 자원을 다른 스레드와
+공유하느냐 공유하지 않느냐에 따라 구분하며, 프로세스가 생성되면
+커널 내부에서는 프로세스가 아닌 스레드 한 개가 생성된 것과 같다.</p>
+</li>
+</ol>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://www.tldp.org/LDP/tlk/tlk.html" target="_blank" rel="noopener">https://www.tldp.org/LDP/tlk/tlk.html</a></li>
+<li><a href="https://www.tldp.org/LDP/lki/lki-2.html" target="_blank" rel="noopener">https://www.tldp.org/LDP/lki/lki-2.html</a></li>
+<li>Linux Kernel Development 3rd edition</li>
+<li><a href="https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html" target="_blank" rel="noopener">https://www.kernel.org/doc/html/latest/process/volatile-considered-harmful.html</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/process">process</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gpio on Hugo</title>
+    <link>https://example.com/tags/gpio/</link>
+    <description>Recent content in gpio on Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jan 2020 23:48:06 +0900</lastBuildDate><atom:link href="https://example.com/tags/gpio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GPIO Mapping</title>
+      <link>https://example.com/posts/gpio-mapping/</link>
+      <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
+      
+      <guid>https://example.com/posts/gpio-mapping/</guid>
+      <description>GPIO 맵핑하기 🔗오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만,</description>
+    </item>
+    
+  </channel>
+</rss>

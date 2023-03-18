@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>mu4e 설정하기 | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="개요 🔗이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">mu4e 설정하기</h1>
+
+    <div class="tip">
+        <time datetime="2020-06-26 01:36:36 &#43;0900 KST">Jun 26, 2020</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1226 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#isync-설치하기">isync 설치하기</a></li>
+    <li><a href="#mu-설치">mu 설치</a></li>
+    <li><a href="#이맥스-설정">이맥스 설정</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>이맥스에서 사용할 수 있는 이메일 클라이언트로서 <code>mu4e</code>라는 것이
+있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을
+인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을
+간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.</p>
+<p>단점은 환경 설정하는 것이 단점인데 mu4e를 단독으로 사용할 수 없을
+뿐더러 메일 클라이언트로서 일반 사용자가 사용하기에는 무리가 있다.</p>
+<p><code>mu4e</code>를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신, 공식
+문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.</p>
+<ul>
+<li><a href="https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/" target="_blank" rel="noopener">https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/</a></li>
+<li><a href="http://pragmaticemacs.com/mu4e-tutorials/" target="_blank" rel="noopener">http://pragmaticemacs.com/mu4e-tutorials/</a></li>
+</ul>
+<p>mu4e를 설정하는 순서는 대략 아래와 같다.</p>
+<ol>
+<li>
+<p><code>isync</code> 패키지를 설치하고 <code>mbsync</code>를 설정하여 로컬에 동기화하고자
+하는 메일 계정들을 설정한다.</p>
+</li>
+<li>
+<p><code>mu4e</code>를 사용하기 위해 이맥스를 설정한다.</p>
+</li>
+</ol>
+<h2 id="isync-설치하기">isync 설치하기 <a href="#isync-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><p><code>mbsync</code> 명령어는 <code>isync</code> 패키지 안에 포함된다. 아치리눅스 위키
+페이지에 패키지에 대한 설명이 자세히 기술되어 있다. 설치 후에는 아래
+링크 또는 포스팅에 있는 예제 파일들을 참고하여 설정 파일을 작성한다.</p>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Isync" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Isync</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># GMAIL #1
+IMAPAccount sukbeom.kim
+Host imap.gmail.com
+User sukbeom.kim@gmail.com
+PassCmd &#34;gpg --batch --passphrase mu4e --no-tty -qd ~/.sbk.gpg&#34;
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile /etc/ssl/certs/ca-bundle.crt
+
+IMAPStore gmail-remote
+Account sukbeom.kim
+
+MaildirStore gmail-local
+Path ~/mbsync/sukbeom.kim@gmail.com/
+Inbox ~/mbsync/sukbeom.kim@gmail.com/INBOX
+
+Channel gmail-inbox
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns &#34;INBOX&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-trash
+Master :gmail-remote:&#34;[Gmail]/Bin&#34;
+Slave :gmail-local:&#34;[Gmail].Bin&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-sent
+Master :gmail-remote:&#34;[Gmail]/Sent Mail&#34;
+Slave :gmail-local:&#34;[Gmail].Sent Mail&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-all
+Master :gmail-remote:&#34;[Gmail]/All Mail&#34;
+Slave :gmail-local:&#34;[Gmail].All Mail&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-starred
+Master :gmail-remote:&#34;[Gmail]/Starred&#34;
+Slave :gmail-local:&#34;[Gmail].Starred&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Group gmail
+Channel gmail-inbox
+Channel gmail-sent
+Channel gmail-trash
+Channel gmail-all
+Channel gmail-starred
+
+
+IMAPAccount chaoxifer
+Host imap.gmail.com
+User chaoxifer@gmail.com
+PassCmd &#34;gpg --batch --passphrase mu4e --no-tty -qd ~/.chaoxifer.gpg&#34;
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile /etc/ssl/certs/ca-bundle.crt
+
+IMAPStore chaoxifer-remote
+Account chaoxifer
+
+MaildirStore chaoxifer-local
+Path ~/mbsync/chaoxifer@gmail.com/
+Inbox ~/mbsync/chaoxifer@gmail.com/INBOX
+
+Channel chaoxifer-inbox
+Master :chaoxifer-remote:
+Slave :chaoxifer-local:
+Patterns &#34;INBOX&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Channel chaoxifer-trash
+Master :chaoxifer-remote:&#34;[Gmail]/Bin&#34;
+Slave :chaoxifer-local:&#34;[Gmail].Bin&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Channel chaoxifer-sent
+Master :chaoxifer-remote:&#34;[Gmail]/Sent Mail&#34;
+Slave :chaoxifer-local:&#34;[Gmail].Sent Mail&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Channel chaoxifer-all
+Master :chaoxifer-remote:&#34;[Gmail]/All Mail&#34;
+Slave :chaoxifer-local:&#34;[Gmail].All Mail&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Channel chaoxifer-starred
+Master :chaoxifer-remote:&#34;[Gmail]/Starred&#34;
+Slave :chaoxifer-local:&#34;[Gmail].Starred&#34;
+Create Both
+Expunge Both
+SyncState *
+
+Group chaoxifer
+Channel chaoxifer-inbox
+Channel chaoxifer-sent
+Channel chaoxifer-trash
+Channel chaoxifer-all
+Channel chaoxifer-starred
+</code></pre></div><p>설정에서 gpg를 이용하여 계정 암호를 설정파일에 그대로 넣지 않고
+암호화한 파일을 사용하도록 한다. gpg 파일을 만드는 방법은 아래와 같다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ echo &#34;mypassword!&#34; &gt; ~/.mbsyncpass
+$ gpg --output ~/.emacs.d/personal/chaoxifer.gpg --symmetric ~/.mbsyncpass
+$ # 입력 창에 passphrase 를 입력한다. 위 설정에서는 mu4e를 passphase로 입력했다.
+</code></pre></div><p>이제 mbsync를 사용하기 위한 설정이 완료되었다. 필요한 디렉토리들을
+만들고 <code>mbsync init</code>, <code>mbsync -a</code>를 통해 메일 박스를 동기화한다.</p>
+<h2 id="mu-설치">mu 설치 <a href="#mu-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h2><p><code>mu4e</code> 사용을 위해, <code>mu</code> 패키지를 설치한다. 이 때 컴파일 옵션으로
+이맥스 옵션이 있으니 확인하자. 기본적으로 이맥스 옵션이 활성화되어
+패키지가 설치되므로 특별한 경우가 아니라면 별도로 설정하지 않아도
+된다.</p>
+<h2 id="이맥스-설정">이맥스 설정 <a href="#%ec%9d%b4%eb%a7%a5%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은
+mu4e의 공식 문서에 자세히 기술되어 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">(if (eq running-env &#34;private&#34;)
+(if (eq system-type &#39;darwin)
+(add-to-list &#39;load-path &#34;/usr/local/Cellar/mu/HEAD-281a4cc/share/emacs/site-lisp/mu/mu4e/&#34;))
+
+(require &#39;mu4e)
+(require &#39;mu4e-contrib)
+(require &#39;gnutls)
+
+(setq mu4e-sent-folder &#34;/sent&#34;	;; folder for sent messages
+mu4e-drafts-folder &#34;/drafts&#34;	;; unfinished messages
+mu4e-trash-folder &#34;/trash&#34;	;; trashed messages
+mu4e-refile-folder &#34;/archive&#34;	;; saved messages
+user-mail-address &#34;메일 주소&#34;
+smtpmail-default-smtp-server &#34;smtp.gmail.com&#34;
+smtpmail-smtp-server &#34;smtp.gmail.com&#34;
+smtpmail-smtp-service 587)
+
+(setq mu4e-index-cleanup nil	      ;; don&#39;t do a full cleanup check
+mu4e-index-lazy-check t)      ;; don&#39;t consider up-to-date dirs
+
+
+(setq mu4e-maildir &#34;~/mbsync/&#34;
+mu4e-attachment-dir &#34;~/mbsync/attachments&#34;
+user-full-name &#34;Sukbeom Kim&#34;)
+
+(setq mu4e-get-mail-command &#34;mbsync -a&#34;
+mu4e-change-filenames-when-moving t
+mu4e-view-show-images t
+mu4e-view-show-addresses t
+mu4e-update-interval (* 20 60))
+
+(setq mu4e-html2text-command &#39;mu4e-shr2text
+shr-color-visible-luminance-min 80
+shr-color-visible-distance-min 5))
+
+</code></pre></div><h1 id="마무리">마무리 <a href="#%eb%a7%88%eb%ac%b4%eb%a6%ac" class="anchor">🔗</a></h1><p>이제 필요한 설정이 모두 마무리 되었다. <code>M-x mu4e</code>를 통해 수신한
+메일들을 관리하거나 지정되어 있는 smtp 서버를 통해 메일을 주고받을 수
+있다. <code>mu4e</code>는 <code>thunderbird</code>의 마크다운 지원하는 메일 작성의 개념과
+비슷하지만 모드를 자유자재로 선택할 수 있다는 점에서 더 유연하다는
+장점이 있다. 또한 snippet 과 코드를 직접 메일에 붙일 수 있기에 메일
+송수신 시에 매우 유용하다.</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/mu4e">mu4e</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

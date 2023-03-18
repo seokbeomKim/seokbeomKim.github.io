@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Major와 Minor Numbers | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Major와 Minor Numbers</h1>
+
+    <div class="tip">
+        <time datetime="2019-05-31 18:37:25 &#43;0900 KST">May 31, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2219 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+
+
+    
+
+
+    <div class="content">
+      <p>세마포어를 이용한 모듈 프로그래밍을 하던 중 <code>Major, Minor</code> 라는 개념이
+등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한
+까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수
+있는 아주 좋은 기회다.</p>
+<p>캐릭터 디바이스는 <code>/dev</code> 디렉토리에서 쉽게 확인할 수 있는데 파일의
+속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를
+들어, &lsquo;c&rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한
+특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로
+식별할 수 있다. 아래와 같이 <code>ls</code> 명령어를 사용하면 각 디바이스 파일에
+번호가 할당되어 있는 것을 알 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">drwxr-xr-x   <span style="color:#666">2</span> root    root           <span style="color:#666">60</span> May <span style="color:#666">31</span> 23:18 vfio
+crw-------   <span style="color:#666">1</span> root    root    10,    <span style="color:#666">63</span> May <span style="color:#666">31</span> 23:18 vga_arbiter
+crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">137</span> May <span style="color:#666">31</span> 23:18 vhci
+crw-rw----+  <span style="color:#666">1</span> root    kvm     10,   <span style="color:#666">238</span> May <span style="color:#666">31</span> 23:18 vhost-net
+crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">241</span> May <span style="color:#666">31</span> 23:18 vhost-vsock
+crw-rw----+  <span style="color:#666">1</span> root    video   81,     <span style="color:#666">0</span> May <span style="color:#666">31</span> 23:18 video0
+crw-rw----+  <span style="color:#666">1</span> root    video   81,     <span style="color:#666">1</span> May <span style="color:#666">31</span> 23:18 video1
+crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">130</span> May <span style="color:#666">31</span> 23:18 watchdog
+crw-------   <span style="color:#666">1</span> root    root   246,     <span style="color:#666">0</span> May <span style="color:#666">31</span> 23:18 watchdog0
+crw-rw-rw-   <span style="color:#666">1</span> root    root     1,     <span style="color:#666">5</span> May <span style="color:#666">31</span> 23:18 zero
+</code></pre></div><p>이 때, <code>major number</code>는 특정 디바이스에 할당된 드라이버를
+식별한다. 예를 들어, <code>/dev/zero</code>는 드라이버 1이 관리하고
+<code>/dev/watchdog0</code>은 드라이버 246이 관리한다. <code>minor number</code>는
+드라이버가 맡고 있는 장치들을 분류하기 위한 것으로 아래와 같이 같은
+<code>major number</code>를 가지고 있는 장치들을 분류할 때 사용한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ ls -l /dev | egrep <span style="color:#b44">&#39;^c.*.(\s)1,&#39;</span>
+crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">7</span> May <span style="color:#666">31</span> 23:18 full
+crw-r--r--  <span style="color:#666">1</span> root    root     1,    <span style="color:#666">11</span> May <span style="color:#666">31</span> 23:18 kmsg
+crw-r-----  <span style="color:#666">1</span> root    kmem     1,     <span style="color:#666">1</span> May <span style="color:#666">31</span> 23:18 mem
+crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">3</span> May <span style="color:#666">31</span> 23:18 null
+crw-r-----  <span style="color:#666">1</span> root    kmem     1,     <span style="color:#666">4</span> May <span style="color:#666">31</span> 23:18 port
+crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">8</span> May <span style="color:#666">31</span> 23:18 random
+crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">9</span> May <span style="color:#666">31</span> 23:18 urandom
+crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">5</span> May <span style="color:#666">31</span> 23:18 zero
+</code></pre></div><p>버전 2.4 커널에서 <code>devfs(device file system)</code>라는 새 기능이
+추가되었다. 만약 이 파일시스템 사용되면 디바이스 파일들을 그 전보다
+훨씬 간단하게 관리할 수 있지만 호환성에 문제가 생긴다. 이에 대해서
+자세히 알아보자.</p>
+<p><code>devfs</code>를 사용하지 않을 경우, <code>시스템에 드라이버를 새로 추가한다</code>는
+의미는 새로운 <code>major number</code>를 할당한다는 의미와 같다. 그래서 아래와
+같은 코드를 이용해 직접 그 숫자를 할당해줘야 한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">// return: success or failure(&lt;0)
+</span><span style="color:#080;font-style:italic">// major: major number being requested
+</span><span style="color:#080;font-style:italic">// name: name of the device (which will appear in /proc/devices)
+</span><span style="color:#080;font-style:italic">// fops: driver&#39;s entry point
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">register_chrdev</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> major, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>name, <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">file_operations</span> <span style="color:#666">*</span>fops);
+</code></pre></div><p><code>Major Number</code>는 <code>small integer</code> 형태로서 캐릭터 드라이버 배열의
+인덱스를 담당한다. 2.0 커널에서는 128개 디바이스에 대해, 2.2와
+2.4에서는 256개 디바이스에 대한 인덱스를 가질 수 있으며 <code>Minor Number</code>의 경우 8비트를 가져 마찬가지로 256개 디바이스에 대한 인덱스를
+가질 수 있다. 하지만 <code>Minor Number</code>는 위 함수에서 특별히 인자로 넘기지
+않는데 이는 드라이버에서만 제한적으로 사용되는 숫자이기 때문에 그렇다.</p>
+<p>드라이버를 커널 테이블에 등록하면 주어진 <code>major number</code>를
+할당한다. 이후부터는 캐릭터 디바이스에 대한 파일 연산을 할 때마다 등록
+시에 정의했던 <code>file_operations</code> 구조체의 각 함수들을 이용하게
+된다. 하지만 코드가 아닌 실제 명령어를 통해 이러한 등록 과정을 아주
+간단히 할 수가 있는데 그것이 바로 <code>mknod</code> 명령어이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mknod /dev/scull0 c <span style="color:#666">254</span> <span style="color:#666">0</span>
+$ rm /dev/scull0
+</code></pre></div><p>위처럼 major number가 254, minor number가 0인 캐릭터 디바이스(c)를
+생성하고 해당 디바이스를 삭제할 수 있다. 하지만 이렇게 정적으로
+디바이스를 관리하는 인덱스 번호를 할당할 필요가 있을까?</p>
+<h1 id="dynamic-allocation-of-major-numbers">Dynamic Allocation of Major Numbers <a href="#dynamic-allocation-of-major-numbers" class="anchor">🔗</a></h1><p>몇몇 주요 장치들에 대한 인덱스 숫자는 정적으로 할당된다. 이러한
+장치들에 대한 정보는 <code>Documentation/admin-guide/devices.txt</code>에서 찾을
+수 있다. (책에는 <code>Documentation/devices.txt</code>라고 되어 있으나 커널
+버전이 업되면서 경로가 바뀌었다.)</p>
+<p>정적으로 <code>Major Number</code>를 할당하면 공식 커널 트리에 포함되어 유용하게
+사용되는 경우에만 할당해야 하며, 그렇지 않으면 반드시 동적으로
+할당하는 방법을 사용해야 한다. 하지만 동적으로 <code>Major Number</code>를
+할당하는 방법의 단점은 디바이스 노드를 생성할 수 없다는 것이다. 항상
+같은 번호를 할당받을 수 없기 때문인데 이 말은 즉슨,
+<code>loading-on-demand</code> 방식을 사용할 수 없다는 말과 같다. 하지만 이러한
+특징은 일반적인 사용에 있어서 크게 문제가 되지는 않는다. 앞서 설명했던
+것처럼 <code>/proc/devices</code>의 정보를 사용하면 되기 때문이다.</p>
+<p>동적으로 생성하는 방법은 아래와 같은 코드를 이용하면 된다. 이 때,
+<code>scull_major</code> 값을 0으로 주어지면 동적 할당을 사용한다는 의미이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">result <span style="color:#666">=</span> register_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>, <span style="color:#666">&amp;</span>scull_fops);
+<span style="color:#a2f;font-weight:bold">if</span> (result <span style="color:#666">&lt;</span> <span style="color:#666">0</span>) {
+    printk(KERN_WARNING <span style="color:#b44">&#34;scull: can&#39;t get major %d</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, scull_major);
+    <span style="color:#a2f;font-weight:bold">return</span> resul;t
+}
+<span style="color:#a2f;font-weight:bold">if</span> (scull_major <span style="color:#666">==</span> <span style="color:#666">0</span>) scull_major <span style="color:#666">=</span> result; <span style="color:#080;font-style:italic">/* dynamic */</span>
+
+unregister_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>);
+</code></pre></div><p>이 때, 코드 마지막에 위치하는 <code>unregister_chrdev</code> 사용에 있어서
+실패했을 경우를 염두에 두어야 한다. 등록 해제(unregister_chrdev)가
+실패했을 때는 그 영향에 대해 주의해야 한다.<code>/proc/devices</code> 자체가
+실패할 수 있는데 그 이유는 이미 해제된 장치에 대해 이름을 가리키는
+포인터가 잘못될 수 있기 때문이다.</p>
+<h1 id="kdev_t-and--dev_t">kdev_t and  dev_t <a href="#kdev_t-and--dev_t" class="anchor">🔗</a></h1><p>본래 유닉스에서는 16비트 정수 형태로 <code>dev_t</code>안에 디바이스 번호를 담고
+있었는데 오늘날에는 이것이 minor number의 최대치인 256보다 더 많은
+인덱스 숫자를 한번에 요구하는 경우가 생기게 되었다. 하지만 하위
+호환성을 위해서 <code>dev_t</code>자체의 구조를 변경하지는 못하고 있다.</p>
+<p>리눅스에서는 이와 달리 <code>kdev_t</code>라는 약간 다른 타입을
+사용한다. 블랙박스 형태로 설계되었기 때문에 사용자 애플리케이션은
+<code>kdev_t</code>에 대해 완전히 알지 못하고 커널 함수들 또한 해당 자료구조의
+내부를 정확히 알지 못한다. 때문에 커널 버전 변경에 따라 자료구조가
+변경되더라도 디바이스 드라이버에서 해당 변경에 대해 별다른 변경 작업을
+할 필요가 없도록 설계되었다. <code>kdev_t</code>를 이용하기 위해서는 직접 사용할
+필요가 없고 아래와 같이 제공되는 함수 또는 매크로를 이용한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">// Extract the major number from a kdev_t structure.
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MAJOR(dev)	((unsigned int) ((dev) &gt;&gt; MINORBITS))
+</span><span style="color:#080"></span>
+<span style="color:#080;font-style:italic">// Extract the minor number.
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MINOR(dev)	((unsigned int) ((dev) &amp; MINORMASK))
+</span><span style="color:#080"></span>
+<span style="color:#080;font-style:italic">// Create a kdev_t build from major and minor numbers
+</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MKDEV(ma,mi)	(((ma) &lt;&lt; MINORBITS) | (mi))
+</span></code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html" target="_blank" rel="noopener">https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/minor-number">minor number</a>
+            
+                <a href="https://example.com/tags/major-number">major number</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

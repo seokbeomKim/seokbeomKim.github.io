@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>HTTP와 HTTPS의 차이점 | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="HTTP와 HTTPS의 차이점 🔗HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &lsquo;S&rsquo;가 나타">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">HTTP와 HTTPS의 차이점</h1>
+
+    <div class="tip">
+        <time datetime="2019-05-01 16:53:27 &#43;0900 KST">May 1, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3606 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          8 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#httphypertext-transfer-protocol와-httpshypertext-transfer-protocol-secure">HTTP(HyperText Transfer Protocol)와 HTTPS(HyperText Transfer Protocol Secure)</a>
+      <ul>
+        <li><a href="#httphypertext-transfer-protocol">HTTP(HyperText Transfer Protocol)</a></li>
+        <li><a href="#tlstransport-layer-security">TLS(Transport Layer Security)</a></li>
+        <li><a href="#https">HTTPS</a></li>
+      </ul>
+    </li>
+    <li><a href="#공개키public-key-cryptosystem와-대칭키symmetric-key-cryptosystem">공개키(Public-Key Cryptosystem)와 대칭키(Symmetric-Key Cryptosystem)</a>
+      <ul>
+        <li><a href="#대칭키symmetric-key-cryptosystem">대칭키(Symmetric-Key Cryptosystem)</a></li>
+        <li><a href="#공개키public-key-cryptosystem">공개키(Public-Key Cryptosystem)</a></li>
+      </ul>
+    </li>
+    <li><a href="#tls-handshake">TLS Handshake</a>
+      <ul>
+        <li><a href="#세션-종료">세션 종료</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="http와-https의-차이점">HTTP와 HTTPS의 차이점 <a href="#http%ec%99%80-https%ec%9d%98-%ec%b0%a8%ec%9d%b4%ec%a0%90" class="anchor">🔗</a></h1><p>HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &lsquo;S&rsquo;가 나타내는 Secure라는 의미로부터 HTTP에 &lsquo;어떤 것&rsquo;을 추가하여 보안을 강화한 프로토콜이라는 것을 짐작할 수 있다. 여기서 중요한 것은 HTTP에 추가한&rsquo;어떤 것&rsquo;인데 이 것이 바로 TLS(SSL라고도 부름)가 되겠다. HTTPS를 이해하기 위해서는 TLS에 대해 알아야 하므로 이 문서에서는 TLS에 대한 기본적인 개념과 HTTPS가 등장하게 된 배경에 대한 설명으로 HTTP와 HTTPS의 차이점을 설명하도록 하겠다. 먼저, HTTP, HTTPS와 TLS 프로토콜부터 살펴보자.</p>
+<h2 id="httphypertext-transfer-protocol와-httpshypertext-transfer-protocol-secure">HTTP(HyperText Transfer Protocol)와 HTTPS(HyperText Transfer Protocol Secure) <a href="#httphypertext-transfer-protocol%ec%99%80-httpshypertext-transfer-protocol-secure" class="anchor">🔗</a></h2><h3 id="httphypertext-transfer-protocol">HTTP(HyperText Transfer Protocol) <a href="#httphypertext-transfer-protocol" class="anchor">🔗</a></h3><p>HTTP는 웹 브라우저와 같은 클라이언트가 웹 서버에 요청하는 프로토콜 중
+하나로서 암호화 되어 있지 않은 Plain 텍스트 형태의 메시지를 주고받도록
+구현되어 있다. 때문에 클라이언트와 서버 간의 데이터를 가로챈다면 해당
+내용을 읽을 수 있는 취약점을 가지고 있다.</p>
+<h3 id="tlstransport-layer-security">TLS(Transport Layer Security) <a href="#tlstransport-layer-security" class="anchor">🔗</a></h3><p>HTTPS를 설명하기에 앞서 TLS 프로토콜에 대한 설명이 필요하다. TLS
+프로토콜은 데이터를 암호화해서 송수신하는 프로토콜로서 넷스케이프가
+개발한 SSL에 기반한 기술이다. 기반 기술인 SSL은 넷스케이프에서 1995년
+2.0 버전으로 처음 공개하였다(1.0은 애초에 공개되지도 않았다). 하지만
+몇 가지 취약점들이 발견되면서 넷츠케이프는 1년 만인 1996년에 다시 SSL
+3.0을 공개하였다. (SSL 2.0, SSL 3.0은 SSLv2, SSLv3으로 언급되기도
+한다.) 그리고 1996년도 버전인 SSLv3을 기반으로 하여 1999년에 표준으로
+공개한 것이 TLS 1.0이다. 즉, TLS 1.0은 SSL 3.1이라고 생각하면 이해하기
+쉽다.</p>
+<p>실제로 TLS 1.0과 SSL 3.0의 차이는 많지 않지만 중요한 점이 이 둘이
+상호운용이 안된다는 점이다. 그렇다면 둘 중 어떤 것을 써야 하는가에
+대한 질문이 나올 수 있는데, 여기에 대한 답은 &lsquo;TLS를 사용해야
+한다&rsquo;이다. SSLv2와 SSLv3은 각각 2011년, 2015년 IETF에서 depcrecated
+되었으며 매년 POODLE, DROWN과 같은 취약점이 발견되고 있다. 최근 웹
+브라우저들은 특정 서버에서 이러한 deprecated된 프로토콜을 사용하고
+있다면 알아서 보안 경고를 내보내도록 구현되어 있다.</p>
+<p>이러한 가운데 대다수는 아니지만 여전히 많은 사람들이 TLS 대신에
+SSL이라는 용어를 혼용해서 사용하고 있다. 이 때문에 많은 곳에서 TLS
+대신 &lsquo;SSL/TLS&rsquo; 라고 표기하고 있는데 서버 설정 시에는 반드시 이 둘을
+구분하여 deprecated된 SSL은 비활성화하고 TLS만 활성화하도록 해야한다.</p>
+<h3 id="https">HTTPS <a href="#https" class="anchor">🔗</a></h3><p>HTTPS의 S는 Over Secure Socket Layer의 약자이다. 즉, HTTP 프로토콜에서 보안이 강화된 버전(HTTP + TLS)으로 이해하면 간단하다. 때문에 클라이언트와 서버 간의 데이터를 중간에서 가로챈다고 해도 Plain 텍스트가 아니기 때문에 제3자가 곧바로 내용을 확인할 수 없다.</p>
+<p>그렇다면 두 프로토콜의 차이점인 암호화 프로토콜인 TLS는 어떤 방식으로 이루어지는 것일까? 아래는 TLS 방식으로 클라이언트와 서버가 핸드쉐이킹하는 과정을 간략하게 설명한 것이다.</p>
+<ol>
+<li>클라이언트(웹 브라우저)가 웹 서버에 접속한다.</li>
+<li>서버는 클라이언트에 인증서를 제공한다.</li>
+<li>클라이언트는 서버로부터 받은 인증서가 신뢰할 수 있는 인증서인지 검증한다.</li>
+<li>인증서가 신뢰할 수 있다면, 클라이언트는 서버로 <code>pre master secret key</code> 값을 암호화하여 전송한다.</li>
+<li>서버는 클라이언트로부터 받은 <code>pre master secret key</code>을 복호화한다.</li>
+<li>클라이언트와 서버는 동일한 <code>pre master secret key</code>를 가지고 <code>master secret key</code>를 만들어 세션 키를 공유한다.</li>
+</ol>
+<p>인증서란 무엇이고 클라이언트와 서버는 어떻게 서로 암호화/복호화를 할 수 있는 것일까? 이를 위해서는 공개키와 대칭키의 개념부터 알아야 한다. HTTPS 프로토콜에서 서버와 클라이언트 간의 주고받는 모든 데이터들이 공개키와 대칭키를 응용한 것들이기 때문이다.</p>
+<h2 id="공개키public-key-cryptosystem와-대칭키symmetric-key-cryptosystem">공개키(Public-Key Cryptosystem)와 대칭키(Symmetric-Key Cryptosystem) <a href="#%ea%b3%b5%ea%b0%9c%ed%82%a4public-key-cryptosystem%ec%99%80-%eb%8c%80%ec%b9%ad%ed%82%a4symmetric-key-cryptosystem" class="anchor">🔗</a></h2><h3 id="대칭키symmetric-key-cryptosystem">대칭키(Symmetric-Key Cryptosystem) <a href="#%eb%8c%80%ec%b9%ad%ed%82%a4symmetric-key-cryptosystem" class="anchor">🔗</a></h3><p>암호를 만드는 행위인 암호화를 할 때 사용하는 비밀번호를 키(key)라고 한다. 이 키에 따라 암호화 결과가 달라지기 때문에 키를 정확하게 알지 않는 한 복호화가 불가능하다. 쉽게 설명하면 동일한 키로 암호화 또는 복호화를 할 수 있으므로 어떤 값을 암호화 할 때 1234라는 값을 사용했다면 복호화를 할 때도 1234라는 값을 입력해야 한다는 것이다. 아래는 이러한 공개키를 실제로 사용하는 예시이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">echo</span> <span style="color:#b44">&#39;this is the plain text&#39;</span> &gt; plaintext.txt
+$ openssl enc -e -des3 -salt -in plaintext.txt -out ciphertext.bin
+enter des-ede3-cbc encryption password:
+Verifying - enter des-ede3-cbc encryption password:
+
+$ openssl enc -d -des3 -in ciphertext.bin -out plaintext2.txt
+enter des-ede3-cbc decryption password:
+
+$ diff plaintext.txt plaintext2.txt <span style="color:#080;font-style:italic"># 서로 같음</span>
+$ <span style="color:#080;font-style:italic"># 두 파일의 차이점이 없음</span>
+</code></pre></div><h3 id="공개키public-key-cryptosystem">공개키(Public-Key Cryptosystem) <a href="#%ea%b3%b5%ea%b0%9c%ed%82%a4public-key-cryptosystem" class="anchor">🔗</a></h3><p>대칭키 방식의 경우 키가 한 번 유출되면 키를 획득한 공격자가 암호 내용을 복호화할 수 있다는 취약점 때문에 노드 간에 온라인으로 키를 주고받기가 어렵다. 이러한 대칭키의 단점을 극복하기 위해서 만들어진 것이 바로 공개키이다.</p>
+<p>공개키 방식은 공개키(public key)와 비공개키(private key, 개인키라고도 부름)로 구성된다. 여기서 중요한 특징은 비밀키로 암호화를 하면 공개키로 복호화할 수 있고 반대로 공개키로 암호화하면 비밀키로 복호화할 수 있다는 점이다. 공개키 방식에서 비공개키는 자신이 가지고 있고 타인에게는 공개키를 제공한다. 이로써 비공개키를 가지고 있는 쪽에서는 비공개키를 이용하여 데이터를 암호화하여 타인에게 전달하거나, 타인이 전달한 암호화된 데이터를 비공개키를 이용하여 복호화할 수 있다.</p>
+<p>이러한 공개키의 특징은 서버 - 클라이언트 간의 &lsquo;인증서&rsquo;로서 활용될 수 있다.</p>
+<ol>
+<li>서버는 CA(Certificate Authority)라는 공인된 기관으로부터 비밀키를 발급받는다.</li>
+<li>클라이언트가 서버로 접속했을 때 서버는 발급받은 비밀키에 대한 공개키를 클라이언트로 전송한다.</li>
+<li>클라이언트는 서버로부터 받은 공개키를 가지고 CA라는 제 3자에게 전송하여 연결하고자 하는 서버가 신뢰할 수 있는 서버인지 검증한다.</li>
+</ol>
+<p>이 과정에서 공개키가 유출된다면 공격자에 의해 데이터가 복호화될 위험이 있지만, 위의 인증 단계에서 서버가 비공개키를 이용해 암호화하는 이유가 데이터 보호가 아닌 신원 보장에 있기 때문에 문제되지 않는다. 이러한 &lsquo;전자 서명&rsquo;은 암호화된 데이터가 공개키를 가지고 복호화 할 수 있다는 특징을 활용해 데이터를 제공한 사람의 신원을 보장해준다.</p>
+<h4 id="인증서">인증서 <a href="#%ec%9d%b8%ec%a6%9d%ec%84%9c" class="anchor">🔗</a></h4><p>위에서 언급한 인증서의 역할은 클라이언트가 접속한 서버가 클라이언트가 의도한 서버가 맞는지를 보장하는 역할을 한다. 이 역할을 하는 민간 기업들이 있는데 이들을 CA(Certificate Authority) 또는 Root Certificate라고 부른다. 이들 CA 리스트는 브라우저 내부에 내장되어 있으며 브라우저가 미리 파악하고 있는 CA 리스트에 포함되어야만 공인된 인증 기관이 될 수 있다.</p>
+<h2 id="tls-handshake">TLS Handshake <a href="#tls-handshake" class="anchor">🔗</a></h2><p>이제 마지막으로 HTTPS에서 사용하는 SSL/TLS의 Handshake에 대해 살펴보자.</p>
+<p>![TLS Handshake](/img/TLS handshake.svg)</p>
+<ol>
+<li>클라이언트가 서버에 접속한다. 이 단계를 <code>Client Hello</code>라고 한다. 이 단계에서 주고 받는 데이터는 아래와 같다.</li>
+</ol>
+<ul>
+<li>클라이언트 측에서 생성한 랜덤 데이터(Client&rsquo;s random values)</li>
+<li>클라이언트가 지원하는 암호화 방식들(Supported cipher suites): 클라이언트와 서버가 지원하는 암호화 방식이 서로 다를 수 있기 때문에 상호간에 어떤 암호화 방식을 사용할 것인지에 대한 협상을 해야 한다. 이 것을 위해 클라이언트는 서버로 자신이 사용할 수 있는 암호화 방식을 전송한다.</li>
+<li>세션 아이디: 이미 한 번 handshake를 했다면 비용을 절약하기 위해 기존 세션을 재활용하게 되는데 이 때 사용할 연결에 대한 식별자를 서버 측으로 전송한다.</li>
+</ul>
+<ol start="2">
+<li>서버는 <code>Client Hello</code>에 대한 응답으로 <code>Server Hello</code>를 클라이언트로 전송한다. 이 단계에서의 송수신 데이터는 아래와 같다.</li>
+</ol>
+<ul>
+<li>서버가 생성한 랜덤 데이터(Server&rsquo;s random values)</li>
+<li>서버가 선택한 클라이언트의 암호화 방식</li>
+<li>인증서</li>
+</ul>
+<ol start="3">
+<li>서버가 클라이언트로 <code>Server hello done</code> 메시지를 보낸다.</li>
+<li>클라이언트는 서버의 인증서가 CA에 의해서 발급된 것인지 확인하기 위해 클라이언트에 내장된 CA 리스트를 확인하고 리스트에 인증서가 없다면 경고 메시지를 출력한다.</li>
+<li>클라이언트는 서버로부터 받은 랜덤 데이터와 클라이언트가 생성한 랜덤 데이터를 조합하여 <code>pre master secret</code>을 생성한 후 인증서에 들어 있는 공개키로 암호화한 후 서버로 전송한다.</li>
+<li>서버는 클라이언트로부터 <code>pre master secret</code>을 수신하고 클라이언트와 서버 모두 공통으로 갖고 있는 <code>pre master secret</code>을 토대로 <code>master secret</code>과 <code>session keys</code>를 생성한다.</li>
+<li>클라이언트는 <code>Change cipher spec</code> 알림을 서버로 보내 앞으로 새로운 세션 키를 이용하여 메세지 암호화/복호화를 할 것이라고 서버에 알린다.</li>
+<li>서버는 클라이언트로부터 <code>Change cipher spec</code> 수신한다. 그리고 record layer security state를 <code>session keys</code>를 이용하는 <code>비대칭 암호화 방식(symmetric encryption)</code>으로 변경한다. 변경이 완료되면 클라이언트에게 <code>Server finished</code> 메시지를 보낸다.</li>
+<li>이제 클라이언트와 서버는 세션키를 비대칭 방식으로 주고 받는 메시지를 암호화/복호화 할 수 있게 되었다.</li>
+</ol>
+<h3 id="세션-종료">세션 종료 <a href="#%ec%84%b8%ec%85%98-%ec%a2%85%eb%a3%8c" class="anchor">🔗</a></h3><p>이 후, 데이터 전송이 끝나면 SSL/TLS 통신이 끝났음을 서로에게 알리고 사용한 대칭키인 session keys를 폐기한다.</p>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ol>
+<li><a href="https://www.globalsign.com/en/blog/ssl-vs-tls-difference/" target="_blank" rel="noopener">SSL vs. TLS - What&rsquo;s the Difference?</a></li>
+<li><a href="https://opentutorials.org/course/228/4894" target="_blank" rel="noopener">HTTPS와 SSL 인증서</a></li>
+<li><a href="https://security.stackexchange.com/questions/5126/whats-the-difference-between-ssl-tls-and-https" target="_blank" rel="noopener">What&rsquo;s the difference between SSL, TLS, and HTTPS?</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/desktop/secauthn/tls-handshake-protocol" target="_blank" rel="noopener">TLS Handshake Protocol</a></li>
+</ol>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/http">http</a>
+            
+                <a href="https://example.com/tags/https">https</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>
