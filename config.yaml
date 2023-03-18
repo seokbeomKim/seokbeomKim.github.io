@@ -12,8 +12,8 @@ permalinks:
 
 paginate: 3
 
-googleAnalytics: your-google-analytics-id
-disqusShortname: your-disqus-shortname
+googleAnalytics: G-Y7VW74D2P3
+disqusShortname: kimsukbeom
 
 # Hugo Configure Markup
 # More info: https://gohugo.io/getting-started/configuration-markup#
@@ -33,9 +33,9 @@ markup:
 # Social links in footer, support github,twitter,stackoverflow,facebook
 social:
   # e.g.
-  github: your-github-link
-  twitter: your-github-link
-  stackoverflow: your-github-link
+  github: https://seokbeomkim.github.io
+    # twitter: your-github-link
+    # stackoverflow: your-github-link
   # facebook: your-facebook-link
 
 
