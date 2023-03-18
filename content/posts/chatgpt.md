@@ -2,7 +2,12 @@
 title: "OpenAI ChatGPT"
 date: 2023-01-07T21:37:38+09:00
 draft: false
-
+categories:
+- etc
+tags:
+- openai
+- chatgpt
+toc: false
 ---
 
 며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일
