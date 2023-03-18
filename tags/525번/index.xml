@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>525번 on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/525%EB%B2%88/</link>
-    <description>Recent content in 525번 on 범&#39;s 개발 블로그</description>
+    <title>525번 on Hugo</title>
+    <link>https://example.com/tags/525%EB%B2%88/</link>
+    <description>Recent content in 525번 on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Feb 2022 23:21:10 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/525%EB%B2%88/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Feb 2022 23:21:10 +0900</lastBuildDate><atom:link href="https://example.com/tags/525%EB%B2%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>525. Contiguous Array</title>
-      <link>https://localhost:1313/posts/algorithms/156-contiguous-array/</link>
+      <link>https://example.com/posts/525.-contiguous-array/</link>
       <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/algorithms/156-contiguous-array/</guid>
-      <description>HashMap을 이용한 문제 문제를 읽고 HashMap을 이용한 방법이 한번에 와닿지 않아 이를 다시 한번 더 정리하고자 한다. 이번 &amp;ldquo;Contiguous Array&amp;rdquo; 문제는 배열 내의 0, 1 개수가 동일한 최대 길이를 구하는 문제이다. 즉, [0,1,0], [0,1,0,1,1] 등은 각각 2, 4가 된다. 이를 풀기 위해서는 {count: index} 로 구성된 HashMap 을 이용한다. 이 때 count 값은 0부터 시작하여 0일 경우 -1, 1일 경우 +1을 더하여 구하면 주어진 배열에 대해 아래와 같이 1차원 그래프가 나온다.</description>
+      <guid>https://example.com/posts/525.-contiguous-array/</guid>
+      <description>HashMap을 이용한 문제 🔗문제를 읽고 HashMap을 이용한 방법이 한번에 와닿지 않아 이를 다시 한번 더 정리하고자 한다. 이번 &amp;ldquo;Contiguous Array&amp;rdquo; 문제는 배열 내의 0, 1 개</description>
     </item>
     
   </channel>

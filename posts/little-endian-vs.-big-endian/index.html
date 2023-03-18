@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Little Endian vs. Big Endian | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="개요 🔗빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다. 엔디안(Endianness">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Little Endian vs. Big Endian</h1>
+
+    <div class="tip">
+        <time datetime="2020-01-27 22:27:06 &#43;0900 KST">Jan 27, 2020</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1575 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          4 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#가독성">가독성</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#타입-정의">타입 정의</a></li>
+    <li><a href="#byte-order-알아내기">Byte Order 알아내기</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.</p>
+<p><p class="markdown-image">
+  <img src="/img/endian_compare.png" alt="Endian 비교"  />
+</p></p>
+<p>엔디안(Endianness)은 컴퓨터의 메모리와 같은 <strong>1차원 공간에 여러 개의 연속된 대상을 배열하는 방법</strong>을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. <strong>엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며</strong>, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.</p>
+<ul>
+<li>Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식
+(사람이 읽고 쓰는 방식과 비슷함)</li>
+<li>Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식</li>
+</ul>
+<h1 id="예제">예제 <a href="#%ec%98%88%ec%a0%9c" class="anchor">🔗</a></h1><p>예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.</p>
+<p><p class="markdown-image">
+  <img src="/img/byte_order_in_mem.png" alt="Byte order in memory"  />
+</p></p>
+<p>빅 엔디안은 사람이 숫자를 사용하는 것과 같이 큰 단위의 바이트가 앞에 오는 방법이고 리틀 엔디안은 반대로 작은 단위의 바이트가 앞에 오는 방법이다.</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main(void) {
+	unsigned long value = 0x12345678;
+	unsigned char* ptr = &amp;value;
+
+	int i;
+
+	for (i = 0; i &lt; 4; i++) {
+		fprintf(stdout, &quot;value[%d] = 0x%x\n&quot;, i, *ptr++);
+	}
+
+	unsigned long long value2 = 0x12345678abcdefab;
+	ptr = &amp;value2;
+	for (i = 0; i &lt; sizeof(value2); i++) {
+		fprintf(stdout, &quot;value2[%d] = 0x%x\n&quot;, i, *ptr++);
+	}
+
+	return 0;
+}
+</code></pre>
+<p>위의 코드를 컴파일하여 Mac OS 환경에서 실행하면 아래와 같은 결과를 얻을 수 있다.</p>
+<pre><code>~/Workspaces/study/languages/modernc/endian $ ./endian
+value[0] = 0x78
+value[1] = 0x56
+value[2] = 0x34
+value[3] = 0x12
+value2[0] = 0xab
+value2[1] = 0xef
+value2[2] = 0xcd
+value2[3] = 0xab
+value2[4] = 0x78
+value2[5] = 0x56
+value2[6] = 0x34
+value2[7] = 0x12
+</code></pre>
+<p>0x12345678에서 MSB는 0x12, LSB는 0x78이며, LSB가 처음 나오는 것으로 보아 리틀 엔디안 방식으로 <code>Byte-ordering</code>을 하고 있는 것을 알 수 있다. <code>unsigned long long</code>의 경우로 확인할 수 있듯이 4바이트나 8바이트 단위로 byte-ordering 되는 것이 아니라 해당 데이터 타입에 따라 달라지는 것을 알 수 있다.</p>
+<h1 id="장단점">장/단점 <a href="#%ec%9e%a5%eb%8b%a8%ec%a0%90" class="anchor">🔗</a></h1><h2 id="가독성">가독성 <a href="#%ea%b0%80%eb%8f%85%ec%84%b1" class="anchor">🔗</a></h2><p>Big-Endian은 소프트웨어의 디버그를 편하게 해주는 경향이 있다. 사람이 숫자를 읽고 쓰는 방법과 같기 때문에 디버깅 과정에서 메모리의 값을 보기 편하다. 예를 들어, <strong><em>0x59654148</em>을 Big-Endian으로 표현하면 <em>0x59, 0x65, 0x41, 0x48</em> 등으로 메모리에 순서대로 표현</strong>된다.</p>
+<p>반대로 Little-Endian은 메모리에 저장된 값의 하위 바이트들만 사용할 때 별도의 계산이 필요 없다는 장점이 있다. 예를 들어, 32비트 숫자인 0x2A는 리틀 엔디언으로 표현하면 2A 00 00 00이 되는데, 이 표현에서 앞의 두 바이트 또는 한 바이트만 떼어내면 하위 16비트 또는 8비트를 바로 얻을 수 있다. 반면 32비트 빅 엔디안 환경에서는 하위 16비트나 8비트 값을 얻기 위해 변수 주소에 2바이트 또는 3바이트를 더해야 한다.</p>
+<h1 id="커널-내-인터페이스">커널 내 인터페이스 <a href="#%ec%bb%a4%eb%84%90-%eb%82%b4-%ec%9d%b8%ed%84%b0%ed%8e%98%ec%9d%b4%ec%8a%a4" class="anchor">🔗</a></h1><p>커널은 <code>byte order</code> 에 대한 의존성을 해결하기 위해 <code>Type Identifier</code>, <code>Conversion Macro</code> 등을 제공하고 있다. <code>include/uapi/linux/types.h</code> 헤더 파일 내에서는 아래와 같이 엔디안 별로 타입들이 정의되어 있는 것을 알 수 있다. 여기서 uapi 디렉토리는 커널의 userspace API를 포함하고 있다.
+(참고. <a href="https://stackoverflow.com/questions/18858190/whats-in-include-uapi-of-kernel-source-project" target="_blank" rel="noopener">https://stackoverflow.com/questions/18858190/whats-in-include-uapi-of-kernel-source-project</a>)</p>
+<h2 id="타입-정의">타입 정의 <a href="#%ed%83%80%ec%9e%85-%ec%a0%95%ec%9d%98" class="anchor">🔗</a></h2><pre><code>/*
+ * Below are truly Linux-specific types that should never collide with
+ * any application/library that wants linux/types.h.
+ */
+
+#ifdef __CHECKER__
+#define __bitwise__ __attribute__((bitwise))
+#else
+#define __bitwise__
+#endif
+#define __bitwise __bitwise__
+
+typedef __u16 __bitwise __le16;
+typedef __u16 __bitwise __be16;
+typedef __u32 __bitwise __le32;
+typedef __u32 __bitwise __be32;
+typedef __u64 __bitwise __le64;
+typedef __u64 __bitwise __be64;
+
+typedef __u16 __bitwise __sum16;
+typedef __u32 __bitwise __wsum;
+</code></pre>
+<p>bitwise 속성(단순히 정수로써 사용되는 것을 제한하는데 사용)으로 정의되어 있는 Type Identifiers 들이다. bitwise 속성은 sparse 유틸리티(static analyzer)가 변수에 대한 연산을 수행하기 전에 로컬 프로세서로 변환될 수 있도록 보장한다.</p>
+<h2 id="byte-order-알아내기">Byte Order 알아내기 <a href="#byte-order-%ec%95%8c%ec%95%84%eb%82%b4%ea%b8%b0" class="anchor">🔗</a></h2><p>아래와 같이 간단한 user-space 프로그램을 작성하여 현재 시스템의 바이트 오더를 알아낼 수 있다.</p>
+<pre><code>union {
+    int i;
+    char c[sizeof(int)];
+} foo;
+
+main() {
+    foo.i = 1;
+    if (foo.c[0] == 1)
+        printf(&quot;Little endian\n&quot;);
+    else
+        printf(&quot;Big endian\n&quot;);
+}
+</code></pre>
+<p>다음에 소개되는 매크로는 변환 후의 값들을 반환한다.</p>
+<pre><code>#include &lt;linux/kernel.h&gt;
+
+__u16	le16_to_cpu(const __le16);
+__u32	le32_to_cpu(const __le32);
+__u64	le64_to_cpu(const __le64);
+
+__le16	cpu_to_le16(const __u16);
+__le32	cpu_to_le32(const __u32);
+__le64	cpu_to_le64(const __u64);
+
+__u16	be16_to_cpu(const __be16);
+__u32	be32_to_cpu(const __be32);
+__u64	be64_to_cpu(const __be64);
+
+__be16	cpu_to_be16(const __u16);
+__be32	cpu_to_be32(const __u32);
+__be64	cpu_to_be64(const __u64);
+</code></pre>
+<p>포인터에 대한 변환은 p를 붙여서 아래와 같이 사용하며, 현재 사용 중인 프로세서 엔디안 환경에 맞게 변환해주는 매크로도 아래와 같이 제공하고 있다.</p>
+<pre><code>#include &lt;linux/kernel.h&gt;
+
+void le16_to_cpus(__u16 *);
+void le32_to_cpus(__u32 *);
+void le64_to_cpus(__u64 *);
+
+void cpu_to_le16s(__u16 *);
+void cpu_to_le32s(__u32 *);
+void cpu_to_le64s(__u64 *);
+
+void be16_to_cpus(__u16 *);
+void be32_to_cpus(__u32 *);
+void be64_to_cpus(__u64 *);
+
+void cpu_to_be16s(__u16 *);
+void cpu_to_be32s(__u32 *);
+void cpu_to_be64s(__u64 *);
+
+__u16	le16_to_cpup(const __le16 *);
+__u32	le32_to_cpup(const __le32 *);
+__u64	le64_to_cpup(const __le64 *);
+
+__le16	cpu_to_le16p(const __u16 *);
+__le32	cpu_to_le32p(const __u32 *);
+__le64	cpu_to_le64p(const __u64 *);
+
+__u16	be16_to_cpup(const __be16 *);
+__u32	be32_to_cpup(const __be32 *);
+__u64	be64_to_cpup(const __be64 *);
+
+__be16	cpu_to_be16p(const __u16 *);
+__be32	cpu_to_be32p(const __u32 *);
+__be64	cpu_to_be64p(const __u64 *);
+</code></pre>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="http://www.bruceblinn.com/linuxinfo/ByteOrder.html" target="_blank" rel="noopener">http://www.bruceblinn.com/linuxinfo/ByteOrder.html</a></li>
+<li><a href="https://stackoverflow.com/questions/18858190/whats-in-include-uapi-of-kernel-source-project" target="_blank" rel="noopener">https://stackoverflow.com/questions/18858190/whats-in-include-uapi-of-kernel-source-project</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/big-endian">big endian</a>
+            
+                <a href="https://example.com/tags/little-endian">little endian</a>
+            
+                <a href="https://example.com/tags/endian">endian</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

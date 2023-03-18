@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>named export on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/named-export/</link>
-    <description>Recent content in named export on 범&#39;s 개발 블로그</description>
+    <title>named export on Hugo</title>
+    <link>https://example.com/tags/named-export/</link>
+    <description>Recent content in named export on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 May 2019 16:30:51 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/named-export/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 May 2019 16:30:51 +0900</lastBuildDate><atom:link href="https://example.com/tags/named-export/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Named export와 Default export</title>
-      <link>https://localhost:1313/posts/default-export-in-typescript/</link>
+      <link>https://example.com/posts/named-export%EC%99%80-default-export/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/default-export-in-typescript/</guid>
-      <description>개요 모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때 이해가 되지 않았다. 특히 default export와 named export 라는 export 방식과 자바스크립트 버전에 따른 문법 호환 때문에 모듈 export와 import, require를 사용하는 코드를 이해하기 힘들었다.
-이 문서에서는 타입스크립트를 이용하여 default, named export 각각을 구현한 뒤 import, require 키워드 각각을 이용하였을 때 레퍼런스 변수가 어떤 값을 가지고 있는지 확인한다.
-직접 확인해보자 첫 번째 테스트 먼저 export할 테스트 클래스를 간단하게 구현한다.
-// Named Export를 위한 클래스 export class NamedExportClass { test() { console.</description>
+      <guid>https://example.com/posts/named-export%EC%99%80-default-export/</guid>
+      <description>개요 🔗모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때 이해가 되지 않았다. 특히 default export와 named export 라는 export 방식과 자바스크립트 버전에 따른 문</description>
     </item>
     
   </channel>

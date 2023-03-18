@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nfd on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/nfd/</link>
-    <description>Recent content in nfd on 범&#39;s 개발 블로그</description>
+    <title>nfd on Hugo</title>
+    <link>https://example.com/tags/nfd/</link>
+    <description>Recent content in nfd on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2020 22:55:11 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/nfd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Aug 2020 22:55:11 +0900</lastBuildDate><atom:link href="https://example.com/tags/nfd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac OS에서의 자모 분리 현상 해결하기</title>
-      <link>https://localhost:1313/posts/nfd-on-mac-os/</link>
+      <link>https://example.com/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</link>
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/nfd-on-mac-os/</guid>
-      <description>개요 드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반대로 맥에서 동기화한 파일을 윈도우즈나 리눅스에서 보면 한글 자모가 분리되는 현상이 있었다. 자세히 살펴보니 유니코드 정규화 방식의 차이 때문이었다.
-유니코드 정규화 유니코드 정규화는 모양이 같은 여러 문자들이 있을 경우 이를 기준에 따라 하나로 통합해주는 역할을 하며 해당 기준으로 NFD, NFC, NFKD, NFKC 등이 이다. 윈도우즈나 리눅스에서는 NFC 를 기준으로 유니코드 정규화를 하지만 맥에서는 이와 다른 NFD 를 기준으로 유니코드를 정규화하기에 이와 같은 문제가 발생하는 것이다.</description>
+      <guid>https://example.com/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</guid>
+      <description>개요 🔗드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반</description>
     </item>
     
   </channel>

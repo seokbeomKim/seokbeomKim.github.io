@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>state on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/state/</link>
-    <description>Recent content in state on 범&#39;s 개발 블로그</description>
+    <title>state on Hugo</title>
+    <link>https://example.com/tags/state/</link>
+    <description>Recent content in state on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Feb 2021 12:27:08 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/state/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 12:27:08 +0900</lastBuildDate><atom:link href="https://example.com/tags/state/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>state vs status</title>
-      <link>https://localhost:1313/posts/state-vs-status/</link>
+      <link>https://example.com/posts/state-vs-status/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/state-vs-status/</guid>
-      <description>개요 코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state” or “status”? When should a variable name contain the word “state”, and when should a variable name instead contain the word “status”? 스택오버플로우에 이미 관련된 질문이 올라와 있었다.
-둘의 차이점은 간단 명료하게 아래와 같이 정리할 수 있다.
- status: 결과 (success/fail); &amp;ldquo;마지막 상태&amp;rdquo; state: 상태 (pending/dispatched)  앞으로는 둘을 잘 구분해서 사용해야겠다.</description>
+      <guid>https://example.com/posts/state-vs-status/</guid>
+      <description>개요 🔗코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “stat</description>
     </item>
     
   </channel>

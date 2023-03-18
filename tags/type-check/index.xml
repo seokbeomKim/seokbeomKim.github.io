@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>type check on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/type-check/</link>
-    <description>Recent content in type check on 범&#39;s 개발 블로그</description>
+    <title>type check on Hugo</title>
+    <link>https://example.com/tags/type-check/</link>
+    <description>Recent content in type check on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/type-check/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate><atom:link href="https://example.com/tags/type-check/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C언어에서의 type-check</title>
-      <link>https://localhost:1313/posts/type-check-in-c/</link>
+      <link>https://example.com/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/type-check-in-c/</guid>
-      <description>개요 리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입 체크에 대해 정리하고 내용이 추가될 때마다 페이지를 업데이트 하도록 한다.
-페이지 테이블에서의 타입 체크 ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게 작성되어 있는 부분을 찾을 수 있었다.
-typedef u64 pteval_t; typedef u64 pmdval_t; typedef u64 pudval_t; typedef u64 pgdval_t; .</description>
+      <guid>https://example.com/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</guid>
+      <description>개요 🔗리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입</description>
     </item>
     
   </channel>

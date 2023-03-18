@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>deadlock on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/deadlock/</link>
-    <description>Recent content in deadlock on 범&#39;s 개발 블로그</description>
+    <title>deadlock on Hugo</title>
+    <link>https://example.com/tags/deadlock/</link>
+    <description>Recent content in deadlock on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 May 2019 17:40:14 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/deadlock/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 May 2019 17:40:14 +0900</lastBuildDate><atom:link href="https://example.com/tags/deadlock/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>교착상태(Deadlock)</title>
-      <link>https://localhost:1313/posts/deadlock/</link>
+      <link>https://example.com/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</link>
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/deadlock/</guid>
-      <description>교착 상태(Deadlock) 두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결하는 일반적인 방법은 아직 없는 상태다.
-교착 상태는 하나의 사다리에 두 명이 사람이 매달려 있는 상황을 예상할 수 있다. 위쪽의 사람은 아래로 내려오려고 하고 아래에 있는 사람은 위로 올라가려고 한다면 서로 상대방이 사다리에서 비켜줄 때까지 계속 기다리고 있을 것이고 결과적으로 아무도 사다리에서 내려오거나 올라가지 못하듯이 교착 상태란 다중 프로그래밍 환경에서 흔히 발생할 수 있는 문제이다.</description>
+      <guid>https://example.com/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</guid>
+      <description>교착 상태(Deadlock) 🔗두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결</description>
     </item>
     
   </channel>

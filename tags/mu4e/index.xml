@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mu4e on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/mu4e/</link>
-    <description>Recent content in mu4e on 범&#39;s 개발 블로그</description>
+    <title>mu4e on Hugo</title>
+    <link>https://example.com/tags/mu4e/</link>
+    <description>Recent content in mu4e on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2020 01:36:36 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/mu4e/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jun 2020 01:36:36 +0900</lastBuildDate><atom:link href="https://example.com/tags/mu4e/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mu4e 설정하기</title>
-      <link>https://localhost:1313/posts/setting-mu4e/</link>
+      <link>https://example.com/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/setting-mu4e/</guid>
-      <description>개요 이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르게 검색하고 org mode를 함께 사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 장점이다.
-단점은 환경 설정하는 것이 단점인데 mu4e를 단독으로 사용할 수 없을 뿐더러 메일 클라이언트로서 일반 사용자가 사용하기에는 무리가 있다.
-mu4e를 설정하는 방법은 온라인에서 쉽게 찾을 수 없다. 대신, 공식 문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.</description>
+      <guid>https://example.com/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
+      <description>개요 🔗이맥스에서 사용할 수 있는 이메일 클라이언트로서 mu4e라는 것이 있다. 메일을 수신하여 분류, 저장하는데 목적이 있는 것이 아니라 메일을 인덱싱하여 빠르</description>
     </item>
     
   </channel>

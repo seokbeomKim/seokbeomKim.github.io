@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>bt.656 on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/bt.656/</link>
-    <description>Recent content in bt.656 on 범&#39;s 개발 블로그</description>
+    <title>bt.656 on Hugo</title>
+    <link>https://example.com/tags/bt.656/</link>
+    <description>Recent content in bt.656 on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/bt.656/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate><atom:link href="https://example.com/tags/bt.656/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>영상 출력 포맷</title>
-      <link>https://localhost:1313/posts/digital_output_formats/</link>
+      <link>https://example.com/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/digital_output_formats/</guid>
-      <description>디지널 출력 포맷 아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타겟으로 한 표준들이 나오고 있다. 디지털 텔레비전의 부호화 파라미터들을 정의한 권고안으로서 601은 모든 컴포넌트 디지털 영상 표준에 대한 기초가 되었다.
-규격 내용 각 표준에는 아래와 같은 내용들을 정의한다.
- 화면비 휘도 및 색 신호에 대한 처리 영상 포맷 형식 기준 주파수 샘플링 주파수 샘플링 및 코딩 형식  BT.</description>
+      <guid>https://example.com/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</guid>
+      <description>디지널 출력 포맷 🔗아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을</description>
     </item>
     
   </channel>

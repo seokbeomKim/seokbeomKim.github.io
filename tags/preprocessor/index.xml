@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>preprocessor on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/preprocessor/</link>
-    <description>Recent content in preprocessor on 범&#39;s 개발 블로그</description>
+    <title>preprocessor on Hugo</title>
+    <link>https://example.com/tags/preprocessor/</link>
+    <description>Recent content in preprocessor on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Oct 2021 02:19:05 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/preprocessor/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Oct 2021 02:19:05 +0900</lastBuildDate><atom:link href="https://example.com/tags/preprocessor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>컴파일 타임에 매크로 변수 값 확인하기</title>
-      <link>https://localhost:1313/posts/preprocessor-and-macro-variable/</link>
+      <link>https://example.com/posts/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/preprocessor-and-macro-variable/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;
-&lt;p&gt;현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어
+      <guid>https://example.com/posts/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</guid>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요 &lt;a href=&#34;#%ea%b0%9c%ec%9a%94&#34; class=&#34;anchor&#34;&gt;🔗&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어
 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기
 위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한
 변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.&lt;/p&gt;

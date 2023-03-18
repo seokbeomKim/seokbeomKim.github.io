@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Wayland과 Weston | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="개요 🔗직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Wayland과 Weston</h1>
+
+    <div class="tip">
+        <time datetime="2020-02-03 23:17:11 &#43;0900 KST">Feb 3, 2020</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2087 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#android에서-wayland를-사용하지-않는-이유">Android에서 Wayland를 사용하지 않는 이유</a>
+      <ul>
+        <li><a href="#surfaceflinger">SurfaceFlinger</a></li>
+        <li><a href="#gralloc">Gralloc</a></li>
+      </ul>
+    </li>
+    <li><a href="#윈도우즈와-맥에서-사용하지-않는-이유">윈도우즈와 맥에서 사용하지 않는 이유</a></li>
+    <li><a href="#serverclient-model">Server/Client Model</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#qt5">QT5</a></li>
+    <li><a href="#gtk">GTK+</a></li>
+    <li><a href="#clutter">Clutter</a></li>
+    <li><a href="#sdl-simple-directmedia-layer">SDL (Simple DirectMedia Layer)</a></li>
+    <li><a href="#efl">EFL</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#기본-역할">기본 역할</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>직접적으로 연관된 업무는 아니지만 팀 내에서 <code>wayland</code>, <code>weston</code> 이라는
+용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아
+<code>X11</code> 기반으로 최소한의 작업 환경을 맞추고 <code>gnome</code>이나 <code>kde</code>, <code>xfce</code>가
+아닌 <code>fluxbox</code>, <code>blackbox</code>, <code>i3</code>, <code>xmonad</code>, <code>enlightenment</code> 등을
+이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서
+사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도
+몰랐다.</p>
+<p>이번 포스팅에서는 사내 위키의 내용을 출처로 하여, <code>wayland</code>,
+<code>weston</code>에 대한 구조를 살펴보고 클라이언트 예제를 기술하고자 한다.</p>
+<h1 id="wayland">Wayland <a href="#wayland" class="anchor">🔗</a></h1><p><code>wayland</code>는 display server protocol이다. 윈도우즈와 달리 리눅스는 GUI
+환경에 대해서도 server - clients 개념으로 처음 구현되었고 X11 라는
+이름으로 사용되었다. 그러나 복잡한 프로토콜과 라이브러리들로 인해
+불필요한 호출이 많았고 이를 경량화하기 위한 노력의 결과가 바로
+<code>wayland</code>이다.</p>
+<p><code>X11</code>에서 <code>wayland</code>로의 변화는 아래와 같다.</p>
+<ul>
+<li>
+<p><code>X11</code>은 독립적인 프로세스로서 동작하지만 <code>wayland</code>는 라이브러리
+형태로 구현되어 오버헤드가 감소</p>
+</li>
+<li>
+<p><code>X11</code>은 server, compositor로 구분되어 있지만 <code>wayland</code>는 server와
+compositor가 통합되어 두 컴포넌트 간의 불필요한 통신이 감소</p>
+</li>
+<li>
+<p><code>X11</code>에서 렌더링을 서버가 담당하였지만, <code>Wayland</code>는 클라이언트가
+렌더링을 담당하여 서버와의 복잡도가 감소</p>
+</li>
+<li>
+<p><code>X11</code>은 서버가 <code>client</code>, <code>compositor</code>, <code>kernel</code> 간의 모든 동작을
+중개하였지만, <code>Wayland</code>는 <code>server</code>가 <code>client</code>, <code>kernel</code>만 중개하여
+복잡도가 감소함</p>
+</li>
+</ul>
+<h2 id="android에서-wayland를-사용하지-않는-이유">Android에서 Wayland를 사용하지 않는 이유 <a href="#android%ec%97%90%ec%84%9c-wayland%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%98%ec%a7%80-%ec%95%8a%eb%8a%94-%ec%9d%b4%ec%9c%a0" class="anchor">🔗</a></h2><p>Android Graphic에서는 <code>SurfaceFlinger</code>, <code>Gralloc</code> 솔루션을
+사용한다. 각각에 대한 내용은 아래를 살펴보자.</p>
+<h3 id="surfaceflinger">SurfaceFlinger <a href="#surfaceflinger" class="anchor">🔗</a></h3><p><code>SurfaceFlinger</code>는 사용자 프로세스나 앱에서 생성한 화면을 관리하고
+화면의 위치나 표시 순서, 색상 등을 관리한다. 또한, 커널에 위치한
+프레임 버퍼 드라이버와 연동하여 생성된 최종 이미지를 프레임 버퍼
+드라이버를 통해 화면에 출력할 수 있도록 프레임 버퍼와 연동하는 역할을
+한다.
+<p class="markdown-image">
+  <img src="/img/surfaceflinger.jpg" alt="SurfaceFlinger"  />
+</p></p>
+<h3 id="gralloc">Gralloc <a href="#gralloc" class="anchor">🔗</a></h3><p>Android에서 그래픽 버퍼의 할당과 해제를 담당한다.</p>
+<h2 id="윈도우즈와-맥에서-사용하지-않는-이유">윈도우즈와 맥에서 사용하지 않는 이유 <a href="#%ec%9c%88%eb%8f%84%ec%9a%b0%ec%a6%88%ec%99%80-%eb%a7%a5%ec%97%90%ec%84%9c-%ec%82%ac%ec%9a%a9%ed%95%98%ec%a7%80-%ec%95%8a%eb%8a%94-%ec%9d%b4%ec%9c%a0" class="anchor">🔗</a></h2><p>윈도우즈는 DWM (Desktop Window Manager)를, 맥은 Quartz Compositor를 사용한다.</p>
+<h2 id="serverclient-model">Server/Client Model <a href="#serverclient-model" class="anchor">🔗</a></h2><p><code>Wayland</code>는 여러 개의 인터페이스를 정의하여 사용할 수 있고 각각의
+인터페이스는 <code>request</code>와 <code>event</code>로 구성된다.</p>
+<p><p class="markdown-image">
+  <img src="/img/wayland-architecture.png" alt="Wayland Architecture"  />
+</p></p>
+<ol>
+<li>kernel의 이벤트를 받으면 wayland compositor로 전달한다. kernel의
+드라이버를 재사용할 수 있다.</li>
+<li>compositor는 여러 클라이언트 중에서 해당 이벤트를 수신할 client를
+결정한다.</li>
+<li>client가 이벤트를 수신하면 렌더링이 발생한다. client는 업데이트 된
+화면을 표시하기 위해 compositor에 요청을 보낸다.</li>
+<li>compositor는 client로부터 요청을 받은 후에 화면을 재구성한다. 그
+뒤, ioctl을 통해 KMS에게 재구성 된 화면을 전송한다.</li>
+</ol>
+<h1 id="그래픽-라이브러리-종류">그래픽 라이브러리 종류 <a href="#%ea%b7%b8%eb%9e%98%ed%94%bd-%eb%9d%bc%ec%9d%b4%eb%b8%8c%eb%9f%ac%eb%a6%ac-%ec%a2%85%eb%a5%98" class="anchor">🔗</a></h1><p>출처에서는 모듈이라는 용어를 사용했는데 그래픽 라이브러리가 더 적절할
+것이라 생각하여 그래픽 라이브러리로 기술하겠다. 이전에 보지 못했던
+라이브러리들(clutter, SDL)이 있어 함께 정리하고자 한다.</p>
+<h2 id="qt5">QT5 <a href="#qt5" class="anchor">🔗</a></h2><p>이전에는 qt4, qt5의 호환성으로 엄청나게 욕을 먹었었는데 최근에는
+해결된 것으로 보인다. 리눅스, 안드로이드, 윈도우즈 등의 운영체제를
+지원하며, qt의 대표적인 모듈은 아래와 같다.</p>
+<ul>
+<li>QtCore: 컨테이너 관리, 스레드 관리, 이벤트 관리 등을 제공하는 기본 라이브러리</li>
+<li>QtGui &amp; QtWidgets: 데스크탑용 GUI 툴킷으로서 응용 프로그램을 위한 그래픽 구성 요소 제공</li>
+<li>QtMultimedia: 비디오, 카메라, 오디오 기능을 가진 클래스 제공</li>
+<li>QtNetwork: 네트워크 통신을 위한 클래스 제공</li>
+<li>QtSQL: ODBC, SQLite, MySQL 사용가능하도록 지원</li>
+<li>QtWayland: Wayland 기능 사용할 수 있도록 API 제공</li>
+</ul>
+<h2 id="gtk">GTK+ <a href="#gtk" class="anchor">🔗</a></h2><p>GTK+ (GIMP Toolkit+)는 GUI를 위한 라이브러리로서 실제 사용해보면
+알겠지만, 제공되는 프레임워크 API나 결과물의 코드가 더럽다. GTK에
+대해서는 별도로 언급하지 않겠다.</p>
+<h2 id="clutter">Clutter <a href="#clutter" class="anchor">🔗</a></h2><p>인텔에 합병된 OpenedHand에서 C언어로 구현한 2D 그래픽 라이브러리로
+객체 Actor와 이를 그리는 Canvas라는 추상화된 개념이 있다. OpenGL ES를
+사용하기 때문에 데스크탑 뿐만 아니라 다양한 플랫폼에 적용할 수 있다.</p>
+<h2 id="sdl-simple-directmedia-layer">SDL (Simple DirectMedia Layer) <a href="#sdl-simple-directmedia-layer" class="anchor">🔗</a></h2><p>오디오, 키보드, 마우스, 조이스틱 등 하드웨어가 OpenGL 및 Direct3D에
+대한 접근을 제공하도록 설계된 크로스 플랫폼 라이브러리이다. SDL은
+윈도우즈용 게임을 리눅스로 쉽게 포팅하기 위한 라이브러리를 만들기 위해
+개발되었고 현재는 멀티 플랫폼 상에서 게임 개발 및 포팅 목적으로 널리
+이용되고 있다.</p>
+<h2 id="efl">EFL <a href="#efl" class="anchor">🔗</a></h2><p>Enlightenment Foundation Library로 Enlightenment에 코어 그래픽
+라이브러리로 사용되는 라이브러리이다.</p>
+<h1 id="weston">Weston <a href="#weston" class="anchor">🔗</a></h1><p>weston은 wayland compositor의 참조 구현(하드웨어 또는 소프트웨어
+구현을 돕기 위해 제공하는 샘플 프로그램)이다. Desktop, 자동차,
+키오스크, 셋톱박스 등을 위한 라이브러리를 제공하며 Wayland API에 대한
+기본적인 내용을 담고 있기 때문에 기본적으로 창관리와 composite 기능을
+갖고 있다.</p>
+<h2 id="기본-역할">기본 역할 <a href="#%ea%b8%b0%eb%b3%b8-%ec%97%ad%ed%95%a0" class="anchor">🔗</a></h2><p>Weston의 기본 역할은 아래와 같다.</p>
+<ul>
+<li>윈도우들을 여러 계층으로 구분하여 관리한다.</li>
+<li>shell(윈도우 관리 규칙)을 이용해 출력되는 윈도우의 순서를 결정한다.</li>
+<li>윈도우를 화면에 나타나게 하거나 위치를 옮기고 화면 크기 변경을
+관리한다.</li>
+</ul>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li>Telechips, Graphic Framework</li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/wayland">wayland</a>
+            
+                <a href="https://example.com/tags/weston">weston</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

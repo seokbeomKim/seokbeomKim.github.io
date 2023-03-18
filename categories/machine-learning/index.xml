@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine Learning on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/categories/machine-learning/</link>
-    <description>Recent content in Machine Learning on 범&#39;s 개발 블로그</description>
+    <title>Machine Learning on Hugo</title>
+    <link>https://example.com/categories/machine-learning/</link>
+    <description>Recent content in Machine Learning on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 May 2019 17:05:11 +0900</lastBuildDate><atom:link href="https://localhost:1313/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2019 17:05:11 +0900</lastBuildDate><atom:link href="https://example.com/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이</title>
-      <link>https://localhost:1313/posts/tensorflow-scikit-learn/</link>
+      <link>https://example.com/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/tensorflow-scikit-learn/</guid>
-      <description>책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.
-각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득 텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로 머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는 이유가 있을까 궁금해졌다.
-왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류, 회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습 방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도 있다.</description>
+      <guid>https://example.com/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+      <description>책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책</description>
     </item>
     
     <item>
       <title>비지도 학습 알고리즘과 지도 학습</title>
-      <link>https://localhost:1313/posts/unsupervised-supervised-learning/</link>
+      <link>https://example.com/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/unsupervised-supervised-learning/</guid>
-      <description>개요 프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(Unsupervised Learning)이었는데 어디에도 학습이 정확이 무엇인지에 대한 내용이 없었다.
-학습이란 무엇인가? 질문에 대한 답은 쉽게 찾을 수 있었다.(해당 링크)
-A model with a set of parameters transforms the input into an output, this generates a signal from which the model updates the parameters to produce a new output. In the supervised learning scenario, the signal is the error between the model&amp;#39;s estimate and the ground truth (the correct answer).</description>
+      <guid>https://example.com/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
+      <description>개요 🔗프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(</description>
     </item>
     
   </channel>

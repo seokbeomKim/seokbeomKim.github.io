@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>major number on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/major-number/</link>
-    <description>Recent content in major number on 범&#39;s 개발 블로그</description>
+    <title>major number on Hugo</title>
+    <link>https://example.com/tags/major-number/</link>
+    <description>Recent content in major number on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 May 2019 18:37:25 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/major-number/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 May 2019 18:37:25 +0900</lastBuildDate><atom:link href="https://example.com/tags/major-number/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Major와 Minor Numbers</title>
-      <link>https://localhost:1313/posts/major-and-minor-numbers/</link>
+      <link>https://example.com/posts/major%EC%99%80-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/major-and-minor-numbers/</guid>
-      <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
-캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &amp;lsquo;c&amp;rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &amp;lsquo;b&amp;rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</description>
+      <guid>https://example.com/posts/major%EC%99%80-minor-numbers/</guid>
+      <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변</description>
     </item>
     
   </channel>

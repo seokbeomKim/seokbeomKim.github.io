@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>지피(Jiffies) | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">지피(Jiffies)</h1>
+
+    <div class="tip">
+        <time datetime="2019-05-26 10:38:40 &#43;0900 KST">May 26, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3250 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          7 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#시간에-관련된-하드웨어">&lsquo;시간&rsquo;에 관련된 하드웨어</a></li>
+    <li><a href="#커널-코드-속-시스템-타이머-인터럽트-핸들러">커널 코드 속 시스템 타이머 인터럽트 핸들러</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <!-- toc -->
+<p>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한
+뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인
+<code>jiffies</code>에는 시스템 시작 이후 발생한 진동 횟수(tick)이
+저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머
+인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회
+발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은
+<code>jiffies / HZ</code>(초)가 된다.</p>
+<p>커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기
+위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이
+필요한 경우에는 이 차이(offset)값을 빼야 한다.</p>
+<h1 id="지피-비교를-위한-매크로">지피 비교를 위한 매크로 <a href="#%ec%a7%80%ed%94%bc-%eb%b9%84%ea%b5%90%eb%a5%bc-%ec%9c%84%ed%95%9c-%eb%a7%a4%ed%81%ac%eb%a1%9c" class="anchor">🔗</a></h1><p><code>jiffies</code>는 <code>unsigned long</code> 타입으로 언젠가는 오버플로우가 발생하게
+된다. 오버플로우에 대한 내용을 찾던 중 재미있는 함수를 발견했는데 이와
+관련해 잠깐 설명하고자 한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#define time_after(a,b)		\
+</span><span style="color:#080">	(typecheck(unsigned long, a) &amp;&amp; \
+</span><span style="color:#080">	 typecheck(unsigned long, b) &amp;&amp; \
+</span><span style="color:#080">	 ((long)((b) - (a)) &lt; 0))
+</span><span style="color:#080">#define time_before(a,b)	time_after(b,a)
+</span><span style="color:#080"></span>
+<span style="color:#080">#define time_after_eq(a,b)	\
+</span><span style="color:#080">	(typecheck(unsigned long, a) &amp;&amp; \
+</span><span style="color:#080">	 typecheck(unsigned long, b) &amp;&amp; \
+</span><span style="color:#080">	 ((long)((a) - (b)) &gt;= 0))
+</span><span style="color:#080">#define time_before_eq(a,b)	time_after_eq(b,a)
+</span></code></pre></div><p>예전에 지피(jiffies) 비교 매크로를 보면서 이게 어떻게 작동할 수 있는지
+확실하게 이해하지 못했었는데 이는 <code>signed, unsigned와 실제 바이트와의 관계</code>를 내가 정확하게 이해하지 못하고 있었기 때문이었다.</p>
+<p>맘에 들지는 않지만, 스택 오버플로우에 매우 친절하게 설명되어 있는
+답변이 있었다. unsigned와 signed의 관계를 자세하게 나타냈는데 아래와
+같이 표현해주었다. 아래 그림(?)은 편의상 <code>unsigned long</code> 대신
+<code>unsigned int</code>와 <code>signed int</code>의 관계를 나타낸 그림이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[0x0      -              -                  -               0xFFFF]
+[0x0                       0x7FFF][0x8000                   0xFFFF]
+[0                         32,767][-32,768                      -1]
+</code></pre></div><p>integer unsigned 형태는 0x0부터 0xFFFF(4bytes, 2^32)까지의 값 범위를
+가지고 있고 signed는 그 절반을 갖고 있다. 이 때 중요한 점은 signed의
+양수 범위를 초과하는 순간 -1로 되는 것이 아니라 음수 최소값으로
+돌아간다는 점이다. 그러므로 0xFFFF는 -1이 된다.</p>
+<p>지피를 비교하는 경우로 다시 돌아가보자. 비교할 지피 <code>t1, t2</code>에 대해 1)
+모두 양수인 경우, 2) 모두 음수인 경우, 3) 한쪽은 양수, 한쪽은 음수인
+경우를 생각해 볼 수 있다.</p>
+<p>이를 비교하기 위해 아래와 같이 간단하게 코드를 짜본뒤 확인해보자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/* unsigned long 오버플로우 검사 */</span>
+<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t1 <span style="color:#666">=</span> <span style="color:#666">0</span>; <span style="color:#080;font-style:italic">// 0x0
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t2 <span style="color:#666">=</span> <span style="color:#666">1</span>;
+<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t3 <span style="color:#666">=</span> (t1 <span style="color:#666">-</span> <span style="color:#666">1</span>); <span style="color:#080;font-style:italic">// 0xffffffff
+</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t4 <span style="color:#666">=</span> (t1 <span style="color:#666">-</span> <span style="color:#666">1</span>) <span style="color:#666">/</span> <span style="color:#666">2</span>; <span style="color:#080;font-style:italic">// 중간 값(signed 최대)
+</span><span style="color:#080;font-style:italic"></span>
+printf(<span style="color:#b44">&#34;(unsigned)t1 = %lu, t2 = %lu, t3 = %lu, t4 = %lu</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, t1, t2, t3, t4);
+printf(<span style="color:#b44">&#34;(signed)t1 = %ld, t2 = %ld, t3 = %ld, t4 = %ld, t4+1 = %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, t1, t2, t3, t4, t4<span style="color:#666">+</span><span style="color:#666">1</span>);
+
+<span style="color:#080;font-style:italic">/* case 1. 비교 대상이 모두 양수일 때  */</span>
+printf(<span style="color:#b44">&#34;case 1: t1 - t2 as long: %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)t1 <span style="color:#666">-</span> (<span style="color:#0b0;font-weight:bold">long</span>)t2);
+
+<span style="color:#080;font-style:italic">/* case 2. 비교 대상이 모두 음수일 때 */</span>
+printf(<span style="color:#b44">&#34;case 2: (t4 + 1) - (t4 + 2): %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (t4<span style="color:#666">+</span><span style="color:#666">1</span>) <span style="color:#666">-</span> (t4<span style="color:#666">+</span><span style="color:#666">2</span>));
+
+<span style="color:#080;font-style:italic">/* case 3-1. 비교 대상이 서로 다른 부호일 때 */</span>
+printf(<span style="color:#b44">&#34;case 3-1: t3 - t1 as long: %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)((t3) <span style="color:#666">-</span> (t1)));
+
+<span style="color:#080;font-style:italic">/* case 3-2. 비교 대상이 서로 다른 부호일 때 */</span>
+printf(<span style="color:#b44">&#34;case 3-2: t4 - (t4 + 1): %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)t4 <span style="color:#666">-</span> (<span style="color:#0b0;font-weight:bold">long</span>)(t4 <span style="color:#666">+</span> <span style="color:#666">1</span>));
+</code></pre></div><p>이에 대한 출력 결과는 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">(unsigned)t1 = 0, t2 = 1, t3 = 18446744073709551615, t4 = 9223372036854775807
+(signed)t1 = 0, t2 = 1, t3 = -1, t4 = 9223372036854775807, t4+1 = -9223372036854775808
+case 1: t1 - t2 as long: -1
+case 2: (t4 + 1) - (t4 + 2): -1
+case 3-1: t3 - t1 as long: -1
+case 3-2: t4 - (t4 + 1): -1
+</code></pre></div><p>즉, 앞서가는 unsigned, signed의 특성 상 앞서가는 포인트에 대해 signed
+범위 안에서 값을 비교하면 그 결과 범위가 양수 또는 음수로 나오게 된다.</p>
+<h1 id="매크로-속-typecheck">매크로 속 typecheck <a href="#%eb%a7%a4%ed%81%ac%eb%a1%9c-%ec%86%8d-typecheck" class="anchor">🔗</a></h1><p>여기서 사용된 <code>typecheck</code> 함수를 잠깐 살펴보자. typecheck는 무조건
+참(1) 값을 반환하는 매크로 함수이다. 그럼에도 사용하는 이유는 컴파일
+타임에서 인자로 전달한 타입과 변수의 타입을 서로 비교하여 같은지
+여부를 나타낼 수 있는 일종의 트릭을 사용하고 있기 때문이다. (커널
+해킹을 시작한지 얼마되지 않은 시점에서 오랜만에 느껴보는 즐거움이다.)
+아래는 typecheck를 구현한 코드이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#define typecheck(type,x) \
+</span><span style="color:#080">({ type __dummy; \
+</span><span style="color:#080">typeof(x) __dummy2; \
+</span><span style="color:#080">(void)(&amp;__dummy == &amp;__dummy2); \
+</span><span style="color:#080">1; \
+</span><span style="color:#080">})
+</span></code></pre></div><p>재미있는 것은 반환값은 항상 1이지만 반환 전에 <code>(void)(&amp;__dummy == &amp;__dummy2);</code> 부분을 통해 각 변수의 타입으로 만든 포인터가 일치하는지를
+경고 또는 에러 메세지로 출력한다. 런타임 시의 결과를 기대하는 코드가
+아니라, 컴파일 시의 결과를 기대하며 짠 코드인만큼 컨셉 자체가 정말
+신선하게 다가왔다.</p>
+<p>이러한 코드는 아래와 같이 컴파일을 통해 출력 값을 기대할 수
+있다. <code>unsigned long</code> 타입은 <code>j1</code>의 변수를 <code>int</code>과 비교하는
+경우이다. 이러한 예제를 아래 스크린샷처럼 <code>-Werror</code> 옵션과 함께
+컴파일하게 되면 타입 에러를 사전에 감지해낼 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#0b0;font-weight:bold">int</span> a <span style="color:#666">=</span> <span style="color:#666">1</span>;
+<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> j1 <span style="color:#666">=</span> <span style="color:#666">12345678</span>;
+<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> j2 <span style="color:#666">=</span> <span style="color:#666">23456789</span>;
+<span style="color:#a2f;font-weight:bold">if</span> (typecheck(<span style="color:#0b0;font-weight:bold">int</span>,a) <span style="color:#666">&amp;&amp;</span> typecheck(<span style="color:#0b0;font-weight:bold">int</span>, j1) <span style="color:#666">&amp;&amp;</span> typecheck(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span>, j2)) {
+    printf(<span style="color:#b44">&#34;a value is int and (j1, j2) is unsigned long</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
+} <span style="color:#a2f;font-weight:bold">else</span> {
+    printf(<span style="color:#b44">&#34;a value is not int</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
+}
+
+</code></pre></div><p><p class="markdown-image">
+  <img src="/img/gcc_werror.png" alt="컴파일 타임 에러"  />
+</p></p>
+<h1 id="지피jiffies는-누가-증가시키는가">지피(jiffies)는 누가 증가시키는가? <a href="#%ec%a7%80%ed%94%bcjiffies%eb%8a%94-%eb%88%84%ea%b0%80-%ec%a6%9d%ea%b0%80%ec%8b%9c%ed%82%a4%eb%8a%94%ea%b0%80" class="anchor">🔗</a></h1><p>앞서, <code>&quot;지피(jiffies)에는 시스템 시작 이후 발생한 진동 횟수(tick)가 저장된다.&quot;</code>라고 말했다. 그렇다면 그러한 tick은 누가 발생시킬까? 이를
+위한 것이 바로 시스템 타이머이다.</p>
+<p>시간 기록을 위해서 리눅스에서는 RTC(Real Time Clock), 시스템 타이머를
+이용한다.</p>
+<h2 id="시간에-관련된-하드웨어">&lsquo;시간&rsquo;에 관련된 하드웨어 <a href="#%ec%8b%9c%ea%b0%84%ec%97%90-%ea%b4%80%eb%a0%a8%eb%90%9c-%ed%95%98%eb%93%9c%ec%9b%a8%ec%96%b4" class="anchor">🔗</a></h2><p>RTC는 보통 시스템 기판에 붙어 있는 원형 배터리를 통해 시스템이 꺼져
+있는 동안에도 시간을 기록하며 일반적인 PC 아키텍처인 경우 RTC와 CMOS가
+통합되어 있는 것을 확인할 수 있다.<br>커널은 시스템 시작 시 RTC를 읽고
+<code>xtime</code>변수에 저장되는 현재 시간을 초기화한다. 보통 커널은 최초
+init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽지 않는다.</p>
+<p>시스템 타이머는 커널의 시간 기록에 있어 매우 중요한 역할을 한다. 현재
+시간을 초기화할 때 사용되는 RTC와는 달리 시스템 타이머는 주기적으로
+인터럽트를 발생시킨다. 그리고 커널은 이러한 타이머 인터럽트에 대한
+인터럽트 핸들러를 내부에 가지고 있어 아래와 같은 작업들을 처리한다.<br><br></p>
+<ol>
+<li>jiffies_64 및 현재 시간을 저장하는 xtime 변수에 안전하게 접근하기
+위해 xtime_lock을 얻는다.</li>
+<li>필요에 따라 시스템 타이머를 확인하고 재설정한다.</li>
+<li>갱신된 현재 시간을 주기적으로 실시간 시계에 반영한다.</li>
+<li><strong>아키텍처 종속적</strong> 타이머 함수인 <code>tick_periodic()</code> 함수를 호출한다.</li>
+</ol>
+<h2 id="커널-코드-속-시스템-타이머-인터럽트-핸들러">커널 코드 속 시스템 타이머 인터럽트 핸들러 <a href="#%ec%bb%a4%eb%84%90-%ec%bd%94%eb%93%9c-%ec%86%8d-%ec%8b%9c%ec%8a%a4%ed%85%9c-%ed%83%80%ec%9d%b4%eb%a8%b8-%ec%9d%b8%ed%84%b0%eb%9f%bd%ed%8a%b8-%ed%95%b8%eb%93%a4%eb%9f%ac" class="anchor">🔗</a></h2><p>그렇다면, 직접 타이머 인터럽트 핸들러를 따라가보자. 커널 분석 책에는
+아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러 형태로 되어
+있으며 타이머 인터럽트가 발생했을 때 실행된다고 되어 있다. 하지만 실제
+커널(v4.20.x)에는 <code>tick-common.h</code> 안에 하나로 통합되어
+있었다. <code>tick-internal.h</code> 헤더파일에는 <code>tick_set_periodic_handler</code>라는
+함수가 정의되어 있다. 타이머 인터럽트에 대한 핸들러를 등록하는
+함수로서 <code>clock_event_device</code>(시스템 타이머 장치) 디바이스의 이벤트
+핸들러로 등록하는 부분이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/* Set the periodic handler in non broadcast mode */</span>
+<span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_set_periodic_handler</span>(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">clock_event_device</span> <span style="color:#666">*</span>dev, <span style="color:#0b0;font-weight:bold">int</span> broadcast)
+{
+	dev<span style="color:#666">-&gt;</span>event_handler <span style="color:#666">=</span> tick_handle_periodic;
+}
+</code></pre></div><p>이제, <code>tick_handle_periodic()</code> 인터럽트 핸들러를 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/*
+</span><span style="color:#080;font-style:italic"> * Event handler for periodic ticks
+</span><span style="color:#080;font-style:italic"> */</span>
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_handle_periodic</span>(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">clock_event_device</span> <span style="color:#666">*</span>dev)
+{
+	<span style="color:#0b0;font-weight:bold">int</span> cpu <span style="color:#666">=</span> smp_processor_id();
+	ktime_t next <span style="color:#666">=</span> dev<span style="color:#666">-&gt;</span>next_event;
+
+	tick_periodic(cpu);
+
+<span style="color:#080">#if defined(CONFIG_HIGH_RES_TIMERS) || defined(CONFIG_NO_HZ_COMMON)
+</span><span style="color:#080"></span>	<span style="color:#080;font-style:italic">/*
+</span><span style="color:#080;font-style:italic">	 * The cpu might have transitioned to HIGHRES or NOHZ mode via
+</span><span style="color:#080;font-style:italic">	 * update_process_times() -&gt; run_local_timers() -&gt;
+</span><span style="color:#080;font-style:italic">	 * hrtimer_run_queues().
+</span><span style="color:#080;font-style:italic">	 */</span>
+	<span style="color:#a2f;font-weight:bold">if</span> (dev<span style="color:#666">-&gt;</span>event_handler <span style="color:#666">!=</span> tick_handle_periodic)
+		<span style="color:#a2f;font-weight:bold">return</span>;
+<span style="color:#080">#endif
+</span><span style="color:#080"></span>
+	<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>clockevent_state_oneshot(dev))
+		<span style="color:#a2f;font-weight:bold">return</span>;
+	<span style="color:#a2f;font-weight:bold">for</span> (;;) {
+		<span style="color:#080;font-style:italic">/*
+</span><span style="color:#080;font-style:italic">		 * Setup the next period for devices, which do not have
+</span><span style="color:#080;font-style:italic">		 * periodic mode:
+</span><span style="color:#080;font-style:italic">		 */</span>
+		next <span style="color:#666">=</span> ktime_add(next, tick_period);
+
+		<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>clockevents_program_event(dev, next, <span style="color:#a2f">false</span>))
+			<span style="color:#a2f;font-weight:bold">return</span>;
+		<span style="color:#080;font-style:italic">/*
+</span><span style="color:#080;font-style:italic">		 * Have to be careful here. If we&#39;re in oneshot mode,
+</span><span style="color:#080;font-style:italic">		 * before we call tick_periodic() in a loop, we need
+</span><span style="color:#080;font-style:italic">		 * to be sure we&#39;re using a real hardware clocksource.
+</span><span style="color:#080;font-style:italic">		 * Otherwise we could get trapped in an infinite
+</span><span style="color:#080;font-style:italic">		 * loop, as the tick_periodic() increments jiffies,
+</span><span style="color:#080;font-style:italic">		 * which then will increment time, possibly causing
+</span><span style="color:#080;font-style:italic">		 * the loop to trigger again and again.
+</span><span style="color:#080;font-style:italic">		 */</span>
+		<span style="color:#a2f;font-weight:bold">if</span> (timekeeping_valid_for_hres())
+			tick_periodic(cpu);
+	}
+}
+</code></pre></div><p>책에서는 <em>&ldquo;아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러
+형태로 되어 있으며, 타이머 인터럽트가 발생했을 때 실행된다.&quot;</em> 라고
+되어 있으나, 실제 <code>tick_periodic</code> 자체는 아키텍처 종속 코드가 발견되지
+않았다. 대신 cpu 아이디를 얻어오는 부분에 대해 아래와 같은 코드를
+발견할 수 있었다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#ifdef CONFIG_DEBUG_PREEMPT
+</span><span style="color:#080"></span>  <span style="color:#a2f;font-weight:bold">extern</span> <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">debug_smp_processor_id</span>(<span style="color:#0b0;font-weight:bold">void</span>);
+<span style="color:#080"># define smp_processor_id() debug_smp_processor_id()
+</span><span style="color:#080">#else
+</span><span style="color:#080"># define smp_processor_id() raw_smp_processor_id()
+</span><span style="color:#080">#endif
+</span></code></pre></div><p>그리고 <code>raw_smp_processor_id()</code>에 대해서는 아키텍처 별로 종속적인
+코드가 들어가 있는 것을 확인할 수 있다. 한 예로, x86 코드를 살펴보면
+아래와 같이 정의된다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#define raw_smp_processor_id() (this_cpu_read(cpu_number))
+</span></code></pre></div><p>여기서 더 깊게 들어가는 것은 그만두고 다시 원점으로 돌아가, 시스템
+타이머 인터럽트 핸들러에서 SMP(Symmetric Multiprocessing)에 관련,
+아키텍처에 종속된 코드가 실행된다는 것을 파악하였다. 이제
+<code>tick_periodic()</code>을 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_periodic</span>(<span style="color:#0b0;font-weight:bold">int</span> cpu)
+{
+	<span style="color:#a2f;font-weight:bold">if</span> (tick_do_timer_cpu <span style="color:#666">==</span> cpu) {
+		write_seqlock(<span style="color:#666">&amp;</span>jiffies_lock);
+
+		<span style="color:#080;font-style:italic">/* Keep track of the next tick event */</span>
+		tick_next_period <span style="color:#666">=</span> ktime_add(tick_next_period, tick_period);
+
+		do_timer(<span style="color:#666">1</span>);
+		write_sequnlock(<span style="color:#666">&amp;</span>jiffies_lock);
+		update_wall_time(); <span style="color:#080;font-style:italic">// 진동수 경과에 맞춰 현재 시간을 갱신한다.
+</span><span style="color:#080;font-style:italic"></span>	}
+
+	update_process_times(user_mode(get_irq_regs()));
+	profile_tick(CPU_PROFILING);
+}
+</code></pre></div><p>이 함수에서 눈여겨볼 부분은 <code>do_timer()</code>와 <code>update_process_times()</code>
+부분이다. <code>do_timer()</code> 함수는 실제 지피값을 증가시키는 작업을 담당하며
+해당 코드는 아래와 같다. 커널은 전자 함수를 통해 지비를 발생한 틱만큼
+증가시키고 후자를 통해 시스템의 평균 로드 통계를 갱신한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do_timer</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> ticks)
+{
+	jiffies_64 <span style="color:#666">+=</span> ticks;
+	calc_global_load(ticks);
+}
+
+<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">update_process_times</span>(<span style="color:#0b0;font-weight:bold">int</span> user_tick)
+{
+	<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">task_struct</span> <span style="color:#666">*</span>p <span style="color:#666">=</span> current;
+
+	<span style="color:#080;font-style:italic">/* Note: this timer irq context must be accounted for as well. */</span>
+	account_process_tick(p, user_tick);
+	run_local_timers();
+	rcu_check_callbacks(user_tick);
+<span style="color:#080">#ifdef CONFIG_IRQ_WORK
+</span><span style="color:#080"></span>	<span style="color:#a2f;font-weight:bold">if</span> (in_irq())
+		irq_work_tick();
+<span style="color:#080">#endif
+</span><span style="color:#080"></span>	scheduler_tick();
+	<span style="color:#a2f;font-weight:bold">if</span> (IS_ENABLED(CONFIG_POSIX_TIMERS))
+		run_posix_cpu_timers(p);
+}
+</code></pre></div><p><code>update_process_times</code>는 <code>run_local_timers()</code>를 통해 로컬 타이머, 즉
+softirq를 발생시켜 시간이 만료된 타이머를 실행한다.</p>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://stackoverflow.com/questions/8206762/how-does-linux-handle-overflow-in-jiffies" target="_blank" rel="noopener">how does linux handle overflow in
+jiffies</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/jiffies">jiffies</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

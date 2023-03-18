@@ -1,109 +1,127 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  
-  <title>OSI 7-Layers</title>
-  <meta property="og:title" content="OSI 7-Layers" />
-  <meta name="twitter:title" content="OSI 7-Layers" />
-  
+  <head>
+    <title>OSI 7-Layers | Hugo</title>
 
-  
-  <meta name="description" content="일상 속 글쓰기">
-  <meta property="og:description" content="일상 속 글쓰기">
-  <meta name="twitter:description" content="일상 속 글쓰기">
-  
-
-  <meta name="author" content=""/>
-  <meta property="og:site_name" content="범&#39;s 개발 블로그" />
-  <meta property="og:url" content="https://localhost:1313/posts/osi-7-layers/" />
-
-  
-  <meta name="twitter:card" content="summary" />
-
-  
-
-  
-  <meta property="og:type" content="article" />
-  
-  
-  
-  <meta name="generator" content="Hugo 0.92.2" /><link rel="stylesheet" href="https://localhost:1313css/style.css" />
-  
-  <link rel="stylesheet" href="https://localhost:1313/css/img.css">
-  
-  <script type="text/javascript" src="https://localhost:1313js/bundle.js"></script>
-  
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보">
+<meta name="generator" content="Hugo 0.92.2" />
 
 
-  <link href="http://cdn.jsdelivr.net/gh/joungkyun/font-d2coding/d2coding.css" rel="stylesheet" type="text/css">
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-</head>
 
-<body>
-  <a href="#main" class="skip-link p-screen-reader-text">Skip to content</a>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true"> <symbol id="icon-500px" viewBox="0 0 16 16"><g> <path d="M3.953 10.512a5.24 5.24 0 0 0 6.996 3.141c.625-.262 1.184-.641 1.666-1.122s.859-1.041 1.122-1.666c.272-.647.412-1.331.412-2.037s-.137-1.394-.412-2.037c-.262-.625-.641-1.184-1.122-1.666s-1.041-.859-1.666-1.122a5.226 5.226 0 0 0-2.037-.413c-.716 0-1.431.144-2.066.413-.509.216-1.372.769-1.875 1.291l-.003.003V.984h7.241c.262-.003.262-.372.262-.491 0-.122 0-.487-.266-.491H4.377a.343.343 0 0 0-.344.341v6.066c0 .197.244.338.472.384.444.094.544-.047.653-.197l.016-.019c.166-.247.681-.766.688-.772a4.262 4.262 0 0 1 3.037-1.25c1.147 0 2.222.444 3.028 1.25a4.245 4.245 0 0 1 1.256 3.019 4.236 4.236 0 0 1-1.25 3.019 4.336 4.336 0 0 1-3.047 1.25 4.136 4.136 0 0 1-2.159-.597l.003-3.688c0-.491.213-1.028.572-1.431a2.09 2.09 0 0 1 1.588-.716c.594 0 1.15.225 1.566.634.409.406.637.95.637 1.528a2.179 2.179 0 0 1-2.206 2.197c-.238 0-.672-.106-.691-.109-.25-.075-.356.272-.391.387-.134.441.069.528.109.541.397.125.659.147 1.003.147a3.173 3.173 0 0 0 3.169-3.169c0-1.734-1.422-3.144-3.166-3.144-.856 0-1.659.328-2.263.919-.575.566-.903 1.319-.903 2.069v.019c-.003.094-.003 2.306-.006 3.031l-.003-.003c-.328-.363-.653-.919-.869-1.488-.084-.222-.275-.184-.534-.103-.125.034-.469.141-.391.394zm3.722-.865c0 .106.097.2.156.253l.019.019c.1.097.194.147.281.147a.181.181 0 0 0 .131-.05c.044-.041.537-.544.588-.591l.553.55c.05.056.106.088.172.088.088 0 .184-.053.284-.156.238-.244.119-.375.063-.438l-.559-.559.584-.588c.128-.137.016-.284-.097-.397-.162-.162-.322-.206-.422-.112l-.581.581-.588-.588a.16.16 0 0 0-.113-.047c-.078 0-.172.053-.275.156-.181.181-.219.306-.125.406l.588.584-.584.584c-.053.05-.078.103-.075.156zm1.278-7.931c-.938 0-1.938.191-2.669.506a.207.207 0 0 0-.134.181.753.753 0 0 0 .069.337c.047.116.166.425.4.334a6.689 6.689 0 0 1 2.334-.444 6.35 6.35 0 0 1 2.469.497c.622.263 1.206.644 1.844 1.194a.22.22 0 0 0 .147.059c.125 0 .244-.122.347-.237.169-.191.287-.35.119-.509a6.858 6.858 0 0 0-2.1-1.356 7.326 7.326 0 0 0-2.825-.563zM14.006 13.3c-.113-.113-.209-.178-.294-.203s-.162-.006-.222.053l-.056.056a6.32 6.32 0 0 1-6.938 1.356 6.336 6.336 0 0 1-2.013-1.356 6.046 6.046 0 0 1-1.356-2.012c-.288-.713-.381-1.247-.413-1.422-.003-.016-.006-.028-.006-.037-.041-.206-.231-.222-.503-.178-.112.019-.459.072-.428.319v.006a7.261 7.261 0 0 0 2.04 3.994 7.266 7.266 0 0 0 10.288 0l.059-.059c.069-.084.134-.225-.159-.516z"/> </g></symbol> <symbol id="icon-codepen" viewBox="0 0 16 16"><g> <path d="M14.777 5.751l-7-4.667a.5.5 0 0 0-.555 0l-7 4.667a.501.501 0 0 0-.223.416v4.667c0 .167.084.323.223.416l7 4.667a.5.5 0 0 0 .554 0l7-4.667a.501.501 0 0 0 .223-.416V6.167a.501.501 0 0 0-.223-.416zM7.5 10.232L4.901 8.5 7.5 6.768 10.099 8.5 7.5 10.232zM8 5.899V2.434l5.599 3.732L11 7.898l-3-2zm-1 0l-3 2-2.599-1.732L7 2.435V5.9zM3.099 8.5L1 9.899V7.101L3.099 8.5zM4 9.101l3 2v3.465l-5.599-3.732L4 9.102zm4 2l3-2 2.599 1.732L8 14.565V11.1zM11.901 8.5L14 7.101v2.798L11.901 8.5z"/> </g></symbol> <symbol id="icon-dribbble" viewBox="0 0 16 16"><g> <path d="M8 16c-4.412 0-8-3.588-8-8s3.587-8 8-8c4.412 0 8 3.587 8 8s-3.588 8-8 8zm6.747-6.906c-.234-.075-2.116-.634-4.256-.291a29.7 29.7 0 0 1 1.328 4.872 6.845 6.845 0 0 0 2.928-4.581zM10.669 14.3c-.103-.6-.497-2.688-1.456-5.181-.016.006-.031.009-.044.016-3.856 1.344-5.241 4.016-5.362 4.266a6.807 6.807 0 0 0 6.863.9zm-7.747-1.722c.156-.266 2.031-3.369 5.553-4.509a7.04 7.04 0 0 1 .269-.081 24.04 24.04 0 0 0-.553-1.159c-3.409 1.022-6.722.978-7.022.975-.003.069-.003.138-.003.209 0 1.753.666 3.356 1.756 4.566zM1.313 6.609c.306.003 3.122.016 6.319-.831a43.092 43.092 0 0 0-2.534-3.953 6.854 6.854 0 0 0-3.784 4.784zM6.4 1.366a36.612 36.612 0 0 1 2.55 4c2.431-.909 3.459-2.294 3.581-2.469A6.799 6.799 0 0 0 6.4 1.366zm6.891 2.325c-.144.194-1.291 1.663-3.816 2.694.159.325.313.656.453.991.05.119.1.234.147.353 2.275-.284 4.534.172 4.759.219a6.816 6.816 0 0 0-1.544-4.256z"/> </g></symbol> <symbol id="icon-facebook" viewBox="0 0 16 16"><g> <path d="M9.5 3H12V0H9.5C7.57 0 6 1.57 6 3.5V5H4v3h2v8h3V8h2.5l.5-3H9V3.5c0-.271.229-.5.5-.5z"/> </g></symbol> <symbol id="icon-feed" viewBox="0 0 16 16"><g> <path d="M2.13 11.733c-1.175 0-2.13.958-2.13 2.126 0 1.174.955 2.122 2.13 2.122a2.126 2.126 0 0 0 2.133-2.122 2.133 2.133 0 0 0-2.133-2.126zM.002 5.436v3.067c1.997 0 3.874.781 5.288 2.196a7.45 7.45 0 0 1 2.192 5.302h3.08c0-5.825-4.739-10.564-10.56-10.564zM.006 0v3.068C7.128 3.068 12.924 8.87 12.924 16H16C16 7.18 8.824 0 .006 0z"/> </g></symbol> <symbol id="icon-flickr" viewBox="0 0 16 16"><g> <path d="M0 8.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0zm9 0a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/> </g></symbol> <symbol id="icon-github" viewBox="0 0 16 16"><g> <path d="M8 .198a8 8 0 0 0-2.529 15.591c.4.074.547-.174.547-.385 0-.191-.008-.821-.011-1.489-2.226.484-2.695-.944-2.695-.944-.364-.925-.888-1.171-.888-1.171-.726-.497.055-.486.055-.486.803.056 1.226.824 1.226.824.714 1.223 1.872.869 2.328.665.072-.517.279-.87.508-1.07-1.777-.202-3.645-.888-3.645-3.954 0-.873.313-1.587.824-2.147-.083-.202-.357-1.015.077-2.117 0 0 .672-.215 2.201.82A7.672 7.672 0 0 1 8 4.066c.68.003 1.365.092 2.004.269 1.527-1.035 2.198-.82 2.198-.82.435 1.102.162 1.916.079 2.117.513.56.823 1.274.823 2.147 0 3.073-1.872 3.749-3.653 3.947.287.248.543.735.543 1.481 0 1.07-.009 1.932-.009 2.195 0 .213.144.462.55.384A8 8 0 0 0 8.001.196z"/> </g></symbol> <symbol id="icon-gitlab" viewBox="0 0 28 28"><g> <path d="M1.625 11.031L14 26.89.437 17.046a1.092 1.092 0 0 1-.391-1.203l1.578-4.813zm7.219 0h10.313L14.001 26.89zM5.75 1.469l3.094 9.562H1.625l3.094-9.562a.548.548 0 0 1 1.031 0zm20.625 9.562l1.578 4.813a1.09 1.09 0 0 1-.391 1.203l-13.563 9.844 12.375-15.859zm0 0h-7.219l3.094-9.562a.548.548 0 0 1 1.031 0z"/> </g></symbol> <symbol id="icon-google-plus" viewBox="0 0 16 16"><g> <path d="M5.091 7.147v1.747h2.888c-.116.75-.872 2.197-2.888 2.197-1.737 0-3.156-1.441-3.156-3.216s1.419-3.216 3.156-3.216c.991 0 1.65.422 2.028.784L8.5 4.112c-.888-.828-2.037-1.331-3.409-1.331C2.275 2.784 0 5.059 0 7.875s2.275 5.091 5.091 5.091c2.937 0 4.888-2.066 4.888-4.975 0-.334-.037-.591-.081-.844H5.092zM16 7h-1.5V5.5H13V7h-1.5v1.5H13V10h1.5V8.5H16z"/> </g></symbol> <symbol id="icon-instagram" viewBox="0 0 22 22"><g> <path d="M15.445 0H6.554A6.559 6.559 0 0 0 0 6.554v8.891A6.559 6.559 0 0 0 6.554 22h8.891a6.56 6.56 0 0 0 6.554-6.555V6.554A6.557 6.557 0 0 0 15.445 0zm4.342 15.445a4.343 4.343 0 0 1-4.342 4.342H6.554a4.341 4.341 0 0 1-4.341-4.342V6.554a4.34 4.34 0 0 1 4.341-4.341h8.891a4.342 4.342 0 0 1 4.341 4.341l.001 8.891z"/> <path d="M11 5.312A5.693 5.693 0 0 0 5.312 11 5.694 5.694 0 0 0 11 16.688 5.694 5.694 0 0 0 16.688 11 5.693 5.693 0 0 0 11 5.312zm0 9.163a3.475 3.475 0 1 1-.001-6.95 3.475 3.475 0 0 1 .001 6.95zm5.7-10.484a1.363 1.363 0 1 1-1.364 1.364c0-.752.51-1.364 1.364-1.364z"/> </g></symbol> <symbol id="icon-linkedin" viewBox="0 0 16 16"><g> <path d="M6 6h2.767v1.418h.04C9.192 6.727 10.134 6 11.539 6 14.46 6 15 7.818 15 10.183V15h-2.885v-4.27c0-1.018-.021-2.329-1.5-2.329-1.502 0-1.732 1.109-1.732 2.255V15H6V6zM1 6h3v9H1V6zM4 3.5a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 4 3.5z"/> </g></symbol> <symbol id="icon-mail" viewBox="0 0 22 18"><g> <path fill="#000" d="M0 17.225V.776h22v16.447H0v.002zm3.011-1.815h15.978l-5.111-5.115L11 13.179l-2.877-2.883-5.112 5.114zm-1.216-1.275l5.077-5.09L1.795 3.98v10.155zm13.332-5.09l5.079 5.09V3.979l-5.079 5.066zm-4.126 1.588l8.022-8.027-16.045-.001 8.023 8.028z"/> </g></symbol> <symbol id="icon-medium" viewBox="0 0 24 24"><g> <path d="M22.085 4.733L24 2.901V2.5h-6.634l-4.728 11.768L7.259 2.5H.303v.401L2.54 5.594c.218.199.332.49.303.783V16.96c.069.381-.055.773-.323 1.05L0 21.064v.396h7.145v-.401l-2.52-3.049a1.244 1.244 0 0 1-.347-1.05V7.806l6.272 13.659h.729l5.393-13.659v10.881c0 .287 0 .346-.188.534l-1.94 1.877v.402h9.412v-.401l-1.87-1.831a.556.556 0 0 1-.214-.534V5.267a.554.554 0 0 1 .213-.534z"/> </g></symbol> <symbol id="icon-npm" viewBox="0 0 16 16"><g> <path d="M0 0v16h16V0H0zm13 13h-2V5H8v8H3V3h10v10z"/> </g></symbol> <symbol id="icon-pinterest" viewBox="0 0 16 16"><g> <path d="M8 1.069a6.93 6.93 0 0 0-2.525 13.384c-.059-.547-.116-1.391.025-1.988.125-.541.813-3.444.813-3.444s-.206-.416-.206-1.028c0-.963.559-1.684 1.253-1.684.591 0 .878.444.878.975 0 .594-.378 1.484-.575 2.306-.166.691.344 1.253 1.025 1.253 1.231 0 2.178-1.3 2.178-3.175 0-1.659-1.194-2.819-2.894-2.819-1.972 0-3.128 1.478-3.128 3.009 0 .597.228 1.234.516 1.581.056.069.066.128.047.2a95.89 95.89 0 0 1-.194.787c-.031.128-.1.153-.231.094-.866-.403-1.406-1.669-1.406-2.684 0-2.188 1.587-4.194 4.578-4.194 2.403 0 4.272 1.712 4.272 4.003 0 2.388-1.506 4.313-3.597 4.313-.703 0-1.362-.366-1.588-.797 0 0-.347 1.322-.431 1.647-.156.603-.578 1.356-.862 1.816a6.93 6.93 0 0 0 8.984-6.622 6.931 6.931 0 0 0-6.931-6.934z"/> </g></symbol> <symbol id="icon-search" viewBox="0 0 16 16"><g> <path d="M15.504 13.616l-3.79-3.223c-.392-.353-.811-.514-1.149-.499a6 6 0 1 0-.672.672c-.016.338.146.757.499 1.149l3.223 3.79c.552.613 1.453.665 2.003.115s.498-1.452-.115-2.003zM6 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/> </g></symbol> <symbol id="icon-tumblr" viewBox="0 0 16 16"><g> <path d="M9.001 7v3.659c0 .928-.012 1.463.086 1.727.098.262.342.534.609.691.354.212.758.318 1.214.318.81 0 1.289-.107 2.09-.633v2.405a9.089 9.089 0 0 1-1.833.639A7.93 7.93 0 0 1 9.369 16a4.9 4.9 0 0 1-1.725-.276 4.195 4.195 0 0 1-1.438-.79c-.398-.343-.672-.706-.826-1.091s-.23-.944-.23-1.676V6.556H3.003V4.29c.628-.204 1.331-.497 1.778-.877a4.386 4.386 0 0 0 1.08-1.374C6.133 1.505 6.32.825 6.422 0h2.579v4H13v3H9.001z"/> </g></symbol> <symbol id="icon-twitter" viewBox="0 0 16 16"><g> <path d="M16 3.538a6.461 6.461 0 0 1-1.884.516 3.301 3.301 0 0 0 1.444-1.816 6.607 6.607 0 0 1-2.084.797 3.28 3.28 0 0 0-2.397-1.034 3.28 3.28 0 0 0-3.197 4.028 9.321 9.321 0 0 1-6.766-3.431 3.284 3.284 0 0 0 1.015 4.381A3.301 3.301 0 0 1 .643 6.57v.041A3.283 3.283 0 0 0 3.277 9.83a3.291 3.291 0 0 1-1.485.057 3.293 3.293 0 0 0 3.066 2.281 6.586 6.586 0 0 1-4.862 1.359 9.286 9.286 0 0 0 5.034 1.475c6.037 0 9.341-5.003 9.341-9.341 0-.144-.003-.284-.009-.425a6.59 6.59 0 0 0 1.637-1.697z"/> </g></symbol> <symbol id="icon-vimeo" viewBox="0 0 16 16"><g> <path d="M15.994 4.281c-.072 1.556-1.159 3.691-3.263 6.397-2.175 2.825-4.016 4.241-5.522 4.241-.931 0-1.722-.859-2.366-2.581-.431-1.578-.859-3.156-1.291-4.734-.478-1.722-.991-2.581-1.541-2.581-.119 0-.538.253-1.256.753l-.753-.969c.791-.694 1.569-1.388 2.334-2.081 1.053-.909 1.844-1.387 2.372-1.438 1.244-.119 2.013.731 2.3 2.553.309 1.966.525 3.188.647 3.666.359 1.631.753 2.447 1.184 2.447.334 0 .838-.528 1.509-1.588.669-1.056 1.028-1.862 1.078-2.416.097-.912-.262-1.372-1.078-1.372a2.98 2.98 0 0 0-1.184.263c.787-2.575 2.287-3.825 4.506-3.753 1.641.044 2.416 1.109 2.322 3.194z"/> </g></symbol> <symbol id="icon-wordpress" viewBox="0 0 16 16"><g> <path d="M2 8c0 2.313 1.38 4.312 3.382 5.259L2.52 5.622A5.693 5.693 0 0 0 2 8zm10.05-.295c0-.722-.266-1.222-.495-1.612-.304-.482-.589-.889-.589-1.371 0-.537.418-1.037 1.008-1.037.027 0 .052.003.078.005A6.064 6.064 0 0 0 8 2.156 6.036 6.036 0 0 0 2.987 4.79c.141.004.274.007.386.007.627 0 1.599-.074 1.599-.074.323-.018.361.444.038.482 0 0-.325.037-.687.055l2.185 6.33 1.313-3.835-.935-2.495a12.304 12.304 0 0 1-.629-.055c-.323-.019-.285-.5.038-.482 0 0 .991.074 1.58.074.627 0 1.599-.074 1.599-.074.323-.018.362.444.038.482 0 0-.326.037-.687.055l2.168 6.282.599-1.947c.259-.809.457-1.389.457-1.889zm-3.945.806l-1.8 5.095a6.148 6.148 0 0 0 3.687-.093.52.52 0 0 1-.043-.081L8.105 8.511zm5.16-3.315c.026.186.04.386.04.601 0 .593-.114 1.259-.456 2.093l-1.833 5.16c1.784-1.013 2.983-2.895 2.983-5.051a5.697 5.697 0 0 0-.735-2.803zM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14z"/> </g></symbol> <symbol id="icon-youtube" viewBox="0 0 16 16"><g> <path d="M15.841 4.8s-.156-1.103-.637-1.587c-.609-.637-1.291-.641-1.603-.678-2.237-.163-5.597-.163-5.597-.163h-.006s-3.359 0-5.597.163c-.313.038-.994.041-1.603.678C.317 3.697.164 4.8.164 4.8S.005 6.094.005 7.391v1.213c0 1.294.159 2.591.159 2.591s.156 1.103.634 1.588c.609.637 1.409.616 1.766.684 1.281.122 5.441.159 5.441.159s3.363-.006 5.6-.166c.313-.037.994-.041 1.603-.678.481-.484.637-1.588.637-1.588s.159-1.294.159-2.591V7.39c-.003-1.294-.162-2.591-.162-2.591zm-9.494 5.275V5.578l4.322 2.256-4.322 2.241z"/> </g></symbol></svg>
-  <header class="l-header">
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
     
-    <p class="c-title p-title"><a href="https://localhost:1313" class="p-title__link">범&#39;s 개발 블로그</a></p>
-    
-    
-    <p class="p-subtitle">
-      일상 속 글쓰기
-    </p>
-    
-    
-  </header>
-  <main id="main" class="l-main">
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
-<article class="p-article">
-  <header>
-    <h1>OSI 7-Layers</h1>
-    <div>
-      <div class="c-time">
-        Posted on
-        <time datetime="2019-05-21T16:10:20&#43;09:00">
-          May 21, 2019
-        </time>
-      </div>
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
       
-      <a href="https://localhost:1313/tags/osi-7-layers" class="c-tag">OSI 7 Layers</a>
-      
+
+<section id="single">
+    <h1 class="title">OSI 7-Layers</h1>
+
+    <div class="tip">
+        <time datetime="2019-05-21 16:10:20 &#43;0900 KST">May 21, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3501 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          7 minute read
+        </span>
     </div>
-  </header>
+
+    
+    
+        
   
-  <aside>
-    <nav id="TableOfContents">
-  <ol>
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
     <li><a href="#데이터링크-계층-역할">데이터링크 계층 역할</a></li>
     <li><a href="#데이터링크의-부계층-llc와-mac">데이터링크의 부계층, LLC와 MAC</a></li>
     <li><a href="#주소-종류">주소 종류</a></li>
-  </ol>
+  </ul>
 
-  <ol>
+  <ul>
     <li><a href="#계층-역할">계층 역할</a></li>
-  </ol>
+  </ul>
 
-  <ol>
+  <ul>
     <li><a href="#계층-역할-1">계층 역할</a></li>
-  </ol>
+  </ul>
 </nav>
-  </aside>
+          </div>
+      </details>
+    </aside>
   
-  
-  <section id="js-article" class="p-article__body">
-    <p>네트워크의 기본 개념인 <code>OSI 7-Layers</code>에 대해서 정리하고자 한다. 학부
+
+
+    
+
+
+    <div class="content">
+      <p>네트워크의 기본 개념인 <code>OSI 7-Layers</code>에 대해서 정리하고자 한다. 학부
 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층
 개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을
 이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.</p>
 <p>OSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을
 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각
 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을
-이해해야 한다.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<h1 id="l1-물리-계층-physical-layer">L1. 물리 계층, Physical Layer</h1>
-<p>물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해
+이해해야 한다.<br><br></p>
+<h1 id="l1-물리-계층-physical-layer">L1. 물리 계층, Physical Layer <a href="#l1-%eb%ac%bc%eb%a6%ac-%ea%b3%84%ec%b8%b5-physical-layer" class="anchor">🔗</a></h1><p>물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해
 물리적으로 신호를 주고받는 계층이다. 무인 드론 개발 프로젝트에서 각
 장비들은 스위치와 광케이블을 이용해 연결되었는데 이러한 1차적인 물리적
 인프라들, 광케이블 따위들을 물리 계층의 하나로 이해하면
@@ -114,13 +132,12 @@
 포함된다.</p>
 <blockquote>
 <p>허브(Hubs)와 스위치(Switch) 둘이 헷갈리는 경우가 종종 있는데
-<a href="https://planetechusa.com/blog/ethernet-hub-vs-switch">출처</a>를
+<a href="https://planetechusa.com/blog/ethernet-hub-vs-switch" target="_blank" rel="noopener">출처</a>를
 확인해보면 이해하기 쉬울 것이다. 간략하게 말하면, 허브는 물리적인
 신호 전달 경로만 제공하고 스위치는 각 장비들을 구분할 수 있다는 점이
 차이점이다.</p>
 </blockquote>
-<h1 id="l2-데이터-링크-계층-data-link-layer">L2. 데이터 링크 계층, Data Link Layer</h1>
-<p>데이터 링크 계층의 주 목적은 <strong>잡음이 있는 인접 노드 간의 물리적인
+<h1 id="l2-데이터-링크-계층-data-link-layer">L2. 데이터 링크 계층, Data Link Layer <a href="#l2-%eb%8d%b0%ec%9d%b4%ed%84%b0-%eb%a7%81%ed%81%ac-%ea%b3%84%ec%b8%b5-data-link-layer" class="anchor">🔗</a></h1><p>데이터 링크 계층의 주 목적은 <strong>잡음이 있는 인접 노드 간의 물리적인
 회선</strong>을 상위 네트워크 계층이 사용할 수 있도록 <strong>전송 에러가 없는 통신
 채널</strong>로 변환시키는 계층이다. 때문에 데이터 링크 계층의 역할 중 가장
 중요한 역할은 **에러 제어(Error Control)**이다.</p>
@@ -131,12 +148,11 @@
 계층의 역할은 1계층(Physical Layer)에서 raw 데이터들의 흐름을 제어하고
 에러를 제어하는 역할을 한다.</p>
 <p>이 계층에는 <code>Ethernet, PPP, Switch, Bridge</code> 등이 포함된다.</p>
-<h2 id="데이터링크-계층-역할">데이터링크 계층 역할</h2>
-<ol>
+<h2 id="데이터링크-계층-역할">데이터링크 계층 역할 <a href="#%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%a7%81%ed%81%ac-%ea%b3%84%ec%b8%b5-%ec%97%ad%ed%95%a0" class="anchor">🔗</a></h2><ol>
 <li>
 <p>프레이밍(Framing)</p>
 <p>데이터 배열에 Data, Header, Trailer 등을 넣어서 캡슐화를 하는
-작업을 말한다. <!-- raw HTML omitted -->각각의 노드(송신자, 수신자, 중간 중간의 각종
+작업을 말한다. <br>각각의 노드(송신자, 수신자, 중간 중간의 각종
 라우터, 스위치 등의 하드웨어)에서 다음 노드로 데이터를 보낼 때,
 L3(Network Layer)에서 받은 데이터그램(Datagram)을 캡슐화하며
 캡슐화된 틀(데이터 배열)을 프레임(Frame) 또는 패킷(packet)이라
@@ -145,7 +161,7 @@ L3(Network Layer)에서 받은 데이터그램(Datagram)을 캡슐화하며
 <li>
 <p>흐름제어(Flow Control)</p>
 <p>송신 측이 수신 측의 데이터 처리 속도보다 훨씬 빠른 속도로 데이터를
-보낸다면 어떻게 될까?<!-- raw HTML omitted -->수신 측의 버퍼(Buffer)가 점점 더 길어지게
+보낸다면 어떻게 될까?<br>수신 측의 버퍼(Buffer)가 점점 더 길어지게
 된다. 버퍼의 길이는 제한되어 있기 때문에 버퍼가 가득차면 데이터를
 더이상 저장할 수 없어 데이터가 손실된다. 이러한 문제를 보완하기
 위해 수신 측에서는 송신 측에게 그만 보내거나 천천히 보내달라는
@@ -161,42 +177,38 @@ L3(Network Layer)에서 받은 데이터그램(Datagram)을 캡슐화하며
 요청하여 해결한다.</p>
 </li>
 </ol>
-<h2 id="데이터링크의-부계층-llc와-mac">데이터링크의 부계층, LLC와 MAC</h2>
-<p>데이터 링크 계층을 더 세부적으로 나누면 LLC(Logical Link Control)
+<h2 id="데이터링크의-부계층-llc와-mac">데이터링크의 부계층, LLC와 MAC <a href="#%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%a7%81%ed%81%ac%ec%9d%98-%eb%b6%80%ea%b3%84%ec%b8%b5-llc%ec%99%80-mac" class="anchor">🔗</a></h2><p>데이터 링크 계층을 더 세부적으로 나누면 LLC(Logical Link Control)
 부계층과 MAC(Media Access Control) 부계층으로 나눌 수 있다. LLC는
 <code>Flow Control</code>과 <code>Error Control</code>에 대한 책임을 갖고 있고 MAC은
 네트워크 노드 간의 접근과 권한을 관리한다.</p>
-<h2 id="주소-종류">주소 종류</h2>
-<ol>
+<h2 id="주소-종류">주소 종류 <a href="#%ec%a3%bc%ec%86%8c-%ec%a2%85%eb%a5%98" class="anchor">🔗</a></h2><ol>
 <li>
-<p>Unicast address: 1 대 1 통신<!-- raw HTML omitted -->
+<p>Unicast address: 1 대 1 통신<br>
 모든 기기(송신자, 수신자, 라우터 등)에는 Unicast 주소가 할당되어
 있다. Unicast는 1 대 1 통신을 의미하며 L2 계층에서 프레이밍을 할
 때 Unicast address를 넣으면 해당 MAC 주소를 가진 곳으로만 간다.</p>
 </li>
 <li>
-<p>Multicast address: 1 대 다 통신<!-- raw HTML omitted -->
+<p>Multicast address: 1 대 다 통신<br>
 특정 L2 계층의 프로토콜에는 Multicast 주소를 정의하고
 있다. Multicast란 1대 다 통신을 의미하며 아무데서나 쓸 수 없고
 특정 범위에서만 사용 가능하다.</p>
 </li>
 <li>
-<p>Broadcast address: 1 대 전체 통신<!-- raw HTML omitted -->
+<p>Broadcast address: 1 대 전체 통신<br>
 Broadcast는 1 대 전체 통신을 의미한다. Broadcast 주소를 담은
 프레임은 모든 기기에 전달되며 일반적인 브로드캐스트 주소는
 FF:FF:FF:FF:FF:FF 이다.</p>
 </li>
 </ol>
-<h1 id="l3-네트워크-계층-network-layer">L3. 네트워크 계층, Network Layer</h1>
-<p>네트워크 계층은 여러 개의 네트워크 간 데이터를 구성하고 전송하는
+<h1 id="l3-네트워크-계층-network-layer">L3. 네트워크 계층, Network Layer <a href="#l3-%eb%84%a4%ed%8a%b8%ec%9b%8c%ed%81%ac-%ea%b3%84%ec%b8%b5-network-layer" class="anchor">🔗</a></h1><p>네트워크 계층은 여러 개의 네트워크 간 데이터를 구성하고 전송하는
 계층으로 라우팅, 주소체계를 관리하는 계층이라고 이해하면
 된다. 네트워크 계층에 대한 간단한 예로, 보스턴에 있는 컴퓨터가
 캘리포니아에 있는 서버에 연결하려고 할 때 그 경로는 수백 만 가지다. 이
 계층의 라우터가 이러한 작업을 효율적으로 처리한다.</p>
 <p>네트워크 계층에는 라우터와 브릿지 라우터 등이 포함되며 <code>IPv4, IPv6</code>와
 같은 <code>인터넷 프로토콜(Internet Protocol)</code>과 ARP가 여기에 포함된다.</p>
-<h2 id="계층-역할">계층 역할</h2>
-<ol>
+<h2 id="계층-역할">계층 역할 <a href="#%ea%b3%84%ec%b8%b5-%ec%97%ad%ed%95%a0" class="anchor">🔗</a></h2><ol>
 <li>
 <p>경로제어(라우팅)</p>
 <p>단말기 혹은 컴퓨터가 어떤 망에 접속되어 있을 때 송신하고자 하는
@@ -220,14 +232,12 @@ IP, 사설 IP 등) 상위 전송계층에서 받은 데이터에 목적지 호�
 논리 주소를 헤더에 추가하여 전송한다.</p>
 </li>
 </ol>
-<h1 id="l4-전송-계층-transport-layer">L4. 전송 계층, Transport Layer</h1>
-<p>전송 계층은 양단 간 어떤 종류의 망이 사용되었는지 의식하지 않고 쌍방
+<h1 id="l4-전송-계층-transport-layer">L4. 전송 계층, Transport Layer <a href="#l4-%ec%a0%84%ec%86%a1-%ea%b3%84%ec%b8%b5-transport-layer" class="anchor">🔗</a></h1><p>전송 계층은 양단 간 어떤 종류의 망이 사용되었는지 의식하지 않고 쌍방
 응용프로세스 간 투명하고 신뢰성 있게 논리적인 통신을 이루는
 계층이다. 이 계층은 <code>Error Control</code>, <code>Flow Control</code>, <code>Congestion Control</code> 등의 매커니즘을 제공하며 일반적인 프로토콜은
 <code>TCP(Transmission Control Protocol)</code>, <code>UDP(User Datagram Protocol)</code>
 등이 있다.</p>
-<h2 id="계층-역할-1">계층 역할</h2>
-<p>전송 계층의 하위 계층인 네트워크 계층(L2)는 목적지까지 개별적인
+<h2 id="계층-역할-1">계층 역할 <a href="#%ea%b3%84%ec%b8%b5-%ec%97%ad%ed%95%a0-1" class="anchor">🔗</a></h2><p>전송 계층의 하위 계층인 네트워크 계층(L2)는 목적지까지 개별적인
 패킷(프레임)을 전달하지만, 이들 패킷 간의 관계는 알지 못한다. 다시
 말해, 올바른 순서대로 도착하여 정상적인 메시지로 조립되었는지 알지
 못하기 때문에 이를 전송 계층에서 담당해야 한다.</p>
@@ -259,14 +269,12 @@ IP, 사설 IP 등) 상위 전송계층에서 받은 데이터에 목적지 호�
 교정은 통상 재전송을 통해 이루어진다.</p>
 </li>
 </ol>
-<h1 id="l5-세션-계층-session-layer">L5. 세션 계층, Session Layer</h1>
-<p>여기서부터는 애플리케이션에 관련된 계층이라고 할 수
+<h1 id="l5-세션-계층-session-layer">L5. 세션 계층, Session Layer <a href="#l5-%ec%84%b8%ec%85%98-%ea%b3%84%ec%b8%b5-session-layer" class="anchor">🔗</a></h1><p>여기서부터는 애플리케이션에 관련된 계층이라고 할 수
 있다. (물리계층(L1)부터 전송계층(L4)까지의 주된 기능은 단순히 데이터를
 전달하는 것이다.) 세션 계층은 응용 프로세스가 통신을 관리하기 위한
 방법을 정의하는 계층으로, 세션을 만들고 없애는 역할을 한다. 흔한 예로
 HTTP의 세션을 생각하면 이해하기 쉽다.</p>
-<h1 id="l6-표현-계층-presentation-layer">L6. 표현 계층, Presentation Layer</h1>
-<p>네트워크 상의 여러 이기종 시스템들은 저마다 다른 데이터 표현 방식을
+<h1 id="l6-표현-계층-presentation-layer">L6. 표현 계층, Presentation Layer <a href="#l6-%ed%91%9c%ed%98%84-%ea%b3%84%ec%b8%b5-presentation-layer" class="anchor">🔗</a></h1><p>네트워크 상의 여러 이기종 시스템들은 저마다 다른 데이터 표현 방식을
 사용하는데, 이를 하나의 통일된 구문으로 변환시키는 기능을 수행하는
 계층을 말한다. 즉, 네트워크와 애플리케이션 간 데이터 형식을 변환하는
 역할을 수행한다.</p>
@@ -277,14 +285,12 @@ HTTP의 세션을 생각하면 이해하기 쉽다.</p>
 <li>코드 변환(ASCII, EBCDIC, Binary 등), 파일 변환 및 문장 축소화 등의
 기능 수행</li>
 </ol>
-<h1 id="l7-응용-계층-application-layer">L7. 응용 계층, Application Layer</h1>
-<p>여러 하위 통신 프로토콜 개체에 대하여 사용 관점의 사용자 인터페이스를
+<h1 id="l7-응용-계층-application-layer">L7. 응용 계층, Application Layer <a href="#l7-%ec%9d%91%ec%9a%a9-%ea%b3%84%ec%b8%b5-application-layer" class="anchor">🔗</a></h1><p>여러 하위 통신 프로토콜 개체에 대하여 사용 관점의 사용자 인터페이스를
 제공하며 응용계층 프로세스들 사이의 통신은 표현계층이 제공하는
 서비스를 이용한다. (데이터의 형식을 정하고 부호화하고 암호화, 압축하는
 서비스를 통해 이루어진다.)</p>
 <p>응용계층에는 FTP, SMTP, HTTP, HTTPS, TELNET 등이 해당된다.</p>
-<h1 id="계층별-전송-단위">계층별 전송 단위</h1>
-<p>OSI-7 Layers의 각 계층에서 전송 단위는 아래와 같이 정리할 수 있다.</p>
+<h1 id="계층별-전송-단위">계층별 전송 단위 <a href="#%ea%b3%84%ec%b8%b5%eb%b3%84-%ec%a0%84%ec%86%a1-%eb%8b%a8%ec%9c%84" class="anchor">🔗</a></h1><p>OSI-7 Layers의 각 계층에서 전송 단위는 아래와 같이 정리할 수 있다.</p>
 <ul>
 <li>1계층: 비트</li>
 <li>2계층: 프레임</li>
@@ -292,199 +298,152 @@ HTTP의 세션을 생각하면 이해하기 쉽다.</p>
 <li>4계층: 세그먼트</li>
 <li>5계층: 메시지</li>
 </ul>
-<h1 id="계층별-네트워킹-장비">계층별 네트워킹 장비</h1>
-<ul>
+<h1 id="계층별-네트워킹-장비">계층별 네트워킹 장비 <a href="#%ea%b3%84%ec%b8%b5%eb%b3%84-%eb%84%a4%ed%8a%b8%ec%9b%8c%ed%82%b9-%ec%9e%a5%eb%b9%84" class="anchor">🔗</a></h1><ul>
 <li>1계층: 리피터, 허브</li>
 <li>2계층: 브리지, 스위치</li>
 <li>3계층: 라우터</li>
 <li>4 - 7계층: 게이트웨이</li>
 </ul>
-<h1 id="출처">출처</h1>
-<ul>
-<li><a href="https://planetechusa.com/blog/ethernet-hub-vs-switch/">허브와 스위치의 차이점</a></li>
-<li><a href="https://tyeolrik.github.io/network/2017/02/14/Networking-4-Data-Link-Layer.html">데이터링크 계층</a></li>
-<li><a href="http://www.ktword.co.kr/abbr_view.php?m_temp1=465">OSI 7 Layer</a></li>
-<li><a href="https://jazzlife.tistory.com/350">OSI 7계층 각 계층별 역할 비유</a></li>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://planetechusa.com/blog/ethernet-hub-vs-switch/" target="_blank" rel="noopener">허브와 스위치의 차이점</a></li>
+<li><a href="https://tyeolrik.github.io/network/2017/02/14/Networking-4-Data-Link-Layer.html" target="_blank" rel="noopener">데이터링크 계층</a></li>
+<li><a href="http://www.ktword.co.kr/abbr_view.php?m_temp1=465" target="_blank" rel="noopener">OSI 7 Layer</a></li>
+<li><a href="https://jazzlife.tistory.com/350" target="_blank" rel="noopener">OSI 7계층 각 계층별 역할 비유</a></li>
 </ul>
 
-  </section>
-  <footer>
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/osi-7-layers">OSI 7 Layers</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
     
     <div id="disqus_thread"></div>
-    <script>
-    var disqus_shortname = 'beomiyi-beulrogeu';
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
     (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-    <nav class="p-pagination c-pagination">
-      <div class="c-pagination__ctrl">
-        <div class="c-pagination__newer">
-          
-          <a href="https://localhost:1313/posts/build-kernel-and-busybox/">Newer</a>
-          
-        </div>
-        <div class="c-pagination__older">
-          
-          <a href="https://localhost:1313/posts/tcp-and-udp/">Older</a>
-          
-        </div>
-      </div>
-    </nav>
-    
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
 
-<section class="p-related">
-  <h3>See Also</h3>
-  <ul id="slider" class="p-related__list">
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/kernel-hacking-chapter-process/"
-        >
-        <span>커널 해킹: 프로세스</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/copy-on-write/"
-        >
-        <span>Copy on Write (CoW or COW)</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/kernel-module-and-drivers/"
-        >
-        <span>커널 모듈과 드라이버의 차이</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/nonpreemptive_scheduling/"
-        >
-        <span>비선점 스케쥴링(Nonpreemptive Scheduling)</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/deadlock/"
-        >
-        <span>교착상태(Deadlock)</span>
-      </a>
-    </li>
-    
-    <li class="p-related__item js-related__item">
-      <a href="/posts/default-export-in-typescript/"
-        >
-        <span>Named export와 Default export</span>
-      </a>
-    </li>
-    
-  </ul>
+
 </section>
 
 
+    </main>
     
-
-  </footer>
-</article>
-  </main>
-  
-<nav class="l-nav p-menu">
-  <ul class="p-menu__lists">
+    <footer id="footer">
     
-      
-      <li class="p-menu__listitem">
-        <a href="/">블로그</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/tags">태그</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/categories">카테고리</a>
-      </li>
-      
-    
-      
-      <li class="p-menu__listitem">
-        <a href="/about">소개</a>
-      </li>
-      
-    
-  </ul>
-</nav>
+        <div id="social">
 
 
-  <footer class="l-footer">
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     
-<ul class="c-links">
-  
-  
-  
-  
-  
-  
-  <li class="c-links__item">
-    <a href="https://github.com/seokbeomKim" target="_blank">
-      <svg viewBox="0 0 64 64" class="c-links__icon">
-        <title>github</title>
-        <use xlink:href="#icon-github"></use>
-      </svg>
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
     </a>
-  </li>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <li class="c-links__item">
-    <a href="https://linkedin.com/in/sukbeomkim" target="_blank">
-      <svg viewBox="0 0 64 64" class="c-links__icon">
-        <title>linkedin</title>
-        <use xlink:href="#icon-linkedin"></use>
-      </svg>
-    </a>
-  </li>
-  
-</ul>
 
-
-
-    <p class="p-copyright">
-      
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
         
-        &nbsp;&bull;&nbsp;
-        2022
-
-        
-          &nbsp;&bull;&nbsp;
-          <a href="https://localhost:1313">범&#39;s 개발 블로그</a>
-        
-      
-    </p>
-  </footer>
-
-  
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     
-  
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
 
-</body>
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
 </html>
-

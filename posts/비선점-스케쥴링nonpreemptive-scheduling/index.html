@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>비선점 스케쥴링(Nonpreemptive Scheduling) | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="비선점 스케쥴링(Non-preemptive Scheduling) 🔗비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">비선점 스케쥴링(Nonpreemptive Scheduling)</h1>
+
+    <div class="tip">
+        <time datetime="2019-05-15 18:44:06 &#43;0900 KST">May 15, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2112 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#설명하기-전에">설명하기 전에</a></li>
+    <li><a href="#비선점-스케쥴링-정책-종류">비선점 스케쥴링 정책 종류</a>
+      <ul>
+        <li><a href="#1-우선순위-스케쥴링priority-scheduling">1. 우선순위 스케쥴링(Priority Scheduling)</a></li>
+        <li><a href="#2-sjfshortest-job-first-srtfshortest-remaining-time-first">2. SJF(Shortest Job First), SRTF(Shortest Remaining Time First)</a></li>
+        <li><a href="#3-fcfsfirst-come-first-served-fifo-scheduling">3. FCFS(First-Come-First-Served), FIFO Scheduling</a></li>
+        <li><a href="#4-기한부-스케쥴링deadline-scheduling">4. 기한부 스케쥴링(Deadline Scheduling)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <!-- toc -->
+<h1 id="비선점-스케쥴링non-preemptive-scheduling">비선점 스케쥴링(Non-preemptive Scheduling) <a href="#%eb%b9%84%ec%84%a0%ec%a0%90-%ec%8a%a4%ec%bc%80%ec%a5%b4%eb%a7%81non-preemptive-scheduling" class="anchor">🔗</a></h1><p>비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을
+할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록
+허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가
+생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로
+프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을
+적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.</p>
+<h2 id="설명하기-전에">설명하기 전에 <a href="#%ec%84%a4%eb%aa%85%ed%95%98%ea%b8%b0-%ec%a0%84%ec%97%90" class="anchor">🔗</a></h2><p>프로세스가 입출력 중심의 대화형 프로세스인지, 프로세서 실행 중심의
+프로세스인지를 먼저 구분하는 것이 스케쥴링 정책을 적용하는 단계의 첫
+번째이다. 물론 두 가지 특성은 상호 배타적이지 않기 때문에 입출력
+중심이면서 프로세서를 많이 사용하는 프로세스일 수 있다. 가령, X Window
+Server의 경우 프로세서와 입출력 모두를 많이 사용한다. 워드프레스의
+경우도 마찬가지이다. 보통은 키 입력을 기다리고 있지만 철자법 검사나
+매크로 계산 같은 복잡한 기능을 사용하는 순간에는 프로세서를 많이
+사용한다.</p>
+<blockquote>
+<p>스케쥴링의 목적
+상충되는 두 가지 목적을 달성하는 것이 스케쥴링의 목적이다. 프로세스
+응답시간을 빠르게 하는 것과 시스템 사용률을 최대화하는 것이
+그것이다. 이런 모순된 요구사항을 만족시키기 위해 스케쥴러는 복잡한
+알고리즘을 사용해 우선순위가 낮은 프로세스에게 공정함을 보장하면서도
+순간순간 실행 가치가 가장 높은 프로세스를 선택한다.</p>
+</blockquote>
+<h2 id="비선점-스케쥴링-정책-종류">비선점 스케쥴링 정책 종류 <a href="#%eb%b9%84%ec%84%a0%ec%a0%90-%ec%8a%a4%ec%bc%80%ec%a5%b4%eb%a7%81-%ec%a0%95%ec%b1%85-%ec%a2%85%eb%a5%98" class="anchor">🔗</a></h2><p>정책(Policy)은 스케쥴러가 무엇을 언제 실행할 것인지를 정하는 동작을
+말한다. 스케쥴러의 정책을 통해 시스템의 전체적인 느낌이 정해지는
+경우가 많으며 프로세서 사용 시간을 최적화하는 책임이 있기 때문에 매우
+중요하다.</p>
+<p>아래부터는 비선점 스케쥴링 정책 각각에 대해 좀 더 자세히
+기술한다. 처음 문서 작성 시에는 스케쥴링의 알고리즘이라고 기술했지만
+<code>정책(policy)</code>이라는 용어가 더 적합하여 수정하였다.</p>
+<h3 id="1-우선순위-스케쥴링priority-scheduling">1. 우선순위 스케쥴링(Priority Scheduling) <a href="#1-%ec%9a%b0%ec%84%a0%ec%88%9c%ec%9c%84-%ec%8a%a4%ec%bc%80%ec%a5%b4%eb%a7%81priority-scheduling" class="anchor">🔗</a></h3><p>우선순위 스케쥴링은 간단하다. 각각의 프로세스에 우선순위가 있고 이
+우선순위를 판별하여 우선순위가 더 높다고 판단되는 프로세스가 가장 먼저
+프로세서를 할당받는다. 프로세스 우선순위는 커널이 결정하거나 커널
+외부에서 결정하기도 하며, 우선순위를 나타내는 값이 작은 수를
+지향하는지 큰 수를 지향하는 지는 운영체제에 따라 다르다.</p>
+<p>이런 우선순위 스케쥴링의 가장 큰 문제점은 기아 현상이다. 나중에 소개할
+SJF(Shortest Job First)에도 공통적인 문제로서 우선순위가 상대적으로
+낮은 프로세스가 계속해서 실행되지 못하는 현상이다.</p>
+<p>예를 들어, 아래와 같이 각 프로세스에 우선순위가 할당되어 있다고
+가정해보자.
+<p class="markdown-image">
+  <img src="/img/priority_sched_diagram.png" alt="An example of priority scheduling"  />
+</p></p>
+<p>이를 해결하는 기법은 에이징(Aging) 기법으로, 일정 시간이 지나면 기아
+상태에 빠질 것으로 예상되는 프로세스의 우선순위를 높이는 기법이다.</p>
+<h3 id="2-sjfshortest-job-first-srtfshortest-remaining-time-first">2. SJF(Shortest Job First), SRTF(Shortest Remaining Time First) <a href="#2-sjfshortest-job-first-srtfshortest-remaining-time-first" class="anchor">🔗</a></h3><p><a href="https://haun25ne.tistory.com/52?category=718126" target="_blank" rel="noopener">출처</a>의 내용을
+정리한 것이다. 원래 SJF만을 다루려 했지만 SRTF라는 정책이 추가로
+정리되어 있기에 포스팅에 추가하였다.</p>
+<p>SJF(Shortest Job First)는 CPU의 <code>Burst Time</code>이 짧은 프로세스에게
+프로세서를 우선 할당하는 정책이다. 중요한 것은 <code>Burst Time</code>을
+이용한다는 점으로, 프로세스의 전반적인 실행시간이 아니라 실제로
+프로세서를 이용하는 시간이 가장 짧은 프로세스부터 실행하여 효율을 높인
+정책이다. 만약 스케쥴링 대상의 프로세스들이 모두 같은 <code>Burst Time</code>을
+갖고 있다면 <code>FCFS(First-Come-First-Served)</code> 정책을 따른다. <code>FCFS</code>에
+대한 설명은 바로 다음에서 기술하겠다.</p>
+<p>SRTF(Shortest Remaining Time First)는 SJF에 선점 정책을 도입한 것이라
+이해한다. 아래 다이어그램은 SJF(Shortest Job First)를 이용했을 때의
+결과이다. 우선순위와 마찬가지로 기아 현상이 나타날 수 있기 때문에
+Aging 기법을 이용하여 해결 가능하다.</p>
+<p><p class="markdown-image">
+  <img src="/img/SRTF_sched.png" alt="An example of SJF"  />
+</p></p>
+<p>아래는 SRTF 스케쥴링을 같은 프로세스에 적용할 때를 나타낸
+것이다. SJF(Shortest Job First)와는 다르게 P1 실행 도중 P2, P3, P4가
+선점하여 실행되는 것을 확인할 수 있다. 하지만 여기서 예상할 수 있듯이
+잦은 프로세스 잔여 실행시간을 계산해야 하고 이에 따른 컨텍스트 전환이
+발생하면 그로 인한 오버헤드가 증가할 수 밖에 없다. 따라서 <em>현실적으로
+구현 및 사용이 어려운 정책이다.</em></p>
+<p><p class="markdown-image">
+  <img src="/img/SRTF_sched.png" alt="An example of SRTF"  />
+</p></p>
+<h3 id="3-fcfsfirst-come-first-served-fifo-scheduling">3. FCFS(First-Come-First-Served), FIFO Scheduling <a href="#3-fcfsfirst-come-first-served-fifo-scheduling" class="anchor">🔗</a></h3><p>가장 간단한 스케쥴링 정책이다. 프로세서를 먼저 요청한 프로세스에게
+할당하는 방식이다. 비선점인 데다 실행 순서에 대한 정책이 없어 스케쥴러
+큐에 들어온 순서대로 프로세스를 실행한다. 너무 간단하기 때문에 여기에
+대한 별도의 다이어그램은 추가하지 않겠다.</p>
+<h3 id="4-기한부-스케쥴링deadline-scheduling">4. 기한부 스케쥴링(Deadline Scheduling) <a href="#4-%ea%b8%b0%ed%95%9c%eb%b6%80-%ec%8a%a4%ec%bc%80%ec%a5%b4%eb%a7%81deadline-scheduling" class="anchor">🔗</a></h3><p>Deadline 스케쥴링 정책은 실시간을 위한 비선점형 스케쥴링 정책이다.</p>
+<p>실시간 시스템에서 &ldquo;Correct behavior&quot;란 논리적인 행동 뿐만 아니라
+사용자 또는 시스템이 원하는 deadline 이내에 결과를 도출하는
+것이다. 만약 설정한 deadline 이내에 결과를 도출하여 전달하지 못한다면
+시스템은 결함이 있다고 보여질 것이다.</p>
+<p>특히 리눅스와 같은 멀티태스킹 운영체제에서 <code>realtime schedular</code>는 모든
+실시간 작업들이 deadline 안에 끝나는 것을 보장해야 한다. 그리고 이러한
+타이밍에 대한 요구사항을 만족시키기 위해서 리눅스에서는 두 가지
+스케쥴러를 제공하는데 바로 <code>POSIX Realtime Schedular</code>와 <code>Deadline Schedular</code>가 그것이다.</p>
+<p>Deadline 스케쥴러는 EDF(Earliest Deadline First) + CBS(Constant
+Bandwidth Server) 알고리즘 기반으로 동작한다. 처음 UP 시스템용으로
+구현되었다가 SMP 시스템에서는 이를 더 발전시켜 각 CPU의 <code>earliest deadline</code>을 관리하고 다른 CPU로 전달하여 더욱 효과적으로 스케쥴링한다.</p>
+<h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://haun25ne.tistory.com/53" target="_blank" rel="noopener">https://haun25ne.tistory.com/53</a></li>
+<li><a href="http://jake.dothome.co.kr/dl-scheduler/" target="_blank" rel="noopener">http://jake.dothome.co.kr/dl-scheduler/</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/nonpreemptive">nonpreemptive</a>
+            
+                <a href="https://example.com/tags/scheduling">scheduling</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

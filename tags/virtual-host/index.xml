@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>virtual host on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/virtual-host/</link>
-    <description>Recent content in virtual host on 범&#39;s 개발 블로그</description>
+    <title>virtual host on Hugo</title>
+    <link>https://example.com/tags/virtual-host/</link>
+    <description>Recent content in virtual host on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 17:16:40 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/virtual-host/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 May 2019 17:16:40 +0900</lastBuildDate><atom:link href="https://example.com/tags/virtual-host/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>가상호스트(Virtual Host)와 Host Header</title>
-      <link>https://localhost:1313/posts/vhost-host-header/</link>
+      <link>https://example.com/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/vhost-host-header/</guid>
-      <description>Virtual Host and Host Header 문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가상 호스트와 호스트 헤더 간에는 무슨 관계가 있는 것일까. 이 문서에서는 가상 호스트와 가상호스트 종류, 그리고 마지막으로 호스트 헤더와 어떤 식으로 연관되는지에 대해 설명하겠다.
-가상 호스트(Virtual Host) 가상호스트란 싱글 서버(또는 서버 풀)에서 여러 개의 도메인 이름으로 호스팅하기 위한 방법이다. 가상 호스트를 사용함으로써 얻는 이점은 하나의 서버로 해당 서버의 리소스(메모리, 프로세서 사이클 등)를 공유할 수 있다는 점이다.</description>
+      <guid>https://example.com/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</guid>
+      <description>Virtual Host and Host Header 🔗문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체</description>
     </item>
     
   </channel>

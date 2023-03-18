@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>queue on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/queue/</link>
-    <description>Recent content in queue on 범&#39;s 개발 블로그</description>
+    <title>queue on Hugo</title>
+    <link>https://example.com/tags/queue/</link>
+    <description>Recent content in queue on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Apr 2020 00:26:52 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/queue/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Apr 2020 00:26:52 +0900</lastBuildDate><atom:link href="https://example.com/tags/queue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BSD 버전 Linked List</title>
-      <link>https://localhost:1313/posts/bsd_queue/</link>
+      <link>https://example.com/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/bsd_queue/</guid>
-      <description>개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 list.h 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 &amp;lt;sys/queue.h&amp;gt; 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다.</description>
+      <guid>https://example.com/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
+      <description>개요 🔗사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을</description>
     </item>
     
   </channel>

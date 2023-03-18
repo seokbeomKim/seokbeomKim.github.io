@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mac on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/mac/</link>
-    <description>Recent content in mac on 범&#39;s 개발 블로그</description>
+    <title>mac on Hugo</title>
+    <link>https://example.com/tags/mac/</link>
+    <description>Recent content in mac on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Dec 2020 23:35:55 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Dec 2020 23:35:55 +0900</lastBuildDate><atom:link href="https://example.com/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Homebrew python 설치하기</title>
-      <link>https://localhost:1313/posts/python-on-mac-with-brew/</link>
+      <link>https://example.com/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/python-on-mac-with-brew/</guid>
-      <description>Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로 확장 라이브러리를 설치해도 찾지 못하는 경우이다. 문제가 발생할 때 파이썬의 경로를 살펴보면, `/usr/bin/python3&#39; 등으로 /usr/bin 아래에 놓여있는 것을 알 수 있다.
-이러한 경우, 아래와 같이 brew 명령어를 통해 다시 심볼릭 링크를 재정의해주자.
-brew link python@3.9 </description>
+      <guid>https://example.com/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
+      <description>Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로</description>
     </item>
     
   </channel>

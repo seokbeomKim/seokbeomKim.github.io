@@ -5,6 +5,178 @@
     <link>https://example.com/categories/</link>
     <description>Recent content in Categories on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Etc</title>
+      <link>https://example.com/categories/etc/</link>
+      <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
+      
+      <guid>https://example.com/categories/etc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kernel</title>
+      <link>https://example.com/categories/kernel/</link>
+      <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
+      
+      <guid>https://example.com/categories/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Computer Science</title>
+      <link>https://example.com/categories/computer-science/</link>
+      <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
+      
+      <guid>https://example.com/categories/computer-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Leetcode</title>
+      <link>https://example.com/categories/leetcode/</link>
+      <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
+      
+      <guid>https://example.com/categories/leetcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://example.com/categories/python/</link>
+      <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
+      
+      <guid>https://example.com/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>https://example.com/categories/mac/</link>
+      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
+      
+      <guid>https://example.com/categories/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>haskell</title>
+      <link>https://example.com/categories/haskell/</link>
+      <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
+      
+      <guid>https://example.com/categories/haskell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design pattern</title>
+      <link>https://example.com/categories/design-pattern/</link>
+      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
+      
+      <guid>https://example.com/categories/design-pattern/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://example.com/categories/linux/</link>
+      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
+      
+      <guid>https://example.com/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oop</title>
+      <link>https://example.com/categories/oop/</link>
+      <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
+      
+      <guid>https://example.com/categories/oop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://example.com/categories/c/</link>
+      <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
+      
+      <guid>https://example.com/categories/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Android</title>
+      <link>https://example.com/categories/android/</link>
+      <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
+      
+      <guid>https://example.com/categories/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>virtualization</title>
+      <link>https://example.com/categories/virtualization/</link>
+      <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
+      
+      <guid>https://example.com/categories/virtualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yocto</title>
+      <link>https://example.com/categories/yocto/</link>
+      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
+      
+      <guid>https://example.com/categories/yocto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://example.com/categories/web/</link>
+      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
+      
+      <guid>https://example.com/categories/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>typescript</title>
+      <link>https://example.com/categories/typescript/</link>
+      <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
+      
+      <guid>https://example.com/categories/typescript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://example.com/categories/machine-learning/</link>
+      <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
+      
+      <guid>https://example.com/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://example.com/categories/java/</link>
+      <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
+      
+      <guid>https://example.com/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>database</title>
+      <link>https://example.com/categories/database/</link>
+      <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
+      
+      <guid>https://example.com/categories/database/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

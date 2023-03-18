@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ARRAY_SIZE on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/array_size/</link>
-    <description>Recent content in ARRAY_SIZE on 범&#39;s 개발 블로그</description>
+    <title>ARRAY_SIZE on Hugo</title>
+    <link>https://example.com/tags/array_size/</link>
+    <description>Recent content in ARRAY_SIZE on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 28 Mar 2020 00:54:01 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/array_size/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Mar 2020 00:54:01 +0900</lastBuildDate><atom:link href="https://example.com/tags/array_size/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C ARRAY_SIZE 매크로와 포인터 기초</title>
-      <link>https://localhost:1313/posts/c-arraysize-macro/</link>
+      <link>https://example.com/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link>
       <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/c-arraysize-macro/</guid>
-      <description>개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 https://kldp.org/node/34268과 같은 원인이라는 것을 알게되고 C 기초를 또 다시 한번 공부하게 되었다.
-커널에서 사용하는 ARRAY_SIZE는 아래와 같이 구현되어 있다.
-#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))  // examples for (idx = 0; idx &amp;lt; ARRAY_SIZE(pArr); idx++) { // do something }) 본래 의도한대로라면, 배열의 크기만큼 for 구문을 반복해서 수행해야 하지만, pArr 자체가 함수의 인자로써 전달된 것이라면 얘기가 달라진다.</description>
+      <guid>https://example.com/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</guid>
+      <description>개요 🔗칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 htt</description>
     </item>
     
   </channel>

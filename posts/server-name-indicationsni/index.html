@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Server Name Indication(SNI) | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Server Name Indication 🔗Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Server Name Indication(SNI)</h1>
+
+    <div class="tip">
+        <time datetime="2019-05-01 17:12:34 &#43;0900 KST">May 1, 2019</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          920 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          2 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#서버에서-sni-설정-방법예시-apache-사용">서버에서 SNI 설정 방법(예시. Apache 사용)</a></li>
+    <li><a href="#실제-sni-패킷">실제 SNI 패킷</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="server-name-indication">Server Name Indication <a href="#server-name-indication" class="anchor">🔗</a></h1><p>Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다. 이러한 문제를 해결하기 위해 Server Name Indication(SNI)라는 Extension을 사용하여 아래와 같이 문제를 해결할 수 있다.</p>
+<h2 id="서버에서-sni-설정-방법예시-apache-사용">서버에서 SNI 설정 방법(예시. Apache 사용) <a href="#%ec%84%9c%eb%b2%84%ec%97%90%ec%84%9c-sni-%ec%84%a4%ec%a0%95-%eb%b0%a9%eb%b2%95%ec%98%88%ec%8b%9c-apache-%ec%82%ac%ec%9a%a9" class="anchor">🔗</a></h2><p>SNI 설정을 위해서는 두 가지 방법이 있다. (설정 파일 변경 방법)</p>
+<p>첫 번째는 하나의 가상 호스트만 정의하고 나머지는 SSLSNIMap을 통해 호스트 이름과 인증서 레이블을 맵핑하는 방법이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#008000;font-weight:bold">&lt;virtualhost</span> <span style="color:#b44">*:443</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#a2f">ServerName</span> example.com
+  <span style="color:#a2f">SSLEnable</span> SNI
+  <span style="color:#a2f">SSLServerCert</span> default
+  <span style="color:#a2f">SSLSNIMap</span> a.example.com sni1-rsa
+  <span style="color:#a2f">SSLSNIMap</span> a.example.com sni1-ecc
+  <span style="color:#a2f">SSLSNIMap</span> b.example.com sni2
+<span style="color:#008000;font-weight:bold">&lt;/virtualhost&gt;</span>
+</code></pre></div><p>두 번째는 가상호스트에 맵핑할 호스트명과 인증서 레이블을 각각 나누어 명시해주는 방법이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#008000;font-weight:bold">&lt;virtualhost</span> <span style="color:#b44">*:443</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#a2f">ServerName</span> example.com
+  <span style="color:#a2f">SSLEnable</span> SNI
+<span style="color:#008000;font-weight:bold">&lt;/virtualhost&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;virtualhost</span> <span style="color:#b44">*:443</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#a2f">ServerName</span> a.example.com
+  <span style="color:#a2f">SSLEnable</span>
+  SSLServerCert sni1
+<span style="color:#008000;font-weight:bold">&lt;/virtualhost&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;virtualhost</span> <span style="color:#b44">*:443</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#a2f">ServerName</span> b.example.com
+  <span style="color:#a2f">ServerAlias</span> other.example.com
+  <span style="color:#a2f">SSLEnable</span>
+  SSLServerCert sni2
+<span style="color:#008000;font-weight:bold">&lt;/virtualhost&gt;</span>
+</code></pre></div><h2 id="실제-sni-패킷">실제 SNI 패킷 <a href="#%ec%8b%a4%ec%a0%9c-sni-%ed%8c%a8%ed%82%b7" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">char</span> good_data_2[] <span style="color:#666">=</span> {
+    <span style="color:#080;font-style:italic">// TLS record
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#666">0x16</span>, <span style="color:#080;font-style:italic">// Content Type: Handshake
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#666">0x03</span>, <span style="color:#666">0x01</span>, <span style="color:#080;font-style:italic">// Version: TLS 1.0
+</span><span style="color:#080;font-style:italic"></span>    <span style="color:#666">0x00</span>, <span style="color:#666">0x6c</span>, <span style="color:#080;font-style:italic">// Length (use for bounds checking)
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#080;font-style:italic">// Handshake
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#666">0x01</span>, <span style="color:#080;font-style:italic">// Handshake Type: Client Hello
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#666">0x00</span>, <span style="color:#666">0x00</span>, <span style="color:#666">0x68</span>, <span style="color:#080;font-style:italic">// Length (use for bounds checking)
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#666">0x03</span>, <span style="color:#666">0x03</span>, <span style="color:#080;font-style:italic">// Version: TLS 1.2
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#080;font-style:italic">// Random (32 bytes fixed length)
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#666">0xb6</span>, <span style="color:#666">0xb2</span>, <span style="color:#666">0x6a</span>, <span style="color:#666">0xfb</span>, <span style="color:#666">0x55</span>, <span style="color:#666">0x5e</span>, <span style="color:#666">0x03</span>, <span style="color:#666">0xd5</span>,
+        <span style="color:#666">0x65</span>, <span style="color:#666">0xa3</span>, <span style="color:#666">0x6a</span>, <span style="color:#666">0xf0</span>, <span style="color:#666">0x5e</span>, <span style="color:#666">0xa5</span>, <span style="color:#666">0x43</span>, <span style="color:#666">0x02</span>,
+        <span style="color:#666">0x93</span>, <span style="color:#666">0xb9</span>, <span style="color:#666">0x59</span>, <span style="color:#666">0xa7</span>, <span style="color:#666">0x54</span>, <span style="color:#666">0xc3</span>, <span style="color:#666">0xdd</span>, <span style="color:#666">0x78</span>,
+        <span style="color:#666">0x57</span>, <span style="color:#666">0x58</span>, <span style="color:#666">0x34</span>, <span style="color:#666">0xc5</span>, <span style="color:#666">0x82</span>, <span style="color:#666">0xfd</span>, <span style="color:#666">0x53</span>, <span style="color:#666">0xd1</span>,
+        <span style="color:#666">0x00</span>, <span style="color:#080;font-style:italic">// Session ID Length (skip past this much)
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#666">0x00</span>, <span style="color:#666">0x04</span>, <span style="color:#080;font-style:italic">// Cipher Suites Length (skip past this much)
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0x01</span>, <span style="color:#080;font-style:italic">// NULL-MD5
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0xff</span>, <span style="color:#080;font-style:italic">// RENEGOTIATION INFO SCSV
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#666">0x01</span>, <span style="color:#080;font-style:italic">// Compression Methods Length (skip past this much)
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#080;font-style:italic">// NULL
+</span><span style="color:#080;font-style:italic"></span>        <span style="color:#666">0x00</span>, <span style="color:#666">0x3b</span>, <span style="color:#080;font-style:italic">// Extensions Length (use for bounds checking)
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#080;font-style:italic">// Extension
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0x00</span>, <span style="color:#080;font-style:italic">// Extension Type: Server Name (check extension type)
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0x0e</span>, <span style="color:#080;font-style:italic">// Length (use for bounds checking)
+</span><span style="color:#080;font-style:italic"></span>
+            <span style="color:#080;font-style:italic">/* SNI 설정 부분: 아래에서 &#34;localhost&#34;라고 서버의 이름을 직접 명시한다. */</span>
+            <span style="color:#666">0x00</span>, <span style="color:#666">0x0c</span>, <span style="color:#080;font-style:italic">// Server Name Indication Length
+</span><span style="color:#080;font-style:italic"></span>                <span style="color:#666">0x00</span>, <span style="color:#080;font-style:italic">// Server Name Type: host_name (check server name type)
+</span><span style="color:#080;font-style:italic"></span>                <span style="color:#666">0x00</span>, <span style="color:#666">0x09</span>, <span style="color:#080;font-style:italic">// Length (length of your data)
+</span><span style="color:#080;font-style:italic"></span>                <span style="color:#080;font-style:italic">// &#34;localhost&#34; (data your after)
+</span><span style="color:#080;font-style:italic"></span>                <span style="color:#666">0x6c</span>, <span style="color:#666">0x6f</span>, <span style="color:#666">0x63</span>, <span style="color:#666">0x61</span>, <span style="color:#666">0x6c</span>, <span style="color:#666">0x68</span>, <span style="color:#666">0x6f</span>, <span style="color:#666">0x73</span>, <span style="color:#666">0x74</span>,
+            <span style="color:#080;font-style:italic">// Extension
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0x0d</span>, <span style="color:#080;font-style:italic">// Extension Type: Signature Algorithms (check extension type)
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0x20</span>, <span style="color:#080;font-style:italic">// Length (skip past since this is the wrong extension)
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#080;font-style:italic">// Data
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0x1e</span>, <span style="color:#666">0x06</span>, <span style="color:#666">0x01</span>, <span style="color:#666">0x06</span>, <span style="color:#666">0x02</span>, <span style="color:#666">0x06</span>, <span style="color:#666">0x03</span>,
+            <span style="color:#666">0x05</span>, <span style="color:#666">0x01</span>, <span style="color:#666">0x05</span>, <span style="color:#666">0x02</span>, <span style="color:#666">0x05</span>, <span style="color:#666">0x03</span>, <span style="color:#666">0x04</span>, <span style="color:#666">0x01</span>,
+            <span style="color:#666">0x04</span>, <span style="color:#666">0x02</span>, <span style="color:#666">0x04</span>, <span style="color:#666">0x03</span>, <span style="color:#666">0x03</span>, <span style="color:#666">0x01</span>, <span style="color:#666">0x03</span>, <span style="color:#666">0x02</span>,
+            <span style="color:#666">0x03</span>, <span style="color:#666">0x03</span>, <span style="color:#666">0x02</span>, <span style="color:#666">0x01</span>, <span style="color:#666">0x02</span>, <span style="color:#666">0x02</span>, <span style="color:#666">0x02</span>, <span style="color:#666">0x03</span>,
+            <span style="color:#080;font-style:italic">// Extension
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0x0f</span>, <span style="color:#080;font-style:italic">// Extension Type: Heart Beat (check extension type)
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x00</span>, <span style="color:#666">0x01</span>, <span style="color:#080;font-style:italic">// Length (skip past since this is the wrong extension)
+</span><span style="color:#080;font-style:italic"></span>            <span style="color:#666">0x01</span> <span style="color:#080;font-style:italic">// Mode: Peer allows to send requests
+</span><span style="color:#080;font-style:italic"></span>};
+</code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<li><a href="https://www.ibm.com/support/knowledgecenter/ko/SSEQTJ_9.0.0/com.ibm.websphere.ihs.doc/ihs/rihs_sni.html" target="_blank" rel="noopener">SNI(Server Name Indication) - IBM Knowledge Center</a></li>
+<li><a href="https://stackoverflow.com/questions/17832592/extract-server-name-indication-sni-from-tls-client-hello" target="_blank" rel="noopener">Extract Server Name Indication (SNI) from TLS client hello
+</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/sni">SNI</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

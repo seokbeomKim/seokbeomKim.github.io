@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>folding on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/folding/</link>
-    <description>Recent content in folding on 범&#39;s 개발 블로그</description>
+    <title>folding on Hugo</title>
+    <link>https://example.com/tags/folding/</link>
+    <description>Recent content in folding on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 17:56:20 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/folding/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 May 2019 17:56:20 +0900</lastBuildDate><atom:link href="https://example.com/tags/folding/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Folding in Haskell</title>
-      <link>https://localhost:1313/posts/folding-in-haskell/</link>
+      <link>https://example.com/posts/folding-in-haskell/</link>
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/folding-in-haskell/</guid>
-      <description>Folding in Haskell 취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고리즘이나 데이터베이스 등 배울 것이 많은 데 갈수록 태산이다.) 대학교 시절, xmonad 윈도우즈 매니저를 사용하면서 접한 언어를 이렇게 뒤늦게 배우게 될 줄은 꿈에도 몰랐다.
-대표적인 함수형 언어로 알려진 Haskell 에는 Folding 이라는 특별한 개념이 등장한다. Haskell Wiki에서는 Folding을 아래와 같이 설명하고 있다.
- In functional programming, fold (or reduce) is a family of higher order functions that process a data structure in some order and build a return value.</description>
+      <guid>https://example.com/posts/folding-in-haskell/</guid>
+      <description>Folding in Haskell 🔗취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고</description>
     </item>
     
   </channel>

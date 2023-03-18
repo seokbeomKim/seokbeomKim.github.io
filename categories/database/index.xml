@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>database on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/categories/database/</link>
-    <description>Recent content in database on 범&#39;s 개발 블로그</description>
+    <title>database on Hugo</title>
+    <link>https://example.com/categories/database/</link>
+    <description>Recent content in database on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 20:29:02 +0900</lastBuildDate><atom:link href="https://localhost:1313/categories/database/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 May 2019 20:29:02 +0900</lastBuildDate><atom:link href="https://example.com/categories/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>파티셔닝(Partitioning)과 샤딩(Sharding)</title>
-      <link>https://localhost:1313/posts/partition-and-sharding/</link>
+      <link>https://example.com/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/partition-and-sharding/</guid>
-      <description>개요 데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로 나누어 분산시키기 위한 기술 용어들인데 모두 서비스 크기 증가에 따른 DB 크기 증가, 성능 이슈에 따른 것이다. 일명 VLDB(Very Large DBMS)라 불리는, DBMS 하나로 전체 데이터베이스를 다룰 수 없는 데이터베이스가 자연스럽게 등장하였고 DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생기게 되었는데 이를 해결하기 위한 것이 바로 파티셔닝(partitioning) 과 샤딩(Sharding)이다.</description>
+      <guid>https://example.com/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</guid>
+      <description>개요 🔗데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로</description>
     </item>
     
   </channel>

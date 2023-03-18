@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>stack on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/stack/</link>
-    <description>Recent content in stack on 범&#39;s 개발 블로그</description>
+    <title>stack on Hugo</title>
+    <link>https://example.com/tags/stack/</link>
+    <description>Recent content in stack on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Feb 2022 15:00:45 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/stack/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 15:00:45 +0900</lastBuildDate><atom:link href="https://example.com/tags/stack/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Stack Protector와 디버깅 이야기</title>
-      <link>https://localhost:1313/posts/stack-protector/</link>
+      <link>https://example.com/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/stack-protector/</guid>
-      <description>Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.
-하지만 이슈가 마무리 되고 Stack Protector 가 어떤 원리로 동작하는지 궁금했고 설 연휴를 맞아 자세하게 정리할 수 있었다. 그 과정에서 우분투에 잘못된 버그 리포트 티켓을 만들어내긴 했지만 말이다.
-Stack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-protector-strong 옵션을 통해 활성화할 수 있고 -fno-stack-protector 옵션으로 비활성화 할 수 있다.</description>
+      <guid>https://example.com/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</guid>
+      <description>Stack Protector, 넌 뭐하는 놈이냐? 🔗현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바</description>
     </item>
     
   </channel>

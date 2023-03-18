@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nested class on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/nested-class/</link>
-    <description>Recent content in nested class on 범&#39;s 개발 블로그</description>
+    <title>nested class on Hugo</title>
+    <link>https://example.com/tags/nested-class/</link>
+    <description>Recent content in nested class on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 May 2019 20:38:14 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/nested-class/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 May 2019 20:38:14 +0900</lastBuildDate><atom:link href="https://example.com/tags/nested-class/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>자바의 중첩 클래스(Nested Class)</title>
-      <link>https://localhost:1313/posts/java-inner-class/</link>
+      <link>https://example.com/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/java-inner-class/</guid>
-      <description>개요 중첩 클래스(Nested Class)에 대해서 여러 사이트에서 설명해놓은 것이 있지만 잘못 설명되어 있는 부분도 있었다. &amp;lsquo;Nested Class는 Inner Class와 같다.&amp;rsquo; 라는 식으로 기술해놓은 페이지가 많아 이번 기회에 확실하게 정리해놓고자 한다.
-중첩 클래스(Nested Class)는 내부 클래스(Inner Class)와 같은 개념이 아니라 포함 관계이다. 중첩 클래스는 static사용 여부에 따라, 정적 중첩 클래스(Static nested class)와 비정적 중첩 클래스(Non-static nested class)로 구분하며, 통상적으로 각각을 정적 중첩 클래스(Static Nested Class), 내부 클래스(Inner Class)라고 한다. 중첩 클래스와 내부 클래스를 같은 개념으로 혼용하는 용례가 많다는데 static 여부에 따라 구분되어 서로 다르다는 것을 반드시 알고 있자.</description>
+      <guid>https://example.com/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</guid>
+      <description>개요 🔗중첩 클래스(Nested Class)에 대해서 여러 사이트에서 설명해놓은 것이 있지만 잘못 설명되어 있는 부분도 있었다. &amp;lsquo;Nested Class는 Inner Class</description>
     </item>
     
   </channel>

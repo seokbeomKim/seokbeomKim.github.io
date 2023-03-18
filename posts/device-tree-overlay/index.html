@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Device Tree Overlay | Hugo</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Ramoops 덕분에 알게된 오버레이 🔗며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'your-google-analytics-id', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Device Tree Overlay</h1>
+
+    <div class="tip">
+        <time datetime="2022-05-08 01:37:45 &#43;0900 KST">May 8, 2022</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1514 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          4 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ramoops-덕분에-알게된-오버레이">Ramoops 덕분에 알게된 오버레이</a></li>
+    <li><a href="#오버레이-작성">오버레이 작성</a></li>
+    <li><a href="#configfs">configfs</a></li>
+    <li><a href="#언제-사용할까">언제 사용할까?</a></li>
+    <li><a href="#참고-자료">참고 자료</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h2 id="ramoops-덕분에-알게된-오버레이">Ramoops 덕분에 알게된 오버레이 <a href="#ramoops-%eb%8d%95%eb%b6%84%ec%97%90-%ec%95%8c%ea%b2%8c%eb%90%9c-%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4" class="anchor">🔗</a></h2><p>며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다.
+ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나
+user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어
+최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.</p>
+<p>이러한 로거를 현업에서 사용하기 위해 사내 평가보드에서 먼저 확인해보았다. 평가보드에서는 간단하게 memblock의 reserved memory 영역에 ramoops 영역을 추가함으로써 정상 동작하는 것을 금방 확인할 수 있었다. 하지만, 개인적으로 갖고 있던 라즈베리파이 보드에서는 이같은 방법이 제대로 동작하지 않았다.  이에 구글링을 하던 도중 디바이스 트리 오버레이로 ramoops 에 대한 디바이스 트리를 수정하는 방법을 접하면서, 오버레이가 특정 벤더의 BSP에서만 사용 가능한 것이 아닌 OF의 API로서 커널 내에 구현되어 있다는 사실 또한 함께 알게 되었다. (부끄럽게도 이제서야 알게 되었다.)</p>
+<h2 id="오버레이-작성">오버레이 작성 <a href="#%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4-%ec%9e%91%ec%84%b1" class="anchor">🔗</a></h2><p>오버레이는 런타임에 FDT (Flattened Device Tree) 를 수정할 수 있는 방법이다. 여기서 FDT란, 메모리에 로드된 디바이스 트리를 말한다.
+DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만, 이전 방법으로는 아래와 같이 작성할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/dts-v1/;
+/plugin/;
+
+/ {
+        compatible = &#34;brcm,bcm2835&#34;;
+
+        fragment@0 {
+                target = &lt;&amp;rmem&gt;;
+                __overlay__ {
+                        #address-cells= &lt;1&gt;;
+                        #size-cells = &lt;1&gt;;
+                        ranges;
+
+                        ramoops: ramoops@39000000{
+                                compatible = &#34;ramoops&#34;;
+                                reg = &lt;0x39000000 0x100000&gt;;
+                                ecc-size = &lt;16&gt;;
+                                record-size = &lt;0x20000&gt;;
+                                console-size = &lt;0x20000&gt;;
+                                pmsg-size = &lt;0x20000&gt;;
+                                ftrace-size = &lt;0&gt;;
+                        };
+                };
+        };
+};
+</code></pre></div><p>그리고 이를 아래와 같이 컴파일한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ dtc -@ -O dtb -o ramoops.dtbo ramoops-overlay.dts
+</code></pre></div><h2 id="configfs">configfs <a href="#configfs" class="anchor">🔗</a></h2><p>앞서 컴파일한 오버레이를 사용하기 위해서는 디바이스 트리를 사용했던 것과 마찬가지로 특정 메모리 영역에 dtbo 파일을 두고 오버레이 인터페이스를 통해 접근해야 한다.
+하지만 overlay에 관련된 API 를 직접 호출할 필요 없이도 configfs 를 통해 쉽게 오버레이를 추가하거나 제거할 수 있다. 커널에서는 아래와 같이 DT overlay interface 로서 CONFIGFS 를 제공한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">CONFIG_OF_CONFIGFS:
+
+Enable a simple user-space driven DT overlay interface.
+
+Symbol: OF_CONFIGFS [=y]
+Type  : bool
+Defined at drivers/of/Kconfig:97
+  Prompt: Device Tree Overlay ConfigFS interface
+  Depends on: OF [=y]
+  Location:
+    -&gt; Device Drivers
+      -&gt; Device Tree and Open Firmware support (OF [=y])
+Selects: CONFIGFS_FS [=y] &amp;&amp; OF_OVERLAY [=y]
+</code></pre></div><p>만약 이 커널 옵션이 정상적으로 활성화되어 빌드되었다면 아래와 같이 <code>/sys/kernel/configs</code> 경로에 configfs 파일시스템이 마운트 되어 있는 것을 확인할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mount | grep -i config
+configfs on /sys/kernel/config <span style="color:#a2f">type</span> configfs <span style="color:#666">(</span>rw,nosuid,nodev,noexec,relatime<span style="color:#666">)</span>
+</code></pre></div><p>먼저, 파일시스템을 탐색해보면 아무것도 없다. <code>/sys/kernel/config/device-tree/overlay/</code> 까지의 디렉토리만 생성되어 있을 뿐 아무런 파일도 존재하지 않는다. 이 때, 임시로 디렉토리 하나를 만들어주면 아래와 같이 파일 여러개가 생성되어 있는 것을 알 수 있다. 그리고 해당 파일들의 내용을 보면 비어 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir /sys/kernel/config/device-tree/overlays/test
+$ ls /sys/kernel/config/device-tree/overlays/test
+dtbo  path  status
+$ grep <span style="color:#b44">&#34;&#34;</span> /sys/kernel/config/device-tree/overlays/test/*
+/sys/kernel/config/device-tree/overlays/test/path:
+/sys/kernel/config/device-tree/overlays/test/status:unapplied
+</code></pre></div><p>이제, 앞서 컴파일 해놓은 dtbo 파일을 해당 파일시스템을 통해 로드해보자. 앞서 생성한 ramoops 노드가 동적으로 런타임에 추가된 것을 볼 수 있다(!!)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat ramoops.dtbo &gt; /sys/kernel/config/device-tree/overlays/test/dtbo
+$ ls /proc/device-tree/reserved-memory/ -al
+total <span style="color:#666">0</span>
+drwxr-xr-x  <span style="color:#666">5</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 04:39  .
+drwxr-xr-x <span style="color:#666">25</span> root root  <span style="color:#666">0</span> Jul <span style="color:#666">21</span>  <span style="color:#666">2021</span>  ..
+-r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51 <span style="color:#b44">&#39;#address-cells&#39;</span>
+drwxr-xr-x  <span style="color:#666">2</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 04:51  linux,cma
+-r--r--r--  <span style="color:#666">1</span> root root <span style="color:#666">16</span> Apr <span style="color:#666">26</span> 04:51  name
+-r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51  phandle
+drwxr-xr-x  <span style="color:#666">2</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 10:46  ramoops@39000000
+-r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 10:46  ranges
+-r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51 <span style="color:#b44">&#39;#size-cells&#39;</span>
+
+$ grep <span style="color:#b44">&#34;&#34;</span> /sys/kernel/config/device-tree/overlays/test/*
+Binary file /sys/kernel/config/device-tree/overlays/test/dtbo matches
+/sys/kernel/config/device-tree/overlays/test/path:
+/sys/kernel/config/device-tree/overlays/test/status:applied
+</code></pre></div><p>이렇게 오버레이를 통해 노드를 로드한 뒤에는 드라이버도 함께 신경써줘야 한다. 만약 관련된 드라이버가 built-in 되어 컴파일된 경우라면 자동으로 로드되지만 모듈로 빌드된 경우에는 반드시 modprobe 명령어로 로드해줘야 한다. 더이상 필요하지 않은 경우에는 아래와 같이 단순하게 디렉토리를 삭제해주면 된다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rmdir /sys/kernel/config/device-tree/overlays/test/
+</code></pre></div><h2 id="언제-사용할까">언제 사용할까? <a href="#%ec%96%b8%ec%a0%9c-%ec%82%ac%ec%9a%a9%ed%95%a0%ea%b9%8c" class="anchor">🔗</a></h2><p>오버레이를 통해 런타임에 동적으로 FDT 의 내용을 변경할 수 있다는 점은 충분히 매력적이다. 어째서 라즈베리파이에서 상당 부분의 모듈들을 오버레이를 통해 제공하고 있는지도 함께 이해할 수 있었다. 현재 현업에서는 오버레이는 적용되지 않은채 디바이스 트리의 상속을 통해서 구조화 시킨채 FDT는 고정적으로 사용하고 있다. 만약 시나리오에 따라 디바이스 트리가 변경되도록 BSP를 개발해야 하는 때가 온거나 현재 커널 내에 구현된 유닛테스트와 같이 고정된 테스트 코드에 동적인 설정값들을 사용해야 한다면 오버레이가 그 해답이 될 수 있을 것이라 생각한다.</p>
+<h2 id="참고-자료">참고 자료 <a href="#%ec%b0%b8%ea%b3%a0-%ec%9e%90%eb%a3%8c" class="anchor">🔗</a></h2><ul>
+<li><a href="https://source.android.com/devices/architecture/dto" target="_blank" rel="noopener">Android Device Tree Overlay</a></li>
+<li><a href="https://github.com/ikwzm/dtbocfg" target="_blank" rel="noopener">dtbocfg</a></li>
+<li><a href="https://www.96boards.org/documentation/consumer/dragonboard/dragonboard410c/guides/dt-overlays.md.html#32-loading-overlays-via-configfs" target="_blank" rel="noopener">Dynamically Loading Device Tree Overlay</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://example.com/tags/device-tree">device tree</a>
+            
+                <a href="https://example.com/tags/overlay">overlay</a>
+            
+                <a href="https://example.com/tags/kernel">kernel</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Author
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>gdb on 범&#39;s 개발 블로그</title>
-    <link>https://localhost:1313/tags/gdb/</link>
-    <description>Recent content in gdb on 범&#39;s 개발 블로그</description>
+    <title>gdb on Hugo</title>
+    <link>https://example.com/tags/gdb/</link>
+    <description>Recent content in gdb on Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate><atom:link href="https://localhost:1313/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate><atom:link href="https://example.com/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mac에서 GDB 이용한 커널 해킹하기</title>
-      <link>https://localhost:1313/posts/kernel-hacking-on-mac/</link>
+      <link>https://example.com/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       
-      <guid>https://localhost:1313/posts/kernel-hacking-on-mac/</guid>
-      <description>개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?
-(gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I&amp;#39;m sorry, Dave, I can&amp;#39;t do that. Symbol format `elf64-littleaarch64&amp;#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.</description>
+      <guid>https://example.com/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</guid>
+      <description>개요 🔗맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없</description>
     </item>
     
   </channel>
