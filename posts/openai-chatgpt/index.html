@@ -69,7 +69,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1177 words
+          1179 words
         </span>
         <span class="split">
           ·
@@ -96,59 +96,78 @@ if (!doNotTrack) {
 물어보았는데, 소름돋을 정도로 대답을 잘 해주었다.</p>
 <p>아래는 ARM architecture manual 에서 Normal memory 의 속성 중 한 가지에 대한
 설명을 물어보았을 때 받은 답변이다.</p>
-<p>what does it mean &ldquo;Read accesses can be repeated with no side-effects&rdquo;?</p>
-<p>&ldquo;Read accesses can be repeated with no side-effects&rdquo; means that it is safe to
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">what does it mean &#34;Read accesses can be repeated with no side-effects&#34;?
+
+&#34;Read accesses can be repeated with no side-effects&#34; means that it is safe to
 read a particular resource or piece of data multiple times without causing any
 unintended consequences. In other words, reading the resource multiple times
 will not modify the resource in any way, nor will it have any other effects on
 the system beyond the act of reading the resource. This is in contrast to write
 accesses, which can modify the resource and may have other side-effects on the
-system.</p>
-<p>This property is often desirable because it allows multiple clients or processes
+system.
+
+This property is often desirable because it allows multiple clients or processes
 to read the resource concurrently without worrying about interference or race
 conditions. It can also allow for better performance and scalability in systems
 where the resource is frequently accessed, as it reduces the need for
-synchronization and locking mechanisms.</p>
-<p>놀랍다. 단순하게 구글링을 해서 얻는 정보와 달리 상당히 정제되어 있고 피곤하게
+synchronization and locking mechanisms.
+</code></pre></div><p>놀랍다. 단순하게 구글링을 해서 얻는 정보와 달리 상당히 정제되어 있고 피곤하게
 찾을 필요도 없으며 기술 전문가와 1:1로 대화하는 것 같아 너무나 좋았다. 이런
 식으로 공부하면서 모르는 것이 있을 때 ChatGPT를 이용하면 너무나 좋을 것 같다.</p>
 <p>또한 코드 리뷰도 잘 되었다. 일부러 커널 코드 일부에서 동기화 문제가 발생하도록
 하거나 MISRA-C 규칙을 따르지 못하게 수정한 뒤에 아래와 같이 코드리뷰를
 요청해보았는데 너무나도 잘 리뷰해주었다.</p>
 <p>아래는 MISRA-C 코딩 룰을 어떻게 가이드 해주는지 테스트해본 것이다.</p>
-<p>Can you fix the following code with MISRA-C?
-int a = 0; int b = 0; int c = a + b * 2;</p>
-<p>To fix this code in accordance with the MISRA-C guidelines, you could do the
-following:</p>
-<p>Add parentheses around the multiplication operation to ensure that it is
-performed before the addition:Copy codeint c = a + (b * 2);</p>
-<p>Add a space between the plus sign and the variables to improve readability:Copy
-codeint c = a + (b * 2)</p>
-<p>Declare the variables a, b, and c with the const keyword to indicate that their
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Can you fix the following code with MISRA-C?
+int a = 0; int b = 0; int c = a + b * 2;
+
+To fix this code in accordance with the MISRA-C guidelines, you could do the
+following:
+
+Add parentheses around the multiplication operation to ensure that it is
+performed before the addition:Copy codeint c = a + (b * 2);
+
+Add a space between the plus sign and the variables to improve readability:Copy
+codeint c = a + (b * 2)
+
+Declare the variables a, b, and c with the const keyword to indicate that their
 values will not be changed:Copy codeconst int a = 0; const int b = 0; const int
-c = a + (b * 2);</p>
-<p>These are just a few suggestions for how you could modify the code to comply
+c = a + (b * 2);
+
+These are just a few suggestions for how you could modify the code to comply
 with the MISRA-C guidelines. There may be other issues with the code that would
-need to be addressed as well. Is there anything else I can help you with?</p>
-<p>괄호 뿐만 아니라 const 까지 가이드 해준다. 이번엔 커널의 mutex_unlock 부분을
+need to be addressed as well. Is there anything else I can help you with?
+</code></pre></div><p>괄호 뿐만 아니라 const 까지 가이드 해준다. 이번엔 커널의 mutex_unlock 부분을
 제거해보고 코드리뷰를 맡겨보자.</p>
-<p>Please check if the problem exists:
-static void timer_update_keys(struct work_struct *work) {  mutex_lock(&amp;timer_keys_mutex);
-timers_update_migration(); static_branch_enable(&amp;timers_nohz_active);
-}</p>
-<p>Based on the code you have provided, it appears that there is a problem with the
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Please check if the problem exists:
+static void timer_update_keys(struct work_struct *work) 
+{
+    mutex_lock(&amp;timer_keys_mutex);
+    timers_update_migration(); static_branch_enable(&amp;timers_nohz_active);
+}
+
+Based on the code you have provided, it appears that there is a problem with the
 function as written. Specifically, the mutex_unlock function is missing from the
 end of the function, which means that the timer_keys_mutex mutex will remain
 locked after the function returns. This could lead to a deadlock if other code
-attempts to acquire the same mutex while it is still locked.</p>
-<p>To fix this issue, you should add a call to mutex_unlock at the end of the
-function, like this:Copy codestatic void timer_update_keys(struct work_struct
-*work) { mutex_lock(&amp;timer_keys_mutex); timers_update_migration();
-static_branch_enable(&amp;timers_nohz_active); mutex_unlock(&amp;timer_keys_mutex); }</p>
-<p>This will ensure that the mutex is properly unlocked when the function
+attempts to acquire the same mutex while it is still locked.
+
+To fix this issue, you should add a call to mutex_unlock at the end of the
+function, like this:
+Copy code
+
+static void timer_update_keys(struct work_struct *work) 
+{
+    mutex_lock(&amp;timer_keys_mutex); 
+    timers_update_migration();
+    static_branch_enable(&amp;timers_nohz_active); 
+    mutex_unlock(&amp;timer_keys_mutex); 
+}
+
+This will ensure that the mutex is properly unlocked when the function
 completes, avoiding the potential for a deadlock. Is there anything else I can
-help you with?</p>
-<p>커널을 공부하면서 힘들었던 이유는 자료를 찾기도 힘들 뿐더러 내가 이해하는 게
+help you with?
+</code></pre></div><p>커널을 공부하면서 힘들었던 이유는 자료를 찾기도 힘들 뿐더러 내가 이해하는 게
 과연 맞는 것인지, 문서에 기재된 내용이 어떤 문맥으로 작성된 것인지 알기 힘들었기
 때문이다. 그런데 이러한 걱정이 아예 없어지니 내 옆에 든든한 선생님이 생긴
 느낌이다.</p>
@@ -235,14 +254,7 @@ help you with?</p>
 
     <div class="copyright">
     
-       © Copyright 
-       2023 
-       <span class="split">
-        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
-  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
-</svg>
-       </span>
-       Sukbeom Kim
+        Copyright - Sukbeom Kim
     
     </div>
 
