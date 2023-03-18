@@ -33,7 +33,7 @@ markup:
 # Social links in footer, support github,twitter,stackoverflow,facebook
 social:
   # e.g.
-  github: https://seokbeomkim.github.io
+  github: https://github.com/seokbeomKim
   # twitter: your-github-link
     # stackoverflow: your-github-link
   # facebook: your-facebook-link
