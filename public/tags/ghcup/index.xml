@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ghcup on Hugo</title>
-    <link>https://example.com/tags/ghcup/</link>
-    <description>Recent content in ghcup on Hugo</description>
+    <title>ghcup on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/ghcup/</link>
+    <description>Recent content in ghcup on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Sep 2020 00:05:37 +0900</lastBuildDate><atom:link href="https://example.com/tags/ghcup/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Sep 2020 00:05:37 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/ghcup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>하스켈 버전 관리</title>
-      <link>https://example.com/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
+      <link>https://seokbeomkim.github.io/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       
-      <guid>https://example.com/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
       <description>개요 🔗IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10</description>
     </item>
     

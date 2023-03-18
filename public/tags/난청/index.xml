@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>난청 on Hugo</title>
-    <link>https://example.com/tags/%EB%82%9C%EC%B2%AD/</link>
-    <description>Recent content in 난청 on Hugo</description>
+    <title>난청 on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/%EB%82%9C%EC%B2%AD/</link>
+    <description>Recent content in 난청 on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Oct 2022 17:00:05 +0900</lastBuildDate><atom:link href="https://example.com/tags/%EB%82%9C%EC%B2%AD/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Oct 2022 17:00:05 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/%EB%82%9C%EC%B2%AD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>급성 저음성 난청</title>
-      <link>https://example.com/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</link>
+      <link>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</link>
       <pubDate>Sat, 22 Oct 2022 17:00:05 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</guid>
       <description>지난 월요일 아침 눈을 뜨고 평소처럼 회사 출근 준비를 하려는데 한쪽 귀가 멍하더니 소리가 잘 들리지 않았다. 예전에 백신을 맞고 돌발성 난청이 왔었는데 그 때와는 약간 다</description>
     </item>
     

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>little endian on Hugo</title>
-    <link>https://example.com/tags/little-endian/</link>
-    <description>Recent content in little endian on Hugo</description>
+    <title>little endian on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/little-endian/</link>
+    <description>Recent content in little endian on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jan 2020 22:27:06 +0900</lastBuildDate><atom:link href="https://example.com/tags/little-endian/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jan 2020 22:27:06 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/little-endian/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Little Endian vs. Big Endian</title>
-      <link>https://example.com/posts/little-endian-vs.-big-endian/</link>
+      <link>https://seokbeomkim.github.io/posts/little-endian-vs.-big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       
-      <guid>https://example.com/posts/little-endian-vs.-big-endian/</guid>
+      <guid>https://seokbeomkim.github.io/posts/little-endian-vs.-big-endian/</guid>
       <description>개요 🔗빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다. 엔디안(Endianness</description>
     </item>
     

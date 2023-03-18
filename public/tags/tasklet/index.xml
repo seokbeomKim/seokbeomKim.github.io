@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tasklet on Hugo</title>
-    <link>https://example.com/tags/tasklet/</link>
-    <description>Recent content in tasklet on Hugo</description>
+    <title>tasklet on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/tasklet/</link>
+    <description>Recent content in tasklet on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 May 2019 17:32:26 +0900</lastBuildDate><atom:link href="https://example.com/tags/tasklet/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 May 2019 17:32:26 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/tasklet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>태스크릿(Tasklet)</title>
-      <link>https://example.com/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
+      <link>https://seokbeomkim.github.io/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
       <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
       
-      <guid>https://example.com/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
       <description>커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에</description>
     </item>
     

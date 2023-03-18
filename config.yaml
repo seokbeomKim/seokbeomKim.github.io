@@ -1,6 +1,6 @@
-baseURL: https://example.com
+baseURL: https://seokbeomkim.github.io
 languageCode: en-us
-title: Hugo
+title: 범's blog
 theme: mini
 
 # Default content language, support en (English) / zh (Chinese) / nl (Dutch) / fr (French) / es (Spanish) / da (Danish), default 'en'
@@ -42,11 +42,11 @@ social:
 # Site parameters
 params:
   # Site Author
-  author: Author
+  author: Sukbeom Kim
   # Author biography
-  bio: Software Engineer
+  bio: BSP Engineer
   # Site Description, used in HTML meat
-  description: My Blog
+  description: 개발 삽질기 모음집
 
 
   ###########################################

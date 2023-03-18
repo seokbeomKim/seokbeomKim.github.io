@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>c on Hugo</title>
-    <link>https://example.com/categories/c/</link>
-    <description>Recent content in c on Hugo</description>
+    <title>c on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/categories/c/</link>
+    <description>Recent content in c on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate><atom:link href="https://example.com/categories/c/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C언어에서의 type-check</title>
-      <link>https://example.com/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</link>
+      <link>https://seokbeomkim.github.io/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       
-      <guid>https://example.com/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</guid>
+      <guid>https://seokbeomkim.github.io/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</guid>
       <description>개요 🔗리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입</description>
     </item>
     
     <item>
       <title>Do While</title>
-      <link>https://example.com/posts/do-while/</link>
+      <link>https://seokbeomkim.github.io/posts/do-while/</link>
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       
-      <guid>https://example.com/posts/do-while/</guid>
+      <guid>https://seokbeomkim.github.io/posts/do-while/</guid>
       <description>개요 🔗커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각</description>
     </item>
     
     <item>
       <title>BSD 버전 Linked List</title>
-      <link>https://example.com/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
+      <link>https://seokbeomkim.github.io/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       
-      <guid>https://example.com/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
+      <guid>https://seokbeomkim.github.io/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
       <description>개요 🔗사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을</description>
     </item>
     
     <item>
       <title>C ARRAY_SIZE 매크로와 포인터 기초</title>
-      <link>https://example.com/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link>
+      <link>https://seokbeomkim.github.io/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link>
       <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
       
-      <guid>https://example.com/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</guid>
+      <guid>https://seokbeomkim.github.io/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</guid>
       <description>개요 🔗칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 htt</description>
     </item>
     
     <item>
       <title>goto statement</title>
-      <link>https://example.com/posts/goto-statement/</link>
+      <link>https://seokbeomkim.github.io/posts/goto-statement/</link>
       <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
       
-      <guid>https://example.com/posts/goto-statement/</guid>
+      <guid>https://seokbeomkim.github.io/posts/goto-statement/</guid>
       <description>개요 🔗학부 시절 c언어를 배울 때 &amp;lsquo;goto&amp;rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를</description>
     </item>
     
     <item>
       <title>switch 구문과 if-else 구문</title>
-      <link>https://example.com/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
+      <link>https://seokbeomkim.github.io/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
       
-      <guid>https://example.com/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
+      <guid>https://seokbeomkim.github.io/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
       <description>개요 🔗실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다. int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A break; case FLAG_B: // do B break; case blabla: // blabla... break; default: printk(KERN_ERR &amp;#34;ERROR!\n&amp;#34;); } return 0;</description>
     </item>
     

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>posix-spawn on Hugo</title>
-    <link>https://example.com/tags/posix-spawn/</link>
-    <description>Recent content in posix-spawn on Hugo</description>
+    <title>posix-spawn on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/posix-spawn/</link>
+    <description>Recent content in posix-spawn on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jun 2019 10:46:29 +0900</lastBuildDate><atom:link href="https://example.com/tags/posix-spawn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jun 2019 10:46:29 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/posix-spawn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>command: posix_spawn failed: Resource temporarily unavailable</title>
-      <link>https://example.com/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</link>
+      <link>https://seokbeomkim.github.io/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
       
-      <guid>https://example.com/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</guid>
+      <guid>https://seokbeomkim.github.io/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</guid>
       <description>QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다. 이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무</description>
     </item>
     

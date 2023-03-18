@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jiffies on Hugo</title>
-    <link>https://example.com/tags/jiffies/</link>
-    <description>Recent content in jiffies on Hugo</description>
+    <title>jiffies on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/jiffies/</link>
+    <description>Recent content in jiffies on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 May 2019 10:38:40 +0900</lastBuildDate><atom:link href="https://example.com/tags/jiffies/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 May 2019 10:38:40 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/jiffies/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>지피(Jiffies)</title>
-      <link>https://example.com/posts/%EC%A7%80%ED%94%BCjiffies/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%A7%80%ED%94%BCjiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
       <description>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시</description>
     </item>
     

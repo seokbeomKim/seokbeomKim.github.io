@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mutex on Hugo</title>
-    <link>https://example.com/tags/mutex/</link>
-    <description>Recent content in mutex on Hugo</description>
+    <title>mutex on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/mutex/</link>
+    <description>Recent content in mutex on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 May 2019 00:59:34 +0900</lastBuildDate><atom:link href="https://example.com/tags/mutex/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 May 2019 00:59:34 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/mutex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>리눅스 커널 락 종류 (2/5)</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</guid>
       <description>지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다</description>
     </item>
     
     <item>
       <title>리눅스 커널 락 종류 (1/5)</title>
-      <link>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</link>
+      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</link>
       <pubDate>Tue, 28 May 2019 17:45:51 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는
 세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교
 선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이

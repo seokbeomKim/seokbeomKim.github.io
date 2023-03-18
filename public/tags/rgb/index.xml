@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rgb on Hugo</title>
-    <link>https://example.com/tags/rgb/</link>
-    <description>Recent content in rgb on Hugo</description>
+    <title>rgb on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/tags/rgb/</link>
+    <description>Recent content in rgb on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jan 2020 16:39:36 +0900</lastBuildDate><atom:link href="https://example.com/tags/rgb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jan 2020 16:39:36 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/rgb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>색 공간(Color Space)</title>
-      <link>https://example.com/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       
-      <guid>https://example.com/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
       <description>색 공간 포맷 🔗업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다</description>
     </item>
     

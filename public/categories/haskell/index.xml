@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>haskell on Hugo</title>
-    <link>https://example.com/categories/haskell/</link>
-    <description>Recent content in haskell on Hugo</description>
+    <title>haskell on 범&#39;s blog</title>
+    <link>https://seokbeomkim.github.io/categories/haskell/</link>
+    <description>Recent content in haskell on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Sep 2020 00:05:37 +0900</lastBuildDate><atom:link href="https://example.com/categories/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Sep 2020 00:05:37 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/haskell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>하스켈 버전 관리</title>
-      <link>https://example.com/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
+      <link>https://seokbeomkim.github.io/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       
-      <guid>https://example.com/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
+      <guid>https://seokbeomkim.github.io/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
       <description>개요 🔗IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10</description>
     </item>
     
     <item>
       <title>(.) 와 ($) 의 차이</title>
-      <link>https://example.com/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
+      <link>https://seokbeomkim.github.io/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
       
-      <guid>https://example.com/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+      <guid>https://seokbeomkim.github.io/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
       <description>개요 🔗최근 하스켈로 조그만 프로젝트를 시작하기 위해 Real World Haskell 이라는 책 한 권을 구입하여 공부하기 시작했다. Functional Programming 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결</description>
     </item>
     
     <item>
       <title>Folding in Haskell</title>
-      <link>https://example.com/posts/folding-in-haskell/</link>
+      <link>https://seokbeomkim.github.io/posts/folding-in-haskell/</link>
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
       
-      <guid>https://example.com/posts/folding-in-haskell/</guid>
+      <guid>https://seokbeomkim.github.io/posts/folding-in-haskell/</guid>
       <description>Folding in Haskell 🔗취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고</description>
     </item>
     
