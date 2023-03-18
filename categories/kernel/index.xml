@@ -6,7 +6,16 @@
     <description>Recent content in Kernel on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Oct 2022 14:00:05 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Nov 2022 17:32:26 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tasklet</title>
+      <link>https://seokbeomkim.github.io/posts/tasklet/</link>
+      <pubDate>Sun, 13 Nov 2022 17:32:26 +0900</pubDate>
+      
+      <guid>https://seokbeomkim.github.io/posts/tasklet/</guid>
+      <description>개요 🔗사내 커널 스터디에서 교재로서 사용하고 있는 디버깅을 통해 배우는 리눅스 커널의 구조와 원리 책에서는 태스크릿 (Tasklet)을 SoftIRQ와 함께</description>
+    </item>
+    
     <item>
       <title>strcpy</title>
       <link>https://seokbeomkim.github.io/posts/strcpy/</link>

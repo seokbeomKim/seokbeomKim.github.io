@@ -3,10 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://seokbeomkim.github.io/categories/</loc>
-    <lastmod>2022-11-02T23:46:06+09:00</lastmod>
+    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/tags/chatgpt/</loc>
+    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/categories/etc/</loc>
-    <lastmod>2022-11-02T23:46:06+09:00</lastmod>
+    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/tags/openai/</loc>
+    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/posts/openai-chatgpt/</loc>
+    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/posts/</loc>
+    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/tags/</loc>
+    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/</loc>
+    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/categories/kernel/</loc>
+    <lastmod>2022-11-13T17:32:26+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/posts/tasklet/</loc>
+    <lastmod>2022-11-13T17:32:26+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/tags/tasklet/</loc>
+    <lastmod>2022-11-13T17:32:26+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/obsidian/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
@@ -14,23 +41,11 @@
     <loc>https://seokbeomkim.github.io/tags/obsidian/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/</loc>
-    <lastmod>2022-11-02T23:46:06+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/tags/</loc>
-    <lastmod>2022-11-02T23:46:06+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/</loc>
-    <lastmod>2022-11-02T23:46:06+09:00</lastmod>
-  </url><url>
     <loc>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</loc>
     <lastmod>2022-10-22T17:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/%EB%82%9C%EC%B2%AD/</loc>
     <lastmod>2022-10-22T17:00:05+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/categories/kernel/</loc>
-    <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/strcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
@@ -634,9 +649,6 @@
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/%EC%A7%80%ED%94%BCjiffies/</loc>
     <lastmod>2019-05-26T10:38:40+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/tags/tasklet/</loc>
-    <lastmod>2019-05-25T17:32:26+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</loc>
     <lastmod>2019-05-25T17:32:26+09:00</lastmod>

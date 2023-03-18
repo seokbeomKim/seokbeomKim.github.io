@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>OpenAI ChatGPT | 범&#39;s blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일 거라 생각했는데 성능이 예상했던 것보다 훨~씬 좋았다. MISR">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-Y7VW74D2P3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">OpenAI ChatGPT</h1>
+
+    <div class="tip">
+        <time datetime="2023-01-07 21:37:38 &#43;0900 KST">Jan 7, 2023</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1177 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+
+
+    
+
+
+    <div class="content">
+      <p>며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일
+거라 생각했는데 성능이 예상했던 것보다 훨~씬 좋았다. MISRA-C나 CERT-C 에 문제가
+없는지 확인하는 코드 리뷰부터 영어 문장이 문법적으로 옳은지, 또 ARM Architecture
+에서 궁금했던 용어나 설명 자체가 이해되지 않을 때 이게 무슨 의미인지
+물어보았는데, 소름돋을 정도로 대답을 잘 해주었다.</p>
+<p>아래는 ARM architecture manual 에서 Normal memory 의 속성 중 한 가지에 대한
+설명을 물어보았을 때 받은 답변이다.</p>
+<p>what does it mean &ldquo;Read accesses can be repeated with no side-effects&rdquo;?</p>
+<p>&ldquo;Read accesses can be repeated with no side-effects&rdquo; means that it is safe to
+read a particular resource or piece of data multiple times without causing any
+unintended consequences. In other words, reading the resource multiple times
+will not modify the resource in any way, nor will it have any other effects on
+the system beyond the act of reading the resource. This is in contrast to write
+accesses, which can modify the resource and may have other side-effects on the
+system.</p>
+<p>This property is often desirable because it allows multiple clients or processes
+to read the resource concurrently without worrying about interference or race
+conditions. It can also allow for better performance and scalability in systems
+where the resource is frequently accessed, as it reduces the need for
+synchronization and locking mechanisms.</p>
+<p>놀랍다. 단순하게 구글링을 해서 얻는 정보와 달리 상당히 정제되어 있고 피곤하게
+찾을 필요도 없으며 기술 전문가와 1:1로 대화하는 것 같아 너무나 좋았다. 이런
+식으로 공부하면서 모르는 것이 있을 때 ChatGPT를 이용하면 너무나 좋을 것 같다.</p>
+<p>또한 코드 리뷰도 잘 되었다. 일부러 커널 코드 일부에서 동기화 문제가 발생하도록
+하거나 MISRA-C 규칙을 따르지 못하게 수정한 뒤에 아래와 같이 코드리뷰를
+요청해보았는데 너무나도 잘 리뷰해주었다.</p>
+<p>아래는 MISRA-C 코딩 룰을 어떻게 가이드 해주는지 테스트해본 것이다.</p>
+<p>Can you fix the following code with MISRA-C?
+int a = 0; int b = 0; int c = a + b * 2;</p>
+<p>To fix this code in accordance with the MISRA-C guidelines, you could do the
+following:</p>
+<p>Add parentheses around the multiplication operation to ensure that it is
+performed before the addition:Copy codeint c = a + (b * 2);</p>
+<p>Add a space between the plus sign and the variables to improve readability:Copy
+codeint c = a + (b * 2)</p>
+<p>Declare the variables a, b, and c with the const keyword to indicate that their
+values will not be changed:Copy codeconst int a = 0; const int b = 0; const int
+c = a + (b * 2);</p>
+<p>These are just a few suggestions for how you could modify the code to comply
+with the MISRA-C guidelines. There may be other issues with the code that would
+need to be addressed as well. Is there anything else I can help you with?</p>
+<p>괄호 뿐만 아니라 const 까지 가이드 해준다. 이번엔 커널의 mutex_unlock 부분을
+제거해보고 코드리뷰를 맡겨보자.</p>
+<p>Please check if the problem exists:
+static void timer_update_keys(struct work_struct *work) {  mutex_lock(&amp;timer_keys_mutex);
+timers_update_migration(); static_branch_enable(&amp;timers_nohz_active);
+}</p>
+<p>Based on the code you have provided, it appears that there is a problem with the
+function as written. Specifically, the mutex_unlock function is missing from the
+end of the function, which means that the timer_keys_mutex mutex will remain
+locked after the function returns. This could lead to a deadlock if other code
+attempts to acquire the same mutex while it is still locked.</p>
+<p>To fix this issue, you should add a call to mutex_unlock at the end of the
+function, like this:Copy codestatic void timer_update_keys(struct work_struct
+*work) { mutex_lock(&amp;timer_keys_mutex); timers_update_migration();
+static_branch_enable(&amp;timers_nohz_active); mutex_unlock(&amp;timer_keys_mutex); }</p>
+<p>This will ensure that the mutex is properly unlocked when the function
+completes, avoiding the potential for a deadlock. Is there anything else I can
+help you with?</p>
+<p>커널을 공부하면서 힘들었던 이유는 자료를 찾기도 힘들 뿐더러 내가 이해하는 게
+과연 맞는 것인지, 문서에 기재된 내용이 어떤 문맥으로 작성된 것인지 알기 힘들었기
+때문이다. 그런데 이러한 걱정이 아예 없어지니 내 옆에 든든한 선생님이 생긴
+느낌이다.</p>
+<p>ChatGPT 를 사용해보고 느낀 건 단순한 코드 몽키는 확실하게 없어질 것 같다. 하지만
+시나리오와 코드를 최종적으로 검증하고 제품으로 응용하기 위해 관리하는 사람은
+앞으로도 계속 필요할 것이다. 그리고 학원가의 모습도 많이 바뀔 것 같다. 이 정도의
+성능이라면 나중에는 컴퓨터 앞에서 선생 없이 자율 학습 만으로도 공부할 수 있는
+세상이 오지 않을까?</p>
+<p>결론은, 커널 스터디하기 훨씬 더 수월해져서 너무 좋다.</p>
+<h1 id="참고">참고 <a href="#%ec%b0%b8%ea%b3%a0" class="anchor">🔗</a></h1><ul>
+<li><a href="https://chat.openai.com/chat" target="_blank" rel="noopener">https://chat.openai.com/chat</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://seokbeomkim.github.io/tags/openai">openai</a>
+            
+                <a href="https://seokbeomkim.github.io/tags/chatgpt">chatgpt</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "seokbeomkim-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://seokbeomkim.github.io" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Sukbeom Kim
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

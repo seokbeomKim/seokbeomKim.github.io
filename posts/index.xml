@@ -6,7 +6,25 @@
     <description>Recent content in Posts on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Jan 2023 21:37:38 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenAI ChatGPT</title>
+      <link>https://seokbeomkim.github.io/posts/openai-chatgpt/</link>
+      <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
+      
+      <guid>https://seokbeomkim.github.io/posts/openai-chatgpt/</guid>
+      <description>며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일 거라 생각했는데 성능이 예상했던 것보다 훨~씬 좋았다. MISR</description>
+    </item>
+    
+    <item>
+      <title>Tasklet</title>
+      <link>https://seokbeomkim.github.io/posts/tasklet/</link>
+      <pubDate>Sun, 13 Nov 2022 17:32:26 +0900</pubDate>
+      
+      <guid>https://seokbeomkim.github.io/posts/tasklet/</guid>
+      <description>개요 🔗사내 커널 스터디에서 교재로서 사용하고 있는 디버깅을 통해 배우는 리눅스 커널의 구조와 원리 책에서는 태스크릿 (Tasklet)을 SoftIRQ와 함께</description>
+    </item>
+    
     <item>
       <title>Obsidian</title>
       <link>https://seokbeomkim.github.io/posts/obsidian/</link>

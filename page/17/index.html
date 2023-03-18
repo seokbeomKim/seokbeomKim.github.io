@@ -82,6 +82,38 @@ if (!doNotTrack) {
         
         <section class="item">
           <div>
+            <h1 class="title"><a href='/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/'>ioctl()에 전달되는 cmd 관련 매크로 함수</a></h1>
+            <div class ="date">
+                <time datetime="2020-02-27 00:23:10 &#43;0900 KST">Feb 27, 2020</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/'>switch 구문과 if-else 구문</a></h1>
+            <div class ="date">
+                <time datetime="2020-02-26 23:56:18 &#43;0900 KST">Feb 26, 2020</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">개요 🔗실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다. int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A break; case FLAG_B: // do B break; case blabla: // blabla... break; default: printk(KERN_ERR &#34;ERROR!\n&#34;); } return 0;</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
             <h1 class="title"><a href='/posts/identity-mapping/'>Identity Mapping</a></h1>
             <div class ="date">
                 <time datetime="2020-02-24 23:01:54 &#43;0900 KST">Feb 24, 2020</time>  
@@ -90,38 +122,6 @@ if (!doNotTrack) {
 
           
               <div class="summary">ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오</div>
-          
-
-        </section>
-    
-        
-        
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/'>WARN_ON, BUG_ON 매크로</a></h1>
-            <div class ="date">
-                <time datetime="2020-02-21 00:12:34 &#43;0900 KST">Feb 21, 2020</time>  
-            </div>
-          </div>
-
-          
-              <div class="summary">개요 🔗업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은</div>
-          
-
-        </section>
-    
-        
-        
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='/posts/likely-and-unlikely/'>Likely and Unlikely</a></h1>
-            <div class ="date">
-                <time datetime="2020-02-13 23:27:51 &#43;0900 KST">Feb 13, 2020</time>  
-            </div>
-          </div>
-
-          
-              <div class="summary">개요 🔗예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlik</div>
           
 
         </section>
