@@ -1,8 +1,6 @@
 ---
 title: "OpenAI ChatGPT"
 date: 2023-01-07T21:37:38+09:00
-tags: chatgpt, openai
-categories: etc
 draft: false
 
 ---
