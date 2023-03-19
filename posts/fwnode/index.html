@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Fwnode | 범&#39;s blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이 없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
+     crossorigin="anonymous"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-Y7VW74D2P3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Fwnode</h1>
+
+    <div class="tip">
+        <time datetime="2023-03-19 17:45:39 &#43;0900 KST">Mar 19, 2023</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1427 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#커밋-찾아보기">커밋 찾아보기</a></li>
+    <li><a href="#디바이스-구성을-기술표현하는-방법-device-tree">디바이스 구성을 기술(표현)하는 방법: Device Tree</a></li>
+    <li><a href="#fwnode_ops로-구분하는-디바이스-표현-방법">fwnode_ops로 구분하는 디바이스 표현 방법</a>
+      <ul>
+        <li><a href="#open-firmware인-경우">Open Firmware인 경우</a></li>
+        <li><a href="#software-node-swnode">Software Node (swnode)</a></li>
+        <li><a href="#acpi">ACPI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <p>fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이
+없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고할 수
+있는 자료가 너무 없어서 아쉬웠다.</p>
+<h2 id="커밋-찾아보기">커밋 찾아보기 <a href="#%ec%bb%a4%eb%b0%8b-%ec%b0%be%ec%95%84%eb%b3%b4%ea%b8%b0" class="anchor">🔗</a></h2><p>ChatGPT에게 fwnode를 설명해보았지만 제대로 대답해주지 않는다. ARM 공식 문서 내의
+내용은 잘 설명해주는데 커널에 관련된 내용은 틀린 부분이 많다. 역시 이해하기
+위해서는 최초 적용된 커밋을 보는게 제일 좋은 방법이다. 아래의 커밋을 살펴보면
+어떤 동기를 가지고 코드를 작성했는지 이해할 수 있다.</p>
+<ul>
+<li><a href="https://github.com/torvalds/linux/commit/ce793486e23e0162a732c605189c8028e0910e86" target="_blank" rel="noopener">ce793486e23e0162a732c605189c8028e0910e86</a></li>
+<li><a href="https://github.com/torvalds/linux/commit/8a0662d9ed2968e1186208336a8e1fab3fdfea63" target="_blank" rel="noopener">8a0662d9ed2968e1186208336a8e1fab3fdfea63</a></li>
+</ul>
+<p>최초 커밋에서 author은 아래와 같이 설명하고 있다.</p>
+<blockquote>
+<p>There are two benefits from that. First, the somewhat ugly and hackish struct
+acpi_dev_node can be dropped and, second, the same struct fwnode_handle pointer
+can be used in the future to point to other (non-ACPI) firmware device node
+types.</p>
+</blockquote>
+<h2 id="디바이스-구성을-기술표현하는-방법-device-tree">디바이스 구성을 기술(표현)하는 방법: Device Tree <a href="#%eb%94%94%eb%b0%94%ec%9d%b4%ec%8a%a4-%ea%b5%ac%ec%84%b1%ec%9d%84-%ea%b8%b0%ec%88%a0%ed%91%9c%ed%98%84%ed%95%98%eb%8a%94-%eb%b0%a9%eb%b2%95-device-tree" class="anchor">🔗</a></h2><p>리눅스 커널에서는 디바이스 구성을 표현하기 위해 OF(Open Firmware)의 Device
+Tree를 사용한다. 하지만 디바이스를 표현하는 방법에는 Device Tree 외에도
+윈도우즈에서 사용되는 ACPI를 이용하는 방법이 있다. 이러한 방식에 대한 호환성을
+제공하기 위해 리눅스 커널에서는 해당 부분을 추상화시킬 필요가 생겼고 이 때문에
+도입된 것이 바로 fwnode이다.</p>
+<p>ACPI가 아닌 경우에도 원하는 디바이스 표현 형태가 있다면, 해당 디바이스 노드를
+올바르게 읽어올 수 있도록 fwnode 인터페이스만 구현해주면 된다. 리눅스 커널에서
+디바이스의 property를 얻어오는 함수는 아래와 같이 fwnode를 이용하도록 구현되어
+있다. 해당 디바이스가 어떤 device description method로 표현되어 있는지 상관없이
+디바이스에 설정된 방식에 따라 원하는 프로퍼티를 가져올 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">device_property_read_string_array</span>(<span style="color:#a2f;font-weight:bold">struct</span> device <span style="color:#666">*</span>dev, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>propname,
+				      <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">**</span>val, size_t nval)
+{
+	<span style="color:#a2f;font-weight:bold">return</span> fwnode_property_read_string_array(dev_fwnode(dev), propname, val,
+						 nval);
+}
+</code></pre></div><h2 id="fwnode_ops로-구분하는-디바이스-표현-방법">fwnode_ops로 구분하는 디바이스 표현 방법 <a href="#fwnode_ops%eb%a1%9c-%ea%b5%ac%eb%b6%84%ed%95%98%eb%8a%94-%eb%94%94%eb%b0%94%ec%9d%b4%ec%8a%a4-%ed%91%9c%ed%98%84-%eb%b0%a9%eb%b2%95" class="anchor">🔗</a></h2><h3 id="open-firmware인-경우">Open Firmware인 경우 <a href="#open-firmware%ec%9d%b8-%ea%b2%bd%ec%9a%b0" class="anchor">🔗</a></h3><p>리눅스 커널에서 특이한 경우가 아니라면 기본적으로 <code>of_node_init</code>을 이용해
+디바이스를 초기화하며 이 때 of_fwnode_ops를 사용하도록 설정된다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">of_node_init</span>(<span style="color:#a2f;font-weight:bold">struct</span> device_node <span style="color:#666">*</span>node)
+{
+<span style="color:#080">#if defined(CONFIG_OF_KOBJ)
+</span><span style="color:#080"></span>	kobject_init(<span style="color:#666">&amp;</span>node<span style="color:#666">-&gt;</span>kobj, <span style="color:#666">&amp;</span>of_node_ktype);
+<span style="color:#080">#endif
+</span><span style="color:#080"></span>	fwnode_init(<span style="color:#666">&amp;</span>node<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>of_fwnode_ops);
+}
+</code></pre></div><p>하지만 표현되어 있는 디바이스 노드를 of_node가 아닌 acpi로서 아래와 같이
+fwnode를 초기화할 수로 있고, swnode로서 초기화 할 수도 있다. 각 함수에서
+호출되는 <code>fwnode_init()</code> 함수에 주목하자.</p>
+<h3 id="software-node-swnode">Software Node (swnode) <a href="#software-node-swnode" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">swnode_register(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> software_node <span style="color:#666">*</span>node, <span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>parent,
+		<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> allocated)
+{
+	<span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>swnode;
+	<span style="color:#0b0;font-weight:bold">int</span> ret;
+
+	<span style="color:#080;font-style:italic">/* ... */</span>
+
+	swnode<span style="color:#666">-&gt;</span>id <span style="color:#666">=</span> ret;
+	swnode<span style="color:#666">-&gt;</span>node <span style="color:#666">=</span> node;
+	swnode<span style="color:#666">-&gt;</span>parent <span style="color:#666">=</span> parent;
+	swnode<span style="color:#666">-&gt;</span>kobj.kset <span style="color:#666">=</span> swnode_kset;
+	fwnode_init(<span style="color:#666">&amp;</span>swnode<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>software_node_ops);
+	<span style="color:#080;font-style:italic">/* ... */</span>
+}
+</code></pre></div><h3 id="acpi">ACPI <a href="#acpi" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">acpi_init_device_object</span>(<span style="color:#a2f;font-weight:bold">struct</span> acpi_device <span style="color:#666">*</span>device, acpi_handle handle,
+			     <span style="color:#0b0;font-weight:bold">int</span> type)
+{
+	INIT_LIST_HEAD(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>pnp.ids);
+	device<span style="color:#666">-&gt;</span>device_type <span style="color:#666">=</span> type;
+	device<span style="color:#666">-&gt;</span>handle <span style="color:#666">=</span> handle;
+	device<span style="color:#666">-&gt;</span>parent <span style="color:#666">=</span> acpi_bus_get_parent(handle);
+	fwnode_init(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>acpi_device_fwnode_ops);
+	acpi_set_device_status(device, ACPI_STA_DEFAULT);
+	acpi_device_get_busid(device);
+	acpi_set_pnp_ids(handle, <span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>pnp, type);
+	acpi_init_properties(device);
+	acpi_bus_get_flags(device);
+	device<span style="color:#666">-&gt;</span>flags.match_driver <span style="color:#666">=</span> <span style="color:#a2f">false</span>;
+	device<span style="color:#666">-&gt;</span>flags.initialized <span style="color:#666">=</span> <span style="color:#a2f">true</span>;
+	device<span style="color:#666">-&gt;</span>flags.enumeration_by_parent <span style="color:#666">=</span>
+		acpi_device_enumeration_by_parent(device);
+	acpi_device_clear_enumerated(device);
+	device_initialize(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>dev);
+	dev_set_uevent_suppress(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>dev, <span style="color:#a2f">true</span>);
+	acpi_init_coherency(device);
+}
+</code></pre></div><h1 id="v4l2-media-framework와-fwnode의-관계">V4L2 media framework와 fwnode의 관계 <a href="#v4l2-media-framework%ec%99%80-fwnode%ec%9d%98-%ea%b4%80%ea%b3%84" class="anchor">🔗</a></h1><p>그렇다면, fwnode와 V4L2 media framework은 무슨 상관인가? V4L2 media framework의
+v4l2-fwnode.h 파일을 보면 operation은 별도로 구현하지 않고 있다. 그 말은 V4L2
+media framework에서 디바이스를 표현하는 방법을 새롭게 정의한 것이 아니라
+단순하게 fwnode가 가지고 있는 기능을 이용한다는 것을 짐작할 수 있다.</p>
+<p>v4l2-fwnode.h 파일에서 fwnode와 관련된 함수들을 살펴보면 아래와 같이 endpoint
+개념이 나오는 것을 볼 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">    v4l2_async_nf_parse_fwnode_endpoints
+    v4l2_fwnode_connector_add_link
+    v4l2_fwnode_connector_free
+    v4l2_fwnode_connector_parse
+    v4l2_fwnode_device_parse
+    v4l2_fwnode_endpoint_alloc_parse
+    v4l2_fwnode_endpoint_free
+    v4l2_fwnode_endpoint_parse
+    v4l2_fwnode_parse_link
+    v4l2_fwnode_put_link
+    fwnode_handle
+    v4l2_async_notifier
+    v4l2_async_subdev
+</code></pre></div><p>fwnode_endpoint를 아래와 같이 상속하여 v4l2_fwnode_endpoint로 정의해 사용하고
+있는 것을 알 수 있다. 즉, fwnode의 graph 구성 기능을 이용하여
+v4l2_fwnode_endpoint로서 미디어 파이프라인을 표현하기에 필요한 몇 가지 정보를 더
+추가하고 있는 것일 뿐이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_endpoint {
+	<span style="color:#a2f;font-weight:bold">struct</span> fwnode_endpoint base;
+	<span style="color:#080;font-style:italic">/*
+</span><span style="color:#080;font-style:italic">    	 * Fields below this line will be zeroed by
+</span><span style="color:#080;font-style:italic">    	 * v4l2_fwnode_endpoint_parse()
+</span><span style="color:#080;font-style:italic">    	 */</span>
+	<span style="color:#a2f;font-weight:bold">enum</span> v4l2_mbus_type bus_type;
+	<span style="color:#a2f;font-weight:bold">struct</span> {
+		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_parallel parallel;
+		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_mipi_csi1 mipi_csi1;
+		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_mipi_csi2 mipi_csi2;
+	} bus;
+	u64 <span style="color:#666">*</span>link_frequencies;
+	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> nr_of_link_frequencies;
+};
+</code></pre></div><h1 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h1><p>개인적으로 해석했을 때 fwnode는 device description methods 들의 abstraction data
+structure이다. 끝.</p>
+<h1 id="참고">참고 <a href="#%ec%b0%b8%ea%b3%a0" class="anchor">🔗</a></h1><ul>
+<li><a href="https://events.static.linuxfound.org/sites/events/files/slides/unified_properties_API_0.pdf" target="_blank" rel="noopener">https://events.static.linuxfound.org/sites/events/files/slides/unified_properties_API_0.pdf</a></li>
+</ul>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://seokbeomkim.github.io/tags/device-tree">device-tree</a>
+            
+                <a href="https://seokbeomkim.github.io/tags/fwnode">fwnode</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "seokbeomkim-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        Copyright - Sukbeom Kim
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

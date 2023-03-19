@@ -3,7 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://seokbeomkim.github.io/categories/</loc>
-    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/tags/device-tree/</loc>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/posts/fwnode/</loc>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/tags/fwnode/</loc>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/categories/kernel/</loc>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/posts/</loc>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/tags/</loc>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/</loc>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/chatgpt/</loc>
     <lastmod>2023-01-07T21:37:38+09:00</lastmod>
@@ -16,18 +37,6 @@
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/openai-chatgpt/</loc>
     <lastmod>2023-01-07T21:37:38+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/posts/</loc>
-    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/tags/</loc>
-    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/</loc>
-    <lastmod>2023-01-07T21:37:38+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/categories/kernel/</loc>
-    <lastmod>2022-11-13T17:32:26+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/tasklet/</loc>
     <lastmod>2022-11-13T17:32:26+09:00</lastmod>
@@ -66,9 +75,6 @@
     <lastmod>2022-05-10T00:03:20+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/categories/computer-science/</loc>
-    <lastmod>2022-05-08T01:37:45+09:00</lastmod>
-  </url><url>
-    <loc>https://seokbeomkim.github.io/tags/device-tree/</loc>
     <lastmod>2022-05-08T01:37:45+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/device-tree-overlay/</loc>

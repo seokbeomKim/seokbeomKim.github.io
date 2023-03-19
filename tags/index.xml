@@ -6,7 +6,25 @@
     <description>Recent content in Tags on 범&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2023 21:37:38 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Mar 2023 17:45:39 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>device tree</title>
+      <link>https://seokbeomkim.github.io/tags/device-tree/</link>
+      <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
+      
+      <guid>https://seokbeomkim.github.io/tags/device-tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fwnode</title>
+      <link>https://seokbeomkim.github.io/tags/fwnode/</link>
+      <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
+      
+      <guid>https://seokbeomkim.github.io/tags/fwnode/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>chatgpt</title>
       <link>https://seokbeomkim.github.io/tags/chatgpt/</link>
@@ -85,15 +103,6 @@
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       
       <guid>https://seokbeomkim.github.io/tags/file-descriptor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>device tree</title>
-      <link>https://seokbeomkim.github.io/tags/device-tree/</link>
-      <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
-      
-      <guid>https://seokbeomkim.github.io/tags/device-tree/</guid>
       <description></description>
     </item>
     
