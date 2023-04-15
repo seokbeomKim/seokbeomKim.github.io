@@ -214,10 +214,10 @@ Address         Port        Address         Port
 
 WSL2에서 서비스까지 정상적으로 실행되었다면 윈도우즈에서 아래와 같이
 포트포워딩을 해준다. 그리고 정상적으로 2049 포트로 포트포워딩이 되어 있는지
-확인한다.
+확인한다. connectaddress는 `wsl hostname -I` 로 확인한 아이피 주소를 넣어준다.
 
 ```
-> netsh interface portproxy add v4tov4 listenport=2049 listenaddress=0.0.0.0 connectport=2049 connectaddress=$(wsl hostname -I)
+> netsh interface portproxy add v4tov4 listenport=2049 listenaddress=0.0.0.0 connectport=2049 connectaddress=172.29.124.79
     
 > netsh interface portproxy show all
     
