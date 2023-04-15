@@ -72,7 +72,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          2268 words
+          2299 words
         </span>
         <span class="split">
           ·
@@ -252,8 +252,8 @@ Address         Port        Address         Port
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt; netsh interface portproxy del v4tov4 listenport=2049 listenaddress=0.0.0.0
 </code></pre></div><h4 id="포트-포워딩-및-방화벽-설정">포트 포워딩 및 방화벽 설정 <a href="#%ed%8f%ac%ed%8a%b8-%ed%8f%ac%ec%9b%8c%eb%94%a9-%eb%b0%8f-%eb%b0%a9%ed%99%94%eb%b2%bd-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h4><p>WSL2에서 서비스까지 정상적으로 실행되었다면 윈도우즈에서 아래와 같이
 포트포워딩을 해준다. 그리고 정상적으로 2049 포트로 포트포워딩이 되어 있는지
-확인한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt; netsh interface portproxy add v4tov4 listenport=2049 listenaddress=0.0.0.0 connectport=2049 connectaddress=$(wsl hostname -I)
+확인한다. connectaddress는 <code>wsl hostname -I</code> 로 확인한 아이피 주소를 넣어준다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">&gt; netsh interface portproxy add v4tov4 listenport=2049 listenaddress=0.0.0.0 connectport=2049 connectaddress=172.29.124.79
     
 &gt; netsh interface portproxy show all
     
