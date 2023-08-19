@@ -53,8 +53,6 @@ do not want to read any details about functions that I wrote, just use the follo
   (setq my:get-vterm--backup nil))
 
 (defun my:vterm--select (choice)
-  "Get the selection when the user try to find the config.
-Argument CHOICE user's selection."
   (interactive
    (list (completing-read "Choose: "
                           (cl-remove-if #'null
