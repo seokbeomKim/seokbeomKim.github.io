@@ -55,7 +55,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
 	
 </nav>
 
@@ -72,7 +72,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          522 words
+          526 words
         </span>
         <span class="split">
           ·
@@ -83,32 +83,6 @@ if (!doNotTrack) {
     </div>
 
     
-    
-        
-  
-    <aside class="toc">
-      <details>
-          <summary>Table of Contents
-          </summary>
-          <div>
-              <nav id="TableOfContents">
-<ul>
-<li><a href="#headline-1">Overview</a>
-</li>
-<li><a href="#headline-2">File open from vterm - <code>filenotify</code></a>
-</li>
-<li><a href="#headline-3">Vterm session management</a>
-</li>
-<li><a href="#headline-4">Wrap up</a>
-</li>
-</ul>
-</nav>
-          </div>
-      </details>
-    </aside>
-  
-
-
     
 
 
@@ -165,29 +139,30 @@ do not want to read any details about functions that I wrote, just use the follo
   (<span style="color:#a2f">setq</span> <span style="color:#b8860b">my:get-vterm--backup</span> <span style="color:#800">nil</span>))
 
 (<span style="color:#a2f">defun</span> <span style="color:#b8860b">my:vterm--select</span> (<span style="color:#b8860b">choice</span>)
-  (<span style="color:#a2f">interactive</span>
-   (<span style="color:#00a000">list</span> (<span style="color:#00a000">completing-read</span> <span style="color:#b44">&#34;Choose: &#34;</span>
-                          (<span style="color:#b8860b">cl-remove-if</span> <span style="color:#00a000">#&#39;null</span>
-                                        (<span style="color:#00a000">mapcar</span> (<span style="color:#a2f">lambda</span> (<span style="color:#b8860b">x</span>) (<span style="color:#a2f">and</span> (<span style="color:#b8860b">string-match-p</span> <span style="color:#b44">&#34;vterm&#34;</span> (<span style="color:#00a000">buffer-name</span> <span style="color:#b8860b">x</span>)) (<span style="color:#00a000">buffer-name</span> <span style="color:#b8860b">x</span>)))
-                                                (<span style="color:#00a000">buffer-list</span>)))
-                          <span style="color:#800">nil</span> <span style="color:#800">t</span>)))
-  (<span style="color:#00a000">car</span> (<span style="color:#b8860b">split-string</span> <span style="color:#b8860b">choice</span> <span style="color:#b44">&#34; &#34;</span>))
-  (<span style="color:#a2f">setq</span> <span style="color:#b8860b">my:get-vterm--backup</span> (<span style="color:#00a000">current-buffer</span>))
-  (<span style="color:#b8860b">switch-to-buffer</span> <span style="color:#b8860b">choice</span>))
-
-(<span style="color:#b8860b">after!</span> <span style="color:#b8860b">vterm</span>
-  <span style="color:#080;font-style:italic">;; Following must be used with bash alias:</span>
-  <span style="color:#080;font-style:italic">;; =&gt; alias eo=&#39;echo $1 &gt; ~/.config/emacs/.local/cache/vterm-pipe&#39;</span>
-  (<span style="color:#a2f">let*</span> ((<span style="color:#b8860b">pipe-file</span> (<span style="color:#00a000">expand-file-name</span> <span style="color:#b44">&#34;vterm-pipe&#34;</span> <span style="color:#b8860b">user-emacs-directory</span>))
-         (<span style="color:#b8860b">func-open-file</span> (<span style="color:#a2f">lambda</span> (<span style="color:#b8860b">event</span>)
-                           (<span style="color:#b8860b">find-file</span>
-                            (<span style="color:#a2f">with-temp-buffer</span>
-                              (<span style="color:#00a000">insert-file-contents</span> (<span style="color:#00a000">expand-file-name</span> <span style="color:#b44">&#34;vterm-pipe&#34;</span> <span style="color:#b8860b">user-emacs-directory</span>))
-                              (<span style="color:#b8860b">string-trim</span> (<span style="color:#00a000">buffer-string</span>)))))))
-    (<span style="color:#b8860b">file-notify-add-watch</span> <span style="color:#b8860b">pipe-file</span> <span style="color:#666">&#39;</span>(<span style="color:#b8860b">change</span>) <span style="color:#b8860b">func-open-file</span>))
-
-  (<span style="color:#b8860b">add-hook</span> <span style="color:#b8860b">&#39;vterm-mode-hook</span> (<span style="color:#a2f">lambda</span> ()
-                               (<span style="color:#b8860b">evil-emacs-state</span>))))</code></pre></div>
+<span style="color:#b8860b">Argument</span> <span style="color:#b8860b">CHOICE</span> <span style="color:#b8860b">user</span><span style="color:#b8860b">&#39;s</span> <span style="color:#b8860b">selection.</span><span style="color:#b44">&#34;
+</span><span style="color:#b44">  (interactive
+</span><span style="color:#b44">   (list (completing-read &#34;</span><span style="color:#b8860b">Choose:</span> <span style="color:#b44">&#34;
+</span><span style="color:#b44">                          (cl-remove-if #&#39;null
+</span><span style="color:#b44">                                        (mapcar (lambda (x) (and (string-match-p &#34;</span><span style="color:#b8860b">vterm</span><span style="color:#b44">&#34; (buffer-name x)) (buffer-name x)))
+</span><span style="color:#b44">                                                (buffer-list)))
+</span><span style="color:#b44">                          nil t)))
+</span><span style="color:#b44">  (car (split-string choice &#34;</span> <span style="color:#b44">&#34;))
+</span><span style="color:#b44">  (setq my:get-vterm--backup (current-buffer))
+</span><span style="color:#b44">  (switch-to-buffer choice))
+</span><span style="color:#b44">
+</span><span style="color:#b44">(after! vterm
+</span><span style="color:#b44">  ;; Following must be used with bash alias:
+</span><span style="color:#b44">  ;; =&gt; alias eo=&#39;echo $1 &gt; ~/.config/emacs/.local/cache/vterm-pipe&#39;
+</span><span style="color:#b44">  (let* ((pipe-file (expand-file-name &#34;</span><span style="color:#b8860b">vterm-pipe</span><span style="color:#b44">&#34; user-emacs-directory))
+</span><span style="color:#b44">         (func-open-file (lambda (event)
+</span><span style="color:#b44">                           (find-file
+</span><span style="color:#b44">                            (with-temp-buffer
+</span><span style="color:#b44">                              (insert-file-contents (expand-file-name &#34;</span><span style="color:#b8860b">vterm-pipe</span><span style="color:#b44">&#34; user-emacs-directory))
+</span><span style="color:#b44">                              (string-trim (buffer-string)))))))
+</span><span style="color:#b44">    (file-notify-add-watch pipe-file &#39;(change) func-open-file))
+</span><span style="color:#b44">
+</span><span style="color:#b44">  (add-hook &#39;vterm-mode-hook (lambda ()
+</span><span style="color:#b44">                               (evil-emacs-state))))</span></code></pre></div>
 </div>
 </div>
 </div>

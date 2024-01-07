@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>맥북에 리눅스 설치, 그리고 hyper-v | 범&#39;s blog</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="개요 🔗맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반 동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한 운영체제였지만 동시에">
+<meta name="generator" content="Hugo 0.92.2" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
+     crossorigin="anonymous"></script>
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-Y7VW74D2P3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">맥북에 리눅스 설치, 그리고 hyper-v</h1>
+
+    <div class="tip">
+        <time datetime="2020-02-22 18:41:53 &#43;0900 KST">Feb 22, 2020</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1584 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          4 minute read
+        </span>
+    </div>
+
+    
+    
+
+
+    <div class="content">
+      <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반
+동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한
+운영체제였지만 동시에 맥 만의 단점을 갖고 있었고 생각보다 매우 영향이 컸다.</p>
+<p>PIM은 기본이고 상위 레벨 프로그래밍을 위해서, 맥 만큼 좋은
+운영체제는 없을 것이다. BSD 기반으로 만들어져 완벽하지는 않지만 포팅을
+하면 어느정도 리눅스에 가까울 정도로 네이티브 환경에서 실행 가능하고 다양한
+분야에서 강력한 유료 애플리케이션이 지원되기 때문에 만족스럽게
+사용할 수 있다.</p>
+<p>하지만 맥은 WSL을 도입하면서 윈도우즈가 갖게된 리눅스 플랫폼(?)과의
+호환성은 가지고 있지 않다. 포팅은 가능하지만 기본적으로 리눅스 배포판들이
+갖는 환경을 구성하기가 매우 힘들다. 게다가 완전한 독점 플랫폼이고
+하드웨어조차 security chip을 도입하고 있기 때문에 맥 OS 외에는 설치조차
+힘들다.</p>
+<p>또한, 크로스 컴파일러를 이용한 커널 빌드를 위한 환경 구성에도 그닥
+좋지 않다. 기본으로 사용하는 파일시스템은 case-sensitive도 아니고,
+bare-metal 크로스 컴파일러를 구성한다면 상관없겠지만,
+커널을 빌드하기 위해 필요한 glibc, openssl, &hellip; 등의 라이브러리들이
+포함되기 시작하면 매우 까다로운 작업이 된다. 맥에서 LFS (Linux From
+Scratch) 프로젝트를 할 것도 아닌데, 그만큼의 노력과 시간이 요구되는
+아이러니한 상황이 펼쳐진다.</p>
+<h1 id="맥북과-커널의-호환성">맥북과 커널의 호환성 <a href="#%eb%a7%a5%eb%b6%81%ea%b3%bc-%ec%bb%a4%eb%84%90%ec%9d%98-%ed%98%b8%ed%99%98%ec%84%b1" class="anchor">🔗</a></h1><p>현재, mbp 기준 리눅스 커널의 기본 드라이버들과의 호환성은 그닥 좋지
+않다. 호환성은 <a href="https://github.com/Dunedan/mbp-2016-linux#bluetooth" target="_blank" rel="noopener">https://github.com/Dunedan/mbp-2016-linux#bluetooth</a>
+페이지에서 확인해볼 수 있다. 논터치바 13인치 모델(13,1)을 제외하고는
+와이파이조차 안된다는 점에 유의하자.</p>
+<h1 id="우분투-설치">우분투 설치 <a href="#%ec%9a%b0%eb%b6%84%ed%88%ac-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h1><p>개인적으로 우분투는 별로 좋아하지 않지만 설치 후 서드 파티 드라이버
+설치를 간편하게 하기 위해 우분투를 설치하기로 했다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hdiutil convert -format UDRW -o ~/Desktop/ubuntu.img ~/Downloads/ubuntu.iso
+$ dd <span style="color:#a2f;font-weight:bold">if</span><span style="color:#666">=</span>ubuntu.img <span style="color:#b8860b">of</span><span style="color:#666">=</span>/dev/disk2 <span style="color:#b8860b">bs</span><span style="color:#666">=</span>1m <span style="color:#080;font-style:italic"># /dev/disk2 는 반드시 직접 확인해야 한다.</span>
+</code></pre></div><p>dd 명령어로 img 파일을 USB 에 구울 때 busy resource 에러가 나온다면,
+디스크 유틸리티에서 해당 파티션을 unmount 해주고 다시 실행해야 한다.</p>
+<p>나머지는 간단하다. USB를 넣고 맥북 재부팅 시 option키를 눌러
+이동식디스크로 부트해주면 설치를 진행할 수 있다.</p>
+<h1 id="호환성-문제">호환성 문제 <a href="#%ed%98%b8%ed%99%98%ec%84%b1-%eb%ac%b8%ec%a0%9c" class="anchor">🔗</a></h1><p>우분투를 설치하고 나서 여러가지 고질적인 하드웨어 문제들이 나타나기 시작했다.
+블투루스와 5g 와이파이가 안되는 문제, 소리가 안들리는 문제 등 드라이버를 온전하게
+지원하지 않고 있었다. 단순하게 컴파일만을 하기 위해서는 문제가 없었으나 그 이상의
+작업을 위해서 불편하게 재부팅해야 하는 문제가 있었다.</p>
+<h1 id="부트캠프-윈도우즈-설치">부트캠프 윈도우즈 설치 <a href="#%eb%b6%80%ed%8a%b8%ec%ba%a0%ed%94%84-%ec%9c%88%eb%8f%84%ec%9a%b0%ec%a6%88-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h1><p>부트캠프를 이용해 윈도우즈를 설치하고 나머지 맥 파티션은 모두 밀어버렸다.
+맥에서의 패러럴은 내게 아무런 장점도 갖고 있지 않았다. VM의 GUI 환경이 필요없는 내게
+심리즈 모드나 불필요하게 리소스를 잡아먹는 게 한두가지가 아니었고 virtualbox, vmware 들은
+윈도우즈에서 지원하는 hyper-v의 성능의 기대에 크게 못미쳤다.</p>
+<p>부트캠프를 이용해 윈도우즈에서 일어나는 드라이버 이슈를 해결하고
+github에서 서드파티로 개발되어 있는 터치패드 드라이버를 설치했다.
+이맥스는 터미널 환경에서의 작업을 위해 구성하고 vscode를 이용하여 hyper-v 가상머신으로 접속하니,
+맥에서 보던 리소스 문제도 없고 완벽하게 윈하는 만큼의 리눅스 환경을 즐길 수 있게 되었다.</p>
+<h1 id="끝맺음">끝맺음 <a href="#%eb%81%9d%eb%a7%ba%ec%9d%8c" class="anchor">🔗</a></h1><p>한동안 맥을 정말 좋아했는데 최근에 들어서는 윈도우즈에 한참 못미치는 모습이다.
+대학 시절 우분투, 레드햇, 아치와 젠투 리눅스로 리눅스를 접하고 netbsd와 freebsd 등으로 bsd를 접하다가 마침내
+맥을 접했을 때, 내가 원하는 개발 환경을 지원하면서 동시에, 카카오톡과 같은 유틸리티를 wine 없이도 맘껏 돌릴 수 있다는 것이 큰 장점이었다. 하지만 그 매력도 이제는 점점 사라져간다. WSL로 왠만한 리눅스 배포판에 포함되는 tui 툴은 사용가능하고
+이마저도 hyper-v를 이용해 가상머신으로 완벽하게 돌릴 수 있다.
+거기에 리소스도 일반 가상머신 에뮬레이터에 비해 많이 차지하지 않는다는 점이 정말 매력적이다.</p>
+<p>멀티미디어가 주인 사용자들에게는 맥이 아직도 값어치를 하는 충분히 매력적인 운영체제이겠지만,
+개발자에게는 이제 유일한 선택지가 아니다. 오히려 후순위로 밀려나지 않았을까.</p>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://seokbeomkim.github.io/tags/mbp">mbp</a>
+            
+                <a href="https://seokbeomkim.github.io/tags/macbook">macbook</a>
+            
+                <a href="https://seokbeomkim.github.io/tags/linux">linux</a>
+            
+                <a href="https://seokbeomkim.github.io/tags/ubuntu">ubuntu</a>
+            
+        </div>
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "seokbeomkim-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+        Copyright - Sukbeom Kim
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>
