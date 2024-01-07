@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>범&#39;s blog</title>
+    <title>seokbeomkim.dev</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
@@ -40,8 +40,8 @@ if (!doNotTrack) {
 
 
   
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="범&#39;s blog" />
-    <link href="/index.xml" rel="feed" type="application/rss+xml" title="범&#39;s blog" />
+    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="seokbeomkim.dev" />
+    <link href="/index.xml" rel="feed" type="application/rss+xml" title="seokbeomkim.dev" />
   
 
 
@@ -70,7 +70,7 @@ if (!doNotTrack) {
         <img class="avatar" alt="avatar" src="/images/avatar.png" />
     
 
-    <h1>범&#39;s blog</h1>
+    <h1>seokbeomkim.dev</h1>
     
     
 </header>
@@ -83,14 +83,14 @@ if (!doNotTrack) {
         
         <section class="item">
           <div>
-            <h1 class="title"><a href='/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/'>IOCTL과 인터럽트</a></h1>
+            <h1 class="title"><a href='/posts/%EC%A7%80%ED%94%BCjiffies/'>지피(Jiffies)</a></h1>
             <div class ="date">
-                <time datetime="2020-03-03 00:00:10 &#43;0900 KST">Mar 3, 2020</time>  
+                <time datetime="2019-05-26 10:38:40 &#43;0900 KST">May 26, 2019</time>  
             </div>
           </div>
 
           
-              <div class="summary">개요 🔗디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackO</div>
+              <div class="summary">오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시</div>
           
 
         </section>
@@ -99,14 +99,14 @@ if (!doNotTrack) {
         
         <section class="item">
           <div>
-            <h1 class="title"><a href='/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/'>Hyper-V 가상 환경에서 고정 아이피 주소 사용하기</a></h1>
+            <h1 class="title"><a href='/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/'>태스크릿(Tasklet)</a></h1>
             <div class ="date">
-                <time datetime="2020-03-01 17:12:34 &#43;0900 KST">Mar 1, 2020</time>  
+                <time datetime="2019-05-25 17:32:26 &#43;0900 KST">May 25, 2019</time>  
             </div>
           </div>
 
           
-              <div class="summary">개요 🔗윈도우즈에서 리눅스 환경을 이용하기 위해서는 docker 컨테이너를 이용하거나 hyper-v, vmware, virtualbox 등과 같은 가상머신을 이용해야 한다. 이번에는 hyper-v를 이용해 리눅</div>
+              <div class="summary">커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에</div>
           
 
         </section>
@@ -115,14 +115,46 @@ if (!doNotTrack) {
         
         <section class="item">
           <div>
-            <h1 class="title"><a href='/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/'>리눅스에서의 버퍼링 방식</a></h1>
+            <h1 class="title"><a href='/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/'>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</a></h1>
             <div class ="date">
-                <time datetime="2020-02-29 23:34:30 &#43;0900 KST">Feb 29, 2020</time>  
+                <time datetime="2019-05-23 15:10:46 &#43;0900 KST">May 23, 2019</time>  
             </div>
           </div>
 
           
-              <div class="summary">리눅스에서의 버퍼링 정책 🔗리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다. 만약</div>
+              <div class="summary">지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/'>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</a></h1>
+            <div class ="date">
+                <time datetime="2019-05-22 19:35:04 &#43;0900 KST">May 22, 2019</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">취업은 언제하나… 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물</div>
+          
+
+        </section>
+    
+        
+        
+        <section class="item">
+          <div>
+            <h1 class="title"><a href='/posts/osi-7-layers/'>OSI 7-Layers</a></h1>
+            <div class ="date">
+                <time datetime="2019-05-21 16:10:20 &#43;0900 KST">May 21, 2019</time>  
+            </div>
+          </div>
+
+          
+              <div class="summary">네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보</div>
           
 
         </section>
@@ -183,7 +215,7 @@ if (!doNotTrack) {
 
     <div class="copyright">
     
-        Copyright - Sukbeom Kim
+        Copyright - 김석범 (Sukbeom Kim)
     
     </div>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>design pattern on 범&#39;s blog</title>
+    <title>design pattern on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/categories/design-pattern/</link>
-    <description>Recent content in design pattern on 범&#39;s blog</description>
+    <description>Recent content in design pattern on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Jul 2020 16:25:23 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/design-pattern/index.xml" rel="self" type="application/rss+xml" />

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Leetcode on 범&#39;s blog</title>
+    <title>Leetcode on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/categories/leetcode/</link>
-    <description>Recent content in Leetcode on 범&#39;s blog</description>
+    <description>Recent content in Leetcode on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Feb 2022 23:21:10 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
