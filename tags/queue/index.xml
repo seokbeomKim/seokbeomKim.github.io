@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>queue on seokbeomkim.dev</title>
+    <title>Queue on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/queue/</link>
-    <description>Recent content in queue on seokbeomkim.dev</description>
+    <description>Recent content in Queue on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Apr 2020 00:26:52 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/queue/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Apr 2020 00:26:52 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/queue/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BSD 버전 Linked List</title>
       <link>https://seokbeomkim.github.io/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
-      <description>개요 🔗사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을</description>
+      <description>개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡</description>
     </item>
-    
   </channel>
 </rss>

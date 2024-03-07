@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>type check on seokbeomkim.dev</title>
+    <title>Type Check on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/type-check/</link>
-    <description>Recent content in type check on seokbeomkim.dev</description>
+    <description>Recent content in Type Check on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/type-check/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Apr 2020 00:13:53 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/type-check/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C언어에서의 type-check</title>
       <link>https://seokbeomkim.github.io/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</guid>
-      <description>개요 🔗리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입</description>
+      <description>개요 리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입 체</description>
     </item>
-    
   </channel>
 </rss>

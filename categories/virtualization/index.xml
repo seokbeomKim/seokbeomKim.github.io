@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>virtualization on seokbeomkim.dev</title>
+    <title>Virtualization on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/categories/virtualization/</link>
-    <description>Recent content in virtualization on seokbeomkim.dev</description>
+    <description>Recent content in Virtualization on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2020 17:12:34 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/virtualization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Mar 2020 17:12:34 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/categories/virtualization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hyper-V 가상 환경에서 고정 아이피 주소 사용하기</title>
       <link>https://seokbeomkim.github.io/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
-      <description>개요 🔗윈도우즈에서 리눅스 환경을 이용하기 위해서는 docker 컨테이너를 이용하거나 hyper-v, vmware, virtualbox 등과 같은 가상머신을 이용해야 한다. 이번에는 hyper-v를 이용해 리눅</description>
+      <description>개요 윈도우즈에서 리눅스 환경을 이용하기 위해서는 docker 컨테이너를 이용하거나 hyper-v, vmware, virtualbox 등과 같은 가상머신을 이용해야 한다. 이번에는 hyper-v를 이용해 리눅스</description>
     </item>
-    
     <item>
       <title>QEMU 이용한 임베디드 개발 환경 구축하기</title>
       <link>https://seokbeomkim.github.io/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</guid>
       <description>임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로</description>
     </item>
-    
   </channel>
 </rss>

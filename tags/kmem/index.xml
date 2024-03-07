@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kmem on seokbeomkim.dev</title>
+    <title>Kmem on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/kmem/</link>
-    <description>Recent content in kmem on seokbeomkim.dev</description>
+    <description>Recent content in Kmem on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jan 2020 23:30:44 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/kmem/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Jan 2020 23:30:44 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/kmem/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>/dev/mem vs. /dev/kmem</title>
       <link>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</guid>
-      <description>개요 🔗업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이</description>
+      <description>개요 업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때</description>
     </item>
-    
   </channel>
 </rss>

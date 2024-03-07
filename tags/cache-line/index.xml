@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cache-line on seokbeomkim.dev</title>
+    <title>Cache-Line on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/cache-line/</link>
-    <description>Recent content in cache-line on seokbeomkim.dev</description>
+    <description>Recent content in Cache-Line on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Sep 2020 21:30:10 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/cache-line/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Sep 2020 21:30:10 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/cache-line/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>캐시라인(cache-line) 구조 #2</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</link>
+      <link>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
-      
-      <guid>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</guid>
-      <description>개요 🔗&amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는</description>
+      <guid>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-</guid>
+      <description>개요 &amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>side project on seokbeomkim.dev</title>
+    <title>Side Project on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/side-project/</link>
-    <description>Recent content in side project on seokbeomkim.dev</description>
+    <description>Recent content in Side Project on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2020 00:53:22 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/side-project/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Feb 2020 00:53:22 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/side-project/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Raspberry Pi를 이용한 사이드 프로젝트</title>
       <link>https://seokbeomkim.github.io/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</guid>
       <description>카메라 포팅 건으로 불필요한 업무가 지속적으로 들어온다. 포팅을 위한 기본적인 것들을 자동화 하거나 유틸리티 형태로 제공할 수 있어야 한다는 것을 뼈저리게 느꼈다.</description>
     </item>
-    
   </channel>
 </rss>

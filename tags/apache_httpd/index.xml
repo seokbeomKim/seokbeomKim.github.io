@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>apache_httpd on seokbeomkim.dev</title>
+    <title>Apache_httpd on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/apache_httpd/</link>
-    <description>Recent content in apache_httpd on seokbeomkim.dev</description>
+    <description>Recent content in Apache_httpd on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 May 2019 17:50:32 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/apache_httpd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 May 2019 17:50:32 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/apache_httpd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>서블릿 컨테이너와 서버와의 관계</title>
       <link>https://seokbeomkim.github.io/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</guid>
-      <description>개요 🔗아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을 올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는 애플리케이션은 개</description>
+      <description>개요 아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을 올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는 애플리케이션은 개발</description>
     </item>
-    
   </channel>
 </rss>

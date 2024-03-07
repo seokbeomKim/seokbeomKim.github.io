@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://seokbeomkim.github.io/posts/</loc>
-    <lastmod>2023-08-19T00:00:00+00:00</lastmod>
+    <lastmod>2023-12-07T20:11:41+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/</loc>
-    <lastmod>2023-08-19T00:00:00+00:00</lastmod>
+    <lastmod>2023-12-07T20:11:41+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/posts/%ED%80%98%EC%8A%A4%ED%8A%B83-%EB%A6%AC%ED%8D%BC%EB%9F%B4-%EC%BD%94%EB%93%9C/</loc>
+    <lastmod>2023-12-07T20:11:41+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/vterm-in-emacs/</loc>
     <lastmod>2023-08-19T00:00:00+00:00</lastmod>
@@ -32,10 +35,10 @@
     <loc>https://seokbeomkim.github.io/tags/device-tree/</loc>
     <lastmod>2023-03-19T17:45:39+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/fwnode/</loc>
+    <loc>https://seokbeomkim.github.io/tags/fwnode/</loc>
     <lastmod>2023-03-19T17:45:39+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/tags/fwnode/</loc>
+    <loc>https://seokbeomkim.github.io/posts/fwnode/</loc>
     <lastmod>2023-03-19T17:45:39+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/categories/kernel/</loc>
@@ -53,16 +56,16 @@
     <loc>https://seokbeomkim.github.io/posts/openai-chatgpt/</loc>
     <lastmod>2023-01-07T21:37:38+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/tasklet/</loc>
-    <lastmod>2022-11-13T17:32:26+09:00</lastmod>
-  </url><url>
     <loc>https://seokbeomkim.github.io/tags/tasklet/</loc>
     <lastmod>2022-11-13T17:32:26+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/obsidian/</loc>
-    <lastmod>2022-11-02T23:46:06+09:00</lastmod>
+    <loc>https://seokbeomkim.github.io/posts/tasklet/</loc>
+    <lastmod>2022-11-13T17:32:26+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/obsidian/</loc>
+    <lastmod>2022-11-02T23:46:06+09:00</lastmod>
+  </url><url>
+    <loc>https://seokbeomkim.github.io/posts/obsidian/</loc>
     <lastmod>2022-11-02T23:46:06+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</loc>
@@ -71,10 +74,10 @@
     <loc>https://seokbeomkim.github.io/tags/%EB%82%9C%EC%B2%AD/</loc>
     <lastmod>2022-10-22T17:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/tags/strcpy/</loc>
+    <loc>https://seokbeomkim.github.io/posts/strcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/strcpy/</loc>
+    <loc>https://seokbeomkim.github.io/tags/strcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/strlcpy/</loc>
@@ -251,7 +254,7 @@
     <loc>https://seokbeomkim.github.io/tags/cache-line/</loc>
     <lastmod>2020-09-13T21:30:10+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</loc>
+    <loc>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-</loc>
     <lastmod>2020-09-13T21:30:10+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/ghcup/</loc>
@@ -317,10 +320,10 @@
     <loc>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</loc>
     <lastmod>2020-04-25T14:27:31+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/vmlinux/</loc>
+    <loc>https://seokbeomkim.github.io/tags/vmlinux/</loc>
     <lastmod>2020-04-21T06:04:17+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/tags/vmlinux/</loc>
+    <loc>https://seokbeomkim.github.io/posts/vmlinux/</loc>
     <lastmod>2020-04-21T06:04:17+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/page-table/</loc>
@@ -353,10 +356,10 @@
     <loc>https://seokbeomkim.github.io/posts/dmips-dhrystone-million-instructions-per-second/</loc>
     <lastmod>2020-04-03T01:41:29+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/futex/</loc>
+    <loc>https://seokbeomkim.github.io/tags/futex/</loc>
     <lastmod>2020-04-02T01:45:50+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/tags/futex/</loc>
+    <loc>https://seokbeomkim.github.io/posts/futex/</loc>
     <lastmod>2020-04-02T01:45:50+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/posts/do-while/</loc>
@@ -401,10 +404,10 @@
     <loc>https://seokbeomkim.github.io/tags/poll/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</loc>
+    <loc>https://seokbeomkim.github.io/tags/poll_wait/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/tags/poll_wait/</loc>
+    <loc>https://seokbeomkim.github.io/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/micom/</loc>
@@ -557,10 +560,10 @@
     <loc>https://seokbeomkim.github.io/tags/mem/</loc>
     <lastmod>2020-01-29T23:30:44+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/posts/kobject/</loc>
+    <loc>https://seokbeomkim.github.io/tags/kobject/</loc>
     <lastmod>2020-01-28T22:25:50+09:00</lastmod>
   </url><url>
-    <loc>https://seokbeomkim.github.io/tags/kobject/</loc>
+    <loc>https://seokbeomkim.github.io/posts/kobject/</loc>
     <lastmod>2020-01-28T22:25:50+09:00</lastmod>
   </url><url>
     <loc>https://seokbeomkim.github.io/tags/big-endian/</loc>

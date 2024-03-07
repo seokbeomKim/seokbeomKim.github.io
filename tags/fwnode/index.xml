@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>fwnode on seokbeomkim.dev</title>
+    <title>Fwnode on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/fwnode/</link>
-    <description>Recent content in fwnode on seokbeomkim.dev</description>
+    <description>Recent content in Fwnode on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Mar 2023 17:45:39 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/fwnode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Mar 2023 17:45:39 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/fwnode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fwnode</title>
       <link>https://seokbeomkim.github.io/posts/fwnode/</link>
       <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/fwnode/</guid>
       <description>fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이 없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고</description>
     </item>
-    
   </channel>
 </rss>

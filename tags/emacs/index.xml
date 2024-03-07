@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>emacs on seokbeomkim.dev</title>
+    <title>Emacs on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/emacs/</link>
-    <description>Recent content in emacs on seokbeomkim.dev</description>
+    <description>Recent content in Emacs on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jan 2021 13:42:08 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jan 2021 13:42:08 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs에서 magit 최적화하기</title>
       <link>https://seokbeomkim.github.io/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</guid>
-      <description>개요 🔗이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블</description>
+      <description>개요 이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로</description>
     </item>
-    
     <item>
       <title>이맥스 기본 에디터로 사용하기</title>
       <link>https://seokbeomkim.github.io/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
-      <description>개요 🔗이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는</description>
+      <description>개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편</description>
     </item>
-    
   </channel>
 </rss>

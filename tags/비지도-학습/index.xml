@@ -6,15 +6,14 @@
     <description>Recent content in 비지도 학습 on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 May 2019 15:31:38 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2019 15:31:38 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>비지도 학습 알고리즘과 지도 학습</title>
       <link>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
-      <description>개요 🔗프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(</description>
+      <description>개요 프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(U</description>
     </item>
-    
   </channel>
 </rss>

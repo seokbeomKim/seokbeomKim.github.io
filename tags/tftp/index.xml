@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tftp on seokbeomkim.dev</title>
+    <title>Tftp on seokbeomkim.dev</title>
     <link>https://seokbeomkim.github.io/tags/tftp/</link>
-    <description>Recent content in tftp on seokbeomkim.dev</description>
+    <description>Recent content in Tftp on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Apr 2023 10:21:58 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/tftp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Apr 2023 10:21:58 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/tftp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>라즈베리파이 네트워크 부팅 설정</title>
       <link>https://seokbeomkim.github.io/posts/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95/</link>
       <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95/</guid>
-      <description>네트워크 부팅 환경 설정 🔗기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우</description>
+      <description>네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,177 +6,140 @@
     <description>Recent content in Categories on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Mar 2023 17:45:39 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Mar 2023 17:45:39 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kernel</title>
       <link>https://seokbeomkim.github.io/categories/kernel/</link>
       <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/kernel/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>etc</title>
+      <title>Etc</title>
       <link>https://seokbeomkim.github.io/categories/etc/</link>
       <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/etc/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Computer Science</title>
       <link>https://seokbeomkim.github.io/categories/computer-science/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/computer-science/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Leetcode</title>
       <link>https://seokbeomkim.github.io/categories/leetcode/</link>
       <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/leetcode/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>python</title>
+      <title>Python</title>
       <link>https://seokbeomkim.github.io/categories/python/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/python/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mac</title>
+      <title>Mac</title>
       <link>https://seokbeomkim.github.io/categories/mac/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/mac/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>haskell</title>
+      <title>Haskell</title>
       <link>https://seokbeomkim.github.io/categories/haskell/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/haskell/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>design pattern</title>
+      <title>Design Pattern</title>
       <link>https://seokbeomkim.github.io/categories/design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/design-pattern/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>linux</title>
+      <title>Linux</title>
       <link>https://seokbeomkim.github.io/categories/linux/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/linux/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>oop</title>
+      <title>Oop</title>
       <link>https://seokbeomkim.github.io/categories/oop/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/oop/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>c</title>
+      <title>C</title>
       <link>https://seokbeomkim.github.io/categories/c/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/c/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Android</title>
       <link>https://seokbeomkim.github.io/categories/android/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/android/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>virtualization</title>
+      <title>Virtualization</title>
       <link>https://seokbeomkim.github.io/categories/virtualization/</link>
       <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/virtualization/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>yocto</title>
+      <title>Yocto</title>
       <link>https://seokbeomkim.github.io/categories/yocto/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/yocto/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Web</title>
       <link>https://seokbeomkim.github.io/categories/web/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/web/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>typescript</title>
+      <title>Typescript</title>
       <link>https://seokbeomkim.github.io/categories/typescript/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/typescript/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Machine Learning</title>
       <link>https://seokbeomkim.github.io/categories/machine-learning/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/machine-learning/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>java</title>
+      <title>Java</title>
       <link>https://seokbeomkim.github.io/categories/java/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/java/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>database</title>
+      <title>Database</title>
       <link>https://seokbeomkim.github.io/categories/database/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/categories/database/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

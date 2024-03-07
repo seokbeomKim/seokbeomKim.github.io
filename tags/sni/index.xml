@@ -6,15 +6,14 @@
     <description>Recent content in SNI on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 17:12:34 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/sni/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 May 2019 17:12:34 +0900</lastBuildDate>
+    <atom:link href="https://seokbeomkim.github.io/tags/sni/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Server Name Indication(SNI)</title>
       <link>https://seokbeomkim.github.io/posts/server-name-indicationsni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
-      
       <guid>https://seokbeomkim.github.io/posts/server-name-indicationsni/</guid>
-      <description>Server Name Indication 🔗Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구</description>
+      <description>Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTP</description>
     </item>
-    
   </channel>
 </rss>
