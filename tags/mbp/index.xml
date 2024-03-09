@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mbp on 범&#39;s blog</title>
-    <link>https://seokbeomkim.github.io/tags/mbp/</link>
-    <description>Recent content in mbp on 범&#39;s blog</description>
+    <title>Mbp on seokbeomkim.dev</title>
+    <link>http://localhost:1313/tags/mbp/</link>
+    <description>Recent content in Mbp on seokbeomkim.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Feb 2020 18:41:53 +0900</lastBuildDate><atom:link href="https://seokbeomkim.github.io/tags/mbp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Feb 2020 18:41:53 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mbp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>맥북에 리눅스 설치, 그리고 hyper-v</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98-%EA%B7%B8%EB%A6%AC%EA%B3%A0-hyper-v/</link>
+      <link>http://localhost:1313/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98-%EA%B7%B8%EB%A6%AC%EA%B3%A0-hyper-v/</link>
       <pubDate>Sat, 22 Feb 2020 18:41:53 +0900</pubDate>
-      
-      <guid>https://seokbeomkim.github.io/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98-%EA%B7%B8%EB%A6%AC%EA%B3%A0-hyper-v/</guid>
-      <description>개요 🔗맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반 동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한 운영체제였지만 동시에</description>
+      <guid>http://localhost:1313/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98-%EA%B7%B8%EB%A6%AC%EA%B3%A0-hyper-v/</guid>
+      <description>개요 맥을 사용하다보니 점점 운영체제가 갖는 한계가 느껴졌다. 지난 1년 반 동안 사용하면서 느꼈던 점은 윈도우즈와 리눅스의 장점만을 취한 운영체제였지만 동시에 맥</description>
     </item>
-    
   </channel>
 </rss>
