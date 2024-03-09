@@ -1,8 +1,13 @@
----
-title: "퀘스트3 리퍼럴 코드"
-date: 2023-12-07T20:11:41+09:00
-draft: false
----
+#+title: 퀘스트3 게임 리퍼럴 코드
+#+HUGO_SECTION: posts
+#+HUGO_BASE_DIR: ~/workspace/gitblog
+#+hugo_weight: auto
+#+hugo_tags: vr
+#+date: 2023-12-30
+
+* 참고 링크
+
+퀘스트 게임 리퍼럴 코드 백업 페이지
 
 1. 프리미엄 볼링 - https://www.oculus.com/appreferrals/sukbeom.kim/2773034772778845/?utm_source=oculus&utm_location=4&utm_parent=frl&utm_medium=app_referral
 2. 비트 세이버 - https://www.oculus.com/appreferrals/sukbeom.kim/2448060205267927/?utm_source=oculus&utm_location=4&utm_parent=frl&utm_medium=app_referral
