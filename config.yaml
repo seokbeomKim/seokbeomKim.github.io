@@ -1,6 +1,6 @@
 baseURL: https://seokbeomkim.github.io
 languageCode: en-us
-title: seokbeomkim.dev
+title: Sukbeom Kim
 theme: mini
 
 # Default content language, support en (English) / zh (Chinese) / nl (Dutch) / fr (French) / es (Spanish) / da (Danish), default 'en'
@@ -10,7 +10,7 @@ hasCJKLanguage: true
 permalinks:
   posts: /posts/:title/
 
-paginate: 5
+paginate: 6
 
 googleAnalytics: G-Y7VW74D2P3
 disqusShortname: seokbeomkim-github-io
@@ -33,7 +33,7 @@ markup:
 # Social links in footer, support github,twitter,stackoverflow,facebook
 social:
   # e.g.
-  github: https://github.com/seokbeomKim
+  # github: https://github.com/seokbeomKim
   # twitter: your-github-link
     # stackoverflow: your-github-link
   # facebook: your-facebook-link
@@ -44,10 +44,8 @@ params:
   # Site Author
   author: '김석범 (Sukbeom Kim)'
   # Author biography
-  bio:
+  bio: bio description
   # Site Description, used in HTML meat
-  description: 개발 삽질기 모음집
-
 
   ###########################################
   # Optional Configuration
@@ -60,15 +58,15 @@ params:
   # To enable comments, you may need to set `googleAnalytics`
   enableGoogleAnalytics: true
   # To enable table of content, you could set `showToc: true`, default is `false`
-  showToc: false
+  showToc: true
   # To hidden powerBy message in the page footer, you could set: `showPowerBy: false`, default is `true`
-  showPowerBy: true
+  showPowerBy: false
   # To enable math typesetting , you could set `math: true`, default is `false`
-  math: false
+  math: true
   # To hidden post summary in home page, you could set `hiddenPostSummaryInHomePage: true`, default is `false`
   hiddenPostSummaryInHomePage: false
   # Website copy write, default: '© Copyright 2021 ❤️ {params.author}'
-  copyright: 'Copyright - 김석범 (Sukbeom Kim)'
+  copyright: 'Copyright - Sukbeom Kim'
 
   # Extra links in navigation
   links:
@@ -78,6 +76,9 @@ params:
 
   # You can put your custom css and js to `static` directory, or use remote css and js files which start with `http://` or `https://`
   customCSS:
+    - css/img.css
+    - css/noto_sans_kr.css
+    - css/nanumgothic.css
     ## e.g.
     # - css/custom.css # local css in `static/css/custom.css`
     # - https://example.com/custom.css # remote css

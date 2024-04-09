@@ -9,3 +9,15 @@ code {
 [class*="p-title"] {
     font-weight: bold;
 }
+
+[class*="profile"] {
+    display: none;
+}
+
+nav.navigation {
+    margin: 0 0 100px 0;
+}
+
+body {
+    font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif;
+}
