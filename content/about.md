@@ -1,10 +1,8 @@
 ---
 title: "About"
 date: 2020-01-25T22:47:44+09:00
-draft: true
+draft: false
 ---
-
-글쓰기를 좋아하는 평범한 엔지니어입니다.
 
 - [이맥스를 사용하지만 VI 키 바인딩을 사용합니다.](https://github.com/emacs-evil/evil)
 - [Gentoo Linux와 Arch Linux는 사랑하지만 Ubuntu WSL를 사용합니다.](https://medium.com/@alexeynovikov_89393/linux-on-desktop-still-sucks-60e263f77745)
