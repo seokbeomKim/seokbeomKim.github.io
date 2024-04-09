@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          883 words
+          911 words
         </span>
         <span class="split">
           ·
@@ -110,11 +110,11 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#개요">개요</a></li>
     <li><a href="#guest-os-및-포트포워딩-ssh-서버-설정">Guest OS 및 포트포워딩, ssh 서버 설정</a></li>
     <li><a href="#aarch64-target-용-gdb-빌드">aarch64 target 용 gdb 빌드</a></li>
-  </ul>
+  </ol>
 </nav>
           </div>
       </details>
@@ -126,15 +126,24 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      <h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게
+      <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게
 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게
 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, <code>aarch64</code>
 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는
 누구인가?</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>(gdb) file <span style="color:#666">~/</span>Workspaces<span style="color:#666">/</span>kernel_dev<span style="color:#666">/</span>vmlinux
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>(gdb) file <span style="color:#666">~/</span>Workspaces<span style="color:#666">/</span>kernel_dev<span style="color:#666">/</span>vmlinux
 </span></span><span style="display:flex;"><span>Reading symbols from <span style="color:#666">~/</span>Workspaces<span style="color:#666">/</span>kernel_dev<span style="color:#666">/</span>vmlinux...
 </span></span><span style="display:flex;"><span>I<span style="">&#39;</span>m sorry, Dave, I can<span style="">&#39;</span>t <span style="color:#a2f;font-weight:bold">do</span> that.  Symbol format <span style="">`</span>elf64<span style="color:#666">-</span>littleaarch64<span style="">&#39;</span> unknown.
-</span></span></code></pre></div><p>이에 해결을 위한 시나리오는 아래와 같이 구성했다.</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이에 해결을 위한 시나리오는 아래와 같이 구성했다.</p>
 <ol>
 <li>
 <p>컴파일 서버 구성: 개인적으로 사용하고 있는 게이밍 노트북 Hyper-V 로 리눅스
@@ -148,14 +157,37 @@ Guest OS를 올려 컴파일 서버로 만든다.</p>
 <p>gdb 클라이언트로 gdb server에 접속하여 디버깅을 한다.</p>
 </li>
 </ol>
-<h2 id="guest-os-및-포트포워딩-ssh-서버-설정">Guest OS 및 포트포워딩, ssh 서버 설정 <a href="#guest-os-%eb%b0%8f-%ed%8f%ac%ed%8a%b8%ed%8f%ac%ec%9b%8c%eb%94%a9-ssh-%ec%84%9c%eb%b2%84-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>Guest OS는 lisa-qemu 설치를 위해서 우분투를 사용하였다. 우분투 설치 후 아래와
+<h1 id="guest-os-및-포트포워딩-ssh-서버-설정">Guest OS 및 포트포워딩, ssh 서버 설정 <a href="#guest-os-%eb%b0%8f-%ed%8f%ac%ed%8a%b8%ed%8f%ac%ec%9b%8c%eb%94%a9-ssh-%ec%84%9c%eb%b2%84-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h1><p>Guest OS는 lisa-qemu 설치를 위해서 우분투를 사용하였다. 우분투 설치 후 아래와
 갈이 스위치 설정을 해준다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">New-VMSwitch</span> -SwitchName <span style="color:#b44">&#34;KeyNATSwitch&#34;</span> -SwitchType Internal
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">New-VMSwitch</span> -SwitchName <span style="color:#b44">&#34;KeyNATSwitch&#34;</span> -SwitchType Internal
 </span></span><span style="display:flex;"><span><span style="color:#a2f">New-NetIPAddress</span> -IPAddress <span style="color:#666">10.0</span>.2.1 -PrefixLength <span style="color:#666">24</span>-InterfaceAlias <span style="color:#b44">&#34;vEthernet (KeyNATSwitch)&#34;</span>
-</span></span></code></pre></div><p>그리고 hyper-v guest 설정 - 네트워크 어댑터 - 가상 스위치 설정에서
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>그리고 hyper-v guest 설정 - 네트워크 어댑터 - 가상 스위치 설정에서
 KeyNATSwitch를 선택해준다.</p>
 <p>이제 우분투로 돌아가 스위치에 물리기 위한 netplan을 아래와 같이 설정한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>     network:
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>     network:
 </span></span><span style="display:flex;"><span>       version: <span style="color:#666">2</span>
 </span></span><span style="display:flex;"><span>       renderer: NetworkManager
 </span></span><span style="display:flex;"><span>       ethernets:
@@ -166,28 +198,60 @@ KeyNATSwitch를 선택해준다.</p>
 </span></span><span style="display:flex;"><span>           gateway4: 10.0.2.1
 </span></span><span style="display:flex;"><span>           nameservers:
 </span></span><span style="display:flex;"><span>             addresses: <span style="color:#666">[</span>8.8.8.8, 8.8.4.4<span style="color:#666">]</span>
-</span></span></code></pre></div><p>설정 후에 <code>sudo netplan apply</code> 로 설정을 적용한다. 이제 마지막으로 포트포워딩을
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>설정 후에 <code>sudo netplan apply</code> 로 설정을 적용한다. 이제 마지막으로 포트포워딩을
 설정해준다. External Port 는 아래와 같이 동일하게 해도 되나, 귀찮게 구는
 중국으로부터의 트래픽을 피하고 싶다면 반드시 다른 포트로 설정해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>New-NetNAT -Name <span style="color:#b44">&#34;NATNetwork&#34;</span> -InternalIPInterfaceAddressPrefix 10.0.2.0/24
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>New-NetNAT -Name <span style="color:#b44">&#34;NATNetwork&#34;</span> -InternalIPInterfaceAddressPrefix 10.0.2.0/24
 </span></span><span style="display:flex;"><span>     Add-NetNatStaticMapping -ExternalIPAddress <span style="color:#b44">&#34;0.0.0.0/24&#34;</span>
 </span></span><span style="display:flex;"><span>     -ExternalPort <span style="color:#666">22</span> -Protocol TCP -InternalIPAddress <span style="color:#b44">&#34;10.0.2.4&#34;</span>
 </span></span><span style="display:flex;"><span>     -InternalPort <span style="color:#666">22</span> -NatName KeyNATNetwork
-</span></span></code></pre></div><p>이제 컴파일러 서버가 준비되었으니 lisa-qemu를 설치하고 커널 부트 이미지를
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제 컴파일러 서버가 준비되었으니 lisa-qemu를 설치하고 커널 부트 이미지를
 준비한다. 이 부분은 이미 lisa-qemu 에 쉽게 가이드가 있으므로 생략한다.</p>
-<h2 id="aarch64-target-용-gdb-빌드">aarch64 target 용 gdb 빌드 <a href="#aarch64-target-%ec%9a%a9-gdb-%eb%b9%8c%eb%93%9c" class="anchor">🔗</a></h2><p>먼저, gdb-10.1(<a href="https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz" target="_blank" rel="noopener">https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz</a>)을 받은 뒤 압축을
+<h1 id="aarch64-target-용-gdb-빌드">aarch64 target 용 gdb 빌드 <a href="#aarch64-target-%ec%9a%a9-gdb-%eb%b9%8c%eb%93%9c" class="anchor">🔗</a></h1><p>먼저, gdb-10.1(<a href="https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz" target="_blank" rel="noopener">https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz</a>)을 받은 뒤 압축을
 풀고, 맥에서 빌드시 문제가 되는 부분을 아래와 같이 수정해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vi bfd/elf-bfd.h
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ vi bfd/elf-bfd.h
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">#define _LIBELF_H_ 1</span>
 </span></span><span style="display:flex;"><span>+#include &lt;string.h&gt;
-</span></span></code></pre></div><p><code>&lt;string.h&gt;</code> 헤더파일을 추가해준 뒤, target만 지정해주고 컴파일해준다. 그리고
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>&lt;string.h&gt;</code> 헤더파일을 추가해준 뒤, target만 지정해주고 컴파일해준다. 그리고
 마지막으로 빌드된 gdb 바이너리를 bin 디렉토리에 복사해준다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ /configure --disable-debug --disable-dependency-tracking --without-python --target<span style="color:#666">=</span>aarch64-linux-gnu --prefix<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/xtools
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ /configure --disable-debug --disable-dependency-tracking --without-python --target<span style="color:#666">=</span>aarch64-linux-gnu --prefix<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/xtools
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$ make <span style="color:#666">&amp;&amp;</span> make install
 </span></span><span style="display:flex;"><span>$ cp <span style="color:#b8860b">$gdb</span>-10.1/gdb/gdb <span style="color:#b8860b">$HOME</span>/xtools/bin
-</span></span></code></pre></div><p>이제 모든게 준비가 되었다. lisa-qemu 를 디버깅 옵션으로 실행해주고 gdb 를
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제 모든게 준비가 되었다. lisa-qemu 를 디버깅 옵션으로 실행해주고 gdb 를
 붙여주면 아래와 같이 맥에서도 디버깅이 가능해진다. 거기에 컴파일 서버까지 생긴건
 덤이다.</p>
 <p><p class="markdown-image">

@@ -90,13 +90,13 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1857 words
+          2053 words
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          4 minute read
+          5 minute read
         </span>
     </div>
 
@@ -110,19 +110,19 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#개요">개요</a></li>
     <li><a href="#환경-구성">환경 구성</a>
-      <ul>
+      <ol>
         <li><a href="#isync-설치">isync 설치</a></li>
         <li><a href="#isync-설정">isync 설정</a></li>
         <li><a href="#mu-설치">mu 설치</a></li>
         <li><a href="#mu-설정">mu 설정</a></li>
         <li><a href="#이맥스-설정">이맥스 설정</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#마치며">마치며</a></li>
-  </ul>
+  </ol>
 </nav>
           </div>
       </details>
@@ -134,7 +134,7 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      <h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>이맥스에서는 이메일 클라이언트로서 사용할 수 있는 <code>mu4e</code>라는 패키지가 있다.
+      <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>이맥스에서는 이메일 클라이언트로서 사용할 수 있는 <code>mu4e</code>라는 패키지가 있다.
 일반적으로 <code>isync (mbsync)</code> 라는 프로그램과 함께 사용하며 mu 를 설치하면 설치
 디렉토리 내에 함께 포함되어 있다. <code>mu</code>는 메일 수신 및 분류, 저장 보다는 인덱싱과
 검색을 위한 프로그램이기 때문에 원하는 메일을 빠르게 검색하고 org mode와 함께
@@ -160,21 +160,151 @@ difficult in the patch review process.</p>
 <li><a href="https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/" target="_blank" rel="noopener">https://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/</a></li>
 <li><a href="http://pragmaticemacs.com/mu4e-tutorials/" target="_blank" rel="noopener">http://pragmaticemacs.com/mu4e-tutorials/</a></li>
 </ul>
-<h2 id="환경-구성">환경 구성 <a href="#%ed%99%98%ea%b2%bd-%ea%b5%ac%ec%84%b1" class="anchor">🔗</a></h2><p>mu4e를 구성 &amp; 설정하는 순서는 대략 아래와 같다.</p>
+<h1 id="환경-구성">환경 구성 <a href="#%ed%99%98%ea%b2%bd-%ea%b5%ac%ec%84%b1" class="anchor">🔗</a></h1><p>mu4e를 구성 &amp; 설정하는 순서는 대략 아래와 같다.</p>
 <ol>
 <li>mbsync (isync 패키지 내에 포함된 메일 fetcher) 설정 및 local inbox 생성</li>
 <li>mu 인덱싱 구성</li>
 <li>mu4e 사용하기 위한 이맥스 설정</li>
 </ol>
-<h3 id="isync-설치">isync 설치 <a href="#isync-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h3><p>mbsync 명령어는 isync 패키지 안에 포함된다. 우분투 기준으로 아래와 같이 공식
+<h2 id="isync-설치">isync 설치 <a href="#isync-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h2><p>mbsync 명령어는 isync 패키지 안에 포함된다. 우분투 기준으로 아래와 같이 공식
 repo 를 통해 설치 가능하다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt install isync
-</span></span></code></pre></div><h3 id="isync-설정">isync 설정 <a href="#isync-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>아치리눅스 위키 페이지에 패키지에 대한 설명이 자세히 기술되어 있다. 설치 후에는
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt install isync
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="isync-설정">isync 설정 <a href="#isync-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>아치리눅스 위키 페이지에 패키지에 대한 설명이 자세히 기술되어 있다. 설치 후에는
 아래 링크 또는 포스팅에 있는 예제 파일들을 참고하여 설정 파일을 작성한다.</p>
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Isync" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Isync</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># GMAIL #1
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">  1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">  2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">  3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">  4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">  5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">  6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">  7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8">  8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9">  9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-10"> 10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-11"> 11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-12"> 12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-13"> 13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-14"> 14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-15"> 15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-16"> 16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-17"> 17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-18"> 18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-19"> 19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-20"> 20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-21"> 21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-22"> 22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-23"> 23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-24"> 24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-25"> 25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-26"> 26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-27"> 27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-28"> 28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-29"> 29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-30"> 30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-31"> 31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-32"> 32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-33"> 33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-34"> 34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-35"> 35</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-36"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-36"> 36</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-37"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-37"> 37</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-38"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-38"> 38</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-39"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-39"> 39</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-40"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-40"> 40</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-41"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-41"> 41</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-42"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-42"> 42</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-43"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-43"> 43</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-44"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-44"> 44</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-45"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-45"> 45</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-46"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-46"> 46</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-47"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-47"> 47</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-48"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-48"> 48</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-49"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-49"> 49</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-50"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-50"> 50</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-51"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-51"> 51</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-52"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-52"> 52</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-53"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-53"> 53</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-54"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-54"> 54</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-55"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-55"> 55</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-56"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-56"> 56</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-57"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-57"> 57</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-58"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-58"> 58</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-59"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-59"> 59</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-60"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-60"> 60</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-61"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-61"> 61</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-62"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-62"> 62</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-63"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-63"> 63</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-64"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-64"> 64</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-65"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-65"> 65</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-66"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-66"> 66</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-67"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-67"> 67</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-68"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-68"> 68</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-69"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-69"> 69</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-70"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-70"> 70</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-71"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-71"> 71</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-72"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-72"> 72</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-73"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-73"> 73</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-74"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-74"> 74</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-75"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-75"> 75</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-76"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-76"> 76</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-77"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-77"> 77</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-78"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-78"> 78</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-79"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-79"> 79</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-80"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-80"> 80</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-81"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-81"> 81</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-82"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-82"> 82</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-83"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-83"> 83</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-84"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-84"> 84</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-85"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-85"> 85</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-86"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-86"> 86</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-87"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-87"> 87</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-88"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-88"> 88</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-89"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-89"> 89</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-90"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-90"> 90</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-91"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-91"> 91</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-92"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-92"> 92</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-93"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-93"> 93</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-94"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-94"> 94</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-95"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-95"> 95</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-96"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-96"> 96</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-97"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-97"> 97</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-98"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-98"> 98</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-99"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-99"> 99</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-100"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-100">100</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-101"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-101">101</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-102"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-102">102</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-103"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-103">103</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-104"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-104">104</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-105"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-105">105</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-106"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-106">106</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-107"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-107">107</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-108"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-108">108</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-109"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-109">109</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-110"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-110">110</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-111"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-111">111</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-112"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-112">112</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-113"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-113">113</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-114"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-114">114</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-115"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-115">115</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-116"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-116">116</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-117"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-117">117</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-118"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-118">118</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-119"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-119">119</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># GMAIL #1
 </span></span><span style="display:flex;"><span>IMAPAccount sukbeom.kim
 </span></span><span style="display:flex;"><span>Host imap.gmail.com
 </span></span><span style="display:flex;"><span>User sukbeom.kim@gmail.com
@@ -293,30 +423,74 @@ repo 를 통해 설치 가능하다.</p>
 </span></span><span style="display:flex;"><span>Channel chaoxifer-trash
 </span></span><span style="display:flex;"><span>Channel chaoxifer-all
 </span></span><span style="display:flex;"><span>Channel chaoxifer-starred
-</span></span></code></pre></div><p>설정에서 gpg를 이용하여 계정 암호를 설정파일에 그대로 넣지 않고 암호화한 파일을
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>설정에서 gpg를 이용하여 계정 암호를 설정파일에 그대로 넣지 않고 암호화한 파일을
 사용하도록 한다. gpg 파일을 만드는 방법은 아래와 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;mypassword!&#34;</span> &gt; ~/.mbsyncpass
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;mypassword!&#34;</span> &gt; ~/.mbsyncpass
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 입력 창에 passphrase 를 입력한다. 위 설정에서는 mu4e를 passphase로 입력했다.</span>
 </span></span><span style="display:flex;"><span>$ gpg --output ~/.emacs.d/personal/chaoxifer.gpg --symmetric ~/.mbsyncpass
-</span></span></code></pre></div><p>이제 mbsync를 사용하기 위한 설정이 완료되었다. 필요한 디렉토리들을 생성 후
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제 mbsync를 사용하기 위한 설정이 완료되었다. 필요한 디렉토리들을 생성 후
 mbsync -a를 통해 메일 박스를 동기화한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p <span style="color:#b8860b">$HOME</span>/mbsync/<span style="color:#666">{</span>chaoxifer@gmail.com,sukbeom.kim@gmail.com<span style="color:#666">}</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p <span style="color:#b8860b">$HOME</span>/mbsync/<span style="color:#666">{</span>chaoxifer@gmail.com,sukbeom.kim@gmail.com<span style="color:#666">}</span>
 </span></span><span style="display:flex;"><span>$ mbsync -a
-</span></span></code></pre></div><h3 id="mu-설치">mu 설치 <a href="#mu-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h3><p>mu4e 사용을 위해, mu 패키지를 설치한다. 이 때 컴파일 옵션으로 이맥스 옵션이
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mu-설치">mu 설치 <a href="#mu-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h2><p>mu4e 사용을 위해, mu 패키지를 설치한다. 이 때 컴파일 옵션으로 이맥스 옵션이
 있으니 확인하자. 기본적으로 이맥스 옵션이 활성화되어 패키지가 설치되므로 특별한
 경우가 아니라면 별도로 설정하지 않아도 된다. mu 는 공식 repo 대신
 <a href="https://github.com/djcb/mu/releases/tag/v1.8.14" target="_blank" rel="noopener">https://github.com/djcb/mu/releases/tag/v1.8.14</a> 에서 직접 받아서 설치하였다.
 우분투의 공식 repo 에서 제공하는 버전과 꽤 차이가 나고 몇몇 버그 패치가 되지
 않았기 때문에 직접 받아서 설치하는 것을 권장한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ tar xf mu-1.8.14.tar.xz
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ tar xf mu-1.8.14.tar.xz
 </span></span><span style="display:flex;"><span>$ <span style="color:#a2f">cd</span> mu-1.8.14
 </span></span><span style="display:flex;"><span>$ ./autogen.sh --prefix<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/opt
 </span></span><span style="display:flex;"><span>$ make <span style="color:#666">&amp;&amp;</span> make install
-</span></span></code></pre></div><p>필자는 로컬 유저에서 받아서 설치하는 것은 모두 $HOME/opt 경로로 설치하는
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>필자는 로컬 유저에서 받아서 설치하는 것은 모두 $HOME/opt 경로로 설치하는
 타입이라 위와 같이 configure 을 진행하였다. 설치하고 난 뒤 디렉토리에 가보면
 아래와 같이 mu4e 가 설치되어 있는 것을 볼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sukbeom@LAPTOP-R4FQS2C5:~$ ls opt/share/emacs/site-lisp/mu4e/
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-10">10</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sukbeom@LAPTOP-R4FQS2C5:~$ ls opt/share/emacs/site-lisp/mu4e/
 </span></span><span style="display:flex;"><span>mu4e-actions.el     mu4e-context.el   mu4e-headers.elc    mu4e-mark.el      mu4e-server.elc    mu4e.el
 </span></span><span style="display:flex;"><span>mu4e-actions.elc    mu4e-context.elc  mu4e-helpers.el     mu4e-mark.elc     mu4e-speedbar.el   mu4e.elc
 </span></span><span style="display:flex;"><span>mu4e-bookmarks.el   mu4e-contrib.el   mu4e-helpers.elc    mu4e-message.el   mu4e-speedbar.elc  org-mu4e.el
@@ -326,8 +500,37 @@ mbsync -a를 통해 메일 박스를 동기화한다.</p>
 </span></span><span style="display:flex;"><span>mu4e-config.el      mu4e-folders.el   mu4e-lists.elc      mu4e-search.el    mu4e-vars.elc
 </span></span><span style="display:flex;"><span>mu4e-contacts.el    mu4e-folders.elc  mu4e-main.el        mu4e-search.elc   mu4e-view.el
 </span></span><span style="display:flex;"><span>mu4e-contacts.elc   mu4e-headers.el   mu4e-main.elc       mu4e-server.el    mu4e-view.elc
-</span></span></code></pre></div><h3 id="mu-설정">mu 설정 <a href="#mu-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>이제 mbsync 로 생성해놓았던 디렉토리를 기준으로 초기화한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mu init --maildir<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/mbsync
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="mu-설정">mu 설정 <a href="#mu-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>이제 mbsync 로 생성해놓았던 디렉토리를 기준으로 초기화한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-23">23</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mu init --maildir<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/mbsync
 </span></span><span style="display:flex;"><span>$ mu info
 </span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
 </span></span><span style="display:flex;"><span>| maildir           | /home/sukbeom/mbsync           |
@@ -350,9 +553,48 @@ mbsync -a를 통해 메일 박스를 동기화한다.</p>
 </span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
 </span></span><span style="display:flex;"><span>| last-index        | Sat Mar <span style="color:#666">18</span> 07:09:32 <span style="color:#666">2023</span>       |
 </span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
-</span></span></code></pre></div><h3 id="이맥스-설정">이맥스 설정 <a href="#%ec%9d%b4%eb%a7%a5%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은 mu4e의
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="이맥스-설정">이맥스 설정 <a href="#%ec%9d%b4%eb%a7%a5%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은 mu4e의
 공식 문서에 자세히 기술되어 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">; 설치한 경로로 설정한다.</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-31">31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-32">32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-33">33</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">; 설치한 경로로 설정한다.</span>
 </span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-load-path!</span> <span style="color:#b44">&#34;/home/sukbeom/opt/share/emacs/site-lisp/mu4e/&#34;</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;mu4e</span>)
@@ -385,7 +627,9 @@ mbsync -a를 통해 메일 박스를 동기화한다.</p>
 </span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-html2text-command</span> <span style="color:#b8860b">&#39;mu4e-shr2text</span>
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">shr-color-visible-luminance-min</span> <span style="color:#666">80</span>
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">shr-color-visible-distance-min</span> <span style="color:#666">5</span>))
-</span></span></code></pre></div><h2 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h2><p>이제 필요한 설정이 모두 마무리 되었다. M-x mu4e를 실행해 제대로 메일이 보이는지
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h1><p>이제 필요한 설정이 모두 마무리 되었다. M-x mu4e를 실행해 제대로 메일이 보이는지
 확인한다.</p>
 <p>mu4e 를 통해 이제 수신한 메일들을 관리하거나 지정되어 있는 smtp 서버를 통해
 메일을 주고받을 수 있다. mu4e는 thunderbird의 마크다운 지원하는 메일 작성의

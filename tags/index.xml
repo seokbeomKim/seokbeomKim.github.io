@@ -44,20 +44,6 @@
       <description></description>
     </item>
     <item>
-      <title>tasklet</title>
-      <link>/tags/tasklet/</link>
-      <pubDate>Sun, 13 Nov 2022 17:32:26 +0900</pubDate>
-      <guid>/tags/tasklet/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>난청</title>
-      <link>/tags/%EB%82%9C%EC%B2%AD/</link>
-      <pubDate>Sat, 22 Oct 2022 17:00:05 +0900</pubDate>
-      <guid>/tags/%EB%82%9C%EC%B2%AD/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>strcpy</title>
       <link>/tags/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
@@ -97,20 +83,6 @@
       <link>/tags/overlay/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       <guid>/tags/overlay/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>525번</title>
-      <link>/tags/525%EB%B2%88/</link>
-      <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
-      <guid>/tags/525%EB%B2%88/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>HashMap</title>
-      <link>/tags/hashmap/</link>
-      <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
-      <guid>/tags/hashmap/</guid>
       <description></description>
     </item>
     <item>
@@ -205,20 +177,6 @@
       <description></description>
     </item>
     <item>
-      <title>state</title>
-      <link>/tags/state/</link>
-      <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
-      <guid>/tags/state/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>status</title>
-      <link>/tags/status/</link>
-      <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
-      <guid>/tags/status/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>gdb</title>
       <link>/tags/gdb/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
@@ -233,94 +191,17 @@
       <description></description>
     </item>
     <item>
-      <title>i3wm</title>
-      <link>/tags/i3wm/</link>
-      <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
-      <guid>/tags/i3wm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>emacs</title>
-      <link>/tags/emacs/</link>
-      <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
-      <guid>/tags/emacs/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>magit</title>
-      <link>/tags/magit/</link>
-      <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
-      <guid>/tags/magit/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>homebrew</title>
-      <link>/tags/homebrew/</link>
-      <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
-      <guid>/tags/homebrew/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>mac</title>
-      <link>/tags/mac/</link>
-      <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
-      <guid>/tags/mac/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>file2alias</title>
-      <link>/tags/file2alias/</link>
-      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
-      <guid>/tags/file2alias/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>uuid</title>
-      <link>/tags/uuid/</link>
-      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
-      <guid>/tags/uuid/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>vmmem</title>
       <link>/tags/vmmem/</link>
-      <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
+      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       <guid>/tags/vmmem/</guid>
       <description></description>
     </item>
     <item>
       <title>WSL</title>
       <link>/tags/wsl/</link>
-      <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
+      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       <guid>/tags/wsl/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>sysrq</title>
-      <link>/tags/sysrq/</link>
-      <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
-      <guid>/tags/sysrq/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>cache</title>
-      <link>/tags/cache/</link>
-      <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
-      <guid>/tags/cache/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>cache-line</title>
-      <link>/tags/cache-line/</link>
-      <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
-      <guid>/tags/cache-line/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>ghcup</title>
-      <link>/tags/ghcup/</link>
-      <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
-      <guid>/tags/ghcup/</guid>
       <description></description>
     </item>
     <item>
@@ -338,27 +219,6 @@
       <description></description>
     </item>
     <item>
-      <title>nfc</title>
-      <link>/tags/nfc/</link>
-      <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
-      <guid>/tags/nfc/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>nfd</title>
-      <link>/tags/nfd/</link>
-      <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
-      <guid>/tags/nfd/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>function application</title>
-      <link>/tags/function-application/</link>
-      <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
-      <guid>/tags/function-application/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Computer Science</title>
       <link>/tags/computer-science/</link>
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
@@ -370,62 +230,6 @@
       <link>/tags/mu4e/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       <guid>/tags/mu4e/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>vmlinux</title>
-      <link>/tags/vmlinux/</link>
-      <pubDate>Tue, 21 Apr 2020 06:04:17 +0900</pubDate>
-      <guid>/tags/vmlinux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>page table</title>
-      <link>/tags/page-table/</link>
-      <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
-      <guid>/tags/page-table/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>VA_BITS</title>
-      <link>/tags/va_bits/</link>
-      <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
-      <guid>/tags/va_bits/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>virtual address</title>
-      <link>/tags/virtual-address/</link>
-      <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
-      <guid>/tags/virtual-address/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>type check</title>
-      <link>/tags/type-check/</link>
-      <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
-      <guid>/tags/type-check/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>benchmark</title>
-      <link>/tags/benchmark/</link>
-      <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
-      <guid>/tags/benchmark/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>dmips</title>
-      <link>/tags/dmips/</link>
-      <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
-      <guid>/tags/dmips/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>futex</title>
-      <link>/tags/futex/</link>
-      <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
-      <guid>/tags/futex/</guid>
       <description></description>
     </item>
     <item>
@@ -464,20 +268,6 @@
       <description></description>
     </item>
     <item>
-      <title>goto</title>
-      <link>/tags/goto/</link>
-      <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
-      <guid>/tags/goto/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>partition</title>
-      <link>/tags/partition/</link>
-      <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
-      <guid>/tags/partition/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>poll</title>
       <link>/tags/poll/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
@@ -492,45 +282,10 @@
       <description></description>
     </item>
     <item>
-      <title>micom</title>
-      <link>/tags/micom/</link>
-      <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
-      <guid>/tags/micom/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>mpu</title>
-      <link>/tags/mpu/</link>
-      <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
-      <guid>/tags/mpu/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>interrupt</title>
-      <link>/tags/interrupt/</link>
-      <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
-      <guid>/tags/interrupt/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>ioctl</title>
       <link>/tags/ioctl/</link>
-      <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
+      <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       <guid>/tags/ioctl/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>hyper-v</title>
-      <link>/tags/hyper-v/</link>
-      <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
-      <guid>/tags/hyper-v/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>buffering</title>
-      <link>/tags/buffering/</link>
-      <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
-      <guid>/tags/buffering/</guid>
       <description></description>
     </item>
     <item>
@@ -538,34 +293,6 @@
       <link>/tags/macro/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       <guid>/tags/macro/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>switch</title>
-      <link>/tags/switch/</link>
-      <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
-      <guid>/tags/switch/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>idmap</title>
-      <link>/tags/idmap/</link>
-      <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
-      <guid>/tags/idmap/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>BUG_ON</title>
-      <link>/tags/bug_on/</link>
-      <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
-      <guid>/tags/bug_on/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>WARN_ON</title>
-      <link>/tags/warn_on/</link>
-      <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
-      <guid>/tags/warn_on/</guid>
       <description></description>
     </item>
     <item>
@@ -590,6 +317,13 @@
       <description></description>
     </item>
     <item>
+      <title>emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>debug</title>
       <link>/tags/debug/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
@@ -601,62 +335,6 @@
       <link>/tags/ftrace/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       <guid>/tags/ftrace/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>raspberry pi</title>
-      <link>/tags/raspberry-pi/</link>
-      <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
-      <guid>/tags/raspberry-pi/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>side project</title>
-      <link>/tags/side-project/</link>
-      <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
-      <guid>/tags/side-project/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>wayland</title>
-      <link>/tags/wayland/</link>
-      <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
-      <guid>/tags/wayland/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>weston</title>
-      <link>/tags/weston/</link>
-      <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
-      <guid>/tags/weston/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>bitbake</title>
-      <link>/tags/bitbake/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      <guid>/tags/bitbake/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>chroot</title>
-      <link>/tags/chroot/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      <guid>/tags/chroot/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>memory map</title>
-      <link>/tags/memory-map/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      <guid>/tags/memory-map/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>yocto</title>
-      <link>/tags/yocto/</link>
-      <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      <guid>/tags/yocto/</guid>
       <description></description>
     </item>
     <item>
@@ -681,27 +359,6 @@
       <description></description>
     </item>
     <item>
-      <title>kmem</title>
-      <link>/tags/kmem/</link>
-      <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
-      <guid>/tags/kmem/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>mem</title>
-      <link>/tags/mem/</link>
-      <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
-      <guid>/tags/mem/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>kobject</title>
-      <link>/tags/kobject/</link>
-      <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
-      <guid>/tags/kobject/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>big endian</title>
       <link>/tags/big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
@@ -720,20 +377,6 @@
       <link>/tags/little-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>/tags/little-endian/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>bt.601</title>
-      <link>/tags/bt.601/</link>
-      <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
-      <guid>/tags/bt.601/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>bt.656</title>
-      <link>/tags/bt.656/</link>
-      <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
-      <guid>/tags/bt.656/</guid>
       <description></description>
     </item>
     <item>
@@ -758,62 +401,6 @@
       <description></description>
     </item>
     <item>
-      <title>bootloader</title>
-      <link>/tags/bootloader/</link>
-      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
-      <guid>/tags/bootloader/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>embedded_linux</title>
-      <link>/tags/embedded_linux/</link>
-      <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
-      <guid>/tags/embedded_linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>posix-spawn</title>
-      <link>/tags/posix-spawn/</link>
-      <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
-      <guid>/tags/posix-spawn/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>arm-versatile</title>
-      <link>/tags/arm-versatile/</link>
-      <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
-      <guid>/tags/arm-versatile/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>qemu</title>
-      <link>/tags/qemu/</link>
-      <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
-      <guid>/tags/qemu/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>RCU</title>
-      <link>/tags/rcu/</link>
-      <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
-      <guid>/tags/rcu/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>BKL</title>
-      <link>/tags/bkl/</link>
-      <pubDate>Tue, 04 Jun 2019 16:40:28 +0900</pubDate>
-      <guid>/tags/bkl/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>semaphore</title>
-      <link>/tags/semaphore/</link>
-      <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
-      <guid>/tags/semaphore/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>major number</title>
       <link>/tags/major-number/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
@@ -825,27 +412,6 @@
       <link>/tags/minor-number/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       <guid>/tags/minor-number/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>global kernel lock</title>
-      <link>/tags/global-kernel-lock/</link>
-      <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
-      <guid>/tags/global-kernel-lock/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>mutex</title>
-      <link>/tags/mutex/</link>
-      <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
-      <guid>/tags/mutex/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>spinlock</title>
-      <link>/tags/spinlock/</link>
-      <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
-      <guid>/tags/spinlock/</guid>
       <description></description>
     </item>
     <item>
@@ -870,10 +436,10 @@
       <description></description>
     </item>
     <item>
-      <title>OSI 7 Layers</title>
-      <link>/tags/osi-7-layers/</link>
-      <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
-      <guid>/tags/osi-7-layers/</guid>
+      <title>qemu</title>
+      <link>/tags/qemu/</link>
+      <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
+      <guid>/tags/qemu/</guid>
       <description></description>
     </item>
     <item>
@@ -891,174 +457,6 @@
       <description></description>
     </item>
     <item>
-      <title>process</title>
-      <link>/tags/process/</link>
-      <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
-      <guid>/tags/process/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>COW</title>
-      <link>/tags/cow/</link>
-      <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
-      <guid>/tags/cow/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>implicit sharing</title>
-      <link>/tags/implicit-sharing/</link>
-      <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
-      <guid>/tags/implicit-sharing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>shadowing</title>
-      <link>/tags/shadowing/</link>
-      <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
-      <guid>/tags/shadowing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>drivers</title>
-      <link>/tags/drivers/</link>
-      <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
-      <guid>/tags/drivers/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>modules</title>
-      <link>/tags/modules/</link>
-      <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
-      <guid>/tags/modules/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>nonpreemptive</title>
-      <link>/tags/nonpreemptive/</link>
-      <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
-      <guid>/tags/nonpreemptive/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>scheduling</title>
-      <link>/tags/scheduling/</link>
-      <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
-      <guid>/tags/scheduling/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>deadlock</title>
-      <link>/tags/deadlock/</link>
-      <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
-      <guid>/tags/deadlock/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>default export</title>
-      <link>/tags/default-export/</link>
-      <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
-      <guid>/tags/default-export/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>named export</title>
-      <link>/tags/named-export/</link>
-      <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
-      <guid>/tags/named-export/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>scikit learn</title>
-      <link>/tags/scikit-learn/</link>
-      <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
-      <guid>/tags/scikit-learn/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>tensorflow</title>
-      <link>/tags/tensorflow/</link>
-      <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
-      <guid>/tags/tensorflow/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>비지도 학습</title>
-      <link>/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
-      <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
-      <guid>/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>지도 학습</title>
-      <link>/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
-      <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
-      <guid>/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>nested class</title>
-      <link>/tags/nested-class/</link>
-      <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
-      <guid>/tags/nested-class/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>apache_httpd</title>
-      <link>/tags/apache_httpd/</link>
-      <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
-      <guid>/tags/apache_httpd/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>servlet_container</title>
-      <link>/tags/servlet_container/</link>
-      <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
-      <guid>/tags/servlet_container/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>shard</title>
-      <link>/tags/shard/</link>
-      <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
-      <guid>/tags/shard/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Restful</title>
-      <link>/tags/restful/</link>
-      <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
-      <guid>/tags/restful/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>RMM</title>
-      <link>/tags/rmm/</link>
-      <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
-      <guid>/tags/rmm/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>folding</title>
-      <link>/tags/folding/</link>
-      <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
-      <guid>/tags/folding/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>http1.1</title>
-      <link>/tags/http1.1/</link>
-      <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      <guid>/tags/http1.1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>http2</title>
-      <link>/tags/http2/</link>
-      <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      <guid>/tags/http2/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>cors</title>
       <link>/tags/cors/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
@@ -1066,45 +464,10 @@
       <description></description>
     </item>
     <item>
-      <title>cdn</title>
-      <link>/tags/cdn/</link>
-      <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
-      <guid>/tags/cdn/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>host header</title>
-      <link>/tags/host-header/</link>
-      <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
-      <guid>/tags/host-header/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>virtual host</title>
-      <link>/tags/virtual-host/</link>
-      <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
-      <guid>/tags/virtual-host/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>SNI</title>
       <link>/tags/sni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       <guid>/tags/sni/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>http</title>
-      <link>/tags/http/</link>
-      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
-      <guid>/tags/http/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>https</title>
-      <link>/tags/https/</link>
-      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
-      <guid>/tags/https/</guid>
       <description></description>
     </item>
   </channel>

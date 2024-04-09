@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1514 words
+          1579 words
         </span>
         <span class="split">
           ·
@@ -110,13 +110,13 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#ramoops-덕분에-알게된-오버레이">Ramoops 덕분에 알게된 오버레이</a></li>
     <li><a href="#오버레이-작성">오버레이 작성</a></li>
     <li><a href="#configfs">configfs</a></li>
     <li><a href="#언제-사용할까">언제 사용할까?</a></li>
     <li><a href="#참고-자료">참고 자료</a></li>
-  </ul>
+  </ol>
 </nav>
           </div>
       </details>
@@ -128,14 +128,43 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      <h2 id="ramoops-덕분에-알게된-오버레이">Ramoops 덕분에 알게된 오버레이 <a href="#ramoops-%eb%8d%95%eb%b6%84%ec%97%90-%ec%95%8c%ea%b2%8c%eb%90%9c-%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4" class="anchor">🔗</a></h2><p>며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다.
+      <h1 id="ramoops-덕분에-알게된-오버레이">Ramoops 덕분에 알게된 오버레이 <a href="#ramoops-%eb%8d%95%eb%b6%84%ec%97%90-%ec%95%8c%ea%b2%8c%eb%90%9c-%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4" class="anchor">🔗</a></h1><p>며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다.
 ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나
 user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어
 최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.</p>
 <p>이러한 로거를 현업에서 사용하기 위해 사내 평가보드에서 먼저 확인해보았다. 평가보드에서는 간단하게 memblock의 reserved memory 영역에 ramoops 영역을 추가함으로써 정상 동작하는 것을 금방 확인할 수 있었다. 하지만, 개인적으로 갖고 있던 라즈베리파이 보드에서는 이같은 방법이 제대로 동작하지 않았다.  이에 구글링을 하던 도중 디바이스 트리 오버레이로 ramoops 에 대한 디바이스 트리를 수정하는 방법을 접하면서, 오버레이가 특정 벤더의 BSP에서만 사용 가능한 것이 아닌 OF의 API로서 커널 내에 구현되어 있다는 사실 또한 함께 알게 되었다. (부끄럽게도 이제서야 알게 되었다.)</p>
-<h2 id="오버레이-작성">오버레이 작성 <a href="#%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4-%ec%9e%91%ec%84%b1" class="anchor">🔗</a></h2><p>오버레이는 런타임에 FDT (Flattened Device Tree) 를 수정할 수 있는 방법이다. 여기서 FDT란, 메모리에 로드된 디바이스 트리를 말한다.
+<h1 id="오버레이-작성">오버레이 작성 <a href="#%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4-%ec%9e%91%ec%84%b1" class="anchor">🔗</a></h1><p>오버레이는 런타임에 FDT (Flattened Device Tree) 를 수정할 수 있는 방법이다. 여기서 FDT란, 메모리에 로드된 디바이스 트리를 말한다.
 DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만, 이전 방법으로는 아래와 같이 작성할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/dts-v1/;
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-25">25</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/dts-v1/;
 </span></span><span style="display:flex;"><span>/plugin/;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>/ {
@@ -160,11 +189,37 @@ DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만
 </span></span><span style="display:flex;"><span>                };
 </span></span><span style="display:flex;"><span>        };
 </span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><p>그리고 이를 아래와 같이 컴파일한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ dtc -@ -O dtb -o ramoops.dtbo ramoops-overlay.dts
-</span></span></code></pre></div><h2 id="configfs">configfs <a href="#configfs" class="anchor">🔗</a></h2><p>앞서 컴파일한 오버레이를 사용하기 위해서는 디바이스 트리를 사용했던 것과 마찬가지로 특정 메모리 영역에 dtbo 파일을 두고 오버레이 인터페이스를 통해 접근해야 한다.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>그리고 이를 아래와 같이 컴파일한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ dtc -@ -O dtb -o ramoops.dtbo ramoops-overlay.dts
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="configfs">configfs <a href="#configfs" class="anchor">🔗</a></h1><p>앞서 컴파일한 오버레이를 사용하기 위해서는 디바이스 트리를 사용했던 것과 마찬가지로 특정 메모리 영역에 dtbo 파일을 두고 오버레이 인터페이스를 통해 접근해야 한다.
 하지만 overlay에 관련된 API 를 직접 호출할 필요 없이도 configfs 를 통해 쉽게 오버레이를 추가하거나 제거할 수 있다. 커널에서는 아래와 같이 DT overlay interface 로서 CONFIGFS 를 제공한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CONFIG_OF_CONFIGFS:
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-13">13</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CONFIG_OF_CONFIGFS:
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Enable a simple user-space driven DT overlay interface.
 </span></span><span style="display:flex;"><span>
@@ -177,18 +232,61 @@ DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만
 </span></span><span style="display:flex;"><span>    -&gt; Device Drivers
 </span></span><span style="display:flex;"><span>      -&gt; Device Tree and Open Firmware support (OF [=y])
 </span></span><span style="display:flex;"><span>Selects: CONFIGFS_FS [=y] &amp;&amp; OF_OVERLAY [=y]
-</span></span></code></pre></div><p>만약 이 커널 옵션이 정상적으로 활성화되어 빌드되었다면 아래와 같이 <code>/sys/kernel/configs</code> 경로에 configfs 파일시스템이 마운트 되어 있는 것을 확인할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mount | grep -i config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>만약 이 커널 옵션이 정상적으로 활성화되어 빌드되었다면 아래와 같이 <code>/sys/kernel/configs</code> 경로에 configfs 파일시스템이 마운트 되어 있는 것을 확인할 수 있다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mount | grep -i config
 </span></span><span style="display:flex;"><span>configfs on /sys/kernel/config <span style="color:#a2f">type</span> configfs <span style="color:#666">(</span>rw,nosuid,nodev,noexec,relatime<span style="color:#666">)</span>
-</span></span></code></pre></div><p>먼저, 파일시스템을 탐색해보면 아무것도 없다. <code>/sys/kernel/config/device-tree/overlay/</code> 까지의 디렉토리만 생성되어 있을 뿐 아무런 파일도 존재하지 않는다. 이 때, 임시로 디렉토리 하나를 만들어주면 아래와 같이 파일 여러개가 생성되어 있는 것을 알 수 있다. 그리고 해당 파일들의 내용을 보면 비어 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir /sys/kernel/config/device-tree/overlays/test
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>먼저, 파일시스템을 탐색해보면 아무것도 없다. <code>/sys/kernel/config/device-tree/overlay/</code> 까지의 디렉토리만 생성되어 있을 뿐 아무런 파일도 존재하지 않는다. 이 때, 임시로 디렉토리 하나를 만들어주면 아래와 같이 파일 여러개가 생성되어 있는 것을 알 수 있다. 그리고 해당 파일들의 내용을 보면 비어 있다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir /sys/kernel/config/device-tree/overlays/test
 </span></span><span style="display:flex;"><span>$ ls /sys/kernel/config/device-tree/overlays/test
 </span></span><span style="display:flex;"><span>dtbo  path  status
 </span></span><span style="display:flex;"><span>$ grep <span style="color:#b44">&#34;&#34;</span> /sys/kernel/config/device-tree/overlays/test/*
 </span></span><span style="display:flex;"><span>/sys/kernel/config/device-tree/overlays/test/path:
 </span></span><span style="display:flex;"><span>/sys/kernel/config/device-tree/overlays/test/status:unapplied
-</span></span></code></pre></div><p>이제, 앞서 컴파일 해놓은 dtbo 파일을 해당 파일시스템을 통해 로드해보자. 앞서 생성한 ramoops 노드가 동적으로 런타임에 추가된 것을 볼 수 있다(!!)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cat ramoops.dtbo &gt; /sys/kernel/config/device-tree/overlays/test/dtbo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제, 앞서 컴파일 해놓은 dtbo 파일을 해당 파일시스템을 통해 로드해보자. 앞서 생성한 ramoops 노드가 동적으로 런타임에 추가된 것을 볼 수 있다(!!)</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-17">17</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cat ramoops.dtbo &gt; /sys/kernel/config/device-tree/overlays/test/dtbo
 </span></span><span style="display:flex;"><span>$ ls /proc/device-tree/reserved-memory/ -al
 </span></span><span style="display:flex;"><span>total <span style="color:#666">0</span>
 </span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#666">5</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 04:39  .
@@ -205,10 +303,19 @@ DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만
 </span></span><span style="display:flex;"><span>Binary file /sys/kernel/config/device-tree/overlays/test/dtbo matches
 </span></span><span style="display:flex;"><span>/sys/kernel/config/device-tree/overlays/test/path:
 </span></span><span style="display:flex;"><span>/sys/kernel/config/device-tree/overlays/test/status:applied
-</span></span></code></pre></div><p>이렇게 오버레이를 통해 노드를 로드한 뒤에는 드라이버도 함께 신경써줘야 한다. 만약 관련된 드라이버가 built-in 되어 컴파일된 경우라면 자동으로 로드되지만 모듈로 빌드된 경우에는 반드시 modprobe 명령어로 로드해줘야 한다. 더이상 필요하지 않은 경우에는 아래와 같이 단순하게 디렉토리를 삭제해주면 된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rmdir /sys/kernel/config/device-tree/overlays/test/
-</span></span></code></pre></div><h2 id="언제-사용할까">언제 사용할까? <a href="#%ec%96%b8%ec%a0%9c-%ec%82%ac%ec%9a%a9%ed%95%a0%ea%b9%8c" class="anchor">🔗</a></h2><p>오버레이를 통해 런타임에 동적으로 FDT 의 내용을 변경할 수 있다는 점은 충분히 매력적이다. 어째서 라즈베리파이에서 상당 부분의 모듈들을 오버레이를 통해 제공하고 있는지도 함께 이해할 수 있었다. 현재 현업에서는 오버레이는 적용되지 않은채 디바이스 트리의 상속을 통해서 구조화 시킨채 FDT는 고정적으로 사용하고 있다. 만약 시나리오에 따라 디바이스 트리가 변경되도록 BSP를 개발해야 하는 때가 온거나 현재 커널 내에 구현된 유닛테스트와 같이 고정된 테스트 코드에 동적인 설정값들을 사용해야 한다면 오버레이가 그 해답이 될 수 있을 것이라 생각한다.</p>
-<h2 id="참고-자료">참고 자료 <a href="#%ec%b0%b8%ea%b3%a0-%ec%9e%90%eb%a3%8c" class="anchor">🔗</a></h2><ul>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이렇게 오버레이를 통해 노드를 로드한 뒤에는 드라이버도 함께 신경써줘야 한다. 만약 관련된 드라이버가 built-in 되어 컴파일된 경우라면 자동으로 로드되지만 모듈로 빌드된 경우에는 반드시 modprobe 명령어로 로드해줘야 한다. 더이상 필요하지 않은 경우에는 아래와 같이 단순하게 디렉토리를 삭제해주면 된다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rmdir /sys/kernel/config/device-tree/overlays/test/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="언제-사용할까">언제 사용할까? <a href="#%ec%96%b8%ec%a0%9c-%ec%82%ac%ec%9a%a9%ed%95%a0%ea%b9%8c" class="anchor">🔗</a></h1><p>오버레이를 통해 런타임에 동적으로 FDT 의 내용을 변경할 수 있다는 점은 충분히 매력적이다. 어째서 라즈베리파이에서 상당 부분의 모듈들을 오버레이를 통해 제공하고 있는지도 함께 이해할 수 있었다. 현재 현업에서는 오버레이는 적용되지 않은채 디바이스 트리의 상속을 통해서 구조화 시킨채 FDT는 고정적으로 사용하고 있다. 만약 시나리오에 따라 디바이스 트리가 변경되도록 BSP를 개발해야 하는 때가 온거나 현재 커널 내에 구현된 유닛테스트와 같이 고정된 테스트 코드에 동적인 설정값들을 사용해야 한다면 오버레이가 그 해답이 될 수 있을 것이라 생각한다.</p>
+<h1 id="참고-자료">참고 자료 <a href="#%ec%b0%b8%ea%b3%a0-%ec%9e%90%eb%a3%8c" class="anchor">🔗</a></h1><ul>
 <li><a href="https://source.android.com/devices/architecture/dto" target="_blank" rel="noopener">Android Device Tree Overlay</a></li>
 <li><a href="https://github.com/ikwzm/dtbocfg" target="_blank" rel="noopener">dtbocfg</a></li>
 <li><a href="https://www.96boards.org/documentation/consumer/dragonboard/dragonboard410c/guides/dt-overlays.md.html#32-loading-overlays-via-configfs" target="_blank" rel="noopener">Dynamically Loading Device Tree Overlay</a></li>

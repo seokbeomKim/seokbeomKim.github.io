@@ -16,13 +16,6 @@
       <description>Ramoops 덕분에 알게된 오버레이 🔗며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면</description>
     </item>
     <item>
-      <title>리눅스 커널 빌드 시 맥 O/S uuid_t 호환성</title>
-      <link>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</link>
-      <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
-      <guid>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</guid>
-      <description>개요 🔗BSD 기반의 맥에서 리눅스 커널 빌드가 안될리 없다고 생각하고 나서 어떻게든 맥에서 리눅스 커널을 빌드하기 위해 이런저런 삽질을 했다. 회사에서의 BSP 업무는</description>
-    </item>
-    <item>
       <title>커널에서의 Object-Oriented Design Pattern</title>
       <link>/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>

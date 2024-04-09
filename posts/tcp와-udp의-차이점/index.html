@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1120 words
+          1129 words
         </span>
         <span class="split">
           ·
@@ -110,9 +110,14 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
-    <li><a href="#초기화-코드">초기화 코드</a></li>
-  </ul>
+  <ol>
+    <li><a href="#tcp-transmission-control-protocol">TCP (Transmission Control Protocol)</a>
+      <ol>
+        <li><a href="#초기화-코드">초기화 코드</a></li>
+      </ol>
+    </li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
           </div>
       </details>
@@ -164,7 +169,23 @@ export 하지 않는다.<br>또 한가지 재밌는 점은 라이센스에 따�
 대한 정보를 전달하게 되어 있어 같은 라이센스 구릅인지 아닌지를
 구분하여 액세스 여부를 허용/거부 하도록 되어 있다.</p>
 </blockquote>
-<h2 id="초기화-코드">초기화 코드 <a href="#%ec%b4%88%ea%b8%b0%ed%99%94-%ec%bd%94%eb%93%9c" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> __init <span style="color:#00a000">tcp_init</span>(<span style="color:#0b0;font-weight:bold">void</span>)
+<h2 id="초기화-코드">초기화 코드 <a href="#%ec%b4%88%ea%b8%b0%ed%99%94-%ec%bd%94%eb%93%9c" class="anchor">🔗</a></h2><div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> __init <span style="color:#00a000">tcp_init</span>(<span style="color:#0b0;font-weight:bold">void</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">sk_buff</span> <span style="color:#666">*</span>skb <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> nr_pages, limit;
@@ -176,7 +197,9 @@ export 하지 않는다.<br>또 한가지 재밌는 점은 라이센스에 따�
 </span></span><span style="display:flex;"><span>    percpu_counter_init(<span style="color:#666">&amp;</span>tcp_sockets_allocated, <span style="color:#666">0</span>);
 </span></span><span style="display:flex;"><span>    percpu_counter_init(<span style="color:#666">&amp;</span>tcp_orphan_count, <span style="color:#666">0</span>);
 </span></span><span style="display:flex;"><span>    tcp_hashinfo.bind_bucket_cachep <span style="color:#666">=</span> ...
-</span></span></code></pre></div><p>TCP 초기화 코드는 <code>__init</code> 이라는 키워드와 함께 심볼이 정의되어 있다.</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>TCP 초기화 코드는 <code>__init</code> 이라는 키워드와 함께 심볼이 정의되어 있다.</p>
 <blockquote>
 <p>__init에 관한 설명은 $KERNEL_SOURCE/arch/um/include/shared/init.h
 에서 찾아볼 수 있다. 이 키워드는 해당 함수를 초기화 함수로 표시하는

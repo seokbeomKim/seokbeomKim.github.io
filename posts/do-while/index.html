@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          724 words
+          760 words
         </span>
         <span class="split">
           ·
@@ -110,11 +110,11 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#개요">개요</a></li>
     <li><a href="#조건문을-포함한-코드에서의-매크로-사용">조건문을 포함한 코드에서의 매크로 사용</a></li>
     <li><a href="#대체-구문">대체 구문</a></li>
-  </ul>
+  </ol>
 </nav>
           </div>
       </details>
@@ -126,37 +126,99 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      <h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>커널 매크로에 <code>do { .. } while(0)</code> 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. <a href="https://kernelnewbies.org/FAQ/DoWhile0" target="_blank" rel="noopener">https://kernelnewbies.org/FAQ/DoWhile0</a> 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.</p>
+      <h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>커널 매크로에 <code>do { .. } while(0)</code> 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. <a href="https://kernelnewbies.org/FAQ/DoWhile0" target="_blank" rel="noopener">https://kernelnewbies.org/FAQ/DoWhile0</a> 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.</p>
 <ol>
 <li>빈 구문(empty statement)는 컴파일러가 경고를 낸다.</li>
 <li>지역 변수를 선언할 수 있는 구역을 만들어준다.</li>
 <li>조건문을 포함한 코드에서 복잡한 형태의 매크로를 사용할 수 있도록 해준다.</li>
 </ol>
-<h2 id="조건문을-포함한-코드에서의-매크로-사용">조건문을 포함한 코드에서의 매크로 사용 <a href="#%ec%a1%b0%ea%b1%b4%eb%ac%b8%ec%9d%84-%ed%8f%ac%ed%95%a8%ed%95%9c-%ec%bd%94%eb%93%9c%ec%97%90%ec%84%9c%ec%9d%98-%eb%a7%a4%ed%81%ac%eb%a1%9c-%ec%82%ac%ec%9a%a9" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define FOO(x) \
+<h1 id="조건문을-포함한-코드에서의-매크로-사용">조건문을 포함한 코드에서의 매크로 사용 <a href="#%ec%a1%b0%ea%b1%b4%eb%ac%b8%ec%9d%84-%ed%8f%ac%ed%95%a8%ed%95%9c-%ec%bd%94%eb%93%9c%ec%97%90%ec%84%9c%ec%9d%98-%eb%a7%a4%ed%81%ac%eb%a1%9c-%ec%82%ac%ec%9a%a9" class="anchor">🔗</a></h1><div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define FOO(x) \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">    printf(&#34;arg is %s\n&#34;, x); \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">    do_something_useful(x);
-</span></span></span></code></pre></div><p>이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (blah <span style="color:#666">==</span> <span style="color:#666">2</span>) {
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (blah <span style="color:#666">==</span> <span style="color:#666">2</span>) {
 </span></span><span style="display:flex;"><span>    FOO(blah);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>그리고 이 구문에 매크로가 적용된 것을 살펴보면,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (blah <span style="color:#666">==</span> <span style="color:#666">2</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>그리고 이 구문에 매크로가 적용된 것을 살펴보면,</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (blah <span style="color:#666">==</span> <span style="color:#666">2</span>)
 </span></span><span style="display:flex;"><span>    printf(<span style="color:#b44">&#34;arg is %s</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, blah);
 </span></span><span style="display:flex;"><span>    do_something_useful(blah);;
-</span></span></code></pre></div><p>위의 코드처럼 적용될 것이다. 이 때 문제가 되는 것은 <code>do_something_useful(blah);</code>가 조건에 관계없이 수행된다는 점이다. 이러한 매크로가 조건문에서 싱글라인 구문으로 사용된다면 문제가 될 수 있기에, do { &hellip; } while(0) 을 사용하여 이러한 문제를 방지한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (blah <span style="color:#666">==</span> <span style="color:#666">2</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>위의 코드처럼 적용될 것이다. 이 때 문제가 되는 것은 <code>do_something_useful(blah);</code>가 조건에 관계없이 수행된다는 점이다. 이러한 매크로가 조건문에서 싱글라인 구문으로 사용된다면 문제가 될 수 있기에, do { &hellip; } while(0) 을 사용하여 이러한 문제를 방지한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (blah <span style="color:#666">==</span> <span style="color:#666">2</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">do</span> {
 </span></span><span style="display:flex;"><span>        printf(<span style="color:#b44">&#34;arg is %s</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, blah);
 </span></span><span style="display:flex;"><span>        do_something_useful(blah);
 </span></span><span style="display:flex;"><span>    } <span style="color:#a2f;font-weight:bold">while</span>(<span style="color:#666">0</span>);
-</span></span></code></pre></div><p>아래와 같이 일반적인 블록 구문을 사용한다고 가정했을 때, 특정한 경우에 위 코드는 동작하지 않는다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define exch(x,y) { int tmp; tmp=x; x=y; y=tmp; }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>아래와 같이 일반적인 블록 구문을 사용한다고 가정했을 때, 특정한 경우에 위 코드는 동작하지 않는다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define exch(x,y) { int tmp; tmp=x; x=y; y=tmp; }
 </span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">if</span> (x <span style="color:#666">&gt;</span> y)
 </span></span><span style="display:flex;"><span>    exch(x,y);
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">else</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#00a000">do_something</span>();
-</span></span></code></pre></div><p>이 때, 매크로를 적용하면 아래와 같이 적용되어 버린다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (x <span style="color:#666">&gt;</span> y) {
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이 때, 매크로를 적용하면 아래와 같이 적용되어 버린다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8">8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-9">9</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (x <span style="color:#666">&gt;</span> y) {
 </span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> tmp;
 </span></span><span style="display:flex;"><span>    tmp <span style="color:#666">=</span> x;
 </span></span><span style="display:flex;"><span>    x <span style="color:#666">=</span> y;
@@ -165,8 +227,23 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>;   <span style="color:#080;font-style:italic">// 빈 구문
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">else</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#00a000">do_something</span>();
-</span></span></code></pre></div><p>if문 블록 다음에 나오는 세미콜론으로 인해 &ldquo;parse error before else&rdquo; 문제가 발생하게 된다. 이 때 do {&hellip;} while(0) 구문을 이용하여 매크로를 정의하면 아래와 같이 관련 에러를 피할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (x <span style="color:#666">&gt;</span> y)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>if문 블록 다음에 나오는 세미콜론으로 인해 &ldquo;parse error before else&rdquo; 문제가 발생하게 된다. 이 때 do {&hellip;} while(0) 구문을 이용하여 매크로를 정의하면 아래와 같이 관련 에러를 피할 수 있다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-8">8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-9">9</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (x <span style="color:#666">&gt;</span> y)
 </span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">do</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> tmp;
 </span></span><span style="display:flex;"><span>        tmp <span style="color:#666">=</span> x;
@@ -175,13 +252,26 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    } <span style="color:#a2f;font-weight:bold">while</span>(<span style="color:#666">0</span>);
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">else</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#00a000">do_something</span>();
-</span></span></code></pre></div><h2 id="대체-구문">대체 구문 <a href="#%eb%8c%80%ec%b2%b4-%ea%b5%ac%eb%ac%b8" class="anchor">🔗</a></h2><p><code>gcc</code>에서 이 do-while-0 구문을 대체할 수 있는 구문 표현을 추가했다. 아래와 같은 이러한 표현은 언급한 모든 이점을 갖는 동시에 가독성도 보장된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define FOO(arg) ({
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="대체-구문">대체 구문 <a href="#%eb%8c%80%ec%b2%b4-%ea%b5%ac%eb%ac%b8" class="anchor">🔗</a></h1><p><code>gcc</code>에서 이 do-while-0 구문을 대체할 수 있는 구문 표현을 추가했다. 아래와 같은 이러한 표현은 언급한 모든 이점을 갖는 동시에 가독성도 보장된다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define FOO(arg) ({
 </span></span></span><span style="display:flex;"><span><span style="color:#080"></span>    typeof(arg) lcl;
 </span></span><span style="display:flex;"><span>    lcl <span style="color:#666">=</span> bar(arg);
 </span></span><span style="display:flex;"><span>    lcl;
 </span></span><span style="display:flex;"><span>})
-</span></span></code></pre></div>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

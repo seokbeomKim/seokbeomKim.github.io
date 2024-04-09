@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          3251 words
+          3399 words
         </span>
         <span class="split">
           ·
@@ -110,10 +110,17 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
-    <li><a href="#시간에-관련된-하드웨어">&lsquo;시간&rsquo;에 관련된 하드웨어</a></li>
-    <li><a href="#커널-코드-속-시스템-타이머-인터럽트-핸들러">커널 코드 속 시스템 타이머 인터럽트 핸들러</a></li>
-  </ul>
+  <ol>
+    <li><a href="#지피-비교를-위한-매크로">지피 비교를 위한 매크로</a></li>
+    <li><a href="#매크로-속-typecheck">매크로 속 typecheck</a></li>
+    <li><a href="#지피jiffies는-누가-증가시키는가">지피(jiffies)는 누가 증가시키는가?</a>
+      <ol>
+        <li><a href="#시간에-관련된-하드웨어">&lsquo;시간&rsquo;에 관련된 하드웨어</a></li>
+        <li><a href="#커널-코드-속-시스템-타이머-인터럽트-핸들러">커널 코드 속 시스템 타이머 인터럽트 핸들러</a></li>
+      </ol>
+    </li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
           </div>
       </details>
@@ -139,7 +146,22 @@ if (!doNotTrack) {
 <h1 id="지피-비교를-위한-매크로">지피 비교를 위한 매크로 <a href="#%ec%a7%80%ed%94%bc-%eb%b9%84%ea%b5%90%eb%a5%bc-%ec%9c%84%ed%95%9c-%eb%a7%a4%ed%81%ac%eb%a1%9c" class="anchor">🔗</a></h1><p><code>jiffies</code>는 <code>unsigned long</code> 타입으로 언젠가는 오버플로우가 발생하게
 된다. 오버플로우에 대한 내용을 찾던 중 재미있는 함수를 발견했는데 이와
 관련해 잠깐 설명하고자 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define time_after(a,b)		\
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define time_after(a,b)		\
 </span></span></span><span style="display:flex;"><span><span style="color:#080">	(typecheck(unsigned long, a) &amp;&amp; \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">	 typecheck(unsigned long, b) &amp;&amp; \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">	 ((long)((b) - (a)) &lt; 0))
@@ -150,16 +172,27 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#080">	 typecheck(unsigned long, b) &amp;&amp; \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">	 ((long)((a) - (b)) &gt;= 0))
 </span></span></span><span style="display:flex;"><span><span style="color:#080">#define time_before_eq(a,b)	time_after_eq(b,a)
-</span></span></span></code></pre></div><p>예전에 지피(jiffies) 비교 매크로를 보면서 이게 어떻게 작동할 수 있는지
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>예전에 지피(jiffies) 비교 매크로를 보면서 이게 어떻게 작동할 수 있는지
 확실하게 이해하지 못했었는데 이는 <code>signed, unsigned와 실제 바이트와의 관계</code>를 내가 정확하게 이해하지 못하고 있었기 때문이었다.</p>
 <p>맘에 들지는 않지만, 스택 오버플로우에 매우 친절하게 설명되어 있는
 답변이 있었다. unsigned와 signed의 관계를 자세하게 나타냈는데 아래와
 같이 표현해주었다. 아래 그림(?)은 편의상 <code>unsigned long</code> 대신
 <code>unsigned int</code>와 <code>signed int</code>의 관계를 나타낸 그림이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[0x0      -              -                  -               0xFFFF]
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[0x0      -              -                  -               0xFFFF]
 </span></span><span style="display:flex;"><span>[0x0                       0x7FFF][0x8000                   0xFFFF]
 </span></span><span style="display:flex;"><span>[0                         32,767][-32,768                      -1]
-</span></span></code></pre></div><p>integer unsigned 형태는 0x0부터 0xFFFF(4bytes, 2^32)까지의 값 범위를
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>integer unsigned 형태는 0x0부터 0xFFFF(4bytes, 2^32)까지의 값 범위를
 가지고 있고 signed는 그 절반을 갖고 있다. 이 때 중요한 점은 signed의
 양수 범위를 초과하는 순간 -1로 되는 것이 아니라 음수 최소값으로
 돌아간다는 점이다. 그러므로 0xFFFF는 -1이 된다.</p>
@@ -167,7 +200,31 @@ if (!doNotTrack) {
 모두 양수인 경우, 2) 모두 음수인 경우, 3) 한쪽은 양수, 한쪽은 음수인
 경우를 생각해 볼 수 있다.</p>
 <p>이를 비교하기 위해 아래와 같이 간단하게 코드를 짜본뒤 확인해보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* unsigned long 오버플로우 검사 */</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-20">20</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* unsigned long 오버플로우 검사 */</span>
 </span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t1 <span style="color:#666">=</span> <span style="color:#666">0</span>; <span style="color:#080;font-style:italic">// 0x0
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t2 <span style="color:#666">=</span> <span style="color:#666">1</span>;
 </span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t3 <span style="color:#666">=</span> (t1 <span style="color:#666">-</span> <span style="color:#666">1</span>); <span style="color:#080;font-style:italic">// 0xffffffff
@@ -187,14 +244,28 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* case 3-2. 비교 대상이 서로 다른 부호일 때 */</span>
 </span></span><span style="display:flex;"><span>printf(<span style="color:#b44">&#34;case 3-2: t4 - (t4 + 1): %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)t4 <span style="color:#666">-</span> (<span style="color:#0b0;font-weight:bold">long</span>)(t4 <span style="color:#666">+</span> <span style="color:#666">1</span>));
-</span></span></code></pre></div><p>이에 대한 출력 결과는 다음과 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(unsigned)t1 = 0, t2 = 1, t3 = 18446744073709551615, t4 = 9223372036854775807
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이에 대한 출력 결과는 다음과 같다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(unsigned)t1 = 0, t2 = 1, t3 = 18446744073709551615, t4 = 9223372036854775807
 </span></span><span style="display:flex;"><span>(signed)t1 = 0, t2 = 1, t3 = -1, t4 = 9223372036854775807, t4+1 = -9223372036854775808
 </span></span><span style="display:flex;"><span>case 1: t1 - t2 as long: -1
 </span></span><span style="display:flex;"><span>case 2: (t4 + 1) - (t4 + 2): -1
 </span></span><span style="display:flex;"><span>case 3-1: t3 - t1 as long: -1
 </span></span><span style="display:flex;"><span>case 3-2: t4 - (t4 + 1): -1
-</span></span></code></pre></div><p>즉, 앞서가는 unsigned, signed의 특성 상 앞서가는 포인트에 대해 signed
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>즉, 앞서가는 unsigned, signed의 특성 상 앞서가는 포인트에 대해 signed
 범위 안에서 값을 비교하면 그 결과 범위가 양수 또는 음수로 나오게 된다.</p>
 <h1 id="매크로-속-typecheck">매크로 속 typecheck <a href="#%eb%a7%a4%ed%81%ac%eb%a1%9c-%ec%86%8d-typecheck" class="anchor">🔗</a></h1><p>여기서 사용된 <code>typecheck</code> 함수를 잠깐 살펴보자. typecheck는 무조건
 참(1) 값을 반환하는 매크로 함수이다. 그럼에도 사용하는 이유는 컴파일
@@ -202,13 +273,25 @@ if (!doNotTrack) {
 여부를 나타낼 수 있는 일종의 트릭을 사용하고 있기 때문이다. (커널
 해킹을 시작한지 얼마되지 않은 시점에서 오랜만에 느껴보는 즐거움이다.)
 아래는 typecheck를 구현한 코드이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define typecheck(type,x) \
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define typecheck(type,x) \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">({ type __dummy; \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">typeof(x) __dummy2; \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">(void)(&amp;__dummy == &amp;__dummy2); \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">1; \
 </span></span></span><span style="display:flex;"><span><span style="color:#080">})
-</span></span></span></code></pre></div><p>재미있는 것은 반환값은 항상 1이지만 반환 전에 <code>(void)(&amp;__dummy == &amp;__dummy2);</code> 부분을 통해 각 변수의 타입으로 만든 포인터가 일치하는지를
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>재미있는 것은 반환값은 항상 1이지만 반환 전에 <code>(void)(&amp;__dummy == &amp;__dummy2);</code> 부분을 통해 각 변수의 타입으로 만든 포인터가 일치하는지를
 경고 또는 에러 메세지로 출력한다. 런타임 시의 결과를 기대하는 코드가
 아니라, 컴파일 시의 결과를 기대하며 짠 코드인만큼 컨셉 자체가 정말
 신선하게 다가왔다.</p>
@@ -216,7 +299,19 @@ if (!doNotTrack) {
 있다. <code>unsigned long</code> 타입은 <code>j1</code>의 변수를 <code>int</code>과 비교하는
 경우이다. 이러한 예제를 아래 스크린샷처럼 <code>-Werror</code> 옵션과 함께
 컴파일하게 되면 타입 에러를 사전에 감지해낼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a <span style="color:#666">=</span> <span style="color:#666">1</span>;
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8">8</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a <span style="color:#666">=</span> <span style="color:#666">1</span>;
 </span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> j1 <span style="color:#666">=</span> <span style="color:#666">12345678</span>;
 </span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> j2 <span style="color:#666">=</span> <span style="color:#666">23456789</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (typecheck(<span style="color:#0b0;font-weight:bold">int</span>,a) <span style="color:#666">&amp;&amp;</span> typecheck(<span style="color:#0b0;font-weight:bold">int</span>, j1) <span style="color:#666">&amp;&amp;</span> typecheck(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span>, j2)) {
@@ -224,7 +319,9 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>} <span style="color:#a2f;font-weight:bold">else</span> {
 </span></span><span style="display:flex;"><span>    printf(<span style="color:#b44">&#34;a value is not int</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><p class="markdown-image">
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><p class="markdown-image">
   <img src="/img/gcc_werror.png" alt="컴파일 타임 에러"  />
 </p></p>
 <h1 id="지피jiffies는-누가-증가시키는가">지피(jiffies)는 누가 증가시키는가? <a href="#%ec%a7%80%ed%94%bcjiffies%eb%8a%94-%eb%88%84%ea%b0%80-%ec%a6%9d%ea%b0%80%ec%8b%9c%ed%82%a4%eb%8a%94%ea%b0%80" class="anchor">🔗</a></h1><p>앞서, <code>&quot;지피(jiffies)에는 시스템 시작 이후 발생한 진동 횟수(tick)가 저장된다.&quot;</code>라고 말했다. 그렇다면 그러한 tick은 누가 발생시킬까? 이를
@@ -255,13 +352,72 @@ init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽�
 함수가 정의되어 있다. 타이머 인터럽트에 대한 핸들러를 등록하는
 함수로서 <code>clock_event_device</code>(시스템 타이머 장치) 디바이스의 이벤트
 핸들러로 등록하는 부분이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* Set the periodic handler in non broadcast mode */</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* Set the periodic handler in non broadcast mode */</span>
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_set_periodic_handler</span>(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">clock_event_device</span> <span style="color:#666">*</span>dev, <span style="color:#0b0;font-weight:bold">int</span> broadcast)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	dev<span style="color:#666">-&gt;</span>event_handler <span style="color:#666">=</span> tick_handle_periodic;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>이제, <code>tick_handle_periodic()</code> 인터럽트 핸들러를 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/*
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제, <code>tick_handle_periodic()</code> 인터럽트 핸들러를 살펴보자.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-31">31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-32"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-32">32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-33"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-33">33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-34"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-34">34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-35"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-35">35</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-36"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-36">36</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-37"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-37">37</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-38"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-38">38</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-39"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-39">39</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-40"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-40">40</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-41"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-41">41</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-42"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-42">42</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-43"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-43">43</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-44"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-44">44</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * Event handler for periodic ticks
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> */</span>
 </span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_handle_periodic</span>(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">clock_event_device</span> <span style="color:#666">*</span>dev)
@@ -305,26 +461,67 @@ init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽�
 </span></span><span style="display:flex;"><span>			tick_periodic(cpu);
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>책에서는 <em>&ldquo;아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>책에서는 <em>&ldquo;아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러
 형태로 되어 있으며, 타이머 인터럽트가 발생했을 때 실행된다.&rdquo;</em> 라고
 되어 있으나, 실제 <code>tick_periodic</code> 자체는 아키텍처 종속 코드가 발견되지
 않았다. 대신 cpu 아이디를 얻어오는 부분에 대해 아래와 같은 코드를
 발견할 수 있었다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#ifdef CONFIG_DEBUG_PREEMPT
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#ifdef CONFIG_DEBUG_PREEMPT
 </span></span></span><span style="display:flex;"><span><span style="color:#080"></span>  <span style="color:#a2f;font-weight:bold">extern</span> <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">debug_smp_processor_id</span>(<span style="color:#0b0;font-weight:bold">void</span>);
 </span></span><span style="display:flex;"><span><span style="color:#080"># define smp_processor_id() debug_smp_processor_id()
 </span></span></span><span style="display:flex;"><span><span style="color:#080">#else
 </span></span></span><span style="display:flex;"><span><span style="color:#080"># define smp_processor_id() raw_smp_processor_id()
 </span></span></span><span style="display:flex;"><span><span style="color:#080">#endif
-</span></span></span></code></pre></div><p>그리고 <code>raw_smp_processor_id()</code>에 대해서는 아키텍처 별로 종속적인
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>그리고 <code>raw_smp_processor_id()</code>에 대해서는 아키텍처 별로 종속적인
 코드가 들어가 있는 것을 확인할 수 있다. 한 예로, x86 코드를 살펴보면
 아래와 같이 정의된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define raw_smp_processor_id() (this_cpu_read(cpu_number))
-</span></span></span></code></pre></div><p>여기서 더 깊게 들어가는 것은 그만두고 다시 원점으로 돌아가, 시스템
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define raw_smp_processor_id() (this_cpu_read(cpu_number))
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>여기서 더 깊게 들어가는 것은 그만두고 다시 원점으로 돌아가, 시스템
 타이머 인터럽트 핸들러에서 SMP(Symmetric Multiprocessing)에 관련,
 아키텍처에 종속된 코드가 실행된다는 것을 파악하였다. 이제
 <code>tick_periodic()</code>을 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_periodic</span>(<span style="color:#0b0;font-weight:bold">int</span> cpu)
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-16">16</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_periodic</span>(<span style="color:#0b0;font-weight:bold">int</span> cpu)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (tick_do_timer_cpu <span style="color:#666">==</span> cpu) {
 </span></span><span style="display:flex;"><span>		write_seqlock(<span style="color:#666">&amp;</span>jiffies_lock);
@@ -340,11 +537,39 @@ init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽�
 </span></span><span style="display:flex;"><span>	update_process_times(user_mode(get_irq_regs()));
 </span></span><span style="display:flex;"><span>	profile_tick(CPU_PROFILING);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>이 함수에서 눈여겨볼 부분은 <code>do_timer()</code>와 <code>update_process_times()</code>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이 함수에서 눈여겨볼 부분은 <code>do_timer()</code>와 <code>update_process_times()</code>
 부분이다. <code>do_timer()</code> 함수는 실제 지피값을 증가시키는 작업을 담당하며
 해당 코드는 아래와 같다. 커널은 전자 함수를 통해 지비를 발생한 틱만큼
 증가시키고 후자를 통해 시스템의 평균 로드 통계를 갱신한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do_timer</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> ticks)
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-22">22</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do_timer</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> ticks)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	jiffies_64 <span style="color:#666">+=</span> ticks;
 </span></span><span style="display:flex;"><span>	calc_global_load(ticks);
@@ -366,7 +591,9 @@ init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽�
 </span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (IS_ENABLED(CONFIG_POSIX_TIMERS))
 </span></span><span style="display:flex;"><span>		run_posix_cpu_timers(p);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><code>update_process_times</code>는 <code>run_local_timers()</code>를 통해 로컬 타이머, 즉
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>update_process_times</code>는 <code>run_local_timers()</code>를 통해 로컬 타이머, 즉
 softirq를 발생시켜 시간이 만료된 타이머를 실행한다.</p>
 <h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://stackoverflow.com/questions/8206762/how-does-linux-handle-overflow-in-jiffies" target="_blank" rel="noopener">how does linux handle overflow in

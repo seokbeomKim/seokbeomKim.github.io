@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1684 words
+          1709 words
         </span>
         <span class="split">
           ·
@@ -103,6 +103,25 @@ if (!doNotTrack) {
     
     
         
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ol>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#준비-사항-및-제약-사항">준비 사항 및 제약 사항</a></li>
+    <li><a href="#크로스-컴파일러-빌드-ct-ng">크로스 컴파일러 빌드: ct-ng</a></li>
+    <li><a href="#라즈베리파이-커널-빌드">라즈베리파이 커널 빌드</a></li>
+    <li><a href="#끝맺음">끝맺음</a></li>
+    <li><a href="#참고-자료">참고 자료</a></li>
+  </ol>
+</nav>
+          </div>
+      </details>
+    </aside>
   
 
 
@@ -146,23 +165,74 @@ case-insensitive 이므로 반드시 case-sensitive 파티션을 추가로 구�
 <p>그리고 기본 컴파일러로서 GNU gcc가 아닌 clang을 이용하므로, <code>homebrew</code>
 패키지 관리자를 통해 openssl, gcc 등을 설치해야 한다. <code>openssl</code>은
 반드시 <a href="mailto:openssl@1.1">openssl@1.1</a>을 설치한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ brew install openssl@1.1 gcc
-</span></span></code></pre></div><h1 id="크로스-컴파일러-빌드-ct-ng">크로스 컴파일러 빌드: ct-ng <a href="#%ed%81%ac%eb%a1%9c%ec%8a%a4-%ec%bb%b4%ed%8c%8c%ec%9d%bc%eb%9f%ac-%eb%b9%8c%eb%93%9c-ct-ng" class="anchor">🔗</a></h1><p>크로스 컴파일러는 <code>Crosstool-NG(ct-ng)</code>를 이용하여 빌드한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ brew install ct-ng
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ brew install openssl@1.1 gcc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="크로스-컴파일러-빌드-ct-ng">크로스 컴파일러 빌드: ct-ng <a href="#%ed%81%ac%eb%a1%9c%ec%8a%a4-%ec%bb%b4%ed%8c%8c%ec%9d%bc%eb%9f%ac-%eb%b9%8c%eb%93%9c-ct-ng" class="anchor">🔗</a></h1><p>크로스 컴파일러는 <code>Crosstool-NG(ct-ng)</code>를 이용하여 빌드한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ brew install ct-ng
 </span></span><span style="display:flex;"><span>$ mkdir -p ~/workspace/ct-ng-rpi3 <span style="color:#666">&amp;&amp;</span> <span style="color:#a2f">cd</span> ~/workspace/ct-ng-rpi3
 </span></span><span style="display:flex;"><span>$ ct-ng armv8-rpi3-linux-gnueabihf
-</span></span></code></pre></div><p><code>armv8-rpi3-linux-gnueabihf</code>는 <code>ct-ng</code>에서 제공하는 샘플 중 하나로서
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>armv8-rpi3-linux-gnueabihf</code>는 <code>ct-ng</code>에서 제공하는 샘플 중 하나로서
 샘플들은 아래와 같이 확인할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ct-ng list-samples
-</span></span></code></pre></div><p>gdb 빌드 도중에 발생하는 파이썬 에러를 방지하기 위해 아래와 같이
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ct-ng list-samples
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>gdb 빌드 도중에 발생하는 파이썬 에러를 방지하기 위해 아래와 같이
 <code>menuconfig</code>를 통해 파이썬의 바이너리 경로를 설정해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ct-ng menuconfig
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ct-ng menuconfig
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># menuconfig 창에서 아래 설정 메뉴를 통해 파이썬 바이너리 경로를 설정한다.</span>
 </span></span><span style="display:flex;"><span>Debug facilities -&gt; gdb -&gt; Python binary to use <span style="color:#666">(</span>/usr/bin/python<span style="color:#666">)</span>
-</span></span></code></pre></div><p>또한, 필자처럼 binutils 에서 string 관련 에러가 난다면, 아래와 같이
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>또한, 필자처럼 binutils 에서 string 관련 에러가 난다면, 아래와 같이
 직접 <code>&lt;string&gt;</code> 헤더파일을 include 하도록 수정해줘야 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="">$</span> <span style="">$</span>home<span style="color:#666">/</span>workspace<span style="color:#666">/</span>ct<span style="color:#666">-</span>ng<span style="color:#666">/</span>rpi3b<span style="color:#666">/</span>.build<span style="color:#666">/</span>src<span style="color:#666">/</span>binutils<span style="color:#666">-</span><span style="color:#666">2.32</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-14">14</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="">$</span> <span style="">$</span>home<span style="color:#666">/</span>workspace<span style="color:#666">/</span>ct<span style="color:#666">-</span>ng<span style="color:#666">/</span>rpi3b<span style="color:#666">/</span>.build<span style="color:#666">/</span>src<span style="color:#666">/</span>binutils<span style="color:#666">-</span><span style="color:#666">2.32</span>
 </span></span><span style="display:flex;"><span><span style="">$</span> vi gold<span style="color:#666">/</span>errors.h
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 아래 include 에 &lt;string&gt;을 추가한다.
@@ -176,7 +246,9 @@ case-insensitive 이므로 반드시 case-sensitive 파티션을 추가로 구�
 </span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;string&gt;</span><span style="color:#080">
 </span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
 </span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&#34;gold-threads.h&#34;</span><span style="color:#080">
-</span></span></span></code></pre></div><p>크로스 컴파일러 빌드가 완료되었다면 <code>$HOME/x-tools</code> 경로 아래에
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>크로스 컴파일러 빌드가 완료되었다면 <code>$HOME/x-tools</code> 경로 아래에
 컴파일러가 생성된 것을 확인할 수 있다. 크로스 컴파일러를 빌드하면서
 발생하는 에러는 맥 운영체제로 인한 것이 아니라 크로스 컴파일 환경과
 타겟 gcc 버전의 호환성 문제로 인한 것이 대부분이다. 이러한 문제들은
@@ -188,9 +260,17 @@ case-insensitive 이므로 반드시 case-sensitive 파티션을 추가로 구�
 경로(<a href="https://www.rockbox.org/tracker/task/9006?getfile=16683" target="_blank" rel="noopener">https://www.rockbox.org/tracker/task/9006?getfile=16683</a>)에서
 다운로드 하여 include 경로(<code>/usr/local/include</code>)에 추가해준다.</p>
 <p>이제 마지막으로 라이브러리와 INCLUDE 경로를 설정해주며 빌드를 해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ KERNEL=kernel7 ARCH=arm make bcm2709_defconfig
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ KERNEL=kernel7 ARCH=arm make bcm2709_defconfig
 </span></span><span style="display:flex;"><span>$ KERNEL=kernel7 ARCH=arm HOSTCFLAGS=&#34;-I/usr/local/include -I/usr/local/opt/openssl@1.1/include -L/usr/local/opt/openssl/lib&#34;  make -j4
-</span></span></code></pre></div><p>빌드가 완료되면, 아래와 같이 커널 이미지(<code>zImage</code>)가 만들어진 것을 확인할 수 있다.</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>빌드가 완료되면, 아래와 같이 커널 이미지(<code>zImage</code>)가 만들어진 것을 확인할 수 있다.</p>
 <p><p class="markdown-image">
   <img src="/img/kernel-compilation-success.png" alt="커널 빌드 완료"  />
 </p></p>

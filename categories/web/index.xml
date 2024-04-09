@@ -16,27 +16,6 @@
       <description>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스</description>
     </item>
     <item>
-      <title>서블릿 컨테이너와 서버와의 관계</title>
-      <link>/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</link>
-      <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
-      <guid>/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</guid>
-      <description>개요 🔗아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을 올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는 애플리케이션은 개</description>
-    </item>
-    <item>
-      <title>RESTful 성숙도 모델, Richardson Maturity Model(RMM)</title>
-      <link>/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</link>
-      <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
-      <guid>/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</guid>
-      <description>개요 🔗이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서</description>
-    </item>
-    <item>
-      <title>HTTP/1.1과 HTTP/2의 차이점</title>
-      <link>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
-      <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      <guid>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
-      <description>HTTP/1.1 vs HTTP/2 🔗HTTP 프로토콜에 대해서는 관심이 없다가 문득 텔레그램의 봇을 통해 우연히 HTTP/2의 개념을 처음으로 접하게 되었다. 이 문서는 HTTP/1.1</description>
-    </item>
-    <item>
       <title>CORS(Cross-Origin Resource Sharing)</title>
       <link>/posts/corscross-origin-resource-sharing/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
@@ -44,32 +23,11 @@
       <description>CORS(Cross-Origin Resource Sharing) 🔗웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(</description>
     </item>
     <item>
-      <title>컨텐츠 전송 네트워크, CDN(Content Delivery Network)</title>
-      <link>/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</link>
-      <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
-      <guid>/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</guid>
-      <description>CDN(Content Delivery Network) 🔗Content Delivery Network 또는 Content Distribution Network라고 불리는 네트워크는 컨텐츠를 효율적으로 전달하기 위해 여러 노드를 가진 네트워크에 데이터를 저장하여 제</description>
-    </item>
-    <item>
-      <title>가상호스트(Virtual Host)와 Host Header</title>
-      <link>/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</link>
-      <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
-      <guid>/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</guid>
-      <description>Virtual Host and Host Header 🔗문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체</description>
-    </item>
-    <item>
       <title>Server Name Indication(SNI)</title>
       <link>/posts/server-name-indicationsni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
       <guid>/posts/server-name-indicationsni/</guid>
       <description>Server Name Indication 🔗Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구</description>
-    </item>
-    <item>
-      <title>HTTP와 HTTPS의 차이점</title>
-      <link>/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
-      <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
-      <guid>/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
-      <description>HTTP와 HTTPS의 차이점 🔗HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&amp;rsquo;가 나타</description>
     </item>
   </channel>
 </rss>

@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          739 words
+          744 words
         </span>
         <span class="split">
           ·
@@ -110,10 +110,16 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
-    <li><a href="#cmd-명령을-만드는-매크로-함수">cmd 명령을 만드는 매크로 함수</a></li>
-    <li><a href="#cmd-명령을-해석하는-매크로-함수">cmd 명령을 해석하는 매크로 함수</a></li>
-  </ul>
+  <ol>
+    <li><a href="#cmd-구성">cmd 구성</a></li>
+    <li><a href="#매크로-함수">매크로 함수</a>
+      <ol>
+        <li><a href="#cmd-명령을-만드는-매크로-함수">cmd 명령을 만드는 매크로 함수</a></li>
+        <li><a href="#cmd-명령을-해석하는-매크로-함수">cmd 명령을 해석하는 매크로 함수</a></li>
+      </ol>
+    </li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
           </div>
       </details>
@@ -138,12 +144,23 @@ ioctl 필드에 선언된 함수가 호출된다. ioctl 함수는 디바이스�
 구별값이다. cmd에는 단순한 구별 숫자 이외에 처리에 도움을 주는 몇 가지
 정보를 포함한 형태로 구성된다. cmd의 크기는 32비트로, 비트 구성은
 다음과 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>+---+----------------+------------+---------+
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>+---+----------------+------------+---------+
 </span></span><span style="display:flex;"><span>| 2 |		14       |		8     |	   8    |	
 </span></span><span style="display:flex;"><span>+---+----------------+------------+---------+
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>direction   size        type         number
-</span></span></code></pre></div><h1 id="매크로-함수">매크로 함수 <a href="#%eb%a7%a4%ed%81%ac%eb%a1%9c-%ed%95%a8%ec%88%98" class="anchor">🔗</a></h1><p>cmd에는 여러 가지 필드가 있다. 리눅스 커널은 이런 필드 형식에 맞춰 cmd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="매크로-함수">매크로 함수 <a href="#%eb%a7%a4%ed%81%ac%eb%a1%9c-%ed%95%a8%ec%88%98" class="anchor">🔗</a></h1><p>cmd에는 여러 가지 필드가 있다. 리눅스 커널은 이런 필드 형식에 맞춰 cmd
 상수값을 만드는 매크로 함수와 cmd 상수값에서 필요한 필드값을 추출하는
 매크로 함수를 제공한다.</p>
 <h2 id="cmd-명령을-만드는-매크로-함수">cmd 명령을 만드는 매크로 함수 <a href="#cmd-%eb%aa%85%eb%a0%b9%ec%9d%84-%eb%a7%8c%eb%93%9c%eb%8a%94-%eb%a7%a4%ed%81%ac%eb%a1%9c-%ed%95%a8%ec%88%98" class="anchor">🔗</a></h2><ul>

@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1427 words
+          1482 words
         </span>
         <span class="split">
           ·
@@ -110,17 +110,20 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#커밋-찾아보기">커밋 찾아보기</a></li>
     <li><a href="#디바이스-구성을-기술표현하는-방법-device-tree">디바이스 구성을 기술(표현)하는 방법: Device Tree</a></li>
     <li><a href="#fwnode_ops로-구분하는-디바이스-표현-방법">fwnode_ops로 구분하는 디바이스 표현 방법</a>
-      <ul>
+      <ol>
         <li><a href="#open-firmware인-경우">Open Firmware인 경우</a></li>
         <li><a href="#software-node-swnode">Software Node (swnode)</a></li>
         <li><a href="#acpi">ACPI</a></li>
-      </ul>
+      </ol>
     </li>
-  </ul>
+    <li><a href="#v4l2-media-framework와-fwnode의-관계">V4L2 media framework와 fwnode의 관계</a></li>
+    <li><a href="#마치며">마치며</a></li>
+    <li><a href="#참고">참고</a></li>
+  </ol>
 </nav>
           </div>
       </details>
@@ -135,7 +138,7 @@ if (!doNotTrack) {
       <p>fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이
 없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고할 수
 있는 자료가 너무 없어서 아쉬웠다.</p>
-<h2 id="커밋-찾아보기">커밋 찾아보기 <a href="#%ec%bb%a4%eb%b0%8b-%ec%b0%be%ec%95%84%eb%b3%b4%ea%b8%b0" class="anchor">🔗</a></h2><p>ChatGPT에게 fwnode를 설명해보았지만 제대로 대답해주지 않는다. ARM 공식 문서 내의
+<h1 id="커밋-찾아보기">커밋 찾아보기 <a href="#%ec%bb%a4%eb%b0%8b-%ec%b0%be%ec%95%84%eb%b3%b4%ea%b8%b0" class="anchor">🔗</a></h1><p>ChatGPT에게 fwnode를 설명해보았지만 제대로 대답해주지 않는다. ARM 공식 문서 내의
 내용은 잘 설명해주는데 커널에 관련된 내용은 틀린 부분이 많다. 역시 이해하기
 위해서는 최초 적용된 커밋을 보는게 제일 좋은 방법이다. 아래의 커밋을 살펴보면
 어떤 동기를 가지고 코드를 작성했는지 이해할 수 있다.</p>
@@ -150,7 +153,7 @@ acpi_dev_node can be dropped and, second, the same struct fwnode_handle pointer
 can be used in the future to point to other (non-ACPI) firmware device node
 types.</p>
 </blockquote>
-<h2 id="디바이스-구성을-기술표현하는-방법-device-tree">디바이스 구성을 기술(표현)하는 방법: Device Tree <a href="#%eb%94%94%eb%b0%94%ec%9d%b4%ec%8a%a4-%ea%b5%ac%ec%84%b1%ec%9d%84-%ea%b8%b0%ec%88%a0%ed%91%9c%ed%98%84%ed%95%98%eb%8a%94-%eb%b0%a9%eb%b2%95-device-tree" class="anchor">🔗</a></h2><p>리눅스 커널에서는 디바이스 구성을 표현하기 위해 OF(Open Firmware)의 Device
+<h1 id="디바이스-구성을-기술표현하는-방법-device-tree">디바이스 구성을 기술(표현)하는 방법: Device Tree <a href="#%eb%94%94%eb%b0%94%ec%9d%b4%ec%8a%a4-%ea%b5%ac%ec%84%b1%ec%9d%84-%ea%b8%b0%ec%88%a0%ed%91%9c%ed%98%84%ed%95%98%eb%8a%94-%eb%b0%a9%eb%b2%95-device-tree" class="anchor">🔗</a></h1><p>리눅스 커널에서는 디바이스 구성을 표현하기 위해 OF(Open Firmware)의 Device
 Tree를 사용한다. 하지만 디바이스를 표현하는 방법에는 Device Tree 외에도
 윈도우즈에서 사용되는 ACPI를 이용하는 방법이 있다. 이러한 방식에 대한 호환성을
 제공하기 위해 리눅스 커널에서는 해당 부분을 추상화시킬 필요가 생겼고 이 때문에
@@ -160,25 +163,69 @@ Tree를 사용한다. 하지만 디바이스를 표현하는 방법에는 Device
 디바이스의 property를 얻어오는 함수는 아래와 같이 fwnode를 이용하도록 구현되어
 있다. 해당 디바이스가 어떤 device description method로 표현되어 있는지 상관없이
 디바이스에 설정된 방식에 따라 원하는 프로퍼티를 가져올 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">device_property_read_string_array</span>(<span style="color:#a2f;font-weight:bold">struct</span> device <span style="color:#666">*</span>dev, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>propname,
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">device_property_read_string_array</span>(<span style="color:#a2f;font-weight:bold">struct</span> device <span style="color:#666">*</span>dev, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>propname,
 </span></span><span style="display:flex;"><span>				      <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">**</span>val, <span style="color:#0b0;font-weight:bold">size_t</span> nval)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#00a000">fwnode_property_read_string_array</span>(<span style="color:#00a000">dev_fwnode</span>(dev), propname, val,
 </span></span><span style="display:flex;"><span>						 nval);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="fwnode_ops로-구분하는-디바이스-표현-방법">fwnode_ops로 구분하는 디바이스 표현 방법 <a href="#fwnode_ops%eb%a1%9c-%ea%b5%ac%eb%b6%84%ed%95%98%eb%8a%94-%eb%94%94%eb%b0%94%ec%9d%b4%ec%8a%a4-%ed%91%9c%ed%98%84-%eb%b0%a9%eb%b2%95" class="anchor">🔗</a></h2><h3 id="open-firmware인-경우">Open Firmware인 경우 <a href="#open-firmware%ec%9d%b8-%ea%b2%bd%ec%9a%b0" class="anchor">🔗</a></h3><p>리눅스 커널에서 특이한 경우가 아니라면 기본적으로 <code>of_node_init</code>을 이용해
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="fwnode_ops로-구분하는-디바이스-표현-방법">fwnode_ops로 구분하는 디바이스 표현 방법 <a href="#fwnode_ops%eb%a1%9c-%ea%b5%ac%eb%b6%84%ed%95%98%eb%8a%94-%eb%94%94%eb%b0%94%ec%9d%b4%ec%8a%a4-%ed%91%9c%ed%98%84-%eb%b0%a9%eb%b2%95" class="anchor">🔗</a></h1><h2 id="open-firmware인-경우">Open Firmware인 경우 <a href="#open-firmware%ec%9d%b8-%ea%b2%bd%ec%9a%b0" class="anchor">🔗</a></h2><p>리눅스 커널에서 특이한 경우가 아니라면 기본적으로 <code>of_node_init</code>을 이용해
 디바이스를 초기화하며 이 때 of_fwnode_ops를 사용하도록 설정된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">of_node_init</span>(<span style="color:#a2f;font-weight:bold">struct</span> device_node <span style="color:#666">*</span>node)
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">of_node_init</span>(<span style="color:#a2f;font-weight:bold">struct</span> device_node <span style="color:#666">*</span>node)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span><span style="color:#080">#if defined(CONFIG_OF_KOBJ)
 </span></span></span><span style="display:flex;"><span><span style="color:#080"></span>	<span style="color:#00a000">kobject_init</span>(<span style="color:#666">&amp;</span>node<span style="color:#666">-&gt;</span>kobj, <span style="color:#666">&amp;</span>of_node_ktype);
 </span></span><span style="display:flex;"><span><span style="color:#080">#endif
 </span></span></span><span style="display:flex;"><span><span style="color:#080"></span>	<span style="color:#00a000">fwnode_init</span>(<span style="color:#666">&amp;</span>node<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>of_fwnode_ops);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>하지만 표현되어 있는 디바이스 노드를 of_node가 아닌 acpi로서 아래와 같이
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>하지만 표현되어 있는 디바이스 노드를 of_node가 아닌 acpi로서 아래와 같이
 fwnode를 초기화할 수로 있고, swnode로서 초기화 할 수도 있다. 각 함수에서
 호출되는 <code>fwnode_init()</code> 함수에 주목하자.</p>
-<h3 id="software-node-swnode">Software Node (swnode) <a href="#software-node-swnode" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a000">swnode_register</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> software_node <span style="color:#666">*</span>node, <span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>parent,
+<h2 id="software-node-swnode">Software Node (swnode) <a href="#software-node-swnode" class="anchor">🔗</a></h2><div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-15">15</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a000">swnode_register</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> software_node <span style="color:#666">*</span>node, <span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>parent,
 </span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> allocated)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>swnode;
@@ -193,7 +240,35 @@ fwnode를 초기화할 수로 있고, swnode로서 초기화 할 수도 있다. 
 </span></span><span style="display:flex;"><span>	<span style="color:#00a000">fwnode_init</span>(<span style="color:#666">&amp;</span>swnode<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>software_node_ops);
 </span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">/* ... */</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="acpi">ACPI <a href="#acpi" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">acpi_init_device_object</span>(<span style="color:#a2f;font-weight:bold">struct</span> acpi_device <span style="color:#666">*</span>device, acpi_handle handle,
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="acpi">ACPI <a href="#acpi" class="anchor">🔗</a></h2><div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-22">22</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">acpi_init_device_object</span>(<span style="color:#a2f;font-weight:bold">struct</span> acpi_device <span style="color:#666">*</span>device, acpi_handle handle,
 </span></span><span style="display:flex;"><span>			     <span style="color:#0b0;font-weight:bold">int</span> type)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>	<span style="color:#00a000">INIT_LIST_HEAD</span>(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>pnp.ids);
@@ -215,13 +290,32 @@ fwnode를 초기화할 수로 있고, swnode로서 초기화 할 수도 있다. 
 </span></span><span style="display:flex;"><span>	<span style="color:#00a000">dev_set_uevent_suppress</span>(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>dev, <span style="color:#a2f">true</span>);
 </span></span><span style="display:flex;"><span>	<span style="color:#00a000">acpi_init_coherency</span>(device);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="v4l2-media-framework와-fwnode의-관계">V4L2 media framework와 fwnode의 관계 <a href="#v4l2-media-framework%ec%99%80-fwnode%ec%9d%98-%ea%b4%80%ea%b3%84" class="anchor">🔗</a></h1><p>그렇다면, fwnode와 V4L2 media framework은 무슨 상관인가? V4L2 media framework의
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="v4l2-media-framework와-fwnode의-관계">V4L2 media framework와 fwnode의 관계 <a href="#v4l2-media-framework%ec%99%80-fwnode%ec%9d%98-%ea%b4%80%ea%b3%84" class="anchor">🔗</a></h1><p>그렇다면, fwnode와 V4L2 media framework은 무슨 상관인가? V4L2 media framework의
 v4l2-fwnode.h 파일을 보면 operation은 별도로 구현하지 않고 있다. 그 말은 V4L2
 media framework에서 디바이스를 표현하는 방법을 새롭게 정의한 것이 아니라
 단순하게 fwnode가 가지고 있는 기능을 이용한다는 것을 짐작할 수 있다.</p>
 <p>v4l2-fwnode.h 파일에서 fwnode와 관련된 함수들을 살펴보면 아래와 같이 endpoint
 개념이 나오는 것을 볼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>    v4l2_async_nf_parse_fwnode_endpoints
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-13">13</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>    v4l2_async_nf_parse_fwnode_endpoints
 </span></span><span style="display:flex;"><span>    v4l2_fwnode_connector_add_link
 </span></span><span style="display:flex;"><span>    v4l2_fwnode_connector_free
 </span></span><span style="display:flex;"><span>    v4l2_fwnode_connector_parse
@@ -234,11 +328,32 @@ media framework에서 디바이스를 표현하는 방법을 새롭게 정의한
 </span></span><span style="display:flex;"><span>    fwnode_handle
 </span></span><span style="display:flex;"><span>    v4l2_async_notifier
 </span></span><span style="display:flex;"><span>    v4l2_async_subdev
-</span></span></code></pre></div><p>fwnode_endpoint를 아래와 같이 상속하여 v4l2_fwnode_endpoint로 정의해 사용하고
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>fwnode_endpoint를 아래와 같이 상속하여 v4l2_fwnode_endpoint로 정의해 사용하고
 있는 것을 알 수 있다. 즉, fwnode의 graph 구성 기능을 이용하여
 v4l2_fwnode_endpoint로서 미디어 파이프라인을 표현하기에 필요한 몇 가지 정보를 더
 추가하고 있는 것일 뿐이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_endpoint {
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-15">15</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_endpoint {
 </span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> fwnode_endpoint base;
 </span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    	 * Fields below this line will be zeroed by
@@ -253,7 +368,9 @@ v4l2_fwnode_endpoint로서 미디어 파이프라인을 표현하기에 필요�
 </span></span><span style="display:flex;"><span>	u64 <span style="color:#666">*</span>link_frequencies;
 </span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> nr_of_link_frequencies;
 </span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><h1 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h1><p>개인적으로 해석했을 때 fwnode는 device description methods 들의 abstraction data
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h1><p>개인적으로 해석했을 때 fwnode는 device description methods 들의 abstraction data
 structure이다. 끝.</p>
 <h1 id="참고">참고 <a href="#%ec%b0%b8%ea%b3%a0" class="anchor">🔗</a></h1><ul>
 <li><a href="https://events.static.linuxfound.org/sites/events/files/slides/unified_properties_API_0.pdf" target="_blank" rel="noopener">https://events.static.linuxfound.org/sites/events/files/slides/unified_properties_API_0.pdf</a></li>

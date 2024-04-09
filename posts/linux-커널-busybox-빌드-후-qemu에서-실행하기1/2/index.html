@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          2115 words
+          2133 words
         </span>
         <span class="split">
           ·
@@ -110,21 +110,28 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
-    <li><a href="#우분투-이미지로-컨테이너-생성하기">우분투 이미지로 컨테이너 생성하기</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#1-1-busybox-빌드-설정">1-1. BusyBox 빌드 설정</a></li>
-    <li><a href="#1-2-busybox-빌드-및-initramfs-디텍토리-구조-만들기">1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기</a></li>
-    <li><a href="#1-3-init-파일-만들기">1-3. Init 파일 만들기</a></li>
-    <li><a href="#1-4-initramfs-생성">1-4. initramfs 생성</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#2-1-minimal-config로-리눅스-커널-설정하기">2-1. Minimal config로 리눅스 커널 설정하기</a></li>
-    <li><a href="#빌드한-커널-busybox-함께-실행하기">빌드한 커널, busybox 함께 실행하기</a></li>
-  </ul>
+  <ol>
+    <li><a href="#맥에서-작업하기-위한-환경-구축하기">맥에서 작업하기 위한 환경 구축하기</a>
+      <ol>
+        <li><a href="#우분투-이미지로-컨테이너-생성하기">우분투 이미지로 컨테이너 생성하기</a></li>
+      </ol>
+    </li>
+    <li><a href="#1-busybox-준비">1. BusyBox 준비</a>
+      <ol>
+        <li><a href="#1-1-busybox-빌드-설정">1-1. BusyBox 빌드 설정</a></li>
+        <li><a href="#1-2-busybox-빌드-및-initramfs-디텍토리-구조-만들기">1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기</a></li>
+        <li><a href="#1-3-init-파일-만들기">1-3. Init 파일 만들기</a></li>
+        <li><a href="#1-4-initramfs-생성">1-4. initramfs 생성</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-커널-빌드하기">2. 커널 빌드하기</a>
+      <ol>
+        <li><a href="#2-1-minimal-config로-리눅스-커널-설정하기">2-1. Minimal config로 리눅스 커널 설정하기</a></li>
+        <li><a href="#빌드한-커널-busybox-함께-실행하기">빌드한 커널, busybox 함께 실행하기</a></li>
+      </ol>
+    </li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
           </div>
       </details>
@@ -162,12 +169,23 @@ GUI 환경이 불필요했기에 도커를 이용해 커널 컴파일을 하는 
 <h2 id="우분투-이미지로-컨테이너-생성하기">우분투 이미지로 컨테이너 생성하기 <a href="#%ec%9a%b0%eb%b6%84%ed%88%ac-%ec%9d%b4%eb%af%b8%ec%a7%80%eb%a1%9c-%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88-%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><p>docker를 설치했다는 가정하에, 아래와 같이 컨테이너를 만들었다. 호스트
 볼륨을 컨테이너에 맵핑해주었는데 이렇게 해야 커널 해킹한 소스를 바로
 빌드하여 맥에서 QEMU를 통해 확인할 수 있기 때문이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --name kernel_builder -ti -v /Users/sukbeom/Workspaces:/kernel/ ubuntu /bin/bash
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --name kernel_builder -ti -v /Users/sukbeom/Workspaces:/kernel/ ubuntu /bin/bash
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 아래 부터는 개발 환경을 위한 패키지 설치이다.</span>
 </span></span><span style="display:flex;"><span>apt update <span style="color:#666">&amp;&amp;</span> apt upgrade
 </span></span><span style="display:flex;"><span>apt install vim <span style="color:#666">&amp;&amp;</span> vim /etc/apt/sources.list <span style="color:#080;font-style:italic"># 편집기 설치 및 미러저장소 경로 설정</span>
 </span></span><span style="display:flex;"><span>apt install git curl libncurses-dev wget gcc make flex build-essential bison linux-headers-generic libelf-dev openssl bc libssl-dev cpio
-</span></span></code></pre></div><h1 id="1-busybox-준비">1. BusyBox 준비 <a href="#1-busybox-%ec%a4%80%eb%b9%84" class="anchor">🔗</a></h1><p>이제 컴파일을 위한 빌드 환경이 준비되었다. 커널 컴파일을 위한 맥에서의
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="1-busybox-준비">1. BusyBox 준비 <a href="#1-busybox-%ec%a4%80%eb%b9%84" class="anchor">🔗</a></h1><p>이제 컴파일을 위한 빌드 환경이 준비되었다. 커널 컴파일을 위한 맥에서의
 경로는 <code>$HOME/Workspaces/kernel</code> 로 지정하고 컨테이너 내에서는
 <code>/kernel</code> 로 접근하도록 설정하였다. 커널은
 <a href="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.9.tar.xz" target="_blank" rel="noopener">여기</a>에서,
@@ -191,34 +209,90 @@ busybox는 <a href="https://busybox.net/downloads" target="_blank" rel="noopener
 낮춰 다시 한번 빌드 해봐야겠다.</p>
 <h2 id="1-1-busybox-빌드-설정">1-1. BusyBox 빌드 설정 <a href="#1-1-busybox-%eb%b9%8c%eb%93%9c-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>이제 컨테이너 환경으로 돌아가 아래와 같이 (shell)환경변수를 임시로 설정해준
 뒤 차례대로 빌드해준다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#b8860b">STAGE</span><span style="color:#666">=</span>~/Workspaces
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#b8860b">STAGE</span><span style="color:#666">=</span>~/Workspaces
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">TOP</span><span style="color:#666">=</span><span style="color:#b8860b">$STAGE</span>/custom-kernel
 </span></span><span style="display:flex;"><span>mkdir -p <span style="color:#b8860b">$STAGE</span>
-</span></span></code></pre></div><p>다운로드 한 busybox, kernel 소스의 압축을 풀어주고 아래와 같이
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>다운로드 한 busybox, kernel 소스의 압축을 풀어주고 아래와 같이
 busybox를 설정해준다. <code>Busybox settings -&gt; Build BusyBox as a static binary (no shared libs)</code> 항목에 체크해준다. <em>(출처 링크에 가면 친절한
 스크린샷과 함께 각 과정들을 자세하게 확인할 수 있다.)</em></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/busybox-x86 menuconfig
-</span></span></code></pre></div><h2 id="1-2-busybox-빌드-및-initramfs-디텍토리-구조-만들기">1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기 <a href="#1-2-busybox-%eb%b9%8c%eb%93%9c-%eb%b0%8f-initramfs-%eb%94%94%ed%85%8d%ed%86%a0%eb%a6%ac-%ea%b5%ac%ec%a1%b0-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/obj/busybox-x86
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/busybox-x86 menuconfig
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="1-2-busybox-빌드-및-initramfs-디텍토리-구조-만들기">1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기 <a href="#1-2-busybox-%eb%b9%8c%eb%93%9c-%eb%b0%8f-initramfs-%eb%94%94%ed%85%8d%ed%86%a0%eb%a6%ac-%ea%b5%ac%ec%a1%b0-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/obj/busybox-x86
 </span></span><span style="display:flex;"><span>make -j3
 </span></span><span style="display:flex;"><span>make install
-</span></span></code></pre></div><p><code>make install</code>을 완료하고 나면 <code>_install</code> 이름으로 디렉토리가 생성된
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>make install</code>을 완료하고 나면 <code>_install</code> 이름으로 디렉토리가 생성된
 것을 확인할 수 있다. 이를 이용하여 아래와 같이 <code>initramfs</code>를 생성한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -pv <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -pv <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
 </span></span><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
 </span></span><span style="display:flex;"><span>mkdir -pv <span style="color:#666">{</span>bin,dev,sbin,etc,proc,sys/kernel/debug,usr/<span style="color:#666">{</span>bin,sbin<span style="color:#666">}</span>,lib,lib64,mnt/root,root<span style="color:#666">}</span>
 </span></span><span style="display:flex;"><span>cp -av <span style="color:#b8860b">$TOP</span>/obj/busybox-x86/_install/* <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
 </span></span><span style="display:flex;"><span>sudo cp -av /dev/<span style="color:#666">{</span>null,console,tty,sda1<span style="color:#666">}</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/dev/
-</span></span></code></pre></div><h2 id="1-3-init-파일-만들기">1-3. Init 파일 만들기 <a href="#1-3-init-%ed%8c%8c%ec%9d%bc-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h2><p><code>$TOP/initramfs/x86-busybox/init</code> 파일을 생성한 뒤 아래와 같이 내용을 작성한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mount -t proc none /proc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="1-3-init-파일-만들기">1-3. Init 파일 만들기 <a href="#1-3-init-%ed%8c%8c%ec%9d%bc-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h2><p><code>$TOP/initramfs/x86-busybox/init</code> 파일을 생성한 뒤 아래와 같이 내용을 작성한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mount -t proc none /proc
 </span></span><span style="display:flex;"><span>mount -t sysfs none /sys
 </span></span><span style="display:flex;"><span>mount -t debugfs none /sys/kernel/debug
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> -e <span style="color:#b44">&#34;\nBoot took </span><span style="color:#a2f;font-weight:bold">$(</span>cut -d<span style="color:#b44">&#39; &#39;</span> -f1 /proc/uptime<span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44"> seconds\n&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a2f">exec</span> /bin/sh
-</span></span></code></pre></div><p>작성 후에는 실행 권한을 조정한다:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>chmod +x <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/init
-</span></span></code></pre></div><h2 id="1-4-initramfs-생성">1-4. initramfs 생성 <a href="#1-4-initramfs-%ec%83%9d%ec%84%b1" class="anchor">🔗</a></h2><p>initramfs는 메모리 기반 디스크 구조, 즉 램디스크이다. 주요 목적은 root
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>작성 후에는 실행 권한을 조정한다:</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>chmod +x <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="1-4-initramfs-생성">1-4. initramfs 생성 <a href="#1-4-initramfs-%ec%83%9d%ec%84%b1" class="anchor">🔗</a></h2><p>initramfs는 메모리 기반 디스크 구조, 즉 램디스크이다. 주요 목적은 root
 파일 시스템을 마운트 하기 위한 것이며, 일반적인 root 파일 시스템에서
 찾아볼 수 있는 디렉토리 구조를 갖고 있다.</p>
 <p>일반적으로, 루트 파일시스템의 init 프로그램으로 제어권을 넘기기 전에,
@@ -234,20 +308,50 @@ busybox를 설정해준다. <code>Busybox settings -&gt; Build BusyBox as a stat
 램디스크를 통해 로드해야 했고 최근에는 (데스크탑용 리눅스에서)
 이러한 램디스크가 필수적이 되어가고 있는 추세인 듯하다.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
 </span></span><span style="display:flex;"><span>find . | cpio -H newc -o &gt; ../initramfs.cpio
 </span></span><span style="display:flex;"><span><span style="color:#a2f">cd</span> ..
 </span></span><span style="display:flex;"><span>cat initramfs.cpio | gzip &gt; <span style="color:#b8860b">$TOP</span>/obj/initramfs.igz
-</span></span></code></pre></div><h1 id="2-커널-빌드하기">2. 커널 빌드하기 <a href="#2-%ec%bb%a4%eb%84%90-%eb%b9%8c%eb%93%9c%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>이제 busybox 준비가 끝났으니 리눅스 커널을 빌드해보자.</p>
-<h2 id="2-1-minimal-config로-리눅스-커널-설정하기">2-1. Minimal config로 리눅스 커널 설정하기 <a href="#2-1-minimal-config%eb%a1%9c-%eb%a6%ac%eb%88%85%ec%8a%a4-%ec%bb%a4%eb%84%90-%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$STAGE</span>/linux-4.20.9
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="2-커널-빌드하기">2. 커널 빌드하기 <a href="#2-%ec%bb%a4%eb%84%90-%eb%b9%8c%eb%93%9c%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>이제 busybox 준비가 끝났으니 리눅스 커널을 빌드해보자.</p>
+<h2 id="2-1-minimal-config로-리눅스-커널-설정하기">2-1. Minimal config로 리눅스 커널 설정하기 <a href="#2-1-minimal-config%eb%a1%9c-%eb%a6%ac%eb%88%85%ec%8a%a4-%ec%bb%a4%eb%84%90-%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$STAGE</span>/linux-4.20.9
 </span></span><span style="display:flex;"><span>mkdir -pv <span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig
 </span></span><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig allnoconfig
 </span></span><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig -j3
-</span></span></code></pre></div><h2 id="빌드한-커널-busybox-함께-실행하기">빌드한 커널, busybox 함께 실행하기 <a href="#%eb%b9%8c%eb%93%9c%ed%95%9c-%ec%bb%a4%eb%84%90-busybox-%ed%95%a8%ea%bb%98-%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>qemu-system-x86_64 <span style="color:#b62;font-weight:bold">\
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="빌드한-커널-busybox-함께-실행하기">빌드한 커널, busybox 함께 실행하기 <a href="#%eb%b9%8c%eb%93%9c%ed%95%9c-%ec%bb%a4%eb%84%90-busybox-%ed%95%a8%ea%bb%98-%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>qemu-system-x86_64 <span style="color:#b62;font-weight:bold">\
 </span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -kernel <span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig/arch/x86/boot/bzImage <span style="color:#b62;font-weight:bold">\
 </span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -initrd <span style="color:#b8860b">$TOP</span>/obj/initramfs.igz <span style="color:#b62;font-weight:bold">\
 </span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -nographic -append <span style="color:#b44">&#34;earlyprintk=serial,ttyS0 console=ttyS0&#34;</span>
-</span></span></code></pre></div><p>정상적으로 커널이 로드되고 셸이 실행된 것을 확인하면 <code>Control-a x</code>를
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>정상적으로 커널이 로드되고 셸이 실행된 것을 확인하면 <code>Control-a x</code>를
 입력하여 QEMU를 종료한다.</p>
 <h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://www.centennialsoftwaresolutions.com/blog/build-the-linux-kernel-and-busybox-and-run-them-on-qemu" target="_blank" rel="noopener">Build the linux kernel and busybox and run them on

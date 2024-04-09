@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          2861 words
+          2976 words
         </span>
         <span class="split">
           ·
@@ -110,16 +110,17 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#corscross-origin-resource-sharing">CORS(Cross-Origin Resource Sharing)</a></li>
     <li><a href="#cors-요청">CORS 요청</a>
-      <ul>
+      <ol>
         <li><a href="#simple-requests">Simple Requests</a></li>
         <li><a href="#preflighted-requests">Preflighted Requests</a></li>
         <li><a href="#requests-with-credentials">Requests with credentials</a></li>
-      </ul>
+      </ol>
     </li>
-  </ul>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
           </div>
       </details>
@@ -131,10 +132,10 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      <h2 id="corscross-origin-resource-sharing">CORS(Cross-Origin Resource Sharing) <a href="#corscross-origin-resource-sharing" class="anchor">🔗</a></h2><p>웹 보안 정책 중 <code>Same-Origin Policy</code>는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 <code>출처(Origin)</code>는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.</p>
+      <h1 id="corscross-origin-resource-sharing">CORS(Cross-Origin Resource Sharing) <a href="#corscross-origin-resource-sharing" class="anchor">🔗</a></h1><p>웹 보안 정책 중 <code>Same-Origin Policy</code>는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 <code>출처(Origin)</code>는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.</p>
 <p>하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 <code>CORS(Cross-Origin Resource Sharing)</code>이라는 추가 정책이 나오게 되었다.</p>
-<h2 id="cors-요청">CORS 요청 <a href="#cors-%ec%9a%94%ec%b2%ad" class="anchor">🔗</a></h2><p>CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.</p>
-<h3 id="simple-requests">Simple Requests <a href="#simple-requests" class="anchor">🔗</a></h3><p>몇몇 요청(Request)들은 CORS preflight를 트리거하지 않는다. <code>MDN</code> 자료와 티맥스 출처자료에서는 이를 두고 <code>Simple Requests</code>라고 구분하지만 CORS를 정의한 실제 <a href="https://fetch.spec.whatwg.org/" target="_blank" rel="noopener">Fetch</a> 스펙에서는 Simple Requests라는 용어를 사용하지 않는다. <strong>CORS preflight를 트리거 하지 않는 요청(편의상 MDN에서 &lsquo;simple requests&rsquo;라고 명명했던)은 아래의 조건들을 모두 만족하는 요청을 가리킨다.</strong></p>
+<h1 id="cors-요청">CORS 요청 <a href="#cors-%ec%9a%94%ec%b2%ad" class="anchor">🔗</a></h1><p>CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.</p>
+<h2 id="simple-requests">Simple Requests <a href="#simple-requests" class="anchor">🔗</a></h2><p>몇몇 요청(Request)들은 CORS preflight를 트리거하지 않는다. <code>MDN</code> 자료와 티맥스 출처자료에서는 이를 두고 <code>Simple Requests</code>라고 구분하지만 CORS를 정의한 실제 <a href="https://fetch.spec.whatwg.org/" target="_blank" rel="noopener">Fetch</a> 스펙에서는 Simple Requests라는 용어를 사용하지 않는다. <strong>CORS preflight를 트리거 하지 않는 요청(편의상 MDN에서 &lsquo;simple requests&rsquo;라고 명명했던)은 아래의 조건들을 모두 만족하는 요청을 가리킨다.</strong></p>
 <ol>
 <li>GET/POST/HEAD 메서드만을 사용해야 한다.</li>
 <li>User Agent에 의해 자동으로 설정된 헤더, Fetch 스펙에서 &ldquo;forbidden header name&quot;이라고 정의된 헤더들을 제외하고 <a href="https://fetch.spec.whatwg.org/#cors-safelisted-request-header" target="_blank" rel="noopener">&ldquo;CORS-safelisted request-header&rdquo;</a>라고 Fetch 스펙에 정의된 아래의 헤더만이 직접적으로 요청 안에 설정될 수 있다.
@@ -162,7 +163,21 @@ if (!doNotTrack) {
 </ol>
 <p>이러한 Simple Request 방식에서 클라이언트는 서버로 요청을 한 번 보내고, 마찬가지로 서버도 회신을 한 번 보내는 것으로 요청에 대한 응답이 종료된다.</p>
 <p>아래는 Simple requests를 사용하는 자바스크립트 예제이다. 아래 코드가 <code>http://foo.example</code> 서버로부터 제공되어 <code>http://bar.other</code>라는 외부 도메인으로부터 리소스를 받아오려 한다는 상황을 가정해보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/public-data/&#39;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> callOtherDomain() {
@@ -172,12 +187,28 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    invocation.send();
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>위 코드를 통해 웹 브라우저가 서버로 Request를 보내고 서버로부터 Response를 받는 과정을 아래와 같이 간략하게 나타낼 수 있다.</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>위 코드를 통해 웹 브라우저가 서버로 Request를 보내고 서버로부터 Response를 받는 과정을 아래와 같이 간략하게 나타낼 수 있다.</p>
 <p><p class="markdown-image">
   <img src="/img/cors_simple_req.png" alt="An example of CORS Simple Request"  />
 </p></p>
 <p>이 때, 실제 Request와 Response가 어떤 식으로 오고 가는지 아래 텍스트를 보자. Request의 <code>Origin</code>, Response의 <code>Access-Control-Allow-Origin</code> 부분을 중심으로 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">GET</span> <span style="color:#00f;font-weight:bold">/resources/public-data/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-10">10</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">GET</span> <span style="color:#00f;font-weight:bold">/resources/public-data/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
 </span></span><span style="display:flex;"><span>Host<span style="color:#666">:</span> bar.other
 </span></span><span style="display:flex;"><span>User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
 </span></span><span style="display:flex;"><span>Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
@@ -187,8 +218,22 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>Connection<span style="color:#666">:</span> keep-alive
 </span></span><span style="display:flex;"><span>Referer<span style="color:#666">:</span> http://foo.example/examples/access-control/simpleXSInvocation.html
 </span></span><span style="display:flex;"><span>Origin<span style="color:#666">:</span> http://foo.example
-</span></span></code></pre></div><p>먼저, 위는 예제 코드가 서버로 보내는 Request를 나타내며 Origin 헤더부분은 컨텐츠가 <code>http://foo.example</code>로부터 오는 것이라고 서버에게 알리는 역할을 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span> <span style="color:#666">200</span> <span style="color:#d2413a;font-weight:bold">OK</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>먼저, 위는 예제 코드가 서버로 보내는 Request를 나타내며 Origin 헤더부분은 컨텐츠가 <code>http://foo.example</code>로부터 오는 것이라고 서버에게 알리는 역할을 한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8">8</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span> <span style="color:#666">200</span> <span style="color:#d2413a;font-weight:bold">OK</span>
 </span></span><span style="display:flex;"><span>Date<span style="color:#666">:</span> Mon, 01 Dec 2008 00:23:53 GMT
 </span></span><span style="display:flex;"><span>Server<span style="color:#666">:</span> Apache/2.0.61
 </span></span><span style="display:flex;"><span>Access-Control-Allow-Origin<span style="color:#666">:</span> *
@@ -196,10 +241,19 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>Connection<span style="color:#666">:</span> Keep-Alive
 </span></span><span style="display:flex;"><span>Transfer-Encoding<span style="color:#666">:</span> chunked
 </span></span><span style="display:flex;"><span>Content-Type<span style="color:#666">:</span> application/xml
-</span></span></code></pre></div><p>위는 서버가 클라이언트로 보내는 Response를 나타내며, <code>Access-Control-Allow-Origin: *</code>은 모든 도메인의 cross-site 방식으로부터 액세스가 가능하다고 클라이언트에게 알리는 역할을 한다. 하지만 만약 이 헤더가</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="">Access-Control-Allow-Origin: http://foo.example
-</span></span></span></code></pre></div><p>처럼 왔다면 <code>http://foo.example</code>을 제외한 다른 도메인들에서는 cross-site 방식으로 해당 리소스에 접근할 수 없다는 것을 의미한다.</p>
-<h3 id="preflighted-requests">Preflighted Requests <a href="#preflighted-requests" class="anchor">🔗</a></h3><p><code>Simple Requests</code>와 다르게 &ldquo;preflighted&rdquo; requests(사전 전달 요청)는 먼저 <code>OPTIONS</code> 메서드를 이용하여 HTTP request를 먼저 보내 실제 요청이 보내기에 안전한지 확인한다. 아래 조건들 중 하나라도 만족하면 <code>Preflighted Requests</code>로 간주한다.</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>위는 서버가 클라이언트로 보내는 Response를 나타내며, <code>Access-Control-Allow-Origin: *</code>은 모든 도메인의 cross-site 방식으로부터 액세스가 가능하다고 클라이언트에게 알리는 역할을 한다. 하지만 만약 이 헤더가</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="">Access-Control-Allow-Origin: http://foo.example
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>처럼 왔다면 <code>http://foo.example</code>을 제외한 다른 도메인들에서는 cross-site 방식으로 해당 리소스에 접근할 수 없다는 것을 의미한다.</p>
+<h2 id="preflighted-requests">Preflighted Requests <a href="#preflighted-requests" class="anchor">🔗</a></h2><p><code>Simple Requests</code>와 다르게 &ldquo;preflighted&rdquo; requests(사전 전달 요청)는 먼저 <code>OPTIONS</code> 메서드를 이용하여 HTTP request를 먼저 보내 실제 요청이 보내기에 안전한지 확인한다. 아래 조건들 중 하나라도 만족하면 <code>Preflighted Requests</code>로 간주한다.</p>
 <ol>
 <li>Request가 아래 메서드를 사용한다.
 <ul>
@@ -235,7 +289,25 @@ if (!doNotTrack) {
 <li><code>ReadableStream</code>이 Request 안에서 사용된 경우</li>
 </ol>
 <p>아래는 preflighted 요청을 위한 자바스크립트 예제이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-14">14</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/post-here/&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> body <span style="color:#666">=</span> <span style="color:#b44">&#39;&lt;?xml version=&#34;1.0&#34;?&gt;&lt;person&gt;&lt;name&gt;Arun&lt;/name&gt;&lt;/person&gt;&#39;</span>;
 </span></span><span style="display:flex;"><span>
@@ -249,14 +321,46 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>      invocation.send(body);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>위 예제 코드에서는 XML body를 보내기 위해 <code>POST</code> 방식을 사용하고 <code>X-PINGOTHER: pingpong</code>이라는 customized request 헤더를 사용했다. 또한, <code>application/xml</code> Content-Type을 사용함으로써 위에서 명시된 3가지 Content-Type 외에 해당하여 해당 request가 <code>preflighted</code> 타입이라는 것을 알 수 있다.</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>위 예제 코드에서는 XML body를 보내기 위해 <code>POST</code> 방식을 사용하고 <code>X-PINGOTHER: pingpong</code>이라는 customized request 헤더를 사용했다. 또한, <code>application/xml</code> Content-Type을 사용함으로써 위에서 명시된 3가지 Content-Type 외에 해당하여 해당 request가 <code>preflighted</code> 타입이라는 것을 알 수 있다.</p>
 <p>이제, 이 <code>preflighted request</code>가 서버로 보내질 때 어떤 식으로 요청과 응답이 오고가는지 아래 그림을 통해 개괄적으로 살펴보자.</p>
 <p><p class="markdown-image">
   <img src="/img/cors_preflight.png" alt="CORS Preflighted_request"  />
 </p></p>
 <p>위 그림에서 주의해야할 것은 아래의 실제 REQUEST/REPONSE 코드에서 보겠지만 실제 POST request 안에는 <code>Access-Control-Request-*</code> 헤더가 없다는 점이다. 해당 헤더들은 모두 <code>OPTIONS</code> request에서만 필요하다. 또한, preflighted request의 경우 메인 Request를 보내기 전에 Preflighted Request를 한번 더 보낸다는 점이 주의하자.</p>
 <p>아래는 위 다이어그램에 대한 실제 Request &amp; Response 내용이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">OPTIONS</span> <span style="color:#00f;font-weight:bold">/resources/post-here/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-26">26</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">OPTIONS</span> <span style="color:#00f;font-weight:bold">/resources/post-here/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
 </span></span><span style="display:flex;"><span>Host<span style="color:#666">:</span> bar.other
 </span></span><span style="display:flex;"><span>User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
 </span></span><span style="display:flex;"><span>Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
@@ -282,13 +386,60 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>Keep-Alive: timeout=2, max=100
 </span></span><span style="display:flex;"><span>Connection: Keep-Alive
 </span></span><span style="display:flex;"><span>Content-Type: text/plain
-</span></span></code></pre></div><p>먼저, <code>preflighted request</code>와 그 응답에 대해 살펴보자. <code>Access-Control-Request-Method</code> 해더는 서버에게 실제 Request가 보내졌을 때 해당 Request의 메서드와 <code>X-PINGOTHER, Content-Type</code> 등의 custom header들을 함께 전송할 것이라고 미리 알린다. 서버는 클라이언트로부터 이러한 정보를 미리 <code>preflighted request</code>를 통해 전달받고 실제 request를 받을 것인지를 결정한 뒤 알려준다. 위에 나타난 Reponse 코드 중 유심해야할 부분은 다음과 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="">Access-Control-Allow-Origin: http://foo.example
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>먼저, <code>preflighted request</code>와 그 응답에 대해 살펴보자. <code>Access-Control-Request-Method</code> 해더는 서버에게 실제 Request가 보내졌을 때 해당 Request의 메서드와 <code>X-PINGOTHER, Content-Type</code> 등의 custom header들을 함께 전송할 것이라고 미리 알린다. 서버는 클라이언트로부터 이러한 정보를 미리 <code>preflighted request</code>를 통해 전달받고 실제 request를 받을 것인지를 결정한 뒤 알려준다. 위에 나타난 Reponse 코드 중 유심해야할 부분은 다음과 같다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="">Access-Control-Allow-Origin: http://foo.example
 </span></span></span><span style="display:flex;"><span><span style="">Access-Control-Allow-Methods: POST, GET
 </span></span></span><span style="display:flex;"><span><span style="">Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
 </span></span></span><span style="display:flex;"><span><span style="">Access-Control-Max-Age: 86400
-</span></span></span></code></pre></div><p>서버는 preflighted request에 대한 응답을 통해 클라이언트로 사용 가능한 메서드와 헤더, 그리고 해당 리소스 접근을 위해 허용된 origin을 <code>http://foo.example</code>로 제한하여 보내주고 있다. 마지막으로 <code>Access-Control-Max-Age</code>는 해당 reponse가 또다른 preflight request를 보내지 않고 얼마 동안 캐시되어 있는지를 클라이언트에게 알려주는 역할을 한다. 여기서 86400은 86400초를 나타내어 24시간동안 cached response가 유효하다고 알린다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">POST</span> <span style="color:#00f;font-weight:bold">/resources/post-here/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>서버는 preflighted request에 대한 응답을 통해 클라이언트로 사용 가능한 메서드와 헤더, 그리고 해당 리소스 접근을 위해 허용된 origin을 <code>http://foo.example</code>로 제한하여 보내주고 있다. 마지막으로 <code>Access-Control-Max-Age</code>는 해당 reponse가 또다른 preflight request를 보내지 않고 얼마 동안 캐시되어 있는지를 클라이언트에게 알려주는 역할을 한다. 여기서 86400은 86400초를 나타내어 24시간동안 cached response가 유효하다고 알린다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-13">13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-14">14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-15">15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-16">16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-17">17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-18">18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-19">19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-20">20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-21">21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-22">22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-23">23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-24">24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-25">25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-26">26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-27"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-27">27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-28"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-28">28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-29">29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-30"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-30">30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-31">31</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">POST</span> <span style="color:#00f;font-weight:bold">/resources/post-here/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
 </span></span><span style="display:flex;"><span>Host<span style="color:#666">:</span> bar.other
 </span></span><span style="display:flex;"><span>User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
 </span></span><span style="display:flex;"><span>Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
@@ -319,10 +470,27 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>Content-Type: text/plain
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>[Some GZIP&#39;d payload]
-</span></span></code></pre></div><h3 id="requests-with-credentials">Requests with credentials <a href="#requests-with-credentials" class="anchor">🔗</a></h3><p>마지막으로 Credential, Non-Credential을 구분할 CORS Request 종류에 대해 기술한다.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="requests-with-credentials">Requests with credentials <a href="#requests-with-credentials" class="anchor">🔗</a></h2><p>마지막으로 Credential, Non-Credential을 구분할 CORS Request 종류에 대해 기술한다.
 이 &ldquo;credentialed&rdquo; requests는 HTTP Cookie와 HTTP Authentication information의 취약점에 대비하여 만들어진 request 타입이다. 기본으로 웹 브라우저는 cross-site XMLHttpRequest와 Fetch invocation에서 credential을 보내지 않는다.</p>
 <p>아래 코드를 예로 들어보자. <code>http://bar.other/</code>로부터 받은 컨텐츠가 쿠키를 설정하는 리소스라고 가정하고, 아래 자바스크립트 코드가 <code>http://foo.example</code>내에서 동작하는 코드라고 생각하자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-11">11</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/credentialed-content/&#39;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> callOtherDomain(){
@@ -333,7 +501,9 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    invocation.send();
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><p class="markdown-image">
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><p class="markdown-image">
   <img src="/img/cors-cred-req.png" alt="CORS Credential Response"  />
 </p></p>
 <p>위처럼 새로 가져올 컨텐츠에서 캐시를 설정하는 등의 행위를 할 때 반드시 <code>withCredentials</code>를 설정해줘야 하며, 해당 헤더가 설정되었다면 웹 브라우저는 서버로부터 받은 response 안에 <code>Access-Control-Allow-Credentials: true</code>가 없는 경우는 모두 거절해버린다.</p>

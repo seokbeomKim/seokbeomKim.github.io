@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          675 words
+          702 words
         </span>
         <span class="split">
           ·
@@ -110,9 +110,16 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
-    <li><a href="#설정-환경">설정 환경</a></li>
-  </ul>
+  <ol>
+    <li><a href="#개요">개요</a>
+      <ol>
+        <li><a href="#설정-환경">설정 환경</a></li>
+      </ol>
+    </li>
+    <li><a href="#systemd-에-emacs-등록하기">systemd 에 emacs 등록하기</a></li>
+    <li><a href="#gnome-application-아이템-조정하기">gnome application 아이템 조정하기</a></li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
           </div>
       </details>
@@ -146,7 +153,24 @@ if (!doNotTrack) {
 사용하는 시스템이라면 젠투 쪽의 위키페이지를 참고하기를 바란다.</p>
 <p>먼저 <code>~/.config/systemd/user/emacs.service</code> 파일을 아래와 같이
 생성한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#666">[</span>Unit<span style="color:#666">]</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#666">[</span>Unit<span style="color:#666">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">Description</span><span style="color:#666">=</span>Emacs text editor
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">Documentation</span><span style="color:#666">=</span>info:emacs man:emacs<span style="color:#666">(</span>1<span style="color:#666">)</span> https://gnu.org/software/emacs/
 </span></span><span style="display:flex;"><span>
@@ -159,14 +183,40 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#666">[</span>Install<span style="color:#666">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">WantedBy</span><span style="color:#666">=</span>default.target
-</span></span></code></pre></div><p>그 뒤, <code>systemctl</code> 명령어를 이용해 해당 서비스를 활성화한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl <span style="color:#a2f">enable</span> --user emacs
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>그 뒤, <code>systemctl</code> 명령어를 이용해 해당 서비스를 활성화한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl <span style="color:#a2f">enable</span> --user emacs
 </span></span><span style="display:flex;"><span>systemctl disable --user emacs
-</span></span></code></pre></div><h1 id="gnome-application-아이템-조정하기">gnome application 아이템 조정하기 <a href="#gnome-application-%ec%95%84%ec%9d%b4%ed%85%9c-%ec%a1%b0%ec%a0%95%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>gnome에서 파일을 열 때 <code>mime type</code>에 따라 기본으로 열기 위한
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="gnome-application-아이템-조정하기">gnome application 아이템 조정하기 <a href="#gnome-application-%ec%95%84%ec%9d%b4%ed%85%9c-%ec%a1%b0%ec%a0%95%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>gnome에서 파일을 열 때 <code>mime type</code>에 따라 기본으로 열기 위한
 애플리케이션을 미리 정의해놓는다. 아래와 같이
 <code>/usr/share/applications/emacs.desktop</code> 파일을 열어서 <code>emacsclient</code>를
 이용하도록 설정한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#666">[</span>Desktop Entry<span style="color:#666">]</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-12">12</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#666">[</span>Desktop Entry<span style="color:#666">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">Name</span><span style="color:#666">=</span>Emacs
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">GenericName</span><span style="color:#666">=</span>Text Editor
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">Comment</span><span style="color:#666">=</span>Edit text
@@ -178,7 +228,9 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">Categories</span><span style="color:#666">=</span>Development;TextEditor;
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">StartupWMClass</span><span style="color:#666">=</span>Emacs
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">Keywords</span><span style="color:#666">=</span>Text;Editor;
-</span></span></code></pre></div><p>이제 모든 설정이 끝났다. 파일에 대한 기본 편집툴을 이맥스로 설정하면,
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제 모든 설정이 끝났다. 파일에 대한 기본 편집툴을 이맥스로 설정하면,
 별도의 초기화 과정 없이 곧바로 실행되는 것을 알 수 있다.</p>
 <h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://www.emacswiki.org/emacs/EmacsAsDaemon" target="_blank" rel="noopener">https://www.emacswiki.org/emacs/EmacsAsDaemon</a></li>

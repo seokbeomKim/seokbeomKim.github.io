@@ -41,21 +41,6 @@
     <loc>/categories/kernel/</loc>
     <lastmod>2023-03-19T17:45:39+09:00</lastmod>
   </url><url>
-    <loc>/tags/tasklet/</loc>
-    <lastmod>2022-11-13T17:32:26+09:00</lastmod>
-  </url><url>
-    <loc>/posts/tasklet/</loc>
-    <lastmod>2022-11-13T17:32:26+09:00</lastmod>
-  </url><url>
-    <loc>/categories/etc/</loc>
-    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</loc>
-    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
-  </url><url>
-    <loc>/tags/%EB%82%9C%EC%B2%AD/</loc>
-    <lastmod>2022-10-22T17:00:05+09:00</lastmod>
-  </url><url>
     <loc>/tags/strcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
@@ -85,18 +70,6 @@
   </url><url>
     <loc>/tags/overlay/</loc>
     <lastmod>2022-05-08T01:37:45+09:00</lastmod>
-  </url><url>
-    <loc>/posts/525.-contiguous-array/</loc>
-    <lastmod>2022-02-04T23:21:10+09:00</lastmod>
-  </url><url>
-    <loc>/tags/525%EB%B2%88/</loc>
-    <lastmod>2022-02-04T23:21:10+09:00</lastmod>
-  </url><url>
-    <loc>/tags/hashmap/</loc>
-    <lastmod>2022-02-04T23:21:10+09:00</lastmod>
-  </url><url>
-    <loc>/categories/leetcode/</loc>
-    <lastmod>2022-02-04T23:21:10+09:00</lastmod>
   </url><url>
     <loc>/tags/canary/</loc>
     <lastmod>2022-02-03T15:00:45+09:00</lastmod>
@@ -155,15 +128,6 @@
     <loc>/tags/c/</loc>
     <lastmod>2021-03-21T22:44:03+09:00</lastmod>
   </url><url>
-    <loc>/tags/state/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
-  </url><url>
-    <loc>/posts/state-vs-status/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
-  </url><url>
-    <loc>/tags/status/</loc>
-    <lastmod>2021-02-28T12:27:08+09:00</lastmod>
-  </url><url>
     <loc>/tags/gdb/</loc>
     <lastmod>2021-02-20T02:43:54+09:00</lastmod>
   </url><url>
@@ -173,80 +137,17 @@
     <loc>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2021-02-20T02:43:54+09:00</lastmod>
   </url><url>
-    <loc>/posts/i3-window-manager/</loc>
-    <lastmod>2021-02-11T18:20:10+09:00</lastmod>
-  </url><url>
-    <loc>/tags/i3wm/</loc>
-    <lastmod>2021-02-11T18:20:10+09:00</lastmod>
-  </url><url>
-    <loc>/tags/emacs/</loc>
-    <lastmod>2021-01-01T13:42:08+09:00</lastmod>
-  </url><url>
-    <loc>/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</loc>
-    <lastmod>2021-01-01T13:42:08+09:00</lastmod>
-  </url><url>
-    <loc>/tags/magit/</loc>
-    <lastmod>2021-01-01T13:42:08+09:00</lastmod>
-  </url><url>
-    <loc>/tags/homebrew/</loc>
-    <lastmod>2020-12-29T23:35:55+09:00</lastmod>
-  </url><url>
-    <loc>/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</loc>
-    <lastmod>2020-12-29T23:35:55+09:00</lastmod>
-  </url><url>
-    <loc>/tags/mac/</loc>
-    <lastmod>2020-12-29T23:35:55+09:00</lastmod>
-  </url><url>
-    <loc>/categories/python/</loc>
-    <lastmod>2020-12-29T23:35:55+09:00</lastmod>
-  </url><url>
-    <loc>/tags/file2alias/</loc>
-    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
-  </url><url>
-    <loc>/categories/mac/</loc>
-    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
-  </url><url>
-    <loc>/tags/uuid/</loc>
-    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</loc>
-    <lastmod>2020-12-24T00:56:38+09:00</lastmod>
+    <loc>/categories/etc/</loc>
+    <lastmod>2020-11-28T23:00:00+09:00</lastmod>
   </url><url>
     <loc>/tags/vmmem/</loc>
-    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
+    <lastmod>2020-11-28T23:00:00+09:00</lastmod>
   </url><url>
     <loc>/tags/wsl/</loc>
-    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</loc>
-    <lastmod>2020-12-23T01:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/tags/sysrq/</loc>
-    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
-  </url><url>
-    <loc>/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</loc>
-    <lastmod>2020-12-17T01:38:06+09:00</lastmod>
+    <lastmod>2020-11-28T23:00:00+09:00</lastmod>
   </url><url>
     <loc>/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-11-28T23:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/tags/cache/</loc>
-    <lastmod>2020-09-13T21:30:10+09:00</lastmod>
-  </url><url>
-    <loc>/tags/cache-line/</loc>
-    <lastmod>2020-09-13T21:30:10+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</loc>
-    <lastmod>2020-09-13T21:30:10+09:00</lastmod>
-  </url><url>
-    <loc>/tags/ghcup/</loc>
-    <lastmod>2020-09-12T00:05:37+09:00</lastmod>
-  </url><url>
-    <loc>/categories/haskell/</loc>
-    <lastmod>2020-09-12T00:05:37+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</loc>
-    <lastmod>2020-09-12T00:05:37+09:00</lastmod>
   </url><url>
     <loc>/tags/coc/</loc>
     <lastmod>2020-09-05T09:50:58+09:00</lastmod>
@@ -256,21 +157,6 @@
   </url><url>
     <loc>/tags/%EC%9D%BC%EC%83%81/</loc>
     <lastmod>2020-09-05T09:50:58+09:00</lastmod>
-  </url><url>
-    <loc>/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</loc>
-    <lastmod>2020-08-24T22:55:11+09:00</lastmod>
-  </url><url>
-    <loc>/tags/nfc/</loc>
-    <lastmod>2020-08-24T22:55:11+09:00</lastmod>
-  </url><url>
-    <loc>/tags/nfd/</loc>
-    <lastmod>2020-08-24T22:55:11+09:00</lastmod>
-  </url><url>
-    <loc>/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
-    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
-  </url><url>
-    <loc>/tags/function-application/</loc>
-    <lastmod>2020-08-17T18:08:58+09:00</lastmod>
   </url><url>
     <loc>/categories/design-pattern/</loc>
     <lastmod>2020-07-25T16:25:23+09:00</lastmod>
@@ -290,59 +176,14 @@
     <loc>/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-07-12T22:13:08+09:00</lastmod>
   </url><url>
-    <loc>/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</loc>
-    <lastmod>2020-07-05T02:52:23+09:00</lastmod>
-  </url><url>
     <loc>/tags/mu4e/</loc>
     <lastmod>2020-06-26T01:36:36+09:00</lastmod>
   </url><url>
     <loc>/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-06-26T01:36:36+09:00</lastmod>
   </url><url>
-    <loc>/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</loc>
-    <lastmod>2020-04-25T14:27:31+09:00</lastmod>
-  </url><url>
-    <loc>/tags/vmlinux/</loc>
-    <lastmod>2020-04-21T06:04:17+09:00</lastmod>
-  </url><url>
-    <loc>/posts/vmlinux/</loc>
-    <lastmod>2020-04-21T06:04:17+09:00</lastmod>
-  </url><url>
-    <loc>/tags/page-table/</loc>
-    <lastmod>2020-04-11T18:25:16+09:00</lastmod>
-  </url><url>
-    <loc>/tags/va_bits/</loc>
-    <lastmod>2020-04-11T18:25:16+09:00</lastmod>
-  </url><url>
-    <loc>/tags/virtual-address/</loc>
-    <lastmod>2020-04-11T18:25:16+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</loc>
-    <lastmod>2020-04-11T18:25:16+09:00</lastmod>
-  </url><url>
     <loc>/categories/c/</loc>
-    <lastmod>2020-04-10T00:13:53+09:00</lastmod>
-  </url><url>
-    <loc>/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</loc>
-    <lastmod>2020-04-10T00:13:53+09:00</lastmod>
-  </url><url>
-    <loc>/tags/type-check/</loc>
-    <lastmod>2020-04-10T00:13:53+09:00</lastmod>
-  </url><url>
-    <loc>/tags/benchmark/</loc>
-    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
-  </url><url>
-    <loc>/tags/dmips/</loc>
-    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
-  </url><url>
-    <loc>/posts/dmips-dhrystone-million-instructions-per-second/</loc>
-    <lastmod>2020-04-03T01:41:29+09:00</lastmod>
-  </url><url>
-    <loc>/tags/futex/</loc>
-    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
-  </url><url>
-    <loc>/posts/futex/</loc>
-    <lastmod>2020-04-02T01:45:50+09:00</lastmod>
+    <lastmod>2020-04-01T23:55:32+09:00</lastmod>
   </url><url>
     <loc>/posts/do-while/</loc>
     <lastmod>2020-04-01T23:55:32+09:00</lastmod>
@@ -368,21 +209,6 @@
     <loc>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</loc>
     <lastmod>2020-03-28T00:54:01+09:00</lastmod>
   </url><url>
-    <loc>/tags/goto/</loc>
-    <lastmod>2020-03-25T00:47:49+09:00</lastmod>
-  </url><url>
-    <loc>/posts/goto-statement/</loc>
-    <lastmod>2020-03-25T00:47:49+09:00</lastmod>
-  </url><url>
-    <loc>/categories/android/</loc>
-    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
-  </url><url>
-    <loc>/tags/partition/</loc>
-    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</loc>
-    <lastmod>2020-03-12T00:26:40+09:00</lastmod>
-  </url><url>
     <loc>/tags/poll/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url><url>
@@ -392,65 +218,14 @@
     <loc>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</loc>
     <lastmod>2020-03-10T23:52:01+09:00</lastmod>
   </url><url>
-    <loc>/tags/micom/</loc>
-    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
-  </url><url>
-    <loc>/posts/micom%EA%B3%BC-mpu/</loc>
-    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
-  </url><url>
-    <loc>/tags/mpu/</loc>
-    <lastmod>2020-03-08T23:30:44+09:00</lastmod>
-  </url><url>
-    <loc>/tags/interrupt/</loc>
-    <lastmod>2020-03-03T00:00:10+09:00</lastmod>
-  </url><url>
     <loc>/tags/ioctl/</loc>
-    <lastmod>2020-03-03T00:00:10+09:00</lastmod>
-  </url><url>
-    <loc>/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</loc>
-    <lastmod>2020-03-03T00:00:10+09:00</lastmod>
-  </url><url>
-    <loc>/tags/hyper-v/</loc>
-    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
-  </url><url>
-    <loc>/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
-    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
-  </url><url>
-    <loc>/categories/virtualization/</loc>
-    <lastmod>2020-03-01T17:12:34+09:00</lastmod>
-  </url><url>
-    <loc>/tags/buffering/</loc>
-    <lastmod>2020-02-29T23:34:30+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</loc>
-    <lastmod>2020-02-29T23:34:30+09:00</lastmod>
+    <lastmod>2020-02-27T00:23:10+09:00</lastmod>
   </url><url>
     <loc>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</loc>
     <lastmod>2020-02-27T00:23:10+09:00</lastmod>
   </url><url>
     <loc>/tags/macro/</loc>
     <lastmod>2020-02-27T00:23:10+09:00</lastmod>
-  </url><url>
-    <loc>/tags/switch/</loc>
-    <lastmod>2020-02-26T23:56:18+09:00</lastmod>
-  </url><url>
-    <loc>/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</loc>
-    <lastmod>2020-02-26T23:56:18+09:00</lastmod>
-  </url><url>
-    <loc>/posts/identity-mapping/</loc>
-    <lastmod>2020-02-24T23:01:54+09:00</lastmod>
-  </url><url>
-    <loc>/tags/idmap/</loc>
-    <lastmod>2020-02-24T23:01:54+09:00</lastmod>
-  </url><url>
-    <loc>/tags/bug_on/</loc>
-    <lastmod>2020-02-21T00:12:34+09:00</lastmod>
-  </url><url>
-    <loc>/tags/warn_on/</loc>
-    <lastmod>2020-02-21T00:12:34+09:00</lastmod>
-  </url><url>
-    <loc>/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</loc>
-    <lastmod>2020-02-21T00:12:34+09:00</lastmod>
   </url><url>
     <loc>/tags/likely/</loc>
     <lastmod>2020-02-13T23:27:51+09:00</lastmod>
@@ -467,6 +242,9 @@
     <loc>/posts/typedef-is-evil/</loc>
     <lastmod>2020-02-13T01:12:37+09:00</lastmod>
   </url><url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2020-02-09T03:09:59+00:00</lastmod>
+  </url><url>
     <loc>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
     <lastmod>2020-02-09T03:09:59+00:00</lastmod>
   </url><url>
@@ -479,50 +257,14 @@
     <loc>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</loc>
     <lastmod>2020-02-06T23:43:34+09:00</lastmod>
   </url><url>
-    <loc>/tags/raspberry-pi/</loc>
-    <lastmod>2020-02-05T00:53:22+09:00</lastmod>
-  </url><url>
-    <loc>/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</loc>
-    <lastmod>2020-02-05T00:53:22+09:00</lastmod>
-  </url><url>
-    <loc>/tags/side-project/</loc>
-    <lastmod>2020-02-05T00:53:22+09:00</lastmod>
-  </url><url>
-    <loc>/tags/wayland/</loc>
-    <lastmod>2020-02-03T23:17:11+09:00</lastmod>
-  </url><url>
-    <loc>/posts/wayland%EA%B3%BC-weston/</loc>
-    <lastmod>2020-02-03T23:17:11+09:00</lastmod>
-  </url><url>
-    <loc>/tags/weston/</loc>
-    <lastmod>2020-02-03T23:17:11+09:00</lastmod>
-  </url><url>
-    <loc>/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</loc>
-    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
-  </url><url>
-    <loc>/tags/bitbake/</loc>
-    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
-  </url><url>
-    <loc>/tags/chroot/</loc>
-    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
-  </url><url>
-    <loc>/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</loc>
-    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
-  </url><url>
-    <loc>/tags/memory-map/</loc>
-    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
-  </url><url>
-    <loc>/tags/yocto/</loc>
-    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
-  </url><url>
-    <loc>/categories/yocto/</loc>
-    <lastmod>2020-02-01T23:27:45+09:00</lastmod>
-  </url><url>
     <loc>/tags/gpio/</loc>
     <lastmod>2020-01-31T23:48:06+09:00</lastmod>
   </url><url>
     <loc>/posts/gpio-mapping/</loc>
     <lastmod>2020-01-31T23:48:06+09:00</lastmod>
+  </url><url>
+    <loc>/categories/android/</loc>
+    <lastmod>2020-01-30T23:34:30+09:00</lastmod>
   </url><url>
     <loc>/tags/uevent/</loc>
     <lastmod>2020-01-30T23:34:30+09:00</lastmod>
@@ -532,21 +274,6 @@
   </url><url>
     <loc>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</loc>
     <lastmod>2020-01-30T23:34:30+09:00</lastmod>
-  </url><url>
-    <loc>/posts/dev/mem-vs.-/dev/kmem/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
-  </url><url>
-    <loc>/tags/kmem/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
-  </url><url>
-    <loc>/tags/mem/</loc>
-    <lastmod>2020-01-29T23:30:44+09:00</lastmod>
-  </url><url>
-    <loc>/tags/kobject/</loc>
-    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
-  </url><url>
-    <loc>/posts/kobject/</loc>
-    <lastmod>2020-01-28T22:25:50+09:00</lastmod>
   </url><url>
     <loc>/tags/big-endian/</loc>
     <lastmod>2020-01-27T22:27:06+09:00</lastmod>
@@ -559,15 +286,6 @@
   </url><url>
     <loc>/posts/little-endian-vs.-big-endian/</loc>
     <lastmod>2020-01-27T22:27:06+09:00</lastmod>
-  </url><url>
-    <loc>/tags/bt.601/</loc>
-    <lastmod>2020-01-26T17:44:18+09:00</lastmod>
-  </url><url>
-    <loc>/tags/bt.656/</loc>
-    <lastmod>2020-01-26T17:44:18+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</loc>
-    <lastmod>2020-01-26T17:44:18+09:00</lastmod>
   </url><url>
     <loc>/tags/colorspace/</loc>
     <lastmod>2020-01-26T16:39:36+09:00</lastmod>
@@ -584,48 +302,6 @@
     <loc>/about/</loc>
     <lastmod>2020-01-25T22:47:44+09:00</lastmod>
   </url><url>
-    <loc>/tags/bootloader/</loc>
-    <lastmod>2019-06-23T22:47:44+09:00</lastmod>
-  </url><url>
-    <loc>/tags/embedded_linux/</loc>
-    <lastmod>2019-06-23T22:47:44+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</loc>
-    <lastmod>2019-06-23T22:47:44+09:00</lastmod>
-  </url><url>
-    <loc>/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</loc>
-    <lastmod>2019-06-23T10:46:29+09:00</lastmod>
-  </url><url>
-    <loc>/tags/posix-spawn/</loc>
-    <lastmod>2019-06-23T10:46:29+09:00</lastmod>
-  </url><url>
-    <loc>/tags/arm-versatile/</loc>
-    <lastmod>2019-06-22T21:29:27+09:00</lastmod>
-  </url><url>
-    <loc>/tags/qemu/</loc>
-    <lastmod>2019-06-22T21:29:27+09:00</lastmod>
-  </url><url>
-    <loc>/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</loc>
-    <lastmod>2019-06-22T21:29:27+09:00</lastmod>
-  </url><url>
-    <loc>/tags/rcu/</loc>
-    <lastmod>2019-06-04T17:34:42+09:00</lastmod>
-  </url><url>
-    <loc>/posts/rcu-read-copy-update/</loc>
-    <lastmod>2019-06-04T17:34:42+09:00</lastmod>
-  </url><url>
-    <loc>/tags/bkl/</loc>
-    <lastmod>2019-06-04T16:40:28+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</loc>
-    <lastmod>2019-06-04T16:40:28+09:00</lastmod>
-  </url><url>
-    <loc>/tags/semaphore/</loc>
-    <lastmod>2019-06-04T11:40:12+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</loc>
-    <lastmod>2019-06-04T11:40:12+09:00</lastmod>
-  </url><url>
     <loc>/tags/major-number/</loc>
     <lastmod>2019-05-31T18:37:25+09:00</lastmod>
   </url><url>
@@ -635,29 +311,11 @@
     <loc>/tags/minor-number/</loc>
     <lastmod>2019-05-31T18:37:25+09:00</lastmod>
   </url><url>
-    <loc>/tags/global-kernel-lock/</loc>
-    <lastmod>2019-05-29T00:59:34+09:00</lastmod>
-  </url><url>
-    <loc>/tags/mutex/</loc>
-    <lastmod>2019-05-29T00:59:34+09:00</lastmod>
-  </url><url>
-    <loc>/tags/spinlock/</loc>
-    <lastmod>2019-05-29T00:59:34+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</loc>
-    <lastmod>2019-05-29T00:59:34+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</loc>
-    <lastmod>2019-05-28T17:45:51+09:00</lastmod>
-  </url><url>
     <loc>/tags/jiffies/</loc>
     <lastmod>2019-05-26T10:38:40+09:00</lastmod>
   </url><url>
     <loc>/posts/%EC%A7%80%ED%94%BCjiffies/</loc>
     <lastmod>2019-05-26T10:38:40+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</loc>
-    <lastmod>2019-05-25T17:32:26+09:00</lastmod>
   </url><url>
     <loc>/tags/buildroot/</loc>
     <lastmod>2019-05-23T15:10:46+09:00</lastmod>
@@ -671,11 +329,8 @@
     <loc>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</loc>
     <lastmod>2019-05-22T19:35:04+09:00</lastmod>
   </url><url>
-    <loc>/tags/osi-7-layers/</loc>
-    <lastmod>2019-05-21T16:10:20+09:00</lastmod>
-  </url><url>
-    <loc>/posts/osi-7-layers/</loc>
-    <lastmod>2019-05-21T16:10:20+09:00</lastmod>
+    <loc>/tags/qemu/</loc>
+    <lastmod>2019-05-22T19:35:04+09:00</lastmod>
   </url><url>
     <loc>/tags/tcp/</loc>
     <lastmod>2019-05-21T15:27:08+09:00</lastmod>
@@ -689,170 +344,16 @@
     <loc>/categories/web/</loc>
     <lastmod>2019-05-21T15:27:08+09:00</lastmod>
   </url><url>
-    <loc>/tags/process/</loc>
-    <lastmod>2019-05-16T18:59:15+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</loc>
-    <lastmod>2019-05-16T18:59:15+09:00</lastmod>
-  </url><url>
-    <loc>/posts/copy-on-write-cow-or-cow/</loc>
-    <lastmod>2019-05-16T18:24:16+09:00</lastmod>
-  </url><url>
-    <loc>/tags/cow/</loc>
-    <lastmod>2019-05-16T18:24:16+09:00</lastmod>
-  </url><url>
-    <loc>/tags/implicit-sharing/</loc>
-    <lastmod>2019-05-16T18:24:16+09:00</lastmod>
-  </url><url>
-    <loc>/tags/shadowing/</loc>
-    <lastmod>2019-05-16T18:24:16+09:00</lastmod>
-  </url><url>
-    <loc>/tags/drivers/</loc>
-    <lastmod>2019-05-16T02:11:40+09:00</lastmod>
-  </url><url>
-    <loc>/tags/modules/</loc>
-    <lastmod>2019-05-16T02:11:40+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
-    <lastmod>2019-05-16T02:11:40+09:00</lastmod>
-  </url><url>
-    <loc>/tags/nonpreemptive/</loc>
-    <lastmod>2019-05-15T18:44:06+09:00</lastmod>
-  </url><url>
-    <loc>/tags/scheduling/</loc>
-    <lastmod>2019-05-15T18:44:06+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</loc>
-    <lastmod>2019-05-15T18:44:06+09:00</lastmod>
-  </url><url>
-    <loc>/tags/deadlock/</loc>
-    <lastmod>2019-05-15T17:40:14+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</loc>
-    <lastmod>2019-05-15T17:40:14+09:00</lastmod>
-  </url><url>
-    <loc>/tags/default-export/</loc>
-    <lastmod>2019-05-07T16:30:51+09:00</lastmod>
-  </url><url>
-    <loc>/tags/named-export/</loc>
-    <lastmod>2019-05-07T16:30:51+09:00</lastmod>
-  </url><url>
-    <loc>/posts/named-export%EC%99%80-default-export/</loc>
-    <lastmod>2019-05-07T16:30:51+09:00</lastmod>
-  </url><url>
-    <loc>/categories/typescript/</loc>
-    <lastmod>2019-05-07T16:30:51+09:00</lastmod>
-  </url><url>
-    <loc>/categories/machine-learning/</loc>
-    <lastmod>2019-05-06T17:05:11+09:00</lastmod>
-  </url><url>
-    <loc>/tags/scikit-learn/</loc>
-    <lastmod>2019-05-06T17:05:11+09:00</lastmod>
-  </url><url>
-    <loc>/tags/tensorflow/</loc>
-    <lastmod>2019-05-06T17:05:11+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</loc>
-    <lastmod>2019-05-06T17:05:11+09:00</lastmod>
-  </url><url>
-    <loc>/tags/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
-    <lastmod>2019-05-06T15:31:38+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
-    <lastmod>2019-05-06T15:31:38+09:00</lastmod>
-  </url><url>
-    <loc>/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</loc>
-    <lastmod>2019-05-06T15:31:38+09:00</lastmod>
-  </url><url>
-    <loc>/categories/java/</loc>
-    <lastmod>2019-05-03T20:38:14+09:00</lastmod>
-  </url><url>
-    <loc>/tags/nested-class/</loc>
-    <lastmod>2019-05-03T20:38:14+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</loc>
-    <lastmod>2019-05-03T20:38:14+09:00</lastmod>
-  </url><url>
-    <loc>/tags/apache_httpd/</loc>
-    <lastmod>2019-05-03T17:50:32+09:00</lastmod>
-  </url><url>
-    <loc>/tags/servlet_container/</loc>
-    <lastmod>2019-05-03T17:50:32+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</loc>
-    <lastmod>2019-05-03T17:50:32+09:00</lastmod>
-  </url><url>
-    <loc>/categories/database/</loc>
-    <lastmod>2019-05-01T20:29:02+09:00</lastmod>
-  </url><url>
-    <loc>/tags/shard/</loc>
-    <lastmod>2019-05-01T20:29:02+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</loc>
-    <lastmod>2019-05-01T20:29:02+09:00</lastmod>
-  </url><url>
-    <loc>/tags/restful/</loc>
-    <lastmod>2019-05-01T18:38:22+09:00</lastmod>
-  </url><url>
-    <loc>/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</loc>
-    <lastmod>2019-05-01T18:38:22+09:00</lastmod>
-  </url><url>
-    <loc>/tags/rmm/</loc>
-    <lastmod>2019-05-01T18:38:22+09:00</lastmod>
-  </url><url>
-    <loc>/tags/folding/</loc>
-    <lastmod>2019-05-01T17:56:20+09:00</lastmod>
-  </url><url>
-    <loc>/posts/folding-in-haskell/</loc>
-    <lastmod>2019-05-01T17:56:20+09:00</lastmod>
-  </url><url>
-    <loc>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
-    <lastmod>2019-05-01T17:29:25+09:00</lastmod>
-  </url><url>
-    <loc>/tags/http1.1/</loc>
-    <lastmod>2019-05-01T17:29:25+09:00</lastmod>
-  </url><url>
-    <loc>/tags/http2/</loc>
-    <lastmod>2019-05-01T17:29:25+09:00</lastmod>
-  </url><url>
     <loc>/tags/cors/</loc>
     <lastmod>2019-05-01T17:20:49+09:00</lastmod>
   </url><url>
     <loc>/posts/corscross-origin-resource-sharing/</loc>
     <lastmod>2019-05-01T17:20:49+09:00</lastmod>
   </url><url>
-    <loc>/tags/cdn/</loc>
-    <lastmod>2019-05-01T17:19:18+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</loc>
-    <lastmod>2019-05-01T17:19:18+09:00</lastmod>
-  </url><url>
-    <loc>/tags/host-header/</loc>
-    <lastmod>2019-05-01T17:16:40+09:00</lastmod>
-  </url><url>
-    <loc>/tags/virtual-host/</loc>
-    <lastmod>2019-05-01T17:16:40+09:00</lastmod>
-  </url><url>
-    <loc>/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</loc>
-    <lastmod>2019-05-01T17:16:40+09:00</lastmod>
-  </url><url>
     <loc>/posts/server-name-indicationsni/</loc>
     <lastmod>2019-05-01T17:12:34+09:00</lastmod>
   </url><url>
     <loc>/tags/sni/</loc>
     <lastmod>2019-05-01T17:12:34+09:00</lastmod>
-  </url><url>
-    <loc>/tags/http/</loc>
-    <lastmod>2019-05-01T16:53:27+09:00</lastmod>
-  </url><url>
-    <loc>/tags/https/</loc>
-    <lastmod>2019-05-01T16:53:27+09:00</lastmod>
-  </url><url>
-    <loc>/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
-    <lastmod>2019-05-01T16:53:27+09:00</lastmod>
-  </url><url>
-    <loc>/diagrams/pgt_diagram/</loc>
-  </url><url>
-    <loc>/diagrams/</loc>
   </url>
 </urlset>

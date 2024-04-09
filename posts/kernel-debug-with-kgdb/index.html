@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1571 words
+          1619 words
         </span>
         <span class="split">
           ·
@@ -103,6 +103,24 @@ if (!doNotTrack) {
     
     
         
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ol>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#demuxing-serial-communication-using-kdmx">Demuxing Serial Communication using kdmx</a></li>
+    <li><a href="#kernel-configuration">Kernel Configuration</a></li>
+    <li><a href="#attaching-gdb">Attaching GDB</a></li>
+    <li><a href="#끝맺음">끝맺음</a></li>
+  </ol>
+</nav>
+          </div>
+      </details>
+    </aside>
   
 
 
@@ -140,14 +158,39 @@ git://git.kernel.org/pub/scm/utils/kernel/kgdb/agent-proxy.git 에서 다운받�
 사용하도록 하자.</p>
 <p>kdmx 를 빌드한 뒤에 아래와 같이 실행해주면, pseudo tty가 만들어진 것을 확인할 수
 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>┌─<span style="color:#666">[</span>sukbeom@Sukbeomui-MacBookPro<span style="color:#666">]</span> - <span style="color:#666">[</span>~/Workspaces/kdmx/kdmx<span style="color:#666">]</span> - <span style="color:#666">[</span>3061<span style="color:#666">]</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6">6</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>┌─<span style="color:#666">[</span>sukbeom@Sukbeomui-MacBookPro<span style="color:#666">]</span> - <span style="color:#666">[</span>~/Workspaces/kdmx/kdmx<span style="color:#666">]</span> - <span style="color:#666">[</span>3061<span style="color:#666">]</span>
 </span></span><span style="display:flex;"><span>└─<span style="color:#666">[</span>$<span style="color:#666">]</span> ./kdmx -p /dev/tty.usbserial-0001 -b <span style="color:#666">115200</span>                                                                         <span style="color:#666">[</span>23:37:07<span style="color:#666">]</span>
 </span></span><span style="display:flex;"><span>/dev/ttys000 is slave pty <span style="color:#a2f;font-weight:bold">for</span> terminal emulator
 </span></span><span style="display:flex;"><span>/dev/ttys003 is slave pty <span style="color:#a2f;font-weight:bold">for</span> gdb
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Use &lt;ctrl&gt;C to terminate program
-</span></span></code></pre></div><p>테스트를 위해 /dev/ttys000 를 열어 아래와 같이 확인해보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ minicom -D /dev/ttys000 -b 115200
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>테스트를 위해 /dev/ttys000 를 열어 아래와 같이 확인해보자.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8">8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9">9</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ minicom -D /dev/ttys000 -b 115200
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Welcome to minicom 2.8
 </span></span><span style="display:flex;"><span>
@@ -156,9 +199,25 @@ git://git.kernel.org/pub/scm/utils/kernel/kgdb/agent-proxy.git 에서 다운받�
 </span></span><span style="display:flex;"><span>Port /dev/ttys000, 23:52:43
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Press Meta-Z for help on special keys
-</span></span></code></pre></div><h1 id="kernel-configuration">Kernel Configuration <a href="#kernel-configuration" class="anchor">🔗</a></h1><p>아래의 커널 설정 플래그들을 확인한다. 커널 컴파일 하는 방법은 디버깅 환경 구성과
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="kernel-configuration">Kernel Configuration <a href="#kernel-configuration" class="anchor">🔗</a></h1><p>아래의 커널 설정 플래그들을 확인한다. 커널 컴파일 하는 방법은 디버깅 환경 구성과
 다른 내용이므로 이 포스팅에서 자세하게 설명하지 않겠다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CONFIG_KGDB_KDB=y
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CONFIG_KGDB_KDB=y
 </span></span><span style="display:flex;"><span>CONFIG_KDB_DEFAULT_ENABLE=0x1
 </span></span><span style="display:flex;"><span>CONFIG_KDB_KEYBOARD=y
 </span></span><span style="display:flex;"><span>CONFIG_KDB_CONTINUE_CATASTROPHIC=0
@@ -168,7 +227,9 @@ git://git.kernel.org/pub/scm/utils/kernel/kgdb/agent-proxy.git 에서 다운받�
 </span></span><span style="display:flex;"><span>CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE=0x1
 </span></span><span style="display:flex;"><span>CONFIG_MAGIC_SYSRQ_SERIAL=y
 </span></span><span style="display:flex;"><span>CONFIG_MAGIC_SYSRQ_SERIAL_SEQUENCE=&#34;.&#34;
-</span></span></code></pre></div><h1 id="attaching-gdb">Attaching GDB <a href="#attaching-gdb" class="anchor">🔗</a></h1><p>이제 KGDB를 직접 이용해보자. 필자는 컴파일용 리눅스 서버에서 커널을 빌드하고
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="attaching-gdb">Attaching GDB <a href="#attaching-gdb" class="anchor">🔗</a></h1><p>이제 KGDB를 직접 이용해보자. 필자는 컴파일용 리눅스 서버에서 커널을 빌드하고
 생성된 vmlinux 파일을 Mac OS에 복사하여 심볼을 로드하는데 사용하였다. 맥용 gdb가
 필요하다면 반드시 <a href="https://seokbeomkim.github.io/posts/kernel-hacking-on-mac/" target="_blank" rel="noopener">https://seokbeomkim.github.io/posts/kernel-hacking-on-mac/</a>
 포스팅을 참고하도록 한다. (homebrew 를 이용하여 gdb 를 설치해봤자 정상적으로
@@ -180,11 +241,33 @@ git://git.kernel.org/pub/scm/utils/kernel/kgdb/agent-proxy.git 에서 다운받�
 진입하여 kgdb를 붙인 뒤 고의로 커널 패닉을 발생시켜 gdb로 어떻게 분석 가능한지를
 보일 것이다.</p>
 <p>먼저, kgdb 에서 사용할 시리얼을 아래와 같이 설정해준다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberrypi:/home/pi# who | awk <span style="color:#b44">&#39;{print $2}&#39;</span> &gt; /sys/module/kgdboc/parameters/kgdboc
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberrypi:/home/pi# who | awk <span style="color:#b44">&#39;{print $2}&#39;</span> &gt; /sys/module/kgdboc/parameters/kgdboc
 </span></span><span style="display:flex;"><span>root@raspberrypi:/home/pi# cat /sys/module/kgdboc/parameters/kgdboc
 </span></span><span style="display:flex;"><span>ttyS0
-</span></span></code></pre></div><p>이제 sysrq 를 이용하여 KDB로 진입한 뒤 kgdb 를 실행한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberrypi:/home/pi# <span style="color:#a2f">echo</span> g &gt; /proc/sysrq-trigger
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제 sysrq 를 이용하여 KDB로 진입한 뒤 kgdb 를 실행한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-8">8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-9">9</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@raspberrypi:/home/pi# <span style="color:#a2f">echo</span> g &gt; /proc/sysrq-trigger
 </span></span><span style="display:flex;"><span><span style="color:#666">[</span> 1141.184978<span style="color:#666">]</span> sysrq: DEBUG
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Entering kdb <span style="color:#666">(</span><span style="color:#b8860b">current</span><span style="color:#666">=</span>0x836b8000, pid 552<span style="color:#666">)</span> on processor <span style="color:#666">0</span> due to Keyboard Entry
@@ -193,9 +276,26 @@ git://git.kernel.org/pub/scm/utils/kernel/kgdb/agent-proxy.git 에서 다운받�
 </span></span><span style="display:flex;"><span><span style="color:#666">[</span>0<span style="color:#666">]</span>kdb&gt;
 </span></span><span style="display:flex;"><span><span style="color:#666">[</span>0<span style="color:#666">]</span>kdb&gt; kgdb
 </span></span><span style="display:flex;"><span>Entering please attach debugger or use + or
-</span></span></code></pre></div><p>이제 호스트에서 GDB를 실행한 뒤 시리얼 통신으로 붙여준다. 아래와 같이 정상적으로
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제 호스트에서 GDB를 실행한 뒤 시리얼 통신으로 붙여준다. 아래와 같이 정상적으로
 attach 가 된 것을 알 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./arm-linux-gnueabihf-gdb ~/Workspaces/rpi/vmlinux
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-11">11</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ./arm-linux-gnueabihf-gdb ~/Workspaces/rpi/vmlinux
 </span></span><span style="display:flex;"><span><span style="color:#666">(</span>gdb<span style="color:#666">)</span> file ~/Workspace/rpi/vmlinux
 </span></span><span style="display:flex;"><span><span style="color:#666">(</span>gdb<span style="color:#666">)</span> <span style="color:#a2f">cd</span> /Volumes/Kernel/rpi_kernel
 </span></span><span style="display:flex;"><span><span style="color:#666">(</span>gdb<span style="color:#666">)</span> target remote /dev/ttys003
@@ -206,7 +306,9 @@ attach 가 된 것을 알 수 있다.</p>
 </span></span><span style="display:flex;"><span>warning: Source file is more recent than executable.
 </span></span><span style="display:flex;"><span>46		asm<span style="color:#666">(</span>__inst_arm<span style="color:#666">(</span>0xe7ffdeff<span style="color:#666">))</span>;
 </span></span><span style="display:flex;"><span><span style="color:#666">(</span>gdb<span style="color:#666">)</span>
-</span></span></code></pre></div><h1 id="끝맺음">끝맺음 <a href="#%eb%81%9d%eb%a7%ba%ec%9d%8c" class="anchor">🔗</a></h1><p>현업에서 다른 사람들의 디버깅 방법을 보면서 가장 답답한 부분은 디버깅 시에 툴을
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="끝맺음">끝맺음 <a href="#%eb%81%9d%eb%a7%ba%ec%9d%8c" class="anchor">🔗</a></h1><p>현업에서 다른 사람들의 디버깅 방법을 보면서 가장 답답한 부분은 디버깅 시에 툴을
 사용하지 않는다는 점이다. 몇몇 스타 개발자의 경우 디버깅 툴을 싫어하고 로그
 메시지만으로도 충분하다고 하는데 개인적으로는 이러한 의견에 반대한다. 로그
 메시지를 이용하여 문제를 해결하는 방향을 세우고 분석하는 것도 중요하지만, 그러한

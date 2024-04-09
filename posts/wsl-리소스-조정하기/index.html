@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          512 words
+          531 words
         </span>
         <span class="split">
           ·
@@ -110,10 +110,11 @@ if (!doNotTrack) {
           </summary>
           <div>
               <nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#개요">개요</a></li>
     <li><a href="#wsl-리소스-설정">WSL 리소스 설정</a></li>
-  </ul>
+    <li><a href="#출처">출처</a></li>
+  </ol>
 </nav>
           </div>
       </details>
@@ -126,15 +127,27 @@ if (!doNotTrack) {
 
     <div class="content">
       <!--toc-->
-<h2 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h2><p>커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는
+<h1 id="개요">개요 <a href="#%ea%b0%9c%ec%9a%94" class="anchor">🔗</a></h1><p>커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는
 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이
 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한
 내용은 <a href="https://blog.simonpeterdebbarma.com/2020-04-memory-and-wsl/" target="_blank" rel="noopener">다른
 블로그</a>에서도
 동일하게 재현되고 있었다.</p>
 <p>위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.</p>
-<h2 id="wsl-리소스-설정">WSL 리소스 설정 <a href="#wsl-%eb%a6%ac%ec%86%8c%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -l -v
+<h1 id="wsl-리소스-설정">WSL 리소스 설정 <a href="#wsl-%eb%a6%ac%ec%86%8c%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h1><p>먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8">8</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -l -v
 </span></span><span style="display:flex;"><span>  NAME      STATE           VERSION
 </span></span><span style="display:flex;"><span>* Ubuntu    Running         <span style="color:#666">2</span>
 </span></span><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -t Ubuntu --shutdown
@@ -142,10 +155,33 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -l -v
 </span></span><span style="display:flex;"><span>  NAME      STATE           VERSION
 </span></span><span style="display:flex;"><span>* Ubuntu    Stopped         <span style="color:#666">2</span>
-</span></span></code></pre></div><p>종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; notepad <span style="color:#b8860b">$env:USERPROFILE</span>\.wslconfig
-</span></span></code></pre></div><p>이제 아래와 같이 설정해주자. 이제 WSL2에서 사용할 메모리는 최대 4G로 제한된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[wsl2]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; notepad <span style="color:#b8860b">$env:USERPROFILE</span>\.wslconfig
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제 아래와 같이 설정해주자. 이제 WSL2에서 사용할 메모리는 최대 4G로 제한된다.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-10">10</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[wsl2]
 </span></span><span style="display:flex;"><span>#kernel=&lt;path&gt;              # An absolute Windows path to a custom Linux kernel.
 </span></span><span style="display:flex;"><span>memory=4G              	    # How much memory to assign to the WSL2 VM.
 </span></span><span style="display:flex;"><span>#processors=&lt;number&gt;        # How many processors to assign to the WSL2 VM.
@@ -155,7 +191,9 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span># &lt;path&gt; entries must be absolute Windows paths with escaped backslashes, for example C:\\Users\\Ben\\kernel
 </span></span><span style="display:flex;"><span># &lt;size&gt; entries must be size followed by unit, for example 8GB or 512MB
-</span></span></code></pre></div><p>이제 설치한 WSL의 바로가기를 눌러 WSL을 다시 실행시킨다. 윈도우즈의 Task Manager를 보면 아래와 같이 설정한 값으로 메모리 사용이 제한되는 것을 알 수 있다.</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이제 설치한 WSL의 바로가기를 눌러 WSL을 다시 실행시킨다. 윈도우즈의 Task Manager를 보면 아래와 같이 설정한 값으로 메모리 사용이 제한되는 것을 알 수 있다.</p>
 <p><p class="markdown-image">
   <img src="/img/taskmgr_wsl_mem_set.png" alt="조정된 vmmem 메모리"  />
 </p></p>

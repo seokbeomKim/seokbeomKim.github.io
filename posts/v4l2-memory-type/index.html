@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1476 words
+          1481 words
         </span>
         <span class="split">
           ·
@@ -103,6 +103,22 @@ if (!doNotTrack) {
     
     
         
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ol>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#문제">문제</a></li>
+    <li><a href="#끝맺음">끝맺음</a></li>
+  </ol>
+</nav>
+          </div>
+      </details>
+    </aside>
   
 
 
@@ -144,12 +160,23 @@ dma_contig_sg를 사용한다. 이 경우 하드웨어 적으로 scatter/gather 
 각각의 메모리 방식을 사용하는 이유에 대해서 우선적으로 알아보지 않았던 것이
 문제였다.</p>
 <p>V4L2 memory에는 아래와 같이 MMAP/USERPTR/OVERLAY/DMABUF 등이 제공된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">enum</span> v4l2_memory {
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">enum</span> v4l2_memory {
 </span></span><span style="display:flex;"><span>    V4L2_MEMORY_MMAP             <span style="color:#666">=</span> <span style="color:#666">1</span>,
 </span></span><span style="display:flex;"><span>    V4L2_MEMORY_USERPTR          <span style="color:#666">=</span> <span style="color:#666">2</span>,
 </span></span><span style="display:flex;"><span>    V4L2_MEMORY_OVERLAY          <span style="color:#666">=</span> <span style="color:#666">3</span>,
 </span></span><span style="display:flex;"><span>    V4L2_MEMORY_DMABUF           <span style="color:#666">=</span> <span style="color:#666">4</span>,
-</span></span></code></pre></div><p>OVERLAY는 생략하고 나머지를 보면, 먼저 MMAP은 드라이버가 버퍼를 할당하여
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>OVERLAY는 생략하고 나머지를 보면, 먼저 MMAP은 드라이버가 버퍼를 할당하여
 userspace의 애플리케이션에서 매핑해서 사용하기 위한 목적의 메모리
 타입이다. USERPTR은 반대로 userspace application에서 메모리를 할당하여
 드라이버에서 사용하는 방식이다. 그리고 나머지 DMABUF는 다른 디바이스에서 이미

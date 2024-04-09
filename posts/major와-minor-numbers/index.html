@@ -90,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          2219 words
+          2261 words
         </span>
         <span class="split">
           ·
@@ -103,6 +103,22 @@ if (!doNotTrack) {
     
     
         
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ol>
+    <li><a href="#dynamic-allocation-of-major-numbers">Dynamic Allocation of Major Numbers</a></li>
+    <li><a href="#kdev_t-and--dev_t">kdev_t and  dev_t</a></li>
+    <li><a href="#출처">출처</a></li>
+  </ol>
+</nav>
+          </div>
+      </details>
+    </aside>
   
 
 
@@ -120,7 +136,21 @@ if (!doNotTrack) {
 특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로
 식별할 수 있다. 아래와 같이 <code>ls</code> 명령어를 사용하면 각 디바이스 파일에
 번호가 할당되어 있는 것을 알 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#666">2</span> root    root           <span style="color:#666">60</span> May <span style="color:#666">31</span> 23:18 vfio
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#666">2</span> root    root           <span style="color:#666">60</span> May <span style="color:#666">31</span> 23:18 vfio
 </span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root    10,    <span style="color:#666">63</span> May <span style="color:#666">31</span> 23:18 vga_arbiter
 </span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">137</span> May <span style="color:#666">31</span> 23:18 vhci
 </span></span><span style="display:flex;"><span>crw-rw----+  <span style="color:#666">1</span> root    kvm     10,   <span style="color:#666">238</span> May <span style="color:#666">31</span> 23:18 vhost-net
@@ -130,12 +160,27 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">130</span> May <span style="color:#666">31</span> 23:18 watchdog
 </span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root   246,     <span style="color:#666">0</span> May <span style="color:#666">31</span> 23:18 watchdog0
 </span></span><span style="display:flex;"><span>crw-rw-rw-   <span style="color:#666">1</span> root    root     1,     <span style="color:#666">5</span> May <span style="color:#666">31</span> 23:18 zero
-</span></span></code></pre></div><p>이 때, <code>major number</code>는 특정 디바이스에 할당된 드라이버를
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이 때, <code>major number</code>는 특정 디바이스에 할당된 드라이버를
 식별한다. 예를 들어, <code>/dev/zero</code>는 드라이버 1이 관리하고
 <code>/dev/watchdog0</code>은 드라이버 246이 관리한다. <code>minor number</code>는
 드라이버가 맡고 있는 장치들을 분류하기 위한 것으로 아래와 같이 같은
 <code>major number</code>를 가지고 있는 장치들을 분류할 때 사용한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>➜  ~ ls -l /dev | egrep <span style="color:#b44">&#39;^c.*.(\s)1,&#39;</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8">8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9">9</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>➜  ~ ls -l /dev | egrep <span style="color:#b44">&#39;^c.*.(\s)1,&#39;</span>
 </span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">7</span> May <span style="color:#666">31</span> 23:18 full
 </span></span><span style="display:flex;"><span>crw-r--r--  <span style="color:#666">1</span> root    root     1,    <span style="color:#666">11</span> May <span style="color:#666">31</span> 23:18 kmsg
 </span></span><span style="display:flex;"><span>crw-r-----  <span style="color:#666">1</span> root    kmem     1,     <span style="color:#666">1</span> May <span style="color:#666">31</span> 23:18 mem
@@ -144,19 +189,32 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">8</span> May <span style="color:#666">31</span> 23:18 random
 </span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">9</span> May <span style="color:#666">31</span> 23:18 urandom
 </span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">5</span> May <span style="color:#666">31</span> 23:18 zero
-</span></span></code></pre></div><p>버전 2.4 커널에서 <code>devfs(device file system)</code>라는 새 기능이
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>버전 2.4 커널에서 <code>devfs(device file system)</code>라는 새 기능이
 추가되었다. 만약 이 파일시스템 사용되면 디바이스 파일들을 그 전보다
 훨씬 간단하게 관리할 수 있지만 호환성에 문제가 생긴다. 이에 대해서
 자세히 알아보자.</p>
 <p><code>devfs</code>를 사용하지 않을 경우, <code>시스템에 드라이버를 새로 추가한다</code>는
 의미는 새로운 <code>major number</code>를 할당한다는 의미와 같다. 그래서 아래와
 같은 코드를 이용해 직접 그 숫자를 할당해줘야 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// return: success or failure(&lt;0)
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5">5</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// return: success or failure(&lt;0)
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// major: major number being requested
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// name: name of the device (which will appear in /proc/devices)
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// fops: driver&#39;s entry point
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">register_chrdev</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> major, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>name, <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">file_operations</span> <span style="color:#666">*</span>fops);
-</span></span></code></pre></div><p><code>Major Number</code>는 <code>small integer</code> 형태로서 캐릭터 드라이버 배열의
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Major Number</code>는 <code>small integer</code> 형태로서 캐릭터 드라이버 배열의
 인덱스를 담당한다. 2.0 커널에서는 128개 디바이스에 대해, 2.2와
 2.4에서는 256개 디바이스에 대한 인덱스를 가질 수 있으며 <code>Minor Number</code>의 경우 8비트를 가져 마찬가지로 256개 디바이스에 대한 인덱스를
 가질 수 있다. 하지만 <code>Minor Number</code>는 위 함수에서 특별히 인자로 넘기지
@@ -166,9 +224,17 @@ if (!doNotTrack) {
 시에 정의했던 <code>file_operations</code> 구조체의 각 함수들을 이용하게
 된다. 하지만 코드가 아닌 실제 명령어를 통해 이러한 등록 과정을 아주
 간단히 할 수가 있는데 그것이 바로 <code>mknod</code> 명령어이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ mknod /dev/scull0 c <span style="color:#666">254</span> <span style="color:#666">0</span>
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ mknod /dev/scull0 c <span style="color:#666">254</span> <span style="color:#666">0</span>
 </span></span><span style="display:flex;"><span>$ rm /dev/scull0
-</span></span></code></pre></div><p>위처럼 major number가 254, minor number가 0인 캐릭터 디바이스(c)를
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>위처럼 major number가 254, minor number가 0인 캐릭터 디바이스(c)를
 생성하고 해당 디바이스를 삭제할 수 있다. 하지만 이렇게 정적으로
 디바이스를 관리하는 인덱스 번호를 할당할 필요가 있을까?</p>
 <h1 id="dynamic-allocation-of-major-numbers">Dynamic Allocation of Major Numbers <a href="#dynamic-allocation-of-major-numbers" class="anchor">🔗</a></h1><p>몇몇 주요 장치들에 대한 인덱스 숫자는 정적으로 할당된다. 이러한
@@ -185,7 +251,19 @@ if (!doNotTrack) {
 것처럼 <code>/proc/devices</code>의 정보를 사용하면 되기 때문이다.</p>
 <p>동적으로 생성하는 방법은 아래와 같은 코드를 이용하면 된다. 이 때,
 <code>scull_major</code> 값을 0으로 주어지면 동적 할당을 사용한다는 의미이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>result <span style="color:#666">=</span> register_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>, <span style="color:#666">&amp;</span>scull_fops);
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-8">8</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>result <span style="color:#666">=</span> register_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>, <span style="color:#666">&amp;</span>scull_fops);
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (result <span style="color:#666">&lt;</span> <span style="color:#666">0</span>) {
 </span></span><span style="display:flex;"><span>    printk(KERN_WARNING <span style="color:#b44">&#34;scull: can&#39;t get major %d</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, scull_major);
 </span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> resul;t
@@ -193,7 +271,9 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (scull_major <span style="color:#666">==</span> <span style="color:#666">0</span>) scull_major <span style="color:#666">=</span> result; <span style="color:#080;font-style:italic">/* dynamic */</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>unregister_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>);
-</span></span></code></pre></div><p>이 때, 코드 마지막에 위치하는 <code>unregister_chrdev</code> 사용에 있어서
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>이 때, 코드 마지막에 위치하는 <code>unregister_chrdev</code> 사용에 있어서
 실패했을 경우를 염두에 두어야 한다. 등록 해제(unregister_chrdev)가
 실패했을 때는 그 영향에 대해 주의해야 한다.<code>/proc/devices</code> 자체가
 실패할 수 있는데 그 이유는 이미 해제된 장치에 대해 이름을 가리키는
@@ -209,7 +289,19 @@ if (!doNotTrack) {
 변경되더라도 디바이스 드라이버에서 해당 변경에 대해 별다른 변경 작업을
 할 필요가 없도록 설계되었다. <code>kdev_t</code>를 이용하기 위해서는 직접 사용할
 필요가 없고 아래와 같이 제공되는 함수 또는 매크로를 이용한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Extract the major number from a kdev_t structure.
+<div class="highlight"><div style="background-color:#f8f8f8;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7">7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8">8</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#f8f8f8;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Extract the major number from a kdev_t structure.
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MAJOR(dev)	((unsigned int) ((dev) &gt;&gt; MINORBITS))
 </span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Extract the minor number.
@@ -217,7 +309,9 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Create a kdev_t build from major and minor numbers
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MKDEV(ma,mi)	(((ma) &lt;&lt; MINORBITS) | (mi))
-</span></span></span></code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html" target="_blank" rel="noopener">https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html</a></li>
 </ul>
 

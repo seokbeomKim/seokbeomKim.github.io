@@ -6,15 +6,8 @@
     <description>Recent content in WSL on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Dec 2020 01:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 28 Nov 2020 23:00:00 +0900</lastBuildDate>
     <atom:link href="/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>WSL 가상 디스크 파일 D 드라이브에 옮기기</title>
-      <link>/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</link>
-      <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
-      <guid>/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</guid>
-      <description>lxrunoffline 🔗WSL 을 사용하다 보면 디스크 용량이 커져 C 드라이브의 용량이 부족해진다. 용량이 넉넉하면 문제가 없겠지만 필자와 같이 C 드라이브는 O/S만 설치하고 D 드</description>
-    </item>
     <item>
       <title>WSL 리소스 조정하기</title>
       <link>/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</link>
