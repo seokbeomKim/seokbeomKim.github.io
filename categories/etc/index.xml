@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>etc on Sukbeom Kim</title>
+    <title>Etc on Sukbeom Kim</title>
     <link>/categories/etc/</link>
-    <description>Recent content in etc on Sukbeom Kim</description>
+    <description>Recent content in Etc on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jan 2023 21:37:38 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 Oct 2022 17:00:05 +0900</lastBuildDate>
     <atom:link href="/categories/etc/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>OpenAI ChatGPT</title>
-      <link>/posts/openai-chatgpt/</link>
-      <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
-      <guid>/posts/openai-chatgpt/</guid>
-      <description>며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일 거라 생각했는데 성능이 예상했던 것보다 훨~씬 좋았다. MISR</description>
-    </item>
-    <item>
-      <title>Obsidian</title>
-      <link>/posts/obsidian/</link>
-      <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
-      <guid>/posts/obsidian/</guid>
-      <description>Notion에서 Obsidian으로 갈아타기 요즘에 많은 사람들이 노션을 사용한다. 이력서나 개인 위키, 심지어 업무 협업툴로써 사용한다. 필자는 개인 위키</description>
-    </item>
     <item>
       <title>급성 저음성 난청</title>
       <link>/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</link>
