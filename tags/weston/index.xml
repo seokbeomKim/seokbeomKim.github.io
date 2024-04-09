@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>weston on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/weston/</link>
+    <link>/tags/weston/</link>
     <description>Recent content in weston on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Feb 2020 23:17:11 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/weston/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/weston/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wayland과 Weston</title>
-      <link>https://seokbeomkim.github.io/posts/wayland%EA%B3%BC-weston/</link>
+      <link>/posts/wayland%EA%B3%BC-weston/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/wayland%EA%B3%BC-weston/</guid>
+      <guid>/posts/wayland%EA%B3%BC-weston/</guid>
       <description>개요 🔗직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을</description>
     </item>
   </channel>

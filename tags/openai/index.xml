@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>openai on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/openai/</link>
+    <link>/tags/openai/</link>
     <description>Recent content in openai on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Jan 2023 21:37:38 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/openai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/openai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OpenAI ChatGPT</title>
-      <link>https://seokbeomkim.github.io/posts/openai-chatgpt/</link>
+      <link>/posts/openai-chatgpt/</link>
       <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/openai-chatgpt/</guid>
+      <guid>/posts/openai-chatgpt/</guid>
       <description>며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일 거라 생각했는데 성능이 예상했던 것보다 훨~씬 좋았다. MISR</description>
     </item>
   </channel>

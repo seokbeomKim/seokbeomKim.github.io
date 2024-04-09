@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>typescript on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/categories/typescript/</link>
+    <link>/categories/typescript/</link>
     <description>Recent content in typescript on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 May 2019 16:30:51 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/categories/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/typescript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Named export와 Default export</title>
-      <link>https://seokbeomkim.github.io/posts/named-export%EC%99%80-default-export/</link>
+      <link>/posts/named-export%EC%99%80-default-export/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/named-export%EC%99%80-default-export/</guid>
+      <guid>/posts/named-export%EC%99%80-default-export/</guid>
       <description>개요 🔗모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때 이해가 되지 않았다. 특히 default export와 named export 라는 export 방식과 자바스크립트 버전에 따른 문</description>
     </item>
   </channel>

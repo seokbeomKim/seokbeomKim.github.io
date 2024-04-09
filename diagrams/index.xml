@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Diagrams on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/diagrams/</link>
+    <link>/diagrams/</link>
     <description>Recent content in Diagrams on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://seokbeomkim.github.io/diagrams/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/diagrams/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://seokbeomkim.github.io/diagrams/pgt_diagram/</link>
+      <link>/diagrams/pgt_diagram/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://seokbeomkim.github.io/diagrams/pgt_diagram/</guid>
+      <guid>/diagrams/pgt_diagram/</guid>
       <description>@startuml&#xA;@enduml</description>
     </item>
   </channel>

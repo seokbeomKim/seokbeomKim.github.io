@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RCU on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/rcu/</link>
+    <link>/tags/rcu/</link>
     <description>Recent content in RCU on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Jun 2019 17:34:42 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/rcu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/rcu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RCU (Read, Copy, Update)</title>
-      <link>https://seokbeomkim.github.io/posts/rcu-read-copy-update/</link>
+      <link>/posts/rcu-read-copy-update/</link>
       <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/rcu-read-copy-update/</guid>
+      <guid>/posts/rcu-read-copy-update/</guid>
       <description>1. 들어가기 전에 &amp;hellip; 🔗앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스</description>
     </item>
   </channel>

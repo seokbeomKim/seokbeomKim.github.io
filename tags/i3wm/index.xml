@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>i3wm on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/i3wm/</link>
+    <link>/tags/i3wm/</link>
     <description>Recent content in i3wm on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 11 Feb 2021 18:20:10 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/i3wm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/i3wm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>i3 window manager</title>
-      <link>https://seokbeomkim.github.io/posts/i3-window-manager/</link>
+      <link>/posts/i3-window-manager/</link>
       <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/i3-window-manager/</guid>
+      <guid>/posts/i3-window-manager/</guid>
       <description>우분투 데스크탑 환경 삭제하기 🔗개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되</description>
     </item>
   </channel>

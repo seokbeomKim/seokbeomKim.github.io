@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>modules on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/modules/</link>
+    <link>/tags/modules/</link>
     <description>Recent content in modules on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 May 2019 02:11:40 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/modules/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/modules/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>커널 모듈과 드라이버의 차이</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
+      <link>/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+      <guid>/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
       <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자</description>
     </item>
   </channel>

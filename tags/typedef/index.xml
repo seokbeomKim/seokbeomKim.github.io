@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>typedef on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/typedef/</link>
+    <link>/tags/typedef/</link>
     <description>Recent content in typedef on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Feb 2020 01:12:37 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/typedef/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/typedef/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>typedef is evil</title>
-      <link>https://seokbeomkim.github.io/posts/typedef-is-evil/</link>
+      <link>/posts/typedef-is-evil/</link>
       <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/typedef-is-evil/</guid>
+      <guid>/posts/typedef-is-evil/</guid>
       <description>커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목</description>
     </item>
   </channel>

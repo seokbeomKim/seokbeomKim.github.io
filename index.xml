@@ -2,752 +2,752 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/</link>
+    <link>/</link>
     <description>Recent content on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 19 Aug 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vterm In Emacs</title>
-      <link>https://seokbeomkim.github.io/posts/vterm-in-emacs/</link>
+      <link>/posts/vterm-in-emacs/</link>
       <pubDate>Sat, 19 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/vterm-in-emacs/</guid>
+      <guid>/posts/vterm-in-emacs/</guid>
       <description>Overview Using Emacs in daily life, I rely on vterm terminal emulator instead of eshell. However, I&amp;#39;ve noticed that there are certain limitations in terms of integration between vterm and Emacs. While the package supports some user-accessible functions, they are not sufficient. I&amp;#39;ve always wanted the integration level as VSCode, and at least it should be able to open files from the terminal interface. Well, this is one of essential features of the terminal emulator running on editors, so I thought that having this kind of issue was ridiculous.</description>
     </item>
     <item>
       <title>라즈베리파이 네트워크 부팅 설정</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95/</link>
+      <link>/posts/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95/</link>
       <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95/</guid>
+      <guid>/posts/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95/</guid>
       <description>네트워크 부팅 환경 설정 🔗기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우</description>
     </item>
     <item>
       <title>Fwnode</title>
-      <link>https://seokbeomkim.github.io/posts/fwnode/</link>
+      <link>/posts/fwnode/</link>
       <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/fwnode/</guid>
+      <guid>/posts/fwnode/</guid>
       <description>fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이 없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고</description>
     </item>
     <item>
       <title>OpenAI ChatGPT</title>
-      <link>https://seokbeomkim.github.io/posts/openai-chatgpt/</link>
+      <link>/posts/openai-chatgpt/</link>
       <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/openai-chatgpt/</guid>
+      <guid>/posts/openai-chatgpt/</guid>
       <description>며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일 거라 생각했는데 성능이 예상했던 것보다 훨~씬 좋았다. MISR</description>
     </item>
     <item>
       <title>Tasklet</title>
-      <link>https://seokbeomkim.github.io/posts/tasklet/</link>
+      <link>/posts/tasklet/</link>
       <pubDate>Sun, 13 Nov 2022 17:32:26 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/tasklet/</guid>
+      <guid>/posts/tasklet/</guid>
       <description>개요 🔗사내 커널 스터디에서 교재로서 사용하고 있는 디버깅을 통해 배우는 리눅스 커널의 구조와 원리 책에서는 태스크릿 (Tasklet)을 SoftIRQ와 함께</description>
     </item>
     <item>
       <title>Obsidian</title>
-      <link>https://seokbeomkim.github.io/posts/obsidian/</link>
+      <link>/posts/obsidian/</link>
       <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/obsidian/</guid>
+      <guid>/posts/obsidian/</guid>
       <description>Notion에서 Obsidian으로 갈아타기 요즘에 많은 사람들이 노션을 사용한다. 이력서나 개인 위키, 심지어 업무 협업툴로써 사용한다. 필자는 개인 위키</description>
     </item>
     <item>
       <title>급성 저음성 난청</title>
-      <link>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</link>
+      <link>/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</link>
       <pubDate>Sat, 22 Oct 2022 17:00:05 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</guid>
+      <guid>/posts/%EA%B8%89%EC%84%B1-%EC%A0%80%EC%9D%8C%EC%84%B1-%EB%82%9C%EC%B2%AD/</guid>
       <description>지난 월요일 아침 눈을 뜨고 평소처럼 회사 출근 준비를 하려는데 한쪽 귀가 멍하더니 소리가 잘 들리지 않았다. 예전에 백신을 맞고 돌발성 난청이 왔었는데 그 때와는 약간 다</description>
     </item>
     <item>
       <title>strcpy</title>
-      <link>https://seokbeomkim.github.io/posts/strcpy/</link>
+      <link>/posts/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/strcpy/</guid>
+      <guid>/posts/strcpy/</guid>
       <description>개요 🔗한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는</description>
     </item>
     <item>
       <title>프로세스 종료와 파일 디스크립터</title>
-      <link>https://seokbeomkim.github.io/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</link>
+      <link>/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</link>
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</guid>
+      <guid>/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</guid>
       <description>파일을 open 했는데 close를 안하면? 🔗stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던</description>
     </item>
     <item>
       <title>Device Tree Overlay</title>
-      <link>https://seokbeomkim.github.io/posts/device-tree-overlay/</link>
+      <link>/posts/device-tree-overlay/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/device-tree-overlay/</guid>
+      <guid>/posts/device-tree-overlay/</guid>
       <description>Ramoops 덕분에 알게된 오버레이 🔗며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면</description>
     </item>
     <item>
       <title>525. Contiguous Array</title>
-      <link>https://seokbeomkim.github.io/posts/525.-contiguous-array/</link>
+      <link>/posts/525.-contiguous-array/</link>
       <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/525.-contiguous-array/</guid>
+      <guid>/posts/525.-contiguous-array/</guid>
       <description>HashMap을 이용한 문제 🔗문제를 읽고 HashMap을 이용한 방법이 한번에 와닿지 않아 이를 다시 한번 더 정리하고자 한다. 이번 &amp;ldquo;Contiguous Array&amp;rdquo; 문제는 배열 내의 0, 1 개</description>
     </item>
     <item>
       <title>Stack Protector와 디버깅 이야기</title>
-      <link>https://seokbeomkim.github.io/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</link>
+      <link>/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</guid>
+      <guid>/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</guid>
       <description>Stack Protector, 넌 뭐하는 놈이냐? 🔗현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바</description>
     </item>
     <item>
       <title>컴파일 타임에 매크로 변수 값 확인하기</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/</guid>
       <description>&lt;h1 id=&#34;개요&#34;&gt;개요 &lt;a href=&#34;#%ea%b0%9c%ec%9a%94&#34; class=&#34;anchor&#34;&gt;🔗&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어&#xA;사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기&#xA;위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한&#xA;변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.&lt;/p&gt;&#xA;&lt;p&gt;그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma&#xA;와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.&lt;/p&gt;</description>
     </item>
     <item>
       <title>커널의 KASAN 코드가 삽입되는 방법</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</link>
+      <link>/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</guid>
+      <guid>/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</guid>
       <description>커널의 KASAN 코드가 삽입되는 방법 🔗Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을</description>
     </item>
     <item>
       <title>V4L2 Memory Type</title>
-      <link>https://seokbeomkim.github.io/posts/v4l2-memory-type/</link>
+      <link>/posts/v4l2-memory-type/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/v4l2-memory-type/</guid>
+      <guid>/posts/v4l2-memory-type/</guid>
       <description>개요 🔗최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니</description>
     </item>
     <item>
       <title>Kernel Debug With Kgdb</title>
-      <link>https://seokbeomkim.github.io/posts/kernel-debug-with-kgdb/</link>
+      <link>/posts/kernel-debug-with-kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/kernel-debug-with-kgdb/</guid>
+      <guid>/posts/kernel-debug-with-kgdb/</guid>
       <description>개요 🔗필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용</description>
     </item>
     <item>
       <title>__is_constexpr macro in kernel</title>
-      <link>https://seokbeomkim.github.io/posts/__is_constexpr-macro-in-kernel/</link>
+      <link>/posts/__is_constexpr-macro-in-kernel/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/__is_constexpr-macro-in-kernel/</guid>
+      <guid>/posts/__is_constexpr-macro-in-kernel/</guid>
       <description>커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러</description>
     </item>
     <item>
       <title>state vs status</title>
-      <link>https://seokbeomkim.github.io/posts/state-vs-status/</link>
+      <link>/posts/state-vs-status/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/state-vs-status/</guid>
+      <guid>/posts/state-vs-status/</guid>
       <description>개요 🔗코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “stat</description>
     </item>
     <item>
       <title>Mac에서 GDB 이용한 커널 해킹하기</title>
-      <link>https://seokbeomkim.github.io/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없</description>
     </item>
     <item>
       <title>i3 window manager</title>
-      <link>https://seokbeomkim.github.io/posts/i3-window-manager/</link>
+      <link>/posts/i3-window-manager/</link>
       <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/i3-window-manager/</guid>
+      <guid>/posts/i3-window-manager/</guid>
       <description>우분투 데스크탑 환경 삭제하기 🔗개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되</description>
     </item>
     <item>
       <title>Emacs에서 magit 최적화하기</title>
-      <link>https://seokbeomkim.github.io/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블</description>
     </item>
     <item>
       <title>Homebrew python 설치하기</title>
-      <link>https://seokbeomkim.github.io/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
       <description>Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로</description>
     </item>
     <item>
       <title>리눅스 커널 빌드 시 맥 O/S uuid_t 호환성</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</link>
+      <link>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</guid>
+      <guid>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</guid>
       <description>개요 🔗BSD 기반의 맥에서 리눅스 커널 빌드가 안될리 없다고 생각하고 나서 어떻게든 맥에서 리눅스 커널을 빌드하기 위해 이런저런 삽질을 했다. 회사에서의 BSP 업무는</description>
     </item>
     <item>
       <title>WSL 가상 디스크 파일 D 드라이브에 옮기기</title>
-      <link>https://seokbeomkim.github.io/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</link>
+      <link>/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</link>
       <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</guid>
+      <guid>/posts/wsl-%EA%B0%80%EC%83%81-%EB%94%94%EC%8A%A4%ED%81%AC-%ED%8C%8C%EC%9D%BC-d-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%EC%97%90-%EC%98%AE%EA%B8%B0%EA%B8%B0/</guid>
       <description>lxrunoffline 🔗WSL 을 사용하다 보면 디스크 용량이 커져 C 드라이브의 용량이 부족해진다. 용량이 넉넉하면 문제가 없겠지만 필자와 같이 C 드라이브는 O/S만 설치하고 D 드</description>
     </item>
     <item>
       <title>sysrq 이용한 커널 패닉 발생시키기</title>
-      <link>https://seokbeomkim.github.io/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</link>
+      <link>/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</link>
       <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</guid>
+      <guid>/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</guid>
       <description>개요 🔗현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등</description>
     </item>
     <item>
       <title>WSL 리소스 조정하기</title>
-      <link>https://seokbeomkim.github.io/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일</description>
     </item>
     <item>
       <title>캐시라인(cache-line) 구조 #2</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</link>
+      <link>/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</guid>
+      <guid>/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-#2/</guid>
       <description>개요 🔗&amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는</description>
     </item>
     <item>
       <title>하스켈 버전 관리</title>
-      <link>https://seokbeomkim.github.io/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
+      <link>/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
+      <guid>/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
       <description>개요 🔗IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10</description>
     </item>
     <item>
       <title>리누즈게이트와 CoC</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</link>
+      <link>/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</guid>
+      <guid>/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</guid>
       <description>자유 발언 🔗구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것</description>
     </item>
     <item>
       <title>Mac OS에서의 자모 분리 현상 해결하기</title>
-      <link>https://seokbeomkim.github.io/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</link>
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/mac-os%EC%97%90%EC%84%9C%EC%9D%98-%EC%9E%90%EB%AA%A8-%EB%B6%84%EB%A6%AC-%ED%98%84%EC%83%81-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗드롭박스를 사용하던 중 구글 드라이브에서 가져온 파일이 동기화되지 않는 문제가 발생했다. 파일은 존재하는데 동기화를 하지 못하는 문제였다. 또 한가지는 반</description>
     </item>
     <item>
       <title>(.) 와 ($) 의 차이</title>
-      <link>https://seokbeomkim.github.io/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
+      <link>/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+      <guid>/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
       <description>개요 🔗최근 하스켈로 조그만 프로젝트를 시작하기 위해 Real World Haskell 이라는 책 한 권을 구입하여 공부하기 시작했다. Functional Programming 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결</description>
     </item>
     <item>
       <title>커널에서의 Object-Oriented Design Pattern</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
+      <link>/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</guid>
+      <guid>/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</guid>
       <description>개요 🔗현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패</description>
     </item>
     <item>
       <title>맥 OS에서 리눅스 커널 컴파일하기</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗맥 환경에서 bare-metal이 아닌 리눅스 커널로 컴파일하는 것은 생각했던 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한 라이브러리와</description>
     </item>
     <item>
       <title>맥북에 리눅스 설치하기</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 05 Jul 2020 02:52:23 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/%EB%A7%A5%EB%B6%81%EC%97%90-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는 그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의 개발자라면 각종</description>
     </item>
     <item>
       <title>mu4e 설정하기</title>
-      <link>https://seokbeomkim.github.io/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗이맥스에서는 이메일 클라이언트로서 사용할 수 있는 mu4e라는 패키지가 있다. 일반적으로 isync (mbsync) 라는 프로그램과 함께 사용하며 mu 를 설치하면 설치 디렉토리</description>
     </item>
     <item>
       <title>캐시 라인(Cache-Line)</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</link>
+      <link>/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</link>
       <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</guid>
+      <guid>/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</guid>
       <description>캐시를 꼭 사용해야 하나 🔗SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다.</description>
     </item>
     <item>
       <title>Vmlinux</title>
-      <link>https://seokbeomkim.github.io/posts/vmlinux/</link>
+      <link>/posts/vmlinux/</link>
       <pubDate>Tue, 21 Apr 2020 06:04:17 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/vmlinux/</guid>
+      <guid>/posts/vmlinux/</guid>
       <description>커널 패닉 정보를 바탕으로 패닉이 정확히 어디서 발생했는지를 알아내기 위해 vmlinux 파일을 이용하는 방법을 알게 되었다. addr2line 명령어를 이용하여 PC 또는 LR에 들어있던 주소</description>
     </item>
     <item>
       <title>가상주소와 페이지 테이블 크기</title>
-      <link>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</link>
+      <link>/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</guid>
+      <guid>/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</guid>
       <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이</description>
     </item>
     <item>
       <title>C언어에서의 type-check</title>
-      <link>https://seokbeomkim.github.io/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</link>
+      <link>/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</guid>
+      <guid>/posts/c%EC%96%B8%EC%96%B4%EC%97%90%EC%84%9C%EC%9D%98-type-check/</guid>
       <description>개요 🔗리눅스 커널을 살펴보다 보면 독특한 형태의 매크로 또는 타입 정의를 통해 타입 체크를 하는 것을 알 수 있다. 이 페이지에서는 앞으로 커널 분석 중에 자주 보게될 타입</description>
     </item>
     <item>
       <title>DMIPS (Dhrystone Million Instructions Per Second)</title>
-      <link>https://seokbeomkim.github.io/posts/dmips-dhrystone-million-instructions-per-second/</link>
+      <link>/posts/dmips-dhrystone-million-instructions-per-second/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/dmips-dhrystone-million-instructions-per-second/</guid>
+      <guid>/posts/dmips-dhrystone-million-instructions-per-second/</guid>
       <description>개요 🔗프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS</description>
     </item>
     <item>
       <title>Futex</title>
-      <link>https://seokbeomkim.github.io/posts/futex/</link>
+      <link>/posts/futex/</link>
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/futex/</guid>
+      <guid>/posts/futex/</guid>
       <description>Futex (Fast Userspace Mutexes) 🔗futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library)</description>
     </item>
     <item>
       <title>Do While</title>
-      <link>https://seokbeomkim.github.io/posts/do-while/</link>
+      <link>/posts/do-while/</link>
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/do-while/</guid>
+      <guid>/posts/do-while/</guid>
       <description>개요 🔗커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각</description>
     </item>
     <item>
       <title>BSD 버전 Linked List</title>
-      <link>https://seokbeomkim.github.io/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
+      <link>/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
+      <guid>/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
       <description>개요 🔗사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을</description>
     </item>
     <item>
       <title>C ARRAY_SIZE 매크로와 포인터 기초</title>
-      <link>https://seokbeomkim.github.io/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link>
+      <link>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link>
       <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</guid>
+      <guid>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</guid>
       <description>개요 🔗칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 htt</description>
     </item>
     <item>
       <title>goto statement</title>
-      <link>https://seokbeomkim.github.io/posts/goto-statement/</link>
+      <link>/posts/goto-statement/</link>
       <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/goto-statement/</guid>
+      <guid>/posts/goto-statement/</guid>
       <description>개요 🔗학부 시절 c언어를 배울 때 &amp;lsquo;goto&amp;rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를</description>
     </item>
     <item>
       <title>안드로이드 파티션</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</link>
+      <link>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</guid>
+      <guid>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</guid>
       <description>개요 🔗안드로이드 기본 내용이지만 파티션을 착각한 탓에 수정 사항을 반영하지 못해 시간을 날리고 말았다. 커널의 수정사항이라 부트 이미지만 적용하면 변경 사항이 적</description>
     </item>
     <item>
       <title>poll() 그리고 poll_wait()</title>
-      <link>https://seokbeomkim.github.io/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</link>
+      <link>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</guid>
+      <guid>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</guid>
       <description>개요 🔗업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다</description>
     </item>
     <item>
       <title>MICOM과 MPU</title>
-      <link>https://seokbeomkim.github.io/posts/micom%EA%B3%BC-mpu/</link>
+      <link>/posts/micom%EA%B3%BC-mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/micom%EA%B3%BC-mpu/</guid>
+      <guid>/posts/micom%EA%B3%BC-mpu/</guid>
       <description>개요 🔗카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까</description>
     </item>
     <item>
       <title>IOCTL과 인터럽트</title>
-      <link>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</link>
+      <link>/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</guid>
+      <guid>/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</guid>
       <description>개요 🔗디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackO</description>
     </item>
     <item>
       <title>Hyper-V 가상 환경에서 고정 아이피 주소 사용하기</title>
-      <link>https://seokbeomkim.github.io/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/hyper-v-%EA%B0%80%EC%83%81-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EA%B3%A0%EC%A0%95-%EC%95%84%EC%9D%B4%ED%94%BC-%EC%A3%BC%EC%86%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗윈도우즈에서 리눅스 환경을 이용하기 위해서는 docker 컨테이너를 이용하거나 hyper-v, vmware, virtualbox 등과 같은 가상머신을 이용해야 한다. 이번에는 hyper-v를 이용해 리눅</description>
     </item>
     <item>
       <title>리눅스에서의 버퍼링 방식</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</link>
+      <link>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</link>
       <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</guid>
+      <guid>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4%EC%97%90%EC%84%9C%EC%9D%98-%EB%B2%84%ED%8D%BC%EB%A7%81-%EB%B0%A9%EC%8B%9D/</guid>
       <description>리눅스에서의 버퍼링 정책 🔗리눅스에서는 파일 입출력을 할 때 물리적인 파일에 조회 및 기록의 횟수를 최소화하여 성능을 높이기 위해 버퍼링 정책을 사용하고 있다. 만약</description>
     </item>
     <item>
       <title>ioctl()에 전달되는 cmd 관련 매크로 함수</title>
-      <link>https://seokbeomkim.github.io/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
+      <link>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
+      <guid>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
       <description>드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한</description>
     </item>
     <item>
       <title>switch 구문과 if-else 구문</title>
-      <link>https://seokbeomkim.github.io/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
+      <link>/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
+      <guid>/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
       <description>개요 🔗실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다. int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A break; case FLAG_B: // do B break; case blabla: // blabla... break; default: printk(KERN_ERR &amp;#34;ERROR!\n&amp;#34;); } return 0;</description>
     </item>
     <item>
       <title>Identity Mapping</title>
-      <link>https://seokbeomkim.github.io/posts/identity-mapping/</link>
+      <link>/posts/identity-mapping/</link>
       <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/identity-mapping/</guid>
+      <guid>/posts/identity-mapping/</guid>
       <description>ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오</description>
     </item>
     <item>
       <title>WARN_ON, BUG_ON 매크로</title>
-      <link>https://seokbeomkim.github.io/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</link>
+      <link>/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</guid>
+      <guid>/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</guid>
       <description>개요 🔗업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은</description>
     </item>
     <item>
       <title>Likely and Unlikely</title>
-      <link>https://seokbeomkim.github.io/posts/likely-and-unlikely/</link>
+      <link>/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/likely-and-unlikely/</guid>
+      <guid>/posts/likely-and-unlikely/</guid>
       <description>개요 🔗예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlik</description>
     </item>
     <item>
       <title>typedef is evil</title>
-      <link>https://seokbeomkim.github.io/posts/typedef-is-evil/</link>
+      <link>/posts/typedef-is-evil/</link>
       <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/typedef-is-evil/</guid>
+      <guid>/posts/typedef-is-evil/</guid>
       <description>커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목</description>
     </item>
     <item>
       <title>이맥스 기본 에디터로 사용하기</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
       <description>개요 🔗이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는</description>
     </item>
     <item>
       <title>ftrace 이용한 커널 디버깅</title>
-      <link>https://seokbeomkim.github.io/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
+      <link>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
+      <guid>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
       <description>개요 🔗커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수</description>
     </item>
     <item>
       <title>Raspberry Pi를 이용한 사이드 프로젝트</title>
-      <link>https://seokbeomkim.github.io/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</link>
+      <link>/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</guid>
+      <guid>/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</guid>
       <description>카메라 포팅 건으로 불필요한 업무가 지속적으로 들어온다. 포팅을 위한 기본적인 것들을 자동화 하거나 유틸리티 형태로 제공할 수 있어야 한다는 것을 뼈저리게 느꼈다.</description>
     </item>
     <item>
       <title>Wayland과 Weston</title>
-      <link>https://seokbeomkim.github.io/posts/wayland%EA%B3%BC-weston/</link>
+      <link>/posts/wayland%EA%B3%BC-weston/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/wayland%EA%B3%BC-weston/</guid>
+      <guid>/posts/wayland%EA%B3%BC-weston/</guid>
       <description>개요 🔗직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을</description>
     </item>
     <item>
       <title>ARM64에서의 커널 메모리 맵</title>
-      <link>https://seokbeomkim.github.io/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</link>
+      <link>/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</guid>
+      <guid>/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</guid>
       <description>ARM64에서의 커널 메모리 맵 🔗&amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;quot;이라는 챕터를 읽으면서 커널</description>
     </item>
     <item>
       <title>Chroot 환경을 이용한 Yocto 환경 구성</title>
-      <link>https://seokbeomkim.github.io/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</link>
+      <link>/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</guid>
+      <guid>/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</guid>
       <description>우분투 버전과 Yocto 버전 🔗AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다</description>
     </item>
     <item>
       <title>GPIO Mapping</title>
-      <link>https://seokbeomkim.github.io/posts/gpio-mapping/</link>
+      <link>/posts/gpio-mapping/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/gpio-mapping/</guid>
+      <guid>/posts/gpio-mapping/</guid>
       <description>GPIO 맵핑하기 🔗오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만,</description>
     </item>
     <item>
       <title>안드로이드의 uevent, ueventd</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</link>
+      <link>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</guid>
+      <guid>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</guid>
       <description>개요 🔗디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바</description>
     </item>
     <item>
       <title>/dev/mem vs. /dev/kmem</title>
-      <link>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</link>
+      <link>/posts/dev/mem-vs.-/dev/kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/dev/mem-vs.-/dev/kmem/</guid>
+      <guid>/posts/dev/mem-vs.-/dev/kmem/</guid>
       <description>개요 🔗업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이</description>
     </item>
     <item>
       <title>Kobject</title>
-      <link>https://seokbeomkim.github.io/posts/kobject/</link>
+      <link>/posts/kobject/</link>
       <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/kobject/</guid>
+      <guid>/posts/kobject/</guid>
       <description>kobjects, ktypes, ksets 🔗디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다. 61 struct</description>
     </item>
     <item>
       <title>Little Endian vs. Big Endian</title>
-      <link>https://seokbeomkim.github.io/posts/little-endian-vs.-big-endian/</link>
+      <link>/posts/little-endian-vs.-big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/little-endian-vs.-big-endian/</guid>
+      <guid>/posts/little-endian-vs.-big-endian/</guid>
       <description>개요 🔗빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다. 엔디안(Endianness</description>
     </item>
     <item>
       <title>영상 출력 포맷</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</link>
+      <link>/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</guid>
+      <guid>/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</guid>
       <description>디지널 출력 포맷 🔗아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을</description>
     </item>
     <item>
       <title>색 공간(Color Space)</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
+      <link>/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
+      <guid>/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
       <description>색 공간 포맷 🔗업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다</description>
     </item>
     <item>
       <title></title>
-      <link>https://seokbeomkim.github.io/about/</link>
+      <link>/about/</link>
       <pubDate>Sat, 25 Jan 2020 22:47:44 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/about/</guid>
+      <guid>/about/</guid>
       <description>About 🔗글쓰기를 좋아하는 평범한 엔지니어입니다. 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. Gentoo Linux와 Arch Linux는 사랑하지만 Ubuntu WSL를 사용합니</description>
     </item>
     <item>
       <title>부트로더(Bootloader)</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</link>
+      <link>/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</guid>
+      <guid>/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</guid>
       <description>이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해</description>
     </item>
     <item>
       <title>command: posix_spawn failed: Resource temporarily unavailable</title>
-      <link>https://seokbeomkim.github.io/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</link>
+      <link>/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</guid>
+      <guid>/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</guid>
       <description>QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다. 이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무</description>
     </item>
     <item>
       <title>QEMU 이용한 임베디드 개발 환경 구축하기</title>
-      <link>https://seokbeomkim.github.io/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</link>
+      <link>/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</guid>
+      <guid>/posts/qemu-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/</guid>
       <description>임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로</description>
     </item>
     <item>
       <title>RCU (Read, Copy, Update)</title>
-      <link>https://seokbeomkim.github.io/posts/rcu-read-copy-update/</link>
+      <link>/posts/rcu-read-copy-update/</link>
       <pubDate>Tue, 04 Jun 2019 17:34:42 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/rcu-read-copy-update/</guid>
+      <guid>/posts/rcu-read-copy-update/</guid>
       <description>1. 들어가기 전에 &amp;hellip; 🔗앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스</description>
     </item>
     <item>
       <title>리눅스 커널 락 종류 (4/5)</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</link>
+      <link>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</link>
       <pubDate>Tue, 04 Jun 2019 16:40:28 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</guid>
+      <guid>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-4/5/</guid>
       <description>BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하</description>
     </item>
     <item>
       <title>리눅스 커널 락 종류 (3/5)</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</link>
+      <link>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</link>
       <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</guid>
+      <guid>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</guid>
       <description>이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가</description>
     </item>
     <item>
       <title>Major와 Minor Numbers</title>
-      <link>https://seokbeomkim.github.io/posts/major%EC%99%80-minor-numbers/</link>
+      <link>/posts/major%EC%99%80-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/major%EC%99%80-minor-numbers/</guid>
+      <guid>/posts/major%EC%99%80-minor-numbers/</guid>
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변</description>
     </item>
     <item>
       <title>리눅스 커널 락 종류 (2/5)</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</link>
+      <link>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</guid>
+      <guid>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</guid>
       <description>지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다</description>
     </item>
     <item>
       <title>리눅스 커널 락 종류 (1/5)</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</link>
+      <link>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</link>
       <pubDate>Tue, 28 May 2019 17:45:51 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</guid>
+      <guid>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-1/5/</guid>
       <description>&lt;p&gt;리눅스 커널에서 사용되는 락의 종류는 다양하다. 학부 시절, &lt;em&gt;&amp;lsquo;뮤텍스는&#xA;세마 포어의 카운트가 1인 락&amp;rsquo;이라는 말도 안되는 내용으로 학교&#xA;선배로부터 배웠던 것이 기억난다.&lt;/em&gt; 락의 종류별로 쓰임새가 있고 장단점이&#xA;있는 것인데, 이 문서에는 커널에서 사용하는 락(lock)의 종류와 각각에&#xA;대한 사용 예를 기술하고자 한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>지피(Jiffies)</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%A7%80%ED%94%BCjiffies/</link>
+      <link>/posts/%EC%A7%80%ED%94%BCjiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
+      <guid>/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
       <description>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시</description>
     </item>
     <item>
       <title>태스크릿(Tasklet)</title>
-      <link>https://seokbeomkim.github.io/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
+      <link>/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
       <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
+      <guid>/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
       <description>커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에</description>
     </item>
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
-      <link>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
+      <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
+      <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</description>
     </item>
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</title>
-      <link>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</link>
+      <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</guid>
+      <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</guid>
       <description>취업은 언제하나&amp;hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물</description>
     </item>
     <item>
       <title>OSI 7-Layers</title>
-      <link>https://seokbeomkim.github.io/posts/osi-7-layers/</link>
+      <link>/posts/osi-7-layers/</link>
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/osi-7-layers/</guid>
+      <guid>/posts/osi-7-layers/</guid>
       <description>네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보</description>
     </item>
     <item>
       <title>TCP와 UDP의 차이점</title>
-      <link>https://seokbeomkim.github.io/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
+      <link>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
+      <guid>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
       <description>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스</description>
     </item>
     <item>
       <title>커널 해킹: 프로세스</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</link>
+      <link>/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</link>
       <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</guid>
+      <guid>/posts/%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4/</guid>
       <description>앞으로 리눅스 커널 공부를 해가면서 포스팅으로 정리해둘 계획이다. 디바이스 드라이버 개발 이전에 리눅스라는 운영체제에 대해 개인적으로 정리해야할 필요성을 느꼈</description>
     </item>
     <item>
       <title>Copy on Write (CoW or COW)</title>
-      <link>https://seokbeomkim.github.io/posts/copy-on-write-cow-or-cow/</link>
+      <link>/posts/copy-on-write-cow-or-cow/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/copy-on-write-cow-or-cow/</guid>
+      <guid>/posts/copy-on-write-cow-or-cow/</guid>
       <description>Copy-on-write은 리눅스 커널의 fork() 함수에서 사용하는 기법이다. 전통적인 fork()는 부모 프로세스의 모든 자원을 복사해 자식 프로세스에게 넘겨</description>
     </item>
     <item>
       <title>커널 모듈과 드라이버의 차이</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
+      <link>/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+      <guid>/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
       <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자</description>
     </item>
     <item>
       <title>비선점 스케쥴링(Nonpreemptive Scheduling)</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</link>
+      <link>/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</guid>
+      <guid>/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</guid>
       <description>비선점 스케쥴링(Non-preemptive Scheduling) 🔗비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았</description>
     </item>
     <item>
       <title>교착상태(Deadlock)</title>
-      <link>https://seokbeomkim.github.io/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</link>
+      <link>/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</link>
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</guid>
+      <guid>/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</guid>
       <description>교착 상태(Deadlock) 🔗두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결</description>
     </item>
     <item>
       <title>Named export와 Default export</title>
-      <link>https://seokbeomkim.github.io/posts/named-export%EC%99%80-default-export/</link>
+      <link>/posts/named-export%EC%99%80-default-export/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/named-export%EC%99%80-default-export/</guid>
+      <guid>/posts/named-export%EC%99%80-default-export/</guid>
       <description>개요 🔗모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때 이해가 되지 않았다. 특히 default export와 named export 라는 export 방식과 자바스크립트 버전에 따른 문</description>
     </item>
     <item>
       <title>텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이</title>
-      <link>https://seokbeomkim.github.io/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
+      <link>/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+      <guid>/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
       <description>책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책</description>
     </item>
     <item>
       <title>비지도 학습 알고리즘과 지도 학습</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
+      <link>/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
+      <guid>/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
       <description>개요 🔗프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(</description>
     </item>
     <item>
       <title>자바의 중첩 클래스(Nested Class)</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</link>
+      <link>/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</guid>
+      <guid>/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</guid>
       <description>개요 🔗중첩 클래스(Nested Class)에 대해서 여러 사이트에서 설명해놓은 것이 있지만 잘못 설명되어 있는 부분도 있었다. &amp;lsquo;Nested Class는 Inner Class</description>
     </item>
     <item>
       <title>서블릿 컨테이너와 서버와의 관계</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</link>
+      <link>/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</guid>
+      <guid>/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</guid>
       <description>개요 🔗아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을 올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는 애플리케이션은 개</description>
     </item>
     <item>
       <title>파티셔닝(Partitioning)과 샤딩(Sharding)</title>
-      <link>https://seokbeomkim.github.io/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</link>
+      <link>/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</guid>
+      <guid>/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</guid>
       <description>개요 🔗데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로</description>
     </item>
     <item>
       <title>RESTful 성숙도 모델, Richardson Maturity Model(RMM)</title>
-      <link>https://seokbeomkim.github.io/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</link>
+      <link>/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</link>
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</guid>
+      <guid>/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</guid>
       <description>개요 🔗이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서</description>
     </item>
     <item>
       <title>Folding in Haskell</title>
-      <link>https://seokbeomkim.github.io/posts/folding-in-haskell/</link>
+      <link>/posts/folding-in-haskell/</link>
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/folding-in-haskell/</guid>
+      <guid>/posts/folding-in-haskell/</guid>
       <description>Folding in Haskell 🔗취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고</description>
     </item>
     <item>
       <title>HTTP/1.1과 HTTP/2의 차이점</title>
-      <link>https://seokbeomkim.github.io/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
+      <link>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
+      <guid>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
       <description>HTTP/1.1 vs HTTP/2 🔗HTTP 프로토콜에 대해서는 관심이 없다가 문득 텔레그램의 봇을 통해 우연히 HTTP/2의 개념을 처음으로 접하게 되었다. 이 문서는 HTTP/1.1</description>
     </item>
     <item>
       <title>CORS(Cross-Origin Resource Sharing)</title>
-      <link>https://seokbeomkim.github.io/posts/corscross-origin-resource-sharing/</link>
+      <link>/posts/corscross-origin-resource-sharing/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/corscross-origin-resource-sharing/</guid>
+      <guid>/posts/corscross-origin-resource-sharing/</guid>
       <description>CORS(Cross-Origin Resource Sharing) 🔗웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(</description>
     </item>
     <item>
       <title>컨텐츠 전송 네트워크, CDN(Content Delivery Network)</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</link>
+      <link>/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</link>
       <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</guid>
+      <guid>/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</guid>
       <description>CDN(Content Delivery Network) 🔗Content Delivery Network 또는 Content Distribution Network라고 불리는 네트워크는 컨텐츠를 효율적으로 전달하기 위해 여러 노드를 가진 네트워크에 데이터를 저장하여 제</description>
     </item>
     <item>
       <title>가상호스트(Virtual Host)와 Host Header</title>
-      <link>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</link>
+      <link>/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</guid>
+      <guid>/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</guid>
       <description>Virtual Host and Host Header 🔗문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체</description>
     </item>
     <item>
       <title>Server Name Indication(SNI)</title>
-      <link>https://seokbeomkim.github.io/posts/server-name-indicationsni/</link>
+      <link>/posts/server-name-indicationsni/</link>
       <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/server-name-indicationsni/</guid>
+      <guid>/posts/server-name-indicationsni/</guid>
       <description>Server Name Indication 🔗Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구</description>
     </item>
     <item>
       <title>HTTP와 HTTPS의 차이점</title>
-      <link>https://seokbeomkim.github.io/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
+      <link>/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
+      <guid>/posts/http%EC%99%80-https%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
       <description>HTTP와 HTTPS의 차이점 🔗HTTP와 HTTPS의 차이점은 그 용어에서부터 단번에 알아챌 수 있다. 바로 끝 글자 &amp;lsquo;S&amp;rsquo;가 나타</description>
     </item>
     <item>
       <title></title>
-      <link>https://seokbeomkim.github.io/diagrams/pgt_diagram/</link>
+      <link>/diagrams/pgt_diagram/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://seokbeomkim.github.io/diagrams/pgt_diagram/</guid>
+      <guid>/diagrams/pgt_diagram/</guid>
       <description>@startuml&#xA;@enduml</description>
     </item>
   </channel>

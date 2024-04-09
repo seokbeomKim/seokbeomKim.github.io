@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cdn on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/cdn/</link>
+    <link>/tags/cdn/</link>
     <description>Recent content in cdn on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2019 17:19:18 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/cdn/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/cdn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>컨텐츠 전송 네트워크, CDN(Content Delivery Network)</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</link>
+      <link>/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</link>
       <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</guid>
+      <guid>/posts/%EC%BB%A8%ED%85%90%EC%B8%A0-%EC%A0%84%EC%86%A1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-cdncontent-delivery-network/</guid>
       <description>CDN(Content Delivery Network) 🔗Content Delivery Network 또는 Content Distribution Network라고 불리는 네트워크는 컨텐츠를 효율적으로 전달하기 위해 여러 노드를 가진 네트워크에 데이터를 저장하여 제</description>
     </item>
   </channel>

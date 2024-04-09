@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>http1.1 on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/http1.1/</link>
+    <link>/tags/http1.1/</link>
     <description>Recent content in http1.1 on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2019 17:29:25 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/http1.1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/http1.1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTP/1.1과 HTTP/2의 차이점</title>
-      <link>https://seokbeomkim.github.io/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
+      <link>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
+      <guid>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
       <description>HTTP/1.1 vs HTTP/2 🔗HTTP 프로토콜에 대해서는 관심이 없다가 문득 텔레그램의 봇을 통해 우연히 HTTP/2의 개념을 처음으로 접하게 되었다. 이 문서는 HTTP/1.1</description>
     </item>
   </channel>

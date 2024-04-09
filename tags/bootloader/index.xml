@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>bootloader on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/bootloader/</link>
+    <link>/tags/bootloader/</link>
     <description>Recent content in bootloader on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Jun 2019 22:47:44 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/bootloader/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/bootloader/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>부트로더(Bootloader)</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</link>
+      <link>/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</guid>
+      <guid>/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</guid>
       <description>이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해</description>
     </item>
   </channel>

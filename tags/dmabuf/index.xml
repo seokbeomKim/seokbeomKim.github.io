@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dmabuf on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/dmabuf/</link>
+    <link>/tags/dmabuf/</link>
     <description>Recent content in dmabuf on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 18 Apr 2021 00:32:27 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/dmabuf/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/dmabuf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>V4L2 Memory Type</title>
-      <link>https://seokbeomkim.github.io/posts/v4l2-memory-type/</link>
+      <link>/posts/v4l2-memory-type/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/v4l2-memory-type/</guid>
+      <guid>/posts/v4l2-memory-type/</guid>
       <description>개요 🔗최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니</description>
     </item>
   </channel>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>chroot on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/chroot/</link>
+    <link>/tags/chroot/</link>
     <description>Recent content in chroot on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Feb 2020 23:27:45 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/chroot/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/chroot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chroot 환경을 이용한 Yocto 환경 구성</title>
-      <link>https://seokbeomkim.github.io/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</link>
+      <link>/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</guid>
+      <guid>/posts/chroot-%ED%99%98%EA%B2%BD%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-yocto-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1/</guid>
       <description>우분투 버전과 Yocto 버전 🔗AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다</description>
     </item>
   </channel>

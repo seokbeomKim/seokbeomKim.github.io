@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ioctl on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/ioctl/</link>
+    <link>/tags/ioctl/</link>
     <description>Recent content in ioctl on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 03 Mar 2020 00:00:10 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/ioctl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/ioctl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IOCTL과 인터럽트</title>
-      <link>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</link>
+      <link>/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</guid>
+      <guid>/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</guid>
       <description>개요 🔗디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackO</description>
     </item>
     <item>
       <title>ioctl()에 전달되는 cmd 관련 매크로 함수</title>
-      <link>https://seokbeomkim.github.io/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
+      <link>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
+      <guid>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
       <description>드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한</description>
     </item>
   </channel>

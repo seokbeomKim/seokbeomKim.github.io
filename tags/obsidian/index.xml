@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>obsidian on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/obsidian/</link>
+    <link>/tags/obsidian/</link>
     <description>Recent content in obsidian on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Nov 2022 23:46:06 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Obsidian</title>
-      <link>https://seokbeomkim.github.io/posts/obsidian/</link>
+      <link>/posts/obsidian/</link>
       <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/obsidian/</guid>
+      <guid>/posts/obsidian/</guid>
       <description>Notion에서 Obsidian으로 갈아타기 요즘에 많은 사람들이 노션을 사용한다. 이력서나 개인 위키, 심지어 업무 협업툴로써 사용한다. 필자는 개인 위키</description>
     </item>
   </channel>

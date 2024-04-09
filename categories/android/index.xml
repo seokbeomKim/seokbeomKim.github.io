@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/categories/android/</link>
+    <link>/categories/android/</link>
     <description>Recent content in Android on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 12 Mar 2020 00:26:40 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/categories/android/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>안드로이드 파티션</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</link>
+      <link>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</guid>
+      <guid>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</guid>
       <description>개요 🔗안드로이드 기본 내용이지만 파티션을 착각한 탓에 수정 사항을 반영하지 못해 시간을 날리고 말았다. 커널의 수정사항이라 부트 이미지만 적용하면 변경 사항이 적</description>
     </item>
     <item>
       <title>안드로이드의 uevent, ueventd</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</link>
+      <link>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</guid>
+      <guid>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</guid>
       <description>개요 🔗디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바</description>
     </item>
   </channel>

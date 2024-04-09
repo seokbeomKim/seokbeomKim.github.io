@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>micom on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/micom/</link>
+    <link>/tags/micom/</link>
     <description>Recent content in micom on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 Mar 2020 23:30:44 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/micom/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/micom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MICOM과 MPU</title>
-      <link>https://seokbeomkim.github.io/posts/micom%EA%B3%BC-mpu/</link>
+      <link>/posts/micom%EA%B3%BC-mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/micom%EA%B3%BC-mpu/</guid>
+      <guid>/posts/micom%EA%B3%BC-mpu/</guid>
       <description>개요 🔗카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까</description>
     </item>
   </channel>

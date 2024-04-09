@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>partition on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/partition/</link>
+    <link>/tags/partition/</link>
     <description>Recent content in partition on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 12 Mar 2020 00:26:40 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/partition/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/partition/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>안드로이드 파티션</title>
-      <link>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</link>
+      <link>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</guid>
+      <guid>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</guid>
       <description>개요 🔗안드로이드 기본 내용이지만 파티션을 착각한 탓에 수정 사항을 반영하지 못해 시간을 날리고 말았다. 커널의 수정사항이라 부트 이미지만 적용하면 변경 사항이 적</description>
     </item>
     <item>
       <title>파티셔닝(Partitioning)과 샤딩(Sharding)</title>
-      <link>https://seokbeomkim.github.io/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</link>
+      <link>/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</guid>
+      <guid>/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</guid>
       <description>개요 🔗데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로</description>
     </item>
   </channel>

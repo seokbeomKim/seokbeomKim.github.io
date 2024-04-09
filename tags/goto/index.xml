@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>goto on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/goto/</link>
+    <link>/tags/goto/</link>
     <description>Recent content in goto on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Mar 2020 00:47:49 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/goto/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/goto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>goto statement</title>
-      <link>https://seokbeomkim.github.io/posts/goto-statement/</link>
+      <link>/posts/goto-statement/</link>
       <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/goto-statement/</guid>
+      <guid>/posts/goto-statement/</guid>
       <description>개요 🔗학부 시절 c언어를 배울 때 &amp;lsquo;goto&amp;rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를</description>
     </item>
   </channel>

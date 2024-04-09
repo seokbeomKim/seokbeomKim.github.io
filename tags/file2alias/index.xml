@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>file2alias on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/file2alias/</link>
+    <link>/tags/file2alias/</link>
     <description>Recent content in file2alias on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Dec 2020 00:56:38 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/file2alias/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/file2alias/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>리눅스 커널 빌드 시 맥 O/S uuid_t 호환성</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</link>
+      <link>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</guid>
+      <guid>/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%B9%8C%EB%93%9C-%EC%8B%9C-%EB%A7%A5-o/s-uuid_t-%ED%98%B8%ED%99%98%EC%84%B1/</guid>
       <description>개요 🔗BSD 기반의 맥에서 리눅스 커널 빌드가 안될리 없다고 생각하고 나서 어떻게든 맥에서 리눅스 커널을 빌드하기 위해 이런저런 삽질을 했다. 회사에서의 BSP 업무는</description>
     </item>
   </channel>

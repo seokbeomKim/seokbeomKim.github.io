@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RMM on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/tags/rmm/</link>
+    <link>/tags/rmm/</link>
     <description>Recent content in RMM on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2019 18:38:22 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/tags/rmm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/rmm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RESTful 성숙도 모델, Richardson Maturity Model(RMM)</title>
-      <link>https://seokbeomkim.github.io/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</link>
+      <link>/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</link>
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</guid>
+      <guid>/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</guid>
       <description>개요 🔗이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서</description>
     </item>
   </channel>

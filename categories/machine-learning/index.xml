@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Sukbeom Kim</title>
-    <link>https://seokbeomkim.github.io/categories/machine-learning/</link>
+    <link>/categories/machine-learning/</link>
     <description>Recent content in Machine Learning on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 May 2019 17:05:11 +0900</lastBuildDate>
-    <atom:link href="https://seokbeomkim.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이</title>
-      <link>https://seokbeomkim.github.io/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
+      <link>/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
+      <guid>/posts/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow%EC%99%80-%EC%82%AC%EC%9D%B4%ED%82%B7%EB%9F%B0scikit-learn%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
       <description>책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책</description>
     </item>
     <item>
       <title>비지도 학습 알고리즘과 지도 학습</title>
-      <link>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
+      <link>/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
-      <guid>https://seokbeomkim.github.io/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
+      <guid>/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
       <description>개요 🔗프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(</description>
     </item>
   </channel>
