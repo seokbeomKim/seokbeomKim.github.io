@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Virtual Host on seokbeomkim.dev</title>
+    <title>virtual host on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/virtual-host/</link>
-    <description>Recent content in Virtual Host on seokbeomkim.dev</description>
+    <description>Recent content in virtual host on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2019 17:16:40 +0900</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</guid>
-      <description>Virtual Host and Host Header 문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가</description>
+      <description>Virtual Host and Host Header 🔗문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체</description>
     </item>
   </channel>
 </rss>

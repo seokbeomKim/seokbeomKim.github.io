@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>mu4e 설정하기 | seokbeomkim.dev</title>
+    <title>mu4e 설정하기 | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗이맥스에서는 이메일 클라이언트로서 사용할 수 있는 mu4e라는 패키지가 있다. 일반적으로 isync (mbsync) 라는 프로그램과 함께 사용하며 mu 를 설치하면 설치 디렉토리">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -83,6 +101,35 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#환경-구성">환경 구성</a>
+      <ul>
+        <li><a href="#isync-설치">isync 설치</a></li>
+        <li><a href="#isync-설정">isync 설정</a></li>
+        <li><a href="#mu-설치">mu 설치</a></li>
+        <li><a href="#mu-설정">mu 설정</a></li>
+        <li><a href="#이맥스-설정">이맥스 설정</a></li>
+      </ul>
+    </li>
+    <li><a href="#마치며">마치며</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
     
 
 
@@ -121,224 +168,224 @@ difficult in the patch review process.</p>
 </ol>
 <h3 id="isync-설치">isync 설치 <a href="#isync-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h3><p>mbsync 명령어는 isync 패키지 안에 포함된다. 우분투 기준으로 아래와 같이 공식
 repo 를 통해 설치 가능하다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install isync
-</code></pre></div><h3 id="isync-설정">isync 설정 <a href="#isync-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>아치리눅스 위키 페이지에 패키지에 대한 설명이 자세히 기술되어 있다. 설치 후에는
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt install isync
+</span></span></code></pre></div><h3 id="isync-설정">isync 설정 <a href="#isync-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>아치리눅스 위키 페이지에 패키지에 대한 설명이 자세히 기술되어 있다. 설치 후에는
 아래 링크 또는 포스팅에 있는 예제 파일들을 참고하여 설정 파일을 작성한다.</p>
 <ul>
 <li><a href="https://wiki.archlinux.org/index.php/Isync" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Isync</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># GMAIL #1
-IMAPAccount sukbeom.kim
-Host imap.gmail.com
-User sukbeom.kim@gmail.com
-PassCmd &#34;gpg --batch --passphrase mu4e --no-tty -qd ~/.sbk.gpg&#34;
-AuthMechs LOGIN
-SSLType IMAPS
-SSLVersions TLSv1.3
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-
-IMAPStore gmail-remote
-Account sukbeom.kim
-
-MaildirStore gmail-local
-Path ~/mbsync/sukbeom.kim@gmail.com/
-Inbox ~/mbsync/sukbeom.kim@gmail.com/INBOX
-
-Channel gmail-inbox
-Master :gmail-remote:
-Slave :gmail-local:
-Patterns &#34;INBOX&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Channel gmail-trash
-Master :gmail-remote:&#34;[Gmail]/Bin&#34;
-Slave :gmail-local:&#34;[Gmail].Bin&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Channel gmail-sent
-Master :gmail-remote:&#34;[Gmail]/Sent Mail&#34;
-Slave :gmail-local:&#34;[Gmail].Sent Mail&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Channel gmail-all
-Master :gmail-remote:&#34;[Gmail]/All Mail&#34;
-Slave :gmail-local:&#34;[Gmail].All Mail&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Channel gmail-starred
-Master :gmail-remote:&#34;[Gmail]/Starred&#34;
-Slave :gmail-local:&#34;[Gmail].Starred&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Group gmail
-Channel gmail-inbox
-Channel gmail-sent
-Channel gmail-trash
-Channel gmail-all
-Channel gmail-starred
-
-
-IMAPAccount chaoxifer
-Host imap.gmail.com
-User chaoxifer@gmail.com
-PassCmd &#34;gpg --batch --passphrase mu4e --no-tty -qd ~/.chaoxifer.gpg&#34;
-AuthMechs LOGIN
-SSLType IMAPS
-SSLVersions SSLv3
-CertificateFile /etc/ssl/certs/ca-bundle.crt
-
-IMAPStore chaoxifer-remote
-Account chaoxifer
-
-MaildirStore chaoxifer-local
-Path ~/mbsync/chaoxifer@gmail.com/
-Inbox ~/mbsync/chaoxifer@gmail.com/INBOX
-
-Channel chaoxifer-inbox
-Master :chaoxifer-remote:
-Slave :chaoxifer-local:
-Patterns &#34;INBOX&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Channel chaoxifer-trash
-Master :chaoxifer-remote:&#34;[Gmail]/Bin&#34;
-Slave :chaoxifer-local:&#34;[Gmail].Bin&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Channel chaoxifer-sent
-Master :chaoxifer-remote:&#34;[Gmail]/Sent Mail&#34;
-Slave :chaoxifer-local:&#34;[Gmail].Sent Mail&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Channel chaoxifer-all
-Master :chaoxifer-remote:&#34;[Gmail]/All Mail&#34;
-Slave :chaoxifer-local:&#34;[Gmail].All Mail&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Channel chaoxifer-starred
-Master :chaoxifer-remote:&#34;[Gmail]/Starred&#34;
-Slave :chaoxifer-local:&#34;[Gmail].Starred&#34;
-Create Both
-Expunge Both
-SyncState *
-
-Group chaoxifer
-Channel chaoxifer-inbox
-Channel chaoxifer-sent
-Channel chaoxifer-trash
-Channel chaoxifer-all
-Channel chaoxifer-starred
-</code></pre></div><p>설정에서 gpg를 이용하여 계정 암호를 설정파일에 그대로 넣지 않고 암호화한 파일을
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># GMAIL #1
+</span></span><span style="display:flex;"><span>IMAPAccount sukbeom.kim
+</span></span><span style="display:flex;"><span>Host imap.gmail.com
+</span></span><span style="display:flex;"><span>User sukbeom.kim@gmail.com
+</span></span><span style="display:flex;"><span>PassCmd &#34;gpg --batch --passphrase mu4e --no-tty -qd ~/.sbk.gpg&#34;
+</span></span><span style="display:flex;"><span>AuthMechs LOGIN
+</span></span><span style="display:flex;"><span>SSLType IMAPS
+</span></span><span style="display:flex;"><span>SSLVersions TLSv1.3
+</span></span><span style="display:flex;"><span>CertificateFile /etc/ssl/certs/ca-certificates.crt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IMAPStore gmail-remote
+</span></span><span style="display:flex;"><span>Account sukbeom.kim
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MaildirStore gmail-local
+</span></span><span style="display:flex;"><span>Path ~/mbsync/sukbeom.kim@gmail.com/
+</span></span><span style="display:flex;"><span>Inbox ~/mbsync/sukbeom.kim@gmail.com/INBOX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel gmail-inbox
+</span></span><span style="display:flex;"><span>Master :gmail-remote:
+</span></span><span style="display:flex;"><span>Slave :gmail-local:
+</span></span><span style="display:flex;"><span>Patterns &#34;INBOX&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel gmail-trash
+</span></span><span style="display:flex;"><span>Master :gmail-remote:&#34;[Gmail]/Bin&#34;
+</span></span><span style="display:flex;"><span>Slave :gmail-local:&#34;[Gmail].Bin&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel gmail-sent
+</span></span><span style="display:flex;"><span>Master :gmail-remote:&#34;[Gmail]/Sent Mail&#34;
+</span></span><span style="display:flex;"><span>Slave :gmail-local:&#34;[Gmail].Sent Mail&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel gmail-all
+</span></span><span style="display:flex;"><span>Master :gmail-remote:&#34;[Gmail]/All Mail&#34;
+</span></span><span style="display:flex;"><span>Slave :gmail-local:&#34;[Gmail].All Mail&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel gmail-starred
+</span></span><span style="display:flex;"><span>Master :gmail-remote:&#34;[Gmail]/Starred&#34;
+</span></span><span style="display:flex;"><span>Slave :gmail-local:&#34;[Gmail].Starred&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Group gmail
+</span></span><span style="display:flex;"><span>Channel gmail-inbox
+</span></span><span style="display:flex;"><span>Channel gmail-sent
+</span></span><span style="display:flex;"><span>Channel gmail-trash
+</span></span><span style="display:flex;"><span>Channel gmail-all
+</span></span><span style="display:flex;"><span>Channel gmail-starred
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IMAPAccount chaoxifer
+</span></span><span style="display:flex;"><span>Host imap.gmail.com
+</span></span><span style="display:flex;"><span>User chaoxifer@gmail.com
+</span></span><span style="display:flex;"><span>PassCmd &#34;gpg --batch --passphrase mu4e --no-tty -qd ~/.chaoxifer.gpg&#34;
+</span></span><span style="display:flex;"><span>AuthMechs LOGIN
+</span></span><span style="display:flex;"><span>SSLType IMAPS
+</span></span><span style="display:flex;"><span>SSLVersions SSLv3
+</span></span><span style="display:flex;"><span>CertificateFile /etc/ssl/certs/ca-bundle.crt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IMAPStore chaoxifer-remote
+</span></span><span style="display:flex;"><span>Account chaoxifer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MaildirStore chaoxifer-local
+</span></span><span style="display:flex;"><span>Path ~/mbsync/chaoxifer@gmail.com/
+</span></span><span style="display:flex;"><span>Inbox ~/mbsync/chaoxifer@gmail.com/INBOX
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel chaoxifer-inbox
+</span></span><span style="display:flex;"><span>Master :chaoxifer-remote:
+</span></span><span style="display:flex;"><span>Slave :chaoxifer-local:
+</span></span><span style="display:flex;"><span>Patterns &#34;INBOX&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel chaoxifer-trash
+</span></span><span style="display:flex;"><span>Master :chaoxifer-remote:&#34;[Gmail]/Bin&#34;
+</span></span><span style="display:flex;"><span>Slave :chaoxifer-local:&#34;[Gmail].Bin&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel chaoxifer-sent
+</span></span><span style="display:flex;"><span>Master :chaoxifer-remote:&#34;[Gmail]/Sent Mail&#34;
+</span></span><span style="display:flex;"><span>Slave :chaoxifer-local:&#34;[Gmail].Sent Mail&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel chaoxifer-all
+</span></span><span style="display:flex;"><span>Master :chaoxifer-remote:&#34;[Gmail]/All Mail&#34;
+</span></span><span style="display:flex;"><span>Slave :chaoxifer-local:&#34;[Gmail].All Mail&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Channel chaoxifer-starred
+</span></span><span style="display:flex;"><span>Master :chaoxifer-remote:&#34;[Gmail]/Starred&#34;
+</span></span><span style="display:flex;"><span>Slave :chaoxifer-local:&#34;[Gmail].Starred&#34;
+</span></span><span style="display:flex;"><span>Create Both
+</span></span><span style="display:flex;"><span>Expunge Both
+</span></span><span style="display:flex;"><span>SyncState *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Group chaoxifer
+</span></span><span style="display:flex;"><span>Channel chaoxifer-inbox
+</span></span><span style="display:flex;"><span>Channel chaoxifer-sent
+</span></span><span style="display:flex;"><span>Channel chaoxifer-trash
+</span></span><span style="display:flex;"><span>Channel chaoxifer-all
+</span></span><span style="display:flex;"><span>Channel chaoxifer-starred
+</span></span></code></pre></div><p>설정에서 gpg를 이용하여 계정 암호를 설정파일에 그대로 넣지 않고 암호화한 파일을
 사용하도록 한다. gpg 파일을 만드는 방법은 아래와 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;mypassword!&#34;</span> &gt; ~/.mbsyncpass
-
-<span style="color:#080;font-style:italic"># 입력 창에 passphrase 를 입력한다. 위 설정에서는 mu4e를 passphase로 입력했다.</span>
-$ gpg --output ~/.emacs.d/personal/chaoxifer.gpg --symmetric ~/.mbsyncpass
-</code></pre></div><p>이제 mbsync를 사용하기 위한 설정이 완료되었다. 필요한 디렉토리들을 생성 후
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;mypassword!&#34;</span> &gt; ~/.mbsyncpass
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 입력 창에 passphrase 를 입력한다. 위 설정에서는 mu4e를 passphase로 입력했다.</span>
+</span></span><span style="display:flex;"><span>$ gpg --output ~/.emacs.d/personal/chaoxifer.gpg --symmetric ~/.mbsyncpass
+</span></span></code></pre></div><p>이제 mbsync를 사용하기 위한 설정이 완료되었다. 필요한 디렉토리들을 생성 후
 mbsync -a를 통해 메일 박스를 동기화한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p <span style="color:#b8860b">$HOME</span>/mbsync/<span style="color:#666">{</span>chaoxifer@gmail.com,sukbeom.kim@gmail.com<span style="color:#666">}</span>
-$ mbsync -a
-</code></pre></div><h3 id="mu-설치">mu 설치 <a href="#mu-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h3><p>mu4e 사용을 위해, mu 패키지를 설치한다. 이 때 컴파일 옵션으로 이맥스 옵션이
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir -p <span style="color:#b8860b">$HOME</span>/mbsync/<span style="color:#666">{</span>chaoxifer@gmail.com,sukbeom.kim@gmail.com<span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span>$ mbsync -a
+</span></span></code></pre></div><h3 id="mu-설치">mu 설치 <a href="#mu-%ec%84%a4%ec%b9%98" class="anchor">🔗</a></h3><p>mu4e 사용을 위해, mu 패키지를 설치한다. 이 때 컴파일 옵션으로 이맥스 옵션이
 있으니 확인하자. 기본적으로 이맥스 옵션이 활성화되어 패키지가 설치되므로 특별한
 경우가 아니라면 별도로 설정하지 않아도 된다. mu 는 공식 repo 대신
 <a href="https://github.com/djcb/mu/releases/tag/v1.8.14" target="_blank" rel="noopener">https://github.com/djcb/mu/releases/tag/v1.8.14</a> 에서 직접 받아서 설치하였다.
 우분투의 공식 repo 에서 제공하는 버전과 꽤 차이가 나고 몇몇 버그 패치가 되지
 않았기 때문에 직접 받아서 설치하는 것을 권장한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tar xf mu-1.8.14.tar.xz
-$ <span style="color:#a2f">cd</span> mu-1.8.14
-$ ./autogen.sh --prefix<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/opt
-$ make <span style="color:#666">&amp;&amp;</span> make install
-</code></pre></div><p>필자는 로컬 유저에서 받아서 설치하는 것은 모두 $HOME/opt 경로로 설치하는
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ tar xf mu-1.8.14.tar.xz
+</span></span><span style="display:flex;"><span>$ <span style="color:#a2f">cd</span> mu-1.8.14
+</span></span><span style="display:flex;"><span>$ ./autogen.sh --prefix<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/opt
+</span></span><span style="display:flex;"><span>$ make <span style="color:#666">&amp;&amp;</span> make install
+</span></span></code></pre></div><p>필자는 로컬 유저에서 받아서 설치하는 것은 모두 $HOME/opt 경로로 설치하는
 타입이라 위와 같이 configure 을 진행하였다. 설치하고 난 뒤 디렉토리에 가보면
 아래와 같이 mu4e 가 설치되어 있는 것을 볼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sukbeom@LAPTOP-R4FQS2C5:~$ ls opt/share/emacs/site-lisp/mu4e/
-mu4e-actions.el     mu4e-context.el   mu4e-headers.elc    mu4e-mark.el      mu4e-server.elc    mu4e.el
-mu4e-actions.elc    mu4e-context.elc  mu4e-helpers.el     mu4e-mark.elc     mu4e-speedbar.el   mu4e.elc
-mu4e-bookmarks.el   mu4e-contrib.el   mu4e-helpers.elc    mu4e-message.el   mu4e-speedbar.elc  org-mu4e.el
-mu4e-bookmarks.elc  mu4e-contrib.elc  mu4e-icalendar.el   mu4e-message.elc  mu4e-update.el     org-mu4e.elc
-mu4e-compose.el     mu4e-draft.el     mu4e-icalendar.elc  mu4e-org.el       mu4e-update.elc
-mu4e-compose.elc    mu4e-draft.elc    mu4e-lists.el       mu4e-org.elc      mu4e-vars.el
-mu4e-config.el      mu4e-folders.el   mu4e-lists.elc      mu4e-search.el    mu4e-vars.elc
-mu4e-contacts.el    mu4e-folders.elc  mu4e-main.el        mu4e-search.elc   mu4e-view.el
-mu4e-contacts.elc   mu4e-headers.el   mu4e-main.elc       mu4e-server.el    mu4e-view.elc
-</code></pre></div><h3 id="mu-설정">mu 설정 <a href="#mu-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>이제 mbsync 로 생성해놓았던 디렉토리를 기준으로 초기화한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mu init --maildir<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/mbsync
-$ mu info
-+-------------------+--------------------------------+
-| maildir           | /home/sukbeom/mbsync           |
-+-------------------+--------------------------------+
-| database-path     | /home/sukbeom/.cache/mu/xapian |
-+-------------------+--------------------------------+
-| schema-version    | <span style="color:#666">465</span>                            |
-+-------------------+--------------------------------+
-| max-message-size  | <span style="color:#666">100000000</span>                      |
-+-------------------+--------------------------------+
-| batch-size        | <span style="color:#666">250000</span>                         |
-+-------------------+--------------------------------+
-| created           | Thu Mar <span style="color:#666">16</span> 23:23:40 <span style="color:#666">2023</span>       |
-+-------------------+--------------------------------+
-| personal-address  |                                |
-+-------------------+--------------------------------+
-| messages in store | <span style="color:#666">38</span>                             |
-+-------------------+--------------------------------+
-| last-change       | Sat Mar <span style="color:#666">18</span> 07:09:36 <span style="color:#666">2023</span>       |
-+-------------------+--------------------------------+
-| last-index        | Sat Mar <span style="color:#666">18</span> 07:09:32 <span style="color:#666">2023</span>       |
-+-------------------+--------------------------------+
-</code></pre></div><h3 id="이맥스-설정">이맥스 설정 <a href="#%ec%9d%b4%eb%a7%a5%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은 mu4e의
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sukbeom@LAPTOP-R4FQS2C5:~$ ls opt/share/emacs/site-lisp/mu4e/
+</span></span><span style="display:flex;"><span>mu4e-actions.el     mu4e-context.el   mu4e-headers.elc    mu4e-mark.el      mu4e-server.elc    mu4e.el
+</span></span><span style="display:flex;"><span>mu4e-actions.elc    mu4e-context.elc  mu4e-helpers.el     mu4e-mark.elc     mu4e-speedbar.el   mu4e.elc
+</span></span><span style="display:flex;"><span>mu4e-bookmarks.el   mu4e-contrib.el   mu4e-helpers.elc    mu4e-message.el   mu4e-speedbar.elc  org-mu4e.el
+</span></span><span style="display:flex;"><span>mu4e-bookmarks.elc  mu4e-contrib.elc  mu4e-icalendar.el   mu4e-message.elc  mu4e-update.el     org-mu4e.elc
+</span></span><span style="display:flex;"><span>mu4e-compose.el     mu4e-draft.el     mu4e-icalendar.elc  mu4e-org.el       mu4e-update.elc
+</span></span><span style="display:flex;"><span>mu4e-compose.elc    mu4e-draft.elc    mu4e-lists.el       mu4e-org.elc      mu4e-vars.el
+</span></span><span style="display:flex;"><span>mu4e-config.el      mu4e-folders.el   mu4e-lists.elc      mu4e-search.el    mu4e-vars.elc
+</span></span><span style="display:flex;"><span>mu4e-contacts.el    mu4e-folders.elc  mu4e-main.el        mu4e-search.elc   mu4e-view.el
+</span></span><span style="display:flex;"><span>mu4e-contacts.elc   mu4e-headers.el   mu4e-main.elc       mu4e-server.el    mu4e-view.elc
+</span></span></code></pre></div><h3 id="mu-설정">mu 설정 <a href="#mu-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>이제 mbsync 로 생성해놓았던 디렉토리를 기준으로 초기화한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mu init --maildir<span style="color:#666">=</span><span style="color:#b8860b">$HOME</span>/mbsync
+</span></span><span style="display:flex;"><span>$ mu info
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| maildir           | /home/sukbeom/mbsync           |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| database-path     | /home/sukbeom/.cache/mu/xapian |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| schema-version    | <span style="color:#666">465</span>                            |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| max-message-size  | <span style="color:#666">100000000</span>                      |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| batch-size        | <span style="color:#666">250000</span>                         |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| created           | Thu Mar <span style="color:#666">16</span> 23:23:40 <span style="color:#666">2023</span>       |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| personal-address  |                                |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| messages in store | <span style="color:#666">38</span>                             |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| last-change       | Sat Mar <span style="color:#666">18</span> 07:09:36 <span style="color:#666">2023</span>       |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span><span style="display:flex;"><span>| last-index        | Sat Mar <span style="color:#666">18</span> 07:09:32 <span style="color:#666">2023</span>       |
+</span></span><span style="display:flex;"><span>+-------------------+--------------------------------+
+</span></span></code></pre></div><h3 id="이맥스-설정">이맥스 설정 <a href="#%ec%9d%b4%eb%a7%a5%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h3><p>이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은 mu4e의
 공식 문서에 자세히 기술되어 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elisp" data-lang="elisp"><span style="color:#080;font-style:italic">; 설치한 경로로 설정한다.</span>
-(<span style="color:#b8860b">add-load-path!</span> <span style="color:#b44">&#34;/home/sukbeom/opt/share/emacs/site-lisp/mu4e/&#34;</span>)
-
-(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;mu4e</span>)
-(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;mu4e-contrib</span>)
-(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;gnutls</span>)
-
-(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-sent-folder</span> <span style="color:#b44">&#34;/sent&#34;</span>	<span style="color:#080;font-style:italic">;; folder for sent messages</span>
-<span style="color:#b8860b">mu4e-drafts-folder</span> <span style="color:#b44">&#34;/drafts&#34;</span>	<span style="color:#080;font-style:italic">;; unfinished messages</span>
-<span style="color:#b8860b">mu4e-trash-folder</span> <span style="color:#b44">&#34;/trash&#34;</span>	<span style="color:#080;font-style:italic">;; trashed messages</span>
-<span style="color:#b8860b">mu4e-refile-folder</span> <span style="color:#b44">&#34;/archive&#34;</span>	<span style="color:#080;font-style:italic">;; saved messages</span>
-<span style="color:#b8860b">user-mail-address</span> <span style="color:#b44">&#34;메일 주소&#34;</span>
-<span style="color:#b8860b">smtpmail-default-smtp-server</span> <span style="color:#b44">&#34;smtp.gmail.com&#34;</span>
-<span style="color:#b8860b">smtpmail-smtp-server</span> <span style="color:#b44">&#34;smtp.gmail.com&#34;</span>
-<span style="color:#b8860b">smtpmail-smtp-service</span> <span style="color:#666">587</span>)
-
-(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-index-cleanup</span> <span style="color:#b8860b">nil</span>	      <span style="color:#080;font-style:italic">;; don&#39;t do a full cleanup check</span>
-<span style="color:#b8860b">mu4e-index-lazy-check</span> <span style="color:#800">t</span>)      <span style="color:#080;font-style:italic">;; don&#39;t consider up-to-date dirs</span>
-
-
-(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-maildir</span> <span style="color:#b44">&#34;~/mbsync/&#34;</span>
-<span style="color:#b8860b">mu4e-attachment-dir</span> <span style="color:#b44">&#34;~/mbsync/attachments&#34;</span>
-<span style="color:#00a000">user-full-name</span> <span style="color:#b44">&#34;Sukbeom Kim&#34;</span>)
-
-(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-get-mail-command</span> <span style="color:#b44">&#34;mbsync -a&#34;</span>
-<span style="color:#b8860b">mu4e-change-filenames-when-moving</span> <span style="color:#800">t</span>
-<span style="color:#b8860b">mu4e-view-show-images</span> <span style="color:#800">t</span>
-<span style="color:#b8860b">mu4e-view-show-addresses</span> <span style="color:#800">t</span>
-<span style="color:#b8860b">mu4e-update-interval</span> (<span style="color:#00a000">*</span> <span style="color:#666">20</span> <span style="color:#666">60</span>))
-
-(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-html2text-command</span> <span style="color:#b8860b">&#39;mu4e-shr2text</span>
-<span style="color:#b8860b">shr-color-visible-luminance-min</span> <span style="color:#666">80</span>
-<span style="color:#b8860b">shr-color-visible-distance-min</span> <span style="color:#666">5</span>))
-</code></pre></div><h2 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h2><p>이제 필요한 설정이 모두 마무리 되었다. M-x mu4e를 실행해 제대로 메일이 보이는지
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span><span style="color:#080;font-style:italic">; 설치한 경로로 설정한다.</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#b8860b">add-load-path!</span> <span style="color:#b44">&#34;/home/sukbeom/opt/share/emacs/site-lisp/mu4e/&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;mu4e</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;mu4e-contrib</span>)
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">require</span> <span style="color:#b8860b">&#39;gnutls</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-sent-folder</span> <span style="color:#b44">&#34;/sent&#34;</span>	<span style="color:#080;font-style:italic">;; folder for sent messages</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-drafts-folder</span> <span style="color:#b44">&#34;/drafts&#34;</span>	<span style="color:#080;font-style:italic">;; unfinished messages</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-trash-folder</span> <span style="color:#b44">&#34;/trash&#34;</span>	<span style="color:#080;font-style:italic">;; trashed messages</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-refile-folder</span> <span style="color:#b44">&#34;/archive&#34;</span>	<span style="color:#080;font-style:italic">;; saved messages</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">user-mail-address</span> <span style="color:#b44">&#34;메일 주소&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">smtpmail-default-smtp-server</span> <span style="color:#b44">&#34;smtp.gmail.com&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">smtpmail-smtp-server</span> <span style="color:#b44">&#34;smtp.gmail.com&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">smtpmail-smtp-service</span> <span style="color:#666">587</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-index-cleanup</span> <span style="color:#b8860b">nil</span>	      <span style="color:#080;font-style:italic">;; don&#39;t do a full cleanup check</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-index-lazy-check</span> <span style="color:#800">t</span>)      <span style="color:#080;font-style:italic">;; don&#39;t consider up-to-date dirs</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-maildir</span> <span style="color:#b44">&#34;~/mbsync/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-attachment-dir</span> <span style="color:#b44">&#34;~/mbsync/attachments&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a000">user-full-name</span> <span style="color:#b44">&#34;Sukbeom Kim&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-get-mail-command</span> <span style="color:#b44">&#34;mbsync -a&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-change-filenames-when-moving</span> <span style="color:#800">t</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-view-show-images</span> <span style="color:#800">t</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-view-show-addresses</span> <span style="color:#800">t</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">mu4e-update-interval</span> (<span style="color:#00a000">*</span> <span style="color:#666">20</span> <span style="color:#666">60</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a2f">setq</span> <span style="color:#b8860b">mu4e-html2text-command</span> <span style="color:#b8860b">&#39;mu4e-shr2text</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">shr-color-visible-luminance-min</span> <span style="color:#666">80</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">shr-color-visible-distance-min</span> <span style="color:#666">5</span>))
+</span></span></code></pre></div><h2 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h2><p>이제 필요한 설정이 모두 마무리 되었다. M-x mu4e를 실행해 제대로 메일이 보이는지
 확인한다.</p>
 <p>mu4e 를 통해 이제 수신한 메일들을 관리하거나 지정되어 있는 smtp 서버를 통해
 메일을 주고받을 수 있다. mu4e는 thunderbird의 마크다운 지원하는 메일 작성의
@@ -365,42 +412,13 @@ $ mu info
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

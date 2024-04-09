@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Interrupt on seokbeomkim.dev</title>
+    <title>interrupt on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/interrupt/</link>
-    <description>Recent content in Interrupt on seokbeomkim.dev</description>
+    <description>Recent content in interrupt on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 03 Mar 2020 00:00:10 +0900</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</guid>
-      <description>개요 디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackOv</description>
+      <description>개요 🔗디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackO</description>
     </item>
   </channel>
 </rss>

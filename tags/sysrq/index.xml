@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sysrq on seokbeomkim.dev</title>
+    <title>sysrq on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/sysrq/</link>
-    <description>Recent content in Sysrq on seokbeomkim.dev</description>
+    <description>Recent content in sysrq on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 17 Dec 2020 01:38:06 +0900</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://seokbeomkim.github.io/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</link>
       <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/posts/sysrq-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%8C%A8%EB%8B%89-%EB%B0%9C%EC%83%9D%EC%8B%9C%ED%82%A4%EA%B8%B0/</guid>
-      <description>개요 현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등에</description>
+      <description>개요 🔗현업에서 커널 패닉을 고의로 생성하기 위해서 찾아보던 중 sysrq 를 이용하는 방법이 있다는 것을 알게 되었다. 본 페이지에서는 sysrq에 대한 개념과 사용 방법 등</description>
     </item>
   </channel>
 </rss>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Overlay on seokbeomkim.dev</title>
+    <title>overlay on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/overlay/</link>
-    <description>Recent content in Overlay on seokbeomkim.dev</description>
+    <description>Recent content in overlay on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 May 2022 01:37:45 +0900</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://seokbeomkim.github.io/posts/device-tree-overlay/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/posts/device-tree-overlay/</guid>
-      <description>Ramoops 덕분에 알게된 오버레이 며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면서</description>
+      <description>Ramoops 덕분에 알게된 오버레이 🔗며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면</description>
     </item>
   </channel>
 </rss>

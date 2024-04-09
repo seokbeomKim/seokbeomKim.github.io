@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>CORS(Cross-Origin Resource Sharing) | seokbeomkim.dev</title>
+    <title>CORS(Cross-Origin Resource Sharing) | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="CORS(Cross-Origin Resource Sharing) 🔗웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -83,6 +101,32 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#corscross-origin-resource-sharing">CORS(Cross-Origin Resource Sharing)</a></li>
+    <li><a href="#cors-요청">CORS 요청</a>
+      <ul>
+        <li><a href="#simple-requests">Simple Requests</a></li>
+        <li><a href="#preflighted-requests">Preflighted Requests</a></li>
+        <li><a href="#requests-with-credentials">Requests with credentials</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
     
 
 
@@ -118,43 +162,43 @@ if (!doNotTrack) {
 </ol>
 <p>이러한 Simple Request 방식에서 클라이언트는 서버로 요청을 한 번 보내고, 마찬가지로 서버도 회신을 한 번 보내는 것으로 요청에 대한 응답이 종료된다.</p>
 <p>아래는 Simple requests를 사용하는 자바스크립트 예제이다. 아래 코드가 <code>http://foo.example</code> 서버로부터 제공되어 <code>http://bar.other</code>라는 외부 도메인으로부터 리소스를 받아오려 한다는 상황을 가정해보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
-<span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/public-data/&#39;</span>;
-
-<span style="color:#a2f;font-weight:bold">function</span> callOtherDomain() {
-  <span style="color:#a2f;font-weight:bold">if</span>(invocation) {
-    invocation.open(<span style="color:#b44">&#39;GET&#39;</span>, url, <span style="color:#a2f;font-weight:bold">true</span>);
-    invocation.onreadystatechange <span style="color:#666">=</span> handler;
-    invocation.send();
-  }
-}
-</code></pre></div><p>위 코드를 통해 웹 브라우저가 서버로 Request를 보내고 서버로부터 Response를 받는 과정을 아래와 같이 간략하게 나타낼 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/public-data/&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> callOtherDomain() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span>(invocation) {
+</span></span><span style="display:flex;"><span>    invocation.open(<span style="color:#b44">&#39;GET&#39;</span>, url, <span style="color:#a2f;font-weight:bold">true</span>);
+</span></span><span style="display:flex;"><span>    invocation.onreadystatechange <span style="color:#666">=</span> handler;
+</span></span><span style="display:flex;"><span>    invocation.send();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>위 코드를 통해 웹 브라우저가 서버로 Request를 보내고 서버로부터 Response를 받는 과정을 아래와 같이 간략하게 나타낼 수 있다.</p>
 <p><p class="markdown-image">
   <img src="/img/cors_simple_req.png" alt="An example of CORS Simple Request"  />
 </p></p>
 <p>이 때, 실제 Request와 Response가 어떤 식으로 오고 가는지 아래 텍스트를 보자. Request의 <code>Origin</code>, Response의 <code>Access-Control-Allow-Origin</code> 부분을 중심으로 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#00a000">GET</span> <span style="color:#00f;font-weight:bold">/resources/public-data/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
-Host<span style="color:#666">:</span> bar.other
-User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
-Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language<span style="color:#666">:</span> en-us,en;q=0.5
-Accept-Encoding<span style="color:#666">:</span> gzip,deflate
-Accept-Charset<span style="color:#666">:</span> ISO-8859-1,utf-8;q=0.7,*;q=0.7
-Connection<span style="color:#666">:</span> keep-alive
-Referer<span style="color:#666">:</span> http://foo.example/examples/access-control/simpleXSInvocation.html
-Origin<span style="color:#666">:</span> http://foo.example
-</code></pre></div><p>먼저, 위는 예제 코드가 서버로 보내는 Request를 나타내며 Origin 헤더부분은 컨텐츠가 <code>http://foo.example</code>로부터 오는 것이라고 서버에게 알리는 역할을 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span> <span style="color:#666">200</span> <span style="color:#d2413a;font-weight:bold">OK</span>
-Date<span style="color:#666">:</span> Mon, 01 Dec 2008 00:23:53 GMT
-Server<span style="color:#666">:</span> Apache/2.0.61
-Access-Control-Allow-Origin<span style="color:#666">:</span> *
-Keep-Alive<span style="color:#666">:</span> timeout=2, max=100
-Connection<span style="color:#666">:</span> Keep-Alive
-Transfer-Encoding<span style="color:#666">:</span> chunked
-Content-Type<span style="color:#666">:</span> application/xml
-</code></pre></div><p>위는 서버가 클라이언트로 보내는 Response를 나타내며, <code>Access-Control-Allow-Origin: *</code>은 모든 도메인의 cross-site 방식으로부터 액세스가 가능하다고 클라이언트에게 알리는 역할을 한다. 하지만 만약 이 헤더가</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="">Access-Control-Allow-Origin: http://foo.example
-</span></code></pre></div><p>처럼 왔다면 <code>http://foo.example</code>을 제외한 다른 도메인들에서는 cross-site 방식으로 해당 리소스에 접근할 수 없다는 것을 의미한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">GET</span> <span style="color:#00f;font-weight:bold">/resources/public-data/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
+</span></span><span style="display:flex;"><span>Host<span style="color:#666">:</span> bar.other
+</span></span><span style="display:flex;"><span>User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
+</span></span><span style="display:flex;"><span>Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+</span></span><span style="display:flex;"><span>Accept-Language<span style="color:#666">:</span> en-us,en;q=0.5
+</span></span><span style="display:flex;"><span>Accept-Encoding<span style="color:#666">:</span> gzip,deflate
+</span></span><span style="display:flex;"><span>Accept-Charset<span style="color:#666">:</span> ISO-8859-1,utf-8;q=0.7,*;q=0.7
+</span></span><span style="display:flex;"><span>Connection<span style="color:#666">:</span> keep-alive
+</span></span><span style="display:flex;"><span>Referer<span style="color:#666">:</span> http://foo.example/examples/access-control/simpleXSInvocation.html
+</span></span><span style="display:flex;"><span>Origin<span style="color:#666">:</span> http://foo.example
+</span></span></code></pre></div><p>먼저, 위는 예제 코드가 서버로 보내는 Request를 나타내며 Origin 헤더부분은 컨텐츠가 <code>http://foo.example</code>로부터 오는 것이라고 서버에게 알리는 역할을 한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span> <span style="color:#666">200</span> <span style="color:#d2413a;font-weight:bold">OK</span>
+</span></span><span style="display:flex;"><span>Date<span style="color:#666">:</span> Mon, 01 Dec 2008 00:23:53 GMT
+</span></span><span style="display:flex;"><span>Server<span style="color:#666">:</span> Apache/2.0.61
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Origin<span style="color:#666">:</span> *
+</span></span><span style="display:flex;"><span>Keep-Alive<span style="color:#666">:</span> timeout=2, max=100
+</span></span><span style="display:flex;"><span>Connection<span style="color:#666">:</span> Keep-Alive
+</span></span><span style="display:flex;"><span>Transfer-Encoding<span style="color:#666">:</span> chunked
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#666">:</span> application/xml
+</span></span></code></pre></div><p>위는 서버가 클라이언트로 보내는 Response를 나타내며, <code>Access-Control-Allow-Origin: *</code>은 모든 도메인의 cross-site 방식으로부터 액세스가 가능하다고 클라이언트에게 알리는 역할을 한다. 하지만 만약 이 헤더가</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="">Access-Control-Allow-Origin: http://foo.example
+</span></span></span></code></pre></div><p>처럼 왔다면 <code>http://foo.example</code>을 제외한 다른 도메인들에서는 cross-site 방식으로 해당 리소스에 접근할 수 없다는 것을 의미한다.</p>
 <h3 id="preflighted-requests">Preflighted Requests <a href="#preflighted-requests" class="anchor">🔗</a></h3><p><code>Simple Requests</code>와 다르게 &ldquo;preflighted&rdquo; requests(사전 전달 요청)는 먼저 <code>OPTIONS</code> 메서드를 이용하여 HTTP request를 먼저 보내 실제 요청이 보내기에 안전한지 확인한다. 아래 조건들 중 하나라도 만족하면 <code>Preflighted Requests</code>로 간주한다.</p>
 <ol>
 <li>Request가 아래 메서드를 사용한다.
@@ -191,105 +235,105 @@ Content-Type<span style="color:#666">:</span> application/xml
 <li><code>ReadableStream</code>이 Request 안에서 사용된 경우</li>
 </ol>
 <p>아래는 preflighted 요청을 위한 자바스크립트 예제이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
-<span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/post-here/&#39;</span>;
-<span style="color:#a2f;font-weight:bold">var</span> body <span style="color:#666">=</span> <span style="color:#b44">&#39;&lt;?xml version=&#34;1.0&#34;?&gt;&lt;person&gt;&lt;name&gt;Arun&lt;/name&gt;&lt;/person&gt;&#39;</span>;
-
-<span style="color:#a2f;font-weight:bold">function</span> callOtherDomain(){
-  <span style="color:#a2f;font-weight:bold">if</span>(invocation)
-    {
-      invocation.open(<span style="color:#b44">&#39;POST&#39;</span>, url, <span style="color:#a2f;font-weight:bold">true</span>);
-      invocation.setRequestHeader(<span style="color:#b44">&#39;X-PINGOTHER&#39;</span>, <span style="color:#b44">&#39;pingpong&#39;</span>);
-      invocation.setRequestHeader(<span style="color:#b44">&#39;Content-Type&#39;</span>, <span style="color:#b44">&#39;application/xml&#39;</span>);
-      invocation.onreadystatechange <span style="color:#666">=</span> handler;
-      invocation.send(body);
-    }
-}
-</code></pre></div><p>위 예제 코드에서는 XML body를 보내기 위해 <code>POST</code> 방식을 사용하고 <code>X-PINGOTHER: pingpong</code>이라는 customized request 헤더를 사용했다. 또한, <code>application/xml</code> Content-Type을 사용함으로써 위에서 명시된 3가지 Content-Type 외에 해당하여 해당 request가 <code>preflighted</code> 타입이라는 것을 알 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/post-here/&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> body <span style="color:#666">=</span> <span style="color:#b44">&#39;&lt;?xml version=&#34;1.0&#34;?&gt;&lt;person&gt;&lt;name&gt;Arun&lt;/name&gt;&lt;/person&gt;&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> callOtherDomain(){
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span>(invocation)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      invocation.open(<span style="color:#b44">&#39;POST&#39;</span>, url, <span style="color:#a2f;font-weight:bold">true</span>);
+</span></span><span style="display:flex;"><span>      invocation.setRequestHeader(<span style="color:#b44">&#39;X-PINGOTHER&#39;</span>, <span style="color:#b44">&#39;pingpong&#39;</span>);
+</span></span><span style="display:flex;"><span>      invocation.setRequestHeader(<span style="color:#b44">&#39;Content-Type&#39;</span>, <span style="color:#b44">&#39;application/xml&#39;</span>);
+</span></span><span style="display:flex;"><span>      invocation.onreadystatechange <span style="color:#666">=</span> handler;
+</span></span><span style="display:flex;"><span>      invocation.send(body);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>위 예제 코드에서는 XML body를 보내기 위해 <code>POST</code> 방식을 사용하고 <code>X-PINGOTHER: pingpong</code>이라는 customized request 헤더를 사용했다. 또한, <code>application/xml</code> Content-Type을 사용함으로써 위에서 명시된 3가지 Content-Type 외에 해당하여 해당 request가 <code>preflighted</code> 타입이라는 것을 알 수 있다.</p>
 <p>이제, 이 <code>preflighted request</code>가 서버로 보내질 때 어떤 식으로 요청과 응답이 오고가는지 아래 그림을 통해 개괄적으로 살펴보자.</p>
 <p><p class="markdown-image">
   <img src="/img/cors_preflight.png" alt="CORS Preflighted_request"  />
 </p></p>
 <p>위 그림에서 주의해야할 것은 아래의 실제 REQUEST/REPONSE 코드에서 보겠지만 실제 POST request 안에는 <code>Access-Control-Request-*</code> 헤더가 없다는 점이다. 해당 헤더들은 모두 <code>OPTIONS</code> request에서만 필요하다. 또한, preflighted request의 경우 메인 Request를 보내기 전에 Preflighted Request를 한번 더 보낸다는 점이 주의하자.</p>
 <p>아래는 위 다이어그램에 대한 실제 Request &amp; Response 내용이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#00a000">OPTIONS</span> <span style="color:#00f;font-weight:bold">/resources/post-here/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
-Host<span style="color:#666">:</span> bar.other
-User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
-Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language<span style="color:#666">:</span> en-us,en;q=0.5
-Accept-Encoding<span style="color:#666">:</span> gzip,deflate
-Accept-Charset<span style="color:#666">:</span> ISO-8859-1,utf-8;q=0.7,*;q=0.7
-Connection<span style="color:#666">:</span> keep-alive
-Origin<span style="color:#666">:</span> http://foo.example
-Access-Control-Request-Method<span style="color:#666">:</span> POST
-Access-Control-Request-Headers<span style="color:#666">:</span> X-PINGOTHER, Content-Type
-
-
-HTTP/1.1 200 OK
-Date: Mon, 01 Dec 2008 01:15:39 GMT
-Server: Apache/2.0.61 (Unix)
-Access-Control-Allow-Origin: http://foo.example
-Access-Control-Allow-Methods: POST, GET
-Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
-Access-Control-Max-Age: 86400
-Vary: Accept-Encoding, Origin
-Content-Encoding: gzip
-Content-Length: 0
-Keep-Alive: timeout=2, max=100
-Connection: Keep-Alive
-Content-Type: text/plain
-</code></pre></div><p>먼저, <code>preflighted request</code>와 그 응답에 대해 살펴보자. <code>Access-Control-Request-Method</code> 해더는 서버에게 실제 Request가 보내졌을 때 해당 Request의 메서드와 <code>X-PINGOTHER, Content-Type</code> 등의 custom header들을 함께 전송할 것이라고 미리 알린다. 서버는 클라이언트로부터 이러한 정보를 미리 <code>preflighted request</code>를 통해 전달받고 실제 request를 받을 것인지를 결정한 뒤 알려준다. 위에 나타난 Reponse 코드 중 유심해야할 부분은 다음과 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="">Access-Control-Allow-Origin: http://foo.example
-</span><span style="">Access-Control-Allow-Methods: POST, GET
-</span><span style="">Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
-</span><span style="">Access-Control-Max-Age: 86400
-</span></code></pre></div><p>서버는 preflighted request에 대한 응답을 통해 클라이언트로 사용 가능한 메서드와 헤더, 그리고 해당 리소스 접근을 위해 허용된 origin을 <code>http://foo.example</code>로 제한하여 보내주고 있다. 마지막으로 <code>Access-Control-Max-Age</code>는 해당 reponse가 또다른 preflight request를 보내지 않고 얼마 동안 캐시되어 있는지를 클라이언트에게 알려주는 역할을 한다. 여기서 86400은 86400초를 나타내어 24시간동안 cached response가 유효하다고 알린다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http"><span style="color:#00a000">POST</span> <span style="color:#00f;font-weight:bold">/resources/post-here/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
-Host<span style="color:#666">:</span> bar.other
-User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
-Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language<span style="color:#666">:</span> en-us,en;q=0.5
-Accept-Encoding<span style="color:#666">:</span> gzip,deflate
-Accept-Charset<span style="color:#666">:</span> ISO-8859-1,utf-8;q=0.7,*;q=0.7
-Connection<span style="color:#666">:</span> keep-alive
-X-PINGOTHER<span style="color:#666">:</span> pingpong
-Content-Type<span style="color:#666">:</span> text/xml; charset=UTF-8
-Referer<span style="color:#666">:</span> http://foo.example/examples/preflightInvocation.html
-Content-Length<span style="color:#666">:</span> 55
-Origin<span style="color:#666">:</span> http://foo.example
-Pragma<span style="color:#666">:</span> no-cache
-Cache-Control<span style="color:#666">:</span> no-cache
-
-<span style="color:#080">&lt;?xml version=&#34;1.0&#34;?&gt;</span><span style="color:#008000;font-weight:bold">&lt;person&gt;&lt;name&gt;</span>Arun<span style="color:#008000;font-weight:bold">&lt;/name&gt;&lt;/person&gt;</span>
-
-
-HTTP/1.1 200 OK
-Date: Mon, 01 Dec 2008 01:15:40 GMT
-Server: Apache/2.0.61 (Unix)
-Access-Control-Allow-Origin: http://foo.example
-Vary: Accept-Encoding, Origin
-Content-Encoding: gzip
-Content-Length: 235
-Keep-Alive: timeout=2, max=99
-Connection: Keep-Alive
-Content-Type: text/plain
-
-[Some GZIP&#39;d payload]
-</code></pre></div><h3 id="requests-with-credentials">Requests with credentials <a href="#requests-with-credentials" class="anchor">🔗</a></h3><p>마지막으로 Credential, Non-Credential을 구분할 CORS Request 종류에 대해 기술한다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">OPTIONS</span> <span style="color:#00f;font-weight:bold">/resources/post-here/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
+</span></span><span style="display:flex;"><span>Host<span style="color:#666">:</span> bar.other
+</span></span><span style="display:flex;"><span>User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
+</span></span><span style="display:flex;"><span>Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+</span></span><span style="display:flex;"><span>Accept-Language<span style="color:#666">:</span> en-us,en;q=0.5
+</span></span><span style="display:flex;"><span>Accept-Encoding<span style="color:#666">:</span> gzip,deflate
+</span></span><span style="display:flex;"><span>Accept-Charset<span style="color:#666">:</span> ISO-8859-1,utf-8;q=0.7,*;q=0.7
+</span></span><span style="display:flex;"><span>Connection<span style="color:#666">:</span> keep-alive
+</span></span><span style="display:flex;"><span>Origin<span style="color:#666">:</span> http://foo.example
+</span></span><span style="display:flex;"><span>Access-Control-Request-Method<span style="color:#666">:</span> POST
+</span></span><span style="display:flex;"><span>Access-Control-Request-Headers<span style="color:#666">:</span> X-PINGOTHER, Content-Type
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HTTP/1.1 200 OK
+</span></span><span style="display:flex;"><span>Date: Mon, 01 Dec 2008 01:15:39 GMT
+</span></span><span style="display:flex;"><span>Server: Apache/2.0.61 (Unix)
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Origin: http://foo.example
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Methods: POST, GET
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
+</span></span><span style="display:flex;"><span>Access-Control-Max-Age: 86400
+</span></span><span style="display:flex;"><span>Vary: Accept-Encoding, Origin
+</span></span><span style="display:flex;"><span>Content-Encoding: gzip
+</span></span><span style="display:flex;"><span>Content-Length: 0
+</span></span><span style="display:flex;"><span>Keep-Alive: timeout=2, max=100
+</span></span><span style="display:flex;"><span>Connection: Keep-Alive
+</span></span><span style="display:flex;"><span>Content-Type: text/plain
+</span></span></code></pre></div><p>먼저, <code>preflighted request</code>와 그 응답에 대해 살펴보자. <code>Access-Control-Request-Method</code> 해더는 서버에게 실제 Request가 보내졌을 때 해당 Request의 메서드와 <code>X-PINGOTHER, Content-Type</code> 등의 custom header들을 함께 전송할 것이라고 미리 알린다. 서버는 클라이언트로부터 이러한 정보를 미리 <code>preflighted request</code>를 통해 전달받고 실제 request를 받을 것인지를 결정한 뒤 알려준다. 위에 나타난 Reponse 코드 중 유심해야할 부분은 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="">Access-Control-Allow-Origin: http://foo.example
+</span></span></span><span style="display:flex;"><span><span style="">Access-Control-Allow-Methods: POST, GET
+</span></span></span><span style="display:flex;"><span><span style="">Access-Control-Allow-Headers: X-PINGOTHER, Content-Type
+</span></span></span><span style="display:flex;"><span><span style="">Access-Control-Max-Age: 86400
+</span></span></span></code></pre></div><p>서버는 preflighted request에 대한 응답을 통해 클라이언트로 사용 가능한 메서드와 헤더, 그리고 해당 리소스 접근을 위해 허용된 origin을 <code>http://foo.example</code>로 제한하여 보내주고 있다. 마지막으로 <code>Access-Control-Max-Age</code>는 해당 reponse가 또다른 preflight request를 보내지 않고 얼마 동안 캐시되어 있는지를 클라이언트에게 알려주는 역할을 한다. 여기서 86400은 86400초를 나타내어 24시간동안 cached response가 유효하다고 알린다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#00a000">POST</span> <span style="color:#00f;font-weight:bold">/resources/post-here/</span> <span style="color:#a2f;font-weight:bold">HTTP</span><span style="color:#666">/</span><span style="color:#666">1.1</span>
+</span></span><span style="display:flex;"><span>Host<span style="color:#666">:</span> bar.other
+</span></span><span style="display:flex;"><span>User-Agent<span style="color:#666">:</span> Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre
+</span></span><span style="display:flex;"><span>Accept<span style="color:#666">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+</span></span><span style="display:flex;"><span>Accept-Language<span style="color:#666">:</span> en-us,en;q=0.5
+</span></span><span style="display:flex;"><span>Accept-Encoding<span style="color:#666">:</span> gzip,deflate
+</span></span><span style="display:flex;"><span>Accept-Charset<span style="color:#666">:</span> ISO-8859-1,utf-8;q=0.7,*;q=0.7
+</span></span><span style="display:flex;"><span>Connection<span style="color:#666">:</span> keep-alive
+</span></span><span style="display:flex;"><span>X-PINGOTHER<span style="color:#666">:</span> pingpong
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#666">:</span> text/xml; charset=UTF-8
+</span></span><span style="display:flex;"><span>Referer<span style="color:#666">:</span> http://foo.example/examples/preflightInvocation.html
+</span></span><span style="display:flex;"><span>Content-Length<span style="color:#666">:</span> 55
+</span></span><span style="display:flex;"><span>Origin<span style="color:#666">:</span> http://foo.example
+</span></span><span style="display:flex;"><span>Pragma<span style="color:#666">:</span> no-cache
+</span></span><span style="display:flex;"><span>Cache-Control<span style="color:#666">:</span> no-cache
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#34;1.0&#34;?&gt;</span><span style="color:#008000;font-weight:bold">&lt;person&gt;&lt;name&gt;</span>Arun<span style="color:#008000;font-weight:bold">&lt;/name&gt;&lt;/person&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HTTP/1.1 200 OK
+</span></span><span style="display:flex;"><span>Date: Mon, 01 Dec 2008 01:15:40 GMT
+</span></span><span style="display:flex;"><span>Server: Apache/2.0.61 (Unix)
+</span></span><span style="display:flex;"><span>Access-Control-Allow-Origin: http://foo.example
+</span></span><span style="display:flex;"><span>Vary: Accept-Encoding, Origin
+</span></span><span style="display:flex;"><span>Content-Encoding: gzip
+</span></span><span style="display:flex;"><span>Content-Length: 235
+</span></span><span style="display:flex;"><span>Keep-Alive: timeout=2, max=99
+</span></span><span style="display:flex;"><span>Connection: Keep-Alive
+</span></span><span style="display:flex;"><span>Content-Type: text/plain
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Some GZIP&#39;d payload]
+</span></span></code></pre></div><h3 id="requests-with-credentials">Requests with credentials <a href="#requests-with-credentials" class="anchor">🔗</a></h3><p>마지막으로 Credential, Non-Credential을 구분할 CORS Request 종류에 대해 기술한다.
 이 &ldquo;credentialed&rdquo; requests는 HTTP Cookie와 HTTP Authentication information의 취약점에 대비하여 만들어진 request 타입이다. 기본으로 웹 브라우저는 cross-site XMLHttpRequest와 Fetch invocation에서 credential을 보내지 않는다.</p>
 <p>아래 코드를 예로 들어보자. <code>http://bar.other/</code>로부터 받은 컨텐츠가 쿠키를 설정하는 리소스라고 가정하고, 아래 자바스크립트 코드가 <code>http://foo.example</code>내에서 동작하는 코드라고 생각하자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
-<span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/credentialed-content/&#39;</span>;
-
-<span style="color:#a2f;font-weight:bold">function</span> callOtherDomain(){
-  <span style="color:#a2f;font-weight:bold">if</span>(invocation) {
-    invocation.open(<span style="color:#b44">&#39;GET&#39;</span>, url, <span style="color:#a2f;font-weight:bold">true</span>);
-    invocation.withCredentials <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
-    invocation.onreadystatechange <span style="color:#666">=</span> handler;
-    invocation.send();
-  }
-}
-</code></pre></div><p><p class="markdown-image">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> invocation <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> XMLHttpRequest();
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">var</span> url <span style="color:#666">=</span> <span style="color:#b44">&#39;http://bar.other/resources/credentialed-content/&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">function</span> callOtherDomain(){
+</span></span><span style="display:flex;"><span>  <span style="color:#a2f;font-weight:bold">if</span>(invocation) {
+</span></span><span style="display:flex;"><span>    invocation.open(<span style="color:#b44">&#39;GET&#39;</span>, url, <span style="color:#a2f;font-weight:bold">true</span>);
+</span></span><span style="display:flex;"><span>    invocation.withCredentials <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span>    invocation.onreadystatechange <span style="color:#666">=</span> handler;
+</span></span><span style="display:flex;"><span>    invocation.send();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><p class="markdown-image">
   <img src="/img/cors-cred-req.png" alt="CORS Credential Response"  />
 </p></p>
 <p>위처럼 새로 가져올 컨텐츠에서 캐시를 설정하는 등의 행위를 할 때 반드시 <code>withCredentials</code>를 설정해줘야 하며, 해당 헤더가 설정되었다면 웹 브라우저는 서버로부터 받은 response 안에 <code>Access-Control-Allow-Credentials: true</code>가 없는 경우는 모두 거절해버린다.</p>
@@ -317,42 +361,13 @@ Content-Type: text/plain
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

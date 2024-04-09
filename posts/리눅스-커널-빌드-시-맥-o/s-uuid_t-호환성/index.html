@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>리눅스 커널 빌드 시 맥 O/S uuid_t 호환성 | seokbeomkim.dev</title>
+    <title>리눅스 커널 빌드 시 맥 O/S uuid_t 호환성 | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗BSD 기반의 맥에서 리눅스 커널 빌드가 안될리 없다고 생각하고 나서 어떻게든 맥에서 리눅스 커널을 빌드하기 위해 이런저런 삽질을 했다. 회사에서의 BSP 업무는">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,25 @@ if (!doNotTrack) {
 
     
     
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#개요">개요</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
 
 
     <div class="content">
@@ -100,39 +137,38 @@ if (!doNotTrack) {
 점은 없었다. 어째서 라즈베리파이 bsp에서는 정상적으로 빌드되는데 공식
 커널에서는 빌드되지 않는 것일까.</p>
 <p>빌드 시 나오는 에러는 아래와 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">
-HOSTCC  scripts/mod/file2alias.o
-scripts/mod/file2alias.c:47:3: error: typedef redefinition with different types (&#39;struct uuid_t&#39; vs &#39;__darwin_uuid_t&#39; (aka &#39;unsigned char [16]&#39;))
-} uuid_t;
-  ^
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/_types/_uuid_t.h:31:25: note: previous definition is here
-typedef __darwin_uuid_t uuid_t;
-						^
-scripts/mod/file2alias.c:1305:42: error: array initializer must be an initializer list or string literal
-		DEF_FIELD(symval, tee_client_device_id, uuid);
-												^
-2 errors generated.
-</code></pre></div><p>이에 여기저기 뒤져보니 10달 전에 이미 <a href="https://gitce.net/mirrors/openwrt/commit/0b7ad6f7f061e0cd7a3f267b23d411cc2bd44e00" target="_blank" rel="noopener">관련된
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zed" data-lang="zed"><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>HOSTCC<span style="color:#bbb">  </span><span style="color:#00f;font-weight:bold">scripts/mod/</span>file2alias.o<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00f;font-weight:bold">scripts/mod/</span>file2alias.c<span style="color:#666">:</span><span style="">47</span><span style="color:#666">:</span><span style="">3</span><span style="color:#666">:</span><span style="color:#bbb"> </span>error<span style="color:#666">:</span><span style="color:#bbb"> </span>typedef<span style="color:#bbb"> </span>redefinition<span style="color:#bbb"> </span>with<span style="color:#bbb"> </span>different<span style="color:#bbb"> </span>types<span style="color:#bbb"> </span>(<span style="">&#39;</span>struct<span style="color:#bbb"> </span>uuid_t<span style="">&#39;</span><span style="color:#bbb"> </span>vs<span style="color:#bbb"> </span><span style="">&#39;</span>__darwin_uuid_t<span style="">&#39;</span><span style="color:#bbb"> </span>(aka<span style="color:#bbb"> </span><span style="">&#39;</span>unsigned<span style="color:#bbb"> </span>char<span style="color:#bbb"> </span>[<span style="">16</span>]<span style="">&#39;</span>))<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb"> </span>uuid_t;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#666">^</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#666">/</span><span style="color:#00f;font-weight:bold">Applications/</span>Xcode.<span style="color:#00f;font-weight:bold">app/Contents/Developer/Platforms/</span>MacOSX.<span style="color:#00f;font-weight:bold">platform/Developer/SDKs/</span>MacOSX.<span style="color:#00f;font-weight:bold">sdk/usr/include/sys/_types/</span>_uuid_t.h<span style="color:#666">:</span><span style="">31</span><span style="color:#666">:</span><span style="">25</span><span style="color:#666">:</span><span style="color:#bbb"> </span>note<span style="color:#666">:</span><span style="color:#bbb"> </span>previous<span style="color:#bbb"> </span><span style="color:#0b0;font-weight:bold">definition</span><span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>here<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>typedef<span style="color:#bbb"> </span>__darwin_uuid_t<span style="color:#bbb"> </span>uuid_t;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">						</span><span style="color:#666">^</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00f;font-weight:bold">scripts/mod/</span>file2alias.c<span style="color:#666">:</span><span style="">1305</span><span style="color:#666">:</span><span style="">42</span><span style="color:#666">:</span><span style="color:#bbb"> </span>error<span style="color:#666">:</span><span style="color:#bbb"> </span>array<span style="color:#bbb"> </span>initializer<span style="color:#bbb"> </span>must<span style="color:#bbb"> </span>be<span style="color:#bbb"> </span>an<span style="color:#bbb"> </span>initializer<span style="color:#bbb"> </span>list<span style="color:#bbb"> </span>or<span style="color:#bbb"> </span>string<span style="color:#bbb"> </span>literal<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span>DEF_FIELD(symval,<span style="color:#bbb"> </span>tee_client_device_id,<span style="color:#bbb"> </span>uuid);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">												</span><span style="color:#666">^</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="">2</span><span style="color:#bbb"> </span>errors<span style="color:#bbb"> </span>generated.<span style="color:#bbb">
+</span></span></span></code></pre></div><p>이에 여기저기 뒤져보니 10달 전에 이미 <a href="https://gitce.net/mirrors/openwrt/commit/0b7ad6f7f061e0cd7a3f267b23d411cc2bd44e00" target="_blank" rel="noopener">관련된
 패치</a>가
 OpenWRT에 나와있었다. (역시 안될 리가 없다.)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
-index c91eba751804..e756fd80b721 100644
---- a/scripts/mod/file2alias.c
-+++ b/scripts/mod/file2alias.c
-@@ -38,6 +38,9 @@ typedef struct {
-	__u8 b[16];
- } guid_t;
-
-+#ifdef __APPLE__
-+#define uuid_t compat_uuid_t
-+#endif
- /* backwards compatibility, don&#39;t use in new code */
- typedef struct {
-	__u8 b[16];
---
-2.21.1 (Apple Git-122.3)
-
-</code></pre></div><p>맥이 가지고 있는 시스템 라이브러리의 uuid_t 대신 compat_uuid_t 를
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+</span></span><span style="display:flex;"><span>index c91eba751804..e756fd80b721 100644
+</span></span><span style="display:flex;"><span>--- a/scripts/mod/file2alias.c
+</span></span><span style="display:flex;"><span>+++ b/scripts/mod/file2alias.c
+</span></span><span style="display:flex;"><span>@@ -38,6 +38,9 @@ typedef struct {
+</span></span><span style="display:flex;"><span>	__u8 b[16];
+</span></span><span style="display:flex;"><span> } guid_t;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>+#ifdef __APPLE__
+</span></span><span style="display:flex;"><span>+#define uuid_t compat_uuid_t
+</span></span><span style="display:flex;"><span>+#endif
+</span></span><span style="display:flex;"><span> /* backwards compatibility, don&#39;t use in new code */
+</span></span><span style="display:flex;"><span> typedef struct {
+</span></span><span style="display:flex;"><span>	__u8 b[16];
+</span></span><span style="display:flex;"><span>--
+</span></span><span style="display:flex;"><span>2.21.1 (Apple Git-122.3)
+</span></span></code></pre></div><p>맥이 가지고 있는 시스템 라이브러리의 uuid_t 대신 compat_uuid_t 를
 사용하겠다는 건데 이렇게 define 매크로를 사용함으로써 typedef`으로
 정의되는 타입명 자체를 바꿔버리는 것이 신선하게 다가왔다.</p>
 <p>이제 file2alias.c 파일을 고친 뒤에 다시 빌드를 해보자. 커널 master
@@ -163,42 +199,13 @@ index c91eba751804..e756fd80b721 100644
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

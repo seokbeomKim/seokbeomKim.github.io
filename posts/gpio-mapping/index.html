@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>GPIO Mapping | seokbeomkim.dev</title>
+    <title>GPIO Mapping | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="GPIO 맵핑하기 🔗오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만,">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,26 @@ if (!doNotTrack) {
 
     
     
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cell-개수">cell 개수</a></li>
+    <li><a href="#pin-control-subsystem과의-연동">Pin control subsystem과의 연동</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
 
 
     <div class="content">
@@ -106,103 +144,103 @@ if (!doNotTrack) {
 <li>gpio2 controller는 cell 1개를 사용하여 디바이스 드라이버가 인자 1개를 받아 처리한다.</li>
 <li>지정되지 않는 경우 2 cell 방식을 사용한다.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">gpio1: gpio1 {
-    gpio-controller;
-    #gpio-cells = &lt;2&gt;;
-};
-gpio2: gpio2 {
-    gpio-controller;
-    #gpio-cells = &lt;1&gt;;
-}
-
-enable-gpios = &lt;&amp;gpio2 2&gt;;
-data-gpios = &lt;&amp;gpio1 12 0&gt;, &lt;&amp;gpio1 13 0&gt;, &lt;&amp;gpio1 14 0&gt;, &lt;&amp;gpio1 15 0&gt;;
-</code></pre></div><h2 id="pin-control-subsystem과의-연동">Pin control subsystem과의 연동 <a href="#pin-control-subsystem%ea%b3%bc%ec%9d%98-%ec%97%b0%eb%8f%99" class="anchor">🔗</a></h2><p><code>pin control subsystem</code>과의 연동은 gpio controller 노드에서 &ldquo;gpio-ranges&rdquo; 속성을 사용한다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>gpio1: gpio1 {
+</span></span><span style="display:flex;"><span>    gpio-controller;
+</span></span><span style="display:flex;"><span>    #gpio-cells = &lt;2&gt;;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>gpio2: gpio2 {
+</span></span><span style="display:flex;"><span>    gpio-controller;
+</span></span><span style="display:flex;"><span>    #gpio-cells = &lt;1&gt;;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>enable-gpios = &lt;&amp;gpio2 2&gt;;
+</span></span><span style="display:flex;"><span>data-gpios = &lt;&amp;gpio1 12 0&gt;, &lt;&amp;gpio1 13 0&gt;, &lt;&amp;gpio1 14 0&gt;, &lt;&amp;gpio1 15 0&gt;;
+</span></span></code></pre></div><h2 id="pin-control-subsystem과의-연동">Pin control subsystem과의 연동 <a href="#pin-control-subsystem%ea%b3%bc%ec%9d%98-%ec%97%b0%eb%8f%99" class="anchor">🔗</a></h2><p><code>pin control subsystem</code>과의 연동은 gpio controller 노드에서 &ldquo;gpio-ranges&rdquo; 속성을 사용한다.
 &ldquo;gpio-ranges&rdquo; 속성이 가리키는 phandle은 연계된 pin controller 노드를 가리켜야 한다. 그리고 1~3개의 인자를 사용할 수 있으며, 배열 사용을 지원한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">iomux: iomux@FF10601c {
-        compatible = &#34;abilis,tb10x-iomux&#34;;
-        reg = &lt;0xFF10601c 0x4&gt;;
-        pctl_gpio_a: pctl-gpio-a {
-                abilis,function = &#34;gpioa&#34;;
-        };
-        pctl_uart0: pctl-uart0 {
-                abilis,function = &#34;uart0&#34;;
-        };
-};
-uart@FF100000 {
-        compatible = &#34;snps,dw-apb-uart&#34;;
-        reg = &lt;0xFF100000 0x100&gt;;
-        clock-frequency = &lt;166666666&gt;;
-        interrupts = &lt;25 1&gt;;
-        reg-shift = &lt;2&gt;;
-        reg-io-width = &lt;4&gt;;
-        pinctrl-names = &#34;default&#34;;
-        pinctrl-0 = &lt;&amp;pctl_uart0&gt;;
-};
-gpioa: gpio@FF140000 {
-        compatible = &#34;abilis,tb10x-gpio&#34;;
-        reg = &lt;0xFF140000 0x1000&gt;;
-        gpio-controller;
-        #gpio-cells = &lt;2&gt;;
-        ngpios = &lt;3&gt;;
-        gpio-ranges = &lt;&amp;iomux 0 0&gt;;
-        gpio-ranges-group-names = &#34;gpioa&#34;;
-};
-</code></pre></div><h1 id="acpi-펌웨어를-사용하는-gpio-매핑">ACPI 펌웨어를 사용하는 GPIO 매핑 <a href="#acpi-%ed%8e%8c%ec%9b%a8%ec%96%b4%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%98%eb%8a%94-gpio-%eb%a7%a4%ed%95%91" class="anchor">🔗</a></h1><p>디바이스 트리를 사용하는 방법과 유사하게 ACPI 디스크립션을 사용하는 방법이 있다. ACPI 5.1에서 소개된 [[[_DSD (Device Specific Data)|https://www.kernel.org/doc/Documentation/acpi/gpio-properties.txt]]를 참고한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Device (FOO) {
-    Name (_CRS, ResourceTemplate () {
-        GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
-            &#34;\\_SB.GPI0&#34;) {15} // red
-        GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
-            &#34;\\_SB.GPI0&#34;) {16} // green
-        GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
-            &#34;\\_SB.GPI0&#34;) {17} // blue
-        GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
-            &#34;\\_SB.GPI0&#34;) {1} // power
-    })
-
-    Name (_DSD, Package () {
-        ToUUID(&#34;daffd814-6eba-4d8c-8a91-bc9bbf4aa301&#34;),
-        Package () {
-            Package () {
-                &#34;led-gpios&#34;,
-                Package () {
-                    ^FOO, 0, 0, 1,
-                    ^FOO, 1, 0, 1,
-                    ^FOO, 2, 0, 1,
-                }
-            },
-            Package () {
-                &#34;power-gpios&#34;,
-                Package () {^FOO, 3, 0, 0},
-            },
-        }
-    })    Name (_CRS, )
-}
-</code></pre></div><h1 id="platform-데이터에-gpio-맵핑-deprecated">Platform 데이터에 GPIO 맵핑 (deprecated) <a href="#platform-%eb%8d%b0%ec%9d%b4%ed%84%b0%ec%97%90-gpio-%eb%a7%b5%ed%95%91-deprecated" class="anchor">🔗</a></h1><p>일부 시스템에서 아래의 매크로 함수, API를 사용하여 플랫폼 데이터에 저장한 후, 이를 lookup 하여 사용하는데 지금은 사용하지 않는 방법이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">GPIO_LOOKUP(chip_label, chip_hwnum, con_id, flag)
-GPIO_LOOKUP_IDX(chip_label, chip_hwnum, con_id, idx, flags)
-</code></pre></div><p>아래와 같이 GPIO Lookup Table을 정의한 후에 아래와 같이 사용할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">gpiod_lookup_table</span> gpios_table <span style="color:#666">=</span> {
-    .dev_id <span style="color:#666">=</span> <span style="color:#b44">&#34;foo.0&#34;</span>,
-    .table <span style="color:#666">=</span> {
-        GPIO_LOOKUP_IDX(<span style="color:#b44">&#34;gpio.0&#34;</span>, <span style="color:#666">15</span>, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">0</span>, GPIO_ACTIVE_HIGH),
-        GPIO_LOOKUP_IDX(<span style="color:#b44">&#34;gpio.0&#34;</span>, <span style="color:#666">16</span>, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">1</span>, GPIO_ACTIVE_HIGH),
-        GPIO_LOOKUP_IDX(<span style="color:#b44">&#34;gpio.0&#34;</span>, <span style="color:#666">17</span>, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">2</span>, GPIO_ACTIVE_HIGH),
-        GPIO_LOOKUP(<span style="color:#b44">&#34;gpio.0&#34;</span>, <span style="color:#666">1</span>, <span style="color:#b44">&#34;power&#34;</span>, GPIO_ACTIVE_LOW),
-        { },
-    },
-};
-
-gpiod_add_lookup_table(<span style="color:#666">&amp;</span>gpios_table);
-
-<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">gpio_desc</span> <span style="color:#666">*</span>red, <span style="color:#666">*</span>green, <span style="color:#666">*</span>blue, <span style="color:#666">*</span>power;
-
-red <span style="color:#666">=</span> gpiod_get_index(dev, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">0</span>, GPIOD_OUT_HIGH);
-green <span style="color:#666">=</span> gpiod_get_index(dev, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">1</span>, GPIOD_OUT_HIGH);
-blue <span style="color:#666">=</span> gpiod_get_index(dev, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">2</span>, GPIOD_OUT_HIGH);
-power <span style="color:#666">=</span> gpiod_get(dev, <span style="color:#b44">&#34;power&#34;</span>, GPIOD_OUT_HIGH);
-</code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>iomux: iomux@FF10601c {
+</span></span><span style="display:flex;"><span>        compatible = &#34;abilis,tb10x-iomux&#34;;
+</span></span><span style="display:flex;"><span>        reg = &lt;0xFF10601c 0x4&gt;;
+</span></span><span style="display:flex;"><span>        pctl_gpio_a: pctl-gpio-a {
+</span></span><span style="display:flex;"><span>                abilis,function = &#34;gpioa&#34;;
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        pctl_uart0: pctl-uart0 {
+</span></span><span style="display:flex;"><span>                abilis,function = &#34;uart0&#34;;
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>uart@FF100000 {
+</span></span><span style="display:flex;"><span>        compatible = &#34;snps,dw-apb-uart&#34;;
+</span></span><span style="display:flex;"><span>        reg = &lt;0xFF100000 0x100&gt;;
+</span></span><span style="display:flex;"><span>        clock-frequency = &lt;166666666&gt;;
+</span></span><span style="display:flex;"><span>        interrupts = &lt;25 1&gt;;
+</span></span><span style="display:flex;"><span>        reg-shift = &lt;2&gt;;
+</span></span><span style="display:flex;"><span>        reg-io-width = &lt;4&gt;;
+</span></span><span style="display:flex;"><span>        pinctrl-names = &#34;default&#34;;
+</span></span><span style="display:flex;"><span>        pinctrl-0 = &lt;&amp;pctl_uart0&gt;;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>gpioa: gpio@FF140000 {
+</span></span><span style="display:flex;"><span>        compatible = &#34;abilis,tb10x-gpio&#34;;
+</span></span><span style="display:flex;"><span>        reg = &lt;0xFF140000 0x1000&gt;;
+</span></span><span style="display:flex;"><span>        gpio-controller;
+</span></span><span style="display:flex;"><span>        #gpio-cells = &lt;2&gt;;
+</span></span><span style="display:flex;"><span>        ngpios = &lt;3&gt;;
+</span></span><span style="display:flex;"><span>        gpio-ranges = &lt;&amp;iomux 0 0&gt;;
+</span></span><span style="display:flex;"><span>        gpio-ranges-group-names = &#34;gpioa&#34;;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h1 id="acpi-펌웨어를-사용하는-gpio-매핑">ACPI 펌웨어를 사용하는 GPIO 매핑 <a href="#acpi-%ed%8e%8c%ec%9b%a8%ec%96%b4%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%98%eb%8a%94-gpio-%eb%a7%a4%ed%95%91" class="anchor">🔗</a></h1><p>디바이스 트리를 사용하는 방법과 유사하게 ACPI 디스크립션을 사용하는 방법이 있다. ACPI 5.1에서 소개된 [[[_DSD (Device Specific Data)|https://www.kernel.org/doc/Documentation/acpi/gpio-properties.txt]]를 참고한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Device (FOO) {
+</span></span><span style="display:flex;"><span>    Name (_CRS, ResourceTemplate () {
+</span></span><span style="display:flex;"><span>        GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
+</span></span><span style="display:flex;"><span>            &#34;\\_SB.GPI0&#34;) {15} // red
+</span></span><span style="display:flex;"><span>        GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
+</span></span><span style="display:flex;"><span>            &#34;\\_SB.GPI0&#34;) {16} // green
+</span></span><span style="display:flex;"><span>        GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
+</span></span><span style="display:flex;"><span>            &#34;\\_SB.GPI0&#34;) {17} // blue
+</span></span><span style="display:flex;"><span>        GpioIo (Exclusive, ..., IoRestrictionOutputOnly,
+</span></span><span style="display:flex;"><span>            &#34;\\_SB.GPI0&#34;) {1} // power
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Name (_DSD, Package () {
+</span></span><span style="display:flex;"><span>        ToUUID(&#34;daffd814-6eba-4d8c-8a91-bc9bbf4aa301&#34;),
+</span></span><span style="display:flex;"><span>        Package () {
+</span></span><span style="display:flex;"><span>            Package () {
+</span></span><span style="display:flex;"><span>                &#34;led-gpios&#34;,
+</span></span><span style="display:flex;"><span>                Package () {
+</span></span><span style="display:flex;"><span>                    ^FOO, 0, 0, 1,
+</span></span><span style="display:flex;"><span>                    ^FOO, 1, 0, 1,
+</span></span><span style="display:flex;"><span>                    ^FOO, 2, 0, 1,
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            Package () {
+</span></span><span style="display:flex;"><span>                &#34;power-gpios&#34;,
+</span></span><span style="display:flex;"><span>                Package () {^FOO, 3, 0, 0},
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    })    Name (_CRS, )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="platform-데이터에-gpio-맵핑-deprecated">Platform 데이터에 GPIO 맵핑 (deprecated) <a href="#platform-%eb%8d%b0%ec%9d%b4%ed%84%b0%ec%97%90-gpio-%eb%a7%b5%ed%95%91-deprecated" class="anchor">🔗</a></h1><p>일부 시스템에서 아래의 매크로 함수, API를 사용하여 플랫폼 데이터에 저장한 후, 이를 lookup 하여 사용하는데 지금은 사용하지 않는 방법이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>GPIO_LOOKUP(chip_label, chip_hwnum, con_id, flag)
+</span></span><span style="display:flex;"><span>GPIO_LOOKUP_IDX(chip_label, chip_hwnum, con_id, idx, flags)
+</span></span></code></pre></div><p>아래와 같이 GPIO Lookup Table을 정의한 후에 아래와 같이 사용할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">gpiod_lookup_table</span> gpios_table <span style="color:#666">=</span> {
+</span></span><span style="display:flex;"><span>    .dev_id <span style="color:#666">=</span> <span style="color:#b44">&#34;foo.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    .table <span style="color:#666">=</span> {
+</span></span><span style="display:flex;"><span>        GPIO_LOOKUP_IDX(<span style="color:#b44">&#34;gpio.0&#34;</span>, <span style="color:#666">15</span>, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">0</span>, GPIO_ACTIVE_HIGH),
+</span></span><span style="display:flex;"><span>        GPIO_LOOKUP_IDX(<span style="color:#b44">&#34;gpio.0&#34;</span>, <span style="color:#666">16</span>, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">1</span>, GPIO_ACTIVE_HIGH),
+</span></span><span style="display:flex;"><span>        GPIO_LOOKUP_IDX(<span style="color:#b44">&#34;gpio.0&#34;</span>, <span style="color:#666">17</span>, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">2</span>, GPIO_ACTIVE_HIGH),
+</span></span><span style="display:flex;"><span>        GPIO_LOOKUP(<span style="color:#b44">&#34;gpio.0&#34;</span>, <span style="color:#666">1</span>, <span style="color:#b44">&#34;power&#34;</span>, GPIO_ACTIVE_LOW),
+</span></span><span style="display:flex;"><span>        { },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>gpiod_add_lookup_table(<span style="color:#666">&amp;</span>gpios_table);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">gpio_desc</span> <span style="color:#666">*</span>red, <span style="color:#666">*</span>green, <span style="color:#666">*</span>blue, <span style="color:#666">*</span>power;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>red <span style="color:#666">=</span> gpiod_get_index(dev, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">0</span>, GPIOD_OUT_HIGH);
+</span></span><span style="display:flex;"><span>green <span style="color:#666">=</span> gpiod_get_index(dev, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">1</span>, GPIOD_OUT_HIGH);
+</span></span><span style="display:flex;"><span>blue <span style="color:#666">=</span> gpiod_get_index(dev, <span style="color:#b44">&#34;led&#34;</span>, <span style="color:#666">2</span>, GPIOD_OUT_HIGH);
+</span></span><span style="display:flex;"><span>power <span style="color:#666">=</span> gpiod_get(dev, <span style="color:#b44">&#34;power&#34;</span>, GPIOD_OUT_HIGH);
+</span></span></code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="http://jake.dothome.co.kr/gpio-3/" target="_blank" rel="noopener">http://jake.dothome.co.kr/gpio-3/</a></li>
 </ul>
 
@@ -225,42 +263,13 @@ power <span style="color:#666">=</span> gpiod_get(dev, <span style="color:#b44">
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

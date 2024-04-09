@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2) | seokbeomkim.dev</title>
+    <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2) | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="취업은 언제하나&hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -72,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          2114 words
+          2115 words
         </span>
         <span class="split">
           ·
@@ -83,6 +101,37 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#우분투-이미지로-컨테이너-생성하기">우분투 이미지로 컨테이너 생성하기</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-1-busybox-빌드-설정">1-1. BusyBox 빌드 설정</a></li>
+    <li><a href="#1-2-busybox-빌드-및-initramfs-디텍토리-구조-만들기">1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기</a></li>
+    <li><a href="#1-3-init-파일-만들기">1-3. Init 파일 만들기</a></li>
+    <li><a href="#1-4-initramfs-생성">1-4. initramfs 생성</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#2-1-minimal-config로-리눅스-커널-설정하기">2-1. Minimal config로 리눅스 커널 설정하기</a></li>
+    <li><a href="#빌드한-커널-busybox-함께-실행하기">빌드한 커널, busybox 함께 실행하기</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
     
 
 
@@ -113,12 +162,12 @@ GUI 환경이 불필요했기에 도커를 이용해 커널 컴파일을 하는 
 <h2 id="우분투-이미지로-컨테이너-생성하기">우분투 이미지로 컨테이너 생성하기 <a href="#%ec%9a%b0%eb%b6%84%ed%88%ac-%ec%9d%b4%eb%af%b8%ec%a7%80%eb%a1%9c-%ec%bb%a8%ed%85%8c%ec%9d%b4%eb%84%88-%ec%83%9d%ec%84%b1%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><p>docker를 설치했다는 가정하에, 아래와 같이 컨테이너를 만들었다. 호스트
 볼륨을 컨테이너에 맵핑해주었는데 이렇게 해야 커널 해킹한 소스를 바로
 빌드하여 맥에서 QEMU를 통해 확인할 수 있기 때문이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run --name kernel_builder -ti -v /Users/sukbeom/Workspaces:/kernel/ ubuntu /bin/bash
-<span style="color:#080;font-style:italic"># 아래 부터는 개발 환경을 위한 패키지 설치이다.</span>
-apt update <span style="color:#666">&amp;&amp;</span> apt upgrade
-apt install vim <span style="color:#666">&amp;&amp;</span> vim /etc/apt/sources.list <span style="color:#080;font-style:italic"># 편집기 설치 및 미러저장소 경로 설정</span>
-apt install git curl libncurses-dev wget gcc make flex build-essential bison linux-headers-generic libelf-dev openssl bc libssl-dev cpio
-</code></pre></div><h1 id="1-busybox-준비">1. BusyBox 준비 <a href="#1-busybox-%ec%a4%80%eb%b9%84" class="anchor">🔗</a></h1><p>이제 컴파일을 위한 빌드 환경이 준비되었다. 커널 컴파일을 위한 맥에서의
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --name kernel_builder -ti -v /Users/sukbeom/Workspaces:/kernel/ ubuntu /bin/bash
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 아래 부터는 개발 환경을 위한 패키지 설치이다.</span>
+</span></span><span style="display:flex;"><span>apt update <span style="color:#666">&amp;&amp;</span> apt upgrade
+</span></span><span style="display:flex;"><span>apt install vim <span style="color:#666">&amp;&amp;</span> vim /etc/apt/sources.list <span style="color:#080;font-style:italic"># 편집기 설치 및 미러저장소 경로 설정</span>
+</span></span><span style="display:flex;"><span>apt install git curl libncurses-dev wget gcc make flex build-essential bison linux-headers-generic libelf-dev openssl bc libssl-dev cpio
+</span></span></code></pre></div><h1 id="1-busybox-준비">1. BusyBox 준비 <a href="#1-busybox-%ec%a4%80%eb%b9%84" class="anchor">🔗</a></h1><p>이제 컴파일을 위한 빌드 환경이 준비되었다. 커널 컴파일을 위한 맥에서의
 경로는 <code>$HOME/Workspaces/kernel</code> 로 지정하고 컨테이너 내에서는
 <code>/kernel</code> 로 접근하도록 설정하였다. 커널은
 <a href="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.9.tar.xz" target="_blank" rel="noopener">여기</a>에서,
@@ -142,34 +191,34 @@ busybox는 <a href="https://busybox.net/downloads" target="_blank" rel="noopener
 낮춰 다시 한번 빌드 해봐야겠다.</p>
 <h2 id="1-1-busybox-빌드-설정">1-1. BusyBox 빌드 설정 <a href="#1-1-busybox-%eb%b9%8c%eb%93%9c-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>이제 컨테이너 환경으로 돌아가 아래와 같이 (shell)환경변수를 임시로 설정해준
 뒤 차례대로 빌드해준다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#b8860b">STAGE</span><span style="color:#666">=</span>~/Workspaces
-<span style="color:#b8860b">TOP</span><span style="color:#666">=</span><span style="color:#b8860b">$STAGE</span>/custom-kernel
-mkdir -p <span style="color:#b8860b">$STAGE</span>
-</code></pre></div><p>다운로드 한 busybox, kernel 소스의 압축을 풀어주고 아래와 같이
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#b8860b">STAGE</span><span style="color:#666">=</span>~/Workspaces
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">TOP</span><span style="color:#666">=</span><span style="color:#b8860b">$STAGE</span>/custom-kernel
+</span></span><span style="display:flex;"><span>mkdir -p <span style="color:#b8860b">$STAGE</span>
+</span></span></code></pre></div><p>다운로드 한 busybox, kernel 소스의 압축을 풀어주고 아래와 같이
 busybox를 설정해준다. <code>Busybox settings -&gt; Build BusyBox as a static binary (no shared libs)</code> 항목에 체크해준다. <em>(출처 링크에 가면 친절한
 스크린샷과 함께 각 과정들을 자세하게 확인할 수 있다.)</em></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/busybox-x86 menuconfig
-</code></pre></div><h2 id="1-2-busybox-빌드-및-initramfs-디텍토리-구조-만들기">1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기 <a href="#1-2-busybox-%eb%b9%8c%eb%93%9c-%eb%b0%8f-initramfs-%eb%94%94%ed%85%8d%ed%86%a0%eb%a6%ac-%ea%b5%ac%ec%a1%b0-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/obj/busybox-x86
-make -j3
-make install
-</code></pre></div><p><code>make install</code>을 완료하고 나면 <code>_install</code> 이름으로 디렉토리가 생성된
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/busybox-x86 menuconfig
+</span></span></code></pre></div><h2 id="1-2-busybox-빌드-및-initramfs-디텍토리-구조-만들기">1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기 <a href="#1-2-busybox-%eb%b9%8c%eb%93%9c-%eb%b0%8f-initramfs-%eb%94%94%ed%85%8d%ed%86%a0%eb%a6%ac-%ea%b5%ac%ec%a1%b0-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/obj/busybox-x86
+</span></span><span style="display:flex;"><span>make -j3
+</span></span><span style="display:flex;"><span>make install
+</span></span></code></pre></div><p><code>make install</code>을 완료하고 나면 <code>_install</code> 이름으로 디렉토리가 생성된
 것을 확인할 수 있다. 이를 이용하여 아래와 같이 <code>initramfs</code>를 생성한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir -pv <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
-<span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
-mkdir -pv <span style="color:#666">{</span>bin,dev,sbin,etc,proc,sys/kernel/debug,usr/<span style="color:#666">{</span>bin,sbin<span style="color:#666">}</span>,lib,lib64,mnt/root,root<span style="color:#666">}</span>
-cp -av <span style="color:#b8860b">$TOP</span>/obj/busybox-x86/_install/* <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
-sudo cp -av /dev/<span style="color:#666">{</span>null,console,tty,sda1<span style="color:#666">}</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/dev/
-</code></pre></div><h2 id="1-3-init-파일-만들기">1-3. Init 파일 만들기 <a href="#1-3-init-%ed%8c%8c%ec%9d%bc-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h2><p><code>$TOP/initramfs/x86-busybox/init</code> 파일을 생성한 뒤 아래와 같이 내용을 작성한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mount -t proc none /proc
-mount -t sysfs none /sys
-mount -t debugfs none /sys/kernel/debug
-
-<span style="color:#a2f">echo</span> -e <span style="color:#b44">&#34;\nBoot took </span><span style="color:#a2f;font-weight:bold">$(</span>cut -d<span style="color:#b44">&#39; &#39;</span> -f1 /proc/uptime<span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44"> seconds\n&#34;</span>
-
-<span style="color:#a2f">exec</span> /bin/sh
-</code></pre></div><p>작성 후에는 실행 권한을 조정한다:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">chmod +x <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/init
-</code></pre></div><h2 id="1-4-initramfs-생성">1-4. initramfs 생성 <a href="#1-4-initramfs-%ec%83%9d%ec%84%b1" class="anchor">🔗</a></h2><p>initramfs는 메모리 기반 디스크 구조, 즉 램디스크이다. 주요 목적은 root
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -pv <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+</span></span><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+</span></span><span style="display:flex;"><span>mkdir -pv <span style="color:#666">{</span>bin,dev,sbin,etc,proc,sys/kernel/debug,usr/<span style="color:#666">{</span>bin,sbin<span style="color:#666">}</span>,lib,lib64,mnt/root,root<span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span>cp -av <span style="color:#b8860b">$TOP</span>/obj/busybox-x86/_install/* <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+</span></span><span style="display:flex;"><span>sudo cp -av /dev/<span style="color:#666">{</span>null,console,tty,sda1<span style="color:#666">}</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/dev/
+</span></span></code></pre></div><h2 id="1-3-init-파일-만들기">1-3. Init 파일 만들기 <a href="#1-3-init-%ed%8c%8c%ec%9d%bc-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="anchor">🔗</a></h2><p><code>$TOP/initramfs/x86-busybox/init</code> 파일을 생성한 뒤 아래와 같이 내용을 작성한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mount -t proc none /proc
+</span></span><span style="display:flex;"><span>mount -t sysfs none /sys
+</span></span><span style="display:flex;"><span>mount -t debugfs none /sys/kernel/debug
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> -e <span style="color:#b44">&#34;\nBoot took </span><span style="color:#a2f;font-weight:bold">$(</span>cut -d<span style="color:#b44">&#39; &#39;</span> -f1 /proc/uptime<span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44"> seconds\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">exec</span> /bin/sh
+</span></span></code></pre></div><p>작성 후에는 실행 권한을 조정한다:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>chmod +x <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/init
+</span></span></code></pre></div><h2 id="1-4-initramfs-생성">1-4. initramfs 생성 <a href="#1-4-initramfs-%ec%83%9d%ec%84%b1" class="anchor">🔗</a></h2><p>initramfs는 메모리 기반 디스크 구조, 즉 램디스크이다. 주요 목적은 root
 파일 시스템을 마운트 하기 위한 것이며, 일반적인 root 파일 시스템에서
 찾아볼 수 있는 디렉토리 구조를 갖고 있다.</p>
 <p>일반적으로, 루트 파일시스템의 init 프로그램으로 제어권을 넘기기 전에,
@@ -185,21 +234,20 @@ mount -t debugfs none /sys/kernel/debug
 램디스크를 통해 로드해야 했고 최근에는 (데스크탑용 리눅스에서)
 이러한 램디스크가 필수적이 되어가고 있는 추세인 듯하다.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
-find . | cpio -H newc -o &gt; ../initramfs.cpio
-<span style="color:#a2f">cd</span> ..
-cat initramfs.cpio | gzip &gt; <span style="color:#b8860b">$TOP</span>/obj/initramfs.igz
-</code></pre></div><h1 id="2-커널-빌드하기">2. 커널 빌드하기 <a href="#2-%ec%bb%a4%eb%84%90-%eb%b9%8c%eb%93%9c%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>이제 busybox 준비가 끝났으니 리눅스 커널을 빌드해보자.</p>
-<h2 id="2-1-minimal-config로-리눅스-커널-설정하기">2-1. Minimal config로 리눅스 커널 설정하기 <a href="#2-1-minimal-config%eb%a1%9c-%eb%a6%ac%eb%88%85%ec%8a%a4-%ec%bb%a4%eb%84%90-%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">cd</span> <span style="color:#b8860b">$STAGE</span>/linux-4.20.9
-mkdir -pv <span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig
-make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig allnoconfig
-make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig -j3
-</code></pre></div><h2 id="빌드한-커널-busybox-함께-실행하기">빌드한 커널, busybox 함께 실행하기 <a href="#%eb%b9%8c%eb%93%9c%ed%95%9c-%ec%bb%a4%eb%84%90-busybox-%ed%95%a8%ea%bb%98-%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">qemu-system-x86_64 <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>    -kernel <span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig/arch/x86/boot/bzImage <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>    -initrd <span style="color:#b8860b">$TOP</span>/obj/initramfs.igz <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>    -nographic -append <span style="color:#b44">&#34;earlyprintk=serial,ttyS0 console=ttyS0&#34;</span>
-
-</code></pre></div><p>정상적으로 커널이 로드되고 셸이 실행된 것을 확인하면 <code>Control-a x</code>를
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+</span></span><span style="display:flex;"><span>find . | cpio -H newc -o &gt; ../initramfs.cpio
+</span></span><span style="display:flex;"><span><span style="color:#a2f">cd</span> ..
+</span></span><span style="display:flex;"><span>cat initramfs.cpio | gzip &gt; <span style="color:#b8860b">$TOP</span>/obj/initramfs.igz
+</span></span></code></pre></div><h1 id="2-커널-빌드하기">2. 커널 빌드하기 <a href="#2-%ec%bb%a4%eb%84%90-%eb%b9%8c%eb%93%9c%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>이제 busybox 준비가 끝났으니 리눅스 커널을 빌드해보자.</p>
+<h2 id="2-1-minimal-config로-리눅스-커널-설정하기">2-1. Minimal config로 리눅스 커널 설정하기 <a href="#2-1-minimal-config%eb%a1%9c-%eb%a6%ac%eb%88%85%ec%8a%a4-%ec%bb%a4%eb%84%90-%ec%84%a4%ec%a0%95%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$STAGE</span>/linux-4.20.9
+</span></span><span style="display:flex;"><span>mkdir -pv <span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig
+</span></span><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig allnoconfig
+</span></span><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig -j3
+</span></span></code></pre></div><h2 id="빌드한-커널-busybox-함께-실행하기">빌드한 커널, busybox 함께 실행하기 <a href="#%eb%b9%8c%eb%93%9c%ed%95%9c-%ec%bb%a4%eb%84%90-busybox-%ed%95%a8%ea%bb%98-%ec%8b%a4%ed%96%89%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>qemu-system-x86_64 <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -kernel <span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig/arch/x86/boot/bzImage <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -initrd <span style="color:#b8860b">$TOP</span>/obj/initramfs.igz <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -nographic -append <span style="color:#b44">&#34;earlyprintk=serial,ttyS0 console=ttyS0&#34;</span>
+</span></span></code></pre></div><p>정상적으로 커널이 로드되고 셸이 실행된 것을 확인하면 <code>Control-a x</code>를
 입력하여 QEMU를 종료한다.</p>
 <h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://www.centennialsoftwaresolutions.com/blog/build-the-linux-kernel-and-busybox-and-run-them-on-qemu" target="_blank" rel="noopener">Build the linux kernel and busybox and run them on
@@ -230,42 +278,13 @@ qemu</a></li>
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

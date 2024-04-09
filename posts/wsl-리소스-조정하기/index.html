@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>WSL 리소스 조정하기 | seokbeomkim.dev</title>
+    <title>WSL 리소스 조정하기 | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,26 @@ if (!doNotTrack) {
 
     
     
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#wsl-리소스-설정">WSL 리소스 설정</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
 
 
     <div class="content">
@@ -96,28 +134,28 @@ if (!doNotTrack) {
 동일하게 재현되고 있었다.</p>
 <p>위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.</p>
 <h2 id="wsl-리소스-설정">WSL 리소스 설정 <a href="#wsl-%eb%a6%ac%ec%86%8c%ec%8a%a4-%ec%84%a4%ec%a0%95" class="anchor">🔗</a></h2><p>먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -l -v
-  NAME      STATE           VERSION
-* Ubuntu    Running         2
-<span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -t Ubuntu --shutdown
-<span style="color:#a2f">PS </span>C:\Windows\system32&gt;
-<span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -l -v
-  NAME      STATE           VERSION
-* Ubuntu    Stopped         2
-</code></pre></div><p>종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#a2f">PS </span>C:\Windows\system32&gt; notepad <span style="color:#b8860b">$env:USERPROFILE</span>\.wslconfig
-</code></pre></div><p>이제 아래와 같이 설정해주자. 이제 WSL2에서 사용할 메모리는 최대 4G로 제한된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[wsl2]
-#kernel=&lt;path&gt;              # An absolute Windows path to a custom Linux kernel.
-memory=4G              	    # How much memory to assign to the WSL2 VM.
-#processors=&lt;number&gt;        # How many processors to assign to the WSL2 VM.
-#swap=&lt;size&gt;                # How much swap space to add to the WSL2 VM. 0 for no swap file.
-#swapFile=&lt;path&gt;            # An absolute Windows path to the swap vhd.
-#localhostForwarding=&lt;bool&gt; # Boolean specifying if ports bound to wildcard or localhost in the WSL2 VM should be connectable from the host via localhost:port (default true).
-
-# &lt;path&gt; entries must be absolute Windows paths with escaped backslashes, for example C:\\Users\\Ben\\kernel
-# &lt;size&gt; entries must be size followed by unit, for example 8GB or 512MB
-</code></pre></div><p>이제 설치한 WSL의 바로가기를 눌러 WSL을 다시 실행시킨다. 윈도우즈의 Task Manager를 보면 아래와 같이 설정한 값으로 메모리 사용이 제한되는 것을 알 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -l -v
+</span></span><span style="display:flex;"><span>  NAME      STATE           VERSION
+</span></span><span style="display:flex;"><span>* Ubuntu    Running         <span style="color:#666">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -t Ubuntu --shutdown
+</span></span><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt;
+</span></span><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; wsl -l -v
+</span></span><span style="display:flex;"><span>  NAME      STATE           VERSION
+</span></span><span style="display:flex;"><span>* Ubuntu    Stopped         <span style="color:#666">2</span>
+</span></span></code></pre></div><p>종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#a2f">PS </span>C:\Windows\system32&gt; notepad <span style="color:#b8860b">$env:USERPROFILE</span>\.wslconfig
+</span></span></code></pre></div><p>이제 아래와 같이 설정해주자. 이제 WSL2에서 사용할 메모리는 최대 4G로 제한된다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[wsl2]
+</span></span><span style="display:flex;"><span>#kernel=&lt;path&gt;              # An absolute Windows path to a custom Linux kernel.
+</span></span><span style="display:flex;"><span>memory=4G              	    # How much memory to assign to the WSL2 VM.
+</span></span><span style="display:flex;"><span>#processors=&lt;number&gt;        # How many processors to assign to the WSL2 VM.
+</span></span><span style="display:flex;"><span>#swap=&lt;size&gt;                # How much swap space to add to the WSL2 VM. 0 for no swap file.
+</span></span><span style="display:flex;"><span>#swapFile=&lt;path&gt;            # An absolute Windows path to the swap vhd.
+</span></span><span style="display:flex;"><span>#localhostForwarding=&lt;bool&gt; # Boolean specifying if ports bound to wildcard or localhost in the WSL2 VM should be connectable from the host via localhost:port (default true).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># &lt;path&gt; entries must be absolute Windows paths with escaped backslashes, for example C:\\Users\\Ben\\kernel
+</span></span><span style="display:flex;"><span># &lt;size&gt; entries must be size followed by unit, for example 8GB or 512MB
+</span></span></code></pre></div><p>이제 설치한 WSL의 바로가기를 눌러 WSL을 다시 실행시킨다. 윈도우즈의 Task Manager를 보면 아래와 같이 설정한 값으로 메모리 사용이 제한되는 것을 알 수 있다.</p>
 <p><p class="markdown-image">
   <img src="/img/taskmgr_wsl_mem_set.png" alt="조정된 vmmem 메모리"  />
 </p></p>
@@ -146,42 +184,13 @@ memory=4G              	    # How much memory to assign to the WSL2 VM.
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dmips on seokbeomkim.dev</title>
+    <title>dmips on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/dmips/</link>
-    <description>Recent content in Dmips on seokbeomkim.dev</description>
+    <description>Recent content in dmips on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 Apr 2020 01:41:29 +0900</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://seokbeomkim.github.io/posts/dmips-dhrystone-million-instructions-per-second/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/posts/dmips-dhrystone-million-instructions-per-second/</guid>
-      <description>개요 프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS라</description>
+      <description>개요 🔗프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS</description>
     </item>
   </channel>
 </rss>

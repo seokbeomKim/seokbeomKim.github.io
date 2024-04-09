@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>BUG_ON on seokbeomkim.dev</title>
+    <title>BUG_ON on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/bug_on/</link>
-    <description>Recent content in BUG_ON on seokbeomkim.dev</description>
+    <description>Recent content in BUG_ON on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 21 Feb 2020 00:12:34 +0900</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://seokbeomkim.github.io/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</guid>
-      <description>개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아</description>
+      <description>개요 🔗업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은</description>
     </item>
   </channel>
 </rss>

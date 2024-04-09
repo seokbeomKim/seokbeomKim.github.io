@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>프로세스 종료와 파일 디스크립터 | seokbeomkim.dev</title>
+    <title>프로세스 종료와 파일 디스크립터 | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="파일을 open 했는데 close를 안하면? 🔗stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -72,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          1138 words
+          1141 words
         </span>
         <span class="split">
           ·
@@ -84,110 +102,132 @@ if (!doNotTrack) {
 
     
     
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#파일을-open-했는데-close를-안하면">파일을 open 했는데 close를 안하면?</a></li>
+    <li><a href="#strace-로-삽질-포인트-찾기">strace 로 삽질 포인트 찾기</a></li>
+    <li><a href="#do_exit---exit_files">do_exit -&gt; exit_files</a></li>
+    <li><a href="#마치며">마치며</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
 
 
     <div class="content">
       <h2 id="파일을-open-했는데-close를-안하면">파일을 open 했는데 close를 안하면? <a href="#%ed%8c%8c%ec%9d%bc%ec%9d%84-open-%ed%96%88%eb%8a%94%eb%8d%b0-close%eb%a5%bc-%ec%95%88%ed%95%98%eb%a9%b4" class="anchor">🔗</a></h2><p>stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 <em>태스크가 파일을 열면 얻게 되는 고유 id값</em> 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?) 살펴보고자 한다.</p>
 <h2 id="strace-로-삽질-포인트-찾기">strace 로 삽질 포인트 찾기 <a href="#strace-%eb%a1%9c-%ec%82%bd%ec%a7%88-%ed%8f%ac%ec%9d%b8%ed%8a%b8-%ec%b0%be%ea%b8%b0" class="anchor">🔗</a></h2><p>업무와는 관련이 없지만 간혹 코드에 open만 있는데도 불구하고 파일 디스크립터에 대한 에러가 발생하지 않는 불편한 코드들을 보면서 평소에 궁금했던 부분이라 잠깐 이 부분을 찾아보기로 했다. 먼저 아래와 같이 간단한 코드를 하나 작성한 뒤 컴파일해준다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#080;font-style:italic">// cat sysclose_test.c
-</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#include</span> <span style="color:#080">&lt;unistd.h&gt;</span><span style="color:#080">
-</span><span style="color:#080">#include</span> <span style="color:#080">&lt;stdlib.h&gt;</span><span style="color:#080">
-</span><span style="color:#080">#include</span> <span style="color:#080">&lt;syscall.h&gt;</span><span style="color:#080">
-</span><span style="color:#080">#include</span> <span style="color:#080">&lt;fcntl.h&gt;</span><span style="color:#080">
-</span><span style="color:#080"></span>
-<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>(<span style="color:#0b0;font-weight:bold">void</span>)
-{
-        <span style="color:#0b0;font-weight:bold">int</span> fd;
-
-        fd <span style="color:#666">=</span> open(<span style="color:#b44">&#34;test&#34;</span>, O_RDWR);
-
-        exit(<span style="color:#666">1</span>);
-}
-</code></pre></div><p>마지막 라인의 <code>exit(1)</code> 부분은 추가하지 않아도 인자만 다른 채로 동일한 시스템 콜이 호출된다. 이제 strace 를 통해 시스템콜이 어떻게 호출되는지 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ strace ./sysclose_test
-execve<span style="color:#666">(</span><span style="color:#b44">&#34;./sysclose_test&#34;</span>, <span style="color:#666">[</span><span style="color:#b44">&#34;./sysclose_test&#34;</span><span style="color:#666">]</span>, 0x7fff0fb6ea80 /* <span style="color:#666">40</span> vars */<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
-mmap<span style="color:#666">(</span>0x7fcdffece000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bc000<span style="color:#666">)</span> <span style="color:#666">=</span> 0x7fcdffece000
-mmap<span style="color:#666">(</span>0x7fcdfff27000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000<span style="color:#666">)</span> <span style="color:#666">=</span> 0x7fcdfff27000
-mmap<span style="color:#666">(</span>0x7fcdfff2d000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0<span style="color:#666">)</span> <span style="color:#666">=</span> 0x7fcdfff2d000
-close<span style="color:#666">(</span>3<span style="color:#666">)</span>                                <span style="color:#666">=</span> <span style="color:#666">0</span>
-mmap<span style="color:#666">(</span>NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0<span style="color:#666">)</span> <span style="color:#666">=</span> 0x7fcdffd10000
-arch_prctl<span style="color:#666">(</span>ARCH_SET_FS, 0x7fcdfff3b5c0<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
-set_tid_address<span style="color:#666">(</span>0x7fcdfff3b890<span style="color:#666">)</span>         <span style="color:#666">=</span> <span style="color:#666">375046</span>
-set_robust_list<span style="color:#666">(</span>0x7fcdfff3b8a0, 24<span style="color:#666">)</span>     <span style="color:#666">=</span> <span style="color:#666">0</span>
-mprotect<span style="color:#666">(</span>0x7fcdfff27000, 16384, PROT_READ<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
-mprotect<span style="color:#666">(</span>0x55c5fce58000, 4096, PROT_READ<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
-mprotect<span style="color:#666">(</span>0x7fcdfff81000, 8192, PROT_READ<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
-prlimit64<span style="color:#666">(</span>0, RLIMIT_STACK, NULL, <span style="color:#666">{</span><span style="color:#b8860b">rlim_cur</span><span style="color:#666">=</span>8192*1024, <span style="color:#b8860b">rlim_max</span><span style="color:#666">=</span>RLIM64_INFINITY<span style="color:#666">})</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
-munmap<span style="color:#666">(</span>0x7fcdfff3c000, 71131<span style="color:#666">)</span>           <span style="color:#666">=</span> <span style="color:#666">0</span>
-openat<span style="color:#666">(</span>AT_FDCWD, <span style="color:#b44">&#34;test&#34;</span>, O_RDWR<span style="color:#666">)</span>        <span style="color:#666">=</span> <span style="color:#666">3</span>
-exit_group<span style="color:#666">(</span>0<span style="color:#666">)</span>                           <span style="color:#666">=</span> ?
-+++ exited with <span style="color:#666">0</span> +++
-</code></pre></div><p>마지막으로 출력된 라인으로부터 <code>exit_group(0)</code> 시스템 콜이 호출된 것을 알 수 있다. 삽질 포인트를 찾았으니 이제 본격적으로 삽질할 준비는 되었다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// cat sysclose_test.c
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#include</span> <span style="color:#080">&lt;unistd.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;stdlib.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;syscall.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;fcntl.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>(<span style="color:#0b0;font-weight:bold">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> fd;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        fd <span style="color:#666">=</span> <span style="color:#00a000">open</span>(<span style="color:#b44">&#34;test&#34;</span>, O_RDWR);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a000">exit</span>(<span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>마지막 라인의 <code>exit(1)</code> 부분은 추가하지 않아도 인자만 다른 채로 동일한 시스템 콜이 호출된다. 이제 strace 를 통해 시스템콜이 어떻게 호출되는지 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ strace ./sysclose_test
+</span></span><span style="display:flex;"><span>execve<span style="color:#666">(</span><span style="color:#b44">&#34;./sysclose_test&#34;</span>, <span style="color:#666">[</span><span style="color:#b44">&#34;./sysclose_test&#34;</span><span style="color:#666">]</span>, 0x7fff0fb6ea80 /* <span style="color:#666">40</span> vars */<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>mmap<span style="color:#666">(</span>0x7fcdffece000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bc000<span style="color:#666">)</span> <span style="color:#666">=</span> 0x7fcdffece000
+</span></span><span style="display:flex;"><span>mmap<span style="color:#666">(</span>0x7fcdfff27000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000<span style="color:#666">)</span> <span style="color:#666">=</span> 0x7fcdfff27000
+</span></span><span style="display:flex;"><span>mmap<span style="color:#666">(</span>0x7fcdfff2d000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0<span style="color:#666">)</span> <span style="color:#666">=</span> 0x7fcdfff2d000
+</span></span><span style="display:flex;"><span>close<span style="color:#666">(</span>3<span style="color:#666">)</span>                                <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>mmap<span style="color:#666">(</span>NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0<span style="color:#666">)</span> <span style="color:#666">=</span> 0x7fcdffd10000
+</span></span><span style="display:flex;"><span>arch_prctl<span style="color:#666">(</span>ARCH_SET_FS, 0x7fcdfff3b5c0<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>set_tid_address<span style="color:#666">(</span>0x7fcdfff3b890<span style="color:#666">)</span>         <span style="color:#666">=</span> <span style="color:#666">375046</span>
+</span></span><span style="display:flex;"><span>set_robust_list<span style="color:#666">(</span>0x7fcdfff3b8a0, 24<span style="color:#666">)</span>     <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>mprotect<span style="color:#666">(</span>0x7fcdfff27000, 16384, PROT_READ<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>mprotect<span style="color:#666">(</span>0x55c5fce58000, 4096, PROT_READ<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>mprotect<span style="color:#666">(</span>0x7fcdfff81000, 8192, PROT_READ<span style="color:#666">)</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>prlimit64<span style="color:#666">(</span>0, RLIMIT_STACK, NULL, <span style="color:#666">{</span><span style="color:#b8860b">rlim_cur</span><span style="color:#666">=</span>8192*1024, <span style="color:#b8860b">rlim_max</span><span style="color:#666">=</span>RLIM64_INFINITY<span style="color:#666">})</span> <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>munmap<span style="color:#666">(</span>0x7fcdfff3c000, 71131<span style="color:#666">)</span>           <span style="color:#666">=</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>openat<span style="color:#666">(</span>AT_FDCWD, <span style="color:#b44">&#34;test&#34;</span>, O_RDWR<span style="color:#666">)</span>        <span style="color:#666">=</span> <span style="color:#666">3</span>
+</span></span><span style="display:flex;"><span>exit_group<span style="color:#666">(</span>0<span style="color:#666">)</span>                           <span style="color:#666">=</span> ?
+</span></span><span style="display:flex;"><span>+++ exited with <span style="color:#666">0</span> +++
+</span></span></code></pre></div><p>마지막으로 출력된 라인으로부터 <code>exit_group(0)</code> 시스템 콜이 호출된 것을 알 수 있다. 삽질 포인트를 찾았으니 이제 본격적으로 삽질할 준비는 되었다.</p>
 <h2 id="do_exit---exit_files">do_exit -&gt; exit_files <a href="#do_exit---exit_files" class="anchor">🔗</a></h2><p><code>exit_group(0)</code> 을 시작으로 함수콜을 따라가다보면 다음과 같은 호출 경로를 찾아낼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">-&gt; exit_group()
-    +-&gt; do_exit()
-        +-&gt; exit_files()
-            +-&gt; put_files_struct()
-                +-&gt; close_files()
-</code></pre></div><p>핵심은 종료될 태스크의 파일 리스트를 얻은 뒤 NULL로 바꾸고, put_files_struct 에 리스트를 인자로 넘기면서 파일들을 close 하는 부분이다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>-&gt; exit_group()
+</span></span><span style="display:flex;"><span>    +-&gt; do_exit()
+</span></span><span style="display:flex;"><span>        +-&gt; exit_files()
+</span></span><span style="display:flex;"><span>            +-&gt; put_files_struct()
+</span></span><span style="display:flex;"><span>                +-&gt; close_files()
+</span></span></code></pre></div><p>핵심은 종료될 태스크의 파일 리스트를 얻은 뒤 NULL로 바꾸고, put_files_struct 에 리스트를 인자로 넘기면서 파일들을 close 하는 부분이다.
 이 부분을 통해서 왜 굳이 명시적으로 close 를 하지 않아도 태스크 종료 시에 파일 디스크립터들이 정리되는지 알 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">exit_files</span>(<span style="color:#a2f;font-weight:bold">struct</span> task_struct <span style="color:#666">*</span>tsk)
-{
-	<span style="color:#a2f;font-weight:bold">struct</span> files_struct <span style="color:#666">*</span> files <span style="color:#666">=</span> tsk<span style="color:#666">-&gt;</span>files;
-
-	<span style="color:#a2f;font-weight:bold">if</span> (files) {
-		io_uring_files_cancel(files);
-		task_lock(tsk);
-		tsk<span style="color:#666">-&gt;</span>files <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
-		task_unlock(tsk);
-		put_files_struct(files);
-	}
-}
-
-<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">put_files_struct</span>(<span style="color:#a2f;font-weight:bold">struct</span> files_struct <span style="color:#666">*</span>files)
-{
-	<span style="color:#a2f;font-weight:bold">if</span> (atomic_dec_and_test(<span style="color:#666">&amp;</span>files<span style="color:#666">-&gt;</span>count)) {
-		<span style="color:#a2f;font-weight:bold">struct</span> fdtable <span style="color:#666">*</span>fdt <span style="color:#666">=</span> close_files(files);
-
-		<span style="color:#080;font-style:italic">/* free the arrays if they are not embedded */</span>
-		<span style="color:#a2f;font-weight:bold">if</span> (fdt <span style="color:#666">!=</span> <span style="color:#666">&amp;</span>files<span style="color:#666">-&gt;</span>fdtab)
-			__free_fdtable(fdt);
-		kmem_cache_free(files_cachep, files);
-	}
-}
-
-<span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">struct</span> fdtable <span style="color:#666">*</span><span style="color:#00a000">close_files</span>(<span style="color:#a2f;font-weight:bold">struct</span> files_struct <span style="color:#666">*</span> files)
-{
-	<span style="color:#080;font-style:italic">/*
-</span><span style="color:#080;font-style:italic">	 * It is safe to dereference the fd table without RCU or
-</span><span style="color:#080;font-style:italic">	 * -&gt;file_lock because this is the last reference to the
-</span><span style="color:#080;font-style:italic">	 * files structure.
-</span><span style="color:#080;font-style:italic">	 */</span>
-	<span style="color:#a2f;font-weight:bold">struct</span> fdtable <span style="color:#666">*</span>fdt <span style="color:#666">=</span> rcu_dereference_raw(files<span style="color:#666">-&gt;</span>fdt);
-	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> i, j <span style="color:#666">=</span> <span style="color:#666">0</span>;
-
-	<span style="color:#a2f;font-weight:bold">for</span> (;;) {
-		<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> set;
-		i <span style="color:#666">=</span> j <span style="color:#666">*</span> BITS_PER_LONG;
-		<span style="color:#a2f;font-weight:bold">if</span> (i <span style="color:#666">&gt;=</span> fdt<span style="color:#666">-&gt;</span>max_fds)
-			<span style="color:#a2f;font-weight:bold">break</span>;
-		set <span style="color:#666">=</span> fdt<span style="color:#666">-&gt;</span>open_fds[j<span style="color:#666">++</span>];
-		<span style="color:#a2f;font-weight:bold">while</span> (set) {
-			<span style="color:#a2f;font-weight:bold">if</span> (set <span style="color:#666">&amp;</span> <span style="color:#666">1</span>) {
-				<span style="color:#a2f;font-weight:bold">struct</span> file <span style="color:#666">*</span> file <span style="color:#666">=</span> xchg(<span style="color:#666">&amp;</span>fdt<span style="color:#666">-&gt;</span>fd[i], <span style="color:#a2f">NULL</span>);
-				<span style="color:#a2f;font-weight:bold">if</span> (file) {
-					filp_close(file, files);
-					cond_resched();
-				}
-			}
-			i<span style="color:#666">++</span>;
-			set <span style="color:#666">&gt;&gt;=</span> <span style="color:#666">1</span>;
-		}
-	}
-
-	<span style="color:#a2f;font-weight:bold">return</span> fdt;
-}
-</code></pre></div><h2 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h2><p>파일이 닫히는 것까지 커널 코드를 읽고 분석하는데 시간이 꽤 걸릴 것이라 생각했지만 생각보다 단계가 단순하여 금방 이해할 수 있었다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">exit_files</span>(<span style="color:#a2f;font-weight:bold">struct</span> task_struct <span style="color:#666">*</span>tsk)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> files_struct <span style="color:#666">*</span> files <span style="color:#666">=</span> tsk<span style="color:#666">-&gt;</span>files;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (files) {
+</span></span><span style="display:flex;"><span>		<span style="color:#00a000">io_uring_files_cancel</span>(files);
+</span></span><span style="display:flex;"><span>		<span style="color:#00a000">task_lock</span>(tsk);
+</span></span><span style="display:flex;"><span>		tsk<span style="color:#666">-&gt;</span>files <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#00a000">task_unlock</span>(tsk);
+</span></span><span style="display:flex;"><span>		<span style="color:#00a000">put_files_struct</span>(files);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">put_files_struct</span>(<span style="color:#a2f;font-weight:bold">struct</span> files_struct <span style="color:#666">*</span>files)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#00a000">atomic_dec_and_test</span>(<span style="color:#666">&amp;</span>files<span style="color:#666">-&gt;</span>count)) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">struct</span> fdtable <span style="color:#666">*</span>fdt <span style="color:#666">=</span> <span style="color:#00a000">close_files</span>(files);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#080;font-style:italic">/* free the arrays if they are not embedded */</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">if</span> (fdt <span style="color:#666">!=</span> <span style="color:#666">&amp;</span>files<span style="color:#666">-&gt;</span>fdtab)
+</span></span><span style="display:flex;"><span>			<span style="color:#00a000">__free_fdtable</span>(fdt);
+</span></span><span style="display:flex;"><span>		<span style="color:#00a000">kmem_cache_free</span>(files_cachep, files);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">struct</span> fdtable <span style="color:#666">*</span><span style="color:#00a000">close_files</span>(<span style="color:#a2f;font-weight:bold">struct</span> files_struct <span style="color:#666">*</span> files)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">	 * It is safe to dereference the fd table without RCU or
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">	 * -&gt;file_lock because this is the last reference to the
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">	 * files structure.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">	 */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> fdtable <span style="color:#666">*</span>fdt <span style="color:#666">=</span> <span style="color:#00a000">rcu_dereference_raw</span>(files<span style="color:#666">-&gt;</span>fdt);
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> i, j <span style="color:#666">=</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (;;) {
+</span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> set;
+</span></span><span style="display:flex;"><span>		i <span style="color:#666">=</span> j <span style="color:#666">*</span> BITS_PER_LONG;
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">if</span> (i <span style="color:#666">&gt;=</span> fdt<span style="color:#666">-&gt;</span>max_fds)
+</span></span><span style="display:flex;"><span>			<span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>		set <span style="color:#666">=</span> fdt<span style="color:#666">-&gt;</span>open_fds[j<span style="color:#666">++</span>];
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">while</span> (set) {
+</span></span><span style="display:flex;"><span>			<span style="color:#a2f;font-weight:bold">if</span> (set <span style="color:#666">&amp;</span> <span style="color:#666">1</span>) {
+</span></span><span style="display:flex;"><span>				<span style="color:#a2f;font-weight:bold">struct</span> file <span style="color:#666">*</span> file <span style="color:#666">=</span> <span style="color:#00a000">xchg</span>(<span style="color:#666">&amp;</span>fdt<span style="color:#666">-&gt;</span>fd[i], <span style="color:#a2f">NULL</span>);
+</span></span><span style="display:flex;"><span>				<span style="color:#a2f;font-weight:bold">if</span> (file) {
+</span></span><span style="display:flex;"><span>					<span style="color:#00a000">filp_close</span>(file, files);
+</span></span><span style="display:flex;"><span>					<span style="color:#00a000">cond_resched</span>();
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			i<span style="color:#666">++</span>;
+</span></span><span style="display:flex;"><span>			set <span style="color:#666">&gt;&gt;=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> fdt;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h2><p>파일이 닫히는 것까지 커널 코드를 읽고 분석하는데 시간이 꽤 걸릴 것이라 생각했지만 생각보다 단계가 단순하여 금방 이해할 수 있었다.
 한가지 중요한 것은, 본 글에서 분석한 내용이 코드 상에서 close()를 하지 않아도 된다는 의미는 아니라는 점이다. 리눅스에서는 디바이스 노드로써 디바이스를 컨트롤한다. 이 경우 open()과 close()를 명시적으로 사용하지 않으면 디바이스 초기화 시점을 코드로써 기술할 수 없게 되므로 문제가 발생할 가능성이 높아지기 때문에 주의해야 한다.</p>
 
     </div>
@@ -209,42 +249,13 @@ exit_group<span style="color:#666">(</span>0<span style="color:#666">)</span>   
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

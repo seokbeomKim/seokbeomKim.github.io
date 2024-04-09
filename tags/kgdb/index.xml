@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kgdb on seokbeomkim.dev</title>
+    <title>kgdb on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/kgdb/</link>
-    <description>Recent content in Kgdb on seokbeomkim.dev</description>
+    <description>Recent content in kgdb on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Apr 2021 23:31:41 +0900</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://seokbeomkim.github.io/posts/kernel-debug-with-kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/posts/kernel-debug-with-kgdb/</guid>
-      <description>개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하</description>
+      <description>개요 🔗필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용</description>
     </item>
   </channel>
 </rss>

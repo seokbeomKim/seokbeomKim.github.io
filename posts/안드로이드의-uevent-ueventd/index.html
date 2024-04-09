@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>안드로이드의 uevent, ueventd | seokbeomkim.dev</title>
+    <title>안드로이드의 uevent, ueventd | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,11 @@ if (!doNotTrack) {
 
     
     
+        
+  
+
+
+    
 
 
     <div class="content">
@@ -97,119 +120,119 @@ if (!doNotTrack) {
 </ul>
 <p>출처에 따르면 cold plug 방식에 대해서, <code>ueventd</code>가 실행되기 전에 디바이스 드라이버가 /sys 디렉토리 아래에 디바이스 노드를 생성하기 위한 정보들을 저장한 후, <code>ueventd</code>가 실행되면서 디바이스 노드를 생성하지 못한 디바이스 드라이버에 대해서 강제로 uevent 를 발생시켜 cold plug 처리를 한다고 설명하고 있다.</p>
 <h1 id="init-process와-ueventd">init process와 ueventd <a href="#init-process%ec%99%80-ueventd" class="anchor">🔗</a></h1><p>안드로이드 init 과정에서 <code>ueventd</code>를 부른다. <code>ueventd</code> 에서는 내부적으로 아래의 <code>ueventd_main</code> 함수를 호출한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">ueventd_main</span>(<span style="color:#0b0;font-weight:bold">int</span> argc, <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">**</span>argv)
-{
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">pollfd</span> ufd;
-    <span style="color:#0b0;font-weight:bold">int</span> nr;
-    <span style="color:#0b0;font-weight:bold">char</span> tmp[<span style="color:#666">32</span>];
-
-    <span style="color:#080;font-style:italic">/* Prevent fire-and-forget children from becoming zombies.
-</span><span style="color:#080;font-style:italic">    * If we should need to wait() for some children in the future
-</span><span style="color:#080;font-style:italic">    * (as opposed to none right now), double-forking here instead
-</span><span style="color:#080;font-style:italic">    * of ignoring SIGCHLD may be the better solution.
-</span><span style="color:#080;font-style:italic">    */</span>
-    signal(SIGCHLD, SIG_IGN);
-
-    open_devnull_stdio();
-    klog_init();
-
-    INFO(<span style="">“</span>starting ueventd<span style="">\</span>n<span style="">”</span>);
-
-    <span style="color:#080;font-style:italic">/* Respect hardware passed in through the kernel cmd line. Here we will look
-</span><span style="color:#080;font-style:italic">     * for androidboot.hardware param in kernel cmdline, and save its value in
-</span><span style="color:#080;font-style:italic">     * hardware[]. */</span>
-    import_kernel_cmdline(<span style="color:#666">0</span>, import_kernel_nv);
-
-    get_hardware_name(hardware, <span style="color:#666">&amp;</span>revision);
-
-    ueventd_parse_config_file(<span style="">“</span><span style="color:#666">/</span>ueventd.rc<span style="">”</span>);
-
-    snprintf(tmp, <span style="color:#a2f;font-weight:bold">sizeof</span>(tmp), <span style="">“</span><span style="color:#666">/</span>ueventd.<span style="color:#666">%</span>s.rc<span style="">”</span>, hardware);
-    ueventd_parse_config_file(tmp);
-
-    device_init();
-
-    ufd.events <span style="color:#666">=</span> POLLIN;
-    ufd.fd <span style="color:#666">=</span> get_device_fd();
-
-    <span style="color:#a2f;font-weight:bold">while</span>(<span style="color:#666">1</span>) {
-        ufd.revents <span style="color:#666">=</span> <span style="color:#666">0</span>;
-        nr <span style="color:#666">=</span> poll(<span style="color:#666">&amp;</span>ufd, <span style="color:#666">1</span>, <span style="color:#666">-</span><span style="color:#666">1</span>);
-        <span style="color:#a2f;font-weight:bold">if</span> (nr <span style="color:#666">&lt;=</span> <span style="color:#666">0</span>)
-            <span style="color:#a2f;font-weight:bold">continue</span>;
-        <span style="color:#a2f;font-weight:bold">if</span> (ufd.revents <span style="color:#666">==</span> POLLIN)
-               handle_device_fd();
-    }
-}
-</code></pre></div><p>여기서 중요한 함수는 <code>ueventd_parse_config_file</code>와 <code>device_init</code>함수이다. <code>ueventd_parse_config_file</code>함수는 <code>ueventd.rc</code>파일과 <code>ueventd.%hardware%.rc</code> 파일을 읽어 디바이스 노드 파일을 만드는 정보를 얻는다. 이 파일에 저장되어 있는 정보는 device 이름, permission, gid, uid 이다. 아래는 업무에서 사용한 실제 ueventd.rc 파일로서 문제가 된 videosource에 대한 내용들이 추가되어야 했다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">/dev/switch_gpio_reverse	0666	system		system
-#/dev/videosource* 로 가능
-/dev/videosource0	0666	system		system
-/dev/videosource1	0666	system		system
-</code></pre></div><p>이 때, 별도로 저장되어 있지 않는 디바이스는 디폴트로 600, 0, 0이 세팅된다. <code>device_init</code> 함수는 <code>uevent_socket</code>을 열고 coldboot 함수를 실행한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">ueventd_main</span>(<span style="color:#0b0;font-weight:bold">int</span> argc, <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">**</span>argv)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">pollfd</span> ufd;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> nr;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">char</span> tmp[<span style="color:#666">32</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">/* Prevent fire-and-forget children from becoming zombies.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    * If we should need to wait() for some children in the future
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    * (as opposed to none right now), double-forking here instead
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    * of ignoring SIGCHLD may be the better solution.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    */</span>
+</span></span><span style="display:flex;"><span>    signal(SIGCHLD, SIG_IGN);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    open_devnull_stdio();
+</span></span><span style="display:flex;"><span>    klog_init();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    INFO(<span style="">“</span>starting ueventd<span style="">\</span>n<span style="">”</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">/* Respect hardware passed in through the kernel cmd line. Here we will look
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">     * for androidboot.hardware param in kernel cmdline, and save its value in
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">     * hardware[]. */</span>
+</span></span><span style="display:flex;"><span>    import_kernel_cmdline(<span style="color:#666">0</span>, import_kernel_nv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    get_hardware_name(hardware, <span style="color:#666">&amp;</span>revision);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ueventd_parse_config_file(<span style="">“</span><span style="color:#666">/</span>ueventd.rc<span style="">”</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    snprintf(tmp, <span style="color:#a2f;font-weight:bold">sizeof</span>(tmp), <span style="">“</span><span style="color:#666">/</span>ueventd.<span style="color:#666">%</span>s.rc<span style="">”</span>, hardware);
+</span></span><span style="display:flex;"><span>    ueventd_parse_config_file(tmp);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    device_init();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ufd.events <span style="color:#666">=</span> POLLIN;
+</span></span><span style="display:flex;"><span>    ufd.fd <span style="color:#666">=</span> get_device_fd();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span>(<span style="color:#666">1</span>) {
+</span></span><span style="display:flex;"><span>        ufd.revents <span style="color:#666">=</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>        nr <span style="color:#666">=</span> poll(<span style="color:#666">&amp;</span>ufd, <span style="color:#666">1</span>, <span style="color:#666">-</span><span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span> (nr <span style="color:#666">&lt;=</span> <span style="color:#666">0</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">continue</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span> (ufd.revents <span style="color:#666">==</span> POLLIN)
+</span></span><span style="display:flex;"><span>               handle_device_fd();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>여기서 중요한 함수는 <code>ueventd_parse_config_file</code>와 <code>device_init</code>함수이다. <code>ueventd_parse_config_file</code>함수는 <code>ueventd.rc</code>파일과 <code>ueventd.%hardware%.rc</code> 파일을 읽어 디바이스 노드 파일을 만드는 정보를 얻는다. 이 파일에 저장되어 있는 정보는 device 이름, permission, gid, uid 이다. 아래는 업무에서 사용한 실제 ueventd.rc 파일로서 문제가 된 videosource에 대한 내용들이 추가되어야 했다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>/dev/switch_gpio_reverse	0666	system		system
+</span></span><span style="display:flex;"><span>#/dev/videosource* 로 가능
+</span></span><span style="display:flex;"><span>/dev/videosource0	0666	system		system
+</span></span><span style="display:flex;"><span>/dev/videosource1	0666	system		system
+</span></span></code></pre></div><p>이 때, 별도로 저장되어 있지 않는 디바이스는 디폴트로 600, 0, 0이 세팅된다. <code>device_init</code> 함수는 <code>uevent_socket</code>을 열고 coldboot 함수를 실행한다.</p>
 <p>여기서 연 소켓은 uevent를 보낼때 쓰이는 것이 아니라 나중에 발생한 uevent를 받을때 쓰인다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">device_init</span>(<span style="color:#0b0;font-weight:bold">void</span>)
-{
-    suseconds_t t0, t1;
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">stat</span> info;
-    <span style="color:#0b0;font-weight:bold">int</span> fd;
-
-    <span style="color:#080;font-style:italic">/* is 64K enough? udev uses 16MB! */</span>
-    device_fd <span style="color:#666">=</span> uevent_open_socket(<span style="color:#666">64</span><span style="color:#666">*</span><span style="color:#666">1024</span>, <span style="color:#a2f">true</span>);
-    <span style="color:#a2f;font-weight:bold">if</span>(device_fd <span style="color:#666">&lt;</span> <span style="color:#666">0</span>)
-        <span style="color:#a2f;font-weight:bold">return</span>;
-
-    fcntl(device_fd, F_SETFD, FD_CLOEXEC);
-    fcntl(device_fd, F_SETFL, O_NONBLOCK);
-
-    <span style="color:#a2f;font-weight:bold">if</span> (stat(coldboot_done, <span style="color:#666">&amp;</span>info) <span style="color:#666">&lt;</span> <span style="color:#666">0</span>) {
-        t0 <span style="color:#666">=</span> get_usecs();
-        coldboot(<span style="">“</span><span style="color:#666">/</span>sys<span style="color:#666">/</span><span style="color:#a2f;font-weight:bold">class</span><span style="">”);</span>
-        coldboot(<span style="">“</span><span style="color:#666">/</span>sys<span style="color:#666">/</span>block<span style="">”</span>);
-        coldboot(<span style="">“</span><span style="color:#666">/</span>sys<span style="color:#666">/</span>devices<span style="">”</span>);
-        t1 <span style="color:#666">=</span> get_usecs();
-        fd <span style="color:#666">=</span> open(coldboot_done, O_WRONLY<span style="color:#666">|</span>O_CREAT, <span style="color:#666">0000</span>);
-        close(fd);
-        log_event_print(<span style="">“</span>coldboot <span style="color:#666">%</span>ld uS<span style="">\</span>n<span style="">”</span>, ((<span style="color:#0b0;font-weight:bold">long</span>) (t1 <span style="">–</span> t0)));
-    } <span style="color:#a2f;font-weight:bold">else</span> {
-        log_event_print(<span style="">“</span>skipping coldboot, already done<span style="">\</span>n<span style="">”</span>);
-    }
-}
-</code></pre></div><p>호출되는 coldboot는 내부적으로 <code>do_coldboot</code>를 호출한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do_coldboot</span>(DIR <span style="color:#666">*</span>d)
-{
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">dirent</span> <span style="color:#666">*</span>de;
-    <span style="color:#0b0;font-weight:bold">int</span> dfd, fd;
-
-    dfd <span style="color:#666">=</span> dirfd(d);
-
-    fd <span style="color:#666">=</span> openat(dfd, <span style="">“</span>uevent<span style="">”</span>, O_WRONLY);
-    <span style="color:#a2f;font-weight:bold">if</span>(fd <span style="color:#666">&gt;=</span> <span style="color:#666">0</span>) {
-        write(fd, <span style="">“</span>add<span style="">\</span>n<span style="">”</span>, <span style="color:#666">4</span>);
-        close(fd);
-        handle_device_fd();
-    }
-
-    <span style="color:#a2f;font-weight:bold">while</span>((de <span style="color:#666">=</span> readdir(d))) {
-        DIR <span style="color:#666">*</span>d2;
-
-        <span style="color:#a2f;font-weight:bold">if</span>(de<span style="color:#666">-&gt;</span>d_type <span style="color:#666">!=</span> DT_DIR <span style="color:#666">||</span> de<span style="color:#666">-&gt;</span>d_name[<span style="color:#666">0</span>] <span style="color:#666">==</span> <span style="">‘</span>.<span style="">’</span>)
-            <span style="color:#a2f;font-weight:bold">continue</span>;
-
-        fd <span style="color:#666">=</span> openat(dfd, de<span style="color:#666">-&gt;</span>d_name, O_RDONLY <span style="color:#666">|</span> O_DIRECTORY);
-        <span style="color:#a2f;font-weight:bold">if</span>(fd <span style="color:#666">&lt;</span> <span style="color:#666">0</span>)
-            <span style="color:#a2f;font-weight:bold">continue</span>;
-
-        d2 <span style="color:#666">=</span> fdopendir(fd);
-        <span style="color:#a2f;font-weight:bold">if</span>(d2 <span style="color:#666">==</span> <span style="color:#666">0</span>)
-            close(fd);
-        <span style="color:#a2f;font-weight:bold">else</span> {
-            do_coldboot(d2);
-            closedir(d2);
-        }
-    }
-}
-</code></pre></div><p>디바이스 노드를 생성하지 못한 디바이스가 저장한 /sys 밑의 각각의 해당 폴더를 들어가 <code>uevent</code> 파일에 “add” 메시지를 써넣어 강제로 uevent를 발생시킨다. 그 후 <code>handle_device_fd</code> 함수를 통해 <code>uevent</code> 를 파싱해 디바이스 노드를 만든다. 이 과정에서 <code>ueventd_parse_config_file</code> 에서 얻어온 정보를 사용한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">device_init</span>(<span style="color:#0b0;font-weight:bold">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    suseconds_t t0, t1;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">stat</span> info;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> fd;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">/* is 64K enough? udev uses 16MB! */</span>
+</span></span><span style="display:flex;"><span>    device_fd <span style="color:#666">=</span> uevent_open_socket(<span style="color:#666">64</span><span style="color:#666">*</span><span style="color:#666">1024</span>, <span style="color:#a2f">true</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(device_fd <span style="color:#666">&lt;</span> <span style="color:#666">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fcntl(device_fd, F_SETFD, FD_CLOEXEC);
+</span></span><span style="display:flex;"><span>    fcntl(device_fd, F_SETFL, O_NONBLOCK);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span> (stat(coldboot_done, <span style="color:#666">&amp;</span>info) <span style="color:#666">&lt;</span> <span style="color:#666">0</span>) {
+</span></span><span style="display:flex;"><span>        t0 <span style="color:#666">=</span> get_usecs();
+</span></span><span style="display:flex;"><span>        coldboot(<span style="">“</span><span style="color:#666">/</span>sys<span style="color:#666">/</span><span style="color:#a2f;font-weight:bold">class</span><span style="">”);</span>
+</span></span><span style="display:flex;"><span>        coldboot(<span style="">“</span><span style="color:#666">/</span>sys<span style="color:#666">/</span>block<span style="">”</span>);
+</span></span><span style="display:flex;"><span>        coldboot(<span style="">“</span><span style="color:#666">/</span>sys<span style="color:#666">/</span>devices<span style="">”</span>);
+</span></span><span style="display:flex;"><span>        t1 <span style="color:#666">=</span> get_usecs();
+</span></span><span style="display:flex;"><span>        fd <span style="color:#666">=</span> open(coldboot_done, O_WRONLY<span style="color:#666">|</span>O_CREAT, <span style="color:#666">0000</span>);
+</span></span><span style="display:flex;"><span>        close(fd);
+</span></span><span style="display:flex;"><span>        log_event_print(<span style="">“</span>coldboot <span style="color:#666">%</span>ld uS<span style="">\</span>n<span style="">”</span>, ((<span style="color:#0b0;font-weight:bold">long</span>) (t1 <span style="">–</span> t0)));
+</span></span><span style="display:flex;"><span>    } <span style="color:#a2f;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>        log_event_print(<span style="">“</span>skipping coldboot, already done<span style="">\</span>n<span style="">”</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>호출되는 coldboot는 내부적으로 <code>do_coldboot</code>를 호출한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do_coldboot</span>(DIR <span style="color:#666">*</span>d)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">dirent</span> <span style="color:#666">*</span>de;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> dfd, fd;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dfd <span style="color:#666">=</span> dirfd(d);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fd <span style="color:#666">=</span> openat(dfd, <span style="">“</span>uevent<span style="">”</span>, O_WRONLY);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(fd <span style="color:#666">&gt;=</span> <span style="color:#666">0</span>) {
+</span></span><span style="display:flex;"><span>        write(fd, <span style="">“</span>add<span style="">\</span>n<span style="">”</span>, <span style="color:#666">4</span>);
+</span></span><span style="display:flex;"><span>        close(fd);
+</span></span><span style="display:flex;"><span>        handle_device_fd();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span>((de <span style="color:#666">=</span> readdir(d))) {
+</span></span><span style="display:flex;"><span>        DIR <span style="color:#666">*</span>d2;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(de<span style="color:#666">-&gt;</span>d_type <span style="color:#666">!=</span> DT_DIR <span style="color:#666">||</span> de<span style="color:#666">-&gt;</span>d_name[<span style="color:#666">0</span>] <span style="color:#666">==</span> <span style="">‘</span>.<span style="">’</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">continue</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        fd <span style="color:#666">=</span> openat(dfd, de<span style="color:#666">-&gt;</span>d_name, O_RDONLY <span style="color:#666">|</span> O_DIRECTORY);
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(fd <span style="color:#666">&lt;</span> <span style="color:#666">0</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">continue</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        d2 <span style="color:#666">=</span> fdopendir(fd);
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(d2 <span style="color:#666">==</span> <span style="color:#666">0</span>)
+</span></span><span style="display:flex;"><span>            close(fd);
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>            do_coldboot(d2);
+</span></span><span style="display:flex;"><span>            closedir(d2);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>디바이스 노드를 생성하지 못한 디바이스가 저장한 /sys 밑의 각각의 해당 폴더를 들어가 <code>uevent</code> 파일에 “add” 메시지를 써넣어 강제로 uevent를 발생시킨다. 그 후 <code>handle_device_fd</code> 함수를 통해 <code>uevent</code> 를 파싱해 디바이스 노드를 만든다. 이 과정에서 <code>ueventd_parse_config_file</code> 에서 얻어온 정보를 사용한다.</p>
 <h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://kshokd.wordpress.com/2012/08/29/init-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-uevent%EC%99%80-ueventd%EC%9D%98-%ED%99%9C%EC%9A%A9/" target="_blank" rel="noopener">https://kshokd.wordpress.com/2012/08/29/init-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-uevent%EC%99%80-ueventd%EC%9D%98-%ED%99%9C%EC%9A%A9/</a></li>
 </ul>
@@ -235,42 +258,13 @@ if (!doNotTrack) {
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

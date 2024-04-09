@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Stack Protector와 디버깅 이야기 | seokbeomkim.dev</title>
+    <title>Stack Protector와 디버깅 이야기 | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="Stack Protector, 넌 뭐하는 놈이냐? 🔗현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -72,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          2314 words
+          2316 words
         </span>
         <span class="split">
           ·
@@ -83,6 +101,33 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#stack-protector-넌-뭐하는-놈이냐">Stack Protector, 넌 뭐하는 놈이냐?</a></li>
+    <li><a href="#스택-레이아웃-살펴보기">스택 레이아웃 살펴보기</a>
+      <ul>
+        <li><a href="#비활성화-시의-레이아웃">비활성화 시의 레이아웃</a></li>
+        <li><a href="#활성화-시의-레이아웃">활성화 시의 레이아웃</a></li>
+      </ul>
+    </li>
+    <li><a href="#stack-smashing-에러가-안난다-canary-boundary">Stack Smashing 에러가 안난다? Canary Boundary</a></li>
+    <li><a href="#참고-자료">참고 자료</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
     
 
 
@@ -97,109 +142,109 @@ Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점�
 옵션을 통해 활성화할 수 있고 <code>-fno-stack-protector</code> 옵션으로 비활성화 할 수 있다.</p>
 <h2 id="스택-레이아웃-살펴보기">스택 레이아웃 살펴보기 <a href="#%ec%8a%a4%ed%83%9d-%eb%a0%88%ec%9d%b4%ec%95%84%ec%9b%83-%ec%82%b4%ed%8e%b4%eb%b3%b4%ea%b8%b0" class="anchor">🔗</a></h2><h3 id="비활성화-시의-레이아웃">비활성화 시의 레이아웃 <a href="#%eb%b9%84%ed%99%9c%ec%84%b1%ed%99%94-%ec%8b%9c%ec%9d%98-%eb%a0%88%ec%9d%b4%ec%95%84%ec%9b%83" class="anchor">🔗</a></h3><p>먼저, Stack Protector를 비활성화/활성화 되었을 때의 각각 콜스택이 어떻게 되는지 살펴보자.</p>
 <p>먼저, 아래와 같이 간단한 코드를 준비하였다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">mul</span>(<span style="color:#0b0;font-weight:bold">int</span> a)
-{
-        a <span style="color:#666">=</span> a <span style="color:#666">*</span> <span style="color:#666">2</span>;
-}
-
-<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">add</span>(<span style="color:#0b0;font-weight:bold">int</span> a, <span style="color:#0b0;font-weight:bold">int</span> b, <span style="color:#0b0;font-weight:bold">int</span> c, <span style="color:#0b0;font-weight:bold">int</span> d)
-{
-        <span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> a <span style="color:#666">+</span> <span style="color:#666">1</span>;
-        <span style="color:#0b0;font-weight:bold">int</span> e <span style="color:#666">=</span> b <span style="color:#666">+</span> <span style="color:#666">2</span>;
-        <span style="color:#0b0;font-weight:bold">int</span> f <span style="color:#666">=</span> c <span style="color:#666">+</span> <span style="color:#666">3</span>;
-        <span style="color:#0b0;font-weight:bold">int</span> g <span style="color:#666">=</span> d <span style="color:#666">+</span> <span style="color:#666">4</span>;
-        mul(j <span style="color:#666">+</span> e <span style="color:#666">+</span> f <span style="color:#666">+</span> g);
-}
-
-<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
-{
-        <span style="color:#0b0;font-weight:bold">int</span> a <span style="color:#666">=</span> <span style="color:#666">0</span>;
-        <span style="color:#0b0;font-weight:bold">int</span> b <span style="color:#666">=</span> <span style="color:#666">1</span>;
-        <span style="color:#0b0;font-weight:bold">int</span> c <span style="color:#666">=</span> <span style="color:#666">2</span>;
-        <span style="color:#0b0;font-weight:bold">int</span> d <span style="color:#666">=</span> <span style="color:#666">3</span>;
-        add(a, b, c, d);
-
-        <span style="color:#a2f;font-weight:bold">return</span> a;
-}
-</code></pre></div><p>호출 전/후로 ARM64 아키텍처에서의 Calling Convention을 확인하기 편하도록 최대한 코드를
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">mul</span>(<span style="color:#0b0;font-weight:bold">int</span> a)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        a <span style="color:#666">=</span> a <span style="color:#666">*</span> <span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">add</span>(<span style="color:#0b0;font-weight:bold">int</span> a, <span style="color:#0b0;font-weight:bold">int</span> b, <span style="color:#0b0;font-weight:bold">int</span> c, <span style="color:#0b0;font-weight:bold">int</span> d)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> a <span style="color:#666">+</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> e <span style="color:#666">=</span> b <span style="color:#666">+</span> <span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> f <span style="color:#666">=</span> c <span style="color:#666">+</span> <span style="color:#666">3</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> g <span style="color:#666">=</span> d <span style="color:#666">+</span> <span style="color:#666">4</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#00a000">mul</span>(j <span style="color:#666">+</span> e <span style="color:#666">+</span> f <span style="color:#666">+</span> g);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> a <span style="color:#666">=</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> b <span style="color:#666">=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> c <span style="color:#666">=</span> <span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> d <span style="color:#666">=</span> <span style="color:#666">3</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#00a000">add</span>(a, b, c, d);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">return</span> a;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>호출 전/후로 ARM64 아키텍처에서의 Calling Convention을 확인하기 편하도록 최대한 코드를
 할당 중심으로 작성하였다. 위 코드를 아래의 명령어로 컴파일한 후 다시 어셈블리로 바꿔주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ aarch64-linux-gnu-gcc callstack.c     <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>        -fno-stack-protector            <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>        -fno-asynchronous-unwind-tables <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>        -fno-exceptions                 <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>        -fno-rtti -fverbose-asm         <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>        -o callstack.o
-
-$ aarch64-linux-gnu-objdump -dS callstack.o &gt; callstack.disassemble
-</code></pre></div><p>위와 같이 오브젝트 파일을 만들었다가 다시 dump 하는 이유는 불필요한 어셈블리 레이블을
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ aarch64-linux-gnu-gcc callstack.c     <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>        -fno-stack-protector            <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>        -fno-asynchronous-unwind-tables <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>        -fno-exceptions                 <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>        -fno-rtti -fverbose-asm         <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>        -o callstack.o
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ aarch64-linux-gnu-objdump -dS callstack.o &gt; callstack.disassemble
+</span></span></code></pre></div><p>위와 같이 오브젝트 파일을 만들었다가 다시 dump 하는 이유는 불필요한 어셈블리 레이블을
 없애기 위해서다. 실제로 gcc의 -S 옵션을 사용하여 단순하게 어셈블리 코드를 만들어내면 원하는
 어셈 코드를 얻기 힘들다. 이제 얻어낸 어셈블리 코드를 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">0000000000000714 &lt;mul&gt;:
- 714:	d10043ff 	sub	sp, sp, #0x10
- 718:	b9000fe0 	str	w0, [sp, #12]
- 71c:	b9400fe0 	ldr	w0, [sp, #12]
- 720:	531f7800 	lsl	w0, w0, #1
- 724:	b9000fe0 	str	w0, [sp, #12]
- 728:	d503201f 	nop
- 72c:	910043ff 	add	sp, sp, #0x10
- 730:	d65f03c0 	ret
-
-0000000000000734 &lt;add&gt;:
- 734:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
- 738:	910003fd 	mov	x29, sp
- 73c:	b9001fe0 	str	w0, [sp, #28]
- 740:	b9001be1 	str	w1, [sp, #24]
- 744:	b90017e2 	str	w2, [sp, #20]
- 748:	b90013e3 	str	w3, [sp, #16]
- 74c:	b9401fe0 	ldr	w0, [sp, #28]
- 750:	11000400 	add	w0, w0, #0x1
- 754:	b9002fe0 	str	w0, [sp, #44]
- 758:	b9401be0 	ldr	w0, [sp, #24]
- 75c:	11000800 	add	w0, w0, #0x2
- 760:	b9002be0 	str	w0, [sp, #40]
- 764:	b94017e0 	ldr	w0, [sp, #20]
- 768:	11000c00 	add	w0, w0, #0x3
- 76c:	b90027e0 	str	w0, [sp, #36]
- 770:	b94013e0 	ldr	w0, [sp, #16]
- 774:	11001000 	add	w0, w0, #0x4
- 778:	b90023e0 	str	w0, [sp, #32]
- 77c:	b9402fe1 	ldr	w1, [sp, #44]
- 780:	b9402be0 	ldr	w0, [sp, #40]
- 784:	0b000021 	add	w1, w1, w0
- 788:	b94027e0 	ldr	w0, [sp, #36]
- 78c:	0b000021 	add	w1, w1, w0
- 790:	b94023e0 	ldr	w0, [sp, #32]
- 794:	0b000020 	add	w0, w1, w0
- 798:	97ffffdf 	bl	714 &lt;mul&gt;
- 79c:	d503201f 	nop
- 7a0:	a8c37bfd 	ldp	x29, x30, [sp], #48
- 7a4:	d65f03c0 	ret
-
-00000000000007a8 &lt;main&gt;:
- 7a8:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
- 7ac:	910003fd 	mov	x29, sp
- 7b0:	b9001fff 	str	wzr, [sp, #28]
- 7b4:	52800020 	mov	w0, #0x1                   	// #1
- 7b8:	b9001be0 	str	w0, [sp, #24]
- 7bc:	52800040 	mov	w0, #0x2                   	// #2
- 7c0:	b90017e0 	str	w0, [sp, #20]
- 7c4:	52800060 	mov	w0, #0x3                   	// #3
- 7c8:	b90013e0 	str	w0, [sp, #16]
- 7cc:	b94013e3 	ldr	w3, [sp, #16]
- 7d0:	b94017e2 	ldr	w2, [sp, #20]
- 7d4:	b9401be1 	ldr	w1, [sp, #24]
- 7d8:	b9401fe0 	ldr	w0, [sp, #28]
- 7dc:	97ffffd6 	bl	734 &lt;add&gt;
- 7e0:	b9401fe0 	ldr	w0, [sp, #28]
- 7e4:	a8c27bfd 	ldp	x29, x30, [sp], #32
- 7e8:	d65f03c0 	ret
-</code></pre></div><p>어셈블리 코드를 살펴보면 main, add, mul 함수가 호출될 때마다 첫번째 라인에서 x29/x30 값을
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>0000000000000714 &lt;mul&gt;:
+</span></span><span style="display:flex;"><span> 714:	d10043ff 	sub	sp, sp, #0x10
+</span></span><span style="display:flex;"><span> 718:	b9000fe0 	str	w0, [sp, #12]
+</span></span><span style="display:flex;"><span> 71c:	b9400fe0 	ldr	w0, [sp, #12]
+</span></span><span style="display:flex;"><span> 720:	531f7800 	lsl	w0, w0, #1
+</span></span><span style="display:flex;"><span> 724:	b9000fe0 	str	w0, [sp, #12]
+</span></span><span style="display:flex;"><span> 728:	d503201f 	nop
+</span></span><span style="display:flex;"><span> 72c:	910043ff 	add	sp, sp, #0x10
+</span></span><span style="display:flex;"><span> 730:	d65f03c0 	ret
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>0000000000000734 &lt;add&gt;:
+</span></span><span style="display:flex;"><span> 734:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+</span></span><span style="display:flex;"><span> 738:	910003fd 	mov	x29, sp
+</span></span><span style="display:flex;"><span> 73c:	b9001fe0 	str	w0, [sp, #28]
+</span></span><span style="display:flex;"><span> 740:	b9001be1 	str	w1, [sp, #24]
+</span></span><span style="display:flex;"><span> 744:	b90017e2 	str	w2, [sp, #20]
+</span></span><span style="display:flex;"><span> 748:	b90013e3 	str	w3, [sp, #16]
+</span></span><span style="display:flex;"><span> 74c:	b9401fe0 	ldr	w0, [sp, #28]
+</span></span><span style="display:flex;"><span> 750:	11000400 	add	w0, w0, #0x1
+</span></span><span style="display:flex;"><span> 754:	b9002fe0 	str	w0, [sp, #44]
+</span></span><span style="display:flex;"><span> 758:	b9401be0 	ldr	w0, [sp, #24]
+</span></span><span style="display:flex;"><span> 75c:	11000800 	add	w0, w0, #0x2
+</span></span><span style="display:flex;"><span> 760:	b9002be0 	str	w0, [sp, #40]
+</span></span><span style="display:flex;"><span> 764:	b94017e0 	ldr	w0, [sp, #20]
+</span></span><span style="display:flex;"><span> 768:	11000c00 	add	w0, w0, #0x3
+</span></span><span style="display:flex;"><span> 76c:	b90027e0 	str	w0, [sp, #36]
+</span></span><span style="display:flex;"><span> 770:	b94013e0 	ldr	w0, [sp, #16]
+</span></span><span style="display:flex;"><span> 774:	11001000 	add	w0, w0, #0x4
+</span></span><span style="display:flex;"><span> 778:	b90023e0 	str	w0, [sp, #32]
+</span></span><span style="display:flex;"><span> 77c:	b9402fe1 	ldr	w1, [sp, #44]
+</span></span><span style="display:flex;"><span> 780:	b9402be0 	ldr	w0, [sp, #40]
+</span></span><span style="display:flex;"><span> 784:	0b000021 	add	w1, w1, w0
+</span></span><span style="display:flex;"><span> 788:	b94027e0 	ldr	w0, [sp, #36]
+</span></span><span style="display:flex;"><span> 78c:	0b000021 	add	w1, w1, w0
+</span></span><span style="display:flex;"><span> 790:	b94023e0 	ldr	w0, [sp, #32]
+</span></span><span style="display:flex;"><span> 794:	0b000020 	add	w0, w1, w0
+</span></span><span style="display:flex;"><span> 798:	97ffffdf 	bl	714 &lt;mul&gt;
+</span></span><span style="display:flex;"><span> 79c:	d503201f 	nop
+</span></span><span style="display:flex;"><span> 7a0:	a8c37bfd 	ldp	x29, x30, [sp], #48
+</span></span><span style="display:flex;"><span> 7a4:	d65f03c0 	ret
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>00000000000007a8 &lt;main&gt;:
+</span></span><span style="display:flex;"><span> 7a8:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+</span></span><span style="display:flex;"><span> 7ac:	910003fd 	mov	x29, sp
+</span></span><span style="display:flex;"><span> 7b0:	b9001fff 	str	wzr, [sp, #28]
+</span></span><span style="display:flex;"><span> 7b4:	52800020 	mov	w0, #0x1                   	// #1
+</span></span><span style="display:flex;"><span> 7b8:	b9001be0 	str	w0, [sp, #24]
+</span></span><span style="display:flex;"><span> 7bc:	52800040 	mov	w0, #0x2                   	// #2
+</span></span><span style="display:flex;"><span> 7c0:	b90017e0 	str	w0, [sp, #20]
+</span></span><span style="display:flex;"><span> 7c4:	52800060 	mov	w0, #0x3                   	// #3
+</span></span><span style="display:flex;"><span> 7c8:	b90013e0 	str	w0, [sp, #16]
+</span></span><span style="display:flex;"><span> 7cc:	b94013e3 	ldr	w3, [sp, #16]
+</span></span><span style="display:flex;"><span> 7d0:	b94017e2 	ldr	w2, [sp, #20]
+</span></span><span style="display:flex;"><span> 7d4:	b9401be1 	ldr	w1, [sp, #24]
+</span></span><span style="display:flex;"><span> 7d8:	b9401fe0 	ldr	w0, [sp, #28]
+</span></span><span style="display:flex;"><span> 7dc:	97ffffd6 	bl	734 &lt;add&gt;
+</span></span><span style="display:flex;"><span> 7e0:	b9401fe0 	ldr	w0, [sp, #28]
+</span></span><span style="display:flex;"><span> 7e4:	a8c27bfd 	ldp	x29, x30, [sp], #32
+</span></span><span style="display:flex;"><span> 7e8:	d65f03c0 	ret
+</span></span></code></pre></div><p>어셈블리 코드를 살펴보면 main, add, mul 함수가 호출될 때마다 첫번째 라인에서 x29/x30 값을
 sp (스택 포인터)에 저장하고 Stack Frame을 확보하는 것을 알 수 있다. x29는 Frame Pointer,
 x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return Address를 갖고 있다고
 생각하면 된다. add 함수가 mul 함수에서 각각 stack frame을 확보하는 어셈블리 명령어가
 다르게 나와있다. add 함수를 먼저 살펴보면 아래와 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">stp     x29, x30, [sp, #-48]!
-</code></pre></div><p>이는 x29, x30 값을 [sp]에 저장(sp가 갖고 있는 메모리 주소에)한 다음 sp를 -48 오프셋만큼
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>stp     x29, x30, [sp, #-48]!
+</span></span></code></pre></div><p>이는 x29, x30 값을 [sp]에 저장(sp가 갖고 있는 메모리 주소에)한 다음 sp를 -48 오프셋만큼
 이동하라는 뜻이다. 이 때, 스택 할당은 메모리 반대 방향으로 확보되는 점에 주목하자. mul 함수는
 별도의 백업 없이 곧바로 스택 프레임을 확보하는 것을 볼 수 있다.</p>
 <p>계속해서 add 함수를 살펴보면 스택 프레임을 확보한 후 int d, e, f에 해당하는 지역 변수들을
@@ -210,58 +255,58 @@ x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return 
 </p></p>
 <h3 id="활성화-시의-레이아웃">활성화 시의 레이아웃 <a href="#%ed%99%9c%ec%84%b1%ed%99%94-%ec%8b%9c%ec%9d%98-%eb%a0%88%ec%9d%b4%ec%95%84%ec%9b%83" class="anchor">🔗</a></h3><p>그렇다면 stack protector가 활성화된 메모리 레이아웃은 어떻게 될까? 이번에는
 -fstack-protector-all 옵션을 이용하여 어셈블리 코드를 생성해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">000000000000086c &lt;add&gt;:
- 86c:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
- 870:	910003fd 	mov	x29, sp
- 874:	b9001fe0 	str	w0, [sp, #28]
- 878:	b9001be1 	str	w1, [sp, #24]
- 87c:	b90017e2 	str	w2, [sp, #20]
- 880:	b90013e3 	str	w3, [sp, #16]
- 884:	90000080 	adrp	x0, 10000 &lt;__FRAME_END__+0xf520&gt;
- 888:	f947f400 	ldr	x0, [x0, #4072]
- 88c:	f9400001 	ldr	x1, [x0]
- 890:	f9001fe1 	str	x1, [sp, #56]
- 894:	d2800001 	mov	x1, #0x0                   	// #0
- 898:	b9401fe0 	ldr	w0, [sp, #28]
- 89c:	11000400 	add	w0, w0, #0x1
- 8a0:	b9002be0 	str	w0, [sp, #40]
- 8a4:	b9401be0 	ldr	w0, [sp, #24]
- 8a8:	11000800 	add	w0, w0, #0x2
- 8ac:	b9002fe0 	str	w0, [sp, #44]
- 8b0:	b94017e0 	ldr	w0, [sp, #20]
- 8b4:	11000c00 	add	w0, w0, #0x3
- 8b8:	b90033e0 	str	w0, [sp, #48]
- 8bc:	b94013e0 	ldr	w0, [sp, #16]
- 8c0:	11001000 	add	w0, w0, #0x4
- 8c4:	b90037e0 	str	w0, [sp, #52]
- 8c8:	b9402be1 	ldr	w1, [sp, #40]
- 8cc:	b9402fe0 	ldr	w0, [sp, #44]
- 8d0:	0b000021 	add	w1, w1, w0
- 8d4:	b94033e0 	ldr	w0, [sp, #48]
- 8d8:	0b000021 	add	w1, w1, w0
- 8dc:	b94037e0 	ldr	w0, [sp, #52]
- 8e0:	0b000020 	add	w0, w1, w0
- 8e4:	97ffffcc 	bl	814 &lt;mul&gt;
- 8e8:	d503201f 	nop
- 8ec:	90000080 	adrp	x0, 10000 &lt;__FRAME_END__+0xf520&gt;
- 8f0:	f947f400 	ldr	x0, [x0, #4072]
- 8f4:	f9401fe2 	ldr	x2, [sp, #56]
- 8f8:	f9400001 	ldr	x1, [x0]
- 8fc:	eb010042 	subs	x2, x2, x1
- 900:	d2800001 	mov	x1, #0x0                   	// #0
- 904:	54000040 	b.eq	90c &lt;add+0xa0&gt;  // b.none
- 908:	97ffff66 	bl	6a0 &lt;__stack_chk_fail@plt&gt;
- 90c:	a8c47bfd 	ldp	x29, x30, [sp], #64
- 910:	d65f03c0 	ret
-</code></pre></div><p>보기에도 이전에 살펴봤던 add 함수보다 훨씬 코드가 길어졌다. 여기서 중요한 건 함수 초기에
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>000000000000086c &lt;add&gt;:
+</span></span><span style="display:flex;"><span> 86c:	a9bc7bfd 	stp	x29, x30, [sp, #-64]!
+</span></span><span style="display:flex;"><span> 870:	910003fd 	mov	x29, sp
+</span></span><span style="display:flex;"><span> 874:	b9001fe0 	str	w0, [sp, #28]
+</span></span><span style="display:flex;"><span> 878:	b9001be1 	str	w1, [sp, #24]
+</span></span><span style="display:flex;"><span> 87c:	b90017e2 	str	w2, [sp, #20]
+</span></span><span style="display:flex;"><span> 880:	b90013e3 	str	w3, [sp, #16]
+</span></span><span style="display:flex;"><span> 884:	90000080 	adrp	x0, 10000 &lt;__FRAME_END__+0xf520&gt;
+</span></span><span style="display:flex;"><span> 888:	f947f400 	ldr	x0, [x0, #4072]
+</span></span><span style="display:flex;"><span> 88c:	f9400001 	ldr	x1, [x0]
+</span></span><span style="display:flex;"><span> 890:	f9001fe1 	str	x1, [sp, #56]
+</span></span><span style="display:flex;"><span> 894:	d2800001 	mov	x1, #0x0                   	// #0
+</span></span><span style="display:flex;"><span> 898:	b9401fe0 	ldr	w0, [sp, #28]
+</span></span><span style="display:flex;"><span> 89c:	11000400 	add	w0, w0, #0x1
+</span></span><span style="display:flex;"><span> 8a0:	b9002be0 	str	w0, [sp, #40]
+</span></span><span style="display:flex;"><span> 8a4:	b9401be0 	ldr	w0, [sp, #24]
+</span></span><span style="display:flex;"><span> 8a8:	11000800 	add	w0, w0, #0x2
+</span></span><span style="display:flex;"><span> 8ac:	b9002fe0 	str	w0, [sp, #44]
+</span></span><span style="display:flex;"><span> 8b0:	b94017e0 	ldr	w0, [sp, #20]
+</span></span><span style="display:flex;"><span> 8b4:	11000c00 	add	w0, w0, #0x3
+</span></span><span style="display:flex;"><span> 8b8:	b90033e0 	str	w0, [sp, #48]
+</span></span><span style="display:flex;"><span> 8bc:	b94013e0 	ldr	w0, [sp, #16]
+</span></span><span style="display:flex;"><span> 8c0:	11001000 	add	w0, w0, #0x4
+</span></span><span style="display:flex;"><span> 8c4:	b90037e0 	str	w0, [sp, #52]
+</span></span><span style="display:flex;"><span> 8c8:	b9402be1 	ldr	w1, [sp, #40]
+</span></span><span style="display:flex;"><span> 8cc:	b9402fe0 	ldr	w0, [sp, #44]
+</span></span><span style="display:flex;"><span> 8d0:	0b000021 	add	w1, w1, w0
+</span></span><span style="display:flex;"><span> 8d4:	b94033e0 	ldr	w0, [sp, #48]
+</span></span><span style="display:flex;"><span> 8d8:	0b000021 	add	w1, w1, w0
+</span></span><span style="display:flex;"><span> 8dc:	b94037e0 	ldr	w0, [sp, #52]
+</span></span><span style="display:flex;"><span> 8e0:	0b000020 	add	w0, w1, w0
+</span></span><span style="display:flex;"><span> 8e4:	97ffffcc 	bl	814 &lt;mul&gt;
+</span></span><span style="display:flex;"><span> 8e8:	d503201f 	nop
+</span></span><span style="display:flex;"><span> 8ec:	90000080 	adrp	x0, 10000 &lt;__FRAME_END__+0xf520&gt;
+</span></span><span style="display:flex;"><span> 8f0:	f947f400 	ldr	x0, [x0, #4072]
+</span></span><span style="display:flex;"><span> 8f4:	f9401fe2 	ldr	x2, [sp, #56]
+</span></span><span style="display:flex;"><span> 8f8:	f9400001 	ldr	x1, [x0]
+</span></span><span style="display:flex;"><span> 8fc:	eb010042 	subs	x2, x2, x1
+</span></span><span style="display:flex;"><span> 900:	d2800001 	mov	x1, #0x0                   	// #0
+</span></span><span style="display:flex;"><span> 904:	54000040 	b.eq	90c &lt;add+0xa0&gt;  // b.none
+</span></span><span style="display:flex;"><span> 908:	97ffff66 	bl	6a0 &lt;__stack_chk_fail@plt&gt;
+</span></span><span style="display:flex;"><span> 90c:	a8c47bfd 	ldp	x29, x30, [sp], #64
+</span></span><span style="display:flex;"><span> 910:	d65f03c0 	ret
+</span></span></code></pre></div><p>보기에도 이전에 살펴봤던 add 함수보다 훨씬 코드가 길어졌다. 여기서 중요한 건 함수 초기에
 스택 포인터를 움직인 후 canary 영역을 스택에 저장하는 부분이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> 884:	90000080 	adrp	x0, 10000 &lt;__FRAME_END__+0xf520&gt;
- 888:	f947f400 	ldr	x0, [x0, #4072]
- 88c:	f9400001 	ldr	x1, [x0]
- 890:	f9001fe1 	str	x1, [sp, #56]
- ...
- 908:	97ffff66 	bl	6a0 &lt;__stack_chk_fail@plt&gt;
-</code></pre></div><p><p class="markdown-image">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> 884:	90000080 	adrp	x0, 10000 &lt;__FRAME_END__+0xf520&gt;
+</span></span><span style="display:flex;"><span> 888:	f947f400 	ldr	x0, [x0, #4072]
+</span></span><span style="display:flex;"><span> 88c:	f9400001 	ldr	x1, [x0]
+</span></span><span style="display:flex;"><span> 890:	f9001fe1 	str	x1, [sp, #56]
+</span></span><span style="display:flex;"><span> ...
+</span></span><span style="display:flex;"><span> 908:	97ffff66 	bl	6a0 &lt;__stack_chk_fail@plt&gt;
+</span></span></code></pre></div><p><p class="markdown-image">
   <img src="/img/stack-protector_figure_2.png" alt="Stack Layout without Stack Protector"  />
 </p></p>
 <p>Stack Frame Pointer와 Link Register 정보를 스택 하위에 두고 일반적으로는 곧바로
@@ -279,27 +324,27 @@ x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return 
 (<a href="https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value" target="_blank" rel="noopener">https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value</a>)
 그런데 fs:0x28 값이 처음부터 하위 1바이트가 초기화되어 있다는 것은 커널 쪽 코드에 의한 것이라고
 생각하고 살펴보니, 커널 include/linux/random.h 파일에 아래의 코드가 있었다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#080;font-style:italic">/*
-</span><span style="color:#080;font-style:italic"> * On 64-bit architectures, protect against non-terminated C string overflows
-</span><span style="color:#080;font-style:italic"> * by zeroing out the first byte of the canary; this leaves 56 bits of entropy.
-</span><span style="color:#080;font-style:italic"> */</span>
-<span style="color:#080">#ifdef CONFIG_64BIT
-</span><span style="color:#080"># ifdef __LITTLE_ENDIAN
-</span><span style="color:#080">#  define CANARY_MASK 0xffffffffffffff00UL
-</span><span style="color:#080"># else </span><span style="color:#080;font-style:italic">/* big endian, 64 bits: */</span><span style="color:#080">
-</span><span style="color:#080">#  define CANARY_MASK 0x00ffffffffffffffUL
-</span><span style="color:#080"># endif
-</span><span style="color:#080">#else </span><span style="color:#080;font-style:italic">/* 32 bits: */</span><span style="color:#080">
-</span><span style="color:#080"># define CANARY_MASK 0xffffffffUL
-</span><span style="color:#080">#endif
-</span><span style="color:#080"></span>
-<span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> <span style="color:#00a000">get_random_canary</span>(<span style="color:#0b0;font-weight:bold">void</span>)
-{
-	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> val <span style="color:#666">=</span> get_random_long();
-
-	<span style="color:#a2f;font-weight:bold">return</span> val <span style="color:#666">&amp;</span> CANARY_MASK;
-}
-</code></pre></div><p>처음에는 굳이 이렇게 NULL을 처리해야 하나 싶었는데 블라인드를 통해 알게된 사실은 canary
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * On 64-bit architectures, protect against non-terminated C string overflows
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * by zeroing out the first byte of the canary; this leaves 56 bits of entropy.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#ifdef CONFIG_64BIT
+</span></span></span><span style="display:flex;"><span><span style="color:#080"># ifdef __LITTLE_ENDIAN
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#  define CANARY_MASK 0xffffffffffffff00UL
+</span></span></span><span style="display:flex;"><span><span style="color:#080"># else </span><span style="color:#080;font-style:italic">/* big endian, 64 bits: */</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#  define CANARY_MASK 0x00ffffffffffffffUL
+</span></span></span><span style="display:flex;"><span><span style="color:#080"># endif
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#else </span><span style="color:#080;font-style:italic">/* 32 bits: */</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"># define CANARY_MASK 0xffffffffUL
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> <span style="color:#00a000">get_random_canary</span>(<span style="color:#0b0;font-weight:bold">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> val <span style="color:#666">=</span> <span style="color:#00a000">get_random_long</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> val <span style="color:#666">&amp;</span> CANARY_MASK;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>처음에는 굳이 이렇게 NULL을 처리해야 하나 싶었는데 블라인드를 통해 알게된 사실은 canary
 value를 바로 출력하지 못하도록 NULL 문자를 이용해 boundary를 생성하기 위한 용도라는 것을
 알게됐다. 이로써 stack protector가 스택에서 어떻게 위치하는지, 그리고 왜 ARM 레퍼런스 문서에
 있는 예제가 동작을 하지 않는지, canary boundary 값이 왜 NULL로 되어있는지 등을 알 수 있었다.</p>
@@ -335,42 +380,13 @@ value를 바로 출력하지 못하도록 NULL 문자를 이용해 boundary를 �
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

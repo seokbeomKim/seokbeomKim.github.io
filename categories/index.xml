@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on seokbeomkim.dev</title>
+    <title>Categories on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/categories/</link>
-    <description>Recent content in Categories on seokbeomkim.dev</description>
+    <description>Recent content in Categories on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Mar 2023 17:45:39 +0900</lastBuildDate>
@@ -16,7 +16,7 @@
       <description></description>
     </item>
     <item>
-      <title>Etc</title>
+      <title>etc</title>
       <link>https://seokbeomkim.github.io/categories/etc/</link>
       <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/etc/</guid>
@@ -37,49 +37,49 @@
       <description></description>
     </item>
     <item>
-      <title>Python</title>
+      <title>python</title>
       <link>https://seokbeomkim.github.io/categories/python/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/python/</guid>
       <description></description>
     </item>
     <item>
-      <title>Mac</title>
+      <title>mac</title>
       <link>https://seokbeomkim.github.io/categories/mac/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/mac/</guid>
       <description></description>
     </item>
     <item>
-      <title>Haskell</title>
+      <title>haskell</title>
       <link>https://seokbeomkim.github.io/categories/haskell/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/haskell/</guid>
       <description></description>
     </item>
     <item>
-      <title>Design Pattern</title>
+      <title>design pattern</title>
       <link>https://seokbeomkim.github.io/categories/design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/design-pattern/</guid>
       <description></description>
     </item>
     <item>
-      <title>Linux</title>
+      <title>linux</title>
       <link>https://seokbeomkim.github.io/categories/linux/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/linux/</guid>
       <description></description>
     </item>
     <item>
-      <title>Oop</title>
+      <title>oop</title>
       <link>https://seokbeomkim.github.io/categories/oop/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/oop/</guid>
       <description></description>
     </item>
     <item>
-      <title>C</title>
+      <title>c</title>
       <link>https://seokbeomkim.github.io/categories/c/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/c/</guid>
@@ -93,14 +93,14 @@
       <description></description>
     </item>
     <item>
-      <title>Virtualization</title>
+      <title>virtualization</title>
       <link>https://seokbeomkim.github.io/categories/virtualization/</link>
       <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/virtualization/</guid>
       <description></description>
     </item>
     <item>
-      <title>Yocto</title>
+      <title>yocto</title>
       <link>https://seokbeomkim.github.io/categories/yocto/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/yocto/</guid>
@@ -114,7 +114,7 @@
       <description></description>
     </item>
     <item>
-      <title>Typescript</title>
+      <title>typescript</title>
       <link>https://seokbeomkim.github.io/categories/typescript/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/typescript/</guid>
@@ -128,14 +128,14 @@
       <description></description>
     </item>
     <item>
-      <title>Java</title>
+      <title>java</title>
       <link>https://seokbeomkim.github.io/categories/java/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/java/</guid>
       <description></description>
     </item>
     <item>
-      <title>Database</title>
+      <title>database</title>
       <link>https://seokbeomkim.github.io/categories/database/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/categories/database/</guid>

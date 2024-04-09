@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>맥 OS에서 리눅스 커널 컴파일하기 | seokbeomkim.dev</title>
+    <title>맥 OS에서 리눅스 커널 컴파일하기 | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗맥 환경에서 bare-metal이 아닌 리눅스 커널로 컴파일하는 것은 생각했던 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한 라이브러리와">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -83,6 +101,11 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+
+
     
 
 
@@ -123,38 +146,37 @@ case-insensitive 이므로 반드시 case-sensitive 파티션을 추가로 구�
 <p>그리고 기본 컴파일러로서 GNU gcc가 아닌 clang을 이용하므로, <code>homebrew</code>
 패키지 관리자를 통해 openssl, gcc 등을 설치해야 한다. <code>openssl</code>은
 반드시 <a href="mailto:openssl@1.1">openssl@1.1</a>을 설치한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install openssl@1.1 gcc
-</code></pre></div><h1 id="크로스-컴파일러-빌드-ct-ng">크로스 컴파일러 빌드: ct-ng <a href="#%ed%81%ac%eb%a1%9c%ec%8a%a4-%ec%bb%b4%ed%8c%8c%ec%9d%bc%eb%9f%ac-%eb%b9%8c%eb%93%9c-ct-ng" class="anchor">🔗</a></h1><p>크로스 컴파일러는 <code>Crosstool-NG(ct-ng)</code>를 이용하여 빌드한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ brew install ct-ng
-$ mkdir -p ~/workspace/ct-ng-rpi3 <span style="color:#666">&amp;&amp;</span> <span style="color:#a2f">cd</span> ~/workspace/ct-ng-rpi3
-$ ct-ng armv8-rpi3-linux-gnueabihf
-</code></pre></div><p><code>armv8-rpi3-linux-gnueabihf</code>는 <code>ct-ng</code>에서 제공하는 샘플 중 하나로서
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ brew install openssl@1.1 gcc
+</span></span></code></pre></div><h1 id="크로스-컴파일러-빌드-ct-ng">크로스 컴파일러 빌드: ct-ng <a href="#%ed%81%ac%eb%a1%9c%ec%8a%a4-%ec%bb%b4%ed%8c%8c%ec%9d%bc%eb%9f%ac-%eb%b9%8c%eb%93%9c-ct-ng" class="anchor">🔗</a></h1><p>크로스 컴파일러는 <code>Crosstool-NG(ct-ng)</code>를 이용하여 빌드한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ brew install ct-ng
+</span></span><span style="display:flex;"><span>$ mkdir -p ~/workspace/ct-ng-rpi3 <span style="color:#666">&amp;&amp;</span> <span style="color:#a2f">cd</span> ~/workspace/ct-ng-rpi3
+</span></span><span style="display:flex;"><span>$ ct-ng armv8-rpi3-linux-gnueabihf
+</span></span></code></pre></div><p><code>armv8-rpi3-linux-gnueabihf</code>는 <code>ct-ng</code>에서 제공하는 샘플 중 하나로서
 샘플들은 아래와 같이 확인할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ct-ng list-samples
-</code></pre></div><p>gdb 빌드 도중에 발생하는 파이썬 에러를 방지하기 위해 아래와 같이
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ct-ng list-samples
+</span></span></code></pre></div><p>gdb 빌드 도중에 발생하는 파이썬 에러를 방지하기 위해 아래와 같이
 <code>menuconfig</code>를 통해 파이썬의 바이너리 경로를 설정해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ct-ng menuconfig
-
-<span style="color:#080;font-style:italic"># menuconfig 창에서 아래 설정 메뉴를 통해 파이썬 바이너리 경로를 설정한다.</span>
-Debug facilities -&gt; gdb -&gt; Python binary to use <span style="color:#666">(</span>/usr/bin/python<span style="color:#666">)</span>
-</code></pre></div><p>또한, 필자처럼 binutils 에서 string 관련 에러가 난다면, 아래와 같이
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ct-ng menuconfig
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># menuconfig 창에서 아래 설정 메뉴를 통해 파이썬 바이너리 경로를 설정한다.</span>
+</span></span><span style="display:flex;"><span>Debug facilities -&gt; gdb -&gt; Python binary to use <span style="color:#666">(</span>/usr/bin/python<span style="color:#666">)</span>
+</span></span></code></pre></div><p>또한, 필자처럼 binutils 에서 string 관련 에러가 난다면, 아래와 같이
 직접 <code>&lt;string&gt;</code> 헤더파일을 include 하도록 수정해줘야 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ $home/workspace/ct-ng/rpi3b/.build/src/binutils-2.32
-$ vi gold/errors.h
-
-// 아래 include 에 &lt;string&gt;을 추가한다.
-
-// MA 02110-1301, USA.
-
-#ifndef GOLD_ERRORS_H
-#define GOLD_ERRORS_H
-
-#include &lt;cstdarg&gt;
-#include &lt;string&gt;
-
-#include &#34;gold-threads.h&#34;
-
-</code></pre></div><p>크로스 컴파일러 빌드가 완료되었다면 <code>$HOME/x-tools</code> 경로 아래에
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="">$</span> <span style="">$</span>home<span style="color:#666">/</span>workspace<span style="color:#666">/</span>ct<span style="color:#666">-</span>ng<span style="color:#666">/</span>rpi3b<span style="color:#666">/</span>.build<span style="color:#666">/</span>src<span style="color:#666">/</span>binutils<span style="color:#666">-</span><span style="color:#666">2.32</span>
+</span></span><span style="display:flex;"><span><span style="">$</span> vi gold<span style="color:#666">/</span>errors.h
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 아래 include 에 &lt;string&gt;을 추가한다.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// MA 02110-1301, USA.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#ifndef GOLD_ERRORS_H
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#define GOLD_ERRORS_H
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;cstdarg&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;string&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&#34;gold-threads.h&#34;</span><span style="color:#080">
+</span></span></span></code></pre></div><p>크로스 컴파일러 빌드가 완료되었다면 <code>$HOME/x-tools</code> 경로 아래에
 컴파일러가 생성된 것을 확인할 수 있다. 크로스 컴파일러를 빌드하면서
 발생하는 에러는 맥 운영체제로 인한 것이 아니라 크로스 컴파일 환경과
 타겟 gcc 버전의 호환성 문제로 인한 것이 대부분이다. 이러한 문제들은
@@ -166,9 +188,9 @@ $ vi gold/errors.h
 경로(<a href="https://www.rockbox.org/tracker/task/9006?getfile=16683" target="_blank" rel="noopener">https://www.rockbox.org/tracker/task/9006?getfile=16683</a>)에서
 다운로드 하여 include 경로(<code>/usr/local/include</code>)에 추가해준다.</p>
 <p>이제 마지막으로 라이브러리와 INCLUDE 경로를 설정해주며 빌드를 해주자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ KERNEL=kernel7 ARCH=arm make bcm2709_defconfig
-$ KERNEL=kernel7 ARCH=arm HOSTCFLAGS=&#34;-I/usr/local/include -I/usr/local/opt/openssl@1.1/include -L/usr/local/opt/openssl/lib&#34;  make -j4
-</code></pre></div><p>빌드가 완료되면, 아래와 같이 커널 이미지(<code>zImage</code>)가 만들어진 것을 확인할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ KERNEL=kernel7 ARCH=arm make bcm2709_defconfig
+</span></span><span style="display:flex;"><span>$ KERNEL=kernel7 ARCH=arm HOSTCFLAGS=&#34;-I/usr/local/include -I/usr/local/opt/openssl@1.1/include -L/usr/local/opt/openssl/lib&#34;  make -j4
+</span></span></code></pre></div><p>빌드가 완료되면, 아래와 같이 커널 이미지(<code>zImage</code>)가 만들어진 것을 확인할 수 있다.</p>
 <p><p class="markdown-image">
   <img src="/img/kernel-compilation-success.png" alt="커널 빌드 완료"  />
 </p></p>
@@ -209,42 +231,13 @@ $ KERNEL=kernel7 ARCH=arm HOSTCFLAGS=&#34;-I/usr/local/include -I/usr/local/opt/
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

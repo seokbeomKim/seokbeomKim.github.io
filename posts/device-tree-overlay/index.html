@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Device Tree Overlay | seokbeomkim.dev</title>
+    <title>Device Tree Overlay | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="Ramoops 덕분에 알게된 오버레이 🔗며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,29 @@ if (!doNotTrack) {
 
     
     
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ramoops-덕분에-알게된-오버레이">Ramoops 덕분에 알게된 오버레이</a></li>
+    <li><a href="#오버레이-작성">오버레이 작성</a></li>
+    <li><a href="#configfs">configfs</a></li>
+    <li><a href="#언제-사용할까">언제 사용할까?</a></li>
+    <li><a href="#참고-자료">참고 자료</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
 
 
     <div class="content">
@@ -94,79 +135,79 @@ user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops �
 <p>이러한 로거를 현업에서 사용하기 위해 사내 평가보드에서 먼저 확인해보았다. 평가보드에서는 간단하게 memblock의 reserved memory 영역에 ramoops 영역을 추가함으로써 정상 동작하는 것을 금방 확인할 수 있었다. 하지만, 개인적으로 갖고 있던 라즈베리파이 보드에서는 이같은 방법이 제대로 동작하지 않았다.  이에 구글링을 하던 도중 디바이스 트리 오버레이로 ramoops 에 대한 디바이스 트리를 수정하는 방법을 접하면서, 오버레이가 특정 벤더의 BSP에서만 사용 가능한 것이 아닌 OF의 API로서 커널 내에 구현되어 있다는 사실 또한 함께 알게 되었다. (부끄럽게도 이제서야 알게 되었다.)</p>
 <h2 id="오버레이-작성">오버레이 작성 <a href="#%ec%98%a4%eb%b2%84%eb%a0%88%ec%9d%b4-%ec%9e%91%ec%84%b1" class="anchor">🔗</a></h2><p>오버레이는 런타임에 FDT (Flattened Device Tree) 를 수정할 수 있는 방법이다. 여기서 FDT란, 메모리에 로드된 디바이스 트리를 말한다.
 DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만, 이전 방법으로는 아래와 같이 작성할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/dts-v1/;
-/plugin/;
-
-/ {
-        compatible = &#34;brcm,bcm2835&#34;;
-
-        fragment@0 {
-                target = &lt;&amp;rmem&gt;;
-                __overlay__ {
-                        #address-cells= &lt;1&gt;;
-                        #size-cells = &lt;1&gt;;
-                        ranges;
-
-                        ramoops: ramoops@39000000{
-                                compatible = &#34;ramoops&#34;;
-                                reg = &lt;0x39000000 0x100000&gt;;
-                                ecc-size = &lt;16&gt;;
-                                record-size = &lt;0x20000&gt;;
-                                console-size = &lt;0x20000&gt;;
-                                pmsg-size = &lt;0x20000&gt;;
-                                ftrace-size = &lt;0&gt;;
-                        };
-                };
-        };
-};
-</code></pre></div><p>그리고 이를 아래와 같이 컴파일한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ dtc -@ -O dtb -o ramoops.dtbo ramoops-overlay.dts
-</code></pre></div><h2 id="configfs">configfs <a href="#configfs" class="anchor">🔗</a></h2><p>앞서 컴파일한 오버레이를 사용하기 위해서는 디바이스 트리를 사용했던 것과 마찬가지로 특정 메모리 영역에 dtbo 파일을 두고 오버레이 인터페이스를 통해 접근해야 한다.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>/dts-v1/;
+</span></span><span style="display:flex;"><span>/plugin/;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>/ {
+</span></span><span style="display:flex;"><span>        compatible = &#34;brcm,bcm2835&#34;;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        fragment@0 {
+</span></span><span style="display:flex;"><span>                target = &lt;&amp;rmem&gt;;
+</span></span><span style="display:flex;"><span>                __overlay__ {
+</span></span><span style="display:flex;"><span>                        #address-cells= &lt;1&gt;;
+</span></span><span style="display:flex;"><span>                        #size-cells = &lt;1&gt;;
+</span></span><span style="display:flex;"><span>                        ranges;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        ramoops: ramoops@39000000{
+</span></span><span style="display:flex;"><span>                                compatible = &#34;ramoops&#34;;
+</span></span><span style="display:flex;"><span>                                reg = &lt;0x39000000 0x100000&gt;;
+</span></span><span style="display:flex;"><span>                                ecc-size = &lt;16&gt;;
+</span></span><span style="display:flex;"><span>                                record-size = &lt;0x20000&gt;;
+</span></span><span style="display:flex;"><span>                                console-size = &lt;0x20000&gt;;
+</span></span><span style="display:flex;"><span>                                pmsg-size = &lt;0x20000&gt;;
+</span></span><span style="display:flex;"><span>                                ftrace-size = &lt;0&gt;;
+</span></span><span style="display:flex;"><span>                        };
+</span></span><span style="display:flex;"><span>                };
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>그리고 이를 아래와 같이 컴파일한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ dtc -@ -O dtb -o ramoops.dtbo ramoops-overlay.dts
+</span></span></code></pre></div><h2 id="configfs">configfs <a href="#configfs" class="anchor">🔗</a></h2><p>앞서 컴파일한 오버레이를 사용하기 위해서는 디바이스 트리를 사용했던 것과 마찬가지로 특정 메모리 영역에 dtbo 파일을 두고 오버레이 인터페이스를 통해 접근해야 한다.
 하지만 overlay에 관련된 API 를 직접 호출할 필요 없이도 configfs 를 통해 쉽게 오버레이를 추가하거나 제거할 수 있다. 커널에서는 아래와 같이 DT overlay interface 로서 CONFIGFS 를 제공한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">CONFIG_OF_CONFIGFS:
-
-Enable a simple user-space driven DT overlay interface.
-
-Symbol: OF_CONFIGFS [=y]
-Type  : bool
-Defined at drivers/of/Kconfig:97
-  Prompt: Device Tree Overlay ConfigFS interface
-  Depends on: OF [=y]
-  Location:
-    -&gt; Device Drivers
-      -&gt; Device Tree and Open Firmware support (OF [=y])
-Selects: CONFIGFS_FS [=y] &amp;&amp; OF_OVERLAY [=y]
-</code></pre></div><p>만약 이 커널 옵션이 정상적으로 활성화되어 빌드되었다면 아래와 같이 <code>/sys/kernel/configs</code> 경로에 configfs 파일시스템이 마운트 되어 있는 것을 확인할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mount | grep -i config
-configfs on /sys/kernel/config <span style="color:#a2f">type</span> configfs <span style="color:#666">(</span>rw,nosuid,nodev,noexec,relatime<span style="color:#666">)</span>
-</code></pre></div><p>먼저, 파일시스템을 탐색해보면 아무것도 없다. <code>/sys/kernel/config/device-tree/overlay/</code> 까지의 디렉토리만 생성되어 있을 뿐 아무런 파일도 존재하지 않는다. 이 때, 임시로 디렉토리 하나를 만들어주면 아래와 같이 파일 여러개가 생성되어 있는 것을 알 수 있다. 그리고 해당 파일들의 내용을 보면 비어 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir /sys/kernel/config/device-tree/overlays/test
-$ ls /sys/kernel/config/device-tree/overlays/test
-dtbo  path  status
-$ grep <span style="color:#b44">&#34;&#34;</span> /sys/kernel/config/device-tree/overlays/test/*
-/sys/kernel/config/device-tree/overlays/test/path:
-/sys/kernel/config/device-tree/overlays/test/status:unapplied
-</code></pre></div><p>이제, 앞서 컴파일 해놓은 dtbo 파일을 해당 파일시스템을 통해 로드해보자. 앞서 생성한 ramoops 노드가 동적으로 런타임에 추가된 것을 볼 수 있다(!!)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ cat ramoops.dtbo &gt; /sys/kernel/config/device-tree/overlays/test/dtbo
-$ ls /proc/device-tree/reserved-memory/ -al
-total <span style="color:#666">0</span>
-drwxr-xr-x  <span style="color:#666">5</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 04:39  .
-drwxr-xr-x <span style="color:#666">25</span> root root  <span style="color:#666">0</span> Jul <span style="color:#666">21</span>  <span style="color:#666">2021</span>  ..
--r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51 <span style="color:#b44">&#39;#address-cells&#39;</span>
-drwxr-xr-x  <span style="color:#666">2</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 04:51  linux,cma
--r--r--r--  <span style="color:#666">1</span> root root <span style="color:#666">16</span> Apr <span style="color:#666">26</span> 04:51  name
--r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51  phandle
-drwxr-xr-x  <span style="color:#666">2</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 10:46  ramoops@39000000
--r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 10:46  ranges
--r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51 <span style="color:#b44">&#39;#size-cells&#39;</span>
-
-$ grep <span style="color:#b44">&#34;&#34;</span> /sys/kernel/config/device-tree/overlays/test/*
-Binary file /sys/kernel/config/device-tree/overlays/test/dtbo matches
-/sys/kernel/config/device-tree/overlays/test/path:
-/sys/kernel/config/device-tree/overlays/test/status:applied
-</code></pre></div><p>이렇게 오버레이를 통해 노드를 로드한 뒤에는 드라이버도 함께 신경써줘야 한다. 만약 관련된 드라이버가 built-in 되어 컴파일된 경우라면 자동으로 로드되지만 모듈로 빌드된 경우에는 반드시 modprobe 명령어로 로드해줘야 한다. 더이상 필요하지 않은 경우에는 아래와 같이 단순하게 디렉토리를 삭제해주면 된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ rmdir /sys/kernel/config/device-tree/overlays/test/
-</code></pre></div><h2 id="언제-사용할까">언제 사용할까? <a href="#%ec%96%b8%ec%a0%9c-%ec%82%ac%ec%9a%a9%ed%95%a0%ea%b9%8c" class="anchor">🔗</a></h2><p>오버레이를 통해 런타임에 동적으로 FDT 의 내용을 변경할 수 있다는 점은 충분히 매력적이다. 어째서 라즈베리파이에서 상당 부분의 모듈들을 오버레이를 통해 제공하고 있는지도 함께 이해할 수 있었다. 현재 현업에서는 오버레이는 적용되지 않은채 디바이스 트리의 상속을 통해서 구조화 시킨채 FDT는 고정적으로 사용하고 있다. 만약 시나리오에 따라 디바이스 트리가 변경되도록 BSP를 개발해야 하는 때가 온거나 현재 커널 내에 구현된 유닛테스트와 같이 고정된 테스트 코드에 동적인 설정값들을 사용해야 한다면 오버레이가 그 해답이 될 수 있을 것이라 생각한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CONFIG_OF_CONFIGFS:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Enable a simple user-space driven DT overlay interface.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Symbol: OF_CONFIGFS [=y]
+</span></span><span style="display:flex;"><span>Type  : bool
+</span></span><span style="display:flex;"><span>Defined at drivers/of/Kconfig:97
+</span></span><span style="display:flex;"><span>  Prompt: Device Tree Overlay ConfigFS interface
+</span></span><span style="display:flex;"><span>  Depends on: OF [=y]
+</span></span><span style="display:flex;"><span>  Location:
+</span></span><span style="display:flex;"><span>    -&gt; Device Drivers
+</span></span><span style="display:flex;"><span>      -&gt; Device Tree and Open Firmware support (OF [=y])
+</span></span><span style="display:flex;"><span>Selects: CONFIGFS_FS [=y] &amp;&amp; OF_OVERLAY [=y]
+</span></span></code></pre></div><p>만약 이 커널 옵션이 정상적으로 활성화되어 빌드되었다면 아래와 같이 <code>/sys/kernel/configs</code> 경로에 configfs 파일시스템이 마운트 되어 있는 것을 확인할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mount | grep -i config
+</span></span><span style="display:flex;"><span>configfs on /sys/kernel/config <span style="color:#a2f">type</span> configfs <span style="color:#666">(</span>rw,nosuid,nodev,noexec,relatime<span style="color:#666">)</span>
+</span></span></code></pre></div><p>먼저, 파일시스템을 탐색해보면 아무것도 없다. <code>/sys/kernel/config/device-tree/overlay/</code> 까지의 디렉토리만 생성되어 있을 뿐 아무런 파일도 존재하지 않는다. 이 때, 임시로 디렉토리 하나를 만들어주면 아래와 같이 파일 여러개가 생성되어 있는 것을 알 수 있다. 그리고 해당 파일들의 내용을 보면 비어 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mkdir /sys/kernel/config/device-tree/overlays/test
+</span></span><span style="display:flex;"><span>$ ls /sys/kernel/config/device-tree/overlays/test
+</span></span><span style="display:flex;"><span>dtbo  path  status
+</span></span><span style="display:flex;"><span>$ grep <span style="color:#b44">&#34;&#34;</span> /sys/kernel/config/device-tree/overlays/test/*
+</span></span><span style="display:flex;"><span>/sys/kernel/config/device-tree/overlays/test/path:
+</span></span><span style="display:flex;"><span>/sys/kernel/config/device-tree/overlays/test/status:unapplied
+</span></span></code></pre></div><p>이제, 앞서 컴파일 해놓은 dtbo 파일을 해당 파일시스템을 통해 로드해보자. 앞서 생성한 ramoops 노드가 동적으로 런타임에 추가된 것을 볼 수 있다(!!)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ cat ramoops.dtbo &gt; /sys/kernel/config/device-tree/overlays/test/dtbo
+</span></span><span style="display:flex;"><span>$ ls /proc/device-tree/reserved-memory/ -al
+</span></span><span style="display:flex;"><span>total <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#666">5</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 04:39  .
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#666">25</span> root root  <span style="color:#666">0</span> Jul <span style="color:#666">21</span>  <span style="color:#666">2021</span>  ..
+</span></span><span style="display:flex;"><span>-r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51 <span style="color:#b44">&#39;#address-cells&#39;</span>
+</span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#666">2</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 04:51  linux,cma
+</span></span><span style="display:flex;"><span>-r--r--r--  <span style="color:#666">1</span> root root <span style="color:#666">16</span> Apr <span style="color:#666">26</span> 04:51  name
+</span></span><span style="display:flex;"><span>-r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51  phandle
+</span></span><span style="display:flex;"><span>drwxr-xr-x  <span style="color:#666">2</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 10:46  ramoops@39000000
+</span></span><span style="display:flex;"><span>-r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">0</span> Apr <span style="color:#666">26</span> 10:46  ranges
+</span></span><span style="display:flex;"><span>-r--r--r--  <span style="color:#666">1</span> root root  <span style="color:#666">4</span> Apr <span style="color:#666">26</span> 04:51 <span style="color:#b44">&#39;#size-cells&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ grep <span style="color:#b44">&#34;&#34;</span> /sys/kernel/config/device-tree/overlays/test/*
+</span></span><span style="display:flex;"><span>Binary file /sys/kernel/config/device-tree/overlays/test/dtbo matches
+</span></span><span style="display:flex;"><span>/sys/kernel/config/device-tree/overlays/test/path:
+</span></span><span style="display:flex;"><span>/sys/kernel/config/device-tree/overlays/test/status:applied
+</span></span></code></pre></div><p>이렇게 오버레이를 통해 노드를 로드한 뒤에는 드라이버도 함께 신경써줘야 한다. 만약 관련된 드라이버가 built-in 되어 컴파일된 경우라면 자동으로 로드되지만 모듈로 빌드된 경우에는 반드시 modprobe 명령어로 로드해줘야 한다. 더이상 필요하지 않은 경우에는 아래와 같이 단순하게 디렉토리를 삭제해주면 된다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rmdir /sys/kernel/config/device-tree/overlays/test/
+</span></span></code></pre></div><h2 id="언제-사용할까">언제 사용할까? <a href="#%ec%96%b8%ec%a0%9c-%ec%82%ac%ec%9a%a9%ed%95%a0%ea%b9%8c" class="anchor">🔗</a></h2><p>오버레이를 통해 런타임에 동적으로 FDT 의 내용을 변경할 수 있다는 점은 충분히 매력적이다. 어째서 라즈베리파이에서 상당 부분의 모듈들을 오버레이를 통해 제공하고 있는지도 함께 이해할 수 있었다. 현재 현업에서는 오버레이는 적용되지 않은채 디바이스 트리의 상속을 통해서 구조화 시킨채 FDT는 고정적으로 사용하고 있다. 만약 시나리오에 따라 디바이스 트리가 변경되도록 BSP를 개발해야 하는 때가 온거나 현재 커널 내에 구현된 유닛테스트와 같이 고정된 테스트 코드에 동적인 설정값들을 사용해야 한다면 오버레이가 그 해답이 될 수 있을 것이라 생각한다.</p>
 <h2 id="참고-자료">참고 자료 <a href="#%ec%b0%b8%ea%b3%a0-%ec%9e%90%eb%a3%8c" class="anchor">🔗</a></h2><ul>
 <li><a href="https://source.android.com/devices/architecture/dto" target="_blank" rel="noopener">Android Device Tree Overlay</a></li>
 <li><a href="https://github.com/ikwzm/dtbocfg" target="_blank" rel="noopener">dtbocfg</a></li>
@@ -196,42 +237,13 @@ Binary file /sys/kernel/config/device-tree/overlays/test/dtbo matches
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

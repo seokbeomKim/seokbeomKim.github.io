@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Named export와 Default export | seokbeomkim.dev</title>
+    <title>Named export와 Default export | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때 이해가 되지 않았다. 특히 default export와 named export 라는 export 방식과 자바스크립트 버전에 따른 문">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,27 @@ if (!doNotTrack) {
 
     
     
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#첫-번째-테스트">첫 번째 테스트</a></li>
+    <li><a href="#두-번째-테스트">두 번째 테스트</a></li>
+    <li><a href="#세-번째-테스트">세 번째 테스트</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
 
 
     <div class="content">
@@ -96,56 +135,55 @@ require를 사용하는 코드를 이해하기 힘들었다.</p>
 구현한 뒤 <code>import</code>, <code>require</code> 키워드 각각을 이용하였을 때 레퍼런스
 변수가 어떤 값을 가지고 있는지 확인한다.</p>
 <h1 id="직접-확인해보자">직접 확인해보자 <a href="#%ec%a7%81%ec%a0%91-%ed%99%95%ec%9d%b8%ed%95%b4%eb%b3%b4%ec%9e%90" class="anchor">🔗</a></h1><h2 id="첫-번째-테스트">첫 번째 테스트 <a href="#%ec%b2%ab-%eb%b2%88%ec%a7%b8-%ed%85%8c%ec%8a%a4%ed%8a%b8" class="anchor">🔗</a></h2><p>먼저 export할 테스트 클래스를 간단하게 구현한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-style:italic">// Named Export를 위한 클래스
-</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">export</span> <span style="color:#a2f;font-weight:bold">class</span> NamedExportClass {
-    test() {
-        console.log(<span style="color:#b44">&#34;Named Export Class&#34;</span>)
-    }
-}
-
-<span style="color:#080;font-style:italic">// Default Export를 위한 클래스: 키워드 default를 갖는다.
-</span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">export</span> <span style="color:#a2f;font-weight:bold">default</span> <span style="color:#a2f;font-weight:bold">class</span> DefaultExportClass {
-    test () {
-        console.log(<span style="color:#b44">&#34;Default Export Class&#34;</span>)
-    }
-
-}
-</code></pre></div><p>이제 import하는 소스 코드를 구현해준뒤 <code>tsc</code> 명령어를 통해
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Named Export를 위한 클래스
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">export</span> <span style="color:#a2f;font-weight:bold">class</span> NamedExportClass {
+</span></span><span style="display:flex;"><span>    test() {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#b44">&#34;Named Export Class&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Default Export를 위한 클래스: 키워드 default를 갖는다.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">export</span> <span style="color:#a2f;font-weight:bold">default</span> <span style="color:#a2f;font-weight:bold">class</span> DefaultExportClass {
+</span></span><span style="display:flex;"><span>    test () {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#b44">&#34;Default Export Class&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이제 import하는 소스 코드를 구현해준뒤 <code>tsc</code> 명령어를 통해
 타입스크립트 파일들을 자바스크립트 파일로 Trans-compile 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">import</span> DefaultClass, {NamedExportClass}  from <span style="color:#b44">&#39;./exportObj&#39;</span>
-
-<span style="color:#a2f;font-weight:bold">const</span> defaultObj <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> DefaultClass()
-<span style="color:#a2f;font-weight:bold">const</span> namedObj <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NamedExportClass()
-
-defaultObj.test()
-namedObj.test()
-
-</code></pre></div><p>이 때, 눈여겨 봐야할 점은 <code>export default class ...</code>로 구현한 클래스의
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">import</span> DefaultClass, {NamedExportClass}  from <span style="color:#b44">&#39;./exportObj&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> defaultObj <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> DefaultClass()
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> namedObj <span style="color:#666">=</span> <span style="color:#a2f;font-weight:bold">new</span> NamedExportClass()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>defaultObj.test()
+</span></span><span style="display:flex;"><span>namedObj.test()
+</span></span></code></pre></div><p>이 때, 눈여겨 봐야할 점은 <code>export default class ...</code>로 구현한 클래스의
 이름을 DefaultExportClass가 아닌 <code>DefaultClass</code>(임의 이름)으로 정하여
 import했다는 것이다. 소스 내의 이름 <code>DefaultClass</code> 이름 대신 다른
 이름을 사용하여도 테스트 결과는 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  jsImport git:<span style="color:#666">(</span>master<span style="color:#666">)</span> ✗ tsc *.ts <span style="color:#666">&amp;&amp;</span> node importTest
-Default Export Class
-Named Export Class
-</code></pre></div><h2 id="두-번째-테스트">두 번째 테스트 <a href="#%eb%91%90-%eb%b2%88%ec%a7%b8-%ed%85%8c%ec%8a%a4%ed%8a%b8" class="anchor">🔗</a></h2><p>이번에는 <code>import</code> 시에 <code>require</code> 키워드를 이용해서 그 결과를 확인해보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a2f;font-weight:bold">import</span> constObj <span style="color:#666">=</span> require(<span style="color:#b44">&#39;./exportObj&#39;</span>)
-console.log(constObj)
-</code></pre></div><p>테스트 결과는 아래와 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">{ __esModule: true,
-  NamedExportClass: [Function: NamedExportClass],
-  default: [Function: DefaultExportClass] }
-</code></pre></div><p>즉, export 객체 자체를 반환하게 된다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>➜  jsImport git:<span style="color:#666">(</span>master<span style="color:#666">)</span> ✗ tsc *.ts <span style="color:#666">&amp;&amp;</span> node importTest
+</span></span><span style="display:flex;"><span>Default Export Class
+</span></span><span style="display:flex;"><span>Named Export Class
+</span></span></code></pre></div><h2 id="두-번째-테스트">두 번째 테스트 <a href="#%eb%91%90-%eb%b2%88%ec%a7%b8-%ed%85%8c%ec%8a%a4%ed%8a%b8" class="anchor">🔗</a></h2><p>이번에는 <code>import</code> 시에 <code>require</code> 키워드를 이용해서 그 결과를 확인해보자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">import</span> constObj <span style="color:#666">=</span> require(<span style="color:#b44">&#39;./exportObj&#39;</span>)
+</span></span><span style="display:flex;"><span>console.log(constObj)
+</span></span></code></pre></div><p>테스트 결과는 아래와 같다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>{ __esModule: true,
+</span></span><span style="display:flex;"><span>  NamedExportClass: [Function: NamedExportClass],
+</span></span><span style="display:flex;"><span>  default: [Function: DefaultExportClass] }
+</span></span></code></pre></div><p>즉, export 객체 자체를 반환하게 된다.</p>
 <h2 id="세-번째-테스트">세 번째 테스트 <a href="#%ec%84%b8-%eb%b2%88%ec%a7%b8-%ed%85%8c%ec%8a%a4%ed%8a%b8" class="anchor">🔗</a></h2><p>그렇다면, 클래스가 아닌 객체를 <code>defaul export</code> 로 정의하면 어떻게
 될까? 기존 코드에서 <code>new DefaultClass()</code>는 실행이 불가능한 코드가 되고
 <code>DefaultClass</code> 자체가 객체를 가리키게 된다. 하지만 <code>require</code>를 이용해
 가져온 <code>constObj</code>는 <code>export</code>를 가리키므로 아래와 같은 결과를 가지게 된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Default Export Class
-Named Export Class
-{ __esModule: true,
-  NamedExportClass: [Function: NamedExportClass],
-  DefaultExportClass: [Function: DefaultExportClass],
-  default: DefaultExportClass {} }
-</code></pre></div><h1 id="정리">정리 <a href="#%ec%a0%95%eb%a6%ac" class="anchor">🔗</a></h1><p>간단히 정리하면, <code>require</code>를 이용해 import를 할 경우에는 <code>export</code> 객체
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Default Export Class
+</span></span><span style="display:flex;"><span>Named Export Class
+</span></span><span style="display:flex;"><span>{ __esModule: true,
+</span></span><span style="display:flex;"><span>  NamedExportClass: [Function: NamedExportClass],
+</span></span><span style="display:flex;"><span>  DefaultExportClass: [Function: DefaultExportClass],
+</span></span><span style="display:flex;"><span>  default: DefaultExportClass {} }
+</span></span></code></pre></div><h1 id="정리">정리 <a href="#%ec%a0%95%eb%a6%ac" class="anchor">🔗</a></h1><p>간단히 정리하면, <code>require</code>를 이용해 import를 할 경우에는 <code>export</code> 객체
 자체를 가져오며, default export와 named export를 구분해서 제대로
 사용하고자 한다면 <code>import</code>를 이용해 대괄호(<code>{ }</code>)를 이용해 사용한다.</p>
 <h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
@@ -173,42 +211,13 @@ Named Export Class
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

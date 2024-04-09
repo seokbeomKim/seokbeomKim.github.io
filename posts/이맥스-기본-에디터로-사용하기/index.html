@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>이맥스 기본 에디터로 사용하기 | seokbeomkim.dev</title>
+    <title>이맥스 기본 에디터로 사용하기 | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,25 @@ if (!doNotTrack) {
 
     
     
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#설정-환경">설정 환경</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
 
 
     <div class="content">
@@ -109,39 +146,39 @@ if (!doNotTrack) {
 사용하는 시스템이라면 젠투 쪽의 위키페이지를 참고하기를 바란다.</p>
 <p>먼저 <code>~/.config/systemd/user/emacs.service</code> 파일을 아래와 같이
 생성한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>Unit<span style="color:#666">]</span>
-<span style="color:#b8860b">Description</span><span style="color:#666">=</span>Emacs text editor
-<span style="color:#b8860b">Documentation</span><span style="color:#666">=</span>info:emacs man:emacs<span style="color:#666">(</span>1<span style="color:#666">)</span> https://gnu.org/software/emacs/
-
-<span style="color:#666">[</span>Service<span style="color:#666">]</span>
-<span style="color:#b8860b">Type</span><span style="color:#666">=</span>forking
-<span style="color:#b8860b">ExecStart</span><span style="color:#666">=</span>/usr/bin/emacs --daemon
-<span style="color:#b8860b">ExecStop</span><span style="color:#666">=</span>/usr/bin/emacsclient --eval <span style="color:#b44">&#34;(kill-emacs)&#34;</span>
-<span style="color:#b8860b">Environment</span><span style="color:#666">=</span><span style="color:#b8860b">SSH_AUTH_SOCK</span><span style="color:#666">=</span>%t/keyring/ssh
-<span style="color:#b8860b">Restart</span><span style="color:#666">=</span>on-failure
-
-<span style="color:#666">[</span>Install<span style="color:#666">]</span>
-<span style="color:#b8860b">WantedBy</span><span style="color:#666">=</span>default.target
-</code></pre></div><p>그 뒤, <code>systemctl</code> 명령어를 이용해 해당 서비스를 활성화한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl <span style="color:#a2f">enable</span> --user emacs
-systemctl disable --user emacs
-</code></pre></div><h1 id="gnome-application-아이템-조정하기">gnome application 아이템 조정하기 <a href="#gnome-application-%ec%95%84%ec%9d%b4%ed%85%9c-%ec%a1%b0%ec%a0%95%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>gnome에서 파일을 열 때 <code>mime type</code>에 따라 기본으로 열기 위한
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#666">[</span>Unit<span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Description</span><span style="color:#666">=</span>Emacs text editor
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Documentation</span><span style="color:#666">=</span>info:emacs man:emacs<span style="color:#666">(</span>1<span style="color:#666">)</span> https://gnu.org/software/emacs/
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#666">[</span>Service<span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Type</span><span style="color:#666">=</span>forking
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">ExecStart</span><span style="color:#666">=</span>/usr/bin/emacs --daemon
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">ExecStop</span><span style="color:#666">=</span>/usr/bin/emacsclient --eval <span style="color:#b44">&#34;(kill-emacs)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Environment</span><span style="color:#666">=</span><span style="color:#b8860b">SSH_AUTH_SOCK</span><span style="color:#666">=</span>%t/keyring/ssh
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Restart</span><span style="color:#666">=</span>on-failure
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#666">[</span>Install<span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">WantedBy</span><span style="color:#666">=</span>default.target
+</span></span></code></pre></div><p>그 뒤, <code>systemctl</code> 명령어를 이용해 해당 서비스를 활성화한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>systemctl <span style="color:#a2f">enable</span> --user emacs
+</span></span><span style="display:flex;"><span>systemctl disable --user emacs
+</span></span></code></pre></div><h1 id="gnome-application-아이템-조정하기">gnome application 아이템 조정하기 <a href="#gnome-application-%ec%95%84%ec%9d%b4%ed%85%9c-%ec%a1%b0%ec%a0%95%ed%95%98%ea%b8%b0" class="anchor">🔗</a></h1><p>gnome에서 파일을 열 때 <code>mime type</code>에 따라 기본으로 열기 위한
 애플리케이션을 미리 정의해놓는다. 아래와 같이
 <code>/usr/share/applications/emacs.desktop</code> 파일을 열어서 <code>emacsclient</code>를
 이용하도록 설정한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>Desktop Entry<span style="color:#666">]</span>
-<span style="color:#b8860b">Name</span><span style="color:#666">=</span>Emacs
-<span style="color:#b8860b">GenericName</span><span style="color:#666">=</span>Text Editor
-<span style="color:#b8860b">Comment</span><span style="color:#666">=</span>Edit text
-<span style="color:#b8860b">MimeType</span><span style="color:#666">=</span>text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
-<span style="color:#b8860b">Exec</span><span style="color:#666">=</span>emacsclient -c -a <span style="color:#b44">&#34;&#34;</span> %F
-<span style="color:#b8860b">Icon</span><span style="color:#666">=</span>emacs
-<span style="color:#b8860b">Type</span><span style="color:#666">=</span>Application
-<span style="color:#b8860b">Terminal</span><span style="color:#666">=</span><span style="color:#a2f">false</span>
-<span style="color:#b8860b">Categories</span><span style="color:#666">=</span>Development;TextEditor;
-<span style="color:#b8860b">StartupWMClass</span><span style="color:#666">=</span>Emacs
-<span style="color:#b8860b">Keywords</span><span style="color:#666">=</span>Text;Editor;
-</code></pre></div><p>이제 모든 설정이 끝났다. 파일에 대한 기본 편집툴을 이맥스로 설정하면,
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#666">[</span>Desktop Entry<span style="color:#666">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Name</span><span style="color:#666">=</span>Emacs
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">GenericName</span><span style="color:#666">=</span>Text Editor
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Comment</span><span style="color:#666">=</span>Edit text
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">MimeType</span><span style="color:#666">=</span>text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Exec</span><span style="color:#666">=</span>emacsclient -c -a <span style="color:#b44">&#34;&#34;</span> %F
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Icon</span><span style="color:#666">=</span>emacs
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Type</span><span style="color:#666">=</span>Application
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Terminal</span><span style="color:#666">=</span><span style="color:#a2f">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Categories</span><span style="color:#666">=</span>Development;TextEditor;
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">StartupWMClass</span><span style="color:#666">=</span>Emacs
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">Keywords</span><span style="color:#666">=</span>Text;Editor;
+</span></span></code></pre></div><p>이제 모든 설정이 끝났다. 파일에 대한 기본 편집툴을 이맥스로 설정하면,
 별도의 초기화 과정 없이 곧바로 실행되는 것을 알 수 있다.</p>
 <h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://www.emacswiki.org/emacs/EmacsAsDaemon" target="_blank" rel="noopener">https://www.emacswiki.org/emacs/EmacsAsDaemon</a></li>
@@ -166,42 +203,13 @@ systemctl disable --user emacs
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

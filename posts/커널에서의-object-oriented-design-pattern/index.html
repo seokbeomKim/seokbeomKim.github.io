@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>커널에서의 Object-Oriented Design Pattern | seokbeomkim.dev</title>
+    <title>커널에서의 Object-Oriented Design Pattern | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗현업에서 BSP 코드를 수정하다가 문득 든 생각은 &lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&rsquo; 라는 것이다. 그러한 디자인 패">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -83,6 +101,27 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#union을-이용한-데이터-상속">union을 이용한 데이터 상속</a></li>
+    <li><a href="#void-이용한-데이터-상속">void* 이용한 데이터 상속</a></li>
+    <li><a href="#embedded-structure">embedded structure</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
     
 
 
@@ -113,51 +152,50 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 테이블을 사용한다. 예를 들어, media framework로 유명한 <code>V4L2</code>를
 이용하는 <code>videobuf2</code>를 살펴보자. 영상 프레임을 관리하는 큐에서 메모리
 관리에 관련된 메서드는 아래와 같이 정의하여 사용한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vb2_queue</span> {
-	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span>			type;
-	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span>			io_modes;
-	<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">device</span>			<span style="color:#666">*</span>dev;
-	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span>			dma_attrs;
-
-	<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vb2_ops</span>		<span style="color:#666">*</span>ops;
-	<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vb2_mem_ops</span>	<span style="color:#666">*</span>mem_ops;
-
-	...
-</code></pre></div><p>그리고 <code>vb2_queue</code>에서 메서드 dispatch를 위해서 사용하는 메모리 관련
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vb2_queue</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span>			type;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span>			io_modes;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">device</span>			<span style="color:#666">*</span>dev;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span>			dma_attrs;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vb2_ops</span>		<span style="color:#666">*</span>ops;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vb2_mem_ops</span>	<span style="color:#666">*</span>mem_ops;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	...
+</span></span></code></pre></div><p>그리고 <code>vb2_queue</code>에서 메서드 dispatch를 위해서 사용하는 메모리 관련
 메서드는 아래와 같이 정의한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vb2_mem_ops</span> {
-    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>alloc)(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">device</span> <span style="color:#666">*</span>dev, <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> attrs,
-				  <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> size,
-				  <span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#00f">dma_data_direction</span> dma_dir,
-				  gfp_t gfp_flags);
-    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>put)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">dma_buf</span> <span style="color:#666">*</span>(<span style="color:#666">*</span>get_dmabuf)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv, <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> flags);
-
-    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>get_userptr)(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">device</span> <span style="color:#666">*</span>dev, <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> vaddr,
-					<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> size,
-					<span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#00f">dma_data_direction</span> dma_dir);
-    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>put_userptr)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-
-    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>prepare)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>finish)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-
-    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>attach_dmabuf)(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">device</span> <span style="color:#666">*</span>dev,
-					  <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">dma_buf</span> <span style="color:#666">*</span>dbuf,
-					  <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> size,
-					  <span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#00f">dma_data_direction</span> dma_dir);
-    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>detach_dmabuf)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-    <span style="color:#0b0;font-weight:bold">int</span>		(<span style="color:#666">*</span>map_dmabuf)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>unmap_dmabuf)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-
-    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>vaddr)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>cookie)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-
-    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#00a000">int</span>	(<span style="color:#666">*</span>num_users)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
-
-    <span style="color:#0b0;font-weight:bold">int</span>		(<span style="color:#666">*</span>mmap)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv, <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vm_area_struct</span> <span style="color:#666">*</span>vma);
-};
-
-</code></pre></div><p><code>virtual function table</code>을 사용할 경우 객체별로 사용할 수 있는
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vb2_mem_ops</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>alloc)(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">device</span> <span style="color:#666">*</span>dev, <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> attrs,
+</span></span><span style="display:flex;"><span>				  <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> size,
+</span></span><span style="display:flex;"><span>				  <span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#00f">dma_data_direction</span> dma_dir,
+</span></span><span style="display:flex;"><span>				  gfp_t gfp_flags);
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>put)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">dma_buf</span> <span style="color:#666">*</span>(<span style="color:#666">*</span>get_dmabuf)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv, <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> flags);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>get_userptr)(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">device</span> <span style="color:#666">*</span>dev, <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> vaddr,
+</span></span><span style="display:flex;"><span>					<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> size,
+</span></span><span style="display:flex;"><span>					<span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#00f">dma_data_direction</span> dma_dir);
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>put_userptr)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>prepare)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>finish)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>attach_dmabuf)(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">device</span> <span style="color:#666">*</span>dev,
+</span></span><span style="display:flex;"><span>					  <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">dma_buf</span> <span style="color:#666">*</span>dbuf,
+</span></span><span style="display:flex;"><span>					  <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> size,
+</span></span><span style="display:flex;"><span>					  <span style="color:#a2f;font-weight:bold">enum</span> <span style="color:#00f">dma_data_direction</span> dma_dir);
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>detach_dmabuf)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span>		(<span style="color:#666">*</span>map_dmabuf)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		(<span style="color:#666">*</span>unmap_dmabuf)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>vaddr)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">void</span>		<span style="color:#666">*</span>(<span style="color:#666">*</span>cookie)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#00a000">int</span>	(<span style="color:#666">*</span>num_users)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span>		(<span style="color:#666">*</span>mmap)(<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#666">*</span>buf_priv, <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">vm_area_struct</span> <span style="color:#666">*</span>vma);
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p><code>virtual function table</code>을 사용할 경우 객체별로 사용할 수 있는
 메서드들에 대한 인터페이스만 정의하고 실제 메서드에 대한 내용은 별도로
 구현하여 사용할 수 있다. 즉, 클래스로 정의된 메서드 내용은 같지만 구현
 내용은 객체마다 서로 다르게 할 수 있다는 장점이 있다.</p>
@@ -173,12 +211,12 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 <li>상속하고자 하는 데이터 직접 내포</li>
 </ul>
 <h2 id="union을-이용한-데이터-상속">union을 이용한 데이터 상속 <a href="#union%ec%9d%84-%ec%9d%b4%ec%9a%a9%ed%95%9c-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ec%83%81%ec%86%8d" class="anchor">🔗</a></h2><p><code>struct inode</code>를 살펴보면 아래와 같은 코드를 살펴볼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> <span style="color:#a2f;font-weight:bold">union</span> {
-               <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">minix_inode_info</span> minix_i;
-               <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">ext_inode_info</span> ext_i;
-               <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">msdos_inode_info</span> msdos_i;
-       } u;
-</code></pre></div><p><code>inode</code> 안에서 <code>union</code>을 이용하여 노드에 대한 정보를 관리한다고 했을
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span> <span style="color:#a2f;font-weight:bold">union</span> {
+</span></span><span style="display:flex;"><span>               <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">minix_inode_info</span> minix_i;
+</span></span><span style="display:flex;"><span>               <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">ext_inode_info</span> ext_i;
+</span></span><span style="display:flex;"><span>               <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">msdos_inode_info</span> msdos_i;
+</span></span><span style="display:flex;"><span>       } u;
+</span></span></code></pre></div><p><code>inode</code> 안에서 <code>union</code>을 이용하여 노드에 대한 정보를 관리한다고 했을
 때, 해당 <code>inode</code> 클래스는 상기 세 가지 중 하나에 대한 데이터를
 상속하게 된다. 이는 직관적으로 코드를 이해할 수 있다는 장점이 있지만,
 <code>union</code>을 사용하는 까닭에 padding을 위해 필요한 메모리 낭비로 이어질
@@ -198,21 +236,21 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
 테이블을 이용하는 등 객체 지향 패턴을 적용하는데 무리가 없다. 여러
 파일시스템의 코드를 살펴보면 아래와 같이 기본적인 <code>inode</code>에 대한
 데이터 자체를 아래와 같이 내포한 형태로 사용하는 것을 알 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/* in memory btrfs inode */</span>
-<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">btrfs_inode</span> {
-    <span style="color:#080;font-style:italic">/* which subvolume this inode belongs to */</span>
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">btrfs_root</span> <span style="color:#666">*</span>root;
-
-    <span style="color:#080;font-style:italic">/* key used to find this inode on disk.  This is used by the code
-</span><span style="color:#080;font-style:italic">     * to read in roots of subvolumes
-</span><span style="color:#080;font-style:italic">     */</span>
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">btrfs_key</span> location;
-
-    ...
-
-    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">inode</span> vfs_inode;
-};
-</code></pre></div><h1 id="결론">결론 <a href="#%ea%b2%b0%eb%a1%a0" class="anchor">🔗</a></h1><p>객체지향 패턴을 적용하는 것은 중요하지만 만능은 아니다. 모든 곳에
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* in memory btrfs inode */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">btrfs_inode</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">/* which subvolume this inode belongs to */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">btrfs_root</span> <span style="color:#666">*</span>root;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">/* key used to find this inode on disk.  This is used by the code
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">     * to read in roots of subvolumes
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">btrfs_key</span> location;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">inode</span> vfs_inode;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h1 id="결론">결론 <a href="#%ea%b2%b0%eb%a1%a0" class="anchor">🔗</a></h1><p>객체지향 패턴을 적용하는 것은 중요하지만 만능은 아니다. 모든 곳에
 이러한 객체 지향 디자인 패턴을 적용해야 하는 것은 잘못된 것이고 오히려
 분석을 어렵게 만들 수도 있다. 디자인 패턴은 어디까지나 디자인 패턴일
 뿐. 언어 때문에 특정 디자인 패턴을 적용할 수 없다는 얘기도 반은 맞고
@@ -239,42 +277,13 @@ C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

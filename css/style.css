@@ -12,11 +12,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #404040;
+  color: #5badf0;
 }
 
 a:hover {
-  color: #a0a0a0;
+  color: #0366d6;
 }
 
 /* markdown content styles */
@@ -144,17 +144,17 @@ nav.navigation a {
   top: 8px;
   right: 6px;
   padding: 8px 12px;
-  color: #202020;
+  color: #5badf0;
   font-size: 13px;
   line-height: 1.35;
   border-radius: 3px;
 }
 nav.navigation a:hover {
-  color: #e0e0e0;
+  color: #0366d6;
 }
 
 nav.navigation a.button {
-  background: #202020;
+  background: #5badf0;
   color: #fff;
   margin-left: 12px;
 }
@@ -171,7 +171,7 @@ nav.navigation a.button {
     top: 8px;
     right: 6px;
     padding: 8px 8px;
-    color: #202020;
+    color: #5badf0;
     font-size: 13px;
     line-height: 1.35;
     border-radius: 3px;
@@ -257,6 +257,7 @@ nav.navigation a.button {
 .profile .avatar {
   display: inline-block;
   width: 80px;
+  height: 80px;
   border-radius: 50%;
 }
 
@@ -267,7 +268,6 @@ nav.navigation a.button {
   color: #404040;
   margin-bottom: 0;
   margin-top: 0;
-  visibility: hidden;
 }
 
 .profile h2 {
@@ -303,7 +303,7 @@ nav.navigation a.button {
 }
 
 #list-page .title a:hover {
-  color: #202020;
+  color: #0366d6;
 }
 
 #list-page .date {
@@ -398,7 +398,7 @@ nav.navigation a.button {
   margin-right: 3px;
 }
 #single .tags a:hover {
-  color: #e0e0e0;
+  color: #0366d6;
 }
 
 
@@ -436,7 +436,7 @@ nav.navigation a.button {
   color:#404040;
 }
 #archive .group .value .title a:hover {
-  color: #e0e0e0;
+  color: #0366d6;
 }
 #archive .group .value .tags {
   display: inline;
@@ -450,7 +450,7 @@ nav.navigation a.button {
   margin-right: 3px;
 }
 #archive .group .value .tags a:hover {
-  color: #e0e0e0;
+  color: #0366d6;
 }
 
 /* taxonomy */
@@ -483,7 +483,7 @@ nav.navigation a.button {
   margin-right: 3px;
 }
 #tags .tag a:hover {
-  color: #e0e0e0;
+  color: #0366d6;
 }
 
 /* section page */

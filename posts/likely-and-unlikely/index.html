@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Likely and Unlikely | seokbeomkim.dev</title>
+    <title>Likely and Unlikely | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="개요 🔗예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlik">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,11 @@ if (!doNotTrack) {
 
     
     
+        
+  
+
+
+    
 
 
     <div class="content">
@@ -96,13 +119,13 @@ if (!doNotTrack) {
 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.</p>
 <h1 id="likely-unlikely">likely(), unlikely() <a href="#likely-unlikely" class="anchor">🔗</a></h1><p>함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을
 위한 매크로이다. 출처에는 아래와 같은 예제를 제공하고 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">bvl <span style="color:#666">=</span> bvec_alloc(gfp_mask, nr_iovecs, <span style="color:#666">&amp;</span>idx);
-<span style="color:#a2f;font-weight:bold">if</span> (unlikely(<span style="color:#666">!</span>bvl)) {
-	mempool_free(bio, bio_pool);
-	bio <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
-	<span style="color:#a2f;font-weight:bold">goto</span> out;
-}
-</code></pre></div><p>특정 condition을 확인하는 용도로 사용하는데 위의 코드에서는
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>bvl <span style="color:#666">=</span> bvec_alloc(gfp_mask, nr_iovecs, <span style="color:#666">&amp;</span>idx);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (unlikely(<span style="color:#666">!</span>bvl)) {
+</span></span><span style="display:flex;"><span>	mempool_free(bio, bio_pool);
+</span></span><span style="display:flex;"><span>	bio <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">goto</span> out;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>특정 condition을 확인하는 용도로 사용하는데 위의 코드에서는
 <code>bvec_alloc</code>으로 할당받고 bvl이 유효한 주소값이라면 메모리 해제를 하고
 NULL로 변경하는 코드이다.</p>
 <p><code>include/linux/compiler.h</code> 파일에 정의되어 있는 매크로로서 branch
@@ -110,69 +133,69 @@ prediction 을 위한 용도로 사용된다. 즉, 결과값이 대부분 false�
 예상된다면 <code>unlikely()</code>를, true로 예상된다면 <code>likely()</code>를 사용함으로서
 컴파일러를 통한 분기 예측을 이용하여 성능 향상을 꾀할 수 있다.</p>
 <p>각각의 정의를 살펴보면, 아래와 같이 되어 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#define likely(x)       __builtin_expect(!!(x), 1)
-</span><span style="color:#080">#define unlikely(x)     __builtin_expect(!!(x), 0)
-</span></code></pre></div><h1 id="__built-in-function">__built-in function <a href="#__built-in-function" class="anchor">🔗</a></h1><p><code>__builtin_expect</code>를 사용하는 것은 컴파일러에게 분기 예측(branch
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define likely(x)       __builtin_expect(!!(x), 1)
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#define unlikely(x)     __builtin_expect(!!(x), 0)
+</span></span></span></code></pre></div><h1 id="__built-in-function">__built-in function <a href="#__built-in-function" class="anchor">🔗</a></h1><p><code>__builtin_expect</code>를 사용하는 것은 컴파일러에게 분기 예측(branch
 prediction) 정보를 제공하기 위한 것이다. 일반적으로 개발자들은 자신의
 프로그램이 어떻게 수행되는지 알기 힘들기 때문에 &lsquo;-fprofile-arcs&rsquo;
 옵션을 통해 프로파일을 피드백 받는 것을 선호한다. 하지만
 애플리케이션에 따라서 이러한 옵션을 통해 프로파일링이 힘든 경우도
 있다.</p>
 <h1 id="예제">예제 <a href="#%ec%98%88%ec%a0%9c" class="anchor">🔗</a></h1><p>아래의 예제를 통해 성능 향상이 어떻게 가능한지 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#define likely(x)    __builtin_expect(!!(x), 1)
-</span><span style="color:#080">#define unlikely(x)  __builtin_expect(!!(x), 0)
-</span><span style="color:#080"></span>
-<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>(<span style="color:#0b0;font-weight:bold">int</span> argc, <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>argv[]) {
-	<span style="color:#0b0;font-weight:bold">int</span> a;
-
-	a <span style="color:#666">=</span> atoi (argv[<span style="color:#666">1</span>]);
-
-	<span style="color:#a2f;font-weight:bold">if</span> (unlikely (a <span style="color:#666">==</span> <span style="color:#666">2</span>))
-		a<span style="color:#666">++</span>;
-	<span style="color:#a2f;font-weight:bold">else</span>
-		a<span style="color:#666">--</span>;
-
-	printf(<span style="color:#b44">&#34;%d</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, a);
-
-	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
-}
-</code></pre></div><p>위 예제를 컴파일 한 다음, objdump로 살펴보면 아래와 같이 main 부분을
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define likely(x)    __builtin_expect(!!(x), 1)
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#define unlikely(x)  __builtin_expect(!!(x), 0)
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>(<span style="color:#0b0;font-weight:bold">int</span> argc, <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>argv[]) {
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> a;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	a <span style="color:#666">=</span> atoi (argv[<span style="color:#666">1</span>]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (unlikely (a <span style="color:#666">==</span> <span style="color:#666">2</span>))
+</span></span><span style="display:flex;"><span>		a<span style="color:#666">++</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>		a<span style="color:#666">--</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#b44">&#34;%d</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, a);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>위 예제를 컴파일 한 다음, objdump로 살펴보면 아래와 같이 main 부분을
 발견할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gcc -o unlikely unlikely.c
-$ objdump -S unlikely
-
-
-<span style="color:#666">0000000000001149</span> &lt;main&gt;:
-    1149:	<span style="color:#666">55</span>                   	push   %rbp
-    114a:	<span style="color:#666">48</span> <span style="color:#666">89</span> e5             	mov    %rsp,%rbp
-    114d:	<span style="color:#666">48</span> <span style="color:#666">83</span> ec <span style="color:#666">20</span>          	sub    <span style="color:#b8860b">$0</span>x20,%rsp
-    1151:	<span style="color:#666">89</span> 7d ec             	mov    %edi,-0x14<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
-    1154:	<span style="color:#666">48</span> <span style="color:#666">89</span> <span style="color:#666">75</span> e0          	mov    %rsi,-0x20<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
-    1158:	<span style="color:#666">48</span> 8b <span style="color:#666">45</span> e0          	mov    -0x20<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>,%rax
-    115c:	<span style="color:#666">48</span> <span style="color:#666">83</span> c0 <span style="color:#666">08</span>          	add    <span style="color:#b8860b">$0</span>x8,%rax
-    1160:	<span style="color:#666">48</span> 8b <span style="color:#666">00</span>             	mov    <span style="color:#666">(</span>%rax<span style="color:#666">)</span>,%rax
-    1163:	<span style="color:#666">48</span> <span style="color:#666">89</span> c7             	mov    %rax,%rdi
-    1166:	b8 <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span>       	mov    <span style="color:#b8860b">$0</span>x0,%eax
-    116b:	e8 d0 fe ff ff       	callq  <span style="color:#666">1040</span> &lt;atoi@plt&gt;
-    1170:	<span style="color:#666">89</span> <span style="color:#666">45</span> <span style="color:#a2f">fc</span>             	mov    %eax,-0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
-    1173:	<span style="color:#666">83</span> 7d <span style="color:#a2f">fc</span> <span style="color:#666">02</span>          	cmpl   <span style="color:#b8860b">$0</span>x2,-0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
-    1177:	0f <span style="color:#666">94</span> c0             	sete   %al
-    117a:	0f b6 c0             	movzbl %al,%eax
-    117d:	<span style="color:#666">48</span> <span style="color:#666">85</span> c0             	<span style="color:#a2f">test</span>   %rax,%rax
-    1180:	<span style="color:#666">74</span> <span style="color:#666">06</span>                	je     <span style="color:#666">1188</span> &lt;main+0x3f&gt;
-    1182:	<span style="color:#666">83</span> <span style="color:#666">45</span> <span style="color:#a2f">fc</span> <span style="color:#666">01</span>          	addl   <span style="color:#b8860b">$0</span>x1,-0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
-    1186:	eb <span style="color:#666">04</span>                	jmp    118c &lt;main+0x43&gt;
-    1188:	<span style="color:#666">83</span> 6d <span style="color:#a2f">fc</span> <span style="color:#666">01</span>          	subl   <span style="color:#b8860b">$0</span>x1,-0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
-    118c:	8b <span style="color:#666">45</span> <span style="color:#a2f">fc</span>             	mov    -0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>,%eax
-    118f:	<span style="color:#666">89</span> c6                	mov    %eax,%esi
-    1191:	<span style="color:#666">48</span> 8d 3d 6c 0e <span style="color:#666">00</span> <span style="color:#666">00</span> 	lea    0xe6c<span style="color:#666">(</span>%rip<span style="color:#666">)</span>,%rdi        <span style="color:#080;font-style:italic"># 2004 &lt;_IO_stdin_used+0x4&gt;</span>
-    1198:	b8 <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span>       	mov    <span style="color:#b8860b">$0</span>x0,%eax
-    119d:	e8 8e fe ff ff       	callq  <span style="color:#666">1030</span> &lt;printf@plt&gt;
-    11a2:	b8 <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span>       	mov    <span style="color:#b8860b">$0</span>x0,%eax
-    11a7:	c9                   	leaveq
-    11a8:	c3                   	retq
-    11a9:	0f 1f <span style="color:#666">80</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> 	nopl   0x0<span style="color:#666">(</span>%rax<span style="color:#666">)</span>
-</code></pre></div><p><code>cmpl %0x2, -0x4(%rbp)</code> 에서 보듯 2와 같을 경우에 jump 명령어를
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ gcc -o unlikely unlikely.c
+</span></span><span style="display:flex;"><span>$ objdump -S unlikely
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#666">0000000000001149</span> &lt;main&gt;:
+</span></span><span style="display:flex;"><span>    1149:	<span style="color:#666">55</span>                   	push   %rbp
+</span></span><span style="display:flex;"><span>    114a:	<span style="color:#666">48</span> <span style="color:#666">89</span> e5             	mov    %rsp,%rbp
+</span></span><span style="display:flex;"><span>    114d:	<span style="color:#666">48</span> <span style="color:#666">83</span> ec <span style="color:#666">20</span>          	sub    <span style="color:#b8860b">$0</span>x20,%rsp
+</span></span><span style="display:flex;"><span>    1151:	<span style="color:#666">89</span> 7d ec             	mov    %edi,-0x14<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>    1154:	<span style="color:#666">48</span> <span style="color:#666">89</span> <span style="color:#666">75</span> e0          	mov    %rsi,-0x20<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>    1158:	<span style="color:#666">48</span> 8b <span style="color:#666">45</span> e0          	mov    -0x20<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>,%rax
+</span></span><span style="display:flex;"><span>    115c:	<span style="color:#666">48</span> <span style="color:#666">83</span> c0 <span style="color:#666">08</span>          	add    <span style="color:#b8860b">$0</span>x8,%rax
+</span></span><span style="display:flex;"><span>    1160:	<span style="color:#666">48</span> 8b <span style="color:#666">00</span>             	mov    <span style="color:#666">(</span>%rax<span style="color:#666">)</span>,%rax
+</span></span><span style="display:flex;"><span>    1163:	<span style="color:#666">48</span> <span style="color:#666">89</span> c7             	mov    %rax,%rdi
+</span></span><span style="display:flex;"><span>    1166:	b8 <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span>       	mov    <span style="color:#b8860b">$0</span>x0,%eax
+</span></span><span style="display:flex;"><span>    116b:	e8 d0 fe ff ff       	callq  <span style="color:#666">1040</span> &lt;atoi@plt&gt;
+</span></span><span style="display:flex;"><span>    1170:	<span style="color:#666">89</span> <span style="color:#666">45</span> <span style="color:#a2f">fc</span>             	mov    %eax,-0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>    1173:	<span style="color:#666">83</span> 7d <span style="color:#a2f">fc</span> <span style="color:#666">02</span>          	cmpl   <span style="color:#b8860b">$0</span>x2,-0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>    1177:	0f <span style="color:#666">94</span> c0             	sete   %al
+</span></span><span style="display:flex;"><span>    117a:	0f b6 c0             	movzbl %al,%eax
+</span></span><span style="display:flex;"><span>    117d:	<span style="color:#666">48</span> <span style="color:#666">85</span> c0             	<span style="color:#a2f">test</span>   %rax,%rax
+</span></span><span style="display:flex;"><span>    1180:	<span style="color:#666">74</span> <span style="color:#666">06</span>                	je     <span style="color:#666">1188</span> &lt;main+0x3f&gt;
+</span></span><span style="display:flex;"><span>    1182:	<span style="color:#666">83</span> <span style="color:#666">45</span> <span style="color:#a2f">fc</span> <span style="color:#666">01</span>          	addl   <span style="color:#b8860b">$0</span>x1,-0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>    1186:	eb <span style="color:#666">04</span>                	jmp    118c &lt;main+0x43&gt;
+</span></span><span style="display:flex;"><span>    1188:	<span style="color:#666">83</span> 6d <span style="color:#a2f">fc</span> <span style="color:#666">01</span>          	subl   <span style="color:#b8860b">$0</span>x1,-0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>
+</span></span><span style="display:flex;"><span>    118c:	8b <span style="color:#666">45</span> <span style="color:#a2f">fc</span>             	mov    -0x4<span style="color:#666">(</span>%rbp<span style="color:#666">)</span>,%eax
+</span></span><span style="display:flex;"><span>    118f:	<span style="color:#666">89</span> c6                	mov    %eax,%esi
+</span></span><span style="display:flex;"><span>    1191:	<span style="color:#666">48</span> 8d 3d 6c 0e <span style="color:#666">00</span> <span style="color:#666">00</span> 	lea    0xe6c<span style="color:#666">(</span>%rip<span style="color:#666">)</span>,%rdi        <span style="color:#080;font-style:italic"># 2004 &lt;_IO_stdin_used+0x4&gt;</span>
+</span></span><span style="display:flex;"><span>    1198:	b8 <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span>       	mov    <span style="color:#b8860b">$0</span>x0,%eax
+</span></span><span style="display:flex;"><span>    119d:	e8 8e fe ff ff       	callq  <span style="color:#666">1030</span> &lt;printf@plt&gt;
+</span></span><span style="display:flex;"><span>    11a2:	b8 <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span>       	mov    <span style="color:#b8860b">$0</span>x0,%eax
+</span></span><span style="display:flex;"><span>    11a7:	c9                   	leaveq
+</span></span><span style="display:flex;"><span>    11a8:	c3                   	retq
+</span></span><span style="display:flex;"><span>    11a9:	0f 1f <span style="color:#666">80</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> <span style="color:#666">00</span> 	nopl   0x0<span style="color:#666">(</span>%rax<span style="color:#666">)</span>
+</span></span></code></pre></div><p><code>cmpl %0x2, -0x4(%rbp)</code> 에서 보듯 2와 같을 경우에 jump 명령어를
 수행하고 같지 않을 경우에는 계속해서 명령어를 순차 진행한다. je
 명령어를 실행하지 않으니 pipeline flush가 일어나지 않아 branch
 prediction을 하지 않았을 때보다 성능 향상을 꾀할 수 있다.</p>
@@ -204,42 +227,13 @@ jump 명령어를 수행하지 않도록 하는 기법이다.</p>
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2) | seokbeomkim.dev</title>
+    <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2) | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -83,6 +101,11 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+
+
     
 
 
@@ -154,7 +177,7 @@ $ export BUILDROOT_BUILD=$BUILDS/buildroot
 $ mkdir -p $BUILDROOT_BUILD
 $ cd $BUILDROOT_BUILD
 $ touch Config.in external.mk
-$ echo &lsquo;name: mini_linux&rsquo; &gt; external.desc
+$ echo &rsquo;name: mini_linux&rsquo; &gt; external.desc
 $ echo &lsquo;desc: minimal linux system with buildroot&rsquo; &raquo; external.desc
 $ mkdir configs overlay
 $ cd $BUILDROOT
@@ -165,55 +188,55 @@ $ make menuconfig</p>
 해줘야한다는 점이다. 기본값이 eth0으로 되어있을텐데, init 스크립트에서
 해당 인터페이스가 로드될 때까지 기다리며 없을 경우에는 셸이 실행되지
 않게된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Build options ---&gt; Location to save buildroot config ---&gt; $(BR2_EXTERNAL)/configs/mini_linux_defconfig
-Build options ---&gt; Download dir ---&gt; /some/where/buildroot_dl
-Build options ---&gt; Number of jobs to run simultaneously (0 for auto) ---&gt; 8
-Build options ---&gt; Enable compiler cache ---&gt; yes
-Build options ---&gt; Compiler cache location ---&gt; /some/where/buildroot_ccache
-Toolchain ---&gt; Toolchain type ---&gt; External toolchain
-Toolchain ---&gt; Toolchain ---&gt; Custom toolchain
-Toolchain ---&gt; Toolchain origin ---&gt; Pre-installed toolchain
-Toolchain ---&gt; Toolchain path ---&gt; /opt/toolchains/x86_64-unknown-linux-gnu
-Toolchain ---&gt; Toolchain prefix ---&gt; x86_64-unknown-linux-gnu
-Toolchain ---&gt; External toolchain gcc version ---&gt; 5.x
-Toolchain ---&gt; External toolchain kernel headers series ---&gt; 4.3.x
-Toolchain ---&gt; External toolchain C library ---&gt; glibc/eglibc
-Toolchain ---&gt; Toolchain has C++ support? ---&gt; yes
-System configuration ---&gt; System hostname ---&gt; mini_linux
-System configuration ---&gt; System banner ---&gt; Welcome to mini_linux
-System configuration ---&gt; Run a getty (login prompt) after boot ---&gt; TTY port ---&gt; ttyS0
-System configuration ---&gt; Network interface to configure through DHCP ---&gt;
-System configuration ---&gt; Root filesystem overlay directories ---&gt; $(BR2_EXTERNAL)/overlay
-Kernel ---&gt; Linux Kernel ---&gt; no
-Filesystem images ---&gt; cpio the root filesystem (for use as an initial RAM filesystem) ---&gt; yes
-Filesystem images ---&gt; Compression method ---&gt; gzip
-</code></pre></div><p>아래와 같이 설정 저장 후 init 스크립트를 추가해준뒤 빌드한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">$ make savedefconfig
-$ vim $BUILDROOT_BUILD/overlay/init
-
-#!/bin/sh
-/bin/mount -t devtmpfs devtmpfs /dev
-/bin/mount -t proc none /proc
-/bin/mount -t sysfs none /sys
-exec 0&lt;/dev/console
-exec 1&gt;/dev/console
-exec 2&gt;/dev/console
-cat &lt;&lt;!
-
-
-Boot took $(cut -d&#39; &#39; -f1 /proc/uptime) seconds
-!
-exec /bin/sh
-
-
-# vim 종료 후 스크립트에 권한 부여
-$ chmod +x overlay/init
-$ make
-</code></pre></div><p>이제 qemu를 통해 실행시켜보면 정상적으로 실행되는 것을 확인할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">qemu-system-x86_64 -kernel $LINUX_BUILD/arch/x86_64/boot/bzImage \
-  -initrd $BUILDROOT_BUILD/images/rootfs.cpio.gz -nographic \
-  -append &#34;console=ttyS0&#34;
-</code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Build options ---&gt; Location to save buildroot config ---&gt; $(BR2_EXTERNAL)/configs/mini_linux_defconfig
+</span></span><span style="display:flex;"><span>Build options ---&gt; Download dir ---&gt; /some/where/buildroot_dl
+</span></span><span style="display:flex;"><span>Build options ---&gt; Number of jobs to run simultaneously (0 for auto) ---&gt; 8
+</span></span><span style="display:flex;"><span>Build options ---&gt; Enable compiler cache ---&gt; yes
+</span></span><span style="display:flex;"><span>Build options ---&gt; Compiler cache location ---&gt; /some/where/buildroot_ccache
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; Toolchain type ---&gt; External toolchain
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; Toolchain ---&gt; Custom toolchain
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; Toolchain origin ---&gt; Pre-installed toolchain
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; Toolchain path ---&gt; /opt/toolchains/x86_64-unknown-linux-gnu
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; Toolchain prefix ---&gt; x86_64-unknown-linux-gnu
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; External toolchain gcc version ---&gt; 5.x
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; External toolchain kernel headers series ---&gt; 4.3.x
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; External toolchain C library ---&gt; glibc/eglibc
+</span></span><span style="display:flex;"><span>Toolchain ---&gt; Toolchain has C++ support? ---&gt; yes
+</span></span><span style="display:flex;"><span>System configuration ---&gt; System hostname ---&gt; mini_linux
+</span></span><span style="display:flex;"><span>System configuration ---&gt; System banner ---&gt; Welcome to mini_linux
+</span></span><span style="display:flex;"><span>System configuration ---&gt; Run a getty (login prompt) after boot ---&gt; TTY port ---&gt; ttyS0
+</span></span><span style="display:flex;"><span>System configuration ---&gt; Network interface to configure through DHCP ---&gt;
+</span></span><span style="display:flex;"><span>System configuration ---&gt; Root filesystem overlay directories ---&gt; $(BR2_EXTERNAL)/overlay
+</span></span><span style="display:flex;"><span>Kernel ---&gt; Linux Kernel ---&gt; no
+</span></span><span style="display:flex;"><span>Filesystem images ---&gt; cpio the root filesystem (for use as an initial RAM filesystem) ---&gt; yes
+</span></span><span style="display:flex;"><span>Filesystem images ---&gt; Compression method ---&gt; gzip
+</span></span></code></pre></div><p>아래와 같이 설정 저장 후 init 스크립트를 추가해준뒤 빌드한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ make savedefconfig
+</span></span><span style="display:flex;"><span>$ vim $BUILDROOT_BUILD/overlay/init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#!/bin/sh
+</span></span><span style="display:flex;"><span>/bin/mount -t devtmpfs devtmpfs /dev
+</span></span><span style="display:flex;"><span>/bin/mount -t proc none /proc
+</span></span><span style="display:flex;"><span>/bin/mount -t sysfs none /sys
+</span></span><span style="display:flex;"><span>exec 0&lt;/dev/console
+</span></span><span style="display:flex;"><span>exec 1&gt;/dev/console
+</span></span><span style="display:flex;"><span>exec 2&gt;/dev/console
+</span></span><span style="display:flex;"><span>cat &lt;&lt;!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Boot took $(cut -d&#39; &#39; -f1 /proc/uptime) seconds
+</span></span><span style="display:flex;"><span>!
+</span></span><span style="display:flex;"><span>exec /bin/sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># vim 종료 후 스크립트에 권한 부여
+</span></span><span style="display:flex;"><span>$ chmod +x overlay/init
+</span></span><span style="display:flex;"><span>$ make
+</span></span></code></pre></div><p>이제 qemu를 통해 실행시켜보면 정상적으로 실행되는 것을 확인할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>qemu-system-x86_64 -kernel $LINUX_BUILD/arch/x86_64/boot/bzImage \
+</span></span><span style="display:flex;"><span>  -initrd $BUILDROOT_BUILD/images/rootfs.cpio.gz -nographic \
+</span></span><span style="display:flex;"><span>  -append &#34;console=ttyS0&#34;
+</span></span></code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://gist.github.com/seokbeomKim/9cff93b073573fe535534c522c6e53e1" target="_blank" rel="noopener">Build and run minimal
 linux</a></li>
 <li><a href="https://briolidz.wordpress.com/2012/02/07/building-embedded-arm-systems-with-crosstool-ng/" target="_blank" rel="noopener">Building embedded ARM systems with
@@ -243,42 +266,13 @@ Crosstool-NG</a></li>
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

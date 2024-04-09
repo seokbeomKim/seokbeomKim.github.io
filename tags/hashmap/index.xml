@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>HashMap on seokbeomkim.dev</title>
+    <title>HashMap on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/hashmap/</link>
-    <description>Recent content in HashMap on seokbeomkim.dev</description>
+    <description>Recent content in HashMap on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Feb 2022 23:21:10 +0900</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>https://seokbeomkim.github.io/posts/525.-contiguous-array/</link>
       <pubDate>Fri, 04 Feb 2022 23:21:10 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/posts/525.-contiguous-array/</guid>
-      <description>HashMap을 이용한 문제 문제를 읽고 HashMap을 이용한 방법이 한번에 와닿지 않아 이를 다시 한번 더 정리하고자 한다. 이번 &amp;ldquo;Contiguous Array&amp;rdquo; 문제는 배열 내의 0, 1 개수</description>
+      <description>HashMap을 이용한 문제 🔗문제를 읽고 HashMap을 이용한 방법이 한번에 와닿지 않아 이를 다시 한번 더 정리하고자 한다. 이번 &amp;ldquo;Contiguous Array&amp;rdquo; 문제는 배열 내의 0, 1 개</description>
     </item>
   </channel>
 </rss>

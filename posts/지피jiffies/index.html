@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>지피(Jiffies) | seokbeomkim.dev</title>
+    <title>지피(Jiffies) | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -72,7 +90,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          3250 words
+          3251 words
         </span>
         <span class="split">
           ·
@@ -83,6 +101,26 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#시간에-관련된-하드웨어">&lsquo;시간&rsquo;에 관련된 하드웨어</a></li>
+    <li><a href="#커널-코드-속-시스템-타이머-인터럽트-핸들러">커널 코드 속 시스템 타이머 인터럽트 핸들러</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
     
 
 
@@ -101,27 +139,27 @@ if (!doNotTrack) {
 <h1 id="지피-비교를-위한-매크로">지피 비교를 위한 매크로 <a href="#%ec%a7%80%ed%94%bc-%eb%b9%84%ea%b5%90%eb%a5%bc-%ec%9c%84%ed%95%9c-%eb%a7%a4%ed%81%ac%eb%a1%9c" class="anchor">🔗</a></h1><p><code>jiffies</code>는 <code>unsigned long</code> 타입으로 언젠가는 오버플로우가 발생하게
 된다. 오버플로우에 대한 내용을 찾던 중 재미있는 함수를 발견했는데 이와
 관련해 잠깐 설명하고자 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#define time_after(a,b)		\
-</span><span style="color:#080">	(typecheck(unsigned long, a) &amp;&amp; \
-</span><span style="color:#080">	 typecheck(unsigned long, b) &amp;&amp; \
-</span><span style="color:#080">	 ((long)((b) - (a)) &lt; 0))
-</span><span style="color:#080">#define time_before(a,b)	time_after(b,a)
-</span><span style="color:#080"></span>
-<span style="color:#080">#define time_after_eq(a,b)	\
-</span><span style="color:#080">	(typecheck(unsigned long, a) &amp;&amp; \
-</span><span style="color:#080">	 typecheck(unsigned long, b) &amp;&amp; \
-</span><span style="color:#080">	 ((long)((a) - (b)) &gt;= 0))
-</span><span style="color:#080">#define time_before_eq(a,b)	time_after_eq(b,a)
-</span></code></pre></div><p>예전에 지피(jiffies) 비교 매크로를 보면서 이게 어떻게 작동할 수 있는지
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define time_after(a,b)		\
+</span></span></span><span style="display:flex;"><span><span style="color:#080">	(typecheck(unsigned long, a) &amp;&amp; \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">	 typecheck(unsigned long, b) &amp;&amp; \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">	 ((long)((b) - (a)) &lt; 0))
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#define time_before(a,b)	time_after(b,a)
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#define time_after_eq(a,b)	\
+</span></span></span><span style="display:flex;"><span><span style="color:#080">	(typecheck(unsigned long, a) &amp;&amp; \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">	 typecheck(unsigned long, b) &amp;&amp; \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">	 ((long)((a) - (b)) &gt;= 0))
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#define time_before_eq(a,b)	time_after_eq(b,a)
+</span></span></span></code></pre></div><p>예전에 지피(jiffies) 비교 매크로를 보면서 이게 어떻게 작동할 수 있는지
 확실하게 이해하지 못했었는데 이는 <code>signed, unsigned와 실제 바이트와의 관계</code>를 내가 정확하게 이해하지 못하고 있었기 때문이었다.</p>
 <p>맘에 들지는 않지만, 스택 오버플로우에 매우 친절하게 설명되어 있는
 답변이 있었다. unsigned와 signed의 관계를 자세하게 나타냈는데 아래와
 같이 표현해주었다. 아래 그림(?)은 편의상 <code>unsigned long</code> 대신
 <code>unsigned int</code>와 <code>signed int</code>의 관계를 나타낸 그림이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[0x0      -              -                  -               0xFFFF]
-[0x0                       0x7FFF][0x8000                   0xFFFF]
-[0                         32,767][-32,768                      -1]
-</code></pre></div><p>integer unsigned 형태는 0x0부터 0xFFFF(4bytes, 2^32)까지의 값 범위를
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[0x0      -              -                  -               0xFFFF]
+</span></span><span style="display:flex;"><span>[0x0                       0x7FFF][0x8000                   0xFFFF]
+</span></span><span style="display:flex;"><span>[0                         32,767][-32,768                      -1]
+</span></span></code></pre></div><p>integer unsigned 형태는 0x0부터 0xFFFF(4bytes, 2^32)까지의 값 범위를
 가지고 있고 signed는 그 절반을 갖고 있다. 이 때 중요한 점은 signed의
 양수 범위를 초과하는 순간 -1로 되는 것이 아니라 음수 최소값으로
 돌아간다는 점이다. 그러므로 0xFFFF는 -1이 된다.</p>
@@ -129,34 +167,34 @@ if (!doNotTrack) {
 모두 양수인 경우, 2) 모두 음수인 경우, 3) 한쪽은 양수, 한쪽은 음수인
 경우를 생각해 볼 수 있다.</p>
 <p>이를 비교하기 위해 아래와 같이 간단하게 코드를 짜본뒤 확인해보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/* unsigned long 오버플로우 검사 */</span>
-<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t1 <span style="color:#666">=</span> <span style="color:#666">0</span>; <span style="color:#080;font-style:italic">// 0x0
-</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t2 <span style="color:#666">=</span> <span style="color:#666">1</span>;
-<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t3 <span style="color:#666">=</span> (t1 <span style="color:#666">-</span> <span style="color:#666">1</span>); <span style="color:#080;font-style:italic">// 0xffffffff
-</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t4 <span style="color:#666">=</span> (t1 <span style="color:#666">-</span> <span style="color:#666">1</span>) <span style="color:#666">/</span> <span style="color:#666">2</span>; <span style="color:#080;font-style:italic">// 중간 값(signed 최대)
-</span><span style="color:#080;font-style:italic"></span>
-printf(<span style="color:#b44">&#34;(unsigned)t1 = %lu, t2 = %lu, t3 = %lu, t4 = %lu</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, t1, t2, t3, t4);
-printf(<span style="color:#b44">&#34;(signed)t1 = %ld, t2 = %ld, t3 = %ld, t4 = %ld, t4+1 = %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, t1, t2, t3, t4, t4<span style="color:#666">+</span><span style="color:#666">1</span>);
-
-<span style="color:#080;font-style:italic">/* case 1. 비교 대상이 모두 양수일 때  */</span>
-printf(<span style="color:#b44">&#34;case 1: t1 - t2 as long: %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)t1 <span style="color:#666">-</span> (<span style="color:#0b0;font-weight:bold">long</span>)t2);
-
-<span style="color:#080;font-style:italic">/* case 2. 비교 대상이 모두 음수일 때 */</span>
-printf(<span style="color:#b44">&#34;case 2: (t4 + 1) - (t4 + 2): %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (t4<span style="color:#666">+</span><span style="color:#666">1</span>) <span style="color:#666">-</span> (t4<span style="color:#666">+</span><span style="color:#666">2</span>));
-
-<span style="color:#080;font-style:italic">/* case 3-1. 비교 대상이 서로 다른 부호일 때 */</span>
-printf(<span style="color:#b44">&#34;case 3-1: t3 - t1 as long: %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)((t3) <span style="color:#666">-</span> (t1)));
-
-<span style="color:#080;font-style:italic">/* case 3-2. 비교 대상이 서로 다른 부호일 때 */</span>
-printf(<span style="color:#b44">&#34;case 3-2: t4 - (t4 + 1): %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)t4 <span style="color:#666">-</span> (<span style="color:#0b0;font-weight:bold">long</span>)(t4 <span style="color:#666">+</span> <span style="color:#666">1</span>));
-</code></pre></div><p>이에 대한 출력 결과는 다음과 같다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">(unsigned)t1 = 0, t2 = 1, t3 = 18446744073709551615, t4 = 9223372036854775807
-(signed)t1 = 0, t2 = 1, t3 = -1, t4 = 9223372036854775807, t4+1 = -9223372036854775808
-case 1: t1 - t2 as long: -1
-case 2: (t4 + 1) - (t4 + 2): -1
-case 3-1: t3 - t1 as long: -1
-case 3-2: t4 - (t4 + 1): -1
-</code></pre></div><p>즉, 앞서가는 unsigned, signed의 특성 상 앞서가는 포인트에 대해 signed
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* unsigned long 오버플로우 검사 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t1 <span style="color:#666">=</span> <span style="color:#666">0</span>; <span style="color:#080;font-style:italic">// 0x0
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t2 <span style="color:#666">=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t3 <span style="color:#666">=</span> (t1 <span style="color:#666">-</span> <span style="color:#666">1</span>); <span style="color:#080;font-style:italic">// 0xffffffff
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> t4 <span style="color:#666">=</span> (t1 <span style="color:#666">-</span> <span style="color:#666">1</span>) <span style="color:#666">/</span> <span style="color:#666">2</span>; <span style="color:#080;font-style:italic">// 중간 값(signed 최대)
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>printf(<span style="color:#b44">&#34;(unsigned)t1 = %lu, t2 = %lu, t3 = %lu, t4 = %lu</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, t1, t2, t3, t4);
+</span></span><span style="display:flex;"><span>printf(<span style="color:#b44">&#34;(signed)t1 = %ld, t2 = %ld, t3 = %ld, t4 = %ld, t4+1 = %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, t1, t2, t3, t4, t4<span style="color:#666">+</span><span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* case 1. 비교 대상이 모두 양수일 때  */</span>
+</span></span><span style="display:flex;"><span>printf(<span style="color:#b44">&#34;case 1: t1 - t2 as long: %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)t1 <span style="color:#666">-</span> (<span style="color:#0b0;font-weight:bold">long</span>)t2);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* case 2. 비교 대상이 모두 음수일 때 */</span>
+</span></span><span style="display:flex;"><span>printf(<span style="color:#b44">&#34;case 2: (t4 + 1) - (t4 + 2): %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (t4<span style="color:#666">+</span><span style="color:#666">1</span>) <span style="color:#666">-</span> (t4<span style="color:#666">+</span><span style="color:#666">2</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* case 3-1. 비교 대상이 서로 다른 부호일 때 */</span>
+</span></span><span style="display:flex;"><span>printf(<span style="color:#b44">&#34;case 3-1: t3 - t1 as long: %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)((t3) <span style="color:#666">-</span> (t1)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* case 3-2. 비교 대상이 서로 다른 부호일 때 */</span>
+</span></span><span style="display:flex;"><span>printf(<span style="color:#b44">&#34;case 3-2: t4 - (t4 + 1): %ld</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, (<span style="color:#0b0;font-weight:bold">long</span>)t4 <span style="color:#666">-</span> (<span style="color:#0b0;font-weight:bold">long</span>)(t4 <span style="color:#666">+</span> <span style="color:#666">1</span>));
+</span></span></code></pre></div><p>이에 대한 출력 결과는 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>(unsigned)t1 = 0, t2 = 1, t3 = 18446744073709551615, t4 = 9223372036854775807
+</span></span><span style="display:flex;"><span>(signed)t1 = 0, t2 = 1, t3 = -1, t4 = 9223372036854775807, t4+1 = -9223372036854775808
+</span></span><span style="display:flex;"><span>case 1: t1 - t2 as long: -1
+</span></span><span style="display:flex;"><span>case 2: (t4 + 1) - (t4 + 2): -1
+</span></span><span style="display:flex;"><span>case 3-1: t3 - t1 as long: -1
+</span></span><span style="display:flex;"><span>case 3-2: t4 - (t4 + 1): -1
+</span></span></code></pre></div><p>즉, 앞서가는 unsigned, signed의 특성 상 앞서가는 포인트에 대해 signed
 범위 안에서 값을 비교하면 그 결과 범위가 양수 또는 음수로 나오게 된다.</p>
 <h1 id="매크로-속-typecheck">매크로 속 typecheck <a href="#%eb%a7%a4%ed%81%ac%eb%a1%9c-%ec%86%8d-typecheck" class="anchor">🔗</a></h1><p>여기서 사용된 <code>typecheck</code> 함수를 잠깐 살펴보자. typecheck는 무조건
 참(1) 값을 반환하는 매크로 함수이다. 그럼에도 사용하는 이유는 컴파일
@@ -164,13 +202,13 @@ case 3-2: t4 - (t4 + 1): -1
 여부를 나타낼 수 있는 일종의 트릭을 사용하고 있기 때문이다. (커널
 해킹을 시작한지 얼마되지 않은 시점에서 오랜만에 느껴보는 즐거움이다.)
 아래는 typecheck를 구현한 코드이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#define typecheck(type,x) \
-</span><span style="color:#080">({ type __dummy; \
-</span><span style="color:#080">typeof(x) __dummy2; \
-</span><span style="color:#080">(void)(&amp;__dummy == &amp;__dummy2); \
-</span><span style="color:#080">1; \
-</span><span style="color:#080">})
-</span></code></pre></div><p>재미있는 것은 반환값은 항상 1이지만 반환 전에 <code>(void)(&amp;__dummy == &amp;__dummy2);</code> 부분을 통해 각 변수의 타입으로 만든 포인터가 일치하는지를
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define typecheck(type,x) \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">({ type __dummy; \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">typeof(x) __dummy2; \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">(void)(&amp;__dummy == &amp;__dummy2); \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">1; \
+</span></span></span><span style="display:flex;"><span><span style="color:#080">})
+</span></span></span></code></pre></div><p>재미있는 것은 반환값은 항상 1이지만 반환 전에 <code>(void)(&amp;__dummy == &amp;__dummy2);</code> 부분을 통해 각 변수의 타입으로 만든 포인터가 일치하는지를
 경고 또는 에러 메세지로 출력한다. 런타임 시의 결과를 기대하는 코드가
 아니라, 컴파일 시의 결과를 기대하며 짠 코드인만큼 컨셉 자체가 정말
 신선하게 다가왔다.</p>
@@ -178,16 +216,15 @@ case 3-2: t4 - (t4 + 1): -1
 있다. <code>unsigned long</code> 타입은 <code>j1</code>의 변수를 <code>int</code>과 비교하는
 경우이다. 이러한 예제를 아래 스크린샷처럼 <code>-Werror</code> 옵션과 함께
 컴파일하게 되면 타입 에러를 사전에 감지해낼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#0b0;font-weight:bold">int</span> a <span style="color:#666">=</span> <span style="color:#666">1</span>;
-<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> j1 <span style="color:#666">=</span> <span style="color:#666">12345678</span>;
-<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> j2 <span style="color:#666">=</span> <span style="color:#666">23456789</span>;
-<span style="color:#a2f;font-weight:bold">if</span> (typecheck(<span style="color:#0b0;font-weight:bold">int</span>,a) <span style="color:#666">&amp;&amp;</span> typecheck(<span style="color:#0b0;font-weight:bold">int</span>, j1) <span style="color:#666">&amp;&amp;</span> typecheck(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span>, j2)) {
-    printf(<span style="color:#b44">&#34;a value is int and (j1, j2) is unsigned long</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
-} <span style="color:#a2f;font-weight:bold">else</span> {
-    printf(<span style="color:#b44">&#34;a value is not int</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
-}
-
-</code></pre></div><p><p class="markdown-image">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a <span style="color:#666">=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> j1 <span style="color:#666">=</span> <span style="color:#666">12345678</span>;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> j2 <span style="color:#666">=</span> <span style="color:#666">23456789</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (typecheck(<span style="color:#0b0;font-weight:bold">int</span>,a) <span style="color:#666">&amp;&amp;</span> typecheck(<span style="color:#0b0;font-weight:bold">int</span>, j1) <span style="color:#666">&amp;&amp;</span> typecheck(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span>, j2)) {
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#b44">&#34;a value is int and (j1, j2) is unsigned long</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
+</span></span><span style="display:flex;"><span>} <span style="color:#a2f;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#b44">&#34;a value is not int</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><p class="markdown-image">
   <img src="/img/gcc_werror.png" alt="컴파일 타임 에러"  />
 </p></p>
 <h1 id="지피jiffies는-누가-증가시키는가">지피(jiffies)는 누가 증가시키는가? <a href="#%ec%a7%80%ed%94%bcjiffies%eb%8a%94-%eb%88%84%ea%b0%80-%ec%a6%9d%ea%b0%80%ec%8b%9c%ed%82%a4%eb%8a%94%ea%b0%80" class="anchor">🔗</a></h1><p>앞서, <code>&quot;지피(jiffies)에는 시스템 시작 이후 발생한 진동 횟수(tick)가 저장된다.&quot;</code>라고 말했다. 그렇다면 그러한 tick은 누가 발생시킬까? 이를
@@ -218,118 +255,118 @@ init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽�
 함수가 정의되어 있다. 타이머 인터럽트에 대한 핸들러를 등록하는
 함수로서 <code>clock_event_device</code>(시스템 타이머 장치) 디바이스의 이벤트
 핸들러로 등록하는 부분이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/* Set the periodic handler in non broadcast mode */</span>
-<span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_set_periodic_handler</span>(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">clock_event_device</span> <span style="color:#666">*</span>dev, <span style="color:#0b0;font-weight:bold">int</span> broadcast)
-{
-	dev<span style="color:#666">-&gt;</span>event_handler <span style="color:#666">=</span> tick_handle_periodic;
-}
-</code></pre></div><p>이제, <code>tick_handle_periodic()</code> 인터럽트 핸들러를 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">/*
-</span><span style="color:#080;font-style:italic"> * Event handler for periodic ticks
-</span><span style="color:#080;font-style:italic"> */</span>
-<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_handle_periodic</span>(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">clock_event_device</span> <span style="color:#666">*</span>dev)
-{
-	<span style="color:#0b0;font-weight:bold">int</span> cpu <span style="color:#666">=</span> smp_processor_id();
-	ktime_t next <span style="color:#666">=</span> dev<span style="color:#666">-&gt;</span>next_event;
-
-	tick_periodic(cpu);
-
-<span style="color:#080">#if defined(CONFIG_HIGH_RES_TIMERS) || defined(CONFIG_NO_HZ_COMMON)
-</span><span style="color:#080"></span>	<span style="color:#080;font-style:italic">/*
-</span><span style="color:#080;font-style:italic">	 * The cpu might have transitioned to HIGHRES or NOHZ mode via
-</span><span style="color:#080;font-style:italic">	 * update_process_times() -&gt; run_local_timers() -&gt;
-</span><span style="color:#080;font-style:italic">	 * hrtimer_run_queues().
-</span><span style="color:#080;font-style:italic">	 */</span>
-	<span style="color:#a2f;font-weight:bold">if</span> (dev<span style="color:#666">-&gt;</span>event_handler <span style="color:#666">!=</span> tick_handle_periodic)
-		<span style="color:#a2f;font-weight:bold">return</span>;
-<span style="color:#080">#endif
-</span><span style="color:#080"></span>
-	<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>clockevent_state_oneshot(dev))
-		<span style="color:#a2f;font-weight:bold">return</span>;
-	<span style="color:#a2f;font-weight:bold">for</span> (;;) {
-		<span style="color:#080;font-style:italic">/*
-</span><span style="color:#080;font-style:italic">		 * Setup the next period for devices, which do not have
-</span><span style="color:#080;font-style:italic">		 * periodic mode:
-</span><span style="color:#080;font-style:italic">		 */</span>
-		next <span style="color:#666">=</span> ktime_add(next, tick_period);
-
-		<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>clockevents_program_event(dev, next, <span style="color:#a2f">false</span>))
-			<span style="color:#a2f;font-weight:bold">return</span>;
-		<span style="color:#080;font-style:italic">/*
-</span><span style="color:#080;font-style:italic">		 * Have to be careful here. If we&#39;re in oneshot mode,
-</span><span style="color:#080;font-style:italic">		 * before we call tick_periodic() in a loop, we need
-</span><span style="color:#080;font-style:italic">		 * to be sure we&#39;re using a real hardware clocksource.
-</span><span style="color:#080;font-style:italic">		 * Otherwise we could get trapped in an infinite
-</span><span style="color:#080;font-style:italic">		 * loop, as the tick_periodic() increments jiffies,
-</span><span style="color:#080;font-style:italic">		 * which then will increment time, possibly causing
-</span><span style="color:#080;font-style:italic">		 * the loop to trigger again and again.
-</span><span style="color:#080;font-style:italic">		 */</span>
-		<span style="color:#a2f;font-weight:bold">if</span> (timekeeping_valid_for_hres())
-			tick_periodic(cpu);
-	}
-}
-</code></pre></div><p>책에서는 <em>&ldquo;아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러
-형태로 되어 있으며, 타이머 인터럽트가 발생했을 때 실행된다.&quot;</em> 라고
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/* Set the periodic handler in non broadcast mode */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_set_periodic_handler</span>(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">clock_event_device</span> <span style="color:#666">*</span>dev, <span style="color:#0b0;font-weight:bold">int</span> broadcast)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	dev<span style="color:#666">-&gt;</span>event_handler <span style="color:#666">=</span> tick_handle_periodic;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이제, <code>tick_handle_periodic()</code> 인터럽트 핸들러를 살펴보자.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> * Event handler for periodic ticks
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_handle_periodic</span>(<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">clock_event_device</span> <span style="color:#666">*</span>dev)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> cpu <span style="color:#666">=</span> smp_processor_id();
+</span></span><span style="display:flex;"><span>	ktime_t next <span style="color:#666">=</span> dev<span style="color:#666">-&gt;</span>next_event;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	tick_periodic(cpu);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080">#if defined(CONFIG_HIGH_RES_TIMERS) || defined(CONFIG_NO_HZ_COMMON)
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>	<span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">	 * The cpu might have transitioned to HIGHRES or NOHZ mode via
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">	 * update_process_times() -&gt; run_local_timers() -&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">	 * hrtimer_run_queues().
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">	 */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (dev<span style="color:#666">-&gt;</span>event_handler <span style="color:#666">!=</span> tick_handle_periodic)
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span><span style="color:#080">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>clockevent_state_oneshot(dev))
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (;;) {
+</span></span><span style="display:flex;"><span>		<span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * Setup the next period for devices, which do not have
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * periodic mode:
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 */</span>
+</span></span><span style="display:flex;"><span>		next <span style="color:#666">=</span> ktime_add(next, tick_period);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">if</span> (<span style="color:#666">!</span>clockevents_program_event(dev, next, <span style="color:#a2f">false</span>))
+</span></span><span style="display:flex;"><span>			<span style="color:#a2f;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * Have to be careful here. If we&#39;re in oneshot mode,
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * before we call tick_periodic() in a loop, we need
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * to be sure we&#39;re using a real hardware clocksource.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * Otherwise we could get trapped in an infinite
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * loop, as the tick_periodic() increments jiffies,
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * which then will increment time, possibly causing
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 * the loop to trigger again and again.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">		 */</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">if</span> (timekeeping_valid_for_hres())
+</span></span><span style="display:flex;"><span>			tick_periodic(cpu);
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>책에서는 <em>&ldquo;아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러
+형태로 되어 있으며, 타이머 인터럽트가 발생했을 때 실행된다.&rdquo;</em> 라고
 되어 있으나, 실제 <code>tick_periodic</code> 자체는 아키텍처 종속 코드가 발견되지
 않았다. 대신 cpu 아이디를 얻어오는 부분에 대해 아래와 같은 코드를
 발견할 수 있었다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#ifdef CONFIG_DEBUG_PREEMPT
-</span><span style="color:#080"></span>  <span style="color:#a2f;font-weight:bold">extern</span> <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">debug_smp_processor_id</span>(<span style="color:#0b0;font-weight:bold">void</span>);
-<span style="color:#080"># define smp_processor_id() debug_smp_processor_id()
-</span><span style="color:#080">#else
-</span><span style="color:#080"># define smp_processor_id() raw_smp_processor_id()
-</span><span style="color:#080">#endif
-</span></code></pre></div><p>그리고 <code>raw_smp_processor_id()</code>에 대해서는 아키텍처 별로 종속적인
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#ifdef CONFIG_DEBUG_PREEMPT
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>  <span style="color:#a2f;font-weight:bold">extern</span> <span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">debug_smp_processor_id</span>(<span style="color:#0b0;font-weight:bold">void</span>);
+</span></span><span style="display:flex;"><span><span style="color:#080"># define smp_processor_id() debug_smp_processor_id()
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#else
+</span></span></span><span style="display:flex;"><span><span style="color:#080"># define smp_processor_id() raw_smp_processor_id()
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#endif
+</span></span></span></code></pre></div><p>그리고 <code>raw_smp_processor_id()</code>에 대해서는 아키텍처 별로 종속적인
 코드가 들어가 있는 것을 확인할 수 있다. 한 예로, x86 코드를 살펴보면
 아래와 같이 정의된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080">#define raw_smp_processor_id() (this_cpu_read(cpu_number))
-</span></code></pre></div><p>여기서 더 깊게 들어가는 것은 그만두고 다시 원점으로 돌아가, 시스템
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080">#define raw_smp_processor_id() (this_cpu_read(cpu_number))
+</span></span></span></code></pre></div><p>여기서 더 깊게 들어가는 것은 그만두고 다시 원점으로 돌아가, 시스템
 타이머 인터럽트 핸들러에서 SMP(Symmetric Multiprocessing)에 관련,
 아키텍처에 종속된 코드가 실행된다는 것을 파악하였다. 이제
 <code>tick_periodic()</code>을 살펴보자.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_periodic</span>(<span style="color:#0b0;font-weight:bold">int</span> cpu)
-{
-	<span style="color:#a2f;font-weight:bold">if</span> (tick_do_timer_cpu <span style="color:#666">==</span> cpu) {
-		write_seqlock(<span style="color:#666">&amp;</span>jiffies_lock);
-
-		<span style="color:#080;font-style:italic">/* Keep track of the next tick event */</span>
-		tick_next_period <span style="color:#666">=</span> ktime_add(tick_next_period, tick_period);
-
-		do_timer(<span style="color:#666">1</span>);
-		write_sequnlock(<span style="color:#666">&amp;</span>jiffies_lock);
-		update_wall_time(); <span style="color:#080;font-style:italic">// 진동수 경과에 맞춰 현재 시간을 갱신한다.
-</span><span style="color:#080;font-style:italic"></span>	}
-
-	update_process_times(user_mode(get_irq_regs()));
-	profile_tick(CPU_PROFILING);
-}
-</code></pre></div><p>이 함수에서 눈여겨볼 부분은 <code>do_timer()</code>와 <code>update_process_times()</code>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">tick_periodic</span>(<span style="color:#0b0;font-weight:bold">int</span> cpu)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (tick_do_timer_cpu <span style="color:#666">==</span> cpu) {
+</span></span><span style="display:flex;"><span>		write_seqlock(<span style="color:#666">&amp;</span>jiffies_lock);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#080;font-style:italic">/* Keep track of the next tick event */</span>
+</span></span><span style="display:flex;"><span>		tick_next_period <span style="color:#666">=</span> ktime_add(tick_next_period, tick_period);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		do_timer(<span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>		write_sequnlock(<span style="color:#666">&amp;</span>jiffies_lock);
+</span></span><span style="display:flex;"><span>		update_wall_time(); <span style="color:#080;font-style:italic">// 진동수 경과에 맞춰 현재 시간을 갱신한다.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	update_process_times(user_mode(get_irq_regs()));
+</span></span><span style="display:flex;"><span>	profile_tick(CPU_PROFILING);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>이 함수에서 눈여겨볼 부분은 <code>do_timer()</code>와 <code>update_process_times()</code>
 부분이다. <code>do_timer()</code> 함수는 실제 지피값을 증가시키는 작업을 담당하며
 해당 코드는 아래와 같다. 커널은 전자 함수를 통해 지비를 발생한 틱만큼
 증가시키고 후자를 통해 시스템의 평균 로드 통계를 갱신한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do_timer</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> ticks)
-{
-	jiffies_64 <span style="color:#666">+=</span> ticks;
-	calc_global_load(ticks);
-}
-
-<span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">update_process_times</span>(<span style="color:#0b0;font-weight:bold">int</span> user_tick)
-{
-	<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">task_struct</span> <span style="color:#666">*</span>p <span style="color:#666">=</span> current;
-
-	<span style="color:#080;font-style:italic">/* Note: this timer irq context must be accounted for as well. */</span>
-	account_process_tick(p, user_tick);
-	run_local_timers();
-	rcu_check_callbacks(user_tick);
-<span style="color:#080">#ifdef CONFIG_IRQ_WORK
-</span><span style="color:#080"></span>	<span style="color:#a2f;font-weight:bold">if</span> (in_irq())
-		irq_work_tick();
-<span style="color:#080">#endif
-</span><span style="color:#080"></span>	scheduler_tick();
-	<span style="color:#a2f;font-weight:bold">if</span> (IS_ENABLED(CONFIG_POSIX_TIMERS))
-		run_posix_cpu_timers(p);
-}
-</code></pre></div><p><code>update_process_times</code>는 <code>run_local_timers()</code>를 통해 로컬 타이머, 즉
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">do_timer</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">long</span> ticks)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	jiffies_64 <span style="color:#666">+=</span> ticks;
+</span></span><span style="display:flex;"><span>	calc_global_load(ticks);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">update_process_times</span>(<span style="color:#0b0;font-weight:bold">int</span> user_tick)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">task_struct</span> <span style="color:#666">*</span>p <span style="color:#666">=</span> current;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">/* Note: this timer irq context must be accounted for as well. */</span>
+</span></span><span style="display:flex;"><span>	account_process_tick(p, user_tick);
+</span></span><span style="display:flex;"><span>	run_local_timers();
+</span></span><span style="display:flex;"><span>	rcu_check_callbacks(user_tick);
+</span></span><span style="display:flex;"><span><span style="color:#080">#ifdef CONFIG_IRQ_WORK
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>	<span style="color:#a2f;font-weight:bold">if</span> (in_irq())
+</span></span><span style="display:flex;"><span>		irq_work_tick();
+</span></span><span style="display:flex;"><span><span style="color:#080">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>	scheduler_tick();
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">if</span> (IS_ENABLED(CONFIG_POSIX_TIMERS))
+</span></span><span style="display:flex;"><span>		run_posix_cpu_timers(p);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>update_process_times</code>는 <code>run_local_timers()</code>를 통해 로컬 타이머, 즉
 softirq를 발생시켜 시간이 만료된 타이머를 실행한다.</p>
 <h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://stackoverflow.com/questions/8206762/how-does-linux-handle-overflow-in-jiffies" target="_blank" rel="noopener">how does linux handle overflow in
@@ -355,42 +392,13 @@ jiffies</a></li>
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

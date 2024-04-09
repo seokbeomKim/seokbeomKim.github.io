@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on seokbeomkim.dev</title>
+    <title>Tags on Sukbeom Kim</title>
     <link>https://seokbeomkim.github.io/tags/</link>
-    <description>Recent content in Tags on seokbeomkim.dev</description>
+    <description>Recent content in Tags on Sukbeom Kim</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 15 Apr 2023 10:21:58 +0900</lastBuildDate>
     <atom:link href="https://seokbeomkim.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Nfs</title>
+      <title>nfs</title>
       <link>https://seokbeomkim.github.io/tags/nfs/</link>
       <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/nfs/</guid>
       <description></description>
     </item>
     <item>
-      <title>Rpi</title>
+      <title>rpi</title>
       <link>https://seokbeomkim.github.io/tags/rpi/</link>
       <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/rpi/</guid>
       <description></description>
     </item>
     <item>
-      <title>Tftp</title>
+      <title>tftp</title>
       <link>https://seokbeomkim.github.io/tags/tftp/</link>
       <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/tftp/</guid>
       <description></description>
     </item>
     <item>
-      <title>Device-Tree</title>
+      <title>device tree</title>
       <link>https://seokbeomkim.github.io/tags/device-tree/</link>
       <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/device-tree/</guid>
       <description></description>
     </item>
     <item>
-      <title>Fwnode</title>
+      <title>fwnode</title>
       <link>https://seokbeomkim.github.io/tags/fwnode/</link>
       <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/fwnode/</guid>
       <description></description>
     </item>
     <item>
-      <title>Chatgpt</title>
+      <title>chatgpt</title>
       <link>https://seokbeomkim.github.io/tags/chatgpt/</link>
       <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/chatgpt/</guid>
       <description></description>
     </item>
     <item>
-      <title>Openai</title>
+      <title>openai</title>
       <link>https://seokbeomkim.github.io/tags/openai/</link>
       <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/openai/</guid>
       <description></description>
     </item>
     <item>
-      <title>Tasklet</title>
+      <title>tasklet</title>
       <link>https://seokbeomkim.github.io/tags/tasklet/</link>
       <pubDate>Sun, 13 Nov 2022 17:32:26 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/tasklet/</guid>
       <description></description>
     </item>
     <item>
-      <title>Obsidian</title>
+      <title>obsidian</title>
       <link>https://seokbeomkim.github.io/tags/obsidian/</link>
       <pubDate>Wed, 02 Nov 2022 23:46:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/obsidian/</guid>
@@ -79,42 +79,42 @@
       <description></description>
     </item>
     <item>
-      <title>Strcpy</title>
+      <title>strcpy</title>
       <link>https://seokbeomkim.github.io/tags/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/strcpy/</guid>
       <description></description>
     </item>
     <item>
-      <title>Strlcpy</title>
+      <title>strlcpy</title>
       <link>https://seokbeomkim.github.io/tags/strlcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/strlcpy/</guid>
       <description></description>
     </item>
     <item>
-      <title>Strscpy</title>
+      <title>strscpy</title>
       <link>https://seokbeomkim.github.io/tags/strscpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/strscpy/</guid>
       <description></description>
     </item>
     <item>
-      <title>File Descriptor</title>
+      <title>file descriptor</title>
       <link>https://seokbeomkim.github.io/tags/file-descriptor/</link>
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/file-descriptor/</guid>
       <description></description>
     </item>
     <item>
-      <title>Kernel</title>
+      <title>kernel</title>
       <link>https://seokbeomkim.github.io/tags/kernel/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/kernel/</guid>
       <description></description>
     </item>
     <item>
-      <title>Overlay</title>
+      <title>overlay</title>
       <link>https://seokbeomkim.github.io/tags/overlay/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/overlay/</guid>
@@ -135,175 +135,175 @@
       <description></description>
     </item>
     <item>
-      <title>Canary</title>
+      <title>canary</title>
       <link>https://seokbeomkim.github.io/tags/canary/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/canary/</guid>
       <description></description>
     </item>
     <item>
-      <title>Ssp</title>
+      <title>ssp</title>
       <link>https://seokbeomkim.github.io/tags/ssp/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/ssp/</guid>
       <description></description>
     </item>
     <item>
-      <title>Stack</title>
+      <title>stack</title>
       <link>https://seokbeomkim.github.io/tags/stack/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/stack/</guid>
       <description></description>
     </item>
     <item>
-      <title>Preprocessor</title>
+      <title>preprocessor</title>
       <link>https://seokbeomkim.github.io/tags/preprocessor/</link>
       <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/preprocessor/</guid>
       <description></description>
     </item>
     <item>
-      <title>Gcc</title>
+      <title>gcc</title>
       <link>https://seokbeomkim.github.io/tags/gcc/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/gcc/</guid>
       <description></description>
     </item>
     <item>
-      <title>Kasan</title>
+      <title>kasan</title>
       <link>https://seokbeomkim.github.io/tags/kasan/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/kasan/</guid>
       <description></description>
     </item>
     <item>
-      <title>Dmabuf</title>
+      <title>dmabuf</title>
       <link>https://seokbeomkim.github.io/tags/dmabuf/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/dmabuf/</guid>
       <description></description>
     </item>
     <item>
-      <title>Mmap</title>
+      <title>mmap</title>
       <link>https://seokbeomkim.github.io/tags/mmap/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/mmap/</guid>
       <description></description>
     </item>
     <item>
-      <title>V4l2</title>
+      <title>v4l2</title>
       <link>https://seokbeomkim.github.io/tags/v4l2/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/v4l2/</guid>
       <description></description>
     </item>
     <item>
-      <title>Vb2</title>
+      <title>vb2</title>
       <link>https://seokbeomkim.github.io/tags/vb2/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/vb2/</guid>
       <description></description>
     </item>
     <item>
-      <title>Kgdb</title>
+      <title>kgdb</title>
       <link>https://seokbeomkim.github.io/tags/kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/kgdb/</guid>
       <description></description>
     </item>
     <item>
-      <title>__Is_constexpr</title>
+      <title>__is_constexpr</title>
       <link>https://seokbeomkim.github.io/tags/__is_constexpr/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/__is_constexpr/</guid>
       <description></description>
     </item>
     <item>
-      <title>C</title>
+      <title>c</title>
       <link>https://seokbeomkim.github.io/tags/c/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/c/</guid>
       <description></description>
     </item>
     <item>
-      <title>State</title>
+      <title>state</title>
       <link>https://seokbeomkim.github.io/tags/state/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/state/</guid>
       <description></description>
     </item>
     <item>
-      <title>Status</title>
+      <title>status</title>
       <link>https://seokbeomkim.github.io/tags/status/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/status/</guid>
       <description></description>
     </item>
     <item>
-      <title>Gdb</title>
+      <title>gdb</title>
       <link>https://seokbeomkim.github.io/tags/gdb/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/gdb/</guid>
       <description></description>
     </item>
     <item>
-      <title>Mac_os</title>
+      <title>mac_os</title>
       <link>https://seokbeomkim.github.io/tags/mac_os/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/mac_os/</guid>
       <description></description>
     </item>
     <item>
-      <title>I3wm</title>
+      <title>i3wm</title>
       <link>https://seokbeomkim.github.io/tags/i3wm/</link>
       <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/i3wm/</guid>
       <description></description>
     </item>
     <item>
-      <title>Emacs</title>
+      <title>emacs</title>
       <link>https://seokbeomkim.github.io/tags/emacs/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/emacs/</guid>
       <description></description>
     </item>
     <item>
-      <title>Magit</title>
+      <title>magit</title>
       <link>https://seokbeomkim.github.io/tags/magit/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/magit/</guid>
       <description></description>
     </item>
     <item>
-      <title>Homebrew</title>
+      <title>homebrew</title>
       <link>https://seokbeomkim.github.io/tags/homebrew/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/homebrew/</guid>
       <description></description>
     </item>
     <item>
-      <title>Mac</title>
+      <title>mac</title>
       <link>https://seokbeomkim.github.io/tags/mac/</link>
       <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/mac/</guid>
       <description></description>
     </item>
     <item>
-      <title>File2alias</title>
+      <title>file2alias</title>
       <link>https://seokbeomkim.github.io/tags/file2alias/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/file2alias/</guid>
       <description></description>
     </item>
     <item>
-      <title>Uuid</title>
+      <title>uuid</title>
       <link>https://seokbeomkim.github.io/tags/uuid/</link>
       <pubDate>Thu, 24 Dec 2020 00:56:38 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/uuid/</guid>
       <description></description>
     </item>
     <item>
-      <title>Vmmem</title>
+      <title>vmmem</title>
       <link>https://seokbeomkim.github.io/tags/vmmem/</link>
       <pubDate>Wed, 23 Dec 2020 01:00:00 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/vmmem/</guid>
@@ -317,35 +317,35 @@
       <description></description>
     </item>
     <item>
-      <title>Sysrq</title>
+      <title>sysrq</title>
       <link>https://seokbeomkim.github.io/tags/sysrq/</link>
       <pubDate>Thu, 17 Dec 2020 01:38:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/sysrq/</guid>
       <description></description>
     </item>
     <item>
-      <title>Cache</title>
+      <title>cache</title>
       <link>https://seokbeomkim.github.io/tags/cache/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/cache/</guid>
       <description></description>
     </item>
     <item>
-      <title>Cache-Line</title>
+      <title>cache-line</title>
       <link>https://seokbeomkim.github.io/tags/cache-line/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/cache-line/</guid>
       <description></description>
     </item>
     <item>
-      <title>Ghcup</title>
+      <title>ghcup</title>
       <link>https://seokbeomkim.github.io/tags/ghcup/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/ghcup/</guid>
       <description></description>
     </item>
     <item>
-      <title>Coc</title>
+      <title>coc</title>
       <link>https://seokbeomkim.github.io/tags/coc/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/coc/</guid>
@@ -359,21 +359,21 @@
       <description></description>
     </item>
     <item>
-      <title>Nfc</title>
+      <title>nfc</title>
       <link>https://seokbeomkim.github.io/tags/nfc/</link>
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/nfc/</guid>
       <description></description>
     </item>
     <item>
-      <title>Nfd</title>
+      <title>nfd</title>
       <link>https://seokbeomkim.github.io/tags/nfd/</link>
       <pubDate>Mon, 24 Aug 2020 22:55:11 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/nfd/</guid>
       <description></description>
     </item>
     <item>
-      <title>Function Application</title>
+      <title>function application</title>
       <link>https://seokbeomkim.github.io/tags/function-application/</link>
       <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/function-application/</guid>
@@ -387,91 +387,91 @@
       <description></description>
     </item>
     <item>
-      <title>Mu4e</title>
+      <title>mu4e</title>
       <link>https://seokbeomkim.github.io/tags/mu4e/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/mu4e/</guid>
       <description></description>
     </item>
     <item>
-      <title>Vmlinux</title>
+      <title>vmlinux</title>
       <link>https://seokbeomkim.github.io/tags/vmlinux/</link>
       <pubDate>Tue, 21 Apr 2020 06:04:17 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/vmlinux/</guid>
       <description></description>
     </item>
     <item>
-      <title>Page Table</title>
+      <title>page table</title>
       <link>https://seokbeomkim.github.io/tags/page-table/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/page-table/</guid>
       <description></description>
     </item>
     <item>
-      <title>Va_bits</title>
+      <title>VA_BITS</title>
       <link>https://seokbeomkim.github.io/tags/va_bits/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/va_bits/</guid>
       <description></description>
     </item>
     <item>
-      <title>Virtual Address</title>
+      <title>virtual address</title>
       <link>https://seokbeomkim.github.io/tags/virtual-address/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/virtual-address/</guid>
       <description></description>
     </item>
     <item>
-      <title>Type Check</title>
+      <title>type check</title>
       <link>https://seokbeomkim.github.io/tags/type-check/</link>
       <pubDate>Fri, 10 Apr 2020 00:13:53 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/type-check/</guid>
       <description></description>
     </item>
     <item>
-      <title>Benchmark</title>
+      <title>benchmark</title>
       <link>https://seokbeomkim.github.io/tags/benchmark/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/benchmark/</guid>
       <description></description>
     </item>
     <item>
-      <title>Dmips</title>
+      <title>dmips</title>
       <link>https://seokbeomkim.github.io/tags/dmips/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/dmips/</guid>
       <description></description>
     </item>
     <item>
-      <title>Futex</title>
+      <title>futex</title>
       <link>https://seokbeomkim.github.io/tags/futex/</link>
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/futex/</guid>
       <description></description>
     </item>
     <item>
-      <title>Do_while</title>
+      <title>do_while</title>
       <link>https://seokbeomkim.github.io/tags/do_while/</link>
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/do_while/</guid>
       <description></description>
     </item>
     <item>
-      <title>Bsd</title>
+      <title>bsd</title>
       <link>https://seokbeomkim.github.io/tags/bsd/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/bsd/</guid>
       <description></description>
     </item>
     <item>
-      <title>List</title>
+      <title>list</title>
       <link>https://seokbeomkim.github.io/tags/list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/list/</guid>
       <description></description>
     </item>
     <item>
-      <title>Queue</title>
+      <title>queue</title>
       <link>https://seokbeomkim.github.io/tags/queue/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/queue/</guid>
@@ -485,91 +485,91 @@
       <description></description>
     </item>
     <item>
-      <title>Goto</title>
+      <title>goto</title>
       <link>https://seokbeomkim.github.io/tags/goto/</link>
       <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/goto/</guid>
       <description></description>
     </item>
     <item>
-      <title>Partition</title>
+      <title>partition</title>
       <link>https://seokbeomkim.github.io/tags/partition/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/partition/</guid>
       <description></description>
     </item>
     <item>
-      <title>Poll</title>
+      <title>poll</title>
       <link>https://seokbeomkim.github.io/tags/poll/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/poll/</guid>
       <description></description>
     </item>
     <item>
-      <title>Poll_wait</title>
+      <title>poll_wait</title>
       <link>https://seokbeomkim.github.io/tags/poll_wait/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/poll_wait/</guid>
       <description></description>
     </item>
     <item>
-      <title>Micom</title>
+      <title>micom</title>
       <link>https://seokbeomkim.github.io/tags/micom/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/micom/</guid>
       <description></description>
     </item>
     <item>
-      <title>Mpu</title>
+      <title>mpu</title>
       <link>https://seokbeomkim.github.io/tags/mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/mpu/</guid>
       <description></description>
     </item>
     <item>
-      <title>Interrupt</title>
+      <title>interrupt</title>
       <link>https://seokbeomkim.github.io/tags/interrupt/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/interrupt/</guid>
       <description></description>
     </item>
     <item>
-      <title>Ioctl</title>
+      <title>ioctl</title>
       <link>https://seokbeomkim.github.io/tags/ioctl/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/ioctl/</guid>
       <description></description>
     </item>
     <item>
-      <title>Hyper-V</title>
+      <title>hyper-v</title>
       <link>https://seokbeomkim.github.io/tags/hyper-v/</link>
       <pubDate>Sun, 01 Mar 2020 17:12:34 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/hyper-v/</guid>
       <description></description>
     </item>
     <item>
-      <title>Buffering</title>
+      <title>buffering</title>
       <link>https://seokbeomkim.github.io/tags/buffering/</link>
       <pubDate>Sat, 29 Feb 2020 23:34:30 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/buffering/</guid>
       <description></description>
     </item>
     <item>
-      <title>Macro</title>
+      <title>macro</title>
       <link>https://seokbeomkim.github.io/tags/macro/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/macro/</guid>
       <description></description>
     </item>
     <item>
-      <title>Switch</title>
+      <title>switch</title>
       <link>https://seokbeomkim.github.io/tags/switch/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/switch/</guid>
       <description></description>
     </item>
     <item>
-      <title>Idmap</title>
+      <title>idmap</title>
       <link>https://seokbeomkim.github.io/tags/idmap/</link>
       <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/idmap/</guid>
@@ -590,224 +590,224 @@
       <description></description>
     </item>
     <item>
-      <title>Likely</title>
+      <title>likely</title>
       <link>https://seokbeomkim.github.io/tags/likely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/likely/</guid>
       <description></description>
     </item>
     <item>
-      <title>Unlikely</title>
+      <title>unlikely</title>
       <link>https://seokbeomkim.github.io/tags/unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/unlikely/</guid>
       <description></description>
     </item>
     <item>
-      <title>Typedef</title>
+      <title>typedef</title>
       <link>https://seokbeomkim.github.io/tags/typedef/</link>
       <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/typedef/</guid>
       <description></description>
     </item>
     <item>
-      <title>Debug</title>
+      <title>debug</title>
       <link>https://seokbeomkim.github.io/tags/debug/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/debug/</guid>
       <description></description>
     </item>
     <item>
-      <title>Ftrace</title>
+      <title>ftrace</title>
       <link>https://seokbeomkim.github.io/tags/ftrace/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/ftrace/</guid>
       <description></description>
     </item>
     <item>
-      <title>Raspberry Pi</title>
+      <title>raspberry pi</title>
       <link>https://seokbeomkim.github.io/tags/raspberry-pi/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/raspberry-pi/</guid>
       <description></description>
     </item>
     <item>
-      <title>Side Project</title>
+      <title>side project</title>
       <link>https://seokbeomkim.github.io/tags/side-project/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/side-project/</guid>
       <description></description>
     </item>
     <item>
-      <title>Wayland</title>
+      <title>wayland</title>
       <link>https://seokbeomkim.github.io/tags/wayland/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/wayland/</guid>
       <description></description>
     </item>
     <item>
-      <title>Weston</title>
+      <title>weston</title>
       <link>https://seokbeomkim.github.io/tags/weston/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/weston/</guid>
       <description></description>
     </item>
     <item>
-      <title>Bitbake</title>
+      <title>bitbake</title>
       <link>https://seokbeomkim.github.io/tags/bitbake/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/bitbake/</guid>
       <description></description>
     </item>
     <item>
-      <title>Chroot</title>
+      <title>chroot</title>
       <link>https://seokbeomkim.github.io/tags/chroot/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/chroot/</guid>
       <description></description>
     </item>
     <item>
-      <title>Memory Map</title>
+      <title>memory map</title>
       <link>https://seokbeomkim.github.io/tags/memory-map/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/memory-map/</guid>
       <description></description>
     </item>
     <item>
-      <title>Yocto</title>
+      <title>yocto</title>
       <link>https://seokbeomkim.github.io/tags/yocto/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/yocto/</guid>
       <description></description>
     </item>
     <item>
-      <title>Gpio</title>
+      <title>gpio</title>
       <link>https://seokbeomkim.github.io/tags/gpio/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/gpio/</guid>
       <description></description>
     </item>
     <item>
-      <title>Uevent</title>
+      <title>uevent</title>
       <link>https://seokbeomkim.github.io/tags/uevent/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/uevent/</guid>
       <description></description>
     </item>
     <item>
-      <title>Ueventd</title>
+      <title>ueventd</title>
       <link>https://seokbeomkim.github.io/tags/ueventd/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/ueventd/</guid>
       <description></description>
     </item>
     <item>
-      <title>Kmem</title>
+      <title>kmem</title>
       <link>https://seokbeomkim.github.io/tags/kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/kmem/</guid>
       <description></description>
     </item>
     <item>
-      <title>Mem</title>
+      <title>mem</title>
       <link>https://seokbeomkim.github.io/tags/mem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/mem/</guid>
       <description></description>
     </item>
     <item>
-      <title>Kobject</title>
+      <title>kobject</title>
       <link>https://seokbeomkim.github.io/tags/kobject/</link>
       <pubDate>Tue, 28 Jan 2020 22:25:50 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/kobject/</guid>
       <description></description>
     </item>
     <item>
-      <title>Big Endian</title>
+      <title>big endian</title>
       <link>https://seokbeomkim.github.io/tags/big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/big-endian/</guid>
       <description></description>
     </item>
     <item>
-      <title>Endian</title>
+      <title>endian</title>
       <link>https://seokbeomkim.github.io/tags/endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/endian/</guid>
       <description></description>
     </item>
     <item>
-      <title>Little Endian</title>
+      <title>little endian</title>
       <link>https://seokbeomkim.github.io/tags/little-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/little-endian/</guid>
       <description></description>
     </item>
     <item>
-      <title>Bt.601</title>
+      <title>bt.601</title>
       <link>https://seokbeomkim.github.io/tags/bt.601/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/bt.601/</guid>
       <description></description>
     </item>
     <item>
-      <title>Bt.656</title>
+      <title>bt.656</title>
       <link>https://seokbeomkim.github.io/tags/bt.656/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/bt.656/</guid>
       <description></description>
     </item>
     <item>
-      <title>Colorspace</title>
+      <title>colorspace</title>
       <link>https://seokbeomkim.github.io/tags/colorspace/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/colorspace/</guid>
       <description></description>
     </item>
     <item>
-      <title>Rgb</title>
+      <title>rgb</title>
       <link>https://seokbeomkim.github.io/tags/rgb/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/rgb/</guid>
       <description></description>
     </item>
     <item>
-      <title>Yuv</title>
+      <title>yuv</title>
       <link>https://seokbeomkim.github.io/tags/yuv/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/yuv/</guid>
       <description></description>
     </item>
     <item>
-      <title>Bootloader</title>
+      <title>bootloader</title>
       <link>https://seokbeomkim.github.io/tags/bootloader/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/bootloader/</guid>
       <description></description>
     </item>
     <item>
-      <title>Embedded_linux</title>
+      <title>embedded_linux</title>
       <link>https://seokbeomkim.github.io/tags/embedded_linux/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/embedded_linux/</guid>
       <description></description>
     </item>
     <item>
-      <title>Posix-Spawn</title>
+      <title>posix-spawn</title>
       <link>https://seokbeomkim.github.io/tags/posix-spawn/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/posix-spawn/</guid>
       <description></description>
     </item>
     <item>
-      <title>Arm-Versatile</title>
+      <title>arm-versatile</title>
       <link>https://seokbeomkim.github.io/tags/arm-versatile/</link>
       <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/arm-versatile/</guid>
       <description></description>
     </item>
     <item>
-      <title>Qemu</title>
+      <title>qemu</title>
       <link>https://seokbeomkim.github.io/tags/qemu/</link>
       <pubDate>Sat, 22 Jun 2019 21:29:27 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/qemu/</guid>
@@ -828,63 +828,63 @@
       <description></description>
     </item>
     <item>
-      <title>Semaphore</title>
+      <title>semaphore</title>
       <link>https://seokbeomkim.github.io/tags/semaphore/</link>
       <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/semaphore/</guid>
       <description></description>
     </item>
     <item>
-      <title>Major Number</title>
+      <title>major number</title>
       <link>https://seokbeomkim.github.io/tags/major-number/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/major-number/</guid>
       <description></description>
     </item>
     <item>
-      <title>Minor Number</title>
+      <title>minor number</title>
       <link>https://seokbeomkim.github.io/tags/minor-number/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/minor-number/</guid>
       <description></description>
     </item>
     <item>
-      <title>Global Kernel Lock</title>
+      <title>global kernel lock</title>
       <link>https://seokbeomkim.github.io/tags/global-kernel-lock/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/global-kernel-lock/</guid>
       <description></description>
     </item>
     <item>
-      <title>Mutex</title>
+      <title>mutex</title>
       <link>https://seokbeomkim.github.io/tags/mutex/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/mutex/</guid>
       <description></description>
     </item>
     <item>
-      <title>Spinlock</title>
+      <title>spinlock</title>
       <link>https://seokbeomkim.github.io/tags/spinlock/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/spinlock/</guid>
       <description></description>
     </item>
     <item>
-      <title>Jiffies</title>
+      <title>jiffies</title>
       <link>https://seokbeomkim.github.io/tags/jiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/jiffies/</guid>
       <description></description>
     </item>
     <item>
-      <title>Buildroot</title>
+      <title>buildroot</title>
       <link>https://seokbeomkim.github.io/tags/buildroot/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/buildroot/</guid>
       <description></description>
     </item>
     <item>
-      <title>Busybox</title>
+      <title>busybox</title>
       <link>https://seokbeomkim.github.io/tags/busybox/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/busybox/</guid>
@@ -898,21 +898,21 @@
       <description></description>
     </item>
     <item>
-      <title>Tcp</title>
+      <title>tcp</title>
       <link>https://seokbeomkim.github.io/tags/tcp/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/tcp/</guid>
       <description></description>
     </item>
     <item>
-      <title>Udp</title>
+      <title>udp</title>
       <link>https://seokbeomkim.github.io/tags/udp/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/udp/</guid>
       <description></description>
     </item>
     <item>
-      <title>Process</title>
+      <title>process</title>
       <link>https://seokbeomkim.github.io/tags/process/</link>
       <pubDate>Thu, 16 May 2019 18:59:15 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/process/</guid>
@@ -926,77 +926,77 @@
       <description></description>
     </item>
     <item>
-      <title>Implicit Sharing</title>
+      <title>implicit sharing</title>
       <link>https://seokbeomkim.github.io/tags/implicit-sharing/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/implicit-sharing/</guid>
       <description></description>
     </item>
     <item>
-      <title>Shadowing</title>
+      <title>shadowing</title>
       <link>https://seokbeomkim.github.io/tags/shadowing/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/shadowing/</guid>
       <description></description>
     </item>
     <item>
-      <title>Drivers</title>
+      <title>drivers</title>
       <link>https://seokbeomkim.github.io/tags/drivers/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/drivers/</guid>
       <description></description>
     </item>
     <item>
-      <title>Modules</title>
+      <title>modules</title>
       <link>https://seokbeomkim.github.io/tags/modules/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/modules/</guid>
       <description></description>
     </item>
     <item>
-      <title>Nonpreemptive</title>
+      <title>nonpreemptive</title>
       <link>https://seokbeomkim.github.io/tags/nonpreemptive/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/nonpreemptive/</guid>
       <description></description>
     </item>
     <item>
-      <title>Scheduling</title>
+      <title>scheduling</title>
       <link>https://seokbeomkim.github.io/tags/scheduling/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/scheduling/</guid>
       <description></description>
     </item>
     <item>
-      <title>Deadlock</title>
+      <title>deadlock</title>
       <link>https://seokbeomkim.github.io/tags/deadlock/</link>
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/deadlock/</guid>
       <description></description>
     </item>
     <item>
-      <title>Default Export</title>
+      <title>default export</title>
       <link>https://seokbeomkim.github.io/tags/default-export/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/default-export/</guid>
       <description></description>
     </item>
     <item>
-      <title>Named Export</title>
+      <title>named export</title>
       <link>https://seokbeomkim.github.io/tags/named-export/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/named-export/</guid>
       <description></description>
     </item>
     <item>
-      <title>Scikit Learn</title>
+      <title>scikit learn</title>
       <link>https://seokbeomkim.github.io/tags/scikit-learn/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/scikit-learn/</guid>
       <description></description>
     </item>
     <item>
-      <title>Tensorflow</title>
+      <title>tensorflow</title>
       <link>https://seokbeomkim.github.io/tags/tensorflow/</link>
       <pubDate>Mon, 06 May 2019 17:05:11 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/tensorflow/</guid>
@@ -1017,28 +1017,28 @@
       <description></description>
     </item>
     <item>
-      <title>Nested Class</title>
+      <title>nested class</title>
       <link>https://seokbeomkim.github.io/tags/nested-class/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/nested-class/</guid>
       <description></description>
     </item>
     <item>
-      <title>Apache_httpd</title>
+      <title>apache_httpd</title>
       <link>https://seokbeomkim.github.io/tags/apache_httpd/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/apache_httpd/</guid>
       <description></description>
     </item>
     <item>
-      <title>Servlet_container</title>
+      <title>servlet_container</title>
       <link>https://seokbeomkim.github.io/tags/servlet_container/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/servlet_container/</guid>
       <description></description>
     </item>
     <item>
-      <title>Shard</title>
+      <title>shard</title>
       <link>https://seokbeomkim.github.io/tags/shard/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/shard/</guid>
@@ -1059,49 +1059,49 @@
       <description></description>
     </item>
     <item>
-      <title>Folding</title>
+      <title>folding</title>
       <link>https://seokbeomkim.github.io/tags/folding/</link>
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/folding/</guid>
       <description></description>
     </item>
     <item>
-      <title>Http1.1</title>
+      <title>http1.1</title>
       <link>https://seokbeomkim.github.io/tags/http1.1/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/http1.1/</guid>
       <description></description>
     </item>
     <item>
-      <title>Http2</title>
+      <title>http2</title>
       <link>https://seokbeomkim.github.io/tags/http2/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/http2/</guid>
       <description></description>
     </item>
     <item>
-      <title>Cors</title>
+      <title>cors</title>
       <link>https://seokbeomkim.github.io/tags/cors/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/cors/</guid>
       <description></description>
     </item>
     <item>
-      <title>Cdn</title>
+      <title>cdn</title>
       <link>https://seokbeomkim.github.io/tags/cdn/</link>
       <pubDate>Wed, 01 May 2019 17:19:18 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/cdn/</guid>
       <description></description>
     </item>
     <item>
-      <title>Host Header</title>
+      <title>host header</title>
       <link>https://seokbeomkim.github.io/tags/host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/host-header/</guid>
       <description></description>
     </item>
     <item>
-      <title>Virtual Host</title>
+      <title>virtual host</title>
       <link>https://seokbeomkim.github.io/tags/virtual-host/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/virtual-host/</guid>
@@ -1115,14 +1115,14 @@
       <description></description>
     </item>
     <item>
-      <title>Http</title>
+      <title>http</title>
       <link>https://seokbeomkim.github.io/tags/http/</link>
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/http/</guid>
       <description></description>
     </item>
     <item>
-      <title>Https</title>
+      <title>https</title>
       <link>https://seokbeomkim.github.io/tags/https/</link>
       <pubDate>Wed, 01 May 2019 16:53:27 +0900</pubDate>
       <guid>https://seokbeomkim.github.io/tags/https/</guid>

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Fwnode | seokbeomkim.dev</title>
+    <title>Fwnode | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이 없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -83,6 +101,33 @@ if (!doNotTrack) {
     </div>
 
     
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#커밋-찾아보기">커밋 찾아보기</a></li>
+    <li><a href="#디바이스-구성을-기술표현하는-방법-device-tree">디바이스 구성을 기술(표현)하는 방법: Device Tree</a></li>
+    <li><a href="#fwnode_ops로-구분하는-디바이스-표현-방법">fwnode_ops로 구분하는 디바이스 표현 방법</a>
+      <ul>
+        <li><a href="#open-firmware인-경우">Open Firmware인 경우</a></li>
+        <li><a href="#software-node-swnode">Software Node (swnode)</a></li>
+        <li><a href="#acpi">ACPI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
     
 
 
@@ -115,100 +160,100 @@ Tree를 사용한다. 하지만 디바이스를 표현하는 방법에는 Device
 디바이스의 property를 얻어오는 함수는 아래와 같이 fwnode를 이용하도록 구현되어
 있다. 해당 디바이스가 어떤 device description method로 표현되어 있는지 상관없이
 디바이스에 설정된 방식에 따라 원하는 프로퍼티를 가져올 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">device_property_read_string_array</span>(<span style="color:#a2f;font-weight:bold">struct</span> device <span style="color:#666">*</span>dev, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>propname,
-				      <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">**</span>val, size_t nval)
-{
-	<span style="color:#a2f;font-weight:bold">return</span> fwnode_property_read_string_array(dev_fwnode(dev), propname, val,
-						 nval);
-}
-</code></pre></div><h2 id="fwnode_ops로-구분하는-디바이스-표현-방법">fwnode_ops로 구분하는 디바이스 표현 방법 <a href="#fwnode_ops%eb%a1%9c-%ea%b5%ac%eb%b6%84%ed%95%98%eb%8a%94-%eb%94%94%eb%b0%94%ec%9d%b4%ec%8a%a4-%ed%91%9c%ed%98%84-%eb%b0%a9%eb%b2%95" class="anchor">🔗</a></h2><h3 id="open-firmware인-경우">Open Firmware인 경우 <a href="#open-firmware%ec%9d%b8-%ea%b2%bd%ec%9a%b0" class="anchor">🔗</a></h3><p>리눅스 커널에서 특이한 경우가 아니라면 기본적으로 <code>of_node_init</code>을 이용해
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">device_property_read_string_array</span>(<span style="color:#a2f;font-weight:bold">struct</span> device <span style="color:#666">*</span>dev, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>propname,
+</span></span><span style="display:flex;"><span>				      <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">**</span>val, <span style="color:#0b0;font-weight:bold">size_t</span> nval)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">return</span> <span style="color:#00a000">fwnode_property_read_string_array</span>(<span style="color:#00a000">dev_fwnode</span>(dev), propname, val,
+</span></span><span style="display:flex;"><span>						 nval);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="fwnode_ops로-구분하는-디바이스-표현-방법">fwnode_ops로 구분하는 디바이스 표현 방법 <a href="#fwnode_ops%eb%a1%9c-%ea%b5%ac%eb%b6%84%ed%95%98%eb%8a%94-%eb%94%94%eb%b0%94%ec%9d%b4%ec%8a%a4-%ed%91%9c%ed%98%84-%eb%b0%a9%eb%b2%95" class="anchor">🔗</a></h2><h3 id="open-firmware인-경우">Open Firmware인 경우 <a href="#open-firmware%ec%9d%b8-%ea%b2%bd%ec%9a%b0" class="anchor">🔗</a></h3><p>리눅스 커널에서 특이한 경우가 아니라면 기본적으로 <code>of_node_init</code>을 이용해
 디바이스를 초기화하며 이 때 of_fwnode_ops를 사용하도록 설정된다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">of_node_init</span>(<span style="color:#a2f;font-weight:bold">struct</span> device_node <span style="color:#666">*</span>node)
-{
-<span style="color:#080">#if defined(CONFIG_OF_KOBJ)
-</span><span style="color:#080"></span>	kobject_init(<span style="color:#666">&amp;</span>node<span style="color:#666">-&gt;</span>kobj, <span style="color:#666">&amp;</span>of_node_ktype);
-<span style="color:#080">#endif
-</span><span style="color:#080"></span>	fwnode_init(<span style="color:#666">&amp;</span>node<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>of_fwnode_ops);
-}
-</code></pre></div><p>하지만 표현되어 있는 디바이스 노드를 of_node가 아닌 acpi로서 아래와 같이
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">of_node_init</span>(<span style="color:#a2f;font-weight:bold">struct</span> device_node <span style="color:#666">*</span>node)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#080">#if defined(CONFIG_OF_KOBJ)
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>	<span style="color:#00a000">kobject_init</span>(<span style="color:#666">&amp;</span>node<span style="color:#666">-&gt;</span>kobj, <span style="color:#666">&amp;</span>of_node_ktype);
+</span></span><span style="display:flex;"><span><span style="color:#080">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>	<span style="color:#00a000">fwnode_init</span>(<span style="color:#666">&amp;</span>node<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>of_fwnode_ops);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>하지만 표현되어 있는 디바이스 노드를 of_node가 아닌 acpi로서 아래와 같이
 fwnode를 초기화할 수로 있고, swnode로서 초기화 할 수도 있다. 각 함수에서
 호출되는 <code>fwnode_init()</code> 함수에 주목하자.</p>
-<h3 id="software-node-swnode">Software Node (swnode) <a href="#software-node-swnode" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">swnode_register(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> software_node <span style="color:#666">*</span>node, <span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>parent,
-		<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> allocated)
-{
-	<span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>swnode;
-	<span style="color:#0b0;font-weight:bold">int</span> ret;
-
-	<span style="color:#080;font-style:italic">/* ... */</span>
-
-	swnode<span style="color:#666">-&gt;</span>id <span style="color:#666">=</span> ret;
-	swnode<span style="color:#666">-&gt;</span>node <span style="color:#666">=</span> node;
-	swnode<span style="color:#666">-&gt;</span>parent <span style="color:#666">=</span> parent;
-	swnode<span style="color:#666">-&gt;</span>kobj.kset <span style="color:#666">=</span> swnode_kset;
-	fwnode_init(<span style="color:#666">&amp;</span>swnode<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>software_node_ops);
-	<span style="color:#080;font-style:italic">/* ... */</span>
-}
-</code></pre></div><h3 id="acpi">ACPI <a href="#acpi" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">acpi_init_device_object</span>(<span style="color:#a2f;font-weight:bold">struct</span> acpi_device <span style="color:#666">*</span>device, acpi_handle handle,
-			     <span style="color:#0b0;font-weight:bold">int</span> type)
-{
-	INIT_LIST_HEAD(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>pnp.ids);
-	device<span style="color:#666">-&gt;</span>device_type <span style="color:#666">=</span> type;
-	device<span style="color:#666">-&gt;</span>handle <span style="color:#666">=</span> handle;
-	device<span style="color:#666">-&gt;</span>parent <span style="color:#666">=</span> acpi_bus_get_parent(handle);
-	fwnode_init(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>acpi_device_fwnode_ops);
-	acpi_set_device_status(device, ACPI_STA_DEFAULT);
-	acpi_device_get_busid(device);
-	acpi_set_pnp_ids(handle, <span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>pnp, type);
-	acpi_init_properties(device);
-	acpi_bus_get_flags(device);
-	device<span style="color:#666">-&gt;</span>flags.match_driver <span style="color:#666">=</span> <span style="color:#a2f">false</span>;
-	device<span style="color:#666">-&gt;</span>flags.initialized <span style="color:#666">=</span> <span style="color:#a2f">true</span>;
-	device<span style="color:#666">-&gt;</span>flags.enumeration_by_parent <span style="color:#666">=</span>
-		acpi_device_enumeration_by_parent(device);
-	acpi_device_clear_enumerated(device);
-	device_initialize(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>dev);
-	dev_set_uevent_suppress(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>dev, <span style="color:#a2f">true</span>);
-	acpi_init_coherency(device);
-}
-</code></pre></div><h1 id="v4l2-media-framework와-fwnode의-관계">V4L2 media framework와 fwnode의 관계 <a href="#v4l2-media-framework%ec%99%80-fwnode%ec%9d%98-%ea%b4%80%ea%b3%84" class="anchor">🔗</a></h1><p>그렇다면, fwnode와 V4L2 media framework은 무슨 상관인가? V4L2 media framework의
+<h3 id="software-node-swnode">Software Node (swnode) <a href="#software-node-swnode" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a000">swnode_register</span>(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#a2f;font-weight:bold">struct</span> software_node <span style="color:#666">*</span>node, <span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>parent,
+</span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> allocated)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> swnode <span style="color:#666">*</span>swnode;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> ret;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">/* ... */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	swnode<span style="color:#666">-&gt;</span>id <span style="color:#666">=</span> ret;
+</span></span><span style="display:flex;"><span>	swnode<span style="color:#666">-&gt;</span>node <span style="color:#666">=</span> node;
+</span></span><span style="display:flex;"><span>	swnode<span style="color:#666">-&gt;</span>parent <span style="color:#666">=</span> parent;
+</span></span><span style="display:flex;"><span>	swnode<span style="color:#666">-&gt;</span>kobj.kset <span style="color:#666">=</span> swnode_kset;
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">fwnode_init</span>(<span style="color:#666">&amp;</span>swnode<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>software_node_ops);
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">/* ... */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="acpi">ACPI <a href="#acpi" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">acpi_init_device_object</span>(<span style="color:#a2f;font-weight:bold">struct</span> acpi_device <span style="color:#666">*</span>device, acpi_handle handle,
+</span></span><span style="display:flex;"><span>			     <span style="color:#0b0;font-weight:bold">int</span> type)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">INIT_LIST_HEAD</span>(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>pnp.ids);
+</span></span><span style="display:flex;"><span>	device<span style="color:#666">-&gt;</span>device_type <span style="color:#666">=</span> type;
+</span></span><span style="display:flex;"><span>	device<span style="color:#666">-&gt;</span>handle <span style="color:#666">=</span> handle;
+</span></span><span style="display:flex;"><span>	device<span style="color:#666">-&gt;</span>parent <span style="color:#666">=</span> <span style="color:#00a000">acpi_bus_get_parent</span>(handle);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">fwnode_init</span>(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>fwnode, <span style="color:#666">&amp;</span>acpi_device_fwnode_ops);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">acpi_set_device_status</span>(device, ACPI_STA_DEFAULT);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">acpi_device_get_busid</span>(device);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">acpi_set_pnp_ids</span>(handle, <span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>pnp, type);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">acpi_init_properties</span>(device);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">acpi_bus_get_flags</span>(device);
+</span></span><span style="display:flex;"><span>	device<span style="color:#666">-&gt;</span>flags.match_driver <span style="color:#666">=</span> <span style="color:#a2f">false</span>;
+</span></span><span style="display:flex;"><span>	device<span style="color:#666">-&gt;</span>flags.initialized <span style="color:#666">=</span> <span style="color:#a2f">true</span>;
+</span></span><span style="display:flex;"><span>	device<span style="color:#666">-&gt;</span>flags.enumeration_by_parent <span style="color:#666">=</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#00a000">acpi_device_enumeration_by_parent</span>(device);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">acpi_device_clear_enumerated</span>(device);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">device_initialize</span>(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>dev);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">dev_set_uevent_suppress</span>(<span style="color:#666">&amp;</span>device<span style="color:#666">-&gt;</span>dev, <span style="color:#a2f">true</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#00a000">acpi_init_coherency</span>(device);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="v4l2-media-framework와-fwnode의-관계">V4L2 media framework와 fwnode의 관계 <a href="#v4l2-media-framework%ec%99%80-fwnode%ec%9d%98-%ea%b4%80%ea%b3%84" class="anchor">🔗</a></h1><p>그렇다면, fwnode와 V4L2 media framework은 무슨 상관인가? V4L2 media framework의
 v4l2-fwnode.h 파일을 보면 operation은 별도로 구현하지 않고 있다. 그 말은 V4L2
 media framework에서 디바이스를 표현하는 방법을 새롭게 정의한 것이 아니라
 단순하게 fwnode가 가지고 있는 기능을 이용한다는 것을 짐작할 수 있다.</p>
 <p>v4l2-fwnode.h 파일에서 fwnode와 관련된 함수들을 살펴보면 아래와 같이 endpoint
 개념이 나오는 것을 볼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">    v4l2_async_nf_parse_fwnode_endpoints
-    v4l2_fwnode_connector_add_link
-    v4l2_fwnode_connector_free
-    v4l2_fwnode_connector_parse
-    v4l2_fwnode_device_parse
-    v4l2_fwnode_endpoint_alloc_parse
-    v4l2_fwnode_endpoint_free
-    v4l2_fwnode_endpoint_parse
-    v4l2_fwnode_parse_link
-    v4l2_fwnode_put_link
-    fwnode_handle
-    v4l2_async_notifier
-    v4l2_async_subdev
-</code></pre></div><p>fwnode_endpoint를 아래와 같이 상속하여 v4l2_fwnode_endpoint로 정의해 사용하고
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>    v4l2_async_nf_parse_fwnode_endpoints
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_connector_add_link
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_connector_free
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_connector_parse
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_device_parse
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_endpoint_alloc_parse
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_endpoint_free
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_endpoint_parse
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_parse_link
+</span></span><span style="display:flex;"><span>    v4l2_fwnode_put_link
+</span></span><span style="display:flex;"><span>    fwnode_handle
+</span></span><span style="display:flex;"><span>    v4l2_async_notifier
+</span></span><span style="display:flex;"><span>    v4l2_async_subdev
+</span></span></code></pre></div><p>fwnode_endpoint를 아래와 같이 상속하여 v4l2_fwnode_endpoint로 정의해 사용하고
 있는 것을 알 수 있다. 즉, fwnode의 graph 구성 기능을 이용하여
 v4l2_fwnode_endpoint로서 미디어 파이프라인을 표현하기에 필요한 몇 가지 정보를 더
 추가하고 있는 것일 뿐이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_endpoint {
-	<span style="color:#a2f;font-weight:bold">struct</span> fwnode_endpoint base;
-	<span style="color:#080;font-style:italic">/*
-</span><span style="color:#080;font-style:italic">    	 * Fields below this line will be zeroed by
-</span><span style="color:#080;font-style:italic">    	 * v4l2_fwnode_endpoint_parse()
-</span><span style="color:#080;font-style:italic">    	 */</span>
-	<span style="color:#a2f;font-weight:bold">enum</span> v4l2_mbus_type bus_type;
-	<span style="color:#a2f;font-weight:bold">struct</span> {
-		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_parallel parallel;
-		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_mipi_csi1 mipi_csi1;
-		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_mipi_csi2 mipi_csi2;
-	} bus;
-	u64 <span style="color:#666">*</span>link_frequencies;
-	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> nr_of_link_frequencies;
-};
-</code></pre></div><h1 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h1><p>개인적으로 해석했을 때 fwnode는 device description methods 들의 abstraction data
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_endpoint {
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> fwnode_endpoint base;
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    	 * Fields below this line will be zeroed by
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    	 * v4l2_fwnode_endpoint_parse()
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    	 */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">enum</span> v4l2_mbus_type bus_type;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">struct</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_parallel parallel;
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_mipi_csi1 mipi_csi1;
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">struct</span> v4l2_fwnode_bus_mipi_csi2 mipi_csi2;
+</span></span><span style="display:flex;"><span>	} bus;
+</span></span><span style="display:flex;"><span>	u64 <span style="color:#666">*</span>link_frequencies;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> nr_of_link_frequencies;
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h1 id="마치며">마치며 <a href="#%eb%a7%88%ec%b9%98%eb%a9%b0" class="anchor">🔗</a></h1><p>개인적으로 해석했을 때 fwnode는 device description methods 들의 abstraction data
 structure이다. 끝.</p>
 <h1 id="참고">참고 <a href="#%ec%b0%b8%ea%b3%a0" class="anchor">🔗</a></h1><ul>
 <li><a href="https://events.static.linuxfound.org/sites/events/files/slides/unified_properties_API_0.pdf" target="_blank" rel="noopener">https://events.static.linuxfound.org/sites/events/files/slides/unified_properties_API_0.pdf</a></li>
@@ -235,42 +280,13 @@ structure이다. 끝.</p>
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 

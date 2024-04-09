@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Major와 Minor Numbers | seokbeomkim.dev</title>
+    <title>Major와 Minor Numbers | Sukbeom Kim</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변">
-<meta name="generator" content="Hugo 0.92.2" />
+<meta name="generator" content="Hugo 0.121.2">
 
 
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -16,14 +16,27 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/img.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/noto_sans_kr.css">
+  
+
+  
+    
+    <link rel="stylesheet" href="https://seokbeomkim.github.iocss/nanumgothic.css">
+  
+
 
 <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8323334830421355"
-     crossorigin="anonymous"></script>
 
  
     
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -37,6 +50,11 @@ if (!doNotTrack) {
 
 
 
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 
 
 
@@ -55,7 +73,7 @@ if (!doNotTrack) {
 	
 
 	
-	  <a class="button" href="https://seokbeomkim.github.io/index.xml">RSS Feed</a>
+	  <a class="button" href="https://seokbeomkim.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -84,6 +102,11 @@ if (!doNotTrack) {
 
     
     
+        
+  
+
+
+    
 
 
     <div class="content">
@@ -97,43 +120,43 @@ if (!doNotTrack) {
 특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로
 식별할 수 있다. 아래와 같이 <code>ls</code> 명령어를 사용하면 각 디바이스 파일에
 번호가 할당되어 있는 것을 알 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">drwxr-xr-x   <span style="color:#666">2</span> root    root           <span style="color:#666">60</span> May <span style="color:#666">31</span> 23:18 vfio
-crw-------   <span style="color:#666">1</span> root    root    10,    <span style="color:#666">63</span> May <span style="color:#666">31</span> 23:18 vga_arbiter
-crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">137</span> May <span style="color:#666">31</span> 23:18 vhci
-crw-rw----+  <span style="color:#666">1</span> root    kvm     10,   <span style="color:#666">238</span> May <span style="color:#666">31</span> 23:18 vhost-net
-crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">241</span> May <span style="color:#666">31</span> 23:18 vhost-vsock
-crw-rw----+  <span style="color:#666">1</span> root    video   81,     <span style="color:#666">0</span> May <span style="color:#666">31</span> 23:18 video0
-crw-rw----+  <span style="color:#666">1</span> root    video   81,     <span style="color:#666">1</span> May <span style="color:#666">31</span> 23:18 video1
-crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">130</span> May <span style="color:#666">31</span> 23:18 watchdog
-crw-------   <span style="color:#666">1</span> root    root   246,     <span style="color:#666">0</span> May <span style="color:#666">31</span> 23:18 watchdog0
-crw-rw-rw-   <span style="color:#666">1</span> root    root     1,     <span style="color:#666">5</span> May <span style="color:#666">31</span> 23:18 zero
-</code></pre></div><p>이 때, <code>major number</code>는 특정 디바이스에 할당된 드라이버를
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>drwxr-xr-x   <span style="color:#666">2</span> root    root           <span style="color:#666">60</span> May <span style="color:#666">31</span> 23:18 vfio
+</span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root    10,    <span style="color:#666">63</span> May <span style="color:#666">31</span> 23:18 vga_arbiter
+</span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">137</span> May <span style="color:#666">31</span> 23:18 vhci
+</span></span><span style="display:flex;"><span>crw-rw----+  <span style="color:#666">1</span> root    kvm     10,   <span style="color:#666">238</span> May <span style="color:#666">31</span> 23:18 vhost-net
+</span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">241</span> May <span style="color:#666">31</span> 23:18 vhost-vsock
+</span></span><span style="display:flex;"><span>crw-rw----+  <span style="color:#666">1</span> root    video   81,     <span style="color:#666">0</span> May <span style="color:#666">31</span> 23:18 video0
+</span></span><span style="display:flex;"><span>crw-rw----+  <span style="color:#666">1</span> root    video   81,     <span style="color:#666">1</span> May <span style="color:#666">31</span> 23:18 video1
+</span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root    10,   <span style="color:#666">130</span> May <span style="color:#666">31</span> 23:18 watchdog
+</span></span><span style="display:flex;"><span>crw-------   <span style="color:#666">1</span> root    root   246,     <span style="color:#666">0</span> May <span style="color:#666">31</span> 23:18 watchdog0
+</span></span><span style="display:flex;"><span>crw-rw-rw-   <span style="color:#666">1</span> root    root     1,     <span style="color:#666">5</span> May <span style="color:#666">31</span> 23:18 zero
+</span></span></code></pre></div><p>이 때, <code>major number</code>는 특정 디바이스에 할당된 드라이버를
 식별한다. 예를 들어, <code>/dev/zero</code>는 드라이버 1이 관리하고
 <code>/dev/watchdog0</code>은 드라이버 246이 관리한다. <code>minor number</code>는
 드라이버가 맡고 있는 장치들을 분류하기 위한 것으로 아래와 같이 같은
 <code>major number</code>를 가지고 있는 장치들을 분류할 때 사용한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ ls -l /dev | egrep <span style="color:#b44">&#39;^c.*.(\s)1,&#39;</span>
-crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">7</span> May <span style="color:#666">31</span> 23:18 full
-crw-r--r--  <span style="color:#666">1</span> root    root     1,    <span style="color:#666">11</span> May <span style="color:#666">31</span> 23:18 kmsg
-crw-r-----  <span style="color:#666">1</span> root    kmem     1,     <span style="color:#666">1</span> May <span style="color:#666">31</span> 23:18 mem
-crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">3</span> May <span style="color:#666">31</span> 23:18 null
-crw-r-----  <span style="color:#666">1</span> root    kmem     1,     <span style="color:#666">4</span> May <span style="color:#666">31</span> 23:18 port
-crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">8</span> May <span style="color:#666">31</span> 23:18 random
-crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">9</span> May <span style="color:#666">31</span> 23:18 urandom
-crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">5</span> May <span style="color:#666">31</span> 23:18 zero
-</code></pre></div><p>버전 2.4 커널에서 <code>devfs(device file system)</code>라는 새 기능이
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>➜  ~ ls -l /dev | egrep <span style="color:#b44">&#39;^c.*.(\s)1,&#39;</span>
+</span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">7</span> May <span style="color:#666">31</span> 23:18 full
+</span></span><span style="display:flex;"><span>crw-r--r--  <span style="color:#666">1</span> root    root     1,    <span style="color:#666">11</span> May <span style="color:#666">31</span> 23:18 kmsg
+</span></span><span style="display:flex;"><span>crw-r-----  <span style="color:#666">1</span> root    kmem     1,     <span style="color:#666">1</span> May <span style="color:#666">31</span> 23:18 mem
+</span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">3</span> May <span style="color:#666">31</span> 23:18 null
+</span></span><span style="display:flex;"><span>crw-r-----  <span style="color:#666">1</span> root    kmem     1,     <span style="color:#666">4</span> May <span style="color:#666">31</span> 23:18 port
+</span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">8</span> May <span style="color:#666">31</span> 23:18 random
+</span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">9</span> May <span style="color:#666">31</span> 23:18 urandom
+</span></span><span style="display:flex;"><span>crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span style="color:#666">5</span> May <span style="color:#666">31</span> 23:18 zero
+</span></span></code></pre></div><p>버전 2.4 커널에서 <code>devfs(device file system)</code>라는 새 기능이
 추가되었다. 만약 이 파일시스템 사용되면 디바이스 파일들을 그 전보다
 훨씬 간단하게 관리할 수 있지만 호환성에 문제가 생긴다. 이에 대해서
 자세히 알아보자.</p>
 <p><code>devfs</code>를 사용하지 않을 경우, <code>시스템에 드라이버를 새로 추가한다</code>는
 의미는 새로운 <code>major number</code>를 할당한다는 의미와 같다. 그래서 아래와
 같은 코드를 이용해 직접 그 숫자를 할당해줘야 한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">// return: success or failure(&lt;0)
-</span><span style="color:#080;font-style:italic">// major: major number being requested
-</span><span style="color:#080;font-style:italic">// name: name of the device (which will appear in /proc/devices)
-</span><span style="color:#080;font-style:italic">// fops: driver&#39;s entry point
-</span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">register_chrdev</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> major, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>name, <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">file_operations</span> <span style="color:#666">*</span>fops);
-</code></pre></div><p><code>Major Number</code>는 <code>small integer</code> 형태로서 캐릭터 드라이버 배열의
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// return: success or failure(&lt;0)
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// major: major number being requested
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// name: name of the device (which will appear in /proc/devices)
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// fops: driver&#39;s entry point
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">register_chrdev</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> major, <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span>name, <span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">file_operations</span> <span style="color:#666">*</span>fops);
+</span></span></code></pre></div><p><code>Major Number</code>는 <code>small integer</code> 형태로서 캐릭터 드라이버 배열의
 인덱스를 담당한다. 2.0 커널에서는 128개 디바이스에 대해, 2.2와
 2.4에서는 256개 디바이스에 대한 인덱스를 가질 수 있으며 <code>Minor Number</code>의 경우 8비트를 가져 마찬가지로 256개 디바이스에 대한 인덱스를
 가질 수 있다. 하지만 <code>Minor Number</code>는 위 함수에서 특별히 인자로 넘기지
@@ -143,9 +166,9 @@ crw-rw-rw-  <span style="color:#666">1</span> root    root     1,     <span styl
 시에 정의했던 <code>file_operations</code> 구조체의 각 함수들을 이용하게
 된다. 하지만 코드가 아닌 실제 명령어를 통해 이러한 등록 과정을 아주
 간단히 할 수가 있는데 그것이 바로 <code>mknod</code> 명령어이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mknod /dev/scull0 c <span style="color:#666">254</span> <span style="color:#666">0</span>
-$ rm /dev/scull0
-</code></pre></div><p>위처럼 major number가 254, minor number가 0인 캐릭터 디바이스(c)를
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ mknod /dev/scull0 c <span style="color:#666">254</span> <span style="color:#666">0</span>
+</span></span><span style="display:flex;"><span>$ rm /dev/scull0
+</span></span></code></pre></div><p>위처럼 major number가 254, minor number가 0인 캐릭터 디바이스(c)를
 생성하고 해당 디바이스를 삭제할 수 있다. 하지만 이렇게 정적으로
 디바이스를 관리하는 인덱스 번호를 할당할 필요가 있을까?</p>
 <h1 id="dynamic-allocation-of-major-numbers">Dynamic Allocation of Major Numbers <a href="#dynamic-allocation-of-major-numbers" class="anchor">🔗</a></h1><p>몇몇 주요 장치들에 대한 인덱스 숫자는 정적으로 할당된다. 이러한
@@ -162,15 +185,15 @@ $ rm /dev/scull0
 것처럼 <code>/proc/devices</code>의 정보를 사용하면 되기 때문이다.</p>
 <p>동적으로 생성하는 방법은 아래와 같은 코드를 이용하면 된다. 이 때,
 <code>scull_major</code> 값을 0으로 주어지면 동적 할당을 사용한다는 의미이다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">result <span style="color:#666">=</span> register_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>, <span style="color:#666">&amp;</span>scull_fops);
-<span style="color:#a2f;font-weight:bold">if</span> (result <span style="color:#666">&lt;</span> <span style="color:#666">0</span>) {
-    printk(KERN_WARNING <span style="color:#b44">&#34;scull: can&#39;t get major %d</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, scull_major);
-    <span style="color:#a2f;font-weight:bold">return</span> resul;t
-}
-<span style="color:#a2f;font-weight:bold">if</span> (scull_major <span style="color:#666">==</span> <span style="color:#666">0</span>) scull_major <span style="color:#666">=</span> result; <span style="color:#080;font-style:italic">/* dynamic */</span>
-
-unregister_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>);
-</code></pre></div><p>이 때, 코드 마지막에 위치하는 <code>unregister_chrdev</code> 사용에 있어서
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>result <span style="color:#666">=</span> register_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>, <span style="color:#666">&amp;</span>scull_fops);
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (result <span style="color:#666">&lt;</span> <span style="color:#666">0</span>) {
+</span></span><span style="display:flex;"><span>    printk(KERN_WARNING <span style="color:#b44">&#34;scull: can&#39;t get major %d</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>, scull_major);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> resul;t
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">if</span> (scull_major <span style="color:#666">==</span> <span style="color:#666">0</span>) scull_major <span style="color:#666">=</span> result; <span style="color:#080;font-style:italic">/* dynamic */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>unregister_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>);
+</span></span></code></pre></div><p>이 때, 코드 마지막에 위치하는 <code>unregister_chrdev</code> 사용에 있어서
 실패했을 경우를 염두에 두어야 한다. 등록 해제(unregister_chrdev)가
 실패했을 때는 그 영향에 대해 주의해야 한다.<code>/proc/devices</code> 자체가
 실패할 수 있는데 그 이유는 이미 해제된 장치에 대해 이름을 가리키는
@@ -186,15 +209,15 @@ unregister_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>);
 변경되더라도 디바이스 드라이버에서 해당 변경에 대해 별다른 변경 작업을
 할 필요가 없도록 설계되었다. <code>kdev_t</code>를 이용하기 위해서는 직접 사용할
 필요가 없고 아래와 같이 제공되는 함수 또는 매크로를 이용한다.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#080;font-style:italic">// Extract the major number from a kdev_t structure.
-</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MAJOR(dev)	((unsigned int) ((dev) &gt;&gt; MINORBITS))
-</span><span style="color:#080"></span>
-<span style="color:#080;font-style:italic">// Extract the minor number.
-</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MINOR(dev)	((unsigned int) ((dev) &amp; MINORMASK))
-</span><span style="color:#080"></span>
-<span style="color:#080;font-style:italic">// Create a kdev_t build from major and minor numbers
-</span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MKDEV(ma,mi)	(((ma) &lt;&lt; MINORBITS) | (mi))
-</span></code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Extract the major number from a kdev_t structure.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MAJOR(dev)	((unsigned int) ((dev) &gt;&gt; MINORBITS))
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Extract the minor number.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MINOR(dev)	((unsigned int) ((dev) &amp; MINORMASK))
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// Create a kdev_t build from major and minor numbers
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#080">#define MKDEV(ma,mi)	(((ma) &lt;&lt; MINORBITS) | (mi))
+</span></span></span></code></pre></div><h1 id="출처">출처 <a href="#%ec%b6%9c%ec%b2%98" class="anchor">🔗</a></h1><ul>
 <li><a href="https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html" target="_blank" rel="noopener">https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html</a></li>
 </ul>
 
@@ -219,42 +242,13 @@ unregister_chrdev(scull_major, <span style="color:#b44">&#34;scull&#34;</span>);
     
     <footer id="footer">
     
-        <div id="social">
-
-
-    <a class="symbol" href="https://github.com/seokbeomKim" rel="me" target="_blank">
-        
-        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    
-    <title>Github</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
-            <g id="Github" transform="translate(264.000000, 939.000000)">
-                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
-                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
-            </g>
-        </g>
-    </g>
-</svg>
-    </a>
-
-
-</div>
-
-    
 
     <div class="copyright">
     
-        Copyright - 김석범 (Sukbeom Kim)
+        Copyright - Sukbeom Kim
     
     </div>
 
-    
-      <div class="powerby">
-        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
-      </div>
     
 </footer>
 
