@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "맥북에 리눅스 설치, 그리고 hyper-v"
 date: 2020-02-22T18:41:53+09:00
 draft: true

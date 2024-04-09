@@ -1,6 +1,8 @@
 ---
+draft: true
 title: "__is_constexpr macro in kernel"
 date: 2021-03-21T22:44:03+09:00
+toc: false
 draft: false
 categories:
 - Kernel
@@ -51,7 +53,7 @@ values)` 가 되고 결국 `sizeof(*(void *)value) == 1` 이 된다.
 내부적으로 long으로 캐스팅하고 난 뒤에 0L으로 곱하는 이유는 아키텍처에 따라
 64비트 변수에 대해 발생할 수 있는 컴파일러 에러를 없애기 위함이다.
 
-## 참고 링크
+# 참고 링크
 
 - https://stackoverflow.com/questions/49481217/linux-kernels-is-constexpr-macro
 - https://lkml.org/lkml/2018/3/20/845

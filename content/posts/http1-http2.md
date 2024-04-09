@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "HTTP/1.1과 HTTP/2의 차이점"
 date: 2019-05-01T17:29:25+09:00
 categories:

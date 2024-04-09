@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Obsidian"
 date: 2022-11-02T23:46:06+09:00
 categories:

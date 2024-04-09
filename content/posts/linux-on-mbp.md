@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "맥북에 리눅스 설치하기"
 date: 2020-07-05T02:52:23+09:00
 toc: false

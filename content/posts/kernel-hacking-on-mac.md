@@ -10,7 +10,7 @@ tags:
 
 ---
 
-## 개요
+# 개요
 
 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게
 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게
@@ -34,7 +34,7 @@ I'm sorry, Dave, I can't do that.  Symbol format `elf64-littleaarch64' unknown.
 
 3. gdb 클라이언트로 gdb server에 접속하여 디버깅을 한다.
 
-## Guest OS 및 포트포워딩, ssh 서버 설정
+# Guest OS 및 포트포워딩, ssh 서버 설정
 
 Guest OS는 lisa-qemu 설치를 위해서 우분투를 사용하였다. 우분투 설치 후 아래와
 갈이 스위치 설정을 해준다.
@@ -77,7 +77,7 @@ New-NetNAT -Name "NATNetwork" -InternalIPInterfaceAddressPrefix 10.0.2.0/24
 이제 컴파일러 서버가 준비되었으니 lisa-qemu를 설치하고 커널 부트 이미지를
 준비한다. 이 부분은 이미 lisa-qemu 에 쉽게 가이드가 있으므로 생략한다.
 
-## aarch64 target 용 gdb 빌드
+# aarch64 target 용 gdb 빌드
 
 먼저, gdb-10.1(https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz)을 받은 뒤 압축을
 풀고, 맥에서 빌드시 문제가 되는 부분을 아래와 같이 수정해주자.

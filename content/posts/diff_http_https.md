@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "HTTP와 HTTPS의 차이점"
 date: 2019-05-01T16:53:27+09:00
 categories:

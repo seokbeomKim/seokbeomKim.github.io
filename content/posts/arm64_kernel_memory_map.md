@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ARM64에서의 커널 메모리 맵"
 date: 2020-02-01T23:27:45+09:00
 categories:

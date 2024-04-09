@@ -1,30 +1,31 @@
-#+title: Vterm In Emacs
-#+HUGO_SECTION: posts
-#+HUGO_BASE_DIR: ~/workspace/gitblog
-#+hugo_weight: auto
-#+hugo_tags: emacs
-#+hugo_level_offset: 0
-#+date: 2023-08-19
++++
+title = "Vterm In Emacs"
+author = ["LAPTOP-R4FQS2C5"]
+date = 2023-08-19
+tags = ["emacs"]
+draft = false
++++
 
-* Overview
-Using Emacs in daily life, I rely on ~vterm~ terminal emulator instead of ~eshell~. However, I've
-noticed that there are certain limitations in terms of integration between ~vterm~ and Emacs. While
+# Overview {#overview}
+
+Using Emacs in daily life, I rely on `vterm` terminal emulator instead of `eshell`. However, I've
+noticed that there are certain limitations in terms of integration between `vterm` and Emacs. While
 the package supports some user-accessible functions, they are not sufficient. I've always wanted the
-integration level as ~VSCode~, and at least it should be able to open files from the terminal
-interface. Well, this is one of *essential* features of the terminal emulator running on editors, so I
+integration level as `VSCode`, and at least it should be able to open files from the terminal
+interface. Well, this is one of **essential** features of the terminal emulator running on editors, so I
 thought that having this kind of issue was ridiculous. So I tried to find solutions by googling
 about it, but none of them had a one-shot method to achieve this. So, I made up my mind to write
 functions by myself.
 
 In this article, I am going to describe the following things:
 
-1. A callback function to open files from vterm
-2. Functions to manage vterm session
+1.  A callback function to open files from vterm
+2.  Functions to manage vterm session
 
-Note that since I am using /Doomemacs/ right now, the keymap setting could differ from yours. If you
+Note that since I am using _Doomemacs_ right now, the keymap setting could differ from yours. If you
 do not want to read any details about functions that I wrote, just use the following settings.
 
-#+begin_src elisp
+```elisp
 (require 'filenotify)
 
 (defvar my:get-vterm--backup nil)
@@ -78,31 +79,37 @@ Argument CHOICE user's selection."
 
   (add-hook 'vterm-mode-hook (lambda ()
                                (evil-emacs-state))))
-#+end_src
+```
 
-* File open from vterm - ~filenotify~
-Since Emacs-28.1, Emacs supports the ~filenotify~ package, which makes it possible to watch any change
+
+# File open from vterm - `filenotify` {#file-open-from-vterm-filenotify}
+
+Since Emacs-28.1, Emacs supports the `filenotify` package, which makes it possible to watch any change
 from the file. It means that whenever I write any to the file, Emacs can get the triggered event
-from the write. Let's register a callback function for the ~vterm-pipe~ in ~user-emacs-directory~.
+from the write. Let's register a callback function for the `vterm-pipe` in `user-emacs-directory`.
 
-#+begin_src elisp
+```elisp
 (file-notify-add-watch pipe-file '(change) callback-func)
-#+end_src
+```
 
-Add the following code to ~$HOME/.bashrc~ to use the ~alias~ ~eo~ command. Now, using the ~eo~ alias will
+Add the following code to `$HOME/.bashrc` to use the `alias` `eo` command. Now, using the `eo` alias will
 trigger the event and invoke the callback function. It's done.
 
-#+begin_src bash
+```bash
 alias eo='realpath $1 > ~/.config/emacs/.local/cache/vterm-pipe'
-#+end_src
+```
 
-* Vterm session management
-Unfortunately, ~vterm~ does not support any functions to manage its session. And a function to toggle
-it is not perfect. Let's improve it by using an interactive menu. You can toggle the ~vterm~ session
-with ~my:vterm-toggle~. In the code, there are many to refactor but it is sufficient to resolve the
+
+# Vterm session management {#vterm-session-management}
+
+Unfortunately, `vterm` does not support any functions to manage its session. And a function to toggle
+it is not perfect. Let's improve it by using an interactive menu. You can toggle the `vterm` session
+with `my:vterm-toggle`. In the code, there are many to refactor but it is sufficient to resolve the
 lack of session management and inefficient UI toggle.
 
-* Wrap up
-Since I started to learn how to write code in ~elisp~, I have been able to use Emacs efficiently.
+
+# Wrap up {#wrap-up}
+
+Since I started to learn how to write code in `elisp`, I have been able to use Emacs efficiently.
 Beyond the simple editor, now I can see why Emacs has been loved by lots of developers. I know, this
 should be the same for VI/M users :P.

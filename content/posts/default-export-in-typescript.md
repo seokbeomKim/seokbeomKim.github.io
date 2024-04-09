@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Named export와 Default export"
 date: 2019-05-07T16:30:51+09:00
 categories:

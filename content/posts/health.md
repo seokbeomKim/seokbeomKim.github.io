@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "급성 저음성 난청"
 date: 2022-10-22T17:00:05+09:00
 categories:

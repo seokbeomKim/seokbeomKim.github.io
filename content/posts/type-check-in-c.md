@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "C언어에서의 type-check"
 date: 2020-04-10T00:13:53+09:00
 toc: false

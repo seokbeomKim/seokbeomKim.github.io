@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "캐시 라인(Cache-Line)"
 date: 2020-04-25T14:27:31+09:00
 categories:

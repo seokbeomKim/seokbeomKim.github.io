@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "command: posix_spawn failed: Resource temporarily unavailable"
 date: 2019-06-23T10:46:29+09:00
 categories:

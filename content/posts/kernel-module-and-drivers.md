@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "커널 모듈과 드라이버의 차이"
 date: 2019-05-16T02:11:40+09:00
 categories:

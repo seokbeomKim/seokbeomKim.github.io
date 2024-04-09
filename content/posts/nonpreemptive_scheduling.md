@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "비선점 스케쥴링(Nonpreemptive Scheduling)"
 date: 2019-05-15T18:44:06+09:00
 categories:

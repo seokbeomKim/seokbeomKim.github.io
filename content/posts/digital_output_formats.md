@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "영상 출력 포맷"
 date: 2020-01-26T17:44:18+09:00
 categories:

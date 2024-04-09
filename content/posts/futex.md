@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Futex"
 date: 2020-04-02T01:45:50+09:00
 categories:

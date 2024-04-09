@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "MICOM과 MPU"
 date: 2020-03-08T23:30:44+09:00
 categories:

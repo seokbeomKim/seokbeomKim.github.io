@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "리눅스 커널 빌드 시 맥 O/S uuid_t 호환성"
 date: 2020-12-24T00:56:38+09:00
 categories:

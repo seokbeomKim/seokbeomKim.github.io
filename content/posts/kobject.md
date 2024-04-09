@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Kobject"
 date: 2020-01-28T22:25:50+09:00
 categories:

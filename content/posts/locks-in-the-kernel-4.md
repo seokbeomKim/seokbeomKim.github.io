@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "리눅스 커널 락 종류 (4/5)"
 date: 2019-06-04T16:40:28+09:00
 categories:

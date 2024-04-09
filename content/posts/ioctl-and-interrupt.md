@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "IOCTL과 인터럽트"
 date: 2020-03-03T00:00:10+09:00
 categories:

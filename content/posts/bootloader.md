@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "부트로더(Bootloader)"
 date: 2019-06-23T22:47:44+09:00
 categories:

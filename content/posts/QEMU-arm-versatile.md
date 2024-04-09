@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "QEMU 이용한 임베디드 개발 환경 구축하기"
 date: 2019-06-22T21:29:27+09:00
 categories:

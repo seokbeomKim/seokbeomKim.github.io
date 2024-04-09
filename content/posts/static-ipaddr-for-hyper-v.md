@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Hyper-V 가상 환경에서 고정 아이피 주소 사용하기"
 date: 2020-03-01T17:12:34+09:00
 categories:

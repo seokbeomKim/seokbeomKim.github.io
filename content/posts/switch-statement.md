@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "switch 구문과 if-else 구문"
 date: 2020-02-26T23:56:18+09:00
 categories:

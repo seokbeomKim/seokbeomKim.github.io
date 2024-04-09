@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Chroot 환경을 이용한 Yocto 환경 구성"
 date: 2020-02-01T23:27:45+09:00
 categories:

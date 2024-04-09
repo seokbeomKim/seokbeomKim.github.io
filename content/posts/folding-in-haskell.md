@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Folding in Haskell"
 date: 2019-05-01T17:56:20+09:00
 categories:

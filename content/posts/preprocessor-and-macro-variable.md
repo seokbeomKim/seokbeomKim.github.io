@@ -1,6 +1,7 @@
 ---
 title: "컴파일 타임에 매크로 변수 값 확인하기"
 date: 2021-10-16T02:19:05+09:00
+toc: false
 draft: false
 tags:
 - preprocessor

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "교착상태(Deadlock)"
 date: 2019-05-15T17:40:14+09:00
 categories:

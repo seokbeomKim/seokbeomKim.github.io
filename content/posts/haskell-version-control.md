@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "하스켈 버전 관리"
 date: 2020-09-12T00:05:37+09:00
 categories:

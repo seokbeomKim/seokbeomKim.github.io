@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "리눅스에서의 버퍼링 방식"
 date: 2020-02-29T23:34:30+09:00
 categories:

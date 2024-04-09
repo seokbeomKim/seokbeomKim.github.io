@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "가상주소와 페이지 테이블 크기"
 date: 2020-04-11T18:25:16+09:00
 categories:

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Mac OS에서의 자모 분리 현상 해결하기"
 date: 2020-08-24T22:55:11+09:00
 categories: ['mac']

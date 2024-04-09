@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "DMIPS (Dhrystone Million Instructions Per Second)"
 date: 2020-04-03T01:41:29+09:00
 categories:

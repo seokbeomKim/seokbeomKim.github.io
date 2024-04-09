@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "안드로이드 파티션"
 date: 2020-03-12T00:26:40+09:00
 categories:

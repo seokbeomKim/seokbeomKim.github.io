@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이"
 date: 2019-05-06T17:05:11+09:00
 categories:

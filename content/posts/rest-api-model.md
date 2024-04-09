@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "RESTful 성숙도 모델, Richardson Maturity Model(RMM)"
 date: 2019-05-01T18:38:22+09:00
 categories:

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "커널 해킹: 프로세스"
 date: 2019-05-16T18:59:15+09:00
 categories:

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "WARN_ON, BUG_ON 매크로"
 date: 2020-02-21T00:12:34+09:00
 categories:

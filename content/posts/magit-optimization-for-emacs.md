@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Emacs에서 magit 최적화하기"
 date: 2021-01-01T13:42:08+09:00
 categories:

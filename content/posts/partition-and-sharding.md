@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "파티셔닝(Partitioning)과 샤딩(Sharding)"
 date: 2019-05-01T20:29:02+09:00
 categories:

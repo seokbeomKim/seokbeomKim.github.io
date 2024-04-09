@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "캐시라인(cache-line) 구조 #2"
 date: 2020-09-13T21:30:10+09:00
 tags:

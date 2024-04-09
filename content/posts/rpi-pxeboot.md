@@ -9,7 +9,7 @@ categories:
 draft: false
 ---
 
-## 네트워크 부팅 환경 설정
+# 네트워크 부팅 환경 설정
 
 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이
 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에
@@ -19,7 +19,7 @@ draft: false
 라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는
 방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.
 
-### 네트워크 구성
+## 네트워크 구성
 
 일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와
 마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를
@@ -35,7 +35,7 @@ draft: false
     사용하는 포트에 한하여 포트포워딩을 한다.
 
 
-### TFTP 이용하여 커널 이미지 로드
+## TFTP 이용하여 커널 이미지 로드
 
 TFTP를 이용해 커널 이미지를 로드하기 위해서는 아래의 작업 순서가 필요하다. 1번
 내용은 `Raspberry Pi Imager` 라는 공식 유틸리티가 있고 굳이 설명을 하지 않아도
@@ -47,7 +47,7 @@ TFTP를 이용해 커널 이미지를 로드하기 위해서는 아래의 작업
 4.  tftp64 이용해 부트
 
 
-#### 2. 부트로더 설정 변경
+### 2. 부트로더 설정 변경
 
 아래에 설명하는 부트로더 설정 변경 방법은
 <https://metebalci.com/blog/cardless-rpi4/> 에 따른 것이다. 찾아본 포스팅 중에
@@ -107,7 +107,7 @@ $ sudo rpi-eeprom-update -d -f ./pieeprom-out.bin
 $ sudo reboot
 ```
 
-#### 3. SD 카드 부트 파티션 복사
+### 3. SD 카드 부트 파티션 복사
 
 이제 부트로더 설정은 끝났으니 SD 카드의 boot partition을 Host PC에 저장한다.
 필자는 그냥 귀찮아서 tftpd64 디렉토리(`C:\Program Files\Tftpd64\rpi_boot`) 안에
@@ -115,7 +115,7 @@ $ sudo reboot
 
 ![img](/img/rpi_boot.png)
 
-#### 4. tftp64 이용해 tftpboot
+### 4. tftp64 이용해 tftpboot
 
 이제 tftp64 프로그램에서 디렉토리를 설정해주고 라즈베리파이를 부팅해주면 커널
 로드까지는 정상적으로 되는 것을 확인할 수 있다. tftp64 프로그램은 아래 링크에서
@@ -126,7 +126,7 @@ $ sudo reboot
 이제 tftp를 이용한 커널 이미지 로드 준비는 끝이 났다. SD 카드를 빼고 전원을
 인가하면 커널 로드까지는 성공적으로 되는 것을 확인할 수 있다.
 
-### NFS 이용하여 루트파일시스템 로드
+## NFS 이용하여 루트파일시스템 로드
 
 커널 이미지를 성공적으로 로드한다고 해도 루트파일시스템 로드가 되지 않으니
 부팅이 될 리가 없다. 필자는 WSL2(Ubuntu)에 NFS 서버를 구성해서 rootfs 마운트
@@ -139,7 +139,7 @@ $ sudo reboot
 3.  nfs-server 서비스 실행
 4.  Windows 내 포트 포워딩 및 방화벽 설정
 
-#### 라즈베리파이 이미지 내 rootfs 파일 복사
+### 라즈베리파이 이미지 내 rootfs 파일 복사
 
 먼저, 라즈베리파이 공식 사이트에서 os 이미지 파일을 다운로드 받는다. 본인은 현재
 기준으로 lite version인 `2023-02-21-raspios-bullseye-arm64-lite.img` 파일을
@@ -153,7 +153,7 @@ $ mkdir /rpi
 $ cp -ra /mnt/* /rpi
 ```
 
-#### NFS-Server 설치 및 설정
+### NFS-Server 설치 및 설정
 
 이제 rootfs는 준비되었으니 nfs-server를 설치할 차례이다. 필자는 라즈베리파이를
 제외한 나머지 디렉토리는 필요하지 않기 때문에 rootdir을 /rpi로 설정하였다. 사용
@@ -179,7 +179,7 @@ $ sudo vi /etc/exports
 /       *(rw,sync,no_root_squash,insecure)
 ```
 
-#### nfs-server 서비스 실행
+### nfs-server 서비스 실행
 
 이제 서비스를 실행하고 `exportfs` 를 업데이트 해준다.
 
@@ -210,7 +210,7 @@ Address         Port        Address         Port
 > netsh interface portproxy del v4tov4 listenport=2049 listenaddress=0.0.0.0
 ```
 
-#### 포트 포워딩 및 방화벽 설정
+### 포트 포워딩 및 방화벽 설정
 
 WSL2에서 서비스까지 정상적으로 실행되었다면 윈도우즈에서 아래와 같이
 포트포워딩을 해준다. 그리고 정상적으로 2049 포트로 포트포워딩이 되어 있는지
@@ -232,7 +232,7 @@ Address         Port        Address         Port
 이제 윈도우즈의 `Windows Defender Firewall with Advanced Security` 를 열어서
 Inbound Rules와 Outbound Rules 각각 포트 2049에 대해 허용하도록 설정한다.
 
-#### 마무리
+### 마무리
 
 이제 마지막으로 앞서 복사해둔 경로 내 etc/fstab 을 아래와 같이 수정해준다.
 
@@ -249,6 +249,6 @@ proc            /proc           proc    defaults          0       0
 console=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.0.5:/,nfsvers=4 ip=192.168.0.4 rw elevator=deadline fsck.repair=yes rootwait rootfstype=nfs
 ```
 
-## 출처
+# 출처
 -   <https://metebalci.com/blog/cardless-rpi4/>
 

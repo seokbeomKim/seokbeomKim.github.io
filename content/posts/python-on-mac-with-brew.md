@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Homebrew python 설치하기"
 date: 2020-12-29T23:35:55+09:00
 categories:

@@ -1,4 +1,5 @@
 +++
+draft = true
 title = "TCP와 UDP의 차이점"
 date = 2019-05-21T15:27:08+09:00
 categories = ["web"]

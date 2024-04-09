@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "WSL 가상 디스크 파일 D 드라이브에 옮기기"
 date: 2020-12-23T01:00:00+09:00
 categories: [Etc]

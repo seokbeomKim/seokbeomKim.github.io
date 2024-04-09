@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "RCU (Read, Copy, Update)"
 date: 2019-06-04T17:34:42+09:00
 categories:

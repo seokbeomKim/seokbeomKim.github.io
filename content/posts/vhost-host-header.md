@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "가상호스트(Virtual Host)와 Host Header"
 date: 2019-05-01T17:16:40+09:00
 categories:

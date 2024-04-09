@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Wayland과 Weston"
 date: 2020-02-03T23:17:11+09:00
 categories:

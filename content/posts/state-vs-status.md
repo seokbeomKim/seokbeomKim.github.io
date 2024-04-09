@@ -1,4 +1,5 @@
 +++
+draft = true
 title = "state vs status"
 date = 2021-02-28T12:27:08+09:00
 categories = ["etc"]

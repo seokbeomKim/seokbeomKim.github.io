@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "(.) 와 ($) 의 차이"
 date: 2020-08-17T18:08:58+09:00
 categories:

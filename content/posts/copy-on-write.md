@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Copy on Write (CoW or COW)"
 date: 2019-05-16T18:24:16+09:00
 categories:

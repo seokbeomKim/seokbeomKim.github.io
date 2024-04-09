@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "goto statement"
 date: 2020-03-25T00:47:49+09:00
 categories:

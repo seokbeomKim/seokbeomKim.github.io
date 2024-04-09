@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Vmlinux"
 date: 2020-04-21T06:04:17+09:00
 categories:

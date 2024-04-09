@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "OSI 7-Layers"
 date: 2019-05-21T16:10:20+09:00
 categories:

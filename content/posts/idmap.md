@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Identity Mapping"
 date: 2020-02-24T23:01:54+09:00
 categories:

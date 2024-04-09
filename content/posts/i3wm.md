@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "i3 window manager"
 date: 2021-02-11T18:20:10+09:00
 categories:

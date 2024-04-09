@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "비지도 학습 알고리즘과 지도 학습"
 date: 2019-05-06T15:31:38+09:00
 categories:

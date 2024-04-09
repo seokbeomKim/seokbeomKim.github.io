@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "sysrq 이용한 커널 패닉 발생시키기"
 date: 2020-12-17T01:38:06+09:00
 categories:

@@ -9,7 +9,7 @@ tags:
 - strscpy
 ---
 
-## 개요
+# 개요
 한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을
 이용하여 정적분석을 하는 도중, `strcpy` 에 대한 warning 을 어떻게 처리할까
 고민하다가 LWN 에서 [Ushering out strlcpy()](https://lwn.net/Articles/905777/)
@@ -24,7 +24,7 @@ tags:
 3. strlcpy
 4. strscpy
 
-## strcpy
+# strcpy
 
 `strcpy`를 나타내면 아래와 같이 간단하다.
 
@@ -41,7 +41,7 @@ strcpy(s, t)
 하지만 이 경우 발생가능한 문제는 `destination` 크기가 `source`보다 작을 경우
 `overrun`이 발생한다는 점이다. 이를 개선하고자 만들어진 것이 `strncpy` 이다.
 
-## strncpy
+# strncpy
 
 `strncpy`는 아래와 같은 프로토타입을 갖는다.
 
@@ -63,7 +63,7 @@ char *strncpy(char *dest, char *src, size_t n);
 `NULL` 로 끝나지 않게 돼 문자열로써 사용할 수 없다. 이러한 문제를 해결하기 위해
 사용 버전이 `strlcpy`이다.
 
-## strlcpy
+# strlcpy
 
 `BSD` 계열의 커널에서는 `strncpy`를 해결하기 위해 `strlcpy`를 구현하였다.
 
@@ -115,7 +115,7 @@ size_t strlcpy(char *dest, const char *src, size_t size)
 부분인데, `src` 의 길이를 가져오고 난 뒤 중간에서 `src`가 바뀌는 경우에는 이를
 처리하지 못한다.
 
-## strscpy
+# strscpy
 
 ```c
 ssize_t strscpy(char *dest, const char *src, size_t count);
@@ -124,17 +124,17 @@ ssize_t strscpy(char *dest, const char *src, size_t count);
 이러한 결점들을 해결한 함수가 바로 `strscpy`이다. 프로토타입만 보면 다른 점이
 없다. 차이점은 반환값에 있다. `strlcpy`와 달리 `strscpy`는 복사된 문자들의
 개수를 반환한다는 특징이 있고 실제
-구현(https://elixir.bootlin.com/linux/v5.19.3/source/lib/string.c#L151)을
+구현(https://elixir.bootlin.com/linux/v5.19.3/source/lib/string.cL151)을
 살펴보았을 때도 위의 간단한 문자열 복사방법과는 사뭇 다르다.
 
-## 마치며
+# 마치며
 
 현재 가장 최신 버전의 `strscpy` 함수에서는 `kasan`도 함께 공부해야 완전하게
 함수를 이해할 수 있을 것 같다. 이젠 하다하다 문자열 하나 복사하는 함수조차 쉽게
 이해하기 힘들어질 지경까지 이르렀다. 배워도 까먹어버리니 언젠간 다시 이 글도
 다시 뒤적거릴 때가 올 것이다.
 
-## 출처
+# 출처
 - https://lwn.net/Articles/905777/
 - https://lwn.net/Articles/612244/
 - https://github.com/torvalds/linux/commit/30035e45753b708e7d47a98398500ca005e02b86

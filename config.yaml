@@ -19,12 +19,18 @@ disqusShortname: seokbeomkim-github-io
 # More info: https://gohugo.io/getting-started/configuration-markup#
 markup:
   highlight:
+    anchorLineNos: true
+    codeFences: true
     guessSyntax: true
     style: emacs
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    tabWidth: 8
   tableOfContents:
     endLevel: 3
-    ordered: false
-    startLevel: 2
+    ordered: true
+    startLevel: 1
   # needed to render raw HTML (e.g. <sub>, <sup>, <kbd>, <mark>)
   goldmark:
     renderer:

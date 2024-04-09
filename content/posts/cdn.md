@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "컨텐츠 전송 네트워크, CDN(Content Delivery Network)"
 date: 2019-05-01T17:19:18+09:00
 categories:

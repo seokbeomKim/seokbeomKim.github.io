@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Server Name Indication(SNI)"
 date: 2019-05-01T17:12:34+09:00
 categories:

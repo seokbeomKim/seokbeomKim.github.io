@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "자바의 중첩 클래스(Nested Class)"
 date: 2019-05-03T20:38:14+09:00
 categories:
