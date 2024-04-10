@@ -54,7 +54,7 @@ do not want to read any details about functions that I wrote, just use the follo
   (setq my:get-vterm--backup nil))
 
 (defun my:vterm--select (choice)
-Argument CHOICE user's selection."
+"Argument CHOICE user's selection."
   (interactive
    (list (completing-read "Choose: "
                           (cl-remove-if #'null
