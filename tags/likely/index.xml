@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>likely on Sukbeom Kim</title>
+    <title>Likely on Sukbeom Kim</title>
     <link>/tags/likely/</link>
-    <description>Recent content in likely on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Likely on Sukbeom Kim</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Feb 2020 23:27:51 +0900</lastBuildDate>
     <atom:link href="/tags/likely/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       <guid>/posts/likely-and-unlikely/</guid>
-      <description>개요 🔗예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlik</description>
+      <description>개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlike</description>
     </item>
   </channel>
 </rss>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>little endian on Sukbeom Kim</title>
+    <title>Little Endian on Sukbeom Kim</title>
     <link>/tags/little-endian/</link>
-    <description>Recent content in little endian on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Little Endian on Sukbeom Kim</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 27 Jan 2020 22:27:06 +0900</lastBuildDate>
     <atom:link href="/tags/little-endian/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/little-endian-vs.-big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>/posts/little-endian-vs.-big-endian/</guid>
-      <description>개요 🔗빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다. 엔디안(Endianness</description>
+      <description>개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다. 엔디안(Endianness)</description>
     </item>
   </channel>
 </rss>

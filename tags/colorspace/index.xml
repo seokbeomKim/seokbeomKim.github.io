@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>colorspace on Sukbeom Kim</title>
+    <title>Colorspace on Sukbeom Kim</title>
     <link>/tags/colorspace/</link>
-    <description>Recent content in colorspace on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Colorspace on Sukbeom Kim</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Jan 2020 16:39:36 +0900</lastBuildDate>
     <atom:link href="/tags/colorspace/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
-      <description>색 공간 포맷 🔗업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다</description>
+      <description>색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다.</description>
     </item>
   </channel>
 </rss>

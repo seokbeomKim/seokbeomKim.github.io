@@ -4,30 +4,16 @@
     <title>Web on Sukbeom Kim</title>
     <link>/categories/web/</link>
     <description>Recent content in Web on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 May 2019 15:27:08 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2019 17:20:49 +0900</lastBuildDate>
     <atom:link href="/categories/web/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>TCP와 UDP의 차이점</title>
-      <link>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
-      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
-      <guid>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
-      <description>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스</description>
-    </item>
     <item>
       <title>CORS(Cross-Origin Resource Sharing)</title>
       <link>/posts/corscross-origin-resource-sharing/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       <guid>/posts/corscross-origin-resource-sharing/</guid>
-      <description>CORS(Cross-Origin Resource Sharing) 🔗웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(</description>
-    </item>
-    <item>
-      <title>Server Name Indication(SNI)</title>
-      <link>/posts/server-name-indicationsni/</link>
-      <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
-      <guid>/posts/server-name-indicationsni/</guid>
-      <description>Server Name Indication 🔗Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구</description>
+      <description>CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(O</description>
     </item>
   </channel>
 </rss>

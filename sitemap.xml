@@ -41,10 +41,10 @@
     <loc>/categories/kernel/</loc>
     <lastmod>2023-03-19T17:45:39+09:00</lastmod>
   </url><url>
-    <loc>/tags/strcpy/</loc>
+    <loc>/posts/strcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
-    <loc>/posts/strcpy/</loc>
+    <loc>/tags/strcpy/</loc>
     <lastmod>2022-10-09T14:00:05+09:00</lastmod>
   </url><url>
     <loc>/tags/strlcpy/</loc>
@@ -332,28 +332,13 @@
     <loc>/tags/qemu/</loc>
     <lastmod>2019-05-22T19:35:04+09:00</lastmod>
   </url><url>
-    <loc>/tags/tcp/</loc>
-    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
-  </url><url>
-    <loc>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
-    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
-  </url><url>
-    <loc>/tags/udp/</loc>
-    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
-  </url><url>
-    <loc>/categories/web/</loc>
-    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
-  </url><url>
     <loc>/tags/cors/</loc>
     <lastmod>2019-05-01T17:20:49+09:00</lastmod>
   </url><url>
     <loc>/posts/corscross-origin-resource-sharing/</loc>
     <lastmod>2019-05-01T17:20:49+09:00</lastmod>
   </url><url>
-    <loc>/posts/server-name-indicationsni/</loc>
-    <lastmod>2019-05-01T17:12:34+09:00</lastmod>
-  </url><url>
-    <loc>/tags/sni/</loc>
-    <lastmod>2019-05-01T17:12:34+09:00</lastmod>
+    <loc>/categories/web/</loc>
+    <lastmod>2019-05-01T17:20:49+09:00</lastmod>
   </url>
 </urlset>

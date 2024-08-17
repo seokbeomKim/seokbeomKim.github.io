@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>buildroot on Sukbeom Kim</title>
+    <title>Buildroot on Sukbeom Kim</title>
     <link>/tags/buildroot/</link>
-    <description>Recent content in buildroot on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Buildroot on Sukbeom Kim</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 May 2019 15:10:46 +0900</lastBuildDate>
     <atom:link href="/tags/buildroot/index.xml" rel="self" type="application/rss+xml" />
