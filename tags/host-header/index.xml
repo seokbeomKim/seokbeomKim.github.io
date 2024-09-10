@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>host header on Sukbeom Kim</title>
-    <link>/tags/host-header/</link>
-    <description>Recent content in host header on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Host Header on 평범한 개발자</title>
+    <link>//localhost:1313/tags/host-header/</link>
+    <description>Recent content in Host Header on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2019 17:16:40 +0900</lastBuildDate>
-    <atom:link href="/tags/host-header/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/host-header/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>가상호스트(Virtual Host)와 Host Header</title>
-      <link>/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</link>
+      <link>//localhost:1313/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
-      <guid>/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</guid>
-      <description>Virtual Host and Host Header 🔗문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체</description>
+      <guid>//localhost:1313/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</guid>
+      <description>Virtual Host and Host Header 문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가</description>
     </item>
   </channel>
 </rss>

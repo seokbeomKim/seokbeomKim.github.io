@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>http2 on Sukbeom Kim</title>
-    <link>/tags/http2/</link>
-    <description>Recent content in http2 on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Http2 on 평범한 개발자</title>
+    <link>//localhost:1313/tags/http2/</link>
+    <description>Recent content in Http2 on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2019 17:29:25 +0900</lastBuildDate>
-    <atom:link href="/tags/http2/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/http2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTTP/1.1과 HTTP/2의 차이점</title>
-      <link>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
+      <link>//localhost:1313/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
       <pubDate>Wed, 01 May 2019 17:29:25 +0900</pubDate>
-      <guid>/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
-      <description>HTTP/1.1 vs HTTP/2 🔗HTTP 프로토콜에 대해서는 관심이 없다가 문득 텔레그램의 봇을 통해 우연히 HTTP/2의 개념을 처음으로 접하게 되었다. 이 문서는 HTTP/1.1</description>
+      <guid>//localhost:1313/posts/http/1.1%EA%B3%BC-http/2%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
+      <description>HTTP/1.1 vs HTTP/2 HTTP 프로토콜에 대해서는 관심이 없다가 문득 텔레그램의 봇을 통해 우연히 HTTP/2의 개념을 처음으로 접하게 되었다. 이 문서는 HTTP/1.1과 HTTP/2 의 차</description>
     </item>
   </channel>
 </rss>

@@ -1,157 +1,1042 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>poll_wait | Sukbeom Kim</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
-<meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="">
-<meta name="generator" content="Hugo 0.121.2">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"}>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
-  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1b" />
 
+    <meta name="description" content="Poll_wait">
 
-<link rel="stylesheet" href="/css/style.css">
-
-
-  
+    <link rel="alternate" type="application/rss+xml" href="/tags/poll_wait/index.xml" title="평범한 개발자" />
     
-    <link rel="stylesheet" href="/css/img.css">
-  
-
-  
+        <title>Poll_wait | 평범한 개발자</title>
     
-    <link rel="stylesheet" href="/css/noto_sans_kr.css">
-  
 
-  
     
-    <link rel="stylesheet" href="/css/nanumgothic.css">
-  
+    <style>
+        :root {
+          --background: #ffffff;
+        }
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --background: #1b1b1b;
+          }
+        }
+        html {
+            background-color: var(--background);
+        }
+        body {
+            background-color: var(--background);
+        }
+    </style>
 
-
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
-
- 
     
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-Y7VW74D2P3', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-
-
-
-  
-    <link href="/tags/poll_wait/index.xml" rel="alternate" type="application/rss+xml" title="Sukbeom Kim" />
-    <link href="/tags/poll_wait/index.xml" rel="feed" type="application/rss+xml" title="Sukbeom Kim" />
-  
-
-
+    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
   </head>
 
   <body>
-    <nav class="navigation">
-	
-		<a href="/"> <span class="arrow">←</span>Home</a>
-	
-	<a href="/posts">Archive</a>
-	<a href="/tags">Tags</a>
-	<a href="/about">About</a>
-
-	
-
-	
-	  <a class="button" href="/index.xml">Subscribe</a>
-	
-</nav>
-
-
-    <main class="main">
-      
-<header class="profile">
-    
-        <img class="avatar" alt="avatar" src="/images/avatar.png" />
-    
-
-    <h1>Sukbeom Kim</h1>
-    
-    
-      <h2>bio description</h2>
-    
-</header>
-
-<section id="archive">
-   
-    
-        <div class="group">
-            <h3 class="key">
-                2020
-            </h3>
-
+        
+        <nav>
+          <ul class="menu">
             
-                <div class="value">
-                  <div class="date">
-                      <time datetime="2020-03-10 23:52:01 &#43;0900 KST">Mar 10</time>
-                  </div>
-                  <div class="title">
-                      <a href="/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/">
-                          poll() 그리고 poll_wait()
-                      </a>
+                <li><a tabindex="-1" class="menu-link" href="/">Main</a></li>
+            
+                <li><a tabindex="-1" class="menu-link" href="/tags">Tags</a></li>
+            
+                <li><a tabindex="-1" class="menu-link" href="/about">About</a></li>
+            
+          </ul>
+        </nav>
+        
 
-                      
-                          <div class="tags">
-                              
-                                  <a href="/tags/poll">poll</a>
-                              
-                                  <a href="/tags/poll_wait">poll_wait</a>
-                              
-                          </div>
-                      
-                  </div>
-                </div>
-                      
-        </div>
 
+<h1>Poll_wait</h1>
+<ul class="post-list">
     
 
+    <li>
 
-
-</section>
-
-
-
-    </main>
-    
-    <footer id="footer">
-    
-
-    <div class="copyright">
-    
-        Copyright - Sukbeom Kim
-    
+    <div style="display: grid; grid-template-columns: 7em auto">
+      <span class="date">Mar 10, 2020</span>
+      
+      <a href="/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/">poll() 그리고 poll_wait()</a>
+      
     </div>
 
+</li>
+
+
+
     
+  </ul>
+
+
+<br>
+
+<footer>
+
+<script defer>
+  document.addEventListener("keydown", function (e) {
+    if (document.activeElement.isContentEditable) {
+      return false;
+    }
+    if (document.activeElement.tagName == "INPUT") {
+      return false;
+    }
+    if (e.altKey || e.ctrlKey || e.shiftKey) {
+      return false;
+    }
+    var key = e.key;
+    if (key === "h") {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = "/";
+    } else if (key === "t") {
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = `https://${location.hostname}/tags`;
+    } else if (key === "i") {
+      e.preventDefault();
+      e.stopPropagation();
+      const inputs = document.querySelectorAll("input");
+      for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].offsetParent !== null) {
+          inputs[i].selectionStart = inputs[i].selectionEnd =
+            inputs[i].value.length;
+          inputs[i].focus();
+          break;
+        }
+      }
+    }
+    return false;
+  });
+</script>
+
+
+<script defer>
+  function throttle(fn, wait) {
+    var time = Date.now();
+    return function () {
+      var now = Date.now()
+      if (time + wait - now < 0) {
+        fn();
+        time = now;
+      }
+    };
+  }
+
+  function scrollHandler() {
+    const anchors = Array.from(document.querySelectorAll("body h2, body h3"));
+
+    function scrollCallback() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      
+      for (var i = 0; i < anchors.length; i++) {
+        var anchorId = anchors[i].getAttribute("id");
+        var link = document.querySelector(
+          'nav ul li a[href="#' + anchorId + '"]',
+        );
+        if (link) {
+          link.classList.remove("active-toc");
+        }
+      }
+
+      
+      for (var i = anchors.length - 1; i >= 0; i--) {
+        var offsetTop = anchors[i].offsetTop;
+        if (scrollTop > offsetTop - 75) {
+          var anchorId = anchors[i].getAttribute("id");
+          var link = document.querySelector(
+            'nav ul li a[href="#' + anchorId + '"]',
+          );
+          if (link) {
+            link.classList.add("active-toc");
+            break;
+          }
+        }
+      }
+    }
+
+    window.addEventListener(
+      "scroll",
+      throttle(scrollCallback, 300),
+    );
+  }
+  setTimeout(scrollHandler, 100);
+</script>
+
+<script defer>
+  function addCopyButtonToCodeBlocks() {
+    
+    const codeBlocks = document.querySelectorAll('code[class^="language-"]');
+
+    codeBlocks.forEach((codeBlock) => {
+      const copyButton = document.createElement("button");
+      copyButton.classList.add("copy-code-button");
+      copyButton.innerHTML = "copy";
+
+      
+      copyButton.addEventListener("click", () => {
+        
+        const elements = codeBlock.querySelectorAll(".cl");
+        let codeToCopy = "";
+        elements.forEach((element) => {
+          codeToCopy += element.innerText;
+        });
+        navigator.clipboard.writeText(codeToCopy);
+
+        
+        copyButton.innerHTML = "copied!";
+        setTimeout(() => {
+          copyButton.innerHTML = "copy";
+        }, 1500);
+      });
+
+      
+      codeBlock.parentNode.before(copyButton);
+    });
+  }
+  setTimeout(function () {
+    addCopyButtonToCodeBlocks();
+  }, 100);
+</script>
+
+<script>
+window.store = {
+    
+    "\/categories\/": {
+        "title": "Categories",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/"
+    },
+    
+    "\/tags\/emacs\/": {
+        "title": "Emacs",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/emacs\/"
+    },
+    
+    "\/categories\/emacs\/": {
+        "title": "Emacs",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/emacs\/"
+    },
+    
+    "\/posts\/": {
+        "title": "Posts",
+        "tags": [],
+        "content": "", 
+        "url": "\/posts\/"
+    },
+    
+    "\/tags\/": {
+        "title": "Tags",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/"
+    },
+    
+    "\/tags\/tree-sitter\/": {
+        "title": "Tree-Sitter",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/tree-sitter\/"
+    },
+    
+    "\/posts\/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84\/": {
+        "title": "이맥스 Tree-sitter Major Mode 구현",
+        "tags": ["tree-sitter","emacs",],
+        "content": "이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다.\nSyntax Tree Generator 출현 Tree-sitter1 는 소스 코드를 syntax tree로 만드는 \u0026lsquo;parser generator tool\u0026rsquo;이다. Emacs, Neovim, Zed 등의 편집기에 기본으로 builtin 되어 제공된다. 편집기에서 지원하는 건 별개이지만 2018년에 처음 릴리즈 되었다고 하니 벌써 6년이나 된 기능이다. 처음 tree-sitter 출현을 접했을 때 들었던 생각은 \u0026lsquo;대체 왜 만든걸까?\u0026rsquo; 였다. 이미 syntax highlighting 기능은 오래 전부터 제공되던 기능이었기에 실시간으로 소스 코드로부터 syntax tree를 만들 수 있다는 게 어떤 장점을 가질지 예상하기 힘들었다.\n레거시 방식 Emacs는 버퍼 확장자에 따라 언어 지원을 위한 major mode가 로드된다. 예를 들어, C언어(*.c, *.h)는 c-mode 패키지가 자동으로 로드되며 해당 패키지를 통해 syntax highlighting 기능이 제공된다. C-h v auto-mode-alist 명령어를 통해 auto-mode-alist를 확인하면 아래와 같이 c-mode가 할당된 확장자를 확인할 수 있다.\n(\u0026#34;\\\\.ii\\\\\u0026#39;\u0026#34; . c++-mode) (\u0026#34;\\\\.i\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.lex\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.y\\\\(acc\\\\)?\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.h\\\\\u0026#39;\u0026#34; . c-or-c++-mode) (\u0026#34;\\\\.c\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.\\\\(CC?\\\\|HH?\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) (\u0026#34;\\\\.[ch]\\\\(pp\\\\|xx\\\\|\\\\+\\\\+\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) (\u0026#34;\\\\.\\\\(cc\\\\|hh\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) 그렇다면 이러한 Major Mode 패키지가 있는데도 불구하고 tree-sitter를 사용하는 이유는 무엇일까? 훨씬 빠르기 때문이다. tree-sitter 이전까지 이맥스 패키지 대부분은 syntax highlighting을 위해 정규식을 사용했다. cc-mode 코드를 살펴보면 아래와 같이 아름다운 정규식으로 짜여져 있는 것을 볼 수 있다.\n(defconst c-or-c++-mode--regexp (eval-when-compile (let ((id \u0026#34;[a-zA-Z_][a-zA-Z0-9_]*\u0026#34;) (ws \u0026#34;[ \\t]+\u0026#34;) (ws-maybe \u0026#34;[ \\t]*\u0026#34;) (headers \u0026#39;(\u0026#34;string\u0026#34; \u0026#34;string_view\u0026#34; \u0026#34;iostream\u0026#34; \u0026#34;map\u0026#34; \u0026#34;unordered_map\u0026#34; \u0026#34;set\u0026#34; \u0026#34;unordered_set\u0026#34; \u0026#34;vector\u0026#34; \u0026#34;tuple\u0026#34;))) (concat \u0026#34;^\u0026#34; ws-maybe \u0026#34;\\\\(?:\u0026#34; \u0026#34;using\u0026#34; ws \u0026#34;\\\\(?:namespace\u0026#34; ws \u0026#34;\\\\|\u0026#34; id \u0026#34;::\u0026#34; \u0026#34;\\\\|\u0026#34; id ws-maybe \u0026#34;=\\\\)\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;\\\\(?:inline\u0026#34; ws \u0026#34;\\\\)?namespace\u0026#34; \u0026#34;\\\\(:?\u0026#34; ws \u0026#34;\\\\(?:\u0026#34; id \u0026#34;::\\\\)*\u0026#34; id \u0026#34;\\\\)?\u0026#34; ws-maybe \u0026#34;{\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;class\u0026#34; ws id \u0026#34;\\\\(?:\u0026#34; ws \u0026#34;final\u0026#34; \u0026#34;\\\\)?\u0026#34; ws-maybe \u0026#34;[:{;\\n]\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;struct\u0026#34; ws id \u0026#34;\\\\(?:\u0026#34; ws \u0026#34;final\u0026#34; ws-maybe \u0026#34;[:{\\n]\u0026#34; \u0026#34;\\\\|\u0026#34; ws-maybe \u0026#34;:\\\\)\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;template\u0026#34; ws-maybe \u0026#34;\u0026lt;.*?\u0026gt;\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;#include\u0026#34; ws-maybe \u0026#34;\u0026lt;\u0026#34; (regexp-opt headers) \u0026#34;\u0026gt;\u0026#34; \u0026#34;\\\\)\u0026#34;))) \u0026#34;A regexp applied to C header files to check if they are really C++.\u0026#34;) 이렇게 성능이 떨어지는 방식으로 syntax highlighting 기능을 꾸역꾸역 제공하는 대신 tree-sitter를 이용하면 내가 원하는 파일의 syntax를 실시간으로 parser를 통해 얻어올 수 있고 indentation rule 이나 특정 키워드를 통해 각 노드들의 카테고리를 만들어 가져올 수 있다.\nBitbake syntax highlighting 구현 이미 수많은 tree-sitter parser 들이 공개되어 있다. Github의 tree-sitter-grammars2 를 살펴보면 다양한 언어들에 대해 지원하고 있음을 알 수 있다. 그런데 이러한 parser가 있다고 해서 곧바로 이맥스에서 사용할 수 있는 것은 아니다. 현재 열려있는 버퍼에 대해 매핑되는 major mode를 정의하고 해당 mode에서 tree-sitter 파서가 주는 syntax tree를 이용해 노드 별 카테고리를 만들고 syntax highlighting 컬러에 할당해줘야 한다.\nhttps://tree-sitter.github.io/tree-sitter \u0026#160;\u0026#x21a9;\u0026#xfe0e;\nhttps://github.com/tree-sitter-grammars \u0026#160;\u0026#x21a9;\u0026#xfe0e;\n", 
+        "url": "\/posts\/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84\/"
+    },
+    
+    "\/": {
+        "title": "평범한 개발자",
+        "tags": [],
+        "content": "", 
+        "url": "\/"
+    },
+    
+    "\/posts\/vterm-in-emacs\/": {
+        "title": "Vterm In Emacs",
+        "tags": [],
+        "content": " Overview Using Emacs in daily life, I rely on vterm terminal emulator instead of eshell. However, I\u0026#39;ve noticed that there are certain limitations in terms of integration between vterm and Emacs. While the package supports some user-accessible functions, they are not sufficient. I\u0026#39;ve always wanted the integration level as VSCode, and at least it should be able to open files from the terminal interface. Well, this is one of essential features of the terminal emulator running on editors, so I thought that having this kind of issue was ridiculous. So I tried to find solutions by googling about it, but none of them had a one-shot method to achieve this. So, I made up my mind to write functions by myself.\nIn this article, I am going to describe the following things:\nA callback function to open files from vterm Functions to manage vterm session Note that since I am using Doomemacs right now, the keymap setting could differ from yours. If you do not want to read any details about functions that I wrote, just use the following settings.\n(require \u0026#39;filenotify) (defvar my:get-vterm--backup nil) (defun my:vterm-new () (interactive) (if (not (string-match-p \u0026#34;vterm\u0026#34; (buffer-name (current-buffer)))) (setq my:get-vterm--backup (current-buffer))) (call-interactively #\u0026#39;+vterm/here)) (defun my:vterm-toggle () (interactive) (let ((cnt (cl-remove-if #\u0026#39;null (mapcar (lambda (x) (and (string-match-p \u0026#34;vterm\u0026#34; (buffer-name x)) (buffer-name x))) (buffer-list))))) (if (null cnt) (progn (setq my:get-vterm--backup (current-buffer)) (call-interactively #\u0026#39;+vterm/here)) (if (and (string-match-p \u0026#34;vterm\u0026#34; (buffer-name (current-buffer))) my:get-vterm--backup) (my:vterm--restore) (call-interactively #\u0026#39;my:vterm--select))))) (defun my:vterm--restore () (switch-to-buffer my:get-vterm--backup) (setq my:get-vterm--backup nil)) (defun my:vterm--select (choice) \u0026#34;Argument CHOICE user\u0026#39;s selection.\u0026#34; (interactive (list (completing-read \u0026#34;Choose: \u0026#34; (cl-remove-if #\u0026#39;null (mapcar (lambda (x) (and (string-match-p \u0026#34;vterm\u0026#34; (buffer-name x)) (buffer-name x))) (buffer-list))) nil t))) (car (split-string choice \u0026#34; \u0026#34;)) (setq my:get-vterm--backup (current-buffer)) (switch-to-buffer choice)) (after! vterm ;; Following must be used with bash alias: ;; =\u0026gt; alias eo=\u0026#39;echo $1 \u0026gt; ~/.config/emacs/.local/cache/vterm-pipe\u0026#39; (let* ((pipe-file (expand-file-name \u0026#34;vterm-pipe\u0026#34; user-emacs-directory)) (func-open-file (lambda (event) (find-file (with-temp-buffer (insert-file-contents (expand-file-name \u0026#34;vterm-pipe\u0026#34; user-emacs-directory)) (string-trim (buffer-string))))))) (file-notify-add-watch pipe-file \u0026#39;(change) func-open-file)) (add-hook \u0026#39;vterm-mode-hook (lambda () (evil-emacs-state)))) File open from vterm - filenotify Since Emacs-28.1, Emacs supports the filenotify package, which makes it possible to watch any change from the file. It means that whenever I write any to the file, Emacs can get the triggered event from the write. Let\u0026#39;s register a callback function for the vterm-pipe in user-emacs-directory.\n(file-notify-add-watch pipe-file \u0026#39;(change) callback-func) Add the following code to $HOME/.bashrc to use the alias eo command. Now, using the eo alias will trigger the event and invoke the callback function. It\u0026#39;s done.\nalias eo=\u0026#39;realpath $1 \u0026gt; ~/.config/emacs/.local/cache/vterm-pipe\u0026#39; Vterm session management Unfortunately, vterm does not support any functions to manage its session. And a function to toggle it is not perfect. Let\u0026#39;s improve it by using an interactive menu. You can toggle the vterm session with my:vterm-toggle. In the code, there are many to refactor but it is sufficient to resolve the lack of session management and inefficient UI toggle.\nWrap up Since I started to learn how to write code in elisp, I have been able to use Emacs efficiently. Beyond the simple editor, now I can see why Emacs has been loved by lots of developers. I know, this should be the same for VI/M users :P.\n", 
+        "url": "\/posts\/vterm-in-emacs\/"
+    },
+    
+    "\/tags\/nfs\/": {
+        "title": "Nfs",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/nfs\/"
+    },
+    
+    "\/tags\/rpi\/": {
+        "title": "Rpi",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/rpi\/"
+    },
+    
+    "\/tags\/tftp\/": {
+        "title": "Tftp",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/tftp\/"
+    },
+    
+    "\/posts\/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95\/": {
+        "title": "라즈베리파이 네트워크 부팅 설정",
+        "tags": ["rpi","nfs","tftp",],
+        "content": "네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에 관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.\n필자는 라즈베리파이4를 기준으로 환경을 구성하였다. 본 페이지에서는 TFTP와 라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는 방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.\n네트워크 구성 일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와 마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를 포함하고 있어 부트로더에 관련된 설정만 추가해주면 된다. NFS의 경우 mount 명령어를 통해 하지만 그 전에 네트워크 구성에 대해 한 번 생각해봐야 한다.\nTFTP 서버는 Host PC (Windows) 의 tftpd를 이용한다. WSL2에서 tftp 서버를 구성해도 되지만 필자는 윈도우즈 호스트 PC에서 tftpd64 라는 프로그램을 이용하기로 했다. NFS 서버는 WSL2에 구성하고 라즈베리파이에서 WSL2에 접근할 수 있도록 NFS에서 사용하는 포트에 한하여 포트포워딩을 한다. TFTP 이용하여 커널 이미지 로드 TFTP를 이용해 커널 이미지를 로드하기 위해서는 아래의 작업 순서가 필요하다. 1번 내용은 Raspberry Pi Imager 라는 공식 유틸리티가 있고 굳이 설명을 하지 않아도 되기 때문에 따로 설명하지는 않겠다.\nSD 카드 이용해 기본 부트 라즈베리파이의 부트로더 설정 변경 SD 카드의 부트 파티션 복사 tftp64 이용해 부트 2. 부트로더 설정 변경 아래에 설명하는 부트로더 설정 변경 방법은 https://metebalci.com/blog/cardless-rpi4/ 에 따른 것이다. 찾아본 포스팅 중에 가장 정리가 잘 되어 있다. 포스팅 내 주요 내용을 정리하면, 아래의 순서로 부트로더 설정을 업데이트 한다.\n현재 부트로더 버전 확인 pieeprom.bin 바이너리로부터 설정 추출 설정 파일 내 TFTP 정보 추가 변경한 설정 파일을 포함한 pieeprom.bin 재생성 재생성한 pieeprom.bin으로 부트로더 업데이트 먼저 부트로더 버전을 확인해보자. vcgencmd bootloader_version 명령어를 이용하면 아래와 같이 현재 부트한 환경 기준으로 사용 중인 부트로더 버전을 확인할 수 있다.\npi@raspberrypi:~$ vcgencmd bootloader_version 2023/01/11 17:40:52 version 8ba17717fbcedd4c3b6d4bce7e50c7af4155cba9 (release) timestamp 1673458852 update-time 1681394003 capabilities 0x0000007f 버전을 확인했으니 해당 날짜에 맞는 pieeprom을 홈 디렉토리로 복사하고 바이너리 파일로부터 설정을 추출한다. 만약 rpi-eeprom-config가 없다면 rpi-eeprom 패키지를 설치해줘야 한다.\n$ pwd /home/pi $ cp /lib/firmware/raspberrypi/bootloader/default/pieeprom-2023-01-11.bin pieeprom.bin $ rpi-eeprom-config pieeprom.bin \u0026gt; config.txt 출처에서는 BOOT_ORDER 를 강조하고 있는데, TFTP 환경으로 부팅해야 하므로 앞서 네트워크 구성에서 고려했던 것과 같이 config.txt 파일을 변경해준다.\n[all] BOOT_UART=1 WAKE_ON_GPIO=1 POWER_OFF_ON_HALT=0 TFTP_IP=192.168.0.5 CLIENT_IP=192.168.0.4 SUBNET=255.255.255.0 GATEWAY= TFTP_PREFIX=0 BOOT_ORDER=0x21 TFTP_FILE_TIMEOUT=30000 설정이 끝났다. 이제 설정파일이 담긴 바이너리 파일을 생성하고 해당 파일로 업데이트 해주자.\n$ rpi-eeprom-config --out pieeprom-out.bin --config config.txt pieeprom.bin $ sudo rpi-eeprom-update -d -f ./pieeprom-out.bin $ sudo reboot 3. SD 카드 부트 파티션 복사 이제 부트로더 설정은 끝났으니 SD 카드의 boot partition을 Host PC에 저장한다. 필자는 그냥 귀찮아서 tftpd64 디렉토리(C:\\Program Files\\Tftpd64\\rpi_boot) 안에 넣어놓았다.\n4. tftp64 이용해 tftpboot 이제 tftp64 프로그램에서 디렉토리를 설정해주고 라즈베리파이를 부팅해주면 커널 로드까지는 정상적으로 되는 것을 확인할 수 있다. tftp64 프로그램은 아래 링크에서 다운로드 받을 수 있다.\nhttps://bitbucket.org/phjounin/tftpd64/downloads/ 이제 tftp를 이용한 커널 이미지 로드 준비는 끝이 났다. SD 카드를 빼고 전원을 인가하면 커널 로드까지는 성공적으로 되는 것을 확인할 수 있다.\nNFS 이용하여 루트파일시스템 로드 커널 이미지를 성공적으로 로드한다고 해도 루트파일시스템 로드가 되지 않으니 부팅이 될 리가 없다. 필자는 WSL2(Ubuntu)에 NFS 서버를 구성해서 rootfs 마운트 시점에 NFS를 마운트하도록 구성하였다.\n작업 순서는 아래와 같으며, 데비안 계열의 우분투 WSL 기준으로 설명하겠다.\n라즈베리파이 이미지 파일 (*.img) 마운트 및 복사 WSL2 내 nfs-server 설치 및 설정 nfs-server 서비스 실행 Windows 내 포트 포워딩 및 방화벽 설정 라즈베리파이 이미지 내 rootfs 파일 복사 먼저, 라즈베리파이 공식 사이트에서 os 이미지 파일을 다운로드 받는다. 본인은 현재 기준으로 lite version인 2023-02-21-raspios-bullseye-arm64-lite.img 파일을 다운로드 받았다. 그 후 아래와 같이 마운트를 하고 로컬 디렉토리에 내용을 복사한다.\n$ sudo mount -o loop,offset=272629760 ./2023-02-21-raspios-bullseye-arm 64-lite.img /mnt/ $ mkdir /rpi $ cp -ra /mnt/* /rpi NFS-Server 설치 및 설정 이제 rootfs는 준비되었으니 nfs-server를 설치할 차례이다. 필자는 라즈베리파이를 제외한 나머지 디렉토리는 필요하지 않기 때문에 rootdir을 /rpi로 설정하였다. 사용 환경에 따라 적절하게 설정해준다.\n$ sudo apt install nfs-kernel-server $ sudo vi /etc/nfs.conf # 아래와 같이 [exports] 설정 [exports] rootdir=/rpi # ... 이제 /etc/exports 파일을 아래와 같이 설정해준다. insecure 옵션을 넣어주었는데 본인의 경우 이 설정을 제외하면 파일 퍼미션이 보이지 않아 함께 넣어주었다.\n$ sudo vi /etc/exports # ... / *(rw,sync,no_root_squash,insecure) nfs-server 서비스 실행 이제 서비스를 실행하고 exportfs 를 업데이트 해준다.\n$ sudo service nfs-server restart $ sudo export -arv 한 가지 발견한 문제는 윈도우즈에서 2049 포트가 포트포워딩이 되어 있을 경우 port binding 에러로 인해 서비스 실행 에러가 생긴다는 점이다. 반드시 윈도우즈에서 포트포워딩 되어 있는 포트 중에 nfs 관련 포트가 없는지 확인하고 서비스를 실행한다.\nPS C:\\Users\\chaox\u0026gt; netsh interface portproxy show all Listen on ipv4: Connect to ipv4: Address Port Address Port --------------- ---------- --------------- ---------- 0.0.0.0 3000 172.29.124.79 3000 0.0.0.0 2049 172.29.124.79 2049 \u0026lt;- 만약에 이 부분이 있다면 에러가 발생한다. 포트 포워딩 제거시에는 아래 명령어를 사용한다.\n\u0026gt; netsh interface portproxy del v4tov4 listenport=2049 listenaddress=0.0.0.0 포트 포워딩 및 방화벽 설정 WSL2에서 서비스까지 정상적으로 실행되었다면 윈도우즈에서 아래와 같이 포트포워딩을 해준다. 그리고 정상적으로 2049 포트로 포트포워딩이 되어 있는지 확인한다. connectaddress는 wsl hostname -I 로 확인한 아이피 주소를 넣어준다.\n\u0026gt; netsh interface portproxy add v4tov4 listenport=2049 listenaddress=0.0.0.0 connectport=2049 connectaddress=172.29.124.79 \u0026gt; netsh interface portproxy show all Listen on ipv4: Connect to ipv4: Address Port Address Port --------------- ---------- --------------- ---------- 0.0.0.0 3000 172.29.124.79 3000 0.0.0.0 2049 172.29.124.79 2049 이제 윈도우즈의 Windows Defender Firewall with Advanced Security 를 열어서 Inbound Rules와 Outbound Rules 각각 포트 2049에 대해 허용하도록 설정한다.\n마무리 이제 마지막으로 앞서 복사해둔 경로 내 etc/fstab 을 아래와 같이 수정해준다.\n$ sudo vi /rpi/etc/fstab # ... proc /proc proc defaults 0 0 192.168.0.5:/ / nfs defaults,_netdav 0 1 마지막으로 부트 파티션으로 복사한 cmdline.txt 에 NFS를 로드할 수 있도록 변경해주자.\nconsole=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.0.5:/,nfsvers=4 ip=192.168.0.4 rw elevator=deadline fsck.repair=yes rootwait rootfstype=nfs 출처 https://metebalci.com/blog/cardless-rpi4/ ", 
+        "url": "\/posts\/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95\/"
+    },
+    
+    "\/tags\/device-tree\/": {
+        "title": "Device-Tree",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/device-tree\/"
+    },
+    
+    "\/tags\/fwnode\/": {
+        "title": "Fwnode",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/fwnode\/"
+    },
+    
+    "\/posts\/fwnode\/": {
+        "title": "Fwnode",
+        "tags": ["device-tree","fwnode",],
+        "content": "fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이 없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고할 수 있는 자료가 너무 없어서 아쉬웠다.\n커밋 찾아보기 ChatGPT에게 fwnode를 설명해보았지만 제대로 대답해주지 않는다. ARM 공식 문서 내의 내용은 잘 설명해주는데 커널에 관련된 내용은 틀린 부분이 많다. 역시 이해하기 위해서는 최초 적용된 커밋을 보는게 제일 좋은 방법이다. 아래의 커밋을 살펴보면 어떤 동기를 가지고 코드를 작성했는지 이해할 수 있다.\nce793486e23e0162a732c605189c8028e0910e86 8a0662d9ed2968e1186208336a8e1fab3fdfea63 최초 커밋에서 author은 아래와 같이 설명하고 있다.\nThere are two benefits from that. First, the somewhat ugly and hackish struct acpi_dev_node can be dropped and, second, the same struct fwnode_handle pointer can be used in the future to point to other (non-ACPI) firmware device node types.\n디바이스 구성을 기술(표현)하는 방법: Device Tree 리눅스 커널에서는 디바이스 구성을 표현하기 위해 OF(Open Firmware)의 Device Tree를 사용한다. 하지만 디바이스를 표현하는 방법에는 Device Tree 외에도 윈도우즈에서 사용되는 ACPI를 이용하는 방법이 있다. 이러한 방식에 대한 호환성을 제공하기 위해 리눅스 커널에서는 해당 부분을 추상화시킬 필요가 생겼고 이 때문에 도입된 것이 바로 fwnode이다.\nACPI가 아닌 경우에도 원하는 디바이스 표현 형태가 있다면, 해당 디바이스 노드를 올바르게 읽어올 수 있도록 fwnode 인터페이스만 구현해주면 된다. 리눅스 커널에서 디바이스의 property를 얻어오는 함수는 아래와 같이 fwnode를 이용하도록 구현되어 있다. 해당 디바이스가 어떤 device description method로 표현되어 있는지 상관없이 디바이스에 설정된 방식에 따라 원하는 프로퍼티를 가져올 수 있다.\nint device_property_read_string_array(struct device *dev, const char *propname, const char **val, size_t nval) { return fwnode_property_read_string_array(dev_fwnode(dev), propname, val, nval); } fwnode_ops로 구분하는 디바이스 표현 방법 Open Firmware인 경우 리눅스 커널에서 특이한 경우가 아니라면 기본적으로 of_node_init을 이용해 디바이스를 초기화하며 이 때 of_fwnode_ops를 사용하도록 설정된다.\nstatic inline void of_node_init(struct device_node *node) { #if defined(CONFIG_OF_KOBJ) kobject_init(\u0026amp;node-\u0026gt;kobj, \u0026amp;of_node_ktype); #endif fwnode_init(\u0026amp;node-\u0026gt;fwnode, \u0026amp;of_fwnode_ops); } 하지만 표현되어 있는 디바이스 노드를 of_node가 아닌 acpi로서 아래와 같이 fwnode를 초기화할 수로 있고, swnode로서 초기화 할 수도 있다. 각 함수에서 호출되는 fwnode_init() 함수에 주목하자.\nSoftware Node (swnode) swnode_register(const struct software_node *node, struct swnode *parent, unsigned int allocated) { struct swnode *swnode; int ret; /* ... */ swnode-\u0026gt;id = ret; swnode-\u0026gt;node = node; swnode-\u0026gt;parent = parent; swnode-\u0026gt;kobj.kset = swnode_kset; fwnode_init(\u0026amp;swnode-\u0026gt;fwnode, \u0026amp;software_node_ops); /* ... */ } ACPI void acpi_init_device_object(struct acpi_device *device, acpi_handle handle, int type) { INIT_LIST_HEAD(\u0026amp;device-\u0026gt;pnp.ids); device-\u0026gt;device_type = type; device-\u0026gt;handle = handle; device-\u0026gt;parent = acpi_bus_get_parent(handle); fwnode_init(\u0026amp;device-\u0026gt;fwnode, \u0026amp;acpi_device_fwnode_ops); acpi_set_device_status(device, ACPI_STA_DEFAULT); acpi_device_get_busid(device); acpi_set_pnp_ids(handle, \u0026amp;device-\u0026gt;pnp, type); acpi_init_properties(device); acpi_bus_get_flags(device); device-\u0026gt;flags.match_driver = false; device-\u0026gt;flags.initialized = true; device-\u0026gt;flags.enumeration_by_parent = acpi_device_enumeration_by_parent(device); acpi_device_clear_enumerated(device); device_initialize(\u0026amp;device-\u0026gt;dev); dev_set_uevent_suppress(\u0026amp;device-\u0026gt;dev, true); acpi_init_coherency(device); } V4L2 media framework와 fwnode의 관계 그렇다면, fwnode와 V4L2 media framework은 무슨 상관인가? V4L2 media framework의 v4l2-fwnode.h 파일을 보면 operation은 별도로 구현하지 않고 있다. 그 말은 V4L2 media framework에서 디바이스를 표현하는 방법을 새롭게 정의한 것이 아니라 단순하게 fwnode가 가지고 있는 기능을 이용한다는 것을 짐작할 수 있다.\nv4l2-fwnode.h 파일에서 fwnode와 관련된 함수들을 살펴보면 아래와 같이 endpoint 개념이 나오는 것을 볼 수 있다.\nv4l2_async_nf_parse_fwnode_endpoints v4l2_fwnode_connector_add_link v4l2_fwnode_connector_free v4l2_fwnode_connector_parse v4l2_fwnode_device_parse v4l2_fwnode_endpoint_alloc_parse v4l2_fwnode_endpoint_free v4l2_fwnode_endpoint_parse v4l2_fwnode_parse_link v4l2_fwnode_put_link fwnode_handle v4l2_async_notifier v4l2_async_subdev fwnode_endpoint를 아래와 같이 상속하여 v4l2_fwnode_endpoint로 정의해 사용하고 있는 것을 알 수 있다. 즉, fwnode의 graph 구성 기능을 이용하여 v4l2_fwnode_endpoint로서 미디어 파이프라인을 표현하기에 필요한 몇 가지 정보를 더 추가하고 있는 것일 뿐이다.\nstruct v4l2_fwnode_endpoint { struct fwnode_endpoint base; /* * Fields below this line will be zeroed by * v4l2_fwnode_endpoint_parse() */ enum v4l2_mbus_type bus_type; struct { struct v4l2_fwnode_bus_parallel parallel; struct v4l2_fwnode_bus_mipi_csi1 mipi_csi1; struct v4l2_fwnode_bus_mipi_csi2 mipi_csi2; } bus; u64 *link_frequencies; unsigned int nr_of_link_frequencies; }; 마치며 개인적으로 해석했을 때 fwnode는 device description methods 들의 abstraction data structure이다. 끝.\n참고 https://events.static.linuxfound.org/sites/events/files/slides/unified_properties_API_0.pdf ", 
+        "url": "\/posts\/fwnode\/"
+    },
+    
+    "\/categories\/kernel\/": {
+        "title": "Kernel",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/kernel\/"
+    },
+    
+    "\/posts\/strcpy\/": {
+        "title": "strcpy",
+        "tags": ["strcpy","strlcpy","strscpy",],
+        "content": "개요 한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고 했는데 이제서야 겨우 정리할 수 있게 되었다.\n리눅스 커널에서 문자열 복사를 위해 만들어진 매크로들은 다양하다. 몇 개의 시리즈(?)가 있는데 정리해보면 다음과 같다.\nstrcpy strncpy strlcpy strscpy strcpy strcpy를 나타내면 아래와 같이 간단하다.\nstrcpy(s, t) char *s, *t; { while (*s++ = *t++) ; } } 하지만 이 경우 발생가능한 문제는 destination 크기가 source보다 작을 경우 overrun이 발생한다는 점이다. 이를 개선하고자 만들어진 것이 strncpy 이다.\nstrncpy strncpy는 아래와 같은 프로토타입을 갖는다.\nchar *strncpy(char *dest, char *src, size_t n); 명시적으로 복사하고자 하는 크기를 인자로 넘겨주기 때문에 앞서 strcpy처럼 overrun이 발생할 일이 거의 없다. 하지만 이처럼 문제가 없어보이는 데에도 잠재적인 문제가 있다. 아래의 두 가지 경우를 살펴보자.\n인자 n 보다 source 가 짧은 경우 인자 n 보다 source 가 길 경우 첫 번째 경우에는 source 가 인자 n보다 작은데도 불구하고 전체 array를 복사하게 되는 불필요한 연산이 발생할 수 있다.\n두 번째 경우에는 source 가 인자 n보다 큰 경우이다. 이 경우 destination 은 NULL 로 끝나지 않게 돼 문자열로써 사용할 수 없다. 이러한 문제를 해결하기 위해 사용 버전이 strlcpy이다.\nstrlcpy BSD 계열의 커널에서는 strncpy를 해결하기 위해 strlcpy를 구현하였다.\nsize_t strlcpy(char *dest, const char *src, size_t n); 프로토타입은 strncpy와 비슷하다. 하지만 strncpy와의 한 가지 차이점은 strlcpy는 항상 destination 문자열이 NUL-terminated 라는 것을 보장한다는 점이다. 그리고 반환값으로 src의 길이를 반환하기 때문에 *dest로 반환된 문자열과 비교함으로써 정상적으로 문자열 복사가 이뤄졌는지 비교할 수 있다. 하지만 당시에 비효율적이라는 이유로 glibc 메인테이너와 커널 개발자들에게도 strlcpy는 환영받지 못했다.\nThis is horribly inefficient BSD crap. Using these function only leads to other errors. Correct string handling means that you always know how long your strings are and therefore you can you memcpy (instead of strcpy). Beside, those who are using strcat or variants deserved to be punished.\n맞는 말이긴 하다. source 문자열의 길이가 얼마인지 알고 있기 때문에 명시적으로 하자면 memcpy를 이용하면 되지 굳이 strlcpy를 이용해가면서 반환값을 재차 *dest와 비교하는 코드를 짤 필요는 없다. 하지만 이것보다 더 중요한 몇 가지 결함이 있다.\n실제 데이터가 복사될 수 없는 경우에도 source 문자열을 읽어야 한다. source 문자열을 신뢰할 수 없는 경우(non-NUL terminated)를 처리하지 못한다. race condition 이 존재한다. strlen 을 이용해 전체 소스 문자열의 길이를 확인하기 위해 읽어야 하는 문제점이 존재하고, 아래와 같이 구현되어 있는 strlcpy 는 만약 source 문자열이 NUL로 끝나지 않는 상태일 경우 문제가 발생할 수 있다. 실제 아래의 코드를 보면 그러한 경우가 발생했을 때 클라이언트 쪽에서 알 수 있는 방법이 없다.\nsize_t strlcpy(char *dest, const char *src, size_t size) { size_t ret = strlen(src); if (size) { size_t len = (ret \u0026gt;= size) ? size - 1 : ret; memcpy(dest, src, len); dest[len] = \u0026#39;\\0\u0026#39;; } return ret; } 또한, race condition이 발생할 수 있다. 이 부분은 언뜻 생각하지 못한 부분인데, src 의 길이를 가져오고 난 뒤 중간에서 src가 바뀌는 경우에는 이를 처리하지 못한다.\nstrscpy ssize_t strscpy(char *dest, const char *src, size_t count); 이러한 결점들을 해결한 함수가 바로 strscpy이다. 프로토타입만 보면 다른 점이 없다. 차이점은 반환값에 있다. strlcpy와 달리 strscpy는 복사된 문자들의 개수를 반환한다는 특징이 있고 실제 구현(https://elixir.bootlin.com/linux/v5.19.3/source/lib/string.cL151 )을 살펴보았을 때도 위의 간단한 문자열 복사방법과는 사뭇 다르다.\n마치며 현재 가장 최신 버전의 strscpy 함수에서는 kasan도 함께 공부해야 완전하게 함수를 이해할 수 있을 것 같다. 이젠 하다하다 문자열 하나 복사하는 함수조차 쉽게 이해하기 힘들어질 지경까지 이르렀다. 배워도 까먹어버리니 언젠간 다시 이 글도 다시 뒤적거릴 때가 올 것이다.\n출처 https://lwn.net/Articles/905777/ https://lwn.net/Articles/612244/ https://github.com/torvalds/linux/commit/30035e45753b708e7d47a98398500ca005e02b86 ", 
+        "url": "\/posts\/strcpy\/"
+    },
+    
+    "\/tags\/strcpy\/": {
+        "title": "Strcpy",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/strcpy\/"
+    },
+    
+    "\/tags\/strlcpy\/": {
+        "title": "Strlcpy",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/strlcpy\/"
+    },
+    
+    "\/tags\/strscpy\/": {
+        "title": "Strscpy",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/strscpy\/"
+    },
+    
+    "\/tags\/file-descriptor\/": {
+        "title": "File Descriptor",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/file-descriptor\/"
+    },
+    
+    "\/posts\/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0\/": {
+        "title": "프로세스 종료와 파일 디스크립터",
+        "tags": ["file descriptor",],
+        "content": "파일을 open 했는데 close를 안하면? stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 태스크가 파일을 열면 얻게 되는 고유 id값 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?) 살펴보고자 한다.\nstrace 로 삽질 포인트 찾기 업무와는 관련이 없지만 간혹 코드에 open만 있는데도 불구하고 파일 디스크립터에 대한 에러가 발생하지 않는 불편한 코드들을 보면서 평소에 궁금했던 부분이라 잠깐 이 부분을 찾아보기로 했다. 먼저 아래와 같이 간단한 코드를 하나 작성한 뒤 컴파일해준다.\n// cat sysclose_test.c #include \u0026lt;unistd.h\u0026gt; #include \u0026lt;stdlib.h\u0026gt; #include \u0026lt;syscall.h\u0026gt; #include \u0026lt;fcntl.h\u0026gt; int main(void) { int fd; fd = open(\u0026#34;test\u0026#34;, O_RDWR); exit(1); } 마지막 라인의 exit(1) 부분은 추가하지 않아도 인자만 다른 채로 동일한 시스템 콜이 호출된다. 이제 strace 를 통해 시스템콜이 어떻게 호출되는지 살펴보자.\n$ strace ./sysclose_test execve(\u0026#34;./sysclose_test\u0026#34;, [\u0026#34;./sysclose_test\u0026#34;], 0x7fff0fb6ea80 /* 40 vars */) = 0 mmap(0x7fcdffece000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bc000) = 0x7fcdffece000 mmap(0x7fcdfff27000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7fcdfff27000 mmap(0x7fcdfff2d000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7fcdfff2d000 close(3) = 0 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fcdffd10000 arch_prctl(ARCH_SET_FS, 0x7fcdfff3b5c0) = 0 set_tid_address(0x7fcdfff3b890) = 375046 set_robust_list(0x7fcdfff3b8a0, 24) = 0 mprotect(0x7fcdfff27000, 16384, PROT_READ) = 0 mprotect(0x55c5fce58000, 4096, PROT_READ) = 0 mprotect(0x7fcdfff81000, 8192, PROT_READ) = 0 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0 munmap(0x7fcdfff3c000, 71131) = 0 openat(AT_FDCWD, \u0026#34;test\u0026#34;, O_RDWR) = 3 exit_group(0) = ? +++ exited with 0 +++ 마지막으로 출력된 라인으로부터 exit_group(0) 시스템 콜이 호출된 것을 알 수 있다. 삽질 포인트를 찾았으니 이제 본격적으로 삽질할 준비는 되었다.\ndo_exit -\u0026gt; exit_files exit_group(0) 을 시작으로 함수콜을 따라가다보면 다음과 같은 호출 경로를 찾아낼 수 있다.\n-\u0026gt; exit_group() +-\u0026gt; do_exit() +-\u0026gt; exit_files() +-\u0026gt; put_files_struct() +-\u0026gt; close_files() 핵심은 종료될 태스크의 파일 리스트를 얻은 뒤 NULL로 바꾸고, put_files_struct 에 리스트를 인자로 넘기면서 파일들을 close 하는 부분이다. 이 부분을 통해서 왜 굳이 명시적으로 close 를 하지 않아도 태스크 종료 시에 파일 디스크립터들이 정리되는지 알 수 있다.\nvoid exit_files(struct task_struct *tsk) { struct files_struct * files = tsk-\u0026gt;files; if (files) { io_uring_files_cancel(files); task_lock(tsk); tsk-\u0026gt;files = NULL; task_unlock(tsk); put_files_struct(files); } } void put_files_struct(struct files_struct *files) { if (atomic_dec_and_test(\u0026amp;files-\u0026gt;count)) { struct fdtable *fdt = close_files(files); /* free the arrays if they are not embedded */ if (fdt != \u0026amp;files-\u0026gt;fdtab) __free_fdtable(fdt); kmem_cache_free(files_cachep, files); } } static struct fdtable *close_files(struct files_struct * files) { /* * It is safe to dereference the fd table without RCU or * -\u0026gt;file_lock because this is the last reference to the * files structure. */ struct fdtable *fdt = rcu_dereference_raw(files-\u0026gt;fdt); unsigned int i, j = 0; for (;;) { unsigned long set; i = j * BITS_PER_LONG; if (i \u0026gt;= fdt-\u0026gt;max_fds) break; set = fdt-\u0026gt;open_fds[j++]; while (set) { if (set \u0026amp; 1) { struct file * file = xchg(\u0026amp;fdt-\u0026gt;fd[i], NULL); if (file) { filp_close(file, files); cond_resched(); } } i++; set \u0026gt;\u0026gt;= 1; } } return fdt; } 마치며 파일이 닫히는 것까지 커널 코드를 읽고 분석하는데 시간이 꽤 걸릴 것이라 생각했지만 생각보다 단계가 단순하여 금방 이해할 수 있었다. 한가지 중요한 것은, 본 글에서 분석한 내용이 코드 상에서 close()를 하지 않아도 된다는 의미는 아니라는 점이다. 리눅스에서는 디바이스 노드로써 디바이스를 컨트롤한다. 이 경우 open()과 close()를 명시적으로 사용하지 않으면 디바이스 초기화 시점을 코드로써 기술할 수 없게 되므로 문제가 발생할 가능성이 높아지기 때문에 주의해야 한다.\n", 
+        "url": "\/posts\/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0\/"
+    },
+    
+    "\/categories\/computer-science\/": {
+        "title": "Computer Science",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/computer-science\/"
+    },
+    
+    "\/posts\/device-tree-overlay\/": {
+        "title": "Device Tree Overlay",
+        "tags": ["device tree","overlay","kernel",],
+        "content": "Ramoops 덕분에 알게된 오버레이 며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나 user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어 최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.\n이러한 로거를 현업에서 사용하기 위해 사내 평가보드에서 먼저 확인해보았다. 평가보드에서는 간단하게 memblock의 reserved memory 영역에 ramoops 영역을 추가함으로써 정상 동작하는 것을 금방 확인할 수 있었다. 하지만, 개인적으로 갖고 있던 라즈베리파이 보드에서는 이같은 방법이 제대로 동작하지 않았다. 이에 구글링을 하던 도중 디바이스 트리 오버레이로 ramoops 에 대한 디바이스 트리를 수정하는 방법을 접하면서, 오버레이가 특정 벤더의 BSP에서만 사용 가능한 것이 아닌 OF의 API로서 커널 내에 구현되어 있다는 사실 또한 함께 알게 되었다. (부끄럽게도 이제서야 알게 되었다.)\n오버레이 작성 오버레이는 런타임에 FDT (Flattened Device Tree) 를 수정할 수 있는 방법이다. 여기서 FDT란, 메모리에 로드된 디바이스 트리를 말한다. DTC (Device Tree Compiler) 버전에 따라 syntax 가 조금씩 달라지지만, 이전 방법으로는 아래와 같이 작성할 수 있다.\n/dts-v1/; /plugin/; / { compatible = \u0026#34;brcm,bcm2835\u0026#34;; fragment@0 { target = \u0026lt;\u0026amp;rmem\u0026gt;; __overlay__ { #address-cells= \u0026lt;1\u0026gt;; #size-cells = \u0026lt;1\u0026gt;; ranges; ramoops: ramoops@39000000{ compatible = \u0026#34;ramoops\u0026#34;; reg = \u0026lt;0x39000000 0x100000\u0026gt;; ecc-size = \u0026lt;16\u0026gt;; record-size = \u0026lt;0x20000\u0026gt;; console-size = \u0026lt;0x20000\u0026gt;; pmsg-size = \u0026lt;0x20000\u0026gt;; ftrace-size = \u0026lt;0\u0026gt;; }; }; }; }; 그리고 이를 아래와 같이 컴파일한다.\n$ dtc -@ -O dtb -o ramoops.dtbo ramoops-overlay.dts configfs 앞서 컴파일한 오버레이를 사용하기 위해서는 디바이스 트리를 사용했던 것과 마찬가지로 특정 메모리 영역에 dtbo 파일을 두고 오버레이 인터페이스를 통해 접근해야 한다. 하지만 overlay에 관련된 API 를 직접 호출할 필요 없이도 configfs 를 통해 쉽게 오버레이를 추가하거나 제거할 수 있다. 커널에서는 아래와 같이 DT overlay interface 로서 CONFIGFS 를 제공한다.\nCONFIG_OF_CONFIGFS: Enable a simple user-space driven DT overlay interface. Symbol: OF_CONFIGFS [=y] Type : bool Defined at drivers/of/Kconfig:97 Prompt: Device Tree Overlay ConfigFS interface Depends on: OF [=y] Location: -\u0026gt; Device Drivers -\u0026gt; Device Tree and Open Firmware support (OF [=y]) Selects: CONFIGFS_FS [=y] \u0026amp;\u0026amp; OF_OVERLAY [=y] 만약 이 커널 옵션이 정상적으로 활성화되어 빌드되었다면 아래와 같이 /sys/kernel/configs 경로에 configfs 파일시스템이 마운트 되어 있는 것을 확인할 수 있다.\n$ mount | grep -i config configfs on /sys/kernel/config type configfs (rw,nosuid,nodev,noexec,relatime) 먼저, 파일시스템을 탐색해보면 아무것도 없다. /sys/kernel/config/device-tree/overlay/ 까지의 디렉토리만 생성되어 있을 뿐 아무런 파일도 존재하지 않는다. 이 때, 임시로 디렉토리 하나를 만들어주면 아래와 같이 파일 여러개가 생성되어 있는 것을 알 수 있다. 그리고 해당 파일들의 내용을 보면 비어 있다.\n$ mkdir /sys/kernel/config/device-tree/overlays/test $ ls /sys/kernel/config/device-tree/overlays/test dtbo path status $ grep \u0026#34;\u0026#34; /sys/kernel/config/device-tree/overlays/test/* /sys/kernel/config/device-tree/overlays/test/path: /sys/kernel/config/device-tree/overlays/test/status:unapplied 이제, 앞서 컴파일 해놓은 dtbo 파일을 해당 파일시스템을 통해 로드해보자. 앞서 생성한 ramoops 노드가 동적으로 런타임에 추가된 것을 볼 수 있다(!!)\n$ cat ramoops.dtbo \u0026gt; /sys/kernel/config/device-tree/overlays/test/dtbo $ ls /proc/device-tree/reserved-memory/ -al total 0 drwxr-xr-x 5 root root 0 Apr 26 04:39 . drwxr-xr-x 25 root root 0 Jul 21 2021 .. -r--r--r-- 1 root root 4 Apr 26 04:51 \u0026#39;#address-cells\u0026#39; drwxr-xr-x 2 root root 0 Apr 26 04:51 linux,cma -r--r--r-- 1 root root 16 Apr 26 04:51 name -r--r--r-- 1 root root 4 Apr 26 04:51 phandle drwxr-xr-x 2 root root 0 Apr 26 10:46 ramoops@39000000 -r--r--r-- 1 root root 0 Apr 26 10:46 ranges -r--r--r-- 1 root root 4 Apr 26 04:51 \u0026#39;#size-cells\u0026#39; $ grep \u0026#34;\u0026#34; /sys/kernel/config/device-tree/overlays/test/* Binary file /sys/kernel/config/device-tree/overlays/test/dtbo matches /sys/kernel/config/device-tree/overlays/test/path: /sys/kernel/config/device-tree/overlays/test/status:applied 이렇게 오버레이를 통해 노드를 로드한 뒤에는 드라이버도 함께 신경써줘야 한다. 만약 관련된 드라이버가 built-in 되어 컴파일된 경우라면 자동으로 로드되지만 모듈로 빌드된 경우에는 반드시 modprobe 명령어로 로드해줘야 한다. 더이상 필요하지 않은 경우에는 아래와 같이 단순하게 디렉토리를 삭제해주면 된다.\n$ rmdir /sys/kernel/config/device-tree/overlays/test/ 언제 사용할까? 오버레이를 통해 런타임에 동적으로 FDT 의 내용을 변경할 수 있다는 점은 충분히 매력적이다. 어째서 라즈베리파이에서 상당 부분의 모듈들을 오버레이를 통해 제공하고 있는지도 함께 이해할 수 있었다. 현재 현업에서는 오버레이는 적용되지 않은채 디바이스 트리의 상속을 통해서 구조화 시킨채 FDT는 고정적으로 사용하고 있다. 만약 시나리오에 따라 디바이스 트리가 변경되도록 BSP를 개발해야 하는 때가 온거나 현재 커널 내에 구현된 유닛테스트와 같이 고정된 테스트 코드에 동적인 설정값들을 사용해야 한다면 오버레이가 그 해답이 될 수 있을 것이라 생각한다.\n참고 자료 Android Device Tree Overlay dtbocfg Dynamically Loading Device Tree Overlay ", 
+        "url": "\/posts\/device-tree-overlay\/"
+    },
+    
+    "\/tags\/kernel\/": {
+        "title": "Kernel",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/kernel\/"
+    },
+    
+    "\/tags\/overlay\/": {
+        "title": "Overlay",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/overlay\/"
+    },
+    
+    "\/tags\/canary\/": {
+        "title": "Canary",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/canary\/"
+    },
+    
+    "\/tags\/ssp\/": {
+        "title": "Ssp",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/ssp\/"
+    },
+    
+    "\/tags\/stack\/": {
+        "title": "Stack",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/stack\/"
+    },
+    
+    "\/posts\/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0\/": {
+        "title": "Stack Protector와 디버깅 이야기",
+        "tags": ["ssp","stack","canary",],
+        "content": "Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에 Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.\n하지만 이슈가 마무리 되고 Stack Protector 가 어떤 원리로 동작하는지 궁금했고 설 연휴를 맞아 자세하게 정리할 수 있었다. 그 과정에서 우분투에 잘못된 버그 리포트 티켓을 만들어내긴 했지만 말이다.\nStack Protection은 GCC의 -fstack-protector, -fstack-protector-all, -fstack-protector-strong 옵션을 통해 활성화할 수 있고 -fno-stack-protector 옵션으로 비활성화 할 수 있다.\n스택 레이아웃 살펴보기 비활성화 시의 레이아웃 먼저, Stack Protector를 비활성화/활성화 되었을 때의 각각 콜스택이 어떻게 되는지 살펴보자.\n먼저, 아래와 같이 간단한 코드를 준비하였다.\nvoid mul(int a) { a = a * 2; } void add(int a, int b, int c, int d) { int j = a + 1; int e = b + 2; int f = c + 3; int g = d + 4; mul(j + e + f + g); } int main() { int a = 0; int b = 1; int c = 2; int d = 3; add(a, b, c, d); return a; } 호출 전/후로 ARM64 아키텍처에서의 Calling Convention을 확인하기 편하도록 최대한 코드를 할당 중심으로 작성하였다. 위 코드를 아래의 명령어로 컴파일한 후 다시 어셈블리로 바꿔주자.\n$ aarch64-linux-gnu-gcc callstack.c \\ -fno-stack-protector \\ -fno-asynchronous-unwind-tables \\ -fno-exceptions \\ -fno-rtti -fverbose-asm \\ -o callstack.o $ aarch64-linux-gnu-objdump -dS callstack.o \u0026gt; callstack.disassemble 위와 같이 오브젝트 파일을 만들었다가 다시 dump 하는 이유는 불필요한 어셈블리 레이블을 없애기 위해서다. 실제로 gcc의 -S 옵션을 사용하여 단순하게 어셈블리 코드를 만들어내면 원하는 어셈 코드를 얻기 힘들다. 이제 얻어낸 어셈블리 코드를 살펴보자.\n0000000000000714 \u0026lt;mul\u0026gt;: 714:\td10043ff sub\tsp, sp, #0x10 718:\tb9000fe0 str\tw0, [sp, #12] 71c:\tb9400fe0 ldr\tw0, [sp, #12] 720:\t531f7800 lsl\tw0, w0, #1 724:\tb9000fe0 str\tw0, [sp, #12] 728:\td503201f nop 72c:\t910043ff add\tsp, sp, #0x10 730:\td65f03c0 ret 0000000000000734 \u0026lt;add\u0026gt;: 734:\ta9bd7bfd stp\tx29, x30, [sp, #-48]! 738:\t910003fd mov\tx29, sp 73c:\tb9001fe0 str\tw0, [sp, #28] 740:\tb9001be1 str\tw1, [sp, #24] 744:\tb90017e2 str\tw2, [sp, #20] 748:\tb90013e3 str\tw3, [sp, #16] 74c:\tb9401fe0 ldr\tw0, [sp, #28] 750:\t11000400 add\tw0, w0, #0x1 754:\tb9002fe0 str\tw0, [sp, #44] 758:\tb9401be0 ldr\tw0, [sp, #24] 75c:\t11000800 add\tw0, w0, #0x2 760:\tb9002be0 str\tw0, [sp, #40] 764:\tb94017e0 ldr\tw0, [sp, #20] 768:\t11000c00 add\tw0, w0, #0x3 76c:\tb90027e0 str\tw0, [sp, #36] 770:\tb94013e0 ldr\tw0, [sp, #16] 774:\t11001000 add\tw0, w0, #0x4 778:\tb90023e0 str\tw0, [sp, #32] 77c:\tb9402fe1 ldr\tw1, [sp, #44] 780:\tb9402be0 ldr\tw0, [sp, #40] 784:\t0b000021 add\tw1, w1, w0 788:\tb94027e0 ldr\tw0, [sp, #36] 78c:\t0b000021 add\tw1, w1, w0 790:\tb94023e0 ldr\tw0, [sp, #32] 794:\t0b000020 add\tw0, w1, w0 798:\t97ffffdf bl\t714 \u0026lt;mul\u0026gt; 79c:\td503201f nop 7a0:\ta8c37bfd ldp\tx29, x30, [sp], #48 7a4:\td65f03c0 ret 00000000000007a8 \u0026lt;main\u0026gt;: 7a8:\ta9be7bfd stp\tx29, x30, [sp, #-32]! 7ac:\t910003fd mov\tx29, sp 7b0:\tb9001fff str\twzr, [sp, #28] 7b4:\t52800020 mov\tw0, #0x1 // #1 7b8:\tb9001be0 str\tw0, [sp, #24] 7bc:\t52800040 mov\tw0, #0x2 // #2 7c0:\tb90017e0 str\tw0, [sp, #20] 7c4:\t52800060 mov\tw0, #0x3 // #3 7c8:\tb90013e0 str\tw0, [sp, #16] 7cc:\tb94013e3 ldr\tw3, [sp, #16] 7d0:\tb94017e2 ldr\tw2, [sp, #20] 7d4:\tb9401be1 ldr\tw1, [sp, #24] 7d8:\tb9401fe0 ldr\tw0, [sp, #28] 7dc:\t97ffffd6 bl\t734 \u0026lt;add\u0026gt; 7e0:\tb9401fe0 ldr\tw0, [sp, #28] 7e4:\ta8c27bfd ldp\tx29, x30, [sp], #32 7e8:\td65f03c0 ret 어셈블리 코드를 살펴보면 main, add, mul 함수가 호출될 때마다 첫번째 라인에서 x29/x30 값을 sp (스택 포인터)에 저장하고 Stack Frame을 확보하는 것을 알 수 있다. x29는 Frame Pointer, x30은 Link Register로서 사용되며 각각 스택 프레임의 base, Return Address를 갖고 있다고 생각하면 된다. add 함수가 mul 함수에서 각각 stack frame을 확보하는 어셈블리 명령어가 다르게 나와있다. add 함수를 먼저 살펴보면 아래와 같다.\nstp x29, x30, [sp, #-48]! 이는 x29, x30 값을 [sp]에 저장(sp가 갖고 있는 메모리 주소에)한 다음 sp를 -48 오프셋만큼 이동하라는 뜻이다. 이 때, 스택 할당은 메모리 반대 방향으로 확보되는 점에 주목하자. mul 함수는 별도의 백업 없이 곧바로 스택 프레임을 확보하는 것을 볼 수 있다.\n계속해서 add 함수를 살펴보면 스택 프레임을 확보한 후 int d, e, f에 해당하는 지역 변수들을 스택에 저장하는 것을 알 수 있다. x29는 stack frame pointer, x30은 return address를 저장하고 있다.\n활성화 시의 레이아웃 그렇다면 stack protector가 활성화된 메모리 레이아웃은 어떻게 될까? 이번에는 -fstack-protector-all 옵션을 이용하여 어셈블리 코드를 생성해주자.\n000000000000086c \u0026lt;add\u0026gt;: 86c:\ta9bc7bfd stp\tx29, x30, [sp, #-64]! 870:\t910003fd mov\tx29, sp 874:\tb9001fe0 str\tw0, [sp, #28] 878:\tb9001be1 str\tw1, [sp, #24] 87c:\tb90017e2 str\tw2, [sp, #20] 880:\tb90013e3 str\tw3, [sp, #16] 884:\t90000080 adrp\tx0, 10000 \u0026lt;__FRAME_END__+0xf520\u0026gt; 888:\tf947f400 ldr\tx0, [x0, #4072] 88c:\tf9400001 ldr\tx1, [x0] 890:\tf9001fe1 str\tx1, [sp, #56] 894:\td2800001 mov\tx1, #0x0 // #0 898:\tb9401fe0 ldr\tw0, [sp, #28] 89c:\t11000400 add\tw0, w0, #0x1 8a0:\tb9002be0 str\tw0, [sp, #40] 8a4:\tb9401be0 ldr\tw0, [sp, #24] 8a8:\t11000800 add\tw0, w0, #0x2 8ac:\tb9002fe0 str\tw0, [sp, #44] 8b0:\tb94017e0 ldr\tw0, [sp, #20] 8b4:\t11000c00 add\tw0, w0, #0x3 8b8:\tb90033e0 str\tw0, [sp, #48] 8bc:\tb94013e0 ldr\tw0, [sp, #16] 8c0:\t11001000 add\tw0, w0, #0x4 8c4:\tb90037e0 str\tw0, [sp, #52] 8c8:\tb9402be1 ldr\tw1, [sp, #40] 8cc:\tb9402fe0 ldr\tw0, [sp, #44] 8d0:\t0b000021 add\tw1, w1, w0 8d4:\tb94033e0 ldr\tw0, [sp, #48] 8d8:\t0b000021 add\tw1, w1, w0 8dc:\tb94037e0 ldr\tw0, [sp, #52] 8e0:\t0b000020 add\tw0, w1, w0 8e4:\t97ffffcc bl\t814 \u0026lt;mul\u0026gt; 8e8:\td503201f nop 8ec:\t90000080 adrp\tx0, 10000 \u0026lt;__FRAME_END__+0xf520\u0026gt; 8f0:\tf947f400 ldr\tx0, [x0, #4072] 8f4:\tf9401fe2 ldr\tx2, [sp, #56] 8f8:\tf9400001 ldr\tx1, [x0] 8fc:\teb010042 subs\tx2, x2, x1 900:\td2800001 mov\tx1, #0x0 // #0 904:\t54000040 b.eq\t90c \u0026lt;add+0xa0\u0026gt; // b.none 908:\t97ffff66 bl\t6a0 \u0026lt;__stack_chk_fail@plt\u0026gt; 90c:\ta8c47bfd ldp\tx29, x30, [sp], #64 910:\td65f03c0 ret 보기에도 이전에 살펴봤던 add 함수보다 훨씬 코드가 길어졌다. 여기서 중요한 건 함수 초기에 스택 포인터를 움직인 후 canary 영역을 스택에 저장하는 부분이다.\n884:\t90000080 adrp\tx0, 10000 \u0026lt;__FRAME_END__+0xf520\u0026gt; 888:\tf947f400 ldr\tx0, [x0, #4072] 88c:\tf9400001 ldr\tx1, [x0] 890:\tf9001fe1 str\tx1, [sp, #56] ... 908:\t97ffff66 bl\t6a0 \u0026lt;__stack_chk_fail@plt\u0026gt; Stack Frame Pointer와 Link Register 정보를 스택 하위에 두고 일반적으로는 곧바로 지역변수들이 위치하지만 Stack Protector 를 활성화하면 이 영역이 canary 영역으로 채워지는 것을 알 수 있다.\nStack Smashing 에러가 안난다? Canary Boundary ARM Reference 문서에 나와있는 예제 (https://developer.arm.com/documentation/101754/0616/armclang-Reference/armclang-Command-line-Options/-fstack-protector---fstack-protector-all---fstack-protector-strong---fno-stack-protector ) 로 직접 확인해보려 했지만 의도된대로 에러가 발생하지 않았다. 이에 직접 GDB 를 이용하여 디버깅을 해보니 아래와 같이 fs:0x28, 즉 canary value의 하위 8비트가 0으로 초기화되어 있었다.\nfs, gs 레지스터는 특별한 운영체제의 자료구조에 접근하기 위한 것이다. 특히, FS:0x28은 리눅스에서 stack-guard 값을 저장하고 stack-guard check 루틴에서 사용된다. (https://stackoverflow.com/questions/10325713/why-does-this-memory-address-fs0x28-fs0x28-have-a-random-value ) 그런데 fs:0x28 값이 처음부터 하위 1바이트가 초기화되어 있다는 것은 커널 쪽 코드에 의한 것이라고 생각하고 살펴보니, 커널 include/linux/random.h 파일에 아래의 코드가 있었다.\n/* * On 64-bit architectures, protect against non-terminated C string overflows * by zeroing out the first byte of the canary; this leaves 56 bits of entropy. */ #ifdef CONFIG_64BIT # ifdef __LITTLE_ENDIAN # define CANARY_MASK 0xffffffffffffff00UL # else /* big endian, 64 bits: */ # define CANARY_MASK 0x00ffffffffffffffUL # endif #else /* 32 bits: */ # define CANARY_MASK 0xffffffffUL #endif static inline unsigned long get_random_canary(void) { unsigned long val = get_random_long(); return val \u0026amp; CANARY_MASK; } 처음에는 굳이 이렇게 NULL을 처리해야 하나 싶었는데 블라인드를 통해 알게된 사실은 canary value를 바로 출력하지 못하도록 NULL 문자를 이용해 boundary를 생성하기 위한 용도라는 것을 알게됐다. 이로써 stack protector가 스택에서 어떻게 위치하는지, 그리고 왜 ARM 레퍼런스 문서에 있는 예제가 동작을 하지 않는지, canary boundary 값이 왜 NULL로 되어있는지 등을 알 수 있었다.\n참고 자료 FS/GS 레지스터 in Stackoverflow stp 레지스터 사용 예 ARM 어셈블리 강좌 자료 - Function Calls ARM64 스택 분석 자료 GCC 어셈블리 strip 방법 #1 GCC 어셈블리 strip 방법 #2 ", 
+        "url": "\/posts\/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0\/"
+    },
+    
+    "\/tags\/preprocessor\/": {
+        "title": "Preprocessor",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/preprocessor\/"
+    },
+    
+    "\/posts\/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0\/": {
+        "title": "컴파일 타임에 매크로 변수 값 확인하기",
+        "tags": ["preprocessor",],
+        "content": "개요 현업에서 사용하는 코드 중 상당히 많은 부분들이 매크로 변수 형태로 정의되어 사용되고 있다. 이러한 변수들은 런타임 때 정의되지 않기 때문에 굳이 값을 확인하기 위해서 불필요하게 런타임에서까지 확인해볼 필요는 없지만, 통상적으로 이러한 변수들의 값이 어떻게 설정되어 있는지에 대한 로깅 코드들이 많이 있다.\n그렇다면, 컴파일 타임에서 매크로 변수의 값을 알 수 있는 방법은 없을까? #pragma 와 같은 전처리 키워드를 사용하면 가능하다. 예를 들어, 아래의 코드를 보자.\n#include \u0026lt;stdio.h\u0026gt; /* #define VAR_NAME_VALUE(var) #var \u0026#34;=\u0026#34; VALUE(var) */ #define DO_PRAGMA(x) _Pragma (#x) /* Some test definition here */ #define DEFINED_BUT_NO_VALUE #define DEFINED_INT 3 #define DEFINED_STR \u0026#34;ABC\u0026#34; /* definition to expand macro then apply to pragma message */ #define VALUE_TO_STRING(x) #x #define VALUE(x) VALUE_TO_STRING(x) #define VAR_NAME_VALUE(var) #var \u0026#34;=\u0026#34; VALUE_TO_STRING(var) /* Some example here */ #pragma message(VAR_NAME_VALUE(NOT_DEFINED)) #pragma message(VAR_NAME_VALUE(DEFINED_BUT_NO_VALUE)) #pragma message(VAR_NAME_VALUE(DEFINED_INT)) #pragma message(VAR_NAME_VALUE(DEFINED_STR)) #define PRINT_INT(x) DO_PRAGMA(message(VAR_NAME_VALUE(DEFINED_INT))) PRINT_INT(DEFINED_INT); #if DEFINED_INT \u0026gt; 2 #warning \u0026#34;ERROR\u0026#34; #endif int main(void) { printf(\u0026#34;This is sample application to make compiler to \\ show the value of macro variable\\n\u0026#34;); return 0; } 위와 같이 매크로를 정의하면, 컴파일 시에 PRINT_INT 매크로 뿐만 아니라 #pragma message(...) 를 이용하여 각각의 매크로 변수들의 값을 직접 출력할 수 있다.\n이제 커널의 fixmap 영역이 정의된 부분에서 확인해보자. (사실 fixmap 영역에서 사용하는 값들을 직접 확인해보기 위함이었는데 enum 으로 정의되어 있는 부분은 제대로 출력되지 않았다.)\n... }; #pragma message(VAR_NAME_VALUE(FIX_FDT_SIZE)) ./arch/arm64/include/asm/fixmap.h:102:9: note: #pragma message: FIX_FDT_SIZE=(0x00200000 + 0x00200000) 102 | #pragma message(VAR_NAME_VALUE(FIX_FDT_SIZE)) | ^~~~~~~ ", 
+        "url": "\/posts\/%EC%BB%B4%ED%8C%8C%EC%9D%BC-%ED%83%80%EC%9E%84%EC%97%90-%EB%A7%A4%ED%81%AC%EB%A1%9C-%EB%B3%80%EC%88%98-%EA%B0%92-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0\/"
+    },
+    
+    "\/tags\/gcc\/": {
+        "title": "Gcc",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/gcc\/"
+    },
+    
+    "\/tags\/kasan\/": {
+        "title": "Kasan",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/kasan\/"
+    },
+    
+    "\/posts\/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95\/": {
+        "title": "커널의 KASAN 코드가 삽입되는 방법",
+        "tags": ["kasan","gcc",],
+        "content": "커널의 KASAN 코드가 삽입되는 방법 Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에 접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에 따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어 해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 static inline 형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만, 실제 코드를 보았을 때 함수와 EXPORT_SYMBOL 이 사용된 것 외에는 그 어디에도 inline 키워드는 사용도지 않았다. 컴파일러가 해당 코드를 삽입한다고 하는데 정확하게 어떻게 삽입하는지, 해당 함수들의 이름이 바뀌면 어떤 결과가 나올지 궁금했다. 또한 커널 소스를 다 뒤져봐도 ASAN에 관련된 호출 부분을 아무리 찾아도 어떤 방식으로 __asan_loadN, __asan_storeN 이 메모리 접근 전에 삽입되는지 찾을 수 없었다.\nKASAN 지원 여부가 컴파일러 버전에 따라 달라지는 것을 확인하고, 이에 컴파일러가 관련된 코드를 삽입하는 것을 직접 확인하기 위해 GCC 코드를 살펴보았다.\nGCC 코드 GCC 코드($gcc_root/gcc/sanitizer.def)에는 커널에서 _asan* 형태로 정의해놓은 심볼에 대해 DEF_SANITIZER_BUILTIN 이라는 매크로와 함께 아래와 같이 정의해놓았다.\nDEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD1, \u0026#34;__asan_load1\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD2, \u0026#34;__asan_load2\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD4, \u0026#34;__asan_load4\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD8, \u0026#34;__asan_load8\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOAD16, \u0026#34;__asan_load16\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_LOADN, \u0026#34;__asan_loadN\u0026#34;, BT_FN_VOID_PTR_PTRMODE, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_STORE1, \u0026#34;__asan_store1\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_STORE2, \u0026#34;__asan_store2\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_STORE4, \u0026#34;__asan_store4\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_STORE8, \u0026#34;__asan_store8\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_STORE16, \u0026#34;__asan_store16\u0026#34;, BT_FN_VOID_PTR, ATTR_TMPURE_NOTHROW_LEAF_LIST) DEF_SANITIZER_BUILTIN(BUILT_IN_ASAN_STOREN, \u0026#34;__asan_storeN\u0026#34;, 정의된 SANITIZER 중에서 BUILT_IN_ASAN_LOAD1 을 따라가보면, gcc_root/gcc/sanopt.c 경로에 pass_sanopt::execute 메서드로 아래와 같이 enum 형태로 정의되어 있다. 호출 스택은 pass_sanopt::execute → asan_expand_check_ifn → check_func 으로 구성된다.\nstatic tree check_func (bool is_store, bool recover_p, HOST_WIDE_INT size_in_bytes, int *nargs) { static enum built_in_function check[2][2][6] = { { { BUILT_IN_ASAN_LOAD1, BUILT_IN_ASAN_LOAD2, BUILT_IN_ASAN_LOAD4, BUILT_IN_ASAN_LOAD8, BUILT_IN_ASAN_LOAD16, BUILT_IN_ASAN_LOADN }, { BUILT_IN_ASAN_STORE1, BUILT_IN_ASAN_STORE2, BUILT_IN_ASAN_STORE4, BUILT_IN_ASAN_STORE8, BUILT_IN_ASAN_STORE16, BUILT_IN_ASAN_STOREN } }, { { BUILT_IN_ASAN_LOAD1_NOABORT, BUILT_IN_ASAN_LOAD2_NOABORT, BUILT_IN_ASAN_LOAD4_NOABORT, BUILT_IN_ASAN_LOAD8_NOABORT, BUILT_IN_ASAN_LOAD16_NOABORT, BUILT_IN_ASAN_LOADN_NOABORT }, { BUILT_IN_ASAN_STORE1_NOABORT, BUILT_IN_ASAN_STORE2_NOABORT, BUILT_IN_ASAN_STORE4_NOABORT, BUILT_IN_ASAN_STORE8_NOABORT, BUILT_IN_ASAN_STORE16_NOABORT, BUILT_IN_ASAN_STOREN_NOABORT } } }; if (size_in_bytes == -1) { *nargs = 2; return builtin_decl_implicit (check[recover_p][is_store][5]); } *nargs = 1; int size_log2 = exact_log2 (size_in_bytes); return builtin_decl_implicit (check[recover_p][is_store][size_log2]); } GCC 코드에서 Optimize and expand sanitizer functions 라고 기술되어 있는 위의 $gcc_root/gcc/sanopt.c 파일를 살펴보고 난 뒤, 커널 코드 내에서 별도의 호출 없이 어떻게 \u0026ldquo;모든\u0026rdquo; 메모리 접근에 대해 유효성 확인을 하는 코드를 삽입할 수 있는지, Generic KASAN에 관련된 함수들이 실제로 메모리 접근 전 어떻게 inline 형태로 추가되는지 대략적으로 이해할 수 있었다.\n결론은 Memory Sanitizer 연관 함수들은 커널에서 정의하였지만 해당 함수들이 실제로 메모리 접근 전에 인라인 또는 아웃라인으로 삽입/호출되는 부분은 컴파일러가 그 역할을 담당한다.\n", 
+        "url": "\/posts\/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95\/"
+    },
+    
+    "\/tags\/dmabuf\/": {
+        "title": "Dmabuf",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/dmabuf\/"
+    },
+    
+    "\/tags\/mmap\/": {
+        "title": "Mmap",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/mmap\/"
+    },
+    
+    "\/tags\/v4l2\/": {
+        "title": "V4l2",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/v4l2\/"
+    },
+    
+    "\/posts\/v4l2-memory-type\/": {
+        "title": "V4L2 Memory Type",
+        "tags": ["v4l2","vb2","dmabuf","mmap",],
+        "content": "개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로 이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를 분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를 파악할 수 있었다.\n본론에 들어가기에 앞서, V4L2 (Video for Linux) 와 Video Buffer 에 대해 간단하게 설명하면, V4L2는 Video Streaming I/O 를 지원하기 위한 프레임워크이다. 스트리밍 API이므로 성능이 중요하고 userspace와 kernel 간의 메모리 교환에서 반드시 zero-copy가 이뤄져야 한다. 이 때문에 구현해야 하는 API들이 꽤 복잡하다. 복잡성을 조금이라도 줄이기 위해, 스트리밍에 사용하는 버퍼에 관련된 코드의 일관성을 유지하고자 나온 것이 현재의 Video Buffer 프레임워크이다(현재 버전은 2이다). 버퍼용 메모리 할당을 위해 기본적인 memory allocator가 메모리 버퍼 방식에 따라 아래와 같이 지원된다.\nvmalloc dma_contig dma_contig_sg vmalloc 의 경우 커널 가상 메모리 상에서는 연속적이지만 실제 물리적으로는 연속적이지 않지만 비교적 효율적이다. IOMMU가 지원되지 않는 경우 직접 DMA에 매핑하는데 한계가 있다. dma_contig와 같은 경우 물리/가상 주소에서 연속되는 메모리 영역을 할당받는다. 물리/가상 주소에서 동일하게 비연속적인 경우는 dma_contig_sg를 사용한다. 이 경우 하드웨어 적으로 scatter/gather DMA operation이 지원되어야 하는 제약사항이 있다.\n문제 IOMMU가 지원되지 않으면서 vmalloc을 사용한다는 것은 문제가 있기에 dma_contig를 이용하여 할당받아 사용해야 한다. 이에 dma_contig 버퍼 타입으로 버퍼 할당을 하면서 DMABUF 방식을 지원하도록 지시를 받았는데 여기서 한 가지 문제가 있었다. DMABUF 방식의 사용 목적을 고려하지 않았다는 점이다.\n할당자가 변경되어야 하는 배경은 이해했지만, DMABUF 방식은 이해할 수 없었다. \u0026lsquo;왜 이해가 안되는 것인지\u0026rsquo;가 머리로 이해가 안되는 답답함에 코드를 보고 있었는데, 각각의 메모리 방식을 사용하는 이유에 대해서 우선적으로 알아보지 않았던 것이 문제였다.\nV4L2 memory에는 아래와 같이 MMAP/USERPTR/OVERLAY/DMABUF 등이 제공된다.\nenum v4l2_memory { V4L2_MEMORY_MMAP = 1, V4L2_MEMORY_USERPTR = 2, V4L2_MEMORY_OVERLAY = 3, V4L2_MEMORY_DMABUF = 4, OVERLAY는 생략하고 나머지를 보면, 먼저 MMAP은 드라이버가 버퍼를 할당하여 userspace의 애플리케이션에서 매핑해서 사용하기 위한 목적의 메모리 타입이다. USERPTR은 반대로 userspace application에서 메모리를 할당하여 드라이버에서 사용하는 방식이다. 그리고 나머지 DMABUF는 다른 디바이스에서 이미 할당한 \u0026lsquo;shared buffer\u0026rsquo;를 사용하기 위한 메모리 타입이다. 즉, v4l2 ioctl을 이횽하여 아무리 애플리케이션에서 드라이버 쪽으로 request buffer를 해봤자 DMABUF 방식에서는 memory allocation이 안된다는 점이다. 이미 다른 디바이스에서 할당한 메모리를 사용하기 위한 목적이기 때문이다. 실제 코드를 보았을 때도, 문서를 참고했을 때에도 MMAP 방식을 제외한 나머지 메모리 타입에서는 request buffer를 했을 때 관련된 정보들만 설정할 뿐이지 버퍼 메모리를 할당하지 않는다.\n끝맺음 다음 주에는 V4L2_MEMORY_MMAP으로 할당한 뒤, 이를 expbuf 를 이용하여 DMABUF 방식으로 share buffer 형태로 정보를 가져온 뒤에 활용할 수 있도록 코드가 구현되어 있는지, 어떻게 하면 개선할 수 있는지 좀 더 찾아보려 한다. 이제서야 DMABUF의 이름이 디바이스에서 DMA를 위해 사용하는 버퍼들을 다른 디바이스에서 공유할 수 있도록 하기 위해 명명된 것이라 이해할 수 있게 되었다. DMABUF의 exporter \u0026amp; importer 기능이 잘못 이해되어 request buffer 시에 메모리 할당을 시도하는 코드가 있는지도 함께 살펴봐야겠다.\n", 
+        "url": "\/posts\/v4l2-memory-type\/"
+    },
+    
+    "\/tags\/vb2\/": {
+        "title": "Vb2",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/vb2\/"
+    },
+    
+    "\/posts\/kernel-debug-with-kgdb\/": {
+        "title": "Kernel Debug With Kgdb",
+        "tags": ["kgdb",],
+        "content": "개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는 방법에 대한 세미나를 보게 되었다. 유투브에서 «Using Serial kdb / kgdb to Debug the Linux Kernel - Douglas Anderson, Google» 검색한 영상인데, KDB와 KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을 테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.\nKDB/KGDB 를 이용하는 방법은 Trace32 를 이용하여 디버깅할 수 없는 환경에서 매우 유용하다. 타겟 보드에 따라 JTAG 디버깅 포트가 나와있지 않은 경우도 꽤 있기 때문이다. 한 가지 단점으로는 디버깅 환경 구성이 생각보다 복잡하다.\n환경 구성을 위해 필요한 작업은 아래와 같다.\nDe-muxing Serial communication (kdmx) Kernel configuration Attaching GDB Demuxing Serial Communication using kdmx 필자는 라즈베리파이를 이용하여 디버깅 환경을 구성했다. 호스트가 리눅스 랩탑이었으면 좋았겠지만, 안타깝게도 맥 OS 환경을 사용하였다. 타겟 보드와 시리얼 통신을 한다는 가정 하에, GDB와 터미널 환경을 하나의 시리얼 포트로 연결하기 위해서는 가상 시리얼 포트를 생성하고 통신을 De-mux 해주는 프로그램이 필요하다. 그리고 이를 위한 간단한 도구가 kdmx이다. 본래 agent-proxy 라는 프로젝트 밑에 간단한 프로그램 형태로 들어가 있지만, 손쉽게 받아서 별도의 환경 변수 설정 없이 곧바로 빌드가 가능하다.\nioctl을 사용하지 않는 BSD 계열에서는 약간의 수정사항이 필요하지만 필자가 올려놓은 저장소 내의 코드(https://github.com/seokbeomKim/kdmx )를 이용하면 된다. 리눅스 계열이라면, git://git.kernel.org/pub/scm/utils/kernel/kgdb/agent-proxy.git 에서 다운받아서 사용하도록 하자.\nkdmx 를 빌드한 뒤에 아래와 같이 실행해주면, pseudo tty가 만들어진 것을 확인할 수 있다.\n┌─[sukbeom@Sukbeomui-MacBookPro] - [~/Workspaces/kdmx/kdmx] - [3061] └─[$] ./kdmx -p /dev/tty.usbserial-0001 -b 115200 [23:37:07] /dev/ttys000 is slave pty for terminal emulator /dev/ttys003 is slave pty for gdb Use \u0026lt;ctrl\u0026gt;C to terminate program 테스트를 위해 /dev/ttys000 를 열어 아래와 같이 확인해보자.\n$ minicom -D /dev/ttys000 -b 115200 Welcome to minicom 2.8 OPTIONS: Compiled on Jan 4 2021, 00:04:46. Port /dev/ttys000, 23:52:43 Press Meta-Z for help on special keys Kernel Configuration 아래의 커널 설정 플래그들을 확인한다. 커널 컴파일 하는 방법은 디버깅 환경 구성과 다른 내용이므로 이 포스팅에서 자세하게 설명하지 않겠다.\nCONFIG_KGDB_KDB=y CONFIG_KDB_DEFAULT_ENABLE=0x1 CONFIG_KDB_KEYBOARD=y CONFIG_KDB_CONTINUE_CATASTROPHIC=0 # CONFIG_WATCHDOG is not set # CONFIG_WQ_WATCHDOG is not set CONFIG_MAGIC_SYSRQ=y CONFIG_MAGIC_SYSRQ_DEFAULT_ENABLE=0x1 CONFIG_MAGIC_SYSRQ_SERIAL=y CONFIG_MAGIC_SYSRQ_SERIAL_SEQUENCE=\u0026#34;.\u0026#34; Attaching GDB 이제 KGDB를 직접 이용해보자. 필자는 컴파일용 리눅스 서버에서 커널을 빌드하고 생성된 vmlinux 파일을 Mac OS에 복사하여 심볼을 로드하는데 사용하였다. 맥용 gdb가 필요하다면 반드시 https://seokbeomkim.github.io/posts/kernel-hacking-on-mac/ 포스팅을 참고하도록 한다. (homebrew 를 이용하여 gdb 를 설치해봤자 정상적으로 동작하지 않으니 반드시 포스팅에 기술된대로 직접 GDB를 빌드해 사용해야 한다.) 우분투와 같은 데비안 계열이라면 gdb-multiarch를, 아치리눅스라면 AUR 내에 있는 컴파일러 패키지들을 이용하자.\n먼저, kdmx 를 이용하여 시리얼 통신이 제대로 demuxing 되고 있다는 가정 하에 진행한다. 단순하게 kgdb의 동작을 테스트할 목적이므로, sysrq 를 이용하여 kdb에 진입하여 kgdb를 붙인 뒤 고의로 커널 패닉을 발생시켜 gdb로 어떻게 분석 가능한지를 보일 것이다.\n먼저, kgdb 에서 사용할 시리얼을 아래와 같이 설정해준다.\nroot@raspberrypi:/home/pi# who | awk \u0026#39;{print $2}\u0026#39; \u0026gt; /sys/module/kgdboc/parameters/kgdboc root@raspberrypi:/home/pi# cat /sys/module/kgdboc/parameters/kgdboc ttyS0 이제 sysrq 를 이용하여 KDB로 진입한 뒤 kgdb 를 실행한다.\nroot@raspberrypi:/home/pi# echo g \u0026gt; /proc/sysrq-trigger [ 1141.184978] sysrq: DEBUG Entering kdb (current=0x836b8000, pid 552) on processor 0 due to Keyboard Entry [0]kdb\u0026gt; [0]kdb\u0026gt; [0]kdb\u0026gt; kgdb Entering please attach debugger or use + or 이제 호스트에서 GDB를 실행한 뒤 시리얼 통신으로 붙여준다. 아래와 같이 정상적으로 attach 가 된 것을 알 수 있다.\n$ ./arm-linux-gnueabihf-gdb ~/Workspaces/rpi/vmlinux (gdb) file ~/Workspace/rpi/vmlinux (gdb) cd /Volumes/Kernel/rpi_kernel (gdb) target remote /dev/ttys003 Remote debugging using /dev/ttys003 warning: multi-threaded target stopped without sending a thread-id, using first non-exited thread [Switching to Thread 4294967294] arch_kgdb_breakpoint () at ./arch/arm/include/asm/kgdb.h:46 warning: Source file is more recent than executable. 46\tasm(__inst_arm(0xe7ffdeff)); (gdb) 끝맺음 현업에서 다른 사람들의 디버깅 방법을 보면서 가장 답답한 부분은 디버깅 시에 툴을 사용하지 않는다는 점이다. 몇몇 스타 개발자의 경우 디버깅 툴을 싫어하고 로그 메시지만으로도 충분하다고 하는데 개인적으로는 이러한 의견에 반대한다. 로그 메시지를 이용하여 문제를 해결하는 방향을 세우고 분석하는 것도 중요하지만, 그러한 문제 해결에 도움을 주는 도구를 이용하여 불필요한 시간을 줄이는 것도 중요하다. 물론, 그들처럼 똑똑하지 않은 것도 중요한 이유다.\n", 
+        "url": "\/posts\/kernel-debug-with-kgdb\/"
+    },
+    
+    "\/tags\/kgdb\/": {
+        "title": "Kgdb",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/kgdb\/"
+    },
+    
+    "\/tags\/__is_constexpr\/": {
+        "title": "__Is_constexpr",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/__is_constexpr\/"
+    },
+    
+    "\/posts\/__is_constexpr-macro-in-kernel\/": {
+        "title": "__is_constexpr macro in kernel",
+        "tags": ["__is_constexpr","c",],
+        "content": "커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.\nThat is either genius, or a seriously diseased mind. 추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.\n#define __is_constexpr(x)\t\\ (sizeof(int) == sizeof(*(8 ? ((void *)((long)(x) * 0l)) : (int *)8))) 이러한 매크로는 VLA (Variable Length Arrays)를 제거하기 위한 패치의 일부인데, GCC의 -Wvla 옵션으로는 아래와 같은 상황을 구분하지 못하고 경고를 출력한다.\n#define BTRFS_NAME_LEN 255 #define XATTR_NAME_MAX 255 char namebuf[max(BTRFS_NAME_LEN, XATTR_NAME_MAX)]; 단순하게 배열의 크기를 선언하는 데에 있어서 프로그래머라면 당연하게 컴파일 타임에 정의되는 것이므로 VLA 가 아니라고 생각하겠지만, GCC는 이를 VLA 로 처리해버린다. 이를 해결하기 위해 만든 매크로가 위의 매크로이다. 기존의 max 매크로 대신, is_constexpr 매크로를 사용한 max_t 등을 새로 구현하여 VLA에 대한 에러를 성공적으로 제거했다.\n그렇다면, 이 매크로는 어떻게 동작하는 걸까?\n복잡해 보이지만, 알고보면 간단하다. ICE 인 경우 내부 값은 ((void *) NULL) 이 된다. 이 때 리턴 값은 (void *) NULL 이 아니라, 삼항 연산자의 마지막 항 (int *)8에 의해 자동으로 (int *) NULL이 되어 sizeof(int) == sizeoof(*(int *)NULL) 을 만족하게 된다. 만약 ICE가 아닌 경우에는, 위 값은 (void *)(possible values) 가 되고 결국 sizeof(*(void *)value) == 1 이 된다.\n내부적으로 long으로 캐스팅하고 난 뒤에 0L으로 곱하는 이유는 아키텍처에 따라 64비트 변수에 대해 발생할 수 있는 컴파일러 에러를 없애기 위함이다.\n참고 링크 https://stackoverflow.com/questions/49481217/linux-kernels-is-constexpr-macro https://lkml.org/lkml/2018/3/20/845 ", 
+        "url": "\/posts\/__is_constexpr-macro-in-kernel\/"
+    },
+    
+    "\/tags\/c\/": {
+        "title": "C",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/c\/"
+    },
+    
+    "\/tags\/gdb\/": {
+        "title": "Gdb",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/gdb\/"
+    },
+    
+    "\/tags\/mac_os\/": {
+        "title": "Mac_os",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/mac_os\/"
+    },
+    
+    "\/posts\/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0\/": {
+        "title": "Mac에서 GDB 이용한 커널 해킹하기",
+        "tags": ["gdb","mac_os",],
+        "content": "개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, aarch64 아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는 누구인가?\n(gdb) file ~/Workspaces/kernel_dev/vmlinux Reading symbols from ~/Workspaces/kernel_dev/vmlinux... I\u0026#39;m sorry, Dave, I can\u0026#39;t do that. Symbol format `elf64-littleaarch64\u0026#39; unknown. 이에 해결을 위한 시나리오는 아래와 같이 구성했다.\n컴파일 서버 구성: 개인적으로 사용하고 있는 게이밍 노트북 Hyper-V 로 리눅스 Guest OS를 올려 컴파일 서버로 만든다.\nsftp를 통해 컴파일 서버에서 빌드한 lisa-qemu 부트 이미지와 vmlinux 파일을 받아 맥 os에서 qemu로 VM을 실행한다.\ngdb 클라이언트로 gdb server에 접속하여 디버깅을 한다.\nGuest OS 및 포트포워딩, ssh 서버 설정 Guest OS는 lisa-qemu 설치를 위해서 우분투를 사용하였다. 우분투 설치 후 아래와 갈이 스위치 설정을 해준다.\nNew-VMSwitch -SwitchName \u0026#34;KeyNATSwitch\u0026#34; -SwitchType Internal New-NetIPAddress -IPAddress 10.0.2.1 -PrefixLength 24-InterfaceAlias \u0026#34;vEthernet (KeyNATSwitch)\u0026#34; 그리고 hyper-v guest 설정 - 네트워크 어댑터 - 가상 스위치 설정에서 KeyNATSwitch를 선택해준다.\n이제 우분투로 돌아가 스위치에 물리기 위한 netplan을 아래와 같이 설정한다.\nnetwork: version: 2 renderer: NetworkManager ethernets: eth0: dhcp4: no addresses: - 10.0.2.4/8 gateway4: 10.0.2.1 nameservers: addresses: [8.8.8.8, 8.8.4.4] 설정 후에 sudo netplan apply 로 설정을 적용한다. 이제 마지막으로 포트포워딩을 설정해준다. External Port 는 아래와 같이 동일하게 해도 되나, 귀찮게 구는 중국으로부터의 트래픽을 피하고 싶다면 반드시 다른 포트로 설정해주자.\nNew-NetNAT -Name \u0026#34;NATNetwork\u0026#34; -InternalIPInterfaceAddressPrefix 10.0.2.0/24 Add-NetNatStaticMapping -ExternalIPAddress \u0026#34;0.0.0.0/24\u0026#34; -ExternalPort 22 -Protocol TCP -InternalIPAddress \u0026#34;10.0.2.4\u0026#34; -InternalPort 22 -NatName KeyNATNetwork 이제 컴파일러 서버가 준비되었으니 lisa-qemu를 설치하고 커널 부트 이미지를 준비한다. 이 부분은 이미 lisa-qemu 에 쉽게 가이드가 있으므로 생략한다.\naarch64 target 용 gdb 빌드 먼저, gdb-10.1(https://ftp.gnu.org/gnu/gdb/gdb-10.1.tar.xz )을 받은 뒤 압축을 풀고, 맥에서 빌드시 문제가 되는 부분을 아래와 같이 수정해주자.\n$ vi bfd/elf-bfd.h #define _LIBELF_H_ 1 +#include \u0026lt;string.h\u0026gt; \u0026lt;string.h\u0026gt; 헤더파일을 추가해준 뒤, target만 지정해주고 컴파일해준다. 그리고 마지막으로 빌드된 gdb 바이너리를 bin 디렉토리에 복사해준다.\n$ /configure --disable-debug --disable-dependency-tracking --without-python --target=aarch64-linux-gnu --prefix=$HOME/xtools $ make \u0026amp;\u0026amp; make install $ cp $gdb-10.1/gdb/gdb $HOME/xtools/bin 이제 모든게 준비가 되었다. lisa-qemu 를 디버깅 옵션으로 실행해주고 gdb 를 붙여주면 아래와 같이 맥에서도 디버깅이 가능해진다. 거기에 컴파일 서버까지 생긴건 덤이다.\n", 
+        "url": "\/posts\/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0\/"
+    },
+    
+    "\/categories\/etc\/": {
+        "title": "Etc",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/etc\/"
+    },
+    
+    "\/tags\/vmmem\/": {
+        "title": "Vmmem",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/vmmem\/"
+    },
+    
+    "\/tags\/wsl\/": {
+        "title": "WSL",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/wsl\/"
+    },
+    
+    "\/posts\/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0\/": {
+        "title": "WSL 리소스 조정하기",
+        "tags": ["WSL","vmmem",],
+        "content": " 개요 커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이 비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한 내용은 다른 블로그 에서도 동일하게 재현되고 있었다.\n위 블로그에 나와있는 이 문제에 대한 해결법은 간단하다. 아래와 같이 WSL 설정파일을 하나 생성해서 사용할 리소스를 직접 명시해주면 된다.\nWSL 리소스 설정 먼저, 실행 중인 WSL을 확인한 후 아래와 같이 종료한다.\nPS C:\\Windows\\system32\u0026gt; wsl -l -v NAME STATE VERSION * Ubuntu Running 2 PS C:\\Windows\\system32\u0026gt; wsl -t Ubuntu --shutdown PS C:\\Windows\\system32\u0026gt; PS C:\\Windows\\system32\u0026gt; wsl -l -v NAME STATE VERSION * Ubuntu Stopped 2 종료한 후에는 아래 경로에 새 파일을 만들어주고 아래와 같이 작성해주자.\nPS C:\\Windows\\system32\u0026gt; notepad $env:USERPROFILE\\.wslconfig 이제 아래와 같이 설정해주자. 이제 WSL2에서 사용할 메모리는 최대 4G로 제한된다.\n[wsl2] #kernel=\u0026lt;path\u0026gt; # An absolute Windows path to a custom Linux kernel. memory=4G # How much memory to assign to the WSL2 VM. #processors=\u0026lt;number\u0026gt; # How many processors to assign to the WSL2 VM. #swap=\u0026lt;size\u0026gt; # How much swap space to add to the WSL2 VM. 0 for no swap file. #swapFile=\u0026lt;path\u0026gt; # An absolute Windows path to the swap vhd. #localhostForwarding=\u0026lt;bool\u0026gt; # Boolean specifying if ports bound to wildcard or localhost in the WSL2 VM should be connectable from the host via localhost:port (default true). # \u0026lt;path\u0026gt; entries must be absolute Windows paths with escaped backslashes, for example C:\\\\Users\\\\Ben\\\\kernel # \u0026lt;size\u0026gt; entries must be size followed by unit, for example 8GB or 512MB 이제 설치한 WSL의 바로가기를 눌러 WSL을 다시 실행시킨다. 윈도우즈의 Task Manager를 보면 아래와 같이 설정한 값으로 메모리 사용이 제한되는 것을 알 수 있다.\n출처 https://treeroad.tistory.com/entry/Flash-Memory%EC%99%80-EEPROM-%EC%B0%A8%EC%9D%B4%EC%A0%90 ", 
+        "url": "\/posts\/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0\/"
+    },
+    
+    "\/tags\/coc\/": {
+        "title": "Coc",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/coc\/"
+    },
+    
+    "\/posts\/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc\/": {
+        "title": "리누즈게이트와 CoC",
+        "tags": ["일상","coc",],
+        "content": "자유 발언 구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 \u0026lsquo;개발자에게 중요한 것은 무엇인가\u0026rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 \u0026lsquo;자유 발언\u0026rsquo;으로서 존중 받아야 할 것이다라고 얘기할 것이다. 혹자는 아래와 같이 생각할 수도 있다.\nThis is what free speech is about, but not everyone shares that view; to some people, only \u0026lsquo;comfortable\u0026rsquo; or 100% politically-correct messages are tolerable, acceptable and permissible. So it\u0026rsquo;s basically a trap, or a sort of \u0026lsquo;set-up\u0026rsquo; for canceling or banishing people.\n자유에는 나의 행동에 대한 자유와 상대방의 것에 대한 존중이 함께 들어가 있다고 생각한다. \u0026lsquo;자유발언\u0026rsquo;이라고 해서 상대방이 발언하지 못하도록 하거나 무시하는 듯의 태도는 자유발언이라고 말할 수 없다. 찬성과 반대의 표현에도 최소한의 존중은 들어가 있어야 하지 않을까.\n공격적인 리더쉽 유독 개발자들 중에서는 공격적인 사람들이 많은 것 같다. 야근을 많이 해서일까, 아는 게 많아서일까, 할 일이 많아서일까? 협업이 기본일 수밖에 없는 프로그래밍 영역에서 개발 능력과 커뮤니케이션 능력은 기본이다. 아는 것이 많을수록 올바른 방향으로 갈 수 있게 사람들을 이끄는 능력이 필요하지 않을까. \u0026lsquo;너 인성에 문제있어?\u0026rsquo; 라는 소리를 듣지 않으면서 말이다.\n", 
+        "url": "\/posts\/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc\/"
+    },
+    
+    "\/tags\/%EC%9D%BC%EC%83%81\/": {
+        "title": "일상",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/%EC%9D%BC%EC%83%81\/"
+    },
+    
+    "\/categories\/design-pattern\/": {
+        "title": "Design Pattern",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/design-pattern\/"
+    },
+    
+    "\/categories\/linux\/": {
+        "title": "Linux",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/linux\/"
+    },
+    
+    "\/categories\/oop\/": {
+        "title": "Oop",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/oop\/"
+    },
+    
+    "\/posts\/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern\/": {
+        "title": "커널에서의 Object-Oriented Design Pattern",
+        "tags": ["kernel",],
+        "content": "개요 현업에서 BSP 코드를 수정하다가 문득 든 생각은 \u0026lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?\u0026rsquo; 라는 것이다. 그러한 디자인 패턴은 이미 오래 전부터 적용되어 왔지만 BSP에 포함된 솔루션 코드로서 추가되는 코드에는 그러한 디자인 패턴이 보이지 않는다.\nJava나 C++, 그리고 완전하지는 않지만 prototype을 이용한 Javascript에서도 객체 지향적인 디자인 패턴이 적용되어 있다. 그렇다면, C와 어셈블리어로 짜여진 커널에서는 이러한 디자인 패턴이 어떻게 적용되어 있을까. 여기에 대한 좋은 참고 자료로서 LWN의 한 기사를 찾을 수 있었다.\nhttps://lwn.net/Articles/446317/ 학부 시절부터 오랫동안 들어온 객체의 정의는 state와 behavior이다. 이들은 각각 클래스의 멤버 변수와 메서드 형태로 구현되는데, 이러한 디자인 패턴 자체는 C를 이용해서도 표현이 가능하다. 멤버와 메서드는 각각 구조체 멤버와 vtable(virtual function table) 형태로 표현될 수 있다. 그리고 데이터 상속의 개념으로서 union과 void*, embedded structure 등의 기법을 이용한다.\n이 포스팅에서는 커널 코드에서 활용하는 객체지향 디자인 패턴의 기본적인 개념만을 언급한다. 좀 더 자세한 내용이나 실제 코드는 참고자료로 활용한 링크와 커널 코드를 살펴보자.\n메서드 일반적으로 메서드를 생각하면, C에서 함수 포인터를 구조체에 정의하는 것을 떠올린다. 하지만 커널에서는 직접적으로 구조체 안에 함수 포인터를 사용하는 대신에 vtable을 만들어 _ops 으로 명명한 별도의 함수 테이블을 사용한다. 예를 들어, media framework로 유명한 V4L2를 이용하는 videobuf2를 살펴보자. 영상 프레임을 관리하는 큐에서 메모리 관리에 관련된 메서드는 아래와 같이 정의하여 사용한다.\nstruct vb2_queue { unsigned int\ttype; unsigned int\tio_modes; struct device\t*dev; unsigned long\tdma_attrs; const struct vb2_ops\t*ops; const struct vb2_mem_ops\t*mem_ops; ... 그리고 vb2_queue에서 메서드 dispatch를 위해서 사용하는 메모리 관련 메서드는 아래와 같이 정의한다.\nstruct vb2_mem_ops { void\t*(*alloc)(struct device *dev, unsigned long attrs, unsigned long size, enum dma_data_direction dma_dir, gfp_t gfp_flags); void\t(*put)(void *buf_priv); struct dma_buf *(*get_dmabuf)(void *buf_priv, unsigned long flags); void\t*(*get_userptr)(struct device *dev, unsigned long vaddr, unsigned long size, enum dma_data_direction dma_dir); void\t(*put_userptr)(void *buf_priv); void\t(*prepare)(void *buf_priv); void\t(*finish)(void *buf_priv); void\t*(*attach_dmabuf)(struct device *dev, struct dma_buf *dbuf, unsigned long size, enum dma_data_direction dma_dir); void\t(*detach_dmabuf)(void *buf_priv); int\t(*map_dmabuf)(void *buf_priv); void\t(*unmap_dmabuf)(void *buf_priv); void\t*(*vaddr)(void *buf_priv); void\t*(*cookie)(void *buf_priv); unsigned int\t(*num_users)(void *buf_priv); int\t(*mmap)(void *buf_priv, struct vm_area_struct *vma); }; virtual function table을 사용할 경우 객체별로 사용할 수 있는 메서드들에 대한 인터페이스만 정의하고 실제 메서드에 대한 내용은 별도로 구현하여 사용할 수 있다. 즉, 클래스로 정의된 메서드 내용은 같지만 구현 내용은 객체마다 서로 다르게 할 수 있다는 장점이 있다.\n그리고 vtable은 메서드에 대한 다중상속을 가능하게 하는데, closure와 같은 다른 언어에서 mixin이라 표현하는 것처럼 응용할 수 있다. 서로 다른 객체에 대해 같은 메서드를 사용할 수 있도록 하는 방법이다.\n데이터 상속 예전부터 데이터 상속은 여러 형태로 존재해왔는데, 여기서는 아래 세 가지 형태의 데이터 상속을 다루도록 한다.\nunion을 이용한 데이터 상속 void*를 이용한 데이터 상속 상속하고자 하는 데이터 직접 내포 union을 이용한 데이터 상속 struct inode를 살펴보면 아래와 같은 코드를 살펴볼 수 있다.\nunion { struct minix_inode_info minix_i; struct ext_inode_info ext_i; struct msdos_inode_info msdos_i; } u; inode 안에서 union을 이용하여 노드에 대한 정보를 관리한다고 했을 때, 해당 inode 클래스는 상기 세 가지 중 하나에 대한 데이터를 상속하게 된다. 이는 직관적으로 코드를 이해할 수 있다는 장점이 있지만, union을 사용하는 까닭에 padding을 위해 필요한 메모리 낭비로 이어질 수 있다.\nvoid* 이용한 데이터 상속 커널에 정의된 프레임워크를 이용하다 보면 종종 void* private; 으로 정의된 것이 구조체 안에 정의되어 있는 것을 알 수 있다. 위에서 union을 사용한 것과 달리 void* 사용하게 되면 불필요한 메모리는 줄일 수 있고 데이터 상속에 대한 유연성을 갖출 수 있지만 **실제로 어떤 데이터를 사용해야 하는가?**에 대한 질문에 직관적인 해석을 가져다 주지 못한다. 여전히 V4L 프레임워크와 같이 몇 군데에서 void* private; 형태로 사용되고 있지만 문서화와 쉽게 코드를 파악할 수 있는 구조가 아니라면, 이러한 포인터 형태는 지양되어야 한다.\nembedded structure 직접적으로 필요한 데이터들을 구조체 안에 멤버 변수로 정의하고, container_of 매크로를 통해 부모 객체에 접근하도록 구현하는 방법이다. void* 에 비해 유연성은 떨어지지만 명시적으로 어떤 데이터를 상속하는지 나타낼 수 있고 매크로를 통해 부모에 정의되어 있는 함수 테이블을 이용하는 등 객체 지향 패턴을 적용하는데 무리가 없다. 여러 파일시스템의 코드를 살펴보면 아래와 같이 기본적인 inode에 대한 데이터 자체를 아래와 같이 내포한 형태로 사용하는 것을 알 수 있다.\n/* in memory btrfs inode */ struct btrfs_inode { /* which subvolume this inode belongs to */ struct btrfs_root *root; /* key used to find this inode on disk. This is used by the code * to read in roots of subvolumes */ struct btrfs_key location; ... struct inode vfs_inode; }; 결론 객체지향 패턴을 적용하는 것은 중요하지만 만능은 아니다. 모든 곳에 이러한 객체 지향 디자인 패턴을 적용해야 하는 것은 잘못된 것이고 오히려 분석을 어렵게 만들 수도 있다. 디자인 패턴은 어디까지나 디자인 패턴일 뿐. 언어 때문에 특정 디자인 패턴을 적용할 수 없다는 얘기도 반은 맞고 반은 틀렸다. 커널에서 사용되는 kref 형태의 reference count 또한 특정 언어에 국한된 설계 패턴이 아니다. 타겟과 개발 환경에 따라 필요성과 효율성이 달라지는 것일 뿐 정답은 없다.\n", 
+        "url": "\/posts\/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern\/"
+    },
+    
+    "\/tags\/computer-science\/": {
+        "title": "Computer Science",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/computer-science\/"
+    },
+    
+    "\/posts\/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0\/": {
+        "title": "맥 OS에서 리눅스 커널 컴파일하기",
+        "tags": ["Computer Science",],
+        "content": "개요 맥 환경에서 bare-metal이 아닌 리눅스 커널로 컴파일하는 것은 생각했던 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한 라이브러리와 경로들이 리눅스 환경과 다르기 때문에, 일반적인 리눅스 배포판에서처럼 크로스 컴파일러를 바이너리 형태로 설치한 뒤에 곧바로 커널 빌드를 할 수는 없다.\n이 포스팅은 맥에서 리눅스 커널을 빌드하려는 사람들을 위해 작성한 것으로, 아래 구성으로 간략하게 기술하겠다.\n준비 사항 및 제약 사항 크로스 컴파일러 빌드 커널 빌드 끝맺음 본 포스팅에서 확인한 맥 환경은 아래와 같으며 단순 바이너리만 받고자 하는 경우 아래 링크에서 받도록 한다. https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf 준비 사항 및 제약 사항 맥에서 리눅스 커널을 컴파일을 할 경우에는 크로스 컴파일러를 직접 빌드해줘야 한다. 우분투와 같이 바이너리 형태로 패키지 관리자에서 제공해주는 경우에는 손쉽게 받을 수 있지만 그렇지 않은 배포판이나 맥의 경우에는 직접 만들어 사용해야 한다.\n맥에서의 대표적인 패키지 매니저는 애플에서 공식적으로 제공하지는 않지만 homebrew이다. 이 패키지 매니저를 통해 bare-metal 크로스 컴파일러는 다운로드 할 수 있지만 GLIBC가 포함된 크로스 컴파일러는 제공되지 않으므로 라즈베리파이를 위한 커널 컴파일 시에 크로스 컴파일러를 직접 빌드해야 한다.\n크로스 컴파일러 빌드 환경 구성 시 맥에서는 파티션 포맷 제약사항이 있다. 맥에서 기본으로 사용하는 파일시스템인 APFS는 기본으로 case-insensitive 이므로 반드시 case-sensitive 파티션을 추가로 구성한 후 해당 파티션에서 빌드를 진행해야 한다. 필자는 맥 설치 시에 파티션의 포맷 자체를 case-sensitive 방식으로 지정하고 포맷해주었기 때문에 관련된 문제는 발생하지 않았다.\n그리고 기본 컴파일러로서 GNU gcc가 아닌 clang을 이용하므로, homebrew 패키지 관리자를 통해 openssl, gcc 등을 설치해야 한다. openssl은 반드시 openssl@1.1 을 설치한다.\n$ brew install openssl@1.1 gcc 크로스 컴파일러 빌드: ct-ng 크로스 컴파일러는 Crosstool-NG(ct-ng)를 이용하여 빌드한다.\n$ brew install ct-ng $ mkdir -p ~/workspace/ct-ng-rpi3 \u0026amp;\u0026amp; cd ~/workspace/ct-ng-rpi3 $ ct-ng armv8-rpi3-linux-gnueabihf armv8-rpi3-linux-gnueabihf는 ct-ng에서 제공하는 샘플 중 하나로서 샘플들은 아래와 같이 확인할 수 있다.\n$ ct-ng list-samples gdb 빌드 도중에 발생하는 파이썬 에러를 방지하기 위해 아래와 같이 menuconfig를 통해 파이썬의 바이너리 경로를 설정해주자.\n$ ct-ng menuconfig # menuconfig 창에서 아래 설정 메뉴를 통해 파이썬 바이너리 경로를 설정한다. Debug facilities -\u0026gt; gdb -\u0026gt; Python binary to use (/usr/bin/python) 또한, 필자처럼 binutils 에서 string 관련 에러가 난다면, 아래와 같이 직접 \u0026lt;string\u0026gt; 헤더파일을 include 하도록 수정해줘야 한다.\n$ $home/workspace/ct-ng/rpi3b/.build/src/binutils-2.32 $ vi gold/errors.h // 아래 include 에 \u0026lt;string\u0026gt;을 추가한다. // MA 02110-1301, USA. #ifndef GOLD_ERRORS_H #define GOLD_ERRORS_H #include \u0026lt;cstdarg\u0026gt; #include \u0026lt;string\u0026gt; #include \u0026#34;gold-threads.h\u0026#34; 크로스 컴파일러 빌드가 완료되었다면 $HOME/x-tools 경로 아래에 컴파일러가 생성된 것을 확인할 수 있다. 크로스 컴파일러를 빌드하면서 발생하는 에러는 맥 운영체제로 인한 것이 아니라 크로스 컴파일 환경과 타겟 gcc 버전의 호환성 문제로 인한 것이 대부분이다. 이러한 문제들은 구글링으로 관련 정보를 손쉽게 찾을 수 있다.\n라즈베리파이 커널 빌드 이제 라즈베리파이 커널을 예로 빌드해보자. 맥에서 커널 빌드시 첫 번째로 문제가 되는 것은 elf.h 파일이다. 맥에서는 이 파일을 사용하지 않기 때문에 기본으로 include 경로에 포함되어 있지 않다. 빌드 시에는 필수 파일이므로, 경로(https://www.rockbox.org/tracker/task/9006?getfile=16683 )에서 다운로드 하여 include 경로(/usr/local/include)에 추가해준다.\n이제 마지막으로 라이브러리와 INCLUDE 경로를 설정해주며 빌드를 해주자.\n$ KERNEL=kernel7 ARCH=arm make bcm2709_defconfig $ KERNEL=kernel7 ARCH=arm HOSTCFLAGS=\u0026#34;-I/usr/local/include -I/usr/local/opt/openssl@1.1/include -L/usr/local/opt/openssl/lib\u0026#34; make -j4 빌드가 완료되면, 아래와 같이 커널 이미지(zImage)가 만들어진 것을 확인할 수 있다.\n끝맺음 위의 과정들을 하지 않고 단순하게 바이너리만 받고 싶다면 https://github.com/seokbeomKim/armv8-rpi3-linux-gnueabihf 에서 받도록 한다. 앞서 기술한 방법대로 빌드한 크로스 컴파일러로서 성능에 따라 컴파일 타임은 차이가 나지만 CPU 성능이 안좋은 경우 필자처럼 한 시간이 넘게 걸리기도 한다.\n분명, 나중에 본 포스팅을 다시 참고하게 될 날이 올 것이다. 정리를 해도 매번 잊어버리는게 습관이고 매번 지난 글을 뒤적이는 게 습관이다. 하지만, 이번처럼 맥/BSD에서 리눅스의 ELF로 동작하거나 컴파일할 수 있도록 고생했던 삽질의 내용들은 되도록이면 오랫동안 기억할 수 있었으면 좋겠다.\n참고 자료 https://www.rockbox.org/tracker/task/9006 https://wiki.osdev.org/GCC_Cross-Compiler https://github.com/raspberrypi/linux https://github.com/crosstool-ng/crosstool-ng/issues/844 https://www.jaredwolff.com/cross-compiling-on-mac-osx-for-raspberry-pi/ ", 
+        "url": "\/posts\/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0\/"
+    },
+    
+    "\/tags\/mu4e\/": {
+        "title": "Mu4e",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/mu4e\/"
+    },
+    
+    "\/posts\/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0\/": {
+        "title": "mu4e 설정하기",
+        "tags": ["mu4e",],
+        "content": "개요 이맥스에서는 이메일 클라이언트로서 사용할 수 있는 mu4e라는 패키지가 있다. 일반적으로 isync (mbsync) 라는 프로그램과 함께 사용하며 mu 를 설치하면 설치 디렉토리 내에 함께 포함되어 있다. mu는 메일 수신 및 분류, 저장 보다는 인덱싱과 검색을 위한 프로그램이기 때문에 원하는 메일을 빠르게 검색하고 org mode와 함께 사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 특징이다.\n그런데 outlook 이나 mailbird, thunderbird 등의 메일 클라이언트가 존재하는데 굳이 mu 를 사용하는 이유가 있을까? 일반 사용자라면 mu 보다는 앞서 언급된 메일 클라이언트를 사용하는 것이 좋다. 하지만 리눅스 커널 프로젝트에 패치를 보내고 다른 사람들이 보낸 패치를 받아 적용하는 등의 작업이 필요하다면 일반적인 클라이언트보다는 mu 를 사용하는 것이 좋다. 이메일을 통해 패치 파일을 inline 형태로 보내야 하는데 첨부 형식을 보장하는 메일 클라이언트는 몇 개 남아있지 않다. 또한 일부 메일 클라이언트는 간단한 평문을 보내더라도 html 를 이용해 태그가 붙어 있는 경우도 있다.\nPatches for the Linux kernel are submitted via email, preferably as inline text in the body of the email. Some maintainers accept attachments, but then the attachments should have content-type text/plain. However, attachments are generally frowned upon because it makes quoting portions of the patch more difficult in the patch review process.\nmu4e를 설정하는 방법은 공식 문서와 몇몇 블로그 포스팅을 통해 관련 내용들을 찾을 수 있다.\nhttps://rakhim.org/fastmail-setup-with-emacs-mu4e-and-mbsync-on-macos/ http://pragmaticemacs.com/mu4e-tutorials/ 환경 구성 mu4e를 구성 \u0026amp; 설정하는 순서는 대략 아래와 같다.\nmbsync (isync 패키지 내에 포함된 메일 fetcher) 설정 및 local inbox 생성 mu 인덱싱 구성 mu4e 사용하기 위한 이맥스 설정 isync 설치 mbsync 명령어는 isync 패키지 안에 포함된다. 우분투 기준으로 아래와 같이 공식 repo 를 통해 설치 가능하다.\n$ sudo apt install isync isync 설정 아치리눅스 위키 페이지에 패키지에 대한 설명이 자세히 기술되어 있다. 설치 후에는 아래 링크 또는 포스팅에 있는 예제 파일들을 참고하여 설정 파일을 작성한다.\nhttps://wiki.archlinux.org/index.php/Isync # GMAIL #1 IMAPAccount sukbeom.kim Host imap.gmail.com User sukbeom.kim@gmail.com PassCmd \u0026#34;gpg --batch --passphrase mu4e --no-tty -qd ~/.sbk.gpg\u0026#34; AuthMechs LOGIN SSLType IMAPS SSLVersions TLSv1.3 CertificateFile /etc/ssl/certs/ca-certificates.crt IMAPStore gmail-remote Account sukbeom.kim MaildirStore gmail-local Path ~/mbsync/sukbeom.kim@gmail.com/ Inbox ~/mbsync/sukbeom.kim@gmail.com/INBOX Channel gmail-inbox Master :gmail-remote: Slave :gmail-local: Patterns \u0026#34;INBOX\u0026#34; Create Both Expunge Both SyncState * Channel gmail-trash Master :gmail-remote:\u0026#34;[Gmail]/Bin\u0026#34; Slave :gmail-local:\u0026#34;[Gmail].Bin\u0026#34; Create Both Expunge Both SyncState * Channel gmail-sent Master :gmail-remote:\u0026#34;[Gmail]/Sent Mail\u0026#34; Slave :gmail-local:\u0026#34;[Gmail].Sent Mail\u0026#34; Create Both Expunge Both SyncState * Channel gmail-all Master :gmail-remote:\u0026#34;[Gmail]/All Mail\u0026#34; Slave :gmail-local:\u0026#34;[Gmail].All Mail\u0026#34; Create Both Expunge Both SyncState * Channel gmail-starred Master :gmail-remote:\u0026#34;[Gmail]/Starred\u0026#34; Slave :gmail-local:\u0026#34;[Gmail].Starred\u0026#34; Create Both Expunge Both SyncState * Group gmail Channel gmail-inbox Channel gmail-sent Channel gmail-trash Channel gmail-all Channel gmail-starred IMAPAccount chaoxifer Host imap.gmail.com User chaoxifer@gmail.com PassCmd \u0026#34;gpg --batch --passphrase mu4e --no-tty -qd ~/.chaoxifer.gpg\u0026#34; AuthMechs LOGIN SSLType IMAPS SSLVersions SSLv3 CertificateFile /etc/ssl/certs/ca-bundle.crt IMAPStore chaoxifer-remote Account chaoxifer MaildirStore chaoxifer-local Path ~/mbsync/chaoxifer@gmail.com/ Inbox ~/mbsync/chaoxifer@gmail.com/INBOX Channel chaoxifer-inbox Master :chaoxifer-remote: Slave :chaoxifer-local: Patterns \u0026#34;INBOX\u0026#34; Create Both Expunge Both SyncState * Channel chaoxifer-trash Master :chaoxifer-remote:\u0026#34;[Gmail]/Bin\u0026#34; Slave :chaoxifer-local:\u0026#34;[Gmail].Bin\u0026#34; Create Both Expunge Both SyncState * Channel chaoxifer-sent Master :chaoxifer-remote:\u0026#34;[Gmail]/Sent Mail\u0026#34; Slave :chaoxifer-local:\u0026#34;[Gmail].Sent Mail\u0026#34; Create Both Expunge Both SyncState * Channel chaoxifer-all Master :chaoxifer-remote:\u0026#34;[Gmail]/All Mail\u0026#34; Slave :chaoxifer-local:\u0026#34;[Gmail].All Mail\u0026#34; Create Both Expunge Both SyncState * Channel chaoxifer-starred Master :chaoxifer-remote:\u0026#34;[Gmail]/Starred\u0026#34; Slave :chaoxifer-local:\u0026#34;[Gmail].Starred\u0026#34; Create Both Expunge Both SyncState * Group chaoxifer Channel chaoxifer-inbox Channel chaoxifer-sent Channel chaoxifer-trash Channel chaoxifer-all Channel chaoxifer-starred 설정에서 gpg를 이용하여 계정 암호를 설정파일에 그대로 넣지 않고 암호화한 파일을 사용하도록 한다. gpg 파일을 만드는 방법은 아래와 같다.\n$ echo \u0026#34;mypassword!\u0026#34; \u0026gt; ~/.mbsyncpass # 입력 창에 passphrase 를 입력한다. 위 설정에서는 mu4e를 passphase로 입력했다. $ gpg --output ~/.emacs.d/personal/chaoxifer.gpg --symmetric ~/.mbsyncpass 이제 mbsync를 사용하기 위한 설정이 완료되었다. 필요한 디렉토리들을 생성 후 mbsync -a를 통해 메일 박스를 동기화한다.\n$ mkdir -p $HOME/mbsync/{chaoxifer@gmail.com,sukbeom.kim@gmail.com} $ mbsync -a mu 설치 mu4e 사용을 위해, mu 패키지를 설치한다. 이 때 컴파일 옵션으로 이맥스 옵션이 있으니 확인하자. 기본적으로 이맥스 옵션이 활성화되어 패키지가 설치되므로 특별한 경우가 아니라면 별도로 설정하지 않아도 된다. mu 는 공식 repo 대신 https://github.com/djcb/mu/releases/tag/v1.8.14 에서 직접 받아서 설치하였다. 우분투의 공식 repo 에서 제공하는 버전과 꽤 차이가 나고 몇몇 버그 패치가 되지 않았기 때문에 직접 받아서 설치하는 것을 권장한다.\n$ tar xf mu-1.8.14.tar.xz $ cd mu-1.8.14 $ ./autogen.sh --prefix=$HOME/opt $ make \u0026amp;\u0026amp; make install 필자는 로컬 유저에서 받아서 설치하는 것은 모두 $HOME/opt 경로로 설치하는 타입이라 위와 같이 configure 을 진행하였다. 설치하고 난 뒤 디렉토리에 가보면 아래와 같이 mu4e 가 설치되어 있는 것을 볼 수 있다.\nsukbeom@LAPTOP-R4FQS2C5:~$ ls opt/share/emacs/site-lisp/mu4e/ mu4e-actions.el mu4e-context.el mu4e-headers.elc mu4e-mark.el mu4e-server.elc mu4e.el mu4e-actions.elc mu4e-context.elc mu4e-helpers.el mu4e-mark.elc mu4e-speedbar.el mu4e.elc mu4e-bookmarks.el mu4e-contrib.el mu4e-helpers.elc mu4e-message.el mu4e-speedbar.elc org-mu4e.el mu4e-bookmarks.elc mu4e-contrib.elc mu4e-icalendar.el mu4e-message.elc mu4e-update.el org-mu4e.elc mu4e-compose.el mu4e-draft.el mu4e-icalendar.elc mu4e-org.el mu4e-update.elc mu4e-compose.elc mu4e-draft.elc mu4e-lists.el mu4e-org.elc mu4e-vars.el mu4e-config.el mu4e-folders.el mu4e-lists.elc mu4e-search.el mu4e-vars.elc mu4e-contacts.el mu4e-folders.elc mu4e-main.el mu4e-search.elc mu4e-view.el mu4e-contacts.elc mu4e-headers.el mu4e-main.elc mu4e-server.el mu4e-view.elc mu 설정 이제 mbsync 로 생성해놓았던 디렉토리를 기준으로 초기화한다.\n$ mu init --maildir=$HOME/mbsync $ mu info +-------------------+--------------------------------+ | maildir | /home/sukbeom/mbsync | +-------------------+--------------------------------+ | database-path | /home/sukbeom/.cache/mu/xapian | +-------------------+--------------------------------+ | schema-version | 465 | +-------------------+--------------------------------+ | max-message-size | 100000000 | +-------------------+--------------------------------+ | batch-size | 250000 | +-------------------+--------------------------------+ | created | Thu Mar 16 23:23:40 2023 | +-------------------+--------------------------------+ | personal-address | | +-------------------+--------------------------------+ | messages in store | 38 | +-------------------+--------------------------------+ | last-change | Sat Mar 18 07:09:36 2023 | +-------------------+--------------------------------+ | last-index | Sat Mar 18 07:09:32 2023 | +-------------------+--------------------------------+ 이맥스 설정 이제 마지막으로, 아래와 같이 mu4e를 로드한다. mu4e에 대한 추가 설정은 mu4e의 공식 문서에 자세히 기술되어 있다.\n; 설치한 경로로 설정한다. (add-load-path! \u0026#34;/home/sukbeom/opt/share/emacs/site-lisp/mu4e/\u0026#34;) (require \u0026#39;mu4e) (require \u0026#39;mu4e-contrib) (require \u0026#39;gnutls) (setq mu4e-sent-folder \u0026#34;/sent\u0026#34;\t;; folder for sent messages mu4e-drafts-folder \u0026#34;/drafts\u0026#34;\t;; unfinished messages mu4e-trash-folder \u0026#34;/trash\u0026#34;\t;; trashed messages mu4e-refile-folder \u0026#34;/archive\u0026#34;\t;; saved messages user-mail-address \u0026#34;메일 주소\u0026#34; smtpmail-default-smtp-server \u0026#34;smtp.gmail.com\u0026#34; smtpmail-smtp-server \u0026#34;smtp.gmail.com\u0026#34; smtpmail-smtp-service 587) (setq mu4e-index-cleanup nil\t;; don\u0026#39;t do a full cleanup check mu4e-index-lazy-check t) ;; don\u0026#39;t consider up-to-date dirs (setq mu4e-maildir \u0026#34;~/mbsync/\u0026#34; mu4e-attachment-dir \u0026#34;~/mbsync/attachments\u0026#34; user-full-name \u0026#34;Sukbeom Kim\u0026#34;) (setq mu4e-get-mail-command \u0026#34;mbsync -a\u0026#34; mu4e-change-filenames-when-moving t mu4e-view-show-images t mu4e-view-show-addresses t mu4e-update-interval (* 20 60)) (setq mu4e-html2text-command \u0026#39;mu4e-shr2text shr-color-visible-luminance-min 80 shr-color-visible-distance-min 5)) 마치며 이제 필요한 설정이 모두 마무리 되었다. M-x mu4e를 실행해 제대로 메일이 보이는지 확인한다.\nmu4e 를 통해 이제 수신한 메일들을 관리하거나 지정되어 있는 smtp 서버를 통해 메일을 주고받을 수 있다. mu4e는 thunderbird의 마크다운 지원하는 메일 작성의 개념과 비슷하지만 모드를 자유자재로 선택할 수 있다는 점에서 더 유연하다는 장점이 있다. 또한 snippet 과 코드를 직접 메일에 붙일 수 있기에 메일 송수신 시에 매우 유용하다.\n", 
+        "url": "\/posts\/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0\/"
+    },
+    
+    "\/categories\/c\/": {
+        "title": "C",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/c\/"
+    },
+    
+    "\/posts\/do-while\/": {
+        "title": "Do While",
+        "tags": ["do_while",],
+        "content": "개요 커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. https://kernelnewbies.org/FAQ/DoWhile0 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.\n빈 구문(empty statement)는 컴파일러가 경고를 낸다. 지역 변수를 선언할 수 있는 구역을 만들어준다. 조건문을 포함한 코드에서 복잡한 형태의 매크로를 사용할 수 있도록 해준다. 조건문을 포함한 코드에서의 매크로 사용 #define FOO(x) \\ printf(\u0026#34;arg is %s\\n\u0026#34;, x); \\ do_something_useful(x); 이 때 위처럼 정의한 매크로를 조건문과 함께 사용하게 된다면 아래와 같이 사용하게 된다.\nif (blah == 2) { FOO(blah); } 그리고 이 구문에 매크로가 적용된 것을 살펴보면,\nif (blah == 2) printf(\u0026#34;arg is %s\\n\u0026#34;, blah); do_something_useful(blah);; 위의 코드처럼 적용될 것이다. 이 때 문제가 되는 것은 do_something_useful(blah);가 조건에 관계없이 수행된다는 점이다. 이러한 매크로가 조건문에서 싱글라인 구문으로 사용된다면 문제가 될 수 있기에, do { \u0026hellip; } while(0) 을 사용하여 이러한 문제를 방지한다.\nif (blah == 2) do { printf(\u0026#34;arg is %s\\n\u0026#34;, blah); do_something_useful(blah); } while(0); 아래와 같이 일반적인 블록 구문을 사용한다고 가정했을 때, 특정한 경우에 위 코드는 동작하지 않는다.\n#define exch(x,y) { int tmp; tmp=x; x=y; y=tmp; } if (x \u0026gt; y) exch(x,y); else do_something(); 이 때, 매크로를 적용하면 아래와 같이 적용되어 버린다.\nif (x \u0026gt; y) { int tmp; tmp = x; x = y; y = tmp; } ; // 빈 구문 else do_something(); if문 블록 다음에 나오는 세미콜론으로 인해 \u0026ldquo;parse error before else\u0026rdquo; 문제가 발생하게 된다. 이 때 do {\u0026hellip;} while(0) 구문을 이용하여 매크로를 정의하면 아래와 같이 관련 에러를 피할 수 있다.\nif (x \u0026gt; y) do { int tmp; tmp = x; x = y; y = tmp; } while(0); else do_something(); 대체 구문 gcc에서 이 do-while-0 구문을 대체할 수 있는 구문 표현을 추가했다. 아래와 같은 이러한 표현은 언급한 모든 이점을 갖는 동시에 가독성도 보장된다.\n#define FOO(arg) ({ typeof(arg) lcl; lcl = bar(arg); lcl; }) ", 
+        "url": "\/posts\/do-while\/"
+    },
+    
+    "\/tags\/do_while\/": {
+        "title": "Do_while",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/do_while\/"
+    },
+    
+    "\/tags\/bsd\/": {
+        "title": "Bsd",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/bsd\/"
+    },
+    
+    "\/posts\/bsd-%EB%B2%84%EC%A0%84-linked-list\/": {
+        "title": "BSD 버전 Linked List",
+        "tags": ["queue","bsd","list",],
+        "content": "개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 list.h 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 \u0026lt;sys/queue.h\u0026gt; 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다. 라이센스에 전혀 문제가 되지 않을 뿐만 아니라 필요한 메시지 큐를 구현하기 위한 매크로가 알기 쉽게 정의되어 있어 작성하는데에는 크게 어렵지 않았다. 대신, 불필요하게 잘못된 메모리 접근으로 인한 코드를 디버깅하는데 시간이 많이 걸렸다.\nqueue.h 작업에 사용했던 queue.h 파일(https://github.com/freebsd/freebsd/blob/master/sys/sys/queue.h 참고)에는 LIST와 TAILQ, CIRCLEQ가 구현되어 있었다. 링크는 최신버전의 라이브러리라 Circular Queue가 사라져있을 것이다. 리눅스의 list.h와 마찬가지로 BSD의 queue.h도 리스트를 사용하기 위해 재미있는 방법을 사용한다. 먼저 man-page에 기술되어 있는 예시를 시작으로 하나씩 살펴보자.\nTAILQ_HEAD(tailhead, entry) head = TAILQ_HEAD_INITIALIZER(head); struct tailhead *headp;\t/*\tTail queue head. */ struct entry { ... TAILQ_ENTRY(entry)\tentries; /*\tTail queue. */ ... } *n1, *n2, *n3, *np; TAILQ_INIT(\u0026amp;head);\t/*\tInitialize the queue. */ n1\t= malloc(sizeof(struct entry));\t/*\tInsert at the head. */ TAILQ_INSERT_HEAD(\u0026amp;head, n1, entries); n1\t= malloc(sizeof(struct entry));\t/*\tInsert at the tail. */ TAILQ_INSERT_TAIL(\u0026amp;head, n1, entries); n2\t= malloc(sizeof(struct entry));\t/*\tInsert after. */ TAILQ_INSERT_AFTER(\u0026amp;head, n1, n2, entries); n3\t= malloc(sizeof(struct entry));\t/*\tInsert before. */ TAILQ_INSERT_BEFORE(n2, n3, entries); TAILQ_REMOVE(\u0026amp;head, n2, entries);\t/*\tDeletion. */ free(n2); /*\tForward\ttraversal. */ TAILQ_FOREACH(np, \u0026amp;head, entries) np-\u0026gt; ... 먼저, TAILQ_HEAD부터 살펴보면 매크로를 통해 인자로 넘긴 이름으로 구조체를 하나 설정하는 것을 알 수 있다. 예를 들어 아래와 같이 정의된 자료형을 TAILQ 형태로 연결하고 싶다면,\nstruct message { int idx; TAILQ_ENTRY(message) entries; }; TAILQ_HEAD(msg_head, message) head; // struct msg_head head 와 같다. #define\tTAILQ_ENTRY(type)\t\\ struct {\t\\ struct type *tqe_next;\t/* next element */\t\\ struct type **tqe_prev;\t/* address of previous next element */\t\\ TRACEBUF\t\\ } 위의 코드처럼 정의하여 사용할 수 있다. 자료구조 안에 TAILQ_ENTRY를 사용함으로써 링크 객체를 포함하는 방식으로 구현한다. 위 예제에서, 연결 리스트는 struct msg_head* head 를 통해 접근할 수 있으며, head에 연결되는 노드들의 실제 데이터 struct message 자체는 *head가 갖는 *tqh_first, **tqh_last를 통해 얻을 수 있다. 위에서 TAILQ_HEAD 매크로를 통해 얻은 구조체의 구조는 아래와 같다.\n#define\tTAILQ_CLASS_HEAD(name, type)\t\\ struct name {\t\\ class type *tqh_first;\t/* first element */\t\\ class type **tqh_last;\t/* addr of last next element */\t\\ TRACEBUF\t\\ } 전체적인 연결을 다이어그램으로 나타내면 아래와 같다. ", 
+        "url": "\/posts\/bsd-%EB%B2%84%EC%A0%84-linked-list\/"
+    },
+    
+    "\/tags\/list\/": {
+        "title": "List",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/list\/"
+    },
+    
+    "\/tags\/queue\/": {
+        "title": "Queue",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/queue\/"
+    },
+    
+    "\/tags\/array_size\/": {
+        "title": "ARRAY_SIZE",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/array_size\/"
+    },
+    
+    "\/posts\/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88\/": {
+        "title": "C ARRAY_SIZE 매크로와 포인터 기초",
+        "tags": ["ARRAY_SIZE",],
+        "content": "개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 https://kldp.org/node/34268 과 같은 원인이라는 것을 알게되고 C 기초를 또 다시 한번 공부하게 되었다.\n커널에서 사용하는 ARRAY_SIZE는 아래와 같이 구현되어 있다.\n#define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0])) // examples for (idx = 0; idx \u0026lt; ARRAY_SIZE(pArr); idx++) { // do something }) 본래 의도한대로라면, 배열의 크기만큼 for 구문을 반복해서 수행해야 하지만, pArr 자체가 함수의 인자로써 전달된 것이라면 얘기가 달라진다. 함수의 인자, 즉 포인터의 사이즈를 받게 되므로 ARRAY_SIZE(x)는 포인터 변수 자체의 크기를 첫 번째 요소의 크기로 나눈 것이 된다. 설명보다 직접 코드를 통해 증명해보자.\n예제 #include \u0026lt;stdio.h\u0026gt; #include \u0026lt;stdlib.h\u0026gt; #define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0])) void tc1(void) { int arr[] = {1, 2, 3}; printf(\u0026#34;ARRAY_SIZE = %ld\\n\u0026#34;, ARRAY_SIZE(arr)); } void tc2(int *pArr) { printf(\u0026#34;ARRAY_SIZE = %ld\\n\u0026#34;, ARRAY_SIZE(pArr)); printf(\u0026#34;sizeof(x) = %d, sizeof(x[0]) = %d\\n\u0026#34;, sizeof(pArr), sizeof(pArr[0])); } void tc3(char *pArr) { printf(\u0026#34;ARRAY_SIZE = %ld\\n\u0026#34;, ARRAY_SIZE(pArr)); printf(\u0026#34;sizeof(x) = %d, sizeof(x[0]) = %d\\n\u0026#34;, sizeof(pArr), sizeof(pArr[0])); } void tc4(unsigned long *pArr) { printf(\u0026#34;ARRAY_SIZE = %ld\\n\u0026#34;, ARRAY_SIZE(pArr)); printf(\u0026#34;sizeof(x) = %d, sizeof(x[0]) = %d\\n\u0026#34;, sizeof(pArr), sizeof(pArr[0])); } int main(void) { int arrInt[] = {4, 5, 6, 7}; printf(\u0026#34;size of int = %d, size of long = %d\\n\u0026#34;, sizeof(int), sizeof(long)); printf(\u0026#34;size of pointer value = %d\\n\u0026#34;, sizeof(arrInt[0])); printf(\u0026#34;[Test case 1]\\n\u0026#34;); tc1(); printf(\u0026#34;[Test case 2]\\n\u0026#34;); tc2(arrInt); printf(\u0026#34;[Test case 3]\\n\u0026#34;); tc3(arrInt); printf(\u0026#34;[Test case 4]\\n\u0026#34;); tc4(arrInt); } 위 코드를 실행하면 아래와 같은 결과를 얻는다.\nsize of int = 4, size of long = 8 size of pointer value = 4 [Test case 1] ARRAY_SIZE = 3 [Test case 2] ARRAY_SIZE = 2 sizeof(x) = 8, sizeof(x[0]) = 4 [Test case 3] ARRAY_SIZE = 8 sizeof(x) = 8, sizeof(x[0]) = 1 [Test case 4] ARRAY_SIZE = 1 sizeof(x) = 8, sizeof(x[0]) = 8 함수의 파라미터로 정의되어 있는 포인터 변수들은 프로세서 아키텍처의 주소 크기만큼을 갖는다. 테스트는 64비트에서 이루어졌으므로 첫 번째 테스트케이스를 제외한 나머지에서 sizeof(x)는 모두 8(64비트)를 갖는다. 그리고 포인터의 타입에 따라 첫 번째 인자가 갖는 크기는 달라지게 되므로 결과값은 모두 달라지게 된다. 때문에 ARRAY_SIZE 매크로는 함수 내에 지역 변수로서 정의한 경우에는 사용할 수 있지만 함수로 넘겨서 사용하는 경우에는 사용이 불가능하다. 배열의 크기를 반드시 명시적으로 전달해줘야 전달받은 루틴에서 정상적으로 그 크기를 다룰 수 있다.\n기초적인 내용인데도 불구하고 막상 문제에 닥치니 제대로 알기가 어렵다. 아직 한참 멀었다.\n", 
+        "url": "\/posts\/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88\/"
+    },
+    
+    "\/tags\/poll\/": {
+        "title": "Poll",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/poll\/"
+    },
+    
+    "\/tags\/poll_wait\/": {
+        "title": "Poll_wait",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/poll_wait\/"
+    },
+    
+    "\/posts\/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait\/": {
+        "title": "poll() 그리고 poll_wait()",
+        "tags": ["poll","poll_wait",],
+        "content": "개요 업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다소 오래되었기에 살펴보아야 하는 드라이버 코드도 레거시에 가까웠지만 poll을 이용하여 디바이스 드라이버의 인터럽트를 처리하는 것으로 확인하여 관련 내용을 정리하고자 한다.\n리눅스 커널에서 제공하는 poll 함수에 대해서 원문으로 작성된 여러 출처들이 있었지만 아무래도 처음부터 원문을 읽고 이해하기에는 다소 어려움이 있었다. falinux에 작성된 문서를 기반으로 아래와 같이 개념적인 내용만 재정리하는 방식으로 포스팅을 작성하려 한다.\npoll()과 select() non-blocking I/O를 사용하는 유저 레벨 애플리케이션은 종종 poll() 과 select() 시스템 콜을 사용한다. poll, select는 기본적으로 같은 기능을 한다. 둘 다 blocking 없이 하나 이상의 파일들을 읽거나 쓸 수 있도록 프로세스가 결정할 수 있도록 한다. 이러한 특성으로 인해 블로킹 없이 input 또는 output 스트림을 사용해야 하는 애플리케이션에서 종종 사용된다. select와 poll은 같은 기능이지만 각각 BSD Unix, System V solution이라는 두 개 그룹에서 구현되면서 각기 다른 이름을 가지게 되었다.\n2.x 리눅스 커널에서는 select를 모델로 한 디바이스 모델 기반이었지만 2.1.23 버전으로 되면서 poll 시스템 콜이 새롭게 소개되었다.\nunsigned int (*poll) (struct file *, poll_table *); 동작 방식 (사용자) 애플리케이션에서는 poll 함수를 이용해 디바이스 장치 노드파일의 파일 연산으로 정의된 poll 인터페이스를 호출한다.\n아래의 예제 코드를 보면 직관적으로 동작 시나리오가 와닿을 것이다. 먼저, 애플리케이션의 코드를 먼저 살펴보자.\nstruct pollfd { int fd;\t// 파일 디스크립터 번호를 등록한다. short events;\t// 요구하는 이벤트 short revents;\t// 반환된 이벤트 } #include \u0026lt;sys/poll.h\u0026gt; int main( int argc, char **argv ) { int fd1,fd2; int\tretval; struct pollfd Events[2]; fd1 = open(\u0026#34;디바이스1\u0026#34;, O_RDWR | O_NOCTTY ); fd2 = open(\u0026#34;디바이스2\u0026#34;, O_RDWR | O_NOCTTY ); memset ( Events, 0 ,sizeof(Events) ); Events[0].fd = fd1; Events[0].events = POLLIN | POLLERR; Events[1].fd = fd2; Events[1].events = POLLOUT; while( 1 ) { retval = poll( (struct pollfd *)\u0026amp;Events, 2, 5000); if( retval \u0026lt; 0 ) printf(\u0026#34;poll err\\n\u0026#34;); else if( 0 == retval ) printf(\u0026#34;No event!!\\n\u0026#34;)l else { if( POLLERR \u0026amp; Events[0].revents ) printf(\u0026#34;장치 에러\\n\u0026#34;); else if( POLLIN \u0026amp; Events[0].revents ) { read(fd1, ~,~); } else if (POLLOUT \u0026amp; Events[1].revents ) { write(fd2, ~, ~); } } } close(fd1); close(fd2); } 위 예제는 출처에 작성된 예제 코드 그대로이다. 장치 노드를 open 시스템 콜을 통해 파일 디스크립터 형태로 받아놓고 해당 파일 디스크립터를 poll 함수에 넘겨 디바이스 드라이버에 정의되어 있는 poll 함수를 호출하는 방식이다. 이 때, 디바이스 드라이버에서 poll 요청을 어떻게 처리하는냐에 따라, 그리고 해당 디바이스에 대한 이벤트에 따라 poll의 반환값이 달라지게 된다.\n그렇다면, 디바이스 드라이버 내에서는 어떤 방식으로 구현되는지 아래 코드를 살펴보자.\nstruct file_operations kerneltimer_fops = { .owner = THIS_MODULE, .read = kerneltimer_read, .write = kerneltimer_write, .poll = kerneltimer_poll, .open = kerneltimer_open, .release = kerneltimer_release, }; DECLARE_WAIT_QUEUE_HEAD(WaitQueue_Read); unsigned int XXX_poll( struct file *file, poll_tablr *wait) { int mask = 0; poll_wait( file, \u0026amp;WaitQueue_Read, wait ); if( 쓰기 가능 ) mask |= (POLLIN | POLLRDNORM ); return mask; } 디바이스 드라이버는 읽기나 쓰기가 가능해지면 이에 따라 깨어나 디바이스 드라이버에 맞는 수행을 하게 되는데, 이러한 이벤트에 따라 동작 시나리오를 구현하기 위해 디바이스 드라이버 내에 poll 함수를 등록해두어야 한다.\npoll() 함수를 호출하는 애플리케이션에서 커널이 주기적으로 어떤 이벤트를 모니터링 할지를 디바이스 드라이버에 전달해주면, 디바이스 드라이버에서는 해당 이벤트가 발생할 때까지 기다리다가, ISR 등으로 인해 디바이스 드라이버의 poll_wait 이 풀리게 되면 poll() 호출로 sleep 상태에 있던 프로세스를 깨우게 된다.\n이러한 poll 시스템 콜이 필요한 이유는 디바이스 드라이버에서 입출력에 필요한 데이터가 준비될 때까지 프로세서가 대기하지 않도록 하기 위함이다.\n애플리케이션은 디바이스 드라이버에게 \u0026ldquo;A, B, C 사건이 일어날 때 알려줘. 그 때까지 좀 잘게\u0026rdquo; 라고 말하는 것이 poll() 이고, 디바이스 드라이버는 해당 이벤트가 일어날 때까지 기다리고 있다가 ISR에 의해 이벤트 조건이 충족되면 POLLOUT, POLLIN, POLLERR, POLLWRNORM, \u0026hellip; 과 같은 마스킹 정보를 통해 애플리케이션에게 디바이스 드라이버의 데이터가 준비되었음을 알리는 것이 매커니즘의 핵심이다.\n출처 http://forum.falinux.com/zbxe/index.php?document_srl=567919\u0026mid=lecture_tip ", 
+        "url": "\/posts\/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait\/"
+    },
+    
+    "\/tags\/ioctl\/": {
+        "title": "Ioctl",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/ioctl\/"
+    },
+    
+    "\/posts\/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98\/": {
+        "title": "ioctl()에 전달되는 cmd 관련 매크로 함수",
+        "tags": ["ioctl","macro",],
+        "content": "드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한다.\n저수준 파일 입출력 함수인 ioctl()을 디바이스 파일에 적용시키면 디바이스 파일에 연결된 디바이스 드라이버의 file_operation 구조체의 ioctl 필드에 선언된 함수가 호출된다. ioctl 함수는 디바이스마다 고유하게 선언하여 사용하는데, 일반적으로 하드에워의 제어나 상태를 얻기 위해 사용한다.\ncmd 구성 디바이스 드라이버의 ioctl() 함수에 전달되는 매개변수 cmd는 응용 프로그램이 디바이스 드라이버에게 요구한 처리를 구별하기 위한 구별값이다. cmd에는 단순한 구별 숫자 이외에 처리에 도움을 주는 몇 가지 정보를 포함한 형태로 구성된다. cmd의 크기는 32비트로, 비트 구성은 다음과 같다.\n+---+----------------+------------+---------+ | 2 |\t14 |\t8 |\t8 |\t+---+----------------+------------+---------+ direction size type number 매크로 함수 cmd에는 여러 가지 필드가 있다. 리눅스 커널은 이런 필드 형식에 맞춰 cmd 상수값을 만드는 매크로 함수와 cmd 상수값에서 필요한 필드값을 추출하는 매크로 함수를 제공한다.\ncmd 명령을 만드는 매크로 함수 _IO : 부가적인 데이터가 없는 명령을 만드는 매크로 _IOR : 디바이스 드라이버에서 데이터를 읽어오기(R) 위한 명령을 만드는 매크로 _IOW : 디바이스 드라이버에서 데이터를 써넣기(W) 위한 명령을 만드는 매크로 _IOWR : 디바이스 드라이버에서 데이터를 읽고(R), 쓰기(W)를 수행하기 위한 명령을 만드는 매크로 이 매크로의 형태는 다음과 같은 형식의 값을 입력하도록 되어 있다.\n_IO(매직번호, 구분번호) _IOR(매직번호, 구분번호, 변수형) _IOW(매직번호, 구분번호, 변수형) _IOWR(매직번호, 구분번호, 변수형) cmd 명령을 해석하는 매크로 함수 _IOC_NR : 구분 번호 필드값을 읽는 매크로 _IOC_TYPE : 매직 번호 필드값을 읽는 매크로 _IOC_SIZE : 데이터의 크기 필드값을 읽는 매크로 _IOC_DIR : 읽기와 쓰기 속성 필드값을 읽는 매크로 출처 https://damduc.tistory.com/261 ", 
+        "url": "\/posts\/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98\/"
+    },
+    
+    "\/tags\/macro\/": {
+        "title": "Macro",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/macro\/"
+    },
+    
+    "\/tags\/likely\/": {
+        "title": "Likely",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/likely\/"
+    },
+    
+    "\/posts\/likely-and-unlikely\/": {
+        "title": "Likely and Unlikely",
+        "tags": ["likely","unlikely",],
+        "content": "개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.\n회사 업무에서 실행 시간을 줄이는 데에 중요도를 두고 있지만 그 방법에 대해서는 아직 다루지 못하고 있다. 솔루션이 안정화되고 전체적인 업무 내용이 파악되면 본 내용을 정리하면서 실행 시간을 감소할 방법으로 prediction을 이용하는 것을 건의해보고 진행해볼 수 있을 것 같다.\nlikely(), unlikely() 함수의 이름 그대로, 자주 일어날 듯하거나 자주 일어나지 않을 듯한 것을 위한 매크로이다. 출처에는 아래와 같은 예제를 제공하고 있다.\nbvl = bvec_alloc(gfp_mask, nr_iovecs, \u0026amp;idx); if (unlikely(!bvl)) { mempool_free(bio, bio_pool); bio = NULL; goto out; } 특정 condition을 확인하는 용도로 사용하는데 위의 코드에서는 bvec_alloc으로 할당받고 bvl이 유효한 주소값이라면 메모리 해제를 하고 NULL로 변경하는 코드이다.\ninclude/linux/compiler.h 파일에 정의되어 있는 매크로로서 branch prediction 을 위한 용도로 사용된다. 즉, 결과값이 대부분 false로 예상된다면 unlikely()를, true로 예상된다면 likely()를 사용함으로서 컴파일러를 통한 분기 예측을 이용하여 성능 향상을 꾀할 수 있다.\n각각의 정의를 살펴보면, 아래와 같이 되어 있다.\n#define likely(x) __builtin_expect(!!(x), 1) #define unlikely(x) __builtin_expect(!!(x), 0) __built-in function __builtin_expect를 사용하는 것은 컴파일러에게 분기 예측(branch prediction) 정보를 제공하기 위한 것이다. 일반적으로 개발자들은 자신의 프로그램이 어떻게 수행되는지 알기 힘들기 때문에 \u0026lsquo;-fprofile-arcs\u0026rsquo; 옵션을 통해 프로파일을 피드백 받는 것을 선호한다. 하지만 애플리케이션에 따라서 이러한 옵션을 통해 프로파일링이 힘든 경우도 있다.\n예제 아래의 예제를 통해 성능 향상이 어떻게 가능한지 살펴보자.\n#define likely(x) __builtin_expect(!!(x), 1) #define unlikely(x) __builtin_expect(!!(x), 0) int main(int argc, char *argv[]) { int a; a = atoi (argv[1]); if (unlikely (a == 2)) a++; else a--; printf(\u0026#34;%d\\n\u0026#34;, a); return 0; } 위 예제를 컴파일 한 다음, objdump로 살펴보면 아래와 같이 main 부분을 발견할 수 있다.\n$ gcc -o unlikely unlikely.c $ objdump -S unlikely 0000000000001149 \u0026lt;main\u0026gt;: 1149:\t55 push %rbp 114a:\t48 89 e5 mov %rsp,%rbp 114d:\t48 83 ec 20 sub $0x20,%rsp 1151:\t89 7d ec mov %edi,-0x14(%rbp) 1154:\t48 89 75 e0 mov %rsi,-0x20(%rbp) 1158:\t48 8b 45 e0 mov -0x20(%rbp),%rax 115c:\t48 83 c0 08 add $0x8,%rax 1160:\t48 8b 00 mov (%rax),%rax 1163:\t48 89 c7 mov %rax,%rdi 1166:\tb8 00 00 00 00 mov $0x0,%eax 116b:\te8 d0 fe ff ff callq 1040 \u0026lt;atoi@plt\u0026gt; 1170:\t89 45 fc mov %eax,-0x4(%rbp) 1173:\t83 7d fc 02 cmpl $0x2,-0x4(%rbp) 1177:\t0f 94 c0 sete %al 117a:\t0f b6 c0 movzbl %al,%eax 117d:\t48 85 c0 test %rax,%rax 1180:\t74 06 je 1188 \u0026lt;main+0x3f\u0026gt; 1182:\t83 45 fc 01 addl $0x1,-0x4(%rbp) 1186:\teb 04 jmp 118c \u0026lt;main+0x43\u0026gt; 1188:\t83 6d fc 01 subl $0x1,-0x4(%rbp) 118c:\t8b 45 fc mov -0x4(%rbp),%eax 118f:\t89 c6 mov %eax,%esi 1191:\t48 8d 3d 6c 0e 00 00 lea 0xe6c(%rip),%rdi # 2004 \u0026lt;_IO_stdin_used+0x4\u0026gt; 1198:\tb8 00 00 00 00 mov $0x0,%eax 119d:\te8 8e fe ff ff callq 1030 \u0026lt;printf@plt\u0026gt; 11a2:\tb8 00 00 00 00 mov $0x0,%eax 11a7:\tc9 leaveq 11a8:\tc3 retq 11a9:\t0f 1f 80 00 00 00 00 nopl 0x0(%rax) cmpl %0x2, -0x4(%rbp) 에서 보듯 2와 같을 경우에 jump 명령어를 수행하고 같지 않을 경우에는 계속해서 명령어를 순차 진행한다. je 명령어를 실행하지 않으니 pipeline flush가 일어나지 않아 branch prediction을 하지 않았을 때보다 성능 향상을 꾀할 수 있다.\n만약, likely()를 하게 되면 어떨까? 아마 반대로 명령어가 실행될 것이다. 즉, 프로그래머가 예상하는 시나리오로 분기 예측을 하여 최대한 jump 명령어를 수행하지 않도록 하는 기법이다.\n출처 https://woodz.tistory.com/67 ", 
+        "url": "\/posts\/likely-and-unlikely\/"
+    },
+    
+    "\/tags\/unlikely\/": {
+        "title": "Unlikely",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/unlikely\/"
+    },
+    
+    "\/tags\/typedef\/": {
+        "title": "Typedef",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/typedef\/"
+    },
+    
+    "\/posts\/typedef-is-evil\/": {
+        "title": "typedef is evil",
+        "tags": ["typedef",],
+        "content": "커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을 비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이 되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.\ntypedef struct foo { int bar; int baz; } foot_t, *pfoo_t; 위와 같이 구조체에 대한 포인터를 정의할 때 typedef을 이용하지 말 것을 당부한다. 또한, typedef unsigned long DWORD 와 같은 것도 비판한다. 머신마다 크기가 다르기 때문에라고 하는데, 이 부분에 대해서는 동의하지는 못하겠다. 아키텍처별 코드라면 각 프로세서마다 dword, word의 크기가 정해져 있고 이를 데이터시트에 적합하도록 코딩하기 위해서는 dword와 word 라는 키워드를 정의하여 사용하는 것이 가독성에 유리할 것이라 생각하기 때문이다.\ntypedef struct { pgdval_t pgd; } pgd_t; #define pgd_val(x)\t((x).pgd) #define __pgd(x)\t((pgd_t) { (x) } ) 위는 ARM64 페이징 관련 코드를 살펴보다가 발견한 구조체 정의 부분이다. 위와 같이 구조체 안에 멤버로써 사용하는 타입에 대해서도 u64, u32 대신 pgdval_t를 사용하고 있다. 커널 소스 내의 문서를 살펴보면 이러한 내용에 대해 아래와 같이 정의하고 있으며 좋지 않은 사례로써 pgdval_t 와 유사한 것을 인용하고 있다.\nPlease don\u0026#39;t use things like ``vps_t``. It\u0026#39;s a **mistake** to use typedef for structures and pointers. When you see a vps_t a; in the source, what does it mean? In contrast, if it says struct virtual_container *a; you can actually tell what ``a`` is. Lots of people think that typedefs ``help readability``. Not so. 커널 문서에 따르면, 단순히 typedef을 사용하여 타입을 재정의할 경우 얻을 수 있는 이점이 없다고 얘기한다. 이어서 사용해야할 때를 아래와 같이 설명한다.\n(a) totally opaque objects (where the typedef is actively used to hide what the object is).\nExample: ``pte_t`` etc. opaque objects that you can only access using the proper accessor functions. .. note:: Opaqueness and ``accessor functions`` are not good in themselves. The reason we have them for things like pte_t etc. is that there really is absolutely **zero** portably accessible information there. (b) Clear integer types, where the abstraction helps avoid confusion whether it is int or long.\nu8/u16/u32 are perfectly fine typedefs, although they fit into category (d) better than here. .. note:: Again - there needs to be a **reason** for this. If something is ``unsigned long``, then there's no reason to do typedef unsigned long myflags_t; but if there is a clear reason for why it under certain circumstances might be an ``unsigned int`` and under other configurations might be ``unsigned long``, then by all means go ahead and use a typedef. (c) when you use sparse to literally create a new type for type-checking.\n(d) New types which are identical to standard C99 types, in certain exceptional circumstances.\nAlthough it would only take a short amount of time for the eyes and brain to become accustomed to the standard types like ``uint32_t``, some people object to their use anyway. Therefore, the Linux-specific ``u8/u16/u32/u64`` types and their signed equivalents which are identical to standard types are permitted -- although they are not mandatory in new code of your own. When editing existing code which already uses one or the other set of types, you should conform to the existing choices in that code. (e) Types safe for use in userspace.\nIn certain structures which are visible to userspace, we cannot require C99 types and cannot use the ``u32`` form above. Thus, we use __u32 and similar types in all structures which are shared with userspace. Maybe there are other cases too, but the rule should basically be to NEVER EVER use a typedef unless you can clearly match one of those rules.\nIn general, a pointer, or a struct that has elements that can reasonably be directly accessed should never be a typedef.\n", 
+        "url": "\/posts\/typedef-is-evil\/"
+    },
+    
+    "\/posts\/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0\/": {
+        "title": "이맥스 기본 에디터로 사용하기",
+        "tags": ["emacs",],
+        "content": "개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.\n데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다. 그리고 gnome에서 사용하는 몇 가지 애플리케이션 설정만 바꿔주면 기본적인 파일들에 대한 편집은 이맥스에서 사용할 수 있게 된다.\n설정 환경 본 포스팅 작성에 사용된 리눅스 환경은 아래와 같다.\ndistro: Arch Linux D/E: Gnome 3.34.2 systemd: 244.2-1 systemd 에 emacs 등록하기 현재 대부분의 리눅스 배포판에서는 initrc 에서 systemd 로 바뀌었다. initrc를 고집하던 젠투에서도 systemd를 사용하는 것을 보면, 아마 대부분의 배포판에서 사용하고 있을 거라 생각하며, initrc를 사용하는 시스템이라면 젠투 쪽의 위키페이지를 참고하기를 바란다.\n먼저 ~/.config/systemd/user/emacs.service 파일을 아래와 같이 생성한다.\n[Unit] Description=Emacs text editor Documentation=info:emacs man:emacs(1) https://gnu.org/software/emacs/ [Service] Type=forking ExecStart=/usr/bin/emacs --daemon ExecStop=/usr/bin/emacsclient --eval \u0026#34;(kill-emacs)\u0026#34; Environment=SSH_AUTH_SOCK=%t/keyring/ssh Restart=on-failure [Install] WantedBy=default.target 그 뒤, systemctl 명령어를 이용해 해당 서비스를 활성화한다.\nsystemctl enable --user emacs systemctl disable --user emacs gnome application 아이템 조정하기 gnome에서 파일을 열 때 mime type에 따라 기본으로 열기 위한 애플리케이션을 미리 정의해놓는다. 아래와 같이 /usr/share/applications/emacs.desktop 파일을 열어서 emacsclient를 이용하도록 설정한다.\n[Desktop Entry] Name=Emacs GenericName=Text Editor Comment=Edit text MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++; Exec=emacsclient -c -a \u0026#34;\u0026#34; %F Icon=emacs Type=Application Terminal=false Categories=Development;TextEditor; StartupWMClass=Emacs Keywords=Text;Editor; 이제 모든 설정이 끝났다. 파일에 대한 기본 편집툴을 이맥스로 설정하면, 별도의 초기화 과정 없이 곧바로 실행되는 것을 알 수 있다.\n출처 https://www.emacswiki.org/emacs/EmacsAsDaemon ", 
+        "url": "\/posts\/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0\/"
+    },
+    
+    "\/tags\/debug\/": {
+        "title": "Debug",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/debug\/"
+    },
+    
+    "\/tags\/ftrace\/": {
+        "title": "Ftrace",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/ftrace\/"
+    },
+    
+    "\/posts\/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85\/": {
+        "title": "ftrace 이용한 커널 디버깅",
+        "tags": ["debug","ftrace",],
+        "content": "개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.\n예전에 젠투 리눅스를 사용할 무렵, menuconfig에서 커널 해킹이라는 흥미로운 메뉴에서 알 수 없는 tracer라는 메뉴로만 본 것으로 이해하지 직접적으로 사용한 적은 없었는데, 실제 사용해보니 생각보다 많은 옵션, 정보들을 보여주었다.\nftrace란? ftrace는 리눅스 커널에서 제공하는 트레이서로, 커널의 세부 동작을 알기 쉽게(?) 출력해주는 도구이다. 특징은 아래와 같다.\n인터럽트, 스케쥴링, 커널 타이머 동작을 상세하게 추적해준다. 함수 필터를 지정하면 자신을 호출한 함수와 전체 콜 스택까지 출력해준다. 이 때, 코드를 수정할 필요가 없다. 함수를 어느 프로세스가 실행하는지 알 수 있다. 함수 실행 시각을 알 수 있다. ftrace 로그를 키면 시스템 동작에 부하를 주지 않는다. 커널에서 ftrace 활성화하기 ftrace를 사용하기 위해서는 관련된 설정 플래그를 활성화해줘야 한다.\nCONFIG_FTRACE=y CONFIG_DYNAMIC_FTRACE=y CONFIG_FUNCTION_TRACER=y CONFIG_FUNCTION_GRAPH_TRACER=y CONFIG_IRQSOFF_TRACER=y CONFIG_SCHED_TRACER=y CONFIG_FUNCTION_PROFILER=y CONFIG_STACK_TRACER=y CONFIG_TRACER_SNAPSHOT=y 라즈베리파이에서는 기본으로 ftrace에 필요한 세부 설정 플래그가 모두 켜져 있다. 또한 ftrace는 리눅스 커널 공통 기능이므로 다른 시스템에서도 사용 가능하다.\n커널 2.6.28 버전부터 포함된 기본 기능으로서 아래와 같이 debugfs를 마운트 시켜서 사용할 수 있다.\nmount -t debugfs nodev /sys/kernel/debug ftracer 설정 방법 아래와 같이 셸 스크립트를 이용하여 설정도 가능하지만 기본적으로는 sysfs를 이용하여 설정을 한다. 설정 시나리오는 tracer를 OFF 한 뒤에 옵션들을 설정해주고 다시 ON하는 방식으로 설정한다.\n#!/bin/sh echo 0 \u0026gt; /sys/kernel/debug/tracing/tracing_on sleep 1 echo \u0026#34;tracing_off\u0026#34; 7 echo 0 \u0026gt; /sys/kernel/debug/tracing/events/enable sleep 1 echo \u0026#34;events disabled\u0026#34; echo secondary_start_kernel \u0026gt; /sys/kernel/debug/tracing/set_ftrace_filter sleep 1 echo \u0026#34;set_ftrace_filter init\u0026#34; echo function \u0026gt; /sys/kernel/debug/tracing/current_tracer sleep 1 echo \u0026#34;function tracer enabled\u0026#34; echo 1 \u0026gt; /sys/kernel/debug/tracing/events/sched/sched_wakeup/enable echo 1 \u0026gt; /sys/kernel/debug/tracing/events/sched/sched_switch/enable echo 1 \u0026gt; /sys/kernel/debug/tracing/events/irq/irq_handler_entry/enable echo 1 \u0026gt; /sys/kernel/debug/tracing/events/irq/irq_handler_exit/enable echo 1 \u0026gt; /sys/kernel/debug/tracing/events/raw_syscalls/enable sleep 1 echo \u0026#34;event enabled\u0026#34; echo schedule ttwu_do_wakeup \u0026gt; /sys/kernel/debug/tracing/set_ftrace_filter sleep 1 echo \u0026#34;set_ftrace_filter enabled\u0026#34; echo 1 \u0026gt; /sys/kernel/debug/tracing/options/func_stack_trace echo 1 \u0026gt; /sys/kernel/debug/tracing/options/sym-offset echo \u0026#34;function stack trace enabled\u0026#34; echo 1 \u0026gt; /sys/kernel/debug/tracing/tracing_on echo \u0026#34;tracing_on\u0026#34; 리눅스에서는 nop, function, function_graph를 포함한 여러가지 트레이서를 제공한다.\nnop: 기본 트레이서로 ftrace 이벤트만 출력 function: set_ftrace_filter로 지정한 함수를 누가 호출하는지 출력한다. function_graph: 함수 실행 시간과 세부 호출 정보를 그래픽 정보를 추가(?)해 출력한다. ftracer 사용 예 아래는 출처에서 기술되어 있는 예시들을 한 데 정리한 것이다. 이 후, 업무에서 사용한 이력이나 팁이 있는 경우에 이 곳에 관련 내용을 추가하도록 한다.\n커널 함수 추적하기 커널 함수들이 호출되는 과정을 살펴본다. 우선 tracing 디렉토리로 이동해서 추적할 수 있는 항목들을 알아보자.\ntracing $ cat available_tracers blk kmemtrace function_graph wakeup_rt wakeup function sysprof sched_switch initcall nop tracing $ echo function \u0026gt; ./current_tracer 위에서처럼 tracer의 모드를 설정한 후 vi로 trace 파일을 열어보면 아래와 같은 내용을 볼 수 있다.\n# tracer: function # # TASK-PID CPU# TIMESTAMP FUNCTION # | | | | | sshd-15219 [000] 159421.106063: __math_state_restore \u0026lt;-__switch_to sshd-15219 [000] 159421.106064: finish_task_switch \u0026lt;-thread_return sshd-15219 [000] 159421.106065: fget_light \u0026lt;-do_select sshd-15219 [000] 159421.106065: sock_poll \u0026lt;-do_select sshd-15219 [000] 159421.106066: tcp_poll \u0026lt;-sock_poll sshd-15219 [000] 159421.106066: fget_light \u0026lt;-do_select sshd-15219 [000] 159421.106066: pipe_poll \u0026lt;-do_select 또한, 프로세스 별로 호출하고 있는 커널 함수를 직접 살펴볼 수도 있다.\n[root@server tracing]# echo function_graph \u0026gt; ./current_tracer 0) | do_vfs_ioctl() { 0) | vfs_ioctl() { 0) | tty_ioctl() { 0) 0.349 us | tty_paranoia_check(); 0) 0.301 us | pty_unix98_ioctl(); 0) | tty_ldisc_ref_wait() { 0) | tty_ldisc_try() { 0) 0.301 us | _spin_lock_irqsave(); 스케쥴링 과정 보기 출처 https://kldp.org/node/161282 https://brunch.co.kr/@alden/24 ", 
+        "url": "\/posts\/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85\/"
+    },
+    
+    "\/tags\/gpio\/": {
+        "title": "Gpio",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/gpio\/"
+    },
+    
+    "\/posts\/gpio-mapping\/": {
+        "title": "GPIO Mapping",
+        "tags": ["gpio",],
+        "content": "GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.\nGPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.\n디바이스 트리 이용 (최근 트렌드) Legacy Board \u0026amp; Machine Specific Code에서 플랫폼 데이터로 정의 (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다. ACPI 펌웨어 테이블에 정의 디바이스 트리를 사용하는 GPIO 매핑 디바이스 노드 내부에 \u0026ldquo;gpio-controller\u0026rdquo; 속성이 있으면 GPIO Controller 노드를 의미한다.\ncell 개수 #gpio-cells = \u0026lt;2\u0026gt; 속성은 셀 데이터 2개를 사용한다는 것을 의미한다. 아래 예시에서는 gpio1, gpio2에 대해 각각 다음과 같이 해석 가능하다.\ngpio1 controller는 cell 2개를 사용하여 디바이스 드라이버가 인자 2개를 받아 처리한다. gpio2 controller는 cell 1개를 사용하여 디바이스 드라이버가 인자 1개를 받아 처리한다. 지정되지 않는 경우 2 cell 방식을 사용한다. gpio1: gpio1 { gpio-controller; #gpio-cells = \u0026lt;2\u0026gt;; }; gpio2: gpio2 { gpio-controller; #gpio-cells = \u0026lt;1\u0026gt;; } enable-gpios = \u0026lt;\u0026amp;gpio2 2\u0026gt;; data-gpios = \u0026lt;\u0026amp;gpio1 12 0\u0026gt;, \u0026lt;\u0026amp;gpio1 13 0\u0026gt;, \u0026lt;\u0026amp;gpio1 14 0\u0026gt;, \u0026lt;\u0026amp;gpio1 15 0\u0026gt;; Pin control subsystem과의 연동 pin control subsystem과의 연동은 gpio controller 노드에서 \u0026ldquo;gpio-ranges\u0026rdquo; 속성을 사용한다. \u0026ldquo;gpio-ranges\u0026rdquo; 속성이 가리키는 phandle은 연계된 pin controller 노드를 가리켜야 한다. 그리고 1~3개의 인자를 사용할 수 있으며, 배열 사용을 지원한다.\niomux: iomux@FF10601c { compatible = \u0026#34;abilis,tb10x-iomux\u0026#34;; reg = \u0026lt;0xFF10601c 0x4\u0026gt;; pctl_gpio_a: pctl-gpio-a { abilis,function = \u0026#34;gpioa\u0026#34;; }; pctl_uart0: pctl-uart0 { abilis,function = \u0026#34;uart0\u0026#34;; }; }; uart@FF100000 { compatible = \u0026#34;snps,dw-apb-uart\u0026#34;; reg = \u0026lt;0xFF100000 0x100\u0026gt;; clock-frequency = \u0026lt;166666666\u0026gt;; interrupts = \u0026lt;25 1\u0026gt;; reg-shift = \u0026lt;2\u0026gt;; reg-io-width = \u0026lt;4\u0026gt;; pinctrl-names = \u0026#34;default\u0026#34;; pinctrl-0 = \u0026lt;\u0026amp;pctl_uart0\u0026gt;; }; gpioa: gpio@FF140000 { compatible = \u0026#34;abilis,tb10x-gpio\u0026#34;; reg = \u0026lt;0xFF140000 0x1000\u0026gt;; gpio-controller; #gpio-cells = \u0026lt;2\u0026gt;; ngpios = \u0026lt;3\u0026gt;; gpio-ranges = \u0026lt;\u0026amp;iomux 0 0\u0026gt;; gpio-ranges-group-names = \u0026#34;gpioa\u0026#34;; }; ACPI 펌웨어를 사용하는 GPIO 매핑 디바이스 트리를 사용하는 방법과 유사하게 ACPI 디스크립션을 사용하는 방법이 있다. ACPI 5.1에서 소개된 [[[_DSD (Device Specific Data)|https://www.kernel.org/doc/Documentation/acpi/gpio-properties.txt]]를 참고한다.\nDevice (FOO) { Name (_CRS, ResourceTemplate () { GpioIo (Exclusive, ..., IoRestrictionOutputOnly, \u0026#34;\\\\_SB.GPI0\u0026#34;) {15} // red GpioIo (Exclusive, ..., IoRestrictionOutputOnly, \u0026#34;\\\\_SB.GPI0\u0026#34;) {16} // green GpioIo (Exclusive, ..., IoRestrictionOutputOnly, \u0026#34;\\\\_SB.GPI0\u0026#34;) {17} // blue GpioIo (Exclusive, ..., IoRestrictionOutputOnly, \u0026#34;\\\\_SB.GPI0\u0026#34;) {1} // power }) Name (_DSD, Package () { ToUUID(\u0026#34;daffd814-6eba-4d8c-8a91-bc9bbf4aa301\u0026#34;), Package () { Package () { \u0026#34;led-gpios\u0026#34;, Package () { ^FOO, 0, 0, 1, ^FOO, 1, 0, 1, ^FOO, 2, 0, 1, } }, Package () { \u0026#34;power-gpios\u0026#34;, Package () {^FOO, 3, 0, 0}, }, } }) Name (_CRS, ) } Platform 데이터에 GPIO 맵핑 (deprecated) 일부 시스템에서 아래의 매크로 함수, API를 사용하여 플랫폼 데이터에 저장한 후, 이를 lookup 하여 사용하는데 지금은 사용하지 않는 방법이다.\nGPIO_LOOKUP(chip_label, chip_hwnum, con_id, flag) GPIO_LOOKUP_IDX(chip_label, chip_hwnum, con_id, idx, flags) 아래와 같이 GPIO Lookup Table을 정의한 후에 아래와 같이 사용할 수 있다.\nstruct gpiod_lookup_table gpios_table = { .dev_id = \u0026#34;foo.0\u0026#34;, .table = { GPIO_LOOKUP_IDX(\u0026#34;gpio.0\u0026#34;, 15, \u0026#34;led\u0026#34;, 0, GPIO_ACTIVE_HIGH), GPIO_LOOKUP_IDX(\u0026#34;gpio.0\u0026#34;, 16, \u0026#34;led\u0026#34;, 1, GPIO_ACTIVE_HIGH), GPIO_LOOKUP_IDX(\u0026#34;gpio.0\u0026#34;, 17, \u0026#34;led\u0026#34;, 2, GPIO_ACTIVE_HIGH), GPIO_LOOKUP(\u0026#34;gpio.0\u0026#34;, 1, \u0026#34;power\u0026#34;, GPIO_ACTIVE_LOW), { }, }, }; gpiod_add_lookup_table(\u0026amp;gpios_table); struct gpio_desc *red, *green, *blue, *power; red = gpiod_get_index(dev, \u0026#34;led\u0026#34;, 0, GPIOD_OUT_HIGH); green = gpiod_get_index(dev, \u0026#34;led\u0026#34;, 1, GPIOD_OUT_HIGH); blue = gpiod_get_index(dev, \u0026#34;led\u0026#34;, 2, GPIOD_OUT_HIGH); power = gpiod_get(dev, \u0026#34;power\u0026#34;, GPIOD_OUT_HIGH); 출처 http://jake.dothome.co.kr/gpio-3/ ", 
+        "url": "\/posts\/gpio-mapping\/"
+    },
+    
+    "\/categories\/android\/": {
+        "title": "Android",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/android\/"
+    },
+    
+    "\/tags\/uevent\/": {
+        "title": "Uevent",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/uevent\/"
+    },
+    
+    "\/tags\/ueventd\/": {
+        "title": "Ueventd",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/ueventd\/"
+    },
+    
+    "\/posts\/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd\/": {
+        "title": "안드로이드의 uevent, ueventd",
+        "tags": ["uevent","ueventd",],
+        "content": "개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. ueventd.rc 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.\n본 포스팅에서는 uevent와 ueventd가 무엇인지 살펴보고 안드로이드 init 과정에서 어떻게 활용되는지 살펴보기로 한다.\n여담으로 안드로이드의 uevent는 리눅스의 udev 와 비슷한 역할을 하면서도 조금 다르다. 리눅스의 일반적인 환경 구성이 devfs + udev 로 디바이스 노드 파일들을 관리한다면, 안드로이드는 ueventd를 이용하여 노드 파일들을 관리한다.\nuevent \u0026amp; ueventd 리눅스에서는 디바이스 노드 파일을 생성할 수 있도록 mknod 유틸리티를 제공하지만 안드로이드에서는 보안 문제로 이를 제공하지 않는다. 때문에, 안드로이드의 init 프로세스는 아래의 두 가지 방식으로 디바이스 노드를 생성한다.\nhot plug: 시스템 동작 중 디바이스 장치가 삽입될 때 이에 대한 이벤트 처리로 ueventd를 거쳐 해당 장치의 디바이스 노드 파일을 동적으로 생성한다. cold plug: 미리 정의된 디바이스 정보를 바탕으로 init 프로세스가 실행될 때 일괄적으로 디바이스 노드 파일을 생성한다. 출처에 따르면 cold plug 방식에 대해서, ueventd가 실행되기 전에 디바이스 드라이버가 /sys 디렉토리 아래에 디바이스 노드를 생성하기 위한 정보들을 저장한 후, ueventd가 실행되면서 디바이스 노드를 생성하지 못한 디바이스 드라이버에 대해서 강제로 uevent 를 발생시켜 cold plug 처리를 한다고 설명하고 있다.\ninit process와 ueventd 안드로이드 init 과정에서 ueventd를 부른다. ueventd 에서는 내부적으로 아래의 ueventd_main 함수를 호출한다.\nint ueventd_main(int argc, char **argv) { struct pollfd ufd; int nr; char tmp[32]; /* Prevent fire-and-forget children from becoming zombies. * If we should need to wait() for some children in the future * (as opposed to none right now), double-forking here instead * of ignoring SIGCHLD may be the better solution. */ signal(SIGCHLD, SIG_IGN); open_devnull_stdio(); klog_init(); INFO(“starting ueventd\\n”); /* Respect hardware passed in through the kernel cmd line. Here we will look * for androidboot.hardware param in kernel cmdline, and save its value in * hardware[]. */ import_kernel_cmdline(0, import_kernel_nv); get_hardware_name(hardware, \u0026amp;revision); ueventd_parse_config_file(“/ueventd.rc”); snprintf(tmp, sizeof(tmp), “/ueventd.%s.rc”, hardware); ueventd_parse_config_file(tmp); device_init(); ufd.events = POLLIN; ufd.fd = get_device_fd(); while(1) { ufd.revents = 0; nr = poll(\u0026amp;ufd, 1, -1); if (nr \u0026lt;= 0) continue; if (ufd.revents == POLLIN) handle_device_fd(); } } 여기서 중요한 함수는 ueventd_parse_config_file와 device_init함수이다. ueventd_parse_config_file함수는 ueventd.rc파일과 ueventd.%hardware%.rc 파일을 읽어 디바이스 노드 파일을 만드는 정보를 얻는다. 이 파일에 저장되어 있는 정보는 device 이름, permission, gid, uid 이다. 아래는 업무에서 사용한 실제 ueventd.rc 파일로서 문제가 된 videosource에 대한 내용들이 추가되어야 했다.\n/dev/switch_gpio_reverse\t0666\tsystem\tsystem #/dev/videosource* 로 가능 /dev/videosource0\t0666\tsystem\tsystem /dev/videosource1\t0666\tsystem\tsystem 이 때, 별도로 저장되어 있지 않는 디바이스는 디폴트로 600, 0, 0이 세팅된다. device_init 함수는 uevent_socket을 열고 coldboot 함수를 실행한다.\n여기서 연 소켓은 uevent를 보낼때 쓰이는 것이 아니라 나중에 발생한 uevent를 받을때 쓰인다.\nvoid device_init(void) { suseconds_t t0, t1; struct stat info; int fd; /* is 64K enough? udev uses 16MB! */ device_fd = uevent_open_socket(64*1024, true); if(device_fd \u0026lt; 0) return; fcntl(device_fd, F_SETFD, FD_CLOEXEC); fcntl(device_fd, F_SETFL, O_NONBLOCK); if (stat(coldboot_done, \u0026amp;info) \u0026lt; 0) { t0 = get_usecs(); coldboot(“/sys/class”); coldboot(“/sys/block”); coldboot(“/sys/devices”); t1 = get_usecs(); fd = open(coldboot_done, O_WRONLY|O_CREAT, 0000); close(fd); log_event_print(“coldboot %ld uS\\n”, ((long) (t1 – t0))); } else { log_event_print(“skipping coldboot, already done\\n”); } } 호출되는 coldboot는 내부적으로 do_coldboot를 호출한다.\nstatic void do_coldboot(DIR *d) { struct dirent *de; int dfd, fd; dfd = dirfd(d); fd = openat(dfd, “uevent”, O_WRONLY); if(fd \u0026gt;= 0) { write(fd, “add\\n”, 4); close(fd); handle_device_fd(); } while((de = readdir(d))) { DIR *d2; if(de-\u0026gt;d_type != DT_DIR || de-\u0026gt;d_name[0] == ‘.’) continue; fd = openat(dfd, de-\u0026gt;d_name, O_RDONLY | O_DIRECTORY); if(fd \u0026lt; 0) continue; d2 = fdopendir(fd); if(d2 == 0) close(fd); else { do_coldboot(d2); closedir(d2); } } } 디바이스 노드를 생성하지 못한 디바이스가 저장한 /sys 밑의 각각의 해당 폴더를 들어가 uevent 파일에 “add” 메시지를 써넣어 강제로 uevent를 발생시킨다. 그 후 handle_device_fd 함수를 통해 uevent 를 파싱해 디바이스 노드를 만든다. 이 과정에서 ueventd_parse_config_file 에서 얻어온 정보를 사용한다.\n출처 https://kshokd.wordpress.com/2012/08/29/init-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-uevent%EC%99%80-ueventd%EC%9D%98-%ED%99%9C%EC%9A%A9/ ", 
+        "url": "\/posts\/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd\/"
+    },
+    
+    "\/tags\/big-endian\/": {
+        "title": "Big Endian",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/big-endian\/"
+    },
+    
+    "\/tags\/endian\/": {
+        "title": "Endian",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/endian\/"
+    },
+    
+    "\/tags\/little-endian\/": {
+        "title": "Little Endian",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/little-endian\/"
+    },
+    
+    "\/posts\/little-endian-vs.-big-endian\/": {
+        "title": "Little Endian vs. Big Endian",
+        "tags": ["big endian","little endian","endian",],
+        "content": "개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.\n엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.\nBig-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식 예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.\n빅 엔디안은 사람이 숫자를 사용하는 것과 같이 큰 단위의 바이트가 앞에 오는 방법이고 리틀 엔디안은 반대로 작은 단위의 바이트가 앞에 오는 방법이다.\n#include \u0026lt;stdio.h\u0026gt; int main(void) { unsigned long value = 0x12345678; unsigned char* ptr = \u0026amp;value; int i; for (i = 0; i \u0026lt; 4; i++) { fprintf(stdout, \u0026quot;value[%d] = 0x%x\\n\u0026quot;, i, *ptr++); } unsigned long long value2 = 0x12345678abcdefab; ptr = \u0026amp;value2; for (i = 0; i \u0026lt; sizeof(value2); i++) { fprintf(stdout, \u0026quot;value2[%d] = 0x%x\\n\u0026quot;, i, *ptr++); } return 0; } 위의 코드를 컴파일하여 Mac OS 환경에서 실행하면 아래와 같은 결과를 얻을 수 있다.\n~/Workspaces/study/languages/modernc/endian $ ./endian value[0] = 0x78 value[1] = 0x56 value[2] = 0x34 value[3] = 0x12 value2[0] = 0xab value2[1] = 0xef value2[2] = 0xcd value2[3] = 0xab value2[4] = 0x78 value2[5] = 0x56 value2[6] = 0x34 value2[7] = 0x12 0x12345678에서 MSB는 0x12, LSB는 0x78이며, LSB가 처음 나오는 것으로 보아 리틀 엔디안 방식으로 Byte-ordering을 하고 있는 것을 알 수 있다. unsigned long long의 경우로 확인할 수 있듯이 4바이트나 8바이트 단위로 byte-ordering 되는 것이 아니라 해당 데이터 타입에 따라 달라지는 것을 알 수 있다.\n장/단점 가독성 Big-Endian은 소프트웨어의 디버그를 편하게 해주는 경향이 있다. 사람이 숫자를 읽고 쓰는 방법과 같기 때문에 디버깅 과정에서 메모리의 값을 보기 편하다. 예를 들어, 0x59654148을 Big-Endian으로 표현하면 0x59, 0x65, 0x41, 0x48 등으로 메모리에 순서대로 표현된다.\n반대로 Little-Endian은 메모리에 저장된 값의 하위 바이트들만 사용할 때 별도의 계산이 필요 없다는 장점이 있다. 예를 들어, 32비트 숫자인 0x2A는 리틀 엔디언으로 표현하면 2A 00 00 00이 되는데, 이 표현에서 앞의 두 바이트 또는 한 바이트만 떼어내면 하위 16비트 또는 8비트를 바로 얻을 수 있다. 반면 32비트 빅 엔디안 환경에서는 하위 16비트나 8비트 값을 얻기 위해 변수 주소에 2바이트 또는 3바이트를 더해야 한다.\n커널 내 인터페이스 커널은 byte order 에 대한 의존성을 해결하기 위해 Type Identifier, Conversion Macro 등을 제공하고 있다. include/uapi/linux/types.h 헤더 파일 내에서는 아래와 같이 엔디안 별로 타입들이 정의되어 있는 것을 알 수 있다. 여기서 uapi 디렉토리는 커널의 userspace API를 포함하고 있다. (참고. https://stackoverflow.com/questions/18858190/whats-in-include-uapi-of-kernel-source-project )\n타입 정의 /* * Below are truly Linux-specific types that should never collide with * any application/library that wants linux/types.h. */ #ifdef __CHECKER__ #define __bitwise__ __attribute__((bitwise)) #else #define __bitwise__ #endif #define __bitwise __bitwise__ typedef __u16 __bitwise __le16; typedef __u16 __bitwise __be16; typedef __u32 __bitwise __le32; typedef __u32 __bitwise __be32; typedef __u64 __bitwise __le64; typedef __u64 __bitwise __be64; typedef __u16 __bitwise __sum16; typedef __u32 __bitwise __wsum; bitwise 속성(단순히 정수로써 사용되는 것을 제한하는데 사용)으로 정의되어 있는 Type Identifiers 들이다. bitwise 속성은 sparse 유틸리티(static analyzer)가 변수에 대한 연산을 수행하기 전에 로컬 프로세서로 변환될 수 있도록 보장한다.\nByte Order 알아내기 아래와 같이 간단한 user-space 프로그램을 작성하여 현재 시스템의 바이트 오더를 알아낼 수 있다.\nunion { int i; char c[sizeof(int)]; } foo; main() { foo.i = 1; if (foo.c[0] == 1) printf(\u0026quot;Little endian\\n\u0026quot;); else printf(\u0026quot;Big endian\\n\u0026quot;); } 다음에 소개되는 매크로는 변환 후의 값들을 반환한다.\n#include \u0026lt;linux/kernel.h\u0026gt; __u16\tle16_to_cpu(const __le16); __u32\tle32_to_cpu(const __le32); __u64\tle64_to_cpu(const __le64); __le16\tcpu_to_le16(const __u16); __le32\tcpu_to_le32(const __u32); __le64\tcpu_to_le64(const __u64); __u16\tbe16_to_cpu(const __be16); __u32\tbe32_to_cpu(const __be32); __u64\tbe64_to_cpu(const __be64); __be16\tcpu_to_be16(const __u16); __be32\tcpu_to_be32(const __u32); __be64\tcpu_to_be64(const __u64); 포인터에 대한 변환은 p를 붙여서 아래와 같이 사용하며, 현재 사용 중인 프로세서 엔디안 환경에 맞게 변환해주는 매크로도 아래와 같이 제공하고 있다.\n#include \u0026lt;linux/kernel.h\u0026gt; void le16_to_cpus(__u16 *); void le32_to_cpus(__u32 *); void le64_to_cpus(__u64 *); void cpu_to_le16s(__u16 *); void cpu_to_le32s(__u32 *); void cpu_to_le64s(__u64 *); void be16_to_cpus(__u16 *); void be32_to_cpus(__u32 *); void be64_to_cpus(__u64 *); void cpu_to_be16s(__u16 *); void cpu_to_be32s(__u32 *); void cpu_to_be64s(__u64 *); __u16\tle16_to_cpup(const __le16 *); __u32\tle32_to_cpup(const __le32 *); __u64\tle64_to_cpup(const __le64 *); __le16\tcpu_to_le16p(const __u16 *); __le32\tcpu_to_le32p(const __u32 *); __le64\tcpu_to_le64p(const __u64 *); __u16\tbe16_to_cpup(const __be16 *); __u32\tbe32_to_cpup(const __be32 *); __u64\tbe64_to_cpup(const __be64 *); __be16\tcpu_to_be16p(const __u16 *); __be32\tcpu_to_be32p(const __u32 *); __be64\tcpu_to_be64p(const __u64 *); 출처 http://www.bruceblinn.com/linuxinfo/ByteOrder.html https://stackoverflow.com/questions/18858190/whats-in-include-uapi-of-kernel-source-project ", 
+        "url": "\/posts\/little-endian-vs.-big-endian\/"
+    },
+    
+    "\/tags\/colorspace\/": {
+        "title": "Colorspace",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/colorspace\/"
+    },
+    
+    "\/tags\/rgb\/": {
+        "title": "Rgb",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/rgb\/"
+    },
+    
+    "\/tags\/yuv\/": {
+        "title": "Yuv",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/yuv\/"
+    },
+    
+    "\/posts\/%EC%83%89-%EA%B3%B5%EA%B0%84color-space\/": {
+        "title": "색 공간(Color Space)",
+        "tags": ["rgb","yuv","colorspace",],
+        "content": "색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.\n색 포맷에 대한 비트 구성은 표준에 따르지 않고 각 플랫폼 환경에 따라 달라지므로 SoC 데이터시트를 참고하여 컴포넌트에서 어떻게 구성되는지 확인해야 한다.\nRGB RGB의 대표적인 포맷으로는 ARGB8888, RGB888 등이 있다. 각 채널 별로 2 bytes 씩이다. R/G/B 각각의 색상 정보에 대한 모든 정보를 가지고 있기 때문에 색 표현에 있어서 정확하지만 픽셀 한 개를 위해 필요한 비트가 최소 24비트나 차지하기 때문에 데이터 전송 면에 있어서 YUV 포맷보다 비효율적이다.\nRGB 8 BITS RGB 8비트는 모든 색상 중에서 256개만을 선택하여 사용하며 모든 색상을 한번에 다 표현하지 못하기 때문에 팔레트라는 개념을 사용한다. 8비트 색상 정보는 256개의 팔레트 정보를 가지고 있고, 1 바이트의 점을 표현하는데, 이 때 1 바이트에 해당하는 것을 인덱스 컬러라고 하며, 어떤 팔레트인지를 나타낸다.\nRGB 16 BITS 8비트 RGB와는 달리 팔레트 개념이 없으며 RGB 요소를 공평하게 갖기 위해 5 비트씩 구성하거나 G 색상에 6 비트를 할당하여 RGB555, RGB565 등으로 나뉜다.\nRGB 24 BITS 16비트 RGB에서 5비트씩 나눈 것을 8비트씩 나눈 포맷이다.\nRGB 32 BITS Alpha 채널이 추가된 RGB 형식으로 ARGB8888, RGBA8888 등의 포맷이 있다.\nYUV 색상을 나타내기 위해 삼원색을 표현하는 RGB 방식과 달리 빛의 밝기를 나타내는 휘도(Y)와 색상 신호(U, V)로 표현하는 방식이다. 티비나 비디오 카메라에서 많이 사용하는 방식이며, 사람의 눈이 색상 신호보다 밝기 신호에 더 둔하다는 점을 고려하여 만든 색 공간이기에 실제 RGB 신호와 YUV 신호의 차이를 잘 느끼지 못한다.\nYUV는 Packed format 과 Planar format 등으로 아래와 같이 나눌 수 있다.\nPacked format: Y와 UV가 섞여 macro pixel을 이루는 방식 (YUYV a.k.a. {YUY2, YUNV, V422}, UYVY a.k.a. {Y422, UYNV})\nPlanar format: Y, UV가 각각의 다른 영역에 나뉘어 픽셀 정보를 이루는 방식 (YUV422, YUV420(NV12, NV21))\nRGB-to-YUV 변환 YUV 데이터는 일반적으로 RGB 데이터를 변환하여 얻을 수 있으며, 일반적인 변환 공식은 아래와 같다. 변환 공식은 영상 출력에 사용하는 표준 또는 포맷에 따라 달라질 수 있다. BT.601의 경우 아래와 같다.\n$$ W_R = 0.299, \\\\ W_G = 1 - W_R - W_B = 0.587, \\\\ W_B = 0.114,\\\\ U_{max} = 0.436,\\\\ V_{max} = 0.615$$\n이 때, RGB 채널 각각에 대한 가중치를 이용하여 Y, U, V 채널 값을 아래와 같이 구할 수 있다.\n$$Y\u0026rsquo; = W_RR + W_GG + W_BB = 0.299R + 0.587G + 0.114B,\\\\U = U_{max}((B - Y\u0026rsquo;)/(1 - W_R)) =~ 0.492 (B - Y\u0026rsquo;),\\\\V=V_{max}(R-Y\u0026rsquo;)/(1-W_R) = 0.877(R-Y\u0026rsquo;)$$\nBT.809의 경우는 R과 B에 대한 가중치를 아래와 같이 갖는다.\n$$W_R=0.2126, W_B=0.0722$$\n일반적인 RGB-to-YUV 예제 출처에서 가져온 변환 예제로 사용하는 표준, 포맷, 환경에 따라 가중치를 다르게 하여 변환할 수 있다.\nSub-Sampling 에 따른 포맷 같은 YUV 포맷이라도 해도, 이를 다시 서브샘플링하여 압축함으로써 전송 효율을 높일 수 있다. 이 때, YUV 의 각 채널에 대한 기호로 아래와 같이 나타낸다.\n$$Y: Y, \\\\U: P_B(orC_B)\\\\V:P_R(orC_R)$$\nYUV444 원본 YUV 색상으로서 Y가 4 바이트 사용될 때 U와 V 채널에도 각각 4바이트를 사용한다. 왼쪽에서 오른쪽으로 픽셀 배열이 있다고 가정했을 때, 세로로 표현한 픽셀 한 개를 구성하는 각 채널은 Y\u0026rsquo;, Cb, Cr 모두 동일한 비율로 구성되어 있다. 메모리 상으로 살펴 보았을 때, YCbCr, YCbCr, ... 등이 된다.\nYUV422 YUV444와 달리 Cb, Cr 채널에 대해 픽셀 두 개에 대한 Cb, Cr 정보를 한 개로 하여 서브샘플링한 것을 나타낸다. 즉, Y 값이 두 개 올 때 나머지 채널은 1개씩 오게 되어 결국 4:2:2 의 비율을 갖게 된다. 메모리 상으로 살펴 보았을 때, YCbYCr, YCbYCr, ... 등이 된다.\nYUV411 이전까지 다뤘던 내용처럼 밝기 신호인 Y가 4바이트 올 때 U, V 신호가 각각 1바이트씩 위치한다.\n메모리 상으로 살펴보면 YYYCb, YYYCr, YYYCb, YYYCr, \u0026hellip; 등이 된다. 밝기에 비해 색상의 해상도가 1/4로 떨어진다.\nYUV420 안드로이드 카메라 클래스에서 제공하는 YUV 데이터 포맷이다. 12비트 데이터 포맷으로 4가지 종류 (YV12, NV12, IMC2, IMC4 등)가 존재하며, Y가 4개 오면 U와 V가 1바이트씩 위치하며 4개의 Y값이 U와 V값을 공유한다. YYYYCb, YYYYCr, YYYYCb , YYYYCr, \u0026hellip; 등의 메모리 구성을 갖는다.\n출처 https://m.blog.naver.com/PostView.nhn?blogId=wndrlf2003\u0026amp;logNo=220253497246\u0026amp;proxyReferer=https%3A%2F%2Fwww.google.com%2F https://en.wikipedia.org/wiki/YUV#Y′UV411_to_RGB888_conversion https://imagej.tistory.com/150 https://seoduckchan.tistory.com/entry/yuv-color ", 
+        "url": "\/posts\/%EC%83%89-%EA%B3%B5%EA%B0%84color-space\/"
+    },
+    
+    "\/about\/": {
+        "title": "About",
+        "tags": [],
+        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. Gentoo Linux와 Arch Linux는 사랑하지만 Ubuntu WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
+        "url": "\/about\/"
+    },
+    
+    "\/tags\/major-number\/": {
+        "title": "Major Number",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/major-number\/"
+    },
+    
+    "\/posts\/major%EC%99%80-minor-numbers\/": {
+        "title": "Major와 Minor Numbers",
+        "tags": ["minor number","major number",],
+        "content": "세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.\n캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, \u0026lsquo;c\u0026rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, \u0026lsquo;b\u0026rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다. 아래와 같이 ls 명령어를 사용하면 각 디바이스 파일에 번호가 할당되어 있는 것을 알 수 있다.\ndrwxr-xr-x 2 root root 60 May 31 23:18 vfio crw------- 1 root root 10, 63 May 31 23:18 vga_arbiter crw------- 1 root root 10, 137 May 31 23:18 vhci crw-rw----+ 1 root kvm 10, 238 May 31 23:18 vhost-net crw------- 1 root root 10, 241 May 31 23:18 vhost-vsock crw-rw----+ 1 root video 81, 0 May 31 23:18 video0 crw-rw----+ 1 root video 81, 1 May 31 23:18 video1 crw------- 1 root root 10, 130 May 31 23:18 watchdog crw------- 1 root root 246, 0 May 31 23:18 watchdog0 crw-rw-rw- 1 root root 1, 5 May 31 23:18 zero 이 때, major number는 특정 디바이스에 할당된 드라이버를 식별한다. 예를 들어, /dev/zero는 드라이버 1이 관리하고 /dev/watchdog0은 드라이버 246이 관리한다. minor number는 드라이버가 맡고 있는 장치들을 분류하기 위한 것으로 아래와 같이 같은 major number를 가지고 있는 장치들을 분류할 때 사용한다.\n➜ ~ ls -l /dev | egrep \u0026#39;^c.*.(\\s)1,\u0026#39; crw-rw-rw- 1 root root 1, 7 May 31 23:18 full crw-r--r-- 1 root root 1, 11 May 31 23:18 kmsg crw-r----- 1 root kmem 1, 1 May 31 23:18 mem crw-rw-rw- 1 root root 1, 3 May 31 23:18 null crw-r----- 1 root kmem 1, 4 May 31 23:18 port crw-rw-rw- 1 root root 1, 8 May 31 23:18 random crw-rw-rw- 1 root root 1, 9 May 31 23:18 urandom crw-rw-rw- 1 root root 1, 5 May 31 23:18 zero 버전 2.4 커널에서 devfs(device file system)라는 새 기능이 추가되었다. 만약 이 파일시스템 사용되면 디바이스 파일들을 그 전보다 훨씬 간단하게 관리할 수 있지만 호환성에 문제가 생긴다. 이에 대해서 자세히 알아보자.\ndevfs를 사용하지 않을 경우, 시스템에 드라이버를 새로 추가한다는 의미는 새로운 major number를 할당한다는 의미와 같다. 그래서 아래와 같은 코드를 이용해 직접 그 숫자를 할당해줘야 한다.\n// return: success or failure(\u0026lt;0) // major: major number being requested // name: name of the device (which will appear in /proc/devices) // fops: driver\u0026#39;s entry point int register_chrdev(unsigned int major, const char *name, struct file_operations *fops); Major Number는 small integer 형태로서 캐릭터 드라이버 배열의 인덱스를 담당한다. 2.0 커널에서는 128개 디바이스에 대해, 2.2와 2.4에서는 256개 디바이스에 대한 인덱스를 가질 수 있으며 Minor Number의 경우 8비트를 가져 마찬가지로 256개 디바이스에 대한 인덱스를 가질 수 있다. 하지만 Minor Number는 위 함수에서 특별히 인자로 넘기지 않는데 이는 드라이버에서만 제한적으로 사용되는 숫자이기 때문에 그렇다.\n드라이버를 커널 테이블에 등록하면 주어진 major number를 할당한다. 이후부터는 캐릭터 디바이스에 대한 파일 연산을 할 때마다 등록 시에 정의했던 file_operations 구조체의 각 함수들을 이용하게 된다. 하지만 코드가 아닌 실제 명령어를 통해 이러한 등록 과정을 아주 간단히 할 수가 있는데 그것이 바로 mknod 명령어이다.\n$ mknod /dev/scull0 c 254 0 $ rm /dev/scull0 위처럼 major number가 254, minor number가 0인 캐릭터 디바이스(c)를 생성하고 해당 디바이스를 삭제할 수 있다. 하지만 이렇게 정적으로 디바이스를 관리하는 인덱스 번호를 할당할 필요가 있을까?\nDynamic Allocation of Major Numbers 몇몇 주요 장치들에 대한 인덱스 숫자는 정적으로 할당된다. 이러한 장치들에 대한 정보는 Documentation/admin-guide/devices.txt에서 찾을 수 있다. (책에는 Documentation/devices.txt라고 되어 있으나 커널 버전이 업되면서 경로가 바뀌었다.)\n정적으로 Major Number를 할당하면 공식 커널 트리에 포함되어 유용하게 사용되는 경우에만 할당해야 하며, 그렇지 않으면 반드시 동적으로 할당하는 방법을 사용해야 한다. 하지만 동적으로 Major Number를 할당하는 방법의 단점은 디바이스 노드를 생성할 수 없다는 것이다. 항상 같은 번호를 할당받을 수 없기 때문인데 이 말은 즉슨, loading-on-demand 방식을 사용할 수 없다는 말과 같다. 하지만 이러한 특징은 일반적인 사용에 있어서 크게 문제가 되지는 않는다. 앞서 설명했던 것처럼 /proc/devices의 정보를 사용하면 되기 때문이다.\n동적으로 생성하는 방법은 아래와 같은 코드를 이용하면 된다. 이 때, scull_major 값을 0으로 주어지면 동적 할당을 사용한다는 의미이다.\nresult = register_chrdev(scull_major, \u0026#34;scull\u0026#34;, \u0026amp;scull_fops); if (result \u0026lt; 0) { printk(KERN_WARNING \u0026#34;scull: can\u0026#39;t get major %d\\n\u0026#34;, scull_major); return resul;t } if (scull_major == 0) scull_major = result; /* dynamic */ unregister_chrdev(scull_major, \u0026#34;scull\u0026#34;); 이 때, 코드 마지막에 위치하는 unregister_chrdev 사용에 있어서 실패했을 경우를 염두에 두어야 한다. 등록 해제(unregister_chrdev)가 실패했을 때는 그 영향에 대해 주의해야 한다./proc/devices 자체가 실패할 수 있는데 그 이유는 이미 해제된 장치에 대해 이름을 가리키는 포인터가 잘못될 수 있기 때문이다.\nkdev_t and dev_t 본래 유닉스에서는 16비트 정수 형태로 dev_t안에 디바이스 번호를 담고 있었는데 오늘날에는 이것이 minor number의 최대치인 256보다 더 많은 인덱스 숫자를 한번에 요구하는 경우가 생기게 되었다. 하지만 하위 호환성을 위해서 dev_t자체의 구조를 변경하지는 못하고 있다.\n리눅스에서는 이와 달리 kdev_t라는 약간 다른 타입을 사용한다. 블랙박스 형태로 설계되었기 때문에 사용자 애플리케이션은 kdev_t에 대해 완전히 알지 못하고 커널 함수들 또한 해당 자료구조의 내부를 정확히 알지 못한다. 때문에 커널 버전 변경에 따라 자료구조가 변경되더라도 디바이스 드라이버에서 해당 변경에 대해 별다른 변경 작업을 할 필요가 없도록 설계되었다. kdev_t를 이용하기 위해서는 직접 사용할 필요가 없고 아래와 같이 제공되는 함수 또는 매크로를 이용한다.\n// Extract the major number from a kdev_t structure. #define MAJOR(dev)\t((unsigned int) ((dev) \u0026gt;\u0026gt; MINORBITS)) // Extract the minor number. #define MINOR(dev)\t((unsigned int) ((dev) \u0026amp; MINORMASK)) // Create a kdev_t build from major and minor numbers #define MKDEV(ma,mi)\t(((ma) \u0026lt;\u0026lt; MINORBITS) | (mi)) 출처 https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html ", 
+        "url": "\/posts\/major%EC%99%80-minor-numbers\/"
+    },
+    
+    "\/tags\/minor-number\/": {
+        "title": "Minor Number",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/minor-number\/"
+    },
+    
+    "\/tags\/jiffies\/": {
+        "title": "Jiffies",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/jiffies\/"
+    },
+    
+    "\/posts\/%EC%A7%80%ED%94%BCjiffies\/": {
+        "title": "지피(Jiffies)",
+        "tags": ["jiffies",],
+        "content": " 오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.\n커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.\n지피 비교를 위한 매크로 jiffies는 unsigned long 타입으로 언젠가는 오버플로우가 발생하게 된다. 오버플로우에 대한 내용을 찾던 중 재미있는 함수를 발견했는데 이와 관련해 잠깐 설명하고자 한다.\n#define time_after(a,b)\t\\ (typecheck(unsigned long, a) \u0026amp;\u0026amp; \\ typecheck(unsigned long, b) \u0026amp;\u0026amp; \\ ((long)((b) - (a)) \u0026lt; 0)) #define time_before(a,b)\ttime_after(b,a) #define time_after_eq(a,b)\t\\ (typecheck(unsigned long, a) \u0026amp;\u0026amp; \\ typecheck(unsigned long, b) \u0026amp;\u0026amp; \\ ((long)((a) - (b)) \u0026gt;= 0)) #define time_before_eq(a,b)\ttime_after_eq(b,a) 예전에 지피(jiffies) 비교 매크로를 보면서 이게 어떻게 작동할 수 있는지 확실하게 이해하지 못했었는데 이는 signed, unsigned와 실제 바이트와의 관계를 내가 정확하게 이해하지 못하고 있었기 때문이었다.\n맘에 들지는 않지만, 스택 오버플로우에 매우 친절하게 설명되어 있는 답변이 있었다. unsigned와 signed의 관계를 자세하게 나타냈는데 아래와 같이 표현해주었다. 아래 그림(?)은 편의상 unsigned long 대신 unsigned int와 signed int의 관계를 나타낸 그림이다.\n[0x0 - - - 0xFFFF] [0x0 0x7FFF][0x8000 0xFFFF] [0 32,767][-32,768 -1] integer unsigned 형태는 0x0부터 0xFFFF(4bytes, 2^32)까지의 값 범위를 가지고 있고 signed는 그 절반을 갖고 있다. 이 때 중요한 점은 signed의 양수 범위를 초과하는 순간 -1로 되는 것이 아니라 음수 최소값으로 돌아간다는 점이다. 그러므로 0xFFFF는 -1이 된다.\n지피를 비교하는 경우로 다시 돌아가보자. 비교할 지피 t1, t2에 대해 1) 모두 양수인 경우, 2) 모두 음수인 경우, 3) 한쪽은 양수, 한쪽은 음수인 경우를 생각해 볼 수 있다.\n이를 비교하기 위해 아래와 같이 간단하게 코드를 짜본뒤 확인해보자.\n/* unsigned long 오버플로우 검사 */ unsigned long t1 = 0; // 0x0 unsigned long t2 = 1; unsigned long t3 = (t1 - 1); // 0xffffffff unsigned long t4 = (t1 - 1) / 2; // 중간 값(signed 최대) printf(\u0026#34;(unsigned)t1 = %lu, t2 = %lu, t3 = %lu, t4 = %lu\\n\u0026#34;, t1, t2, t3, t4); printf(\u0026#34;(signed)t1 = %ld, t2 = %ld, t3 = %ld, t4 = %ld, t4+1 = %ld\\n\u0026#34;, t1, t2, t3, t4, t4+1); /* case 1. 비교 대상이 모두 양수일 때 */ printf(\u0026#34;case 1: t1 - t2 as long: %ld\\n\u0026#34;, (long)t1 - (long)t2); /* case 2. 비교 대상이 모두 음수일 때 */ printf(\u0026#34;case 2: (t4 + 1) - (t4 + 2): %ld\\n\u0026#34;, (t4+1) - (t4+2)); /* case 3-1. 비교 대상이 서로 다른 부호일 때 */ printf(\u0026#34;case 3-1: t3 - t1 as long: %ld\\n\u0026#34;, (long)((t3) - (t1))); /* case 3-2. 비교 대상이 서로 다른 부호일 때 */ printf(\u0026#34;case 3-2: t4 - (t4 + 1): %ld\\n\u0026#34;, (long)t4 - (long)(t4 + 1)); 이에 대한 출력 결과는 다음과 같다.\n(unsigned)t1 = 0, t2 = 1, t3 = 18446744073709551615, t4 = 9223372036854775807 (signed)t1 = 0, t2 = 1, t3 = -1, t4 = 9223372036854775807, t4+1 = -9223372036854775808 case 1: t1 - t2 as long: -1 case 2: (t4 + 1) - (t4 + 2): -1 case 3-1: t3 - t1 as long: -1 case 3-2: t4 - (t4 + 1): -1 즉, 앞서가는 unsigned, signed의 특성 상 앞서가는 포인트에 대해 signed 범위 안에서 값을 비교하면 그 결과 범위가 양수 또는 음수로 나오게 된다.\n매크로 속 typecheck 여기서 사용된 typecheck 함수를 잠깐 살펴보자. typecheck는 무조건 참(1) 값을 반환하는 매크로 함수이다. 그럼에도 사용하는 이유는 컴파일 타임에서 인자로 전달한 타입과 변수의 타입을 서로 비교하여 같은지 여부를 나타낼 수 있는 일종의 트릭을 사용하고 있기 때문이다. (커널 해킹을 시작한지 얼마되지 않은 시점에서 오랜만에 느껴보는 즐거움이다.) 아래는 typecheck를 구현한 코드이다.\n#define typecheck(type,x) \\ ({ type __dummy; \\ typeof(x) __dummy2; \\ (void)(\u0026amp;__dummy == \u0026amp;__dummy2); \\ 1; \\ }) 재미있는 것은 반환값은 항상 1이지만 반환 전에 (void)(\u0026amp;__dummy == \u0026amp;__dummy2); 부분을 통해 각 변수의 타입으로 만든 포인터가 일치하는지를 경고 또는 에러 메세지로 출력한다. 런타임 시의 결과를 기대하는 코드가 아니라, 컴파일 시의 결과를 기대하며 짠 코드인만큼 컨셉 자체가 정말 신선하게 다가왔다.\n이러한 코드는 아래와 같이 컴파일을 통해 출력 값을 기대할 수 있다. unsigned long 타입은 j1의 변수를 int과 비교하는 경우이다. 이러한 예제를 아래 스크린샷처럼 -Werror 옵션과 함께 컴파일하게 되면 타입 에러를 사전에 감지해낼 수 있다.\nint a = 1; unsigned long j1 = 12345678; unsigned long j2 = 23456789; if (typecheck(int,a) \u0026amp;\u0026amp; typecheck(int, j1) \u0026amp;\u0026amp; typecheck(unsigned long, j2)) { printf(\u0026#34;a value is int and (j1, j2) is unsigned long\\n\u0026#34;); } else { printf(\u0026#34;a value is not int\\n\u0026#34;); } 지피(jiffies)는 누가 증가시키는가? 앞서, \u0026quot;지피(jiffies)에는 시스템 시작 이후 발생한 진동 횟수(tick)가 저장된다.\u0026quot;라고 말했다. 그렇다면 그러한 tick은 누가 발생시킬까? 이를 위한 것이 바로 시스템 타이머이다.\n시간 기록을 위해서 리눅스에서는 RTC(Real Time Clock), 시스템 타이머를 이용한다.\n\u0026lsquo;시간\u0026rsquo;에 관련된 하드웨어 RTC는 보통 시스템 기판에 붙어 있는 원형 배터리를 통해 시스템이 꺼져 있는 동안에도 시간을 기록하며 일반적인 PC 아키텍처인 경우 RTC와 CMOS가 통합되어 있는 것을 확인할 수 있다.\n커널은 시스템 시작 시 RTC를 읽고 xtime변수에 저장되는 현재 시간을 초기화한다. 보통 커널은 최초 init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽지 않는다.\n시스템 타이머는 커널의 시간 기록에 있어 매우 중요한 역할을 한다. 현재 시간을 초기화할 때 사용되는 RTC와는 달리 시스템 타이머는 주기적으로 인터럽트를 발생시킨다. 그리고 커널은 이러한 타이머 인터럽트에 대한 인터럽트 핸들러를 내부에 가지고 있어 아래와 같은 작업들을 처리한다.\njiffies_64 및 현재 시간을 저장하는 xtime 변수에 안전하게 접근하기 위해 xtime_lock을 얻는다. 필요에 따라 시스템 타이머를 확인하고 재설정한다. 갱신된 현재 시간을 주기적으로 실시간 시계에 반영한다. 아키텍처 종속적 타이머 함수인 tick_periodic() 함수를 호출한다. 커널 코드 속 시스템 타이머 인터럽트 핸들러 그렇다면, 직접 타이머 인터럽트 핸들러를 따라가보자. 커널 분석 책에는 아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러 형태로 되어 있으며 타이머 인터럽트가 발생했을 때 실행된다고 되어 있다. 하지만 실제 커널(v4.20.x)에는 tick-common.h 안에 하나로 통합되어 있었다. tick-internal.h 헤더파일에는 tick_set_periodic_handler라는 함수가 정의되어 있다. 타이머 인터럽트에 대한 핸들러를 등록하는 함수로서 clock_event_device(시스템 타이머 장치) 디바이스의 이벤트 핸들러로 등록하는 부분이다.\n/* Set the periodic handler in non broadcast mode */ static inline void tick_set_periodic_handler(struct clock_event_device *dev, int broadcast) { dev-\u0026gt;event_handler = tick_handle_periodic; } 이제, tick_handle_periodic() 인터럽트 핸들러를 살펴보자.\n/* * Event handler for periodic ticks */ void tick_handle_periodic(struct clock_event_device *dev) { int cpu = smp_processor_id(); ktime_t next = dev-\u0026gt;next_event; tick_periodic(cpu); #if defined(CONFIG_HIGH_RES_TIMERS) || defined(CONFIG_NO_HZ_COMMON) /* * The cpu might have transitioned to HIGHRES or NOHZ mode via * update_process_times() -\u0026gt; run_local_timers() -\u0026gt; * hrtimer_run_queues(). */ if (dev-\u0026gt;event_handler != tick_handle_periodic) return; #endif if (!clockevent_state_oneshot(dev)) return; for (;;) { /* * Setup the next period for devices, which do not have * periodic mode: */ next = ktime_add(next, tick_period); if (!clockevents_program_event(dev, next, false)) return; /* * Have to be careful here. If we\u0026#39;re in oneshot mode, * before we call tick_periodic() in a loop, we need * to be sure we\u0026#39;re using a real hardware clocksource. * Otherwise we could get trapped in an infinite * loop, as the tick_periodic() increments jiffies, * which then will increment time, possibly causing * the loop to trigger again and again. */ if (timekeeping_valid_for_hres()) tick_periodic(cpu); } } 책에서는 \u0026ldquo;아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러 형태로 되어 있으며, 타이머 인터럽트가 발생했을 때 실행된다.\u0026rdquo; 라고 되어 있으나, 실제 tick_periodic 자체는 아키텍처 종속 코드가 발견되지 않았다. 대신 cpu 아이디를 얻어오는 부분에 대해 아래와 같은 코드를 발견할 수 있었다.\n#ifdef CONFIG_DEBUG_PREEMPT extern unsigned int debug_smp_processor_id(void); # define smp_processor_id() debug_smp_processor_id() #else # define smp_processor_id() raw_smp_processor_id() #endif 그리고 raw_smp_processor_id()에 대해서는 아키텍처 별로 종속적인 코드가 들어가 있는 것을 확인할 수 있다. 한 예로, x86 코드를 살펴보면 아래와 같이 정의된다.\n#define raw_smp_processor_id() (this_cpu_read(cpu_number)) 여기서 더 깊게 들어가는 것은 그만두고 다시 원점으로 돌아가, 시스템 타이머 인터럽트 핸들러에서 SMP(Symmetric Multiprocessing)에 관련, 아키텍처에 종속된 코드가 실행된다는 것을 파악하였다. 이제 tick_periodic()을 살펴보자.\nstatic void tick_periodic(int cpu) { if (tick_do_timer_cpu == cpu) { write_seqlock(\u0026amp;jiffies_lock); /* Keep track of the next tick event */ tick_next_period = ktime_add(tick_next_period, tick_period); do_timer(1); write_sequnlock(\u0026amp;jiffies_lock); update_wall_time(); // 진동수 경과에 맞춰 현재 시간을 갱신한다. } update_process_times(user_mode(get_irq_regs())); profile_tick(CPU_PROFILING); } 이 함수에서 눈여겨볼 부분은 do_timer()와 update_process_times() 부분이다. do_timer() 함수는 실제 지피값을 증가시키는 작업을 담당하며 해당 코드는 아래와 같다. 커널은 전자 함수를 통해 지비를 발생한 틱만큼 증가시키고 후자를 통해 시스템의 평균 로드 통계를 갱신한다.\nvoid do_timer(unsigned long ticks) { jiffies_64 += ticks; calc_global_load(ticks); } void update_process_times(int user_tick) { struct task_struct *p = current; /* Note: this timer irq context must be accounted for as well. */ account_process_tick(p, user_tick); run_local_timers(); rcu_check_callbacks(user_tick); #ifdef CONFIG_IRQ_WORK if (in_irq()) irq_work_tick(); #endif scheduler_tick(); if (IS_ENABLED(CONFIG_POSIX_TIMERS)) run_posix_cpu_timers(p); } update_process_times는 run_local_timers()를 통해 로컬 타이머, 즉 softirq를 발생시켜 시간이 만료된 타이머를 실행한다.\n출처 how does linux handle overflow in jiffies ", 
+        "url": "\/posts\/%EC%A7%80%ED%94%BCjiffies\/"
+    },
+    
+    "\/tags\/buildroot\/": {
+        "title": "Buildroot",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/buildroot\/"
+    },
+    
+    "\/tags\/busybox\/": {
+        "title": "Busybox",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/busybox\/"
+    },
+    
+    "\/posts\/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02\/2\/": {
+        "title": "Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2\/2)",
+        "tags": ["kernel","buildroot","busybox",],
+        "content": "지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던 기회였다.\n두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 crosstool-ng라는 크로스 컴파일러 생성 스크립트 도구와 buildroot라는 Makefile 패키지를 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.\nCrosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.\n먼저 crosstool-ng를 받는다. 이 때, 깃허브 에 있는 경로를 이용해 직접 받아쓰는 경우가 있을텐데 만약, 받아쓰는 경우라면 반드시 릴리즈 버전으로 checkout해서 사용해야 한다. master로 그냥 받아서 사용하면 이상한데서 고생하게 된다. git을 사용하지 않는 경우는 여기 를 통해 홈페이지에서 직접 받아서 사용할 수 있다.\n$ git clone https://github.com/crosstool-ng/crosstool-ng $ git fetch \u0026ndash;all $ git checkout tags/crosstool-ng-1.24.0-rc3\n압축을 푼 후 내부에서 아래와 갈이 설정해준다.\n$ ./configure \u0026ndash;local $ make $ make install\n이제 크로스컴파일러를 만들어보자. 컴파일러 생성을 위해 필요한 패키지(binutls, glibc, gcc, mpc, flex..등등)들을 자동으로 다운로드하고 빌드한다. 예전 LFS(Linux from scratch)에서 이 방법을 썼다면 정말로 편하게 작업할 수 있었을텐데 하는 아쉬움이 남는 순간이었다.\n아래와 같이 list-samples 옵션을 주어 실행하면 사용 가능한 샘플 목록들이 출력된다. 여기에 없다면 앞으로 수행할 menuconfig에서 필요한 설정들을 직접 해주어야 한다.\nroot@19893213a218:~/Workspaces/crosstool-ng# ./ct-ng list-samples Status Sample name (생략) \u0026hellip; [L\u0026hellip;] x86_64-multilib-linux-gnu [L..X] x86_64-multilib-linux-musl [L\u0026hellip;] x86_64-multilib-linux-uclibc [L..X] x86_64-w64-mingw32,x86_64-pc-linux-gnu [L\u0026hellip;] x86_64-ubuntu12.04-linux-gnu [L\u0026hellip;] x86_64-ubuntu14.04-linux-gnu [L\u0026hellip;] x86_64-ubuntu16.04-linux-gnu [L\u0026hellip;] x86_64-unknown-linux-gnu [L\u0026hellip;] x86_64-unknown-linux-uclibc [L..X] x86_64-w64-mingw32 [L..X] xtensa-fsf-elf [L\u0026hellip;] xtensa-fsf-linux-uclibc\nL (Local) : sample was found in current directory G (Global) : sample was installed with crosstool-NG X (EXPERIMENTAL): sample may use EXPERIMENTAL features B (BROKEN) : sample is currently broken O (OBSOLETE) : sample needs to be upgraded\n커널 해킹을 위한 것이지만 임베디드용 커널을 살펴볼 것은 아니기 때문에 필자는 x86_64-unknown-linux-gnu를 선택하였다.\n$ ./ct-ng x86_64-unknown-linux-gnu $ ./ct-ng menuconfig # 옵션을 추가로 선택할 경우 $ ./ct-ng build\nBuildRoot 이용하여 rootfs 만들기 앞서 빌드한 크로스 컴파일러들을 /opt/crosstool/x86_64-unknown-linux-gnu 경로에 설치했다고 가정하고 buildroot를 이용하여 이미지 파일을 생성한다. buildroot 를 이용할 경우 크로스컴파일러를 이용해 컴파일한 응용 프로그램과 커널 모듈을 함께 빌드하여 추가할 수 있기 때문에 용이하다.\n$ export BUILDROOT=$OPT/buildroot $ export BUILDROOT_BUILD=$BUILDS/buildroot $ mkdir -p $BUILDROOT_BUILD $ cd $BUILDROOT_BUILD $ touch Config.in external.mk $ echo \u0026rsquo;name: mini_linux\u0026rsquo; \u0026gt; external.desc $ echo \u0026lsquo;desc: minimal linux system with buildroot\u0026rsquo; \u0026raquo; external.desc $ mkdir configs overlay $ cd $BUILDROOT $ make O=$BUILDROOT_BUILD BR2_EXTERNAL=$BUILDROOT_BUILD qemu_x86_64_defconfig $ cd $BUILDROOT_BUILD $ make menuconfig\n이 후, 아래와 같이 설정해준다. 이 때 중요한 것은 System configuration ---\u0026gt; Network interface to configure through DHCP 부분을 빈칸으로 해줘야한다는 점이다. 기본값이 eth0으로 되어있을텐데, init 스크립트에서 해당 인터페이스가 로드될 때까지 기다리며 없을 경우에는 셸이 실행되지 않게된다.\nBuild options ---\u0026gt; Location to save buildroot config ---\u0026gt; $(BR2_EXTERNAL)/configs/mini_linux_defconfig Build options ---\u0026gt; Download dir ---\u0026gt; /some/where/buildroot_dl Build options ---\u0026gt; Number of jobs to run simultaneously (0 for auto) ---\u0026gt; 8 Build options ---\u0026gt; Enable compiler cache ---\u0026gt; yes Build options ---\u0026gt; Compiler cache location ---\u0026gt; /some/where/buildroot_ccache Toolchain ---\u0026gt; Toolchain type ---\u0026gt; External toolchain Toolchain ---\u0026gt; Toolchain ---\u0026gt; Custom toolchain Toolchain ---\u0026gt; Toolchain origin ---\u0026gt; Pre-installed toolchain Toolchain ---\u0026gt; Toolchain path ---\u0026gt; /opt/toolchains/x86_64-unknown-linux-gnu Toolchain ---\u0026gt; Toolchain prefix ---\u0026gt; x86_64-unknown-linux-gnu Toolchain ---\u0026gt; External toolchain gcc version ---\u0026gt; 5.x Toolchain ---\u0026gt; External toolchain kernel headers series ---\u0026gt; 4.3.x Toolchain ---\u0026gt; External toolchain C library ---\u0026gt; glibc/eglibc Toolchain ---\u0026gt; Toolchain has C++ support? ---\u0026gt; yes System configuration ---\u0026gt; System hostname ---\u0026gt; mini_linux System configuration ---\u0026gt; System banner ---\u0026gt; Welcome to mini_linux System configuration ---\u0026gt; Run a getty (login prompt) after boot ---\u0026gt; TTY port ---\u0026gt; ttyS0 System configuration ---\u0026gt; Network interface to configure through DHCP ---\u0026gt; System configuration ---\u0026gt; Root filesystem overlay directories ---\u0026gt; $(BR2_EXTERNAL)/overlay Kernel ---\u0026gt; Linux Kernel ---\u0026gt; no Filesystem images ---\u0026gt; cpio the root filesystem (for use as an initial RAM filesystem) ---\u0026gt; yes Filesystem images ---\u0026gt; Compression method ---\u0026gt; gzip 아래와 같이 설정 저장 후 init 스크립트를 추가해준뒤 빌드한다.\n$ make savedefconfig $ vim $BUILDROOT_BUILD/overlay/init #!/bin/sh /bin/mount -t devtmpfs devtmpfs /dev /bin/mount -t proc none /proc /bin/mount -t sysfs none /sys exec 0\u0026lt;/dev/console exec 1\u0026gt;/dev/console exec 2\u0026gt;/dev/console cat \u0026lt;\u0026lt;! Boot took $(cut -d\u0026#39; \u0026#39; -f1 /proc/uptime) seconds ! exec /bin/sh # vim 종료 후 스크립트에 권한 부여 $ chmod +x overlay/init $ make 이제 qemu를 통해 실행시켜보면 정상적으로 실행되는 것을 확인할 수 있다.\nqemu-system-x86_64 -kernel $LINUX_BUILD/arch/x86_64/boot/bzImage \\ -initrd $BUILDROOT_BUILD/images/rootfs.cpio.gz -nographic \\ -append \u0026#34;console=ttyS0\u0026#34; 출처 Build and run minimal linux Building embedded ARM systems with Crosstool-NG ", 
+        "url": "\/posts\/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02\/2\/"
+    },
+    
+    "\/posts\/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01\/2\/": {
+        "title": "Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1\/2)",
+        "tags": ["busybox","qemu",],
+        "content": " 취업은 언제하나\u0026hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접 확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도 나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방 해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은 마운트하지 않는다는 제한은 있다.\n이 문서는 참고한 페이지를 토대로 필요한 정보들을 중간에 좀 더 추가한 형태로 정리하였다. 향후 커널 분석과 토이 프로젝트들을 진행하기 위해 필요한 환경으로 실행 환경은 아래와 같다.\n출처 페이지와는 다르게 필자는 맥 환경에서 커널 컴파일을 진행해야 했기 때문에 빌드를 시작하기에 앞서 docker 컨테이너를 준비하는 과정이 있었다. 맥에서 직접 크로스 컴파일러를 직접 만들어 사용하는 방법도 있지만, 시간도 오래 걸리고 빌드에 필요한 헤더 환경이 달라 도커를 사용하였다.\n맥에서 작업하기 위한 환경 구축하기 현재 주로 사용하는 운영체제는 macOS Mojave 10.14.5이다. 이 환경에서 리눅스 커널을 빌드하기 위해서는 GNU GCC, GLIBC 환경이 리눅스와 일치해야 하는데 커널 컴파일을 위해 필요한 헤더파일 경로부터 맞지 않은 부분이 있어 크로스 컴파일러를 준비하는 방법은 포기하고 대신, docker를 사용하기로 했다. 가상머신을 이용하는 방법도 있지만, 도커에 비해 무겁고 GUI 환경이 불필요했기에 도커를 이용해 커널 컴파일을 하는 편이 훨씬 유리하다고 생각했다.\n우분투 이미지로 컨테이너 생성하기 docker를 설치했다는 가정하에, 아래와 같이 컨테이너를 만들었다. 호스트 볼륨을 컨테이너에 맵핑해주었는데 이렇게 해야 커널 해킹한 소스를 바로 빌드하여 맥에서 QEMU를 통해 확인할 수 있기 때문이다.\ndocker run --name kernel_builder -ti -v /Users/sukbeom/Workspaces:/kernel/ ubuntu /bin/bash # 아래 부터는 개발 환경을 위한 패키지 설치이다. apt update \u0026amp;\u0026amp; apt upgrade apt install vim \u0026amp;\u0026amp; vim /etc/apt/sources.list # 편집기 설치 및 미러저장소 경로 설정 apt install git curl libncurses-dev wget gcc make flex build-essential bison linux-headers-generic libelf-dev openssl bc libssl-dev cpio 1. BusyBox 준비 이제 컴파일을 위한 빌드 환경이 준비되었다. 커널 컴파일을 위한 맥에서의 경로는 $HOME/Workspaces/kernel 로 지정하고 컨테이너 내에서는 /kernel 로 접근하도록 설정하였다. 커널은 여기 에서, busybox는 여기 에서 받을 수 있다. 필자가 사용한 버전은 아래와 같다.\nbusybox: 1.30.1 kernel: 4.20.9 busybox란?\nSingle executable 파일 형태로 여러 가지 유닉스 유틸리티를 제공하는 Software suite 이다. 안드로이드 상에서 리눅스와 같은 터미널 환경을 제공하는 termux 애플리케이션을 살펴보면 최초 실행 시 busybox를 설치하는 것을 알 수 있다. 임베디드 환경과 같이 아주 제한된 리소스를 가진 시스템 상에서 필요한 (셸 환경을 위한)최소한의 유틸리티만을 사용하고자 할 때 사용하는 소프트웨어라고 생각하면 된다.\n원래는 커널 분석을 하던 버전(v2.6.39)으로 진행을 하고자 했으나 소스 자체가 오래되었고 GCC 7 버전을 지원하지 않아 플래그와 perl 소스에서 생기는 에러를 고쳐도 컴파일 에러가 나 버전을 바꾸었다. 추후 GCC 버전을 낮춰 다시 한번 빌드 해봐야겠다.\n1-1. BusyBox 빌드 설정 이제 컨테이너 환경으로 돌아가 아래와 같이 (shell)환경변수를 임시로 설정해준 뒤 차례대로 빌드해준다.\nSTAGE=~/Workspaces TOP=$STAGE/custom-kernel mkdir -p $STAGE 다운로드 한 busybox, kernel 소스의 압축을 풀어주고 아래와 같이 busybox를 설정해준다. Busybox settings -\u0026gt; Build BusyBox as a static binary (no shared libs) 항목에 체크해준다. (출처 링크에 가면 친절한 스크린샷과 함께 각 과정들을 자세하게 확인할 수 있다.)\nmake O=$TOP/obj/busybox-x86 menuconfig 1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기 cd $TOP/obj/busybox-x86 make -j3 make install make install을 완료하고 나면 _install 이름으로 디렉토리가 생성된 것을 확인할 수 있다. 이를 이용하여 아래와 같이 initramfs를 생성한다.\nmkdir -pv $TOP/initramfs/x86-busybox cd $TOP/initramfs/x86-busybox mkdir -pv {bin,dev,sbin,etc,proc,sys/kernel/debug,usr/{bin,sbin},lib,lib64,mnt/root,root} cp -av $TOP/obj/busybox-x86/_install/* $TOP/initramfs/x86-busybox sudo cp -av /dev/{null,console,tty,sda1} $TOP/initramfs/x86-busybox/dev/ 1-3. Init 파일 만들기 $TOP/initramfs/x86-busybox/init 파일을 생성한 뒤 아래와 같이 내용을 작성한다.\nmount -t proc none /proc mount -t sysfs none /sys mount -t debugfs none /sys/kernel/debug echo -e \u0026#34;\\nBoot took $(cut -d\u0026#39; \u0026#39; -f1 /proc/uptime) seconds\\n\u0026#34; exec /bin/sh 작성 후에는 실행 권한을 조정한다:\nchmod +x $TOP/initramfs/x86-busybox/init 1-4. initramfs 생성 initramfs는 메모리 기반 디스크 구조, 즉 램디스크이다. 주요 목적은 root 파일 시스템을 마운트 하기 위한 것이며, 일반적인 root 파일 시스템에서 찾아볼 수 있는 디렉토리 구조를 갖고 있다.\n일반적으로, 루트 파일시스템의 init 프로그램으로 제어권을 넘기기 전에, 필요한 파일 시스템을 마운트하는 필수 도구와 스크립트를 포함하고 있는 램디스크로서 initramfs 루트디스크에서 시스템을 준비하는 설정 스크립트를 준비하고 실제 파일 시스템으로 전환한 뒤 init을 실행한다.\n요약하면, 실제 루트파일시스템을 마운트 하고 그 안의 init 프로그램을 실행하기까지의 준비단계를 위한 램디스크라 생각하면 된다.\n그렇다면 그러한 램디스크는 왜 필요한 것일까? 예전 젠투 리눅스를 이용해 리눅스를 설치했던 경험으로 ramdisk 없이도 리눅스를 충분히 사용할 수 있었다. 다만, 루트파티션이 암호화된 경우에는 반드시 램디스크를 통해 로드해야 했고 최근에는 (데스크탑용 리눅스에서) 이러한 램디스크가 필수적이 되어가고 있는 추세인 듯하다.\ncd $TOP/initramfs/x86-busybox find . | cpio -H newc -o \u0026gt; ../initramfs.cpio cd .. cat initramfs.cpio | gzip \u0026gt; $TOP/obj/initramfs.igz 2. 커널 빌드하기 이제 busybox 준비가 끝났으니 리눅스 커널을 빌드해보자.\n2-1. Minimal config로 리눅스 커널 설정하기 cd $STAGE/linux-4.20.9 mkdir -pv $TOP/obj/linux-x86-allnoconfig make O=$TOP/obj/linux-x86-allnoconfig allnoconfig make O=$TOP/obj/linux-x86-allnoconfig -j3 빌드한 커널, busybox 함께 실행하기 qemu-system-x86_64 \\ -kernel $TOP/obj/linux-x86-allnoconfig/arch/x86/boot/bzImage \\ -initrd $TOP/obj/initramfs.igz \\ -nographic -append \u0026#34;earlyprintk=serial,ttyS0 console=ttyS0\u0026#34; 정상적으로 커널이 로드되고 셸이 실행된 것을 확인하면 Control-a x를 입력하여 QEMU를 종료한다.\n출처 Build the linux kernel and busybox and run them on qemu LFS - About initramfs Gentoo Linux - initramfs Build \u0026lsquo;Mini Linux\u0026rsquo; Instruction - forked ", 
+        "url": "\/posts\/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01\/2\/"
+    },
+    
+    "\/tags\/qemu\/": {
+        "title": "Qemu",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/qemu\/"
+    },
+    
+    "\/tags\/cors\/": {
+        "title": "Cors",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/cors\/"
+    },
+    
+    "\/posts\/corscross-origin-resource-sharing\/": {
+        "title": "CORS(Cross-Origin Resource Sharing)",
+        "tags": ["cors",],
+        "content": "CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(Origin)는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.\n하지만 이러한 보안 정책으로 인해 타 사이트로부터 받아오는 리소스나 웹 폰트, CDN 등의 사용에 문제가 되고 있어 CORS(Cross-Origin Resource Sharing)이라는 추가 정책이 나오게 되었다.\nCORS 요청 CORS 요청에는 Simple/Preflight, Credential/Non-Credential의 조합으로 총 4가지 요청이 존재한다. 브라우저가 요청 내용을 분석하여 4가지 방식 중 해당하는 방식으로 서버에 요청을 날리므로 프로그래머가 목적에 맞는 방식을 선택해 그 조건에 맞게 코딩해야 한다.\nSimple Requests 몇몇 요청(Request)들은 CORS preflight를 트리거하지 않는다. MDN 자료와 티맥스 출처자료에서는 이를 두고 Simple Requests라고 구분하지만 CORS를 정의한 실제 Fetch 스펙에서는 Simple Requests라는 용어를 사용하지 않는다. CORS preflight를 트리거 하지 않는 요청(편의상 MDN에서 \u0026lsquo;simple requests\u0026rsquo;라고 명명했던)은 아래의 조건들을 모두 만족하는 요청을 가리킨다.\nGET/POST/HEAD 메서드만을 사용해야 한다. User Agent에 의해 자동으로 설정된 헤더, Fetch 스펙에서 \u0026ldquo;forbidden header name\u0026quot;이라고 정의된 헤더들을 제외하고 \u0026ldquo;CORS-safelisted request-header\u0026rdquo; 라고 Fetch 스펙에 정의된 아래의 헤더만이 직접적으로 요청 안에 설정될 수 있다. Accept Accept-Language Content-Language Content-Type DPR Downlink Save-Data Viewport-Width Width Content-Type이 아래 중 하나여야 한다. application/x-www-form/urlencoded multipart/form-data text/plain (따로 지정하지 않을 시에 default) Request 안에 ReadableStream 객체가 없어야 한다. 요청 안에 있는 XMLHttpRequestUpload 객체에 대한 이벤트 리스너가 없어야 한다. (해당 객체는 XMLHttpRequest.upload 프로퍼티를 이용해 접근 가능하다.) 이러한 Simple Request 방식에서 클라이언트는 서버로 요청을 한 번 보내고, 마찬가지로 서버도 회신을 한 번 보내는 것으로 요청에 대한 응답이 종료된다.\n아래는 Simple requests를 사용하는 자바스크립트 예제이다. 아래 코드가 http://foo.example 서버로부터 제공되어 http://bar.other라는 외부 도메인으로부터 리소스를 받아오려 한다는 상황을 가정해보자.\nvar invocation = new XMLHttpRequest(); var url = \u0026#39;http://bar.other/resources/public-data/\u0026#39;; function callOtherDomain() { if(invocation) { invocation.open(\u0026#39;GET\u0026#39;, url, true); invocation.onreadystatechange = handler; invocation.send(); } } 위 코드를 통해 웹 브라우저가 서버로 Request를 보내고 서버로부터 Response를 받는 과정을 아래와 같이 간략하게 나타낼 수 있다.\n이 때, 실제 Request와 Response가 어떤 식으로 오고 가는지 아래 텍스트를 보자. Request의 Origin, Response의 Access-Control-Allow-Origin 부분을 중심으로 살펴보자.\nGET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 Accept-Language: en-us,en;q=0.5 Accept-Encoding: gzip,deflate Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7 Connection: keep-alive Referer: http://foo.example/examples/access-control/simpleXSInvocation.html Origin: http://foo.example 먼저, 위는 예제 코드가 서버로 보내는 Request를 나타내며 Origin 헤더부분은 컨텐츠가 http://foo.example로부터 오는 것이라고 서버에게 알리는 역할을 한다.\nHTTP/1.1 200 OK Date: Mon, 01 Dec 2008 00:23:53 GMT Server: Apache/2.0.61 Access-Control-Allow-Origin: * Keep-Alive: timeout=2, max=100 Connection: Keep-Alive Transfer-Encoding: chunked Content-Type: application/xml 위는 서버가 클라이언트로 보내는 Response를 나타내며, Access-Control-Allow-Origin: *은 모든 도메인의 cross-site 방식으로부터 액세스가 가능하다고 클라이언트에게 알리는 역할을 한다. 하지만 만약 이 헤더가\nAccess-Control-Allow-Origin: http://foo.example 처럼 왔다면 http://foo.example을 제외한 다른 도메인들에서는 cross-site 방식으로 해당 리소스에 접근할 수 없다는 것을 의미한다.\nPreflighted Requests Simple Requests와 다르게 \u0026ldquo;preflighted\u0026rdquo; requests(사전 전달 요청)는 먼저 OPTIONS 메서드를 이용하여 HTTP request를 먼저 보내 실제 요청이 보내기에 안전한지 확인한다. 아래 조건들 중 하나라도 만족하면 Preflighted Requests로 간주한다.\nRequest가 아래 메서드를 사용한다. PUT DELETE CONNECT OPTIONS TRACE PATCH Simple requests와 마찬가지로 User Agent의 자동 설정된 헤더를 제외하고, \u0026ldquo;CORS-safelisted request-header\u0026quot;를 포함한다. Accept Accept-Language Content-Language Content-Type DPR Downlink Save-Data Viewport-Width Width Content-Type 헤더 값이 아래를 제외한 다른 값인 경우 application/x-www-form-url multipart/form-data text/plain Request 안에 있는 XMLHttpRequestUpload 객체에 한 개 이상의 이벤트 리스너가 등록된 경우 ReadableStream이 Request 안에서 사용된 경우 아래는 preflighted 요청을 위한 자바스크립트 예제이다.\nvar invocation = new XMLHttpRequest(); var url = \u0026#39;http://bar.other/resources/post-here/\u0026#39;; var body = \u0026#39;\u0026lt;?xml version=\u0026#34;1.0\u0026#34;?\u0026gt;\u0026lt;person\u0026gt;\u0026lt;name\u0026gt;Arun\u0026lt;/name\u0026gt;\u0026lt;/person\u0026gt;\u0026#39;; function callOtherDomain(){ if(invocation) { invocation.open(\u0026#39;POST\u0026#39;, url, true); invocation.setRequestHeader(\u0026#39;X-PINGOTHER\u0026#39;, \u0026#39;pingpong\u0026#39;); invocation.setRequestHeader(\u0026#39;Content-Type\u0026#39;, \u0026#39;application/xml\u0026#39;); invocation.onreadystatechange = handler; invocation.send(body); } } 위 예제 코드에서는 XML body를 보내기 위해 POST 방식을 사용하고 X-PINGOTHER: pingpong이라는 customized request 헤더를 사용했다. 또한, application/xml Content-Type을 사용함으로써 위에서 명시된 3가지 Content-Type 외에 해당하여 해당 request가 preflighted 타입이라는 것을 알 수 있다.\n이제, 이 preflighted request가 서버로 보내질 때 어떤 식으로 요청과 응답이 오고가는지 아래 그림을 통해 개괄적으로 살펴보자.\n위 그림에서 주의해야할 것은 아래의 실제 REQUEST/REPONSE 코드에서 보겠지만 실제 POST request 안에는 Access-Control-Request-* 헤더가 없다는 점이다. 해당 헤더들은 모두 OPTIONS request에서만 필요하다. 또한, preflighted request의 경우 메인 Request를 보내기 전에 Preflighted Request를 한번 더 보낸다는 점이 주의하자.\n아래는 위 다이어그램에 대한 실제 Request \u0026amp; Response 내용이다.\nOPTIONS /resources/post-here/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 Accept-Language: en-us,en;q=0.5 Accept-Encoding: gzip,deflate Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7 Connection: keep-alive Origin: http://foo.example Access-Control-Request-Method: POST Access-Control-Request-Headers: X-PINGOTHER, Content-Type HTTP/1.1 200 OK Date: Mon, 01 Dec 2008 01:15:39 GMT Server: Apache/2.0.61 (Unix) Access-Control-Allow-Origin: http://foo.example Access-Control-Allow-Methods: POST, GET Access-Control-Allow-Headers: X-PINGOTHER, Content-Type Access-Control-Max-Age: 86400 Vary: Accept-Encoding, Origin Content-Encoding: gzip Content-Length: 0 Keep-Alive: timeout=2, max=100 Connection: Keep-Alive Content-Type: text/plain 먼저, preflighted request와 그 응답에 대해 살펴보자. Access-Control-Request-Method 해더는 서버에게 실제 Request가 보내졌을 때 해당 Request의 메서드와 X-PINGOTHER, Content-Type 등의 custom header들을 함께 전송할 것이라고 미리 알린다. 서버는 클라이언트로부터 이러한 정보를 미리 preflighted request를 통해 전달받고 실제 request를 받을 것인지를 결정한 뒤 알려준다. 위에 나타난 Reponse 코드 중 유심해야할 부분은 다음과 같다.\nAccess-Control-Allow-Origin: http://foo.example Access-Control-Allow-Methods: POST, GET Access-Control-Allow-Headers: X-PINGOTHER, Content-Type Access-Control-Max-Age: 86400 서버는 preflighted request에 대한 응답을 통해 클라이언트로 사용 가능한 메서드와 헤더, 그리고 해당 리소스 접근을 위해 허용된 origin을 http://foo.example로 제한하여 보내주고 있다. 마지막으로 Access-Control-Max-Age는 해당 reponse가 또다른 preflight request를 보내지 않고 얼마 동안 캐시되어 있는지를 클라이언트에게 알려주는 역할을 한다. 여기서 86400은 86400초를 나타내어 24시간동안 cached response가 유효하다고 알린다.\nPOST /resources/post-here/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3pre) Gecko/20081130 Minefield/3.1b3pre Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8 Accept-Language: en-us,en;q=0.5 Accept-Encoding: gzip,deflate Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7 Connection: keep-alive X-PINGOTHER: pingpong Content-Type: text/xml; charset=UTF-8 Referer: http://foo.example/examples/preflightInvocation.html Content-Length: 55 Origin: http://foo.example Pragma: no-cache Cache-Control: no-cache \u0026lt;?xml version=\u0026#34;1.0\u0026#34;?\u0026gt;\u0026lt;person\u0026gt;\u0026lt;name\u0026gt;Arun\u0026lt;/name\u0026gt;\u0026lt;/person\u0026gt; HTTP/1.1 200 OK Date: Mon, 01 Dec 2008 01:15:40 GMT Server: Apache/2.0.61 (Unix) Access-Control-Allow-Origin: http://foo.example Vary: Accept-Encoding, Origin Content-Encoding: gzip Content-Length: 235 Keep-Alive: timeout=2, max=99 Connection: Keep-Alive Content-Type: text/plain [Some GZIP\u0026#39;d payload] Requests with credentials 마지막으로 Credential, Non-Credential을 구분할 CORS Request 종류에 대해 기술한다. 이 \u0026ldquo;credentialed\u0026rdquo; requests는 HTTP Cookie와 HTTP Authentication information의 취약점에 대비하여 만들어진 request 타입이다. 기본으로 웹 브라우저는 cross-site XMLHttpRequest와 Fetch invocation에서 credential을 보내지 않는다.\n아래 코드를 예로 들어보자. http://bar.other/로부터 받은 컨텐츠가 쿠키를 설정하는 리소스라고 가정하고, 아래 자바스크립트 코드가 http://foo.example내에서 동작하는 코드라고 생각하자.\nvar invocation = new XMLHttpRequest(); var url = \u0026#39;http://bar.other/resources/credentialed-content/\u0026#39;; function callOtherDomain(){ if(invocation) { invocation.open(\u0026#39;GET\u0026#39;, url, true); invocation.withCredentials = true; invocation.onreadystatechange = handler; invocation.send(); } } 위처럼 새로 가져올 컨텐츠에서 캐시를 설정하는 등의 행위를 할 때 반드시 withCredentials를 설정해줘야 하며, 해당 헤더가 설정되었다면 웹 브라우저는 서버로부터 받은 response 안에 Access-Control-Allow-Credentials: true가 없는 경우는 모두 거절해버린다.\n출처 CORS in MDN CORS(Cross-Origin Resource Sharing) 및 관련 내용 - Tmaxsoft ", 
+        "url": "\/posts\/corscross-origin-resource-sharing\/"
+    },
+    
+    "\/categories\/web\/": {
+        "title": "Web",
+        "tags": [],
+        "content": "", 
+        "url": "\/categories\/web\/"
+    },
+    
+}
+</script>
+<script defer src="/js/lunr.js"></script>
+<script defer src="/js/search.js"></script>
+
 </footer>
 
-
-
-  </body>
+</body>
 </html>
+

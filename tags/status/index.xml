@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>status on Sukbeom Kim</title>
-    <link>/tags/status/</link>
-    <description>Recent content in status on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Status on 평범한 개발자</title>
+    <link>//localhost:1313/tags/status/</link>
+    <description>Recent content in Status on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Feb 2021 12:27:08 +0900</lastBuildDate>
-    <atom:link href="/tags/status/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/status/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>state vs status</title>
-      <link>/posts/state-vs-status/</link>
+      <link>//localhost:1313/posts/state-vs-status/</link>
       <pubDate>Sun, 28 Feb 2021 12:27:08 +0900</pubDate>
-      <guid>/posts/state-vs-status/</guid>
-      <description>개요 🔗코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “stat</description>
+      <guid>//localhost:1313/posts/state-vs-status/</guid>
+      <description>개요 코드를 보다보면 state와 status를 구분하지 않고 사용하는 경우가 많다. 두 용어의 차이점이 무엇인지 명확하게 하기 위해 직접 찾아보니 “state</description>
     </item>
   </channel>
 </rss>

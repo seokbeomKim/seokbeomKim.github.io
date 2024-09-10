@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Emacs on Sukbeom Kim</title>
+    <title>Emacs on 평범한 개발자</title>
     <link>/tags/emacs/</link>
-    <description>Recent content in Emacs on Sukbeom Kim</description>
+    <description>Recent content in Emacs on 평범한 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Feb 2020 03:09:59 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2024 22:39:58 +0900</lastBuildDate>
     <atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>이맥스 Tree-sitter Major Mode 구현</title>
+      <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</link>
+      <pubDate>Mon, 09 Sep 2024 22:39:58 +0900</pubDate>
+      <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</guid>
+      <description>이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다. Syntax Tree Generator 출현 Tree-sitter1 는 소스 코드를 syntax tree로 만드는 &amp;lsquo;parser generator tool</description>
+    </item>
     <item>
       <title>이맥스 기본 에디터로 사용하기</title>
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>

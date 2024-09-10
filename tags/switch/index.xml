@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>switch on Sukbeom Kim</title>
-    <link>/tags/switch/</link>
-    <description>Recent content in switch on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Switch on 평범한 개발자</title>
+    <link>//localhost:1313/tags/switch/</link>
+    <description>Recent content in Switch on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 26 Feb 2020 23:56:18 +0900</lastBuildDate>
-    <atom:link href="/tags/switch/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/switch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>switch 구문과 if-else 구문</title>
-      <link>/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
+      <link>//localhost:1313/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
-      <guid>/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
-      <description>개요 🔗실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다. int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A break; case FLAG_B: // do B break; case blabla: // blabla... break; default: printk(KERN_ERR &amp;#34;ERROR!\n&amp;#34;); } return 0;</description>
+      <guid>//localhost:1313/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
+      <description>개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다. int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A break; case FLAG_B: // do B break; case blabla: // blabla... break; default: printk(KERN_ERR &amp;#34;ERROR!\n&amp;#34;); } return 0; }</description>
     </item>
   </channel>
 </rss>

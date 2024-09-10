@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sukbeom Kim</title>
+    <title>평범한 개발자</title>
     <link>/</link>
-    <description>Recent content on Sukbeom Kim</description>
+    <description>Recent content on 평범한 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2024 22:39:58 +0900</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>이맥스 Tree-sitter Major Mode 구현</title>
+      <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</link>
+      <pubDate>Mon, 09 Sep 2024 22:39:58 +0900</pubDate>
+      <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</guid>
+      <description>이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다. Syntax Tree Generator 출현 Tree-sitter1 는 소스 코드를 syntax tree로 만드는 &amp;lsquo;parser generator tool</description>
+    </item>
     <item>
       <title>Vterm In Emacs</title>
       <link>/posts/vterm-in-emacs/</link>
@@ -153,7 +160,7 @@
       <link>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link>
       <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
       <guid>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</guid>
-      <description>개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 http</description>
+      <description>개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 https://kldp.org/node/34268 과 같은</description>
     </item>
     <item>
       <title>poll() 그리고 poll_wait()</title>

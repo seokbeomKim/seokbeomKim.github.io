@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ghcup on Sukbeom Kim</title>
-    <link>/tags/ghcup/</link>
-    <description>Recent content in ghcup on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Ghcup on 평범한 개발자</title>
+    <link>//localhost:1313/tags/ghcup/</link>
+    <description>Recent content in Ghcup on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Sep 2020 00:05:37 +0900</lastBuildDate>
-    <atom:link href="/tags/ghcup/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/ghcup/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>하스켈 버전 관리</title>
-      <link>/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
+      <link>//localhost:1313/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
-      <guid>/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
-      <description>개요 🔗IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10</description>
+      <guid>//localhost:1313/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
+      <description>개요 IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10 까지 버</description>
     </item>
   </channel>
 </rss>

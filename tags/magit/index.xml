@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>magit on Sukbeom Kim</title>
-    <link>/tags/magit/</link>
-    <description>Recent content in magit on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Magit on 평범한 개발자</title>
+    <link>//localhost:1313/tags/magit/</link>
+    <description>Recent content in Magit on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Jan 2021 13:42:08 +0900</lastBuildDate>
-    <atom:link href="/tags/magit/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/magit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Emacs에서 magit 최적화하기</title>
-      <link>/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</link>
+      <link>//localhost:1313/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
-      <guid>/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</guid>
-      <description>개요 🔗이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블</description>
+      <guid>//localhost:1313/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</guid>
+      <description>개요 이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로</description>
     </item>
   </channel>
 </rss>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Qemu on Sukbeom Kim</title>
+    <title>Qemu on 평범한 개발자</title>
     <link>/tags/qemu/</link>
-    <description>Recent content in Qemu on Sukbeom Kim</description>
+    <description>Recent content in Qemu on 평범한 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 22 May 2019 19:35:04 +0900</lastBuildDate>

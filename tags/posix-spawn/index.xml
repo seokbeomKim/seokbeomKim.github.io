@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>posix-spawn on Sukbeom Kim</title>
-    <link>/tags/posix-spawn/</link>
-    <description>Recent content in posix-spawn on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Posix-Spawn on 평범한 개발자</title>
+    <link>//localhost:1313/tags/posix-spawn/</link>
+    <description>Recent content in Posix-Spawn on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Jun 2019 10:46:29 +0900</lastBuildDate>
-    <atom:link href="/tags/posix-spawn/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/posix-spawn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>command: posix_spawn failed: Resource temporarily unavailable</title>
-      <link>/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</link>
+      <link>//localhost:1313/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</link>
       <pubDate>Sun, 23 Jun 2019 10:46:29 +0900</pubDate>
-      <guid>/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</guid>
-      <description>QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다. 이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무</description>
+      <guid>//localhost:1313/posts/command-posix_spawn-failed-resource-temporarily-unavailable/</guid>
+      <description>QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다. 이를 위한 해결 방법은 링크 에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무</description>
     </item>
   </channel>
 </rss>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nested class on Sukbeom Kim</title>
-    <link>/tags/nested-class/</link>
-    <description>Recent content in nested class on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Nested Class on 평범한 개발자</title>
+    <link>//localhost:1313/tags/nested-class/</link>
+    <description>Recent content in Nested Class on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 May 2019 20:38:14 +0900</lastBuildDate>
-    <atom:link href="/tags/nested-class/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/nested-class/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>자바의 중첩 클래스(Nested Class)</title>
-      <link>/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</link>
+      <link>//localhost:1313/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</link>
       <pubDate>Fri, 03 May 2019 20:38:14 +0900</pubDate>
-      <guid>/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</guid>
-      <description>개요 🔗중첩 클래스(Nested Class)에 대해서 여러 사이트에서 설명해놓은 것이 있지만 잘못 설명되어 있는 부분도 있었다. &amp;lsquo;Nested Class는 Inner Class</description>
+      <guid>//localhost:1313/posts/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%A4%91%EC%B2%A9-%ED%81%B4%EB%9E%98%EC%8A%A4nested-class/</guid>
+      <description>개요 중첩 클래스(Nested Class)에 대해서 여러 사이트에서 설명해놓은 것이 있지만 잘못 설명되어 있는 부분도 있었다. &amp;lsquo;Nested Class는 Inner Class와</description>
     </item>
   </channel>
 </rss>

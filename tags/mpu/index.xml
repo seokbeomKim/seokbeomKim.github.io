@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mpu on Sukbeom Kim</title>
-    <link>/tags/mpu/</link>
-    <description>Recent content in mpu on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Mpu on 평범한 개발자</title>
+    <link>//localhost:1313/tags/mpu/</link>
+    <description>Recent content in Mpu on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 Mar 2020 23:30:44 +0900</lastBuildDate>
-    <atom:link href="/tags/mpu/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/mpu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MICOM과 MPU</title>
-      <link>/posts/micom%EA%B3%BC-mpu/</link>
+      <link>//localhost:1313/posts/micom%EA%B3%BC-mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
-      <guid>/posts/micom%EA%B3%BC-mpu/</guid>
-      <description>개요 🔗카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까</description>
+      <guid>//localhost:1313/posts/micom%EA%B3%BC-mpu/</guid>
+      <description>개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지</description>
     </item>
   </channel>
 </rss>

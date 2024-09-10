@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tasklet on Sukbeom Kim</title>
-    <link>/tags/tasklet/</link>
-    <description>Recent content in tasklet on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Tasklet on 평범한 개발자</title>
+    <link>//localhost:1313/tags/tasklet/</link>
+    <description>Recent content in Tasklet on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Nov 2022 17:32:26 +0900</lastBuildDate>
-    <atom:link href="/tags/tasklet/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/tasklet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tasklet</title>
-      <link>/posts/tasklet/</link>
+      <link>//localhost:1313/posts/tasklet/</link>
       <pubDate>Sun, 13 Nov 2022 17:32:26 +0900</pubDate>
-      <guid>/posts/tasklet/</guid>
-      <description>개요 🔗사내 커널 스터디에서 교재로서 사용하고 있는 디버깅을 통해 배우는 리눅스 커널의 구조와 원리 책에서는 태스크릿 (Tasklet)을 SoftIRQ와 함께</description>
+      <guid>//localhost:1313/posts/tasklet/</guid>
+      <description>개요 사내 커널 스터디에서 교재로서 사용하고 있는 디버깅을 통해 배우는 리눅스 커널의 구조와 원리 책에서는 태스크릿 (Tasklet)을 SoftIRQ와 함께 아</description>
     </item>
     <item>
       <title>태스크릿(Tasklet)</title>
-      <link>/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
+      <link>//localhost:1313/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
       <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
-      <guid>/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
+      <guid>//localhost:1313/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
       <description>커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에</description>
     </item>
   </channel>

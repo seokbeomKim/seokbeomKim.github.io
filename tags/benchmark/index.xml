@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>benchmark on Sukbeom Kim</title>
-    <link>/tags/benchmark/</link>
-    <description>Recent content in benchmark on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Benchmark on 평범한 개발자</title>
+    <link>//localhost:1313/tags/benchmark/</link>
+    <description>Recent content in Benchmark on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 Apr 2020 01:41:29 +0900</lastBuildDate>
-    <atom:link href="/tags/benchmark/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/benchmark/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DMIPS (Dhrystone Million Instructions Per Second)</title>
-      <link>/posts/dmips-dhrystone-million-instructions-per-second/</link>
+      <link>//localhost:1313/posts/dmips-dhrystone-million-instructions-per-second/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
-      <guid>/posts/dmips-dhrystone-million-instructions-per-second/</guid>
-      <description>개요 🔗프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS</description>
+      <guid>//localhost:1313/posts/dmips-dhrystone-million-instructions-per-second/</guid>
+      <description>개요 프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS라</description>
     </item>
   </channel>
 </rss>

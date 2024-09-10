@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>shadowing on Sukbeom Kim</title>
-    <link>/tags/shadowing/</link>
-    <description>Recent content in shadowing on Sukbeom Kim</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Shadowing on 평범한 개발자</title>
+    <link>//localhost:1313/tags/shadowing/</link>
+    <description>Recent content in Shadowing on 평범한 개발자</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 May 2019 18:24:16 +0900</lastBuildDate>
-    <atom:link href="/tags/shadowing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/shadowing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Copy on Write (CoW or COW)</title>
-      <link>/posts/copy-on-write-cow-or-cow/</link>
+      <link>//localhost:1313/posts/copy-on-write-cow-or-cow/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
-      <guid>/posts/copy-on-write-cow-or-cow/</guid>
+      <guid>//localhost:1313/posts/copy-on-write-cow-or-cow/</guid>
       <description>Copy-on-write은 리눅스 커널의 fork() 함수에서 사용하는 기법이다. 전통적인 fork()는 부모 프로세스의 모든 자원을 복사해 자식 프로세스에게 넘겨</description>
     </item>
   </channel>
