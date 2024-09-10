@@ -1,57 +1,46 @@
 baseURL: /
 languageCode: en-us
-title: Sukbeom Kim
-theme: mini
-
-# Default content language, support en (English) / zh (Chinese) / nl (Dutch) / fr (French) / es (Spanish) / da (Danish), default 'en'
+title: 평범한 개발자
 defaultContentLanguage: en
+buildDrafts: false
+buildFuture: false
+menu:
+  main:
+    - name: "Main"
+      url: /
+      weight: 1
+    - name: "Tags"
+      url: /tags
+      weight: 2
+    - name: "About"
+      url: /about
+      weight: 3
+
+markup:
+  highlight:
+    codeFences: true
+    style: bw
+    lineNumbersInTable: false
+    noClasses: false
+  goldmark:
+    extensions:
+      footnote: true
+    renderer:
+      unsafe: true
 
 hasCJKLanguage: true
 permalinks:
   posts: /posts/:title/
 
-paginate: 6
-
 googleAnalytics: G-Y7VW74D2P3
 disqusShortname: seokbeomkim-github-io
-
-# Hugo Configure Markup
-# More info: https://gohugo.io/getting-started/configuration-markup#
-markup:
-  highlight:
-    anchorLineNos: true
-    codeFences: true
-    guessSyntax: true
-    style: emacs
-    lineNoStart: 1
-    lineNos: true
-    lineNumbersInTable: true
-    tabWidth: 8
-  tableOfContents:
-    endLevel: 3
-    ordered: true
-    startLevel: 1
-  # needed to render raw HTML (e.g. <sub>, <sup>, <kbd>, <mark>)
-  goldmark:
-    renderer:
-      unsafe: true
-
-# Social links in footer, support github,twitter,stackoverflow,facebook
-social:
-  # e.g.
-  # github: https://github.com/seokbeomKim
-  # twitter: your-github-link
-    # stackoverflow: your-github-link
-  # facebook: your-facebook-link
-
 
 # Site parameters
 params:
   # Site Author
   author: '김석범 (Sukbeom Kim)'
-  # Author biography
-  bio: bio description
-  # Site Description, used in HTML meat
+  description: "Jason Kim"
+  enableGitInfo: true
 
   ###########################################
   # Optional Configuration
@@ -93,3 +82,6 @@ params:
     # - js/custom.js # local js in `static/js/custom.js`
     # - https://example.com/custom.js # remote js
 
+module:
+  imports:
+    - path: github.com/barklan/hugo-dead-simple
