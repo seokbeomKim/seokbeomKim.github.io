@@ -7,6 +7,7 @@ tags:
 - tree-sitter
 - emacs
 toc: true
+draft: true
 ---
 
 이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다.
