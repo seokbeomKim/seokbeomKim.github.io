@@ -18,13 +18,20 @@ menu:
 
 markup:
   highlight:
+    anchorLineNos: true
     codeFences: true
-    style: bw
+    guessSyntax: false
+    tabWidth: 4
     lineNumbersInTable: false
     noClasses: false
+    lineNos: true
+    style: emacs
   goldmark:
     extensions:
       footnote: true
+      linkify: true
+      linkifyProtocol: https
+      table: true
     renderer:
       unsafe: true
 
@@ -74,6 +81,7 @@ params:
     - css/img.css
     - css/noto_sans_kr.css
     - css/nanumgothic.css
+    - css/syntax.css
     ## e.g.
     # - css/custom.css # local css in `static/css/custom.css`
     # - https://example.com/custom.css # remote css
