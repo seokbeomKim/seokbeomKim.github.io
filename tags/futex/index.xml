@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Futex on 평범한 개발자</title>
+    <link>//localhost:1313/tags/futex/</link>
+    <description>Recent content in Futex on 평범한 개발자</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Apr 2020 01:45:50 +0900</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/futex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Futex</title>
+      <link>//localhost:1313/posts/futex/</link>
+      <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
+      <guid>//localhost:1313/posts/futex/</guid>
+      <description>Futex (Fast Userspace Mutexes) futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등</description>
+    </item>
+  </channel>
+</rss>

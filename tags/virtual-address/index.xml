@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtual Address on 평범한 개발자</title>
+    <link>//localhost:1313/tags/virtual-address/</link>
+    <description>Recent content in Virtual Address on 평범한 개발자</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Apr 2020 18:25:16 +0900</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/virtual-address/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>가상주소와 페이지 테이블 크기</title>
+      <link>//localhost:1313/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</link>
+      <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
+      <guid>//localhost:1313/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</guid>
+      <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이</description>
+    </item>
+  </channel>
+</rss>

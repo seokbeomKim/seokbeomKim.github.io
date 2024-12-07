@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on 평범한 개발자</title>
+    <link>//localhost:1313/categories/python/</link>
+    <description>Recent content in Python on 평범한 개발자</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Dec 2020 23:35:55 +0900</lastBuildDate>
+    <atom:link href="//localhost:1313/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homebrew python 설치하기</title>
+      <link>//localhost:1313/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</link>
+      <pubDate>Tue, 29 Dec 2020 23:35:55 +0900</pubDate>
+      <guid>//localhost:1313/posts/homebrew-python-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0/</guid>
+      <description>Homebrew로 설치한 파이썬의 버전이나 경로가 기본 파이썬을 실행했을 때와 다를 경우 링크된 파일이 다른지 먼저 확인해야 한다. 이를 테면, pip 패키지 매니저로</description>
+    </item>
+  </channel>
+</rss>
