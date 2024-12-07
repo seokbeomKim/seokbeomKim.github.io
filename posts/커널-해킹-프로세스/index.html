@@ -43,7 +43,7 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.375e5ed55aac1492efe66cf6fd686d0af88cb56b12d6bafab6571d3b39c73883.css" media="all">
   </head>
 
   <body>
@@ -108,14 +108,14 @@ Control Block이라고도 불린다. 프로세스의 전반적인 정보들을 �
 <ol>
 <li>
 <p>프로세스가 사용 중인 파일</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-0-1"><a class="lnlinks" href="#hl-0-1">1</a></span><span class="cl"><span class="k">struct</span> <span class="nc">files_struct</span> <span class="o">*</span><span class="n">files</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a></span><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">files_struct</span> <span style="color:#666">*</span>files;
 </span></span></code></pre></div><p>파일 디스크립터 테이블을 포함한다. 이 정보는 태스크(프로세스를 커널
 내부에서는 Task라 일컫는다.) 간에 공유할 수 있으며 <code>CLONE_FILES</code>를
 이용해 특정할 수 있다.</p>
 </li>
 <li>
 <p>파일시스템 정보</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-1-1"><a class="lnlinks" href="#hl-1-1">1</a></span><span class="cl"><span class="k">struct</span> <span class="nc">fs_struct</span> <span class="o">*</span><span class="n">fs</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a></span><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">fs_struct</span> <span style="color:#666">*</span>fs;
 </span></span></code></pre></div><p>처음 소스를 보자마자 이해하기 어려운 부분이었다. 어째서 프로세스가
 파일시스템 정보까지 가지고 있어야 하는가? 출처에서 이 부분은 아래와
 같이 설명하고 있다.<br><br></p>
@@ -130,15 +130,15 @@ Control Block이라고도 불린다. 프로세스의 전반적인 정보들을 �
 </li>
 <li>
 <p>대기 중인 시그널과 시그널 핸들러</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-2-1"><a class="lnlinks" href="#hl-2-1">1</a></span><span class="cl"><span class="k">struct</span> <span class="nc">signal_struct</span> <span class="o">*</span><span class="n">signal</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-2-2"><a class="lnlinks" href="#hl-2-2">2</a></span><span class="cl"><span class="k">struct</span> <span class="nc">sighand_struct</span> <span class="o">*</span><span class="n">sighand</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a></span><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">signal_struct</span> <span style="color:#666">*</span>signal;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a></span><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">sighand_struct</span> <span style="color:#666">*</span>sighand;
 </span></span></code></pre></div><p>파일시스템 정보와 마찬가지로 <code>clone</code> 된 태스크들과 공유할 수 있는
 정보이며 <code>CLONE_SIGHAND</code>를 통해서 특정할 수 있다.</p>
 </li>
 <li>
 <p>프로세서 상태</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-3-1"><a class="lnlinks" href="#hl-3-1">1</a></span><span class="cl"><span class="cm">/* -1 unrunnable, 0 runnable, &gt;0 stopped */</span>
-</span></span><span class="line"><span class="ln" id="hl-3-2"><a class="lnlinks" href="#hl-3-2">2</a></span><span class="cl"><span class="k">volatile</span> <span class="kt">long</span> <span class="n">state</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a></span><span><span style="color:#080;font-style:italic">/* -1 unrunnable, 0 runnable, &gt;0 stopped */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a></span><span><span style="color:#a2f;font-weight:bold">volatile</span> <span style="color:#0b0;font-weight:bold">long</span> state;
 </span></span></code></pre></div><p>프로세스의 상태를 <code>volatile</code>이라는 키워드와 함께한 변수로 담고
 있으며 단순하게 unrunnable, runnable, stopped 등으로 구분하고
 있다.</p>
@@ -178,12 +178,12 @@ volatile이 여전히 필요하다면 대부분 코드 어딘가에 버그가 �
 <p>메모리 관리용 데이터 구조로서(객체라는 말은 사용하지 않겠다.)
 task_struct 안에는 해당 정보들을 받아올 수 있는 <code>mm_struct</code>를
 포함하고 있다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-4-1"><a class="lnlinks" href="#hl-4-1">1</a></span><span class="cl"><span class="k">struct</span> <span class="nc">mm_struct</span> <span class="o">*</span><span class="n">mm</span><span class="p">,</span> <span class="o">*</span><span class="n">active_mm</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a></span><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">mm_struct</span> <span style="color:#666">*</span>mm, <span style="color:#666">*</span>active_mm;
 </span></span></code></pre></div></li>
 <li>
 <p>실행 중인 하나 이상의 스레드 정보</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-5-1"><a class="lnlinks" href="#hl-5-1">1</a></span><span class="cl"><span class="cm">/* CPU-specific state of this task */</span>
-</span></span><span class="line"><span class="ln" id="hl-5-2"><a class="lnlinks" href="#hl-5-2">2</a></span><span class="cl"><span class="k">struct</span> <span class="nc">thread_struct</span> <span class="kr">thread</span><span class="p">;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a></span><span><span style="color:#080;font-style:italic">/* CPU-specific state of this task */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a></span><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">thread_struct</span> <span style="color:#a2f;font-weight:bold">thread</span>;
 </span></span></code></pre></div><p>역시 다른 정보들과 마찬가지로 thread에 대한 정보를 가지고
 있다. 리눅스에서는 프로세스와 스레드를 구분하지 않고 모두 스레드로
 관리하고 스케쥴링한다. 둘의 차이점은 공유 자원을 다른 스레드와
@@ -1806,7 +1806,7 @@ window.store = {
     "\/\/localhost:1313\/about\/": {
         "title": "About",
         "tags": [],
-        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. 이맥스를 사용하지만 여전히 어렵습니다. Gentoo Linux와 Arch Linux는 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. Github 계정이 뭐 그리 중요한가요 ", 
+        "content": " 이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
         "url": "\/\/localhost:1313\/about\/"
     },
     

@@ -43,7 +43,7 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.375e5ed55aac1492efe66cf6fd686d0af88cb56b12d6bafab6571d3b39c73883.css" media="all">
   </head>
 
   <body>
@@ -103,12 +103,12 @@
 <p>ioctl 시스템 호출이 일어나면 user-mode에서의 컨텍스트는 kernel-mode 컨텍스트로 진입하게 된다. 하지만 커널 모드에서 스핀락을 holding 하고 있는 경우 컨텍스트 스위칭은 일어날 수 없는데, 이유는 스핀락 자체가 preemption을 막기 때문이다.</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-0-1"><a class="lnlinks" href="#hl-0-1">1</a></span><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">__raw_spin_lock</span><span class="p">(</span><span class="n">raw_spinlock_t</span> <span class="o">*</span><span class="n">lock</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln" id="hl-0-2"><a class="lnlinks" href="#hl-0-2">2</a></span><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="ln" id="hl-0-3"><a class="lnlinks" href="#hl-0-3">3</a></span><span class="cl">    <span class="n">preempt_disable</span><span class="p">();</span>
-</span></span><span class="line"><span class="ln" id="hl-0-4"><a class="lnlinks" href="#hl-0-4">4</a></span><span class="cl">    <span class="n">spin_acquire</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="o">-&gt;</span><span class="n">dep_map</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">_RET_IP_</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln" id="hl-0-5"><a class="lnlinks" href="#hl-0-5">5</a></span><span class="cl">    <span class="n">LOCK_CONTENDED</span><span class="p">(</span><span class="n">lock</span><span class="p">,</span> <span class="n">do_raw_spin_trylock</span><span class="p">,</span> <span class="n">do_raw_spin_lock</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln" id="hl-0-6"><a class="lnlinks" href="#hl-0-6">6</a></span><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a></span><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#a2f;font-weight:bold">inline</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">__raw_spin_lock</span>(raw_spinlock_t <span style="color:#666">*</span>lock)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a></span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a></span><span>    preempt_disable();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a></span><span>    spin_acquire(<span style="color:#666">&amp;</span>lock<span style="color:#666">-&gt;</span>dep_map, <span style="color:#666">0</span>, <span style="color:#666">0</span>, _RET_IP_);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5">5</a></span><span>    LOCK_CONTENDED(lock, do_raw_spin_trylock, do_raw_spin_lock);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6">6</a></span><span>}
 </span></span></code></pre></div><p>락을 사용하는 경우에 대해서는 좀 더 살펴봐야 하겠지만, 인터럽트 컨텍스트와 공유하는 데이터 구조들을 사용하기 위해서는 spin_lock과 같은 락을 사용하고 스핀락으로 락을 갖고 있을 때 선점될 수 없다는 점을 기억하자. 다음 포스팅에서는 러셀이 정리한 커널에서 제공하는 락의 종류가 어떨 때 사용해야 하는지를 정리해보도록 하겠다.</p>
 <h1 id="출처">출처</h1>
 <ul>
@@ -1720,7 +1720,7 @@ window.store = {
     "\/\/localhost:1313\/about\/": {
         "title": "About",
         "tags": [],
-        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. 이맥스를 사용하지만 여전히 어렵습니다. Gentoo Linux와 Arch Linux는 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. Github 계정이 뭐 그리 중요한가요 ", 
+        "content": " 이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
         "url": "\/\/localhost:1313\/about\/"
     },
     

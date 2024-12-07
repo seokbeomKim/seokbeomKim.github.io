@@ -43,7 +43,7 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.375e5ed55aac1492efe66cf6fd686d0af88cb56b12d6bafab6571d3b39c73883.css" media="all">
   </head>
 
   <body>
@@ -94,25 +94,25 @@
 <h2 id="페이지-테이블에서의-타입-체크">페이지 테이블에서의 타입 체크</h2>
 <p>ARM64 커널 소스에 있는 MMU 코드를 살펴보니 아래와 같이 특이하게
 작성되어 있는 부분을 찾을 수 있었다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-0-1"><a class="lnlinks" href="#hl-0-1"> 1</a></span><span class="cl"><span class="k">typedef</span> <span class="n">u64</span> <span class="n">pteval_t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-2"><a class="lnlinks" href="#hl-0-2"> 2</a></span><span class="cl"><span class="k">typedef</span> <span class="n">u64</span> <span class="n">pmdval_t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-3"><a class="lnlinks" href="#hl-0-3"> 3</a></span><span class="cl"><span class="k">typedef</span> <span class="n">u64</span> <span class="n">pudval_t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-4"><a class="lnlinks" href="#hl-0-4"> 4</a></span><span class="cl"><span class="k">typedef</span> <span class="n">u64</span> <span class="n">pgdval_t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-5"><a class="lnlinks" href="#hl-0-5"> 5</a></span><span class="cl">
-</span></span><span class="line"><span class="ln" id="hl-0-6"><a class="lnlinks" href="#hl-0-6"> 6</a></span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln" id="hl-0-7"><a class="lnlinks" href="#hl-0-7"> 7</a></span><span class="cl">
-</span></span><span class="line"><span class="ln" id="hl-0-8"><a class="lnlinks" href="#hl-0-8"> 8</a></span><span class="cl"><span class="cm">/*
-</span></span></span><span class="line"><span class="ln" id="hl-0-9"><a class="lnlinks" href="#hl-0-9"> 9</a></span><span class="cl"><span class="cm"> * These are used to make use of C type-checking..
-</span></span></span><span class="line"><span class="ln" id="hl-0-10"><a class="lnlinks" href="#hl-0-10">10</a></span><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="ln" id="hl-0-11"><a class="lnlinks" href="#hl-0-11">11</a></span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="n">pteval_t</span> <span class="n">pte</span><span class="p">;</span> <span class="p">}</span> <span class="n">pte_t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-12"><a class="lnlinks" href="#hl-0-12">12</a></span><span class="cl"><span class="cp">#define pte_val(x)	((x).pte)
-</span></span></span><span class="line"><span class="ln" id="hl-0-13"><a class="lnlinks" href="#hl-0-13">13</a></span><span class="cl"><span class="cp">#define __pte(x)	((pte_t) { (x) } )
-</span></span></span><span class="line"><span class="ln" id="hl-0-14"><a class="lnlinks" href="#hl-0-14">14</a></span><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="ln" id="hl-0-15"><a class="lnlinks" href="#hl-0-15">15</a></span><span class="cl"><span class="p">...</span>
-</span></span><span class="line"><span class="ln" id="hl-0-16"><a class="lnlinks" href="#hl-0-16">16</a></span><span class="cl">
-</span></span><span class="line"><span class="ln" id="hl-0-17"><a class="lnlinks" href="#hl-0-17">17</a></span><span class="cl"><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span> <span class="n">pgdval_t</span> <span class="n">pgd</span><span class="p">;</span> <span class="p">}</span> <span class="n">pgd_t</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-18"><a class="lnlinks" href="#hl-0-18">18</a></span><span class="cl"><span class="cp">#define pgd_val(x)	((x).pgd)
-</span></span></span><span class="line"><span class="ln" id="hl-0-19"><a class="lnlinks" href="#hl-0-19">19</a></span><span class="cl"><span class="cp">#define __pgd(x)	((pgd_t) { (x) } )
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a></span><span><span style="color:#a2f;font-weight:bold">typedef</span> u64 pteval_t;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a></span><span><span style="color:#a2f;font-weight:bold">typedef</span> u64 pmdval_t;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a></span><span><span style="color:#a2f;font-weight:bold">typedef</span> u64 pudval_t;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a></span><span><span style="color:#a2f;font-weight:bold">typedef</span> u64 pgdval_t;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a></span><span>...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a></span><span><span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a></span><span><span style="color:#080;font-style:italic"> * These are used to make use of C type-checking..
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a></span><span><span style="color:#080;font-style:italic"> */</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a></span><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> { pteval_t pte; } pte_t;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a></span><span><span style="color:#080">#define pte_val(x)	((x).pte)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13</a></span><span><span style="color:#080">#define __pte(x)	((pte_t) { (x) } )
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14</a></span><span><span style="color:#080"></span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15</a></span><span>...
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17</a></span><span><span style="color:#a2f;font-weight:bold">typedef</span> <span style="color:#a2f;font-weight:bold">struct</span> { pgdval_t pgd; } pgd_t;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-18">18</a></span><span><span style="color:#080">#define pgd_val(x)	((x).pgd)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-19">19</a></span><span><span style="color:#080">#define __pgd(x)	((pgd_t) { (x) } )
 </span></span></span></code></pre></div><p>왜 <code>enum</code>을 사용하지 않고 struct에 멤버변수를 이용해서 사용하는 걸까?
 하는 의문에 간단히 답을 찾을 수 있었다. <code>enum</code>의 경우 정수형 값과
 호환되기에 컴파일러의 type check 루틴에 강제할 수 없다. 컴파일
@@ -126,8 +126,8 @@
 비교한다. 이는 런타임에 인자로 전달된 x, y를 비교하기 위함이 아니라 컴파일
 타임에 에러를 발생시키기 위한 용도이며 <code>!!</code> 를 통해서 두 개 변수의 크기를
 비교하여 안전하게 <code>boolean</code> 형태로 변환하는 것도 확인할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-1-1"><a class="lnlinks" href="#hl-1-1">1</a></span><span class="cl"><span class="cp">#define __typecheck(x, y) \
-</span></span></span><span class="line"><span class="ln" id="hl-1-2"><a class="lnlinks" href="#hl-1-2">2</a></span><span class="cl"><span class="cp">	(!!(sizeof((typeof(x) *)1 == (typeof(y) *)1)))
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a></span><span><span style="color:#080">#define __typecheck(x, y) \
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a></span><span><span style="color:#080">	(!!(sizeof((typeof(x) *)1 == (typeof(y) *)1)))
 </span></span></span></code></pre></div></main>
 
 
@@ -1733,7 +1733,7 @@ window.store = {
     "\/\/localhost:1313\/about\/": {
         "title": "About",
         "tags": [],
-        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. 이맥스를 사용하지만 여전히 어렵습니다. Gentoo Linux와 Arch Linux는 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. Github 계정이 뭐 그리 중요한가요 ", 
+        "content": " 이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
         "url": "\/\/localhost:1313\/about\/"
     },
     

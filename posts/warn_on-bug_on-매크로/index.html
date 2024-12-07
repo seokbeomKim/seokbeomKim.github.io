@@ -43,7 +43,7 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.375e5ed55aac1492efe66cf6fd686d0af88cb56b12d6bafab6571d3b39c73883.css" media="all">
   </head>
 
   <body>
@@ -103,10 +103,10 @@
 <h1 id="warn_on-bug_on">WARN_ON, BUG_ON</h1>
 <p>출처에 따르면, 리눅스 디바이스 드라이버에서 가장 빈번하게 나타나는
 매크로는 <code>BUG_ON/BUG</code>와 <code>WARN_ON</code>이라고 설명하고 있다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-0-1"><a class="lnlinks" href="#hl-0-1">1</a></span><span class="cl"><span class="n">BUG_ON</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln" id="hl-0-2"><a class="lnlinks" href="#hl-0-2">2</a></span><span class="cl"><span class="c1">// 또는
-</span></span></span><span class="line"><span class="ln" id="hl-0-3"><a class="lnlinks" href="#hl-0-3">3</a></span><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-</span></span><span class="line"><span class="ln" id="hl-0-4"><a class="lnlinks" href="#hl-0-4">4</a></span><span class="cl">	<span class="n">BUG</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a></span><span>BUG_ON(condition)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a></span><span><span style="color:#080;font-style:italic">// 또는
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3</a></span><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">if</span> (condition)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4</a></span><span>	BUG()
 </span></span></code></pre></div><p>위 예시처럼 매크로를 사용할 수 있으며 각각의 매크로가 하는 역할은
 다음과 같다.</p>
 <h2 id="bug">BUG()</h2>
@@ -124,17 +124,17 @@
 아래와 같이 주석을 달아놓은 것을 확인할 수 있다. 정말로 대안이 없을
 경우에만 사용하도록 하며, 정말로 복구할 방법이 없을 때에만 사용하도록
 하자.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-1-1"><a class="lnlinks" href="#hl-1-1"> 1</a></span><span class="cl"><span class="cm">/*
-</span></span></span><span class="line"><span class="ln" id="hl-1-2"><a class="lnlinks" href="#hl-1-2"> 2</a></span><span class="cl"><span class="cm"> * Don&#39;t use BUG() or BUG_ON() unless there&#39;s really no way out; one
-</span></span></span><span class="line"><span class="ln" id="hl-1-3"><a class="lnlinks" href="#hl-1-3"> 3</a></span><span class="cl"><span class="cm"> * example might be detecting data structure corruption in the middle
-</span></span></span><span class="line"><span class="ln" id="hl-1-4"><a class="lnlinks" href="#hl-1-4"> 4</a></span><span class="cl"><span class="cm"> * of an operation that can&#39;t be backed out of.  If the (sub)system
-</span></span></span><span class="line"><span class="ln" id="hl-1-5"><a class="lnlinks" href="#hl-1-5"> 5</a></span><span class="cl"><span class="cm"> * can somehow continue operating, perhaps with reduced functionality,
-</span></span></span><span class="line"><span class="ln" id="hl-1-6"><a class="lnlinks" href="#hl-1-6"> 6</a></span><span class="cl"><span class="cm"> * it&#39;s probably not BUG-worthy.
-</span></span></span><span class="line"><span class="ln" id="hl-1-7"><a class="lnlinks" href="#hl-1-7"> 7</a></span><span class="cl"><span class="cm"> *
-</span></span></span><span class="line"><span class="ln" id="hl-1-8"><a class="lnlinks" href="#hl-1-8"> 8</a></span><span class="cl"><span class="cm"> * If you&#39;re tempted to BUG(), think again:  is completely giving up
-</span></span></span><span class="line"><span class="ln" id="hl-1-9"><a class="lnlinks" href="#hl-1-9"> 9</a></span><span class="cl"><span class="cm"> * really the *only* solution?  There are usually better options, where
-</span></span></span><span class="line"><span class="ln" id="hl-1-10"><a class="lnlinks" href="#hl-1-10">10</a></span><span class="cl"><span class="cm"> * users don&#39;t need to reboot ASAP and can mostly shut down cleanly.
-</span></span></span><span class="line"><span class="ln" id="hl-1-11"><a class="lnlinks" href="#hl-1-11">11</a></span><span class="cl"><span class="cm"> */</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1"> 1</a></span><span><span style="color:#080;font-style:italic">/*
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2"> 2</a></span><span><span style="color:#080;font-style:italic"> * Don&#39;t use BUG() or BUG_ON() unless there&#39;s really no way out; one
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3"> 3</a></span><span><span style="color:#080;font-style:italic"> * example might be detecting data structure corruption in the middle
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4"> 4</a></span><span><span style="color:#080;font-style:italic"> * of an operation that can&#39;t be backed out of.  If the (sub)system
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5"> 5</a></span><span><span style="color:#080;font-style:italic"> * can somehow continue operating, perhaps with reduced functionality,
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6"> 6</a></span><span><span style="color:#080;font-style:italic"> * it&#39;s probably not BUG-worthy.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7"> 7</a></span><span><span style="color:#080;font-style:italic"> *
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8"> 8</a></span><span><span style="color:#080;font-style:italic"> * If you&#39;re tempted to BUG(), think again:  is completely giving up
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9"> 9</a></span><span><span style="color:#080;font-style:italic"> * really the *only* solution?  There are usually better options, where
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-10">10</a></span><span><span style="color:#080;font-style:italic"> * users don&#39;t need to reboot ASAP and can mostly shut down cleanly.
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-11">11</a></span><span><span style="color:#080;font-style:italic"> */</span>
 </span></span></code></pre></div><h1 id="출처">출처</h1>
 <ul>
 <li><a href="http://embeddedguruji.blogspot.com/2018/12/bugon-vs-warnon-macros-in-linux-kernel.html"  target="_blank" rel="noreferrer nofollow">http://embeddedguruji.blogspot.com/2018/12/bugon-vs-warnon-macros-in-linux-kernel.html</a>
@@ -1747,7 +1747,7 @@ window.store = {
     "\/\/localhost:1313\/about\/": {
         "title": "About",
         "tags": [],
-        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. 이맥스를 사용하지만 여전히 어렵습니다. Gentoo Linux와 Arch Linux는 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. Github 계정이 뭐 그리 중요한가요 ", 
+        "content": " 이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
         "url": "\/\/localhost:1313\/about\/"
     },
     

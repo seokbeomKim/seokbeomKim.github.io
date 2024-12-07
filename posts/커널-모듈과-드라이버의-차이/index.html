@@ -43,7 +43,7 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.375e5ed55aac1492efe66cf6fd686d0af88cb56b12d6bafab6571d3b39c73883.css" media="all">
   </head>
 
   <body>
@@ -94,18 +94,18 @@
 난 후의 첫 질문을 정리하고자 한다.</p>
 <p>커널 디렉토리 구조는 대략 다음과 같이 구성되며, 그 중 <code>drivers</code>와
 <code>modules</code>의 차이점이 이해하기가 어려웠다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln" id="hl-0-1"><a class="lnlinks" href="#hl-0-1"> 1</a></span><span class="cl">arch/    - 특정 아키텍처에 국한된 코드
-</span></span><span class="line"><span class="ln" id="hl-0-2"><a class="lnlinks" href="#hl-0-2"> 2</a></span><span class="cl">include/ - 커널 빌드를 위해 포함하는 include 파일들
-</span></span><span class="line"><span class="ln" id="hl-0-3"><a class="lnlinks" href="#hl-0-3"> 3</a></span><span class="cl">init/    - 커널 초기화 코드
-</span></span><span class="line"><span class="ln" id="hl-0-4"><a class="lnlinks" href="#hl-0-4"> 4</a></span><span class="cl">mm/      - 메모리 관리 코드
-</span></span><span class="line"><span class="ln" id="hl-0-5"><a class="lnlinks" href="#hl-0-5"> 5</a></span><span class="cl">drivers/ - 드라이버
-</span></span><span class="line"><span class="ln" id="hl-0-6"><a class="lnlinks" href="#hl-0-6"> 6</a></span><span class="cl">ipc/     - IPC (Inter Process Communication)
-</span></span><span class="line"><span class="ln" id="hl-0-7"><a class="lnlinks" href="#hl-0-7"> 7</a></span><span class="cl">modules/ - 커널 모듈
-</span></span><span class="line"><span class="ln" id="hl-0-8"><a class="lnlinks" href="#hl-0-8"> 8</a></span><span class="cl">fs/      - 파일시스템
-</span></span><span class="line"><span class="ln" id="hl-0-9"><a class="lnlinks" href="#hl-0-9"> 9</a></span><span class="cl">kernel/  - 커널 코드
-</span></span><span class="line"><span class="ln" id="hl-0-10"><a class="lnlinks" href="#hl-0-10">10</a></span><span class="cl">net/     - 네트워킹 코드
-</span></span><span class="line"><span class="ln" id="hl-0-11"><a class="lnlinks" href="#hl-0-11">11</a></span><span class="cl">lib/     - 커널에서 사용하는 라이브러리
-</span></span><span class="line"><span class="ln" id="hl-0-12"><a class="lnlinks" href="#hl-0-12">12</a></span><span class="cl">scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용)
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a></span><span>arch/    - 특정 아키텍처에 국한된 코드
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a></span><span>include/ - 커널 빌드를 위해 포함하는 include 파일들
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a></span><span>init/    - 커널 초기화 코드
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a></span><span>mm/      - 메모리 관리 코드
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a></span><span>drivers/ - 드라이버
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a></span><span>ipc/     - IPC (Inter Process Communication)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a></span><span>modules/ - 커널 모듈
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a></span><span>fs/      - 파일시스템
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a></span><span>kernel/  - 커널 코드
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a></span><span>net/     - 네트워킹 코드
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a></span><span>lib/     - 커널에서 사용하는 라이브러리
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a></span><span>scripts/ - awk, tk와 같은 스크립트들(커널 configure 시에 사용)
 </span></span></code></pre></div><p>구글링을 해보니 역시나 같은 생각을 한 사람이
 있었다. <a href="https://unix.stackexchange.com/questions/47208/what-is-the-difference-between-kernel-drivers-and-kernel-modules"  target="_blank" rel="noreferrer nofollow">링크</a>
 를
@@ -1719,7 +1719,7 @@ window.store = {
     "\/\/localhost:1313\/about\/": {
         "title": "About",
         "tags": [],
-        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. 이맥스를 사용하지만 여전히 어렵습니다. Gentoo Linux와 Arch Linux는 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. Github 계정이 뭐 그리 중요한가요 ", 
+        "content": " 이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
         "url": "\/\/localhost:1313\/about\/"
     },
     

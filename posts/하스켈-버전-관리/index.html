@@ -43,7 +43,7 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.375e5ed55aac1492efe66cf6fd686d0af88cb56b12d6bafab6571d3b39c73883.css" media="all">
   </head>
 
   <body>
@@ -98,37 +98,37 @@
 있으며 아래와 같이 원하는 ghc 버전들을 간편하게 설치하고 메인으로
 관리할 수 있다. 먼저, <code>ghcup list</code> 명령어를 통해 <code>ghc</code> 로 설치된
 패키지들의 목록을 확인해보자.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln" id="hl-0-1"><a class="lnlinks" href="#hl-0-1"> 1</a></span><span class="cl">public git:6c65fe3 ❯ ghcup list
-</span></span><span class="line"><span class="ln" id="hl-0-2"><a class="lnlinks" href="#hl-0-2"> 2</a></span><span class="cl">   Tool  Version      Tags                                 Notes
-</span></span><span class="line"><span class="ln" id="hl-0-3"><a class="lnlinks" href="#hl-0-3"> 3</a></span><span class="cl">✗  ghc   7.10.3       base-4.8.2.0
-</span></span><span class="line"><span class="ln" id="hl-0-4"><a class="lnlinks" href="#hl-0-4"> 4</a></span><span class="cl">✗  ghc   8.0.2        base-4.9.1.0
-</span></span><span class="line"><span class="ln" id="hl-0-5"><a class="lnlinks" href="#hl-0-5"> 5</a></span><span class="cl">✗  ghc   8.2.2        base-4.10.1.0
-</span></span><span class="line"><span class="ln" id="hl-0-6"><a class="lnlinks" href="#hl-0-6"> 6</a></span><span class="cl">✗  ghc   8.4.1        base-4.11.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-7"><a class="lnlinks" href="#hl-0-7"> 7</a></span><span class="cl">✗  ghc   8.4.2        base-4.11.1.0
-</span></span><span class="line"><span class="ln" id="hl-0-8"><a class="lnlinks" href="#hl-0-8"> 8</a></span><span class="cl">✗  ghc   8.4.3        base-4.11.1.0
-</span></span><span class="line"><span class="ln" id="hl-0-9"><a class="lnlinks" href="#hl-0-9"> 9</a></span><span class="cl">✗  ghc   8.4.4        base-4.11.1.0
-</span></span><span class="line"><span class="ln" id="hl-0-10"><a class="lnlinks" href="#hl-0-10">10</a></span><span class="cl">✗  ghc   8.6.1        base-4.12.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-11"><a class="lnlinks" href="#hl-0-11">11</a></span><span class="cl">✗  ghc   8.6.2        base-4.12.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-12"><a class="lnlinks" href="#hl-0-12">12</a></span><span class="cl">✗  ghc   8.6.3        base-4.12.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-13"><a class="lnlinks" href="#hl-0-13">13</a></span><span class="cl">✗  ghc   8.6.4        base-4.12.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-14"><a class="lnlinks" href="#hl-0-14">14</a></span><span class="cl">✗  ghc   8.6.5        base-4.12.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-15"><a class="lnlinks" href="#hl-0-15">15</a></span><span class="cl">✗  ghc   8.8.1        base-4.13.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-16"><a class="lnlinks" href="#hl-0-16">16</a></span><span class="cl">✗  ghc   8.8.2        base-4.13.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-17"><a class="lnlinks" href="#hl-0-17">17</a></span><span class="cl">✔✔ ghc   8.8.3        base-4.13.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-18"><a class="lnlinks" href="#hl-0-18">18</a></span><span class="cl">✗  ghc   8.8.4        recommended,base-4.13.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-19"><a class="lnlinks" href="#hl-0-19">19</a></span><span class="cl">✗  ghc   8.10.1       base-4.14.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-20"><a class="lnlinks" href="#hl-0-20">20</a></span><span class="cl">✓  ghc   8.10.2       latest,base-4.14.1.0
-</span></span><span class="line"><span class="ln" id="hl-0-21"><a class="lnlinks" href="#hl-0-21">21</a></span><span class="cl">✗  ghc   9.0.1-alpha1 prerelease,base-4.15.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-22"><a class="lnlinks" href="#hl-0-22">22</a></span><span class="cl">✗  cabal 2.4.1.0
-</span></span><span class="line"><span class="ln" id="hl-0-23"><a class="lnlinks" href="#hl-0-23">23</a></span><span class="cl">✗  cabal 3.0.0.0
-</span></span><span class="line"><span class="ln" id="hl-0-24"><a class="lnlinks" href="#hl-0-24">24</a></span><span class="cl">✗  cabal 3.2.0.0      latest,recommended
-</span></span><span class="line"><span class="ln" id="hl-0-25"><a class="lnlinks" href="#hl-0-25">25</a></span><span class="cl">✗  cabal 3.4.0.0-rc2  prerelease
-</span></span><span class="line"><span class="ln" id="hl-0-26"><a class="lnlinks" href="#hl-0-26">26</a></span><span class="cl">✔✔ ghcup 0.1.10       latest,recommended
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a></span><span>public git:6c65fe3 ❯ ghcup list
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a></span><span>   Tool  Version      Tags                                 Notes
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a></span><span>✗  ghc   7.10.3       base-4.8.2.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a></span><span>✗  ghc   8.0.2        base-4.9.1.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a></span><span>✗  ghc   8.2.2        base-4.10.1.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a></span><span>✗  ghc   8.4.1        base-4.11.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a></span><span>✗  ghc   8.4.2        base-4.11.1.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a></span><span>✗  ghc   8.4.3        base-4.11.1.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a></span><span>✗  ghc   8.4.4        base-4.11.1.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a></span><span>✗  ghc   8.6.1        base-4.12.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a></span><span>✗  ghc   8.6.2        base-4.12.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a></span><span>✗  ghc   8.6.3        base-4.12.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13</a></span><span>✗  ghc   8.6.4        base-4.12.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14</a></span><span>✗  ghc   8.6.5        base-4.12.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15</a></span><span>✗  ghc   8.8.1        base-4.13.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16</a></span><span>✗  ghc   8.8.2        base-4.13.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17</a></span><span>✔✔ ghc   8.8.3        base-4.13.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-18">18</a></span><span>✗  ghc   8.8.4        recommended,base-4.13.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-19"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-19">19</a></span><span>✗  ghc   8.10.1       base-4.14.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-20"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-20">20</a></span><span>✓  ghc   8.10.2       latest,base-4.14.1.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-21"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-21">21</a></span><span>✗  ghc   9.0.1-alpha1 prerelease,base-4.15.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-22"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-22">22</a></span><span>✗  cabal 2.4.1.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-23">23</a></span><span>✗  cabal 3.0.0.0
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-24"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-24">24</a></span><span>✗  cabal 3.2.0.0      latest,recommended
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-25"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-25">25</a></span><span>✗  cabal 3.4.0.0-rc2  prerelease
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-26"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-26">26</a></span><span>✔✔ ghcup 0.1.10       latest,recommended
 </span></span></code></pre></div><p>현재 기본으로 설정되어 있는 <code>ghc</code> 버전과 <code>ghcup</code> 버전 등을 리스트로
 확인할 수 있다. 새로 ghc 버전을 설치하기 위해서는 아래 명령어로 버전을
 간편하게 설치할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln" id="hl-1-1"><a class="lnlinks" href="#hl-1-1">1</a></span><span class="cl">$ ghcup install ghc 8.8.2 <span class="c1"># install ghc of version 8.8.2</span>
-</span></span><span class="line"><span class="ln" id="hl-1-2"><a class="lnlinks" href="#hl-1-2">2</a></span><span class="cl">$ ghcup <span class="nb">set</span> ghc 8.8.2     <span class="c1"># set default version to 8.8.2</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a></span><span>$ ghcup install ghc 8.8.2 <span style="color:#080;font-style:italic"># install ghc of version 8.8.2</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a></span><span>$ ghcup <span style="color:#a2f">set</span> ghc 8.8.2     <span style="color:#080;font-style:italic"># set default version to 8.8.2</span>
 </span></span></code></pre></div><p>중요한 것은 <code>ghcup</code>을 통해 설치하는 모든 바이너리는 <code>$HOME/.ghcup/bin</code>
 경로에 설치되어 있으므로 셸 스크립트를 통해 해당 경로를 참조할 수
 있도록 <code>$PATH</code> 환경변수를 조정해줘야 한다.</p>
@@ -1742,7 +1742,7 @@ window.store = {
     "\/\/localhost:1313\/about\/": {
         "title": "About",
         "tags": [],
-        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. 이맥스를 사용하지만 여전히 어렵습니다. Gentoo Linux와 Arch Linux는 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. Github 계정이 뭐 그리 중요한가요 ", 
+        "content": " 이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
         "url": "\/\/localhost:1313\/about\/"
     },
     

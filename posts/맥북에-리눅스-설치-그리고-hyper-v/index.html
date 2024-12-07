@@ -43,7 +43,7 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.375e5ed55aac1492efe66cf6fd686d0af88cb56b12d6bafab6571d3b39c73883.css" media="all">
   </head>
 
   <body>
@@ -123,8 +123,8 @@ Scratch) 프로젝트를 할 것도 아닌데, 그만큼의 노력과 시간이 
 <h1 id="우분투-설치">우분투 설치</h1>
 <p>개인적으로 우분투는 별로 좋아하지 않지만 설치 후 서드 파티 드라이버
 설치를 간편하게 하기 위해 우분투를 설치하기로 했다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln" id="hl-0-1"><a class="lnlinks" href="#hl-0-1">1</a></span><span class="cl">$ hdiutil convert -format UDRW -o ~/Desktop/ubuntu.img ~/Downloads/ubuntu.iso
-</span></span><span class="line"><span class="ln" id="hl-0-2"><a class="lnlinks" href="#hl-0-2">2</a></span><span class="cl">$ dd <span class="k">if</span><span class="o">=</span>ubuntu.img <span class="nv">of</span><span class="o">=</span>/dev/disk2 <span class="nv">bs</span><span class="o">=</span>1m <span class="c1"># /dev/disk2 는 반드시 직접 확인해야 한다.</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a></span><span>$ hdiutil convert -format UDRW -o ~/Desktop/ubuntu.img ~/Downloads/ubuntu.iso
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2</a></span><span>$ dd <span style="color:#a2f;font-weight:bold">if</span><span style="color:#666">=</span>ubuntu.img <span style="color:#b8860b">of</span><span style="color:#666">=</span>/dev/disk2 <span style="color:#b8860b">bs</span><span style="color:#666">=</span>1m <span style="color:#080;font-style:italic"># /dev/disk2 는 반드시 직접 확인해야 한다.</span>
 </span></span></code></pre></div><p>dd 명령어로 img 파일을 USB 에 구울 때 busy resource 에러가 나온다면,
 디스크 유틸리티에서 해당 파티션을 unmount 해주고 다시 실행해야 한다.</p>
 <p>나머지는 간단하다. USB를 넣고 맥북 재부팅 시 option키를 눌러
@@ -1756,7 +1756,7 @@ window.store = {
     "\/\/localhost:1313\/about\/": {
         "title": "About",
         "tags": [],
-        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. 이맥스를 사용하지만 여전히 어렵습니다. Gentoo Linux와 Arch Linux는 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. Github 계정이 뭐 그리 중요한가요 ", 
+        "content": " 이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
         "url": "\/\/localhost:1313\/about\/"
     },
     

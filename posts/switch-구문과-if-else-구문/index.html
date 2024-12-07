@@ -43,7 +43,7 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.dd7f4d768263b31dca99ccfd082ebb2574963449605bddaf5e9b91272f83dff2.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.375e5ed55aac1492efe66cf6fd686d0af88cb56b12d6bafab6571d3b39c73883.css" media="all">
   </head>
 
   <body>
@@ -90,38 +90,38 @@
 <main><h1 id="개요">개요</h1>
 <p>실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은
 case 구문을 보았다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-0-1"><a class="lnlinks" href="#hl-0-1"> 1</a></span><span class="cl"><span class="kt">int</span> <span class="nf">switch_example</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln" id="hl-0-2"><a class="lnlinks" href="#hl-0-2"> 2</a></span><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln" id="hl-0-3"><a class="lnlinks" href="#hl-0-3"> 3</a></span><span class="cl">    <span class="k">case</span> <span class="nl">FLAG_A</span><span class="p">:</span>
-</span></span><span class="line"><span class="ln" id="hl-0-4"><a class="lnlinks" href="#hl-0-4"> 4</a></span><span class="cl">	<span class="c1">// do A
-</span></span></span><span class="line"><span class="ln" id="hl-0-5"><a class="lnlinks" href="#hl-0-5"> 5</a></span><span class="cl"><span class="c1"></span>	<span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-6"><a class="lnlinks" href="#hl-0-6"> 6</a></span><span class="cl">    <span class="k">case</span> <span class="nl">FLAG_B</span><span class="p">:</span>
-</span></span><span class="line"><span class="ln" id="hl-0-7"><a class="lnlinks" href="#hl-0-7"> 7</a></span><span class="cl">	<span class="c1">// do B
-</span></span></span><span class="line"><span class="ln" id="hl-0-8"><a class="lnlinks" href="#hl-0-8"> 8</a></span><span class="cl"><span class="c1"></span>	<span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-9"><a class="lnlinks" href="#hl-0-9"> 9</a></span><span class="cl">    <span class="k">case</span> <span class="nl">blabla</span><span class="p">:</span>
-</span></span><span class="line"><span class="ln" id="hl-0-10"><a class="lnlinks" href="#hl-0-10">10</a></span><span class="cl">	<span class="c1">// blabla...
-</span></span></span><span class="line"><span class="ln" id="hl-0-11"><a class="lnlinks" href="#hl-0-11">11</a></span><span class="cl"><span class="c1"></span>	<span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-12"><a class="lnlinks" href="#hl-0-12">12</a></span><span class="cl">    <span class="k">default</span><span class="o">:</span>
-</span></span><span class="line"><span class="ln" id="hl-0-13"><a class="lnlinks" href="#hl-0-13">13</a></span><span class="cl">	<span class="n">printk</span><span class="p">(</span><span class="n">KERN_ERR</span> <span class="s">&#34;ERROR!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="ln" id="hl-0-14"><a class="lnlinks" href="#hl-0-14">14</a></span><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="ln" id="hl-0-15"><a class="lnlinks" href="#hl-0-15">15</a></span><span class="cl">
-</span></span><span class="line"><span class="ln" id="hl-0-16"><a class="lnlinks" href="#hl-0-16">16</a></span><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="ln" id="hl-0-17"><a class="lnlinks" href="#hl-0-17">17</a></span><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a></span><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">switch_example</span>(<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> flag) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a></span><span>    <span style="color:#a2f;font-weight:bold">switch</span> (flag) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a></span><span>    <span style="color:#a2f;font-weight:bold">case</span> <span style="color:#a0a000">FLAG_A</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a></span><span>	<span style="color:#080;font-style:italic">// do A
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5</a></span><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6</a></span><span>    <span style="color:#a2f;font-weight:bold">case</span> <span style="color:#a0a000">FLAG_B</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7</a></span><span>	<span style="color:#080;font-style:italic">// do B
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8</a></span><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9</a></span><span>    <span style="color:#a2f;font-weight:bold">case</span> <span style="color:#a0a000">blabla</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10</a></span><span>	<span style="color:#080;font-style:italic">// blabla...
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11</a></span><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a></span><span>    <span style="color:#a2f;font-weight:bold">default</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13</a></span><span>	printk(KERN_ERR <span style="color:#b44">&#34;ERROR!</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-14">14</a></span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-15">15</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-16"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-16">16</a></span><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-17"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-17">17</a></span><span>}
 </span></span></code></pre></div><h1 id="함수-포인터-배열-사용하기">함수 포인터 배열 사용하기</h1>
 <p>if-else 를 사용하지 않고 굳이 switch 문을 사용하는 이유가 있을까? 학부
 시절, switch문은 되도록 지양하고 if-else를 사용해야 한다는 얘기를
 들었던 기억이 났다. 하지만 if-else 구문을 사용하면 여러 개의 branch 가
 생기기 때문에 처음 위 예제로 간단하게 작성한 코드를 아래와 같이
 변환하려 했었다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="ln" id="hl-1-1"><a class="lnlinks" href="#hl-1-1">1</a></span><span class="cl"><span class="kt">int</span> <span class="nf">use_array_example</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">flag</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln" id="hl-1-2"><a class="lnlinks" href="#hl-1-2">2</a></span><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="n">handler</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="ln" id="hl-1-3"><a class="lnlinks" href="#hl-1-3">3</a></span><span class="cl">	<span class="n">handler_A</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln" id="hl-1-4"><a class="lnlinks" href="#hl-1-4">4</a></span><span class="cl">	<span class="n">handler_B</span><span class="p">,</span>
-</span></span><span class="line"><span class="ln" id="hl-1-5"><a class="lnlinks" href="#hl-1-5">5</a></span><span class="cl">	<span class="n">handler_C</span>
-</span></span><span class="line"><span class="ln" id="hl-1-6"><a class="lnlinks" href="#hl-1-6">6</a></span><span class="cl">    <span class="p">};</span>
-</span></span><span class="line"><span class="ln" id="hl-1-7"><a class="lnlinks" href="#hl-1-7">7</a></span><span class="cl">
-</span></span><span class="line"><span class="ln" id="hl-1-8"><a class="lnlinks" href="#hl-1-8">8</a></span><span class="cl">    <span class="n">handler</span><span class="p">[</span><span class="n">flag</span><span class="p">]();</span>
-</span></span><span class="line"><span class="ln" id="hl-1-9"><a class="lnlinks" href="#hl-1-9">9</a></span><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a></span><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">use_array_example</span> (<span style="color:#0b0;font-weight:bold">unsigned</span> <span style="color:#0b0;font-weight:bold">int</span> flag) {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a></span><span>    <span style="color:#0b0;font-weight:bold">void</span><span style="color:#666">*</span> handler[] <span style="color:#666">=</span> {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a></span><span>	handler_A,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4</a></span><span>	handler_B,
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5</a></span><span>	handler_C
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6">6</a></span><span>    };
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7">7</a></span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8">8</a></span><span>    handler[flag]();
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9">9</a></span><span>}
 </span></span></code></pre></div><p>사용할 flag는 정해져 있고 함수 포인터를 담고 있는 배열을 사용한다면
 불필요한 분기로 인한 성능 손실을 없애고 곧바로 호출할 수 있기 때문에
 위와 같이 개선하려 했다. 하지만, 막상 switch 문에 대해 구글링 해보니
@@ -1740,7 +1740,7 @@ window.store = {
     "\/\/localhost:1313\/about\/": {
         "title": "About",
         "tags": [],
-        "content": " 이맥스를 사용하지만 VI 키 바인딩을 사용합니다. 이맥스를 사용하지만 여전히 어렵습니다. Gentoo Linux와 Arch Linux는 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. Github 계정이 뭐 그리 중요한가요 ", 
+        "content": " 이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다. ", 
         "url": "\/\/localhost:1313\/about\/"
     },
     
