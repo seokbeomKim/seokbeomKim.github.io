@@ -1,6 +1,5 @@
 ---
-draft: true
-title: "__is_constexpr macro in kernel"
+title: __is_constexpr macro in kernel
 date: 2021-03-21T22:44:03+09:00
 toc: false
 draft: false
