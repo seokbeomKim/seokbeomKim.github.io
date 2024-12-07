@@ -11,448 +11,448 @@
     <item>
       <title>Emacs</title>
       <link>/tags/emacs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Sep 2024 22:39:58 +0900</pubDate>
       <guid>/tags/emacs/</guid>
       <description></description>
     </item>
     <item>
       <title>Tree-Sitter</title>
       <link>/tags/tree-sitter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Sep 2024 22:39:58 +0900</pubDate>
       <guid>/tags/tree-sitter/</guid>
       <description></description>
     </item>
     <item>
       <title>Nfs</title>
       <link>/tags/nfs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
       <guid>/tags/nfs/</guid>
       <description></description>
     </item>
     <item>
       <title>Rpi</title>
       <link>/tags/rpi/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
       <guid>/tags/rpi/</guid>
       <description></description>
     </item>
     <item>
       <title>Tftp</title>
       <link>/tags/tftp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
       <guid>/tags/tftp/</guid>
       <description></description>
     </item>
     <item>
       <title>Device-Tree</title>
       <link>/tags/device-tree/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
       <guid>/tags/device-tree/</guid>
       <description></description>
     </item>
     <item>
       <title>Fwnode</title>
       <link>/tags/fwnode/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
       <guid>/tags/fwnode/</guid>
       <description></description>
     </item>
     <item>
       <title>Strcpy</title>
       <link>/tags/strcpy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>/tags/strcpy/</guid>
       <description></description>
     </item>
     <item>
       <title>Strlcpy</title>
       <link>/tags/strlcpy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>/tags/strlcpy/</guid>
       <description></description>
     </item>
     <item>
       <title>Strscpy</title>
       <link>/tags/strscpy/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>/tags/strscpy/</guid>
       <description></description>
     </item>
     <item>
       <title>File Descriptor</title>
       <link>/tags/file-descriptor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       <guid>/tags/file-descriptor/</guid>
       <description></description>
     </item>
     <item>
       <title>Kernel</title>
       <link>/tags/kernel/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       <guid>/tags/kernel/</guid>
       <description></description>
     </item>
     <item>
       <title>Overlay</title>
       <link>/tags/overlay/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       <guid>/tags/overlay/</guid>
       <description></description>
     </item>
     <item>
       <title>Canary</title>
       <link>/tags/canary/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       <guid>/tags/canary/</guid>
       <description></description>
     </item>
     <item>
       <title>Ssp</title>
       <link>/tags/ssp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       <guid>/tags/ssp/</guid>
       <description></description>
     </item>
     <item>
       <title>Stack</title>
       <link>/tags/stack/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       <guid>/tags/stack/</guid>
       <description></description>
     </item>
     <item>
       <title>Preprocessor</title>
       <link>/tags/preprocessor/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 16 Oct 2021 02:19:05 +0900</pubDate>
       <guid>/tags/preprocessor/</guid>
       <description></description>
     </item>
     <item>
       <title>Gcc</title>
       <link>/tags/gcc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       <guid>/tags/gcc/</guid>
       <description></description>
     </item>
     <item>
       <title>Kasan</title>
       <link>/tags/kasan/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       <guid>/tags/kasan/</guid>
       <description></description>
     </item>
     <item>
       <title>Dmabuf</title>
       <link>/tags/dmabuf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>/tags/dmabuf/</guid>
       <description></description>
     </item>
     <item>
       <title>Mmap</title>
       <link>/tags/mmap/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>/tags/mmap/</guid>
       <description></description>
     </item>
     <item>
       <title>V4l2</title>
       <link>/tags/v4l2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>/tags/v4l2/</guid>
       <description></description>
     </item>
     <item>
       <title>Vb2</title>
       <link>/tags/vb2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>/tags/vb2/</guid>
       <description></description>
     </item>
     <item>
       <title>Kgdb</title>
       <link>/tags/kgdb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       <guid>/tags/kgdb/</guid>
       <description></description>
     </item>
     <item>
       <title>__Is_constexpr</title>
       <link>/tags/__is_constexpr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       <guid>/tags/__is_constexpr/</guid>
       <description></description>
     </item>
     <item>
       <title>C</title>
       <link>/tags/c/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       <guid>/tags/c/</guid>
       <description></description>
     </item>
     <item>
       <title>Gdb</title>
       <link>/tags/gdb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       <guid>/tags/gdb/</guid>
       <description></description>
     </item>
     <item>
       <title>Mac_os</title>
       <link>/tags/mac_os/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       <guid>/tags/mac_os/</guid>
       <description></description>
     </item>
     <item>
       <title>Vmmem</title>
       <link>/tags/vmmem/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       <guid>/tags/vmmem/</guid>
       <description></description>
     </item>
     <item>
       <title>WSL</title>
       <link>/tags/wsl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       <guid>/tags/wsl/</guid>
       <description></description>
     </item>
     <item>
       <title>Coc</title>
       <link>/tags/coc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       <guid>/tags/coc/</guid>
       <description></description>
     </item>
     <item>
       <title>일상</title>
       <link>/tags/%EC%9D%BC%EC%83%81/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       <guid>/tags/%EC%9D%BC%EC%83%81/</guid>
       <description></description>
     </item>
     <item>
       <title>Computer Science</title>
       <link>/tags/computer-science/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
       <guid>/tags/computer-science/</guid>
       <description></description>
     </item>
     <item>
       <title>Mu4e</title>
       <link>/tags/mu4e/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       <guid>/tags/mu4e/</guid>
       <description></description>
     </item>
     <item>
       <title>Do_while</title>
       <link>/tags/do_while/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       <guid>/tags/do_while/</guid>
       <description></description>
     </item>
     <item>
       <title>Bsd</title>
       <link>/tags/bsd/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>/tags/bsd/</guid>
       <description></description>
     </item>
     <item>
       <title>List</title>
       <link>/tags/list/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>/tags/list/</guid>
       <description></description>
     </item>
     <item>
       <title>Queue</title>
       <link>/tags/queue/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>/tags/queue/</guid>
       <description></description>
     </item>
     <item>
       <title>ARRAY_SIZE</title>
       <link>/tags/array_size/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
       <guid>/tags/array_size/</guid>
       <description></description>
     </item>
     <item>
       <title>Poll</title>
       <link>/tags/poll/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       <guid>/tags/poll/</guid>
       <description></description>
     </item>
     <item>
       <title>Poll_wait</title>
       <link>/tags/poll_wait/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       <guid>/tags/poll_wait/</guid>
       <description></description>
     </item>
     <item>
       <title>Ioctl</title>
       <link>/tags/ioctl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       <guid>/tags/ioctl/</guid>
       <description></description>
     </item>
     <item>
       <title>Macro</title>
       <link>/tags/macro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       <guid>/tags/macro/</guid>
       <description></description>
     </item>
     <item>
       <title>Likely</title>
       <link>/tags/likely/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       <guid>/tags/likely/</guid>
       <description></description>
     </item>
     <item>
       <title>Unlikely</title>
       <link>/tags/unlikely/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       <guid>/tags/unlikely/</guid>
       <description></description>
     </item>
     <item>
       <title>Typedef</title>
       <link>/tags/typedef/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
       <guid>/tags/typedef/</guid>
       <description></description>
     </item>
     <item>
       <title>Debug</title>
       <link>/tags/debug/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       <guid>/tags/debug/</guid>
       <description></description>
     </item>
     <item>
       <title>Ftrace</title>
       <link>/tags/ftrace/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       <guid>/tags/ftrace/</guid>
       <description></description>
     </item>
     <item>
       <title>Gpio</title>
       <link>/tags/gpio/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       <guid>/tags/gpio/</guid>
       <description></description>
     </item>
     <item>
       <title>Uevent</title>
       <link>/tags/uevent/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       <guid>/tags/uevent/</guid>
       <description></description>
     </item>
     <item>
       <title>Ueventd</title>
       <link>/tags/ueventd/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       <guid>/tags/ueventd/</guid>
       <description></description>
     </item>
     <item>
       <title>Big Endian</title>
       <link>/tags/big-endian/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>/tags/big-endian/</guid>
       <description></description>
     </item>
     <item>
       <title>Endian</title>
       <link>/tags/endian/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>/tags/endian/</guid>
       <description></description>
     </item>
     <item>
       <title>Little Endian</title>
       <link>/tags/little-endian/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>/tags/little-endian/</guid>
       <description></description>
     </item>
     <item>
       <title>Colorspace</title>
       <link>/tags/colorspace/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>/tags/colorspace/</guid>
       <description></description>
     </item>
     <item>
       <title>Rgb</title>
       <link>/tags/rgb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>/tags/rgb/</guid>
       <description></description>
     </item>
     <item>
       <title>Yuv</title>
       <link>/tags/yuv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>/tags/yuv/</guid>
       <description></description>
     </item>
     <item>
       <title>Major Number</title>
       <link>/tags/major-number/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       <guid>/tags/major-number/</guid>
       <description></description>
     </item>
     <item>
       <title>Minor Number</title>
       <link>/tags/minor-number/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       <guid>/tags/minor-number/</guid>
       <description></description>
     </item>
     <item>
       <title>Jiffies</title>
       <link>/tags/jiffies/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       <guid>/tags/jiffies/</guid>
       <description></description>
     </item>
     <item>
       <title>Buildroot</title>
       <link>/tags/buildroot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       <guid>/tags/buildroot/</guid>
       <description></description>
     </item>
     <item>
       <title>Busybox</title>
       <link>/tags/busybox/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       <guid>/tags/busybox/</guid>
       <description></description>
     </item>
     <item>
       <title>Qemu</title>
       <link>/tags/qemu/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
       <guid>/tags/qemu/</guid>
       <description></description>
     </item>
     <item>
       <title>Cors</title>
       <link>/tags/cors/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       <guid>/tags/cors/</guid>
       <description></description>
     </item>

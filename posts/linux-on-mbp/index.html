@@ -1,0 +1,299 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    맥북에 리눅스 설치하기 | 평범한 개발자
+</title>
+  <meta name="description" content="개요 맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는 그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의 개발자라면 각종 IDE나 유닉스 환경의 맥에서도 충분히 리눅스 계열의 애플리케이션들을 포팅해서 사용할 수 있기에 제약사항이 많지 않다. 하지만 리눅스 커널 컴파일을 하려면 얘기가 달라진다. GNU GCC 자체도 포팅된 것을 준비해야할 뿐 아니라, glibc를 포함한 build essentials 패키지들이 리눅스용으로 설치되어 있어야 한다.
+그리고 시리얼 통신을 지원하는 애플리케이션의 경우 맥에서 사용할 수 있는게 많지 않다." />
+<meta property="og:url" content="http://localhost:1313/posts/linux-on-mbp/">
+  <meta property="og:site_name" content="평범한 개발자">
+  <meta property="og:title" content="맥북에 리눅스 설치하기">
+  <meta property="og:description" content="개요 맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는 그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의 개발자라면 각종 IDE나 유닉스 환경의 맥에서도 충분히 리눅스 계열의 애플리케이션들을 포팅해서 사용할 수 있기에 제약사항이 많지 않다. 하지만 리눅스 커널 컴파일을 하려면 얘기가 달라진다. GNU GCC 자체도 포팅된 것을 준비해야할 뿐 아니라, glibc를 포함한 build essentials 패키지들이 리눅스용으로 설치되어 있어야 한다.
+그리고 시리얼 통신을 지원하는 애플리케이션의 경우 맥에서 사용할 수 있는게 많지 않다.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2020-07-05T02:52:23+09:00">
+    <meta property="article:modified_time" content="2020-07-05T02:52:23+09:00">
+
+
+  <meta itemprop="name" content="맥북에 리눅스 설치하기">
+  <meta itemprop="description" content="개요 맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는 그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의 개발자라면 각종 IDE나 유닉스 환경의 맥에서도 충분히 리눅스 계열의 애플리케이션들을 포팅해서 사용할 수 있기에 제약사항이 많지 않다. 하지만 리눅스 커널 컴파일을 하려면 얘기가 달라진다. GNU GCC 자체도 포팅된 것을 준비해야할 뿐 아니라, glibc를 포함한 build essentials 패키지들이 리눅스용으로 설치되어 있어야 한다.
+그리고 시리얼 통신을 지원하는 애플리케이션의 경우 맥에서 사용할 수 있는게 많지 않다.">
+  <meta itemprop="datePublished" content="2020-07-05T02:52:23+09:00">
+  <meta itemprop="dateModified" content="2020-07-05T02:52:23+09:00">
+  <meta itemprop="wordCount" content="249">
+  <meta itemprop="keywords" content="Mac">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="맥북에 리눅스 설치하기">
+  <meta name="twitter:description" content="개요 맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는 그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의 개발자라면 각종 IDE나 유닉스 환경의 맥에서도 충분히 리눅스 계열의 애플리케이션들을 포팅해서 사용할 수 있기에 제약사항이 많지 않다. 하지만 리눅스 커널 컴파일을 하려면 얘기가 달라진다. GNU GCC 자체도 포팅된 것을 준비해야할 뿐 아니라, glibc를 포함한 build essentials 패키지들이 리눅스용으로 설치되어 있어야 한다.
+그리고 시리얼 통신을 지원하는 애플리케이션의 경우 맥에서 사용할 수 있는게 많지 않다.">
+
+<link rel="canonical" href="http://localhost:1313/posts/linux-on-mbp/" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+  
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "http://localhost:1313/posts/linux-on-mbp/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "Mac"
+  ],
+  "author": {
+    "@type": "Person",
+    "email": "sukbeom.kim@gmail.com",
+    "name": "Sukbeom Kim",
+    "url": "http://localhost:1313/about/"
+  },
+  "copyrightNotice": "Sukbeom Kim",
+  "datePublished": "2020-07-05",
+  "description": "개요 맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는 그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의 개발자라면 각종 IDE나 유닉스 환경의 맥에서도 충분히 리눅스 계열의 애플리케이션들을 포팅해서 사용할 수 있기에 제약사항이 많지 않다. 하지만 리눅스 커널 컴파일을 하려면 얘기가 달라진다. GNU GCC 자체도 포팅된 것을 준비해야할 뿐 아니라, glibc를 포함한 build essentials 패키지들이 리눅스용으로 설치되어 있어야 한다.\n그리고 시리얼 통신을 지원하는 애플리케이션의 경우 맥에서 사용할 수 있는게 많지 않다.",
+  "headline": "맥북에 리눅스 설치하기",
+  "isPartOf": {
+    "@id": "http://localhost:1313/posts/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "mainEntityOfPage": "http://localhost:1313/posts/linux-on-mbp/",
+  "name": "맥북에 리눅스 설치하기",
+  "timeRequired": "PT2M",
+  "url": "http://localhost:1313/posts/linux-on-mbp/",
+  "wordCount": 249
+}
+</script>
+
+
+  </head>
+  <body>
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        <div>
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
+  <a class="font-semibold" href="/">평범한 개발자</a>
+</div>
+
+  <nav>
+    <ul class="flex flex-row items-center justify-end space-x-4">
+    <li>
+      <a aria-current="true" class="ancestor" href="/posts/">Posts</a
+      >
+    </li>
+    <li>
+      <a href="/graph/">Graph</a
+      >
+    </li>
+    <li>
+      <a href="/about/">About</a
+      >
+    </li>
+    </ul>
+  </nav>
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">맥북에 리눅스 설치하기</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2020-07-05T02:52:23&#43;09:00"
+            >July 5, 2020</time
+          >
+        </div>
+    </header>
+
+    <h3 id="개요" class="scroll-mt-8 group">
+  개요
+  
+    <a href="#%ea%b0%9c%ec%9a%94"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>맥을 사용하면서 한 가지 느낀 점은 맥 운영체제가 로우 레벨 개발자에게는
+그닥 좋지 않은 운영체제라는 것이다. 일반 애플리케이션이나 웹 분야의
+개발자라면 각종 IDE나 유닉스 환경의 맥에서도 충분히 리눅스 계열의
+애플리케이션들을 포팅해서 사용할 수 있기에 제약사항이 많지
+않다. 하지만 리눅스 커널 컴파일을 하려면 얘기가 달라진다. GNU GCC
+자체도 포팅된 것을 준비해야할 뿐 아니라, glibc를 포함한 build
+essentials 패키지들이 리눅스용으로 설치되어 있어야 한다.</p>
+<p>그리고 시리얼 통신을 지원하는 애플리케이션의 경우 맥에서 사용할 수
+있는게 많지 않다. 멀티미디어 분야를 주력으로 애플리케이션을 이용하는
+사용자에게는 매력적이겠지만, 로우레벨의 개발자들에게는 지원이 너무나도
+적은 운영체제이다.</p>
+<p>아직까지 x86 계열의 17년형 맥북이므로 ARM 계열까지 바뀌려면 아직
+시간이 남았다. 부트캠프도 지원하는 마당에 리눅스도 함께 설치할 수
+있을거라 생각했는데 다행히 여러 곳에서 이미 진행이 되고 있었고
+고질적인 문제들이 몇 개 남아있지만 크리티컬한 것은 아니어서 아주
+만족스럽다.</p>
+<p>아래는 리눅스를 설치하는데 참고한 사이트이다. 기존에는 리눅스를
+설치했을 때 오디오나 터치패드 사용에 문제가 있었는데 블로그의 내용
+덕분에 필요한 삽질들을 줄일 수 있었다.</p>
+<p><img src="/img/system_info_mpg.png" alt="System Information"></p>
+<p>참고 사이트는 <a href="https://dev.to/cmiranda/linux-on-macbook-pro-2016-1onb">https://dev.to/cmiranda/linux-on-macbook-pro-2016-1onb</a>
+와 <a href="https://github.com/Dunedan/mbp-2016-linux">https://github.com/Dunedan/mbp-2016-linux</a> 사이트이다.</p>
+<h3 id="설치-환경-및-이슈" class="scroll-mt-8 group">
+  설치 환경 및 이슈
+  
+    <a href="#%ec%84%a4%ec%b9%98-%ed%99%98%ea%b2%bd-%eb%b0%8f-%ec%9d%b4%ec%8a%88"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>설치 환경은 17년형 논터치바 13인치 맥북(mbp14,1)이다. 아래와 같은
+사소한 이슈들이 있지만 개발 환경 구성에 크게 문제되지는
+않는다. 나타나는 이슈들은 맥북 모델에 따라 다르고 실험적인 환경
+구성이기 때문에 안정화 되어 있지 않다.</p>
+<ul>
+<li>
+<p>Wired connection / Wireless connection: 시스템 suspend 나 재시작 시
+인터넷 문제 발생 (둘 중 하나는 사용 불가)</p>
+</li>
+<li>
+<p>5GHz WiFi 사용 불가능</p>
+</li>
+</ul>
+<p>원래는 젠투나 아치리눅스를 설치하려고 했지만, 어떤 문제가 나타날지도
+모르는 상태에서 오디오 패치나 펌웨어 설정 등 데비안 계열로 누군가가
+작업해놓은 것을 적용하기 위해서 민트 리눅스를 새로 사용해보기로
+했다. 오디오는 cirrus 드라이버 설치로 문제를 해결할 수 있었고
+<a href="https://github.com/leifliddy/snd_hda_macbookpro.git">https://github.com/leifliddy/snd_hda_macbookpro.git</a> git에서 받을 수
+있다.</p>
+
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
+
+        <span>Categories</span>
+      </h2>
+
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/mac/" class="taxonomy category">mac</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4" aria-hidden="true">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-chart-network h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="m13.11 7.664 1.78 2.672M14.162 12.788l-3.324 1.424M20 4l-6.06 1.515M3 3v16a2 2 0 0 0 2 2h16"
+  />
+  <circle cx="12" cy="6" r="2" />
+  <circle cx="16" cy="12" r="2" />
+  <circle cx="9" cy="15" r="2" />
+</svg>
+
+        <span>Graph</span>
+      </h2>
+
+      <content-network-graph
+  class="h-64 ml-6"
+  data-endpoint="/graph/index.json"
+  page="/posts/linux-on-mbp/"
+></content-network-graph>
+
+    </section>
+</aside>
+
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2024, Sukbeom Kim.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+    
+  </body>
+</html>

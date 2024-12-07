@@ -1,0 +1,597 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    Posts | 평범한 개발자
+</title>
+<meta property="og:url" content="http://localhost:1313/posts/">
+  <meta property="og:site_name" content="평범한 개발자">
+  <meta property="og:title" content="Posts">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+
+  <meta itemprop="name" content="Posts">
+  <meta itemprop="datePublished" content="2024-09-09T22:39:58+09:00">
+  <meta itemprop="dateModified" content="2024-09-09T22:39:58+09:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Posts">
+
+<link rel="canonical" href="http://localhost:1313/posts/" /><link rel="alternate" type="application/rss&#43;xml" href="http://localhost:1313/posts/index.xml" /><link rel="alternate" type="application/json" href="http://localhost:1313/posts/index.json" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+  
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "author": {
+    "@type": "Person",
+    "email": "sukbeom.kim@gmail.com",
+    "name": "Sukbeom Kim",
+    "url": "http://localhost:1313/about/"
+  },
+  "copyrightNotice": "Sukbeom Kim",
+  "description": "",
+  "headline": "Posts"
+}
+</script>
+
+
+  </head>
+  <body>
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        <div>
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
+  <a class="font-semibold" href="/">평범한 개발자</a>
+</div>
+
+  <nav>
+    <ul class="flex flex-row items-center justify-end space-x-4">
+    <li>
+      <a aria-current="page" class="active" href="/posts/">Posts</a
+      >
+    </li>
+    <li>
+      <a href="/graph/">Graph</a
+      >
+    </li>
+    <li>
+      <a href="/about/">About</a
+      >
+    </li>
+    </ul>
+  </nav>
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        
+  <h1 class="flex flex-row space-x-2 items-center">
+    <span>Posts</span><a
+        rel="alternate"
+        type="application/rss+xml"
+        href="/posts/index.xml"
+        title="Subscribe to the Posts RSS feed"
+        class="text-slate-300 hover:text-orange-600"
+      >
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-rss block"
+>
+  <path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16" />
+  <circle cx="5" cy="19" r="1" />
+</svg>
+
+      </a>
+  </h1>
+
+  
+
+  <div class="flex flex-col space-y-8">
+    
+    
+      <section class="not-prose flex flex-col space-y-4">
+        <h2 class="text-xl font-semibold opacity-60 text-right border-b">2020</h2>
+
+        <div class="not-prose">
+  <ol>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/emacs-as-default-editor/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >이맥스 기본 에디터로 사용하기</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-02-09T03:09:59&#43;00:00"
+              >February 9, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편이다. daemon 형태로 실행한다고 해도, 첫 로드를 위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에 편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로 로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.
+데몬 형태로 실행하는 것을 사용자 레벨의 systemd로 활성화함으로써 로그인 시에 자동으로 실행되게 한다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/ftrace/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >ftrace 이용한 커널 디버깅</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-02-06T23:43:34&#43;09:00"
+              >February 6, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀 내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지 않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 ftrace가 있다는 것을 알게 됐다.
+예전에 젠투 리눅스를 사용할 무렵, menuconfig에서 커널 해킹이라는 흥미로운 메뉴에서 알 수 없는 tracer라는 메뉴로만 본 것으로 이해하지 직접적으로 사용한 적은 없었는데, 실제 사용해보니 생각보다 많은 옵션, 정보들을 보여주었다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/raspberry-pi-sub-projects/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Raspberry Pi를 이용한 사이드 프로젝트</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-02-05T00:53:22&#43;09:00"
+              >February 5, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">카메라 포팅 건으로 불필요한 업무가 지속적으로 들어온다. 포팅을 위한 기본적인 것들을 자동화 하거나 유틸리티 형태로 제공할 수 있어야 한다는 것을 뼈저리게 느꼈다. 특히, 오늘은 고객사의 디바이스 트리 내 오타로 인해 Pin Control이 안됐던 원인을 찾고 나니 그러한 유틸리티의 필요성을 뼈저리게 느꼈다.
+사이드 프로젝트를 통해 개발에 대한 갈증을 해소하고 불필요하게 업무에 투입되는 시간을 줄이기 위해서라도 3개월 정도의 시간을 들여 만들고자 한다. 라즈베리파이를 이용해 유틸리티는 디바이스 모듈과 함께 연동되도록 설계하고 ncurses를 이용하여 UI를 제공하도록 할 계획이다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/wayland/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Wayland과 Weston</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-02-03T23:17:11&#43;09:00"
+              >February 3, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">개요 직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을 맞추고 gnome이나 kde, xfce가 아닌 fluxbox, blackbox, i3, xmonad, enlightenment 등을 이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서 사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도 몰랐다.
+이번 포스팅에서는 사내 위키의 내용을 출처로 하여, wayland, weston에 대한 구조를 살펴보고 클라이언트 예제를 기술하고자 한다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/yocto-and-chroot/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Chroot 환경을 이용한 Yocto 환경 구성</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-02-01T23:27:45&#43;09:00"
+              >February 1, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">우분투 버전과 Yocto 버전 AGL (Automotive Grande Linux) 라는 오픈소스 프로젝트에 참여해보기 위해 개발 환경을 구성하였다. 작업 환경은 가장 최신 버전의 우분투 21.10 버전으로 구성하였다. 개인적으로 Rolling Release 배포판인 아치리눅스나 젠투 리눅스들을 선호하지만 사용자가 많고 프로젝트 대부분에서 데비안 타입의 패키징을 지원하므로, 익숙한 우분투를 사용하기로 했다.
+한 가지 중요한 것은 우분투의 경우 각 버전마다 빌드 환경이 다르고, Yocto의 경우 이러한 빌드 환경에 의존성을 가지고 있다는 것이다. 처음 Ubuntu 21.10 버전에서 레시피를 빌드했을 때 아래와 같은 에러 메시지에 맞딱드렸다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/arm64_kernel_memory_map/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >ARM64에서의 커널 메모리 맵</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-02-01T23:27:45&#43;09:00"
+              >February 1, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">ARM64에서의 커널 메모리 맵 &lt;코드로 알아보는 ARM 리눅스 커널&gt; 에서의 &ldquo;페이징과 매핑&quot;이라는 챕터를 읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자 한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을 매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소 공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.
+ARM64 커널에서는 64비트 가상 주소의 시작 부분과 끝부분의 영역을 사용한다. 이 때, 가상 주소 기준으로 각 끝 영역을 사용한다는 점에 유의해야 한다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/gpio_mapping/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >GPIO Mapping</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-01-31T23:48:06&#43;09:00"
+              >January 31, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.
+GPIO 데이터를 맵핑하여 사용할 수 있는 방법은 아래와 같이 세 가지 방법이 있다.
+디바이스 트리 이용 (최근 트렌드) Legacy Board &amp; Machine Specific Code에서 플랫폼 데이터로 정의 (출처에 따르면) GPIO 맵핑을 플랫폼 데이터에 등록하여 사용하는 경우는 많지 않고 단순하게 핀 번호로 사용하는 경우가 대부분이었다고 한다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/android_uevent_and_ueventd/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >안드로이드의 uevent, ueventd</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-01-30T23:34:30&#43;09:00"
+              >January 30, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. ueventd.rc 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.
+본 포스팅에서는 uevent와 ueventd가 무엇인지 살펴보고 안드로이드 init 과정에서 어떻게 활용되는지 살펴보기로 한다.
+여담으로 안드로이드의 uevent는 리눅스의 udev 와 비슷한 역할을 하면서도 조금 다르다. 리눅스의 일반적인 환경 구성이 devfs + udev 로 디바이스 노드 파일들을 관리한다면, 안드로이드는 ueventd를 이용하여 노드 파일들을 관리한다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/mem_vs_kmem/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >/dev/mem vs. /dev/kmem</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-01-29T23:30:44&#43;09:00"
+              >January 29, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">개요 업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때, /dev/mem 디바이스 노드가 반드시 있어야 한다고 들었기에 Kconfig에서 관련 설정 플래그를 찾던 중 kmem 이라는 것도 있다는 것을 알게 되었다. 문득 이 둘의 차이점과 공식적(?)인 디버깅 툴이 어떤 것이 있는지 알아보고자 한다.
+/dev/mem vs. /dev/kmem 이 둘의 차이점은 출처에 따르면 아래와 같이 나와있다.
+/dev/mem is a device file that directly represents physical memory, so an open(/dev/mem)/seek(1000)/read(10) system call combination ends up reading 10 bytes from RAM address 1000.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/kobject/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Kobject</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-01-28T22:25:50&#43;09:00"
+              >January 28, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">kobjects, ktypes, ksets 디바이스 트리를 살펴보다 kobject 에 대한 내용이 언급되기 시작했다. 단순한 객체가 아니라 특수한 목적으로 사용될 것이라 예상되어 관련 내용을 찾아보았다.
+c&#43;&#43; c&#43;&#43; code snippet start
+61 struct kobject { 62 const char *name; 63 struct list_head entry; 64 struct kobject *parent; 65 struct kset *kset; 66 struct kobj_type *ktype; 67 struct kernfs_node *sd; 68 struct kref kref; 69 #ifdef CONFIG_DEBUG_KOBJECT_RELEASE 70 struct delayed_work release; 71 #endif 72 unsigned int state_initialized:1; 73 unsigned int state_in_sysfs:1; 74 unsigned int state_add_uevent_sent:1; 75 unsigned int state_remove_uevent_sent:1; 76 unsigned int uevent_suppress:1; 77 }; c&#43;&#43; code snippet end</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/endian/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Little Endian vs. Big Endian</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-01-27T22:27:06&#43;09:00"
+              >January 27, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.
+엔디안(Endianness)은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. 엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.
+Big-Endian: 최상위 바이트(MSB)부터 차례로 저장하는 방식 (사람이 읽고 쓰는 방식과 비슷함) Little-Endian: 최하위 바이트(LSB)부터 차례로 저장하는 방식 예제 예를 들어, 메모리에 0x12345678을 대입한다고 했을 때, 빅 엔디안과 리틀 엔디안 각각 아래와 같이 저장된다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/digital_output_formats/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >영상 출력 포맷</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-01-26T17:44:18&#43;09:00"
+              >January 26, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">디지널 출력 포맷 아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타겟으로 한 표준들이 나오고 있다. 디지털 텔레비전의 부호화 파라미터들을 정의한 권고안으로서 601은 모든 컴포넌트 디지털 영상 표준에 대한 기초가 되었다.
+규격 내용 각 표준에는 아래와 같은 내용들을 정의한다.
+화면비 휘도 및 색 신호에 대한 처리 영상 포맷 형식 기준 주파수 샘플링 주파수 샘플링 및 코딩 형식 BT.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/color-space/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >색 공간(Color Space)</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2020-01-26T16:39:36&#43;09:00"
+              >January 26, 2020</time
+            >
+          </header>
+
+          <div class="text-sm">색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.
+색 포맷에 대한 비트 구성은 표준에 따르지 않고 각 플랫폼 환경에 따라 달라지므로 SoC 데이터시트를 참고하여 컴포넌트에서 어떻게 구성되는지 확인해야 한다.</div>
+        </article>
+      </li>
+  </ol>
+</div>
+
+      </section>
+      <section class="not-prose flex flex-col space-y-4">
+        <h2 class="text-xl font-semibold opacity-60 text-right border-b">2019</h2>
+
+        <div class="not-prose">
+  <ol>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/bootloader/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >부트로더(Bootloader)</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2019-06-23T22:47:44&#43;09:00"
+              >June 23, 2019</time
+            >
+          </header>
+
+          <div class="text-sm">이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램, 네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.
+브투로더는 개인용 컴퓨터의 BIOS(Basic Input Output System)와 유사하다고 생각하면 된다. BIOS는 처음 전원을 공급하면 메인보드의 CMOS에 저장된 설정값을 읽어서 하드웨어를 초기화하고 그래픽 카드 정보 및 바이오스 정보를 출력한 다음 POST(Power-On Self Test) 과정을 수행하고 하드디스크나 CD-ROM 또는 플로피디스크에서 운영체제를 찾아 부팅한다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/posix-spawn-errors/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >command: posix_spawn failed: Resource temporarily unavailable</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2019-06-23T10:46:29&#43;09:00"
+              >June 23, 2019</time
+            >
+          </header>
+
+          <div class="text-sm">QEMU를 맥에서 빌드하던 중 아래와 같은 에러가 출력되었다.
+이를 위한 해결 방법은 링크에서 쉽게 찾을 수 있었는데 한번에 실행할 수 있는 프로세스의 개수 제한이 너무 낮아 발생하는 문제라고 한다. 이 때 아래와 같이
+sudo sysctl -w kern.maxproc=2500 sudo sysctl -w kern.maxprocperuid=2500
+명령어를 통해 제한값을 높여주면 해결된다. 맥은 설치는 쉬운데 왜이리도 설정해줘야 많은지 모르겠다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/qemu-arm-versatile/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >QEMU 이용한 임베디드 개발 환경 구축하기</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2019-06-22T21:29:27&#43;09:00"
+              >June 22, 2019</time
+            >
+          </header>
+
+          <div class="text-sm">임베디드 분야로 공부를 하기 위해 보드를 구매하였지만, 보드 없이도 가상으로 개발하는 방법은 없을까 고민하던 중 QEMU를 이용하는 방법을 찾게 되었다. 특정 프로세서에 대한 에뮬레티어 기능을 이용해 단순 커널 분석을 위해 사용할 수 있을 뿐만 아니라, machine 자체도 에뮬레이팅이 가능하기 때문에 임베디드 쪽으로도 많이 사용된다고 한다.
+개발 환경 구축을 위해서는 리눅스가 필수인데 필자는 여건상 어쩔 수 없이 맥에서 리눅스 도커 이미지를 사용하는 방식으로 하여 크로스 빌드는 컨테이너에서, 빌드된 이미지는 호스트인 맥에서 실행하는 방식으로 진행하였다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/rcu/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >RCU (Read, Copy, Update)</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2019-06-04T17:34:42&#43;09:00"
+              >June 4, 2019</time
+            >
+          </header>
+
+          <div class="text-sm">1. 들어가기 전에 &hellip; 앞으로 기술하는 내용은 http://jake.dothome.co.kr/rcu/#comment-214230 에서 발췌하여 정리하는 내용이므로 원본 내용 확인을 위해서는 링크에서 직접 보길 권한다. RCU 내용 뿐만 아니라, 리눅스 커널 전반적인 내용에 대해 정말 자세하게 정리가 잘 되어있다.
+RCU(Read, Copy, Update)란 리눅스 커널 내에서 주로 읽기 연산만 일어나고 쓰기 연산의 비중은 매우 작은 객체에 주로 쓰이는 동기화 기법이다. Reader-Writer 락과 비슷한 동기화 기법인데, RW 락에 대해 RCU가 가지는 상대적인 강점으로는 읽기 연산이 wait-free(읽기 연산에 대해 Block이 일어나지 않음)이며 그 오버헤드가 극도로 작다는 점 등이 있다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/locks-in-the-kernel-4/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >리눅스 커널 락 종류 (4/5)</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2019-06-04T16:40:28&#43;09:00"
+              >June 4, 2019</time
+            >
+          </header>
+
+          <div class="text-sm">BKL(Big Kernel Lock)은 커널 2.0에서 SMP와 함께 소개된 락으로서 Giant-Lock, Big-Lock 또는 Kernel-Lock 으로 알려졌었다. 2.0 버전의 커널에서는 한 번에 하나의 스레드만이 커널 모드에서 동작하기 위해 락(Lock)을 획득해야 커널 모드로 진입되었고 나머지 프로세서들은 락을 획득하기 위해 대기한다. 하지만 이 후, 성능, 실시간 애플리케이션에 대한 latency 이슈로 BKL(Big Kernel Lock)은 스핀락과 뮤텍스, RCU 등으로 대체되면서 현재는 거의 관련 코드가 제거되어 있는 상태이다.
+lock_kernel(): Acquires the BKL unlock_kernel(): Releases the BKL kernel_locked(): Returns nonzero if the lock is held and zero otherwise (UP always returns nonzero) BKL은 프로세서들이 동시에 커널에 진입하는 것을 막아 동기화 문제를 해결한다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/locks-in-the-kernel-3/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >리눅스 커널 락 종류 (3/5)</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2019-06-04T11:40:12&#43;09:00"
+              >June 4, 2019</time
+            >
+          </header>
+
+          <div class="text-sm">이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는 해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는 자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면 대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.
+세마포어는 아래와 같은 경우에 적합하다.
+태스크, 즉 프로세스의 상태는 TASK_RUNNING, TASK_INTERRUPTIBLE, TASK_UNINTERRUPTIBLE 로 나눌 수 있으며, 이 중 TASK_INTERRUPTIBLE 상태가 프로세스가 휴면에 진입한 상태로 프로세스를 깨우면 다시 TASK_RUNNING(실행 대기) 상태로 변경된다.</div>
+        </article>
+      </li>
+      <li class="mb-6">
+        <article class="flex flex-col space-y-1">
+          <header>
+            <h3 class="text-lg font-semibold leading-none">
+              <a
+                href="/posts/major-and-minor-numbers/"
+                class="underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+                >Major와 Minor Numbers</a
+              >
+            </h3><time class="text-sm italic leading-5 opacity-80" datetime="2019-05-31T18:37:25&#43;09:00"
+              >May 31, 2019</time
+            >
+          </header>
+
+          <div class="text-sm">세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, &lsquo;c&rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.</div>
+        </article>
+      </li>
+  </ol>
+</div>
+
+      </section>
+      
+  <ul class="pagination">
+    
+      
+        <li class="page-item">
+          <a href="/posts/" aria-label="First" class="page-link" role="button"
+            ><span aria-hidden="true">&laquo</span></a
+          >
+        </li>
+      <li class="page-item">
+        <a href="/posts/page/3/" aria-label="Previous" class="page-link" role="button"
+          ><span aria-hidden="true">&#8249;</span></a
+        >
+      </li>
+        <li class="page-item">
+          <a
+            href="/posts/page/2/"
+            aria-label="Page 2"
+            class="page-link"
+            role="button"
+            >2</a
+          >
+        </li>
+        <li class="page-item">
+          <a
+            href="/posts/page/3/"
+            aria-label="Page 3"
+            class="page-link"
+            role="button"
+            >3</a
+          >
+        </li>
+        <li class="page-item active">
+          <a
+            aria-current="page"
+            aria-label="Page 4"
+            class="page-link"
+            role="button"
+            >4</a
+          >
+        </li>
+        <li class="page-item">
+          <a
+            href="/posts/page/5/"
+            aria-label="Page 5"
+            class="page-link"
+            role="button"
+            >5</a
+          >
+        </li>
+        <li class="page-item">
+          <a
+            href="/posts/page/6/"
+            aria-label="Page 6"
+            class="page-link"
+            role="button"
+            >6</a
+          >
+        </li>
+      <li class="page-item">
+        <a href="/posts/page/5/" aria-label="Next" class="page-link" role="button"
+          ><span aria-hidden="true">&#8250;</span></a
+        >
+      </li>
+        <li class="page-item">
+          <a href="/posts/page/6/" aria-label="Last" class="page-link" role="button"
+            ><span aria-hidden="true">&raquo;</span></a
+          >
+        </li>
+  </ul>
+  </section>
+  </div>
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2024, Sukbeom Kim.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+    
+  </body>
+</html>

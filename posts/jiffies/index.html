@@ -1,0 +1,1404 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    지피(Jiffies) | 평범한 개발자
+</title>
+  <meta name="description" content="오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.
+커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다." />
+<meta property="og:url" content="http://localhost:1313/posts/jiffies/">
+  <meta property="og:site_name" content="평범한 개발자">
+  <meta property="og:title" content="지피(Jiffies)">
+  <meta property="og:description" content="오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.
+커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-05-26T10:38:40+09:00">
+    <meta property="article:modified_time" content="2019-05-26T10:38:40+09:00">
+    <meta property="article:tag" content="Jiffies">
+
+
+  <meta itemprop="name" content="지피(Jiffies)">
+  <meta itemprop="description" content="오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.
+커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.">
+  <meta itemprop="datePublished" content="2019-05-26T10:38:40+09:00">
+  <meta itemprop="dateModified" content="2019-05-26T10:38:40+09:00">
+  <meta itemprop="wordCount" content="1478">
+  <meta itemprop="keywords" content="Jiffies">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="지피(Jiffies)">
+  <meta name="twitter:description" content="오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.
+커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.">
+
+<link rel="canonical" href="http://localhost:1313/posts/jiffies/" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+  
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "http://localhost:1313/posts/jiffies/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "Computer Science"
+  ],
+  "author": {
+    "@type": "Person",
+    "email": "sukbeom.kim@gmail.com",
+    "name": "Sukbeom Kim",
+    "url": "http://localhost:1313/about/"
+  },
+  "copyrightNotice": "Sukbeom Kim",
+  "datePublished": "2019-05-26",
+  "description": "오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시스템 시작 이후 발생한 진동 횟수(tick)이 저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머 인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회 발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은 jiffies / HZ(초)가 된다.\n커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기 위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이 필요한 경우에는 이 차이(offset)값을 빼야 한다.",
+  "headline": "지피(Jiffies)",
+  "isPartOf": {
+    "@id": "http://localhost:1313/posts/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "keywords": [
+    "Jiffies"
+  ],
+  "mainEntityOfPage": "http://localhost:1313/posts/jiffies/",
+  "name": "지피(Jiffies)",
+  "timeRequired": "PT7M",
+  "url": "http://localhost:1313/posts/jiffies/",
+  "wordCount": 1478
+}
+</script>
+
+
+  </head>
+  <body>
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        <div>
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
+  <a class="font-semibold" href="/">평범한 개발자</a>
+</div>
+
+  <nav>
+    <ul class="flex flex-row items-center justify-end space-x-4">
+    <li>
+      <a aria-current="true" class="ancestor" href="/posts/">Posts</a
+      >
+    </li>
+    <li>
+      <a href="/graph/">Graph</a
+      >
+    </li>
+    <li>
+      <a href="/about/">About</a
+      >
+    </li>
+    </ul>
+  </nav>
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">지피(Jiffies)</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2019-05-26T10:38:40&#43;09:00"
+            >May 26, 2019</time
+          >
+        </div>
+    </header>
+
+    <!-- raw HTML omitted -->
+<p>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한
+뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인
+<code>jiffies</code>에는 시스템 시작 이후 발생한 진동 횟수(tick)이
+저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머
+인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회
+발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은
+<code>jiffies / HZ</code>(초)가 된다.</p>
+<p>커널은 버그 식별을 위해 jiffies 변수의 오버플로우 현상이 자주 일어나기
+위해 jiffies 변수를 0이 아닌 특별한 값으로 초기화하며 실제 jiffies값이
+필요한 경우에는 이 차이(offset)값을 빼야 한다.</p>
+<h2 id="지피-비교를-위한-매크로" class="scroll-mt-8 group">
+  지피 비교를 위한 매크로
+  
+    <a href="#%ec%a7%80%ed%94%bc-%eb%b9%84%ea%b5%90%eb%a5%bc-%ec%9c%84%ed%95%9c-%eb%a7%a4%ed%81%ac%eb%a1%9c"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<p><code>jiffies</code>는 <code>unsigned long</code> 타입으로 언젠가는 오버플로우가 발생하게
+된다. 오버플로우에 대한 내용을 찾던 중 재미있는 함수를 발견했는데 이와
+관련해 잠깐 설명하고자 한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-01 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-01"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#define time_after(a,b)		\
+</span></span></span><span class="line"><span class="cl"><span class="cp">	(typecheck(unsigned long, a) &amp;&amp; \
+</span></span></span><span class="line"><span class="cl"><span class="cp">	 typecheck(unsigned long, b) &amp;&amp; \
+</span></span></span><span class="line"><span class="cl"><span class="cp">	 ((long)((b) - (a)) &lt; 0))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define time_before(a,b)	time_after(b,a)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define time_after_eq(a,b)	\
+</span></span></span><span class="line"><span class="cl"><span class="cp">	(typecheck(unsigned long, a) &amp;&amp; \
+</span></span></span><span class="line"><span class="cl"><span class="cp">	 typecheck(unsigned long, b) &amp;&amp; \
+</span></span></span><span class="line"><span class="cl"><span class="cp">	 ((long)((a) - (b)) &gt;= 0))
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define time_before_eq(a,b)	time_after_eq(b,a)</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>예전에 지피(jiffies) 비교 매크로를 보면서 이게 어떻게 작동할 수 있는지
+확실하게 이해하지 못했었는데 이는 <code>signed, unsigned와 실제 바이트와의 관계</code>를 내가 정확하게 이해하지 못하고 있었기 때문이었다.</p>
+<p>맘에 들지는 않지만, 스택 오버플로우에 매우 친절하게 설명되어 있는
+답변이 있었다. unsigned와 signed의 관계를 자세하게 나타냈는데 아래와
+같이 표현해주었다. 아래 그림(?)은 편의상 <code>unsigned long</code> 대신
+<code>unsigned int</code>와 <code>signed int</code>의 관계를 나타낸 그림이다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-02">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">text</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-02 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-02"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">text code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[0x0      -              -                  -               0xFFFF]
+</span></span><span class="line"><span class="cl">[0x0                       0x7FFF][0x8000                   0xFFFF]
+</span></span><span class="line"><span class="cl">[0                         32,767][-32,768                      -1]</span></span></code></pre></div>
+  <p class="sr-only">text code snippet end</p>
+
+  
+</figure>
+<p>integer unsigned 형태는 0x0부터 0xFFFF(4bytes, 2^32)까지의 값 범위를
+가지고 있고 signed는 그 절반을 갖고 있다. 이 때 중요한 점은 signed의
+양수 범위를 초과하는 순간 -1로 되는 것이 아니라 음수 최소값으로
+돌아간다는 점이다. 그러므로 0xFFFF는 -1이 된다.</p>
+<p>지피를 비교하는 경우로 다시 돌아가보자. 비교할 지피 <code>t1, t2</code>에 대해 1)
+모두 양수인 경우, 2) 모두 음수인 경우, 3) 한쪽은 양수, 한쪽은 음수인
+경우를 생각해 볼 수 있다.</p>
+<p>이를 비교하기 위해 아래와 같이 간단하게 코드를 짜본뒤 확인해보자.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-03">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-03 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-03"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/* unsigned long 오버플로우 검사 */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 0x0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">t2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">t3</span> <span class="o">=</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 0xffffffff
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">t4</span> <span class="o">=</span> <span class="p">(</span><span class="n">t1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 중간 값(signed 최대)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;(unsigned)t1 = %lu, t2 = %lu, t3 = %lu, t4 = %lu</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">,</span> <span class="n">t4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;(signed)t1 = %ld, t2 = %ld, t3 = %ld, t4 = %ld, t4+1 = %ld</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">,</span> <span class="n">t4</span><span class="p">,</span> <span class="n">t4</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* case 1. 비교 대상이 모두 양수일 때  */</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;case 1: t1 - t2 as long: %ld</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">t1</span> <span class="o">-</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">t2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* case 2. 비교 대상이 모두 음수일 때 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;case 2: (t4 + 1) - (t4 + 2): %ld</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="n">t4</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">t4</span><span class="o">+</span><span class="mi">2</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* case 3-1. 비교 대상이 서로 다른 부호일 때 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;case 3-1: t3 - t1 as long: %ld</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)((</span><span class="n">t3</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">t1</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/* case 3-2. 비교 대상이 서로 다른 부호일 때 */</span>
+</span></span><span class="line"><span class="cl"><span class="n">printf</span><span class="p">(</span><span class="s">&#34;case 3-2: t4 - (t4 + 1): %ld</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="n">t4</span> <span class="o">-</span> <span class="p">(</span><span class="kt">long</span><span class="p">)(</span><span class="n">t4</span> <span class="o">+</span> <span class="mi">1</span><span class="p">));</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>이에 대한 출력 결과는 다음과 같다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-04">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative"></span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-04 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-04"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only"> code snippet start</p>
+  <pre tabindex="0"><code>(unsigned)t1 = 0, t2 = 1, t3 = 18446744073709551615, t4 = 9223372036854775807
+(signed)t1 = 0, t2 = 1, t3 = -1, t4 = 9223372036854775807, t4+1 = -9223372036854775808
+case 1: t1 - t2 as long: -1
+case 2: (t4 + 1) - (t4 + 2): -1
+case 3-1: t3 - t1 as long: -1
+case 3-2: t4 - (t4 + 1): -1</code></pre>
+  <p class="sr-only"> code snippet end</p>
+
+  
+</figure>
+<p>즉, 앞서가는 unsigned, signed의 특성 상 앞서가는 포인트에 대해 signed
+범위 안에서 값을 비교하면 그 결과 범위가 양수 또는 음수로 나오게 된다.</p>
+<h2 id="매크로-속-typecheck" class="scroll-mt-8 group">
+  매크로 속 typecheck
+  
+    <a href="#%eb%a7%a4%ed%81%ac%eb%a1%9c-%ec%86%8d-typecheck"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<p>여기서 사용된 <code>typecheck</code> 함수를 잠깐 살펴보자. typecheck는 무조건
+참(1) 값을 반환하는 매크로 함수이다. 그럼에도 사용하는 이유는 컴파일
+타임에서 인자로 전달한 타입과 변수의 타입을 서로 비교하여 같은지
+여부를 나타낼 수 있는 일종의 트릭을 사용하고 있기 때문이다. (커널
+해킹을 시작한지 얼마되지 않은 시점에서 오랜만에 느껴보는 즐거움이다.)
+아래는 typecheck를 구현한 코드이다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-05">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-05 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-05"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#define typecheck(type,x) \
+</span></span></span><span class="line"><span class="cl"><span class="cp">({ type __dummy; \
+</span></span></span><span class="line"><span class="cl"><span class="cp">typeof(x) __dummy2; \
+</span></span></span><span class="line"><span class="cl"><span class="cp">(void)(&amp;__dummy == &amp;__dummy2); \
+</span></span></span><span class="line"><span class="cl"><span class="cp">1; \
+</span></span></span><span class="line"><span class="cl"><span class="cp">})</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>재미있는 것은 반환값은 항상 1이지만 반환 전에 <code>(void)(&amp;__dummy == &amp;__dummy2);</code> 부분을 통해 각 변수의 타입으로 만든 포인터가 일치하는지를
+경고 또는 에러 메세지로 출력한다. 런타임 시의 결과를 기대하는 코드가
+아니라, 컴파일 시의 결과를 기대하며 짠 코드인만큼 컨셉 자체가 정말
+신선하게 다가왔다.</p>
+<p>이러한 코드는 아래와 같이 컴파일을 통해 출력 값을 기대할 수
+있다. <code>unsigned long</code> 타입은 <code>j1</code>의 변수를 <code>int</code>과 비교하는
+경우이다. 이러한 예제를 아래 스크린샷처럼 <code>-Werror</code> 옵션과 함께
+컴파일하게 되면 타입 에러를 사전에 감지해낼 수 있다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-06">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-06 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-06"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">j1</span> <span class="o">=</span> <span class="mi">12345678</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">j2</span> <span class="o">=</span> <span class="mi">23456789</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">typecheck</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="n">a</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">typecheck</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="n">j1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">typecheck</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span><span class="p">,</span> <span class="n">j2</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;a value is int and (j1, j2) is unsigned long</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;a value is not int</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p><img src="/img/gcc_werror.png" alt="컴파일 타임 에러"></p>
+<h2 id="지피jiffies는-누가-증가시키는가" class="scroll-mt-8 group">
+  지피(jiffies)는 누가 증가시키는가?
+  
+    <a href="#%ec%a7%80%ed%94%bcjiffies%eb%8a%94-%eb%88%84%ea%b0%80-%ec%a6%9d%ea%b0%80%ec%8b%9c%ed%82%a4%eb%8a%94%ea%b0%80"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<p>앞서, <code>&quot;지피(jiffies)에는 시스템 시작 이후 발생한 진동 횟수(tick)가 저장된다.&quot;</code>라고 말했다. 그렇다면 그러한 tick은 누가 발생시킬까? 이를
+위한 것이 바로 시스템 타이머이다.</p>
+<p>시간 기록을 위해서 리눅스에서는 RTC(Real Time Clock), 시스템 타이머를
+이용한다.</p>
+<h3 id="시간에-관련된-하드웨어" class="scroll-mt-8 group">
+  &lsquo;시간&rsquo;에 관련된 하드웨어
+  
+    <a href="#%ec%8b%9c%ea%b0%84%ec%97%90-%ea%b4%80%eb%a0%a8%eb%90%9c-%ed%95%98%eb%93%9c%ec%9b%a8%ec%96%b4"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>RTC는 보통 시스템 기판에 붙어 있는 원형 배터리를 통해 시스템이 꺼져
+있는 동안에도 시간을 기록하며 일반적인 PC 아키텍처인 경우 RTC와 CMOS가
+통합되어 있는 것을 확인할 수 있다.<!-- raw HTML omitted -->커널은 시스템 시작 시 RTC를 읽고
+<code>xtime</code>변수에 저장되는 현재 시간을 초기화한다. 보통 커널은 최초
+init에만 RTC를 읽으며 x86 시스템을 제외하고는 RTC를 다시 읽지 않는다.</p>
+<p>시스템 타이머는 커널의 시간 기록에 있어 매우 중요한 역할을 한다. 현재
+시간을 초기화할 때 사용되는 RTC와는 달리 시스템 타이머는 주기적으로
+인터럽트를 발생시킨다. 그리고 커널은 이러한 타이머 인터럽트에 대한
+인터럽트 핸들러를 내부에 가지고 있어 아래와 같은 작업들을 처리한다.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<ol>
+<li>jiffies_64 및 현재 시간을 저장하는 xtime 변수에 안전하게 접근하기
+위해 xtime_lock을 얻는다.</li>
+<li>필요에 따라 시스템 타이머를 확인하고 재설정한다.</li>
+<li>갱신된 현재 시간을 주기적으로 실시간 시계에 반영한다.</li>
+<li><strong>아키텍처 종속적</strong> 타이머 함수인 <code>tick_periodic()</code> 함수를 호출한다.</li>
+</ol>
+<h3 id="커널-코드-속-시스템-타이머-인터럽트-핸들러" class="scroll-mt-8 group">
+  커널 코드 속 시스템 타이머 인터럽트 핸들러
+  
+    <a href="#%ec%bb%a4%eb%84%90-%ec%bd%94%eb%93%9c-%ec%86%8d-%ec%8b%9c%ec%8a%a4%ed%85%9c-%ed%83%80%ec%9d%b4%eb%a8%b8-%ec%9d%b8%ed%84%b0%eb%9f%bd%ed%8a%b8-%ed%95%b8%eb%93%a4%eb%9f%ac"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>그렇다면, 직접 타이머 인터럽트 핸들러를 따라가보자. 커널 분석 책에는
+아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러 형태로 되어
+있으며 타이머 인터럽트가 발생했을 때 실행된다고 되어 있다. 하지만 실제
+커널(v4.20.x)에는 <code>tick-common.h</code> 안에 하나로 통합되어
+있었다. <code>tick-internal.h</code> 헤더파일에는 <code>tick_set_periodic_handler</code>라는
+함수가 정의되어 있다. 타이머 인터럽트에 대한 핸들러를 등록하는
+함수로서 <code>clock_event_device</code>(시스템 타이머 장치) 디바이스의 이벤트
+핸들러로 등록하는 부분이다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-07">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-07 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-07"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/* Set the periodic handler in non broadcast mode */</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="nf">tick_set_periodic_handler</span><span class="p">(</span><span class="k">struct</span> <span class="nc">clock_event_device</span> <span class="o">*</span><span class="n">dev</span><span class="p">,</span> <span class="kt">int</span> <span class="n">broadcast</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">dev</span><span class="o">-&gt;</span><span class="n">event_handler</span> <span class="o">=</span> <span class="n">tick_handle_periodic</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>이제, <code>tick_handle_periodic()</code> 인터럽트 핸들러를 살펴보자.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-08">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-08 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-08"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Event handler for periodic ticks
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">tick_handle_periodic</span><span class="p">(</span><span class="k">struct</span> <span class="nc">clock_event_device</span> <span class="o">*</span><span class="n">dev</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">cpu</span> <span class="o">=</span> <span class="n">smp_processor_id</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">ktime_t</span> <span class="n">next</span> <span class="o">=</span> <span class="n">dev</span><span class="o">-&gt;</span><span class="n">next_event</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">tick_periodic</span><span class="p">(</span><span class="n">cpu</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#if defined(CONFIG_HIGH_RES_TIMERS) || defined(CONFIG_NO_HZ_COMMON)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * The cpu might have transitioned to HIGHRES or NOHZ mode via
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * update_process_times() -&gt; run_local_timers() -&gt;
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 * hrtimer_run_queues().
+</span></span></span><span class="line"><span class="cl"><span class="cm">	 */</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">dev</span><span class="o">-&gt;</span><span class="n">event_handler</span> <span class="o">!=</span> <span class="n">tick_handle_periodic</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">clockevent_state_oneshot</span><span class="p">(</span><span class="n">dev</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * Setup the next period for devices, which do not have
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * periodic mode:
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 */</span>
+</span></span><span class="line"><span class="cl">		<span class="n">next</span> <span class="o">=</span> <span class="n">ktime_add</span><span class="p">(</span><span class="n">next</span><span class="p">,</span> <span class="n">tick_period</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">clockevents_program_event</span><span class="p">(</span><span class="n">dev</span><span class="p">,</span> <span class="n">next</span><span class="p">,</span> <span class="nb">false</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * Have to be careful here. If we&#39;re in oneshot mode,
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * before we call tick_periodic() in a loop, we need
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * to be sure we&#39;re using a real hardware clocksource.
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * Otherwise we could get trapped in an infinite
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * loop, as the tick_periodic() increments jiffies,
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * which then will increment time, possibly causing
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 * the loop to trigger again and again.
+</span></span></span><span class="line"><span class="cl"><span class="cm">		 */</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="p">(</span><span class="n">timekeeping_valid_for_hres</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">			<span class="n">tick_periodic</span><span class="p">(</span><span class="n">cpu</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>책에서는 <em>&ldquo;아키텍처 종속적인 부분은 시스템 타이머의 인터럽트 핸들러
+형태로 되어 있으며, 타이머 인터럽트가 발생했을 때 실행된다.&rdquo;</em> 라고
+되어 있으나, 실제 <code>tick_periodic</code> 자체는 아키텍처 종속 코드가 발견되지
+않았다. 대신 cpu 아이디를 얻어오는 부분에 대해 아래와 같은 코드를
+발견할 수 있었다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-09">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-09 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-09"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#ifdef CONFIG_DEBUG_PREEMPT
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="k">extern</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">debug_smp_processor_id</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cp"># define smp_processor_id() debug_smp_processor_id()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#else
+</span></span></span><span class="line"><span class="cl"><span class="cp"># define smp_processor_id() raw_smp_processor_id()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#endif</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>그리고 <code>raw_smp_processor_id()</code>에 대해서는 아키텍처 별로 종속적인
+코드가 들어가 있는 것을 확인할 수 있다. 한 예로, x86 코드를 살펴보면
+아래와 같이 정의된다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-10">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-10 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-10"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="cp">#define raw_smp_processor_id() (this_cpu_read(cpu_number))</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>여기서 더 깊게 들어가는 것은 그만두고 다시 원점으로 돌아가, 시스템
+타이머 인터럽트 핸들러에서 SMP(Symmetric Multiprocessing)에 관련,
+아키텍처에 종속된 코드가 실행된다는 것을 파악하였다. 이제
+<code>tick_periodic()</code>을 살펴보자.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-11">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-11 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-11"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">tick_periodic</span><span class="p">(</span><span class="kt">int</span> <span class="n">cpu</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">tick_do_timer_cpu</span> <span class="o">==</span> <span class="n">cpu</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="n">write_seqlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">jiffies_lock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="cm">/* Keep track of the next tick event */</span>
+</span></span><span class="line"><span class="cl">		<span class="n">tick_next_period</span> <span class="o">=</span> <span class="n">ktime_add</span><span class="p">(</span><span class="n">tick_next_period</span><span class="p">,</span> <span class="n">tick_period</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="n">do_timer</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">write_sequnlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">jiffies_lock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">		<span class="n">update_wall_time</span><span class="p">();</span> <span class="c1">// 진동수 경과에 맞춰 현재 시간을 갱신한다.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="n">update_process_times</span><span class="p">(</span><span class="n">user_mode</span><span class="p">(</span><span class="n">get_irq_regs</span><span class="p">()));</span>
+</span></span><span class="line"><span class="cl">	<span class="n">profile_tick</span><span class="p">(</span><span class="n">CPU_PROFILING</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>이 함수에서 눈여겨볼 부분은 <code>do_timer()</code>와 <code>update_process_times()</code>
+부분이다. <code>do_timer()</code> 함수는 실제 지피값을 증가시키는 작업을 담당하며
+해당 코드는 아래와 같다. 커널은 전자 함수를 통해 지비를 발생한 틱만큼
+증가시키고 후자를 통해 시스템의 평균 로드 통계를 갱신한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-12">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-12 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-12"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">do_timer</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">ticks</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="n">jiffies_64</span> <span class="o">+=</span> <span class="n">ticks</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">calc_global_load</span><span class="p">(</span><span class="n">ticks</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">update_process_times</span><span class="p">(</span><span class="kt">int</span> <span class="n">user_tick</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">struct</span> <span class="nc">task_struct</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="cm">/* Note: this timer irq context must be accounted for as well. */</span>
+</span></span><span class="line"><span class="cl">	<span class="n">account_process_tick</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">user_tick</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">run_local_timers</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="n">rcu_check_callbacks</span><span class="p">(</span><span class="n">user_tick</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#ifdef CONFIG_IRQ_WORK
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="k">if</span> <span class="p">(</span><span class="n">in_irq</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="n">irq_work_tick</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>	<span class="n">scheduler_tick</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">IS_ENABLED</span><span class="p">(</span><span class="n">CONFIG_POSIX_TIMERS</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">		<span class="n">run_posix_cpu_timers</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p><code>update_process_times</code>는 <code>run_local_timers()</code>를 통해 로컬 타이머, 즉
+softirq를 발생시켜 시간이 만료된 타이머를 실행한다.</p>
+<h2 id="출처" class="scroll-mt-8 group">
+  출처
+  
+    <a href="#%ec%b6%9c%ec%b2%98"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/8206762/how-does-linux-handle-overflow-in-jiffies">how does linux handle overflow in
+jiffies</a></li>
+</ul>
+
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
+
+        <span>Categories</span>
+      </h2>
+
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/computer-science/" class="taxonomy category">Computer Science</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-tags h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19" />
+  <path
+    d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"
+  />
+  <circle cx="6.5" cy="9.5" r=".5" fill="currentColor" />
+</svg>
+
+        <span>Tags</span>
+      </h2>
+
+      <ul class="not-prose ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/tags/jiffies/" class="taxonomy tag">jiffies</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4" aria-hidden="true">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-chart-network h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="m13.11 7.664 1.78 2.672M14.162 12.788l-3.324 1.424M20 4l-6.06 1.515M3 3v16a2 2 0 0 0 2 2h16"
+  />
+  <circle cx="12" cy="6" r="2" />
+  <circle cx="16" cy="12" r="2" />
+  <circle cx="9" cy="15" r="2" />
+</svg>
+
+        <span>Graph</span>
+      </h2>
+
+      <content-network-graph
+  class="h-64 ml-6"
+  data-endpoint="/graph/index.json"
+  page="/posts/jiffies/"
+></content-network-graph>
+
+    </section>
+</aside>
+
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2024, Sukbeom Kim.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+    
+  </body>
+</html>

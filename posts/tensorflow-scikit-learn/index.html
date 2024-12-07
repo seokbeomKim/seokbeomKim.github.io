@@ -1,0 +1,488 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이 | 평범한 개발자
+</title>
+  <meta name="description" content="책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.
+각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득 텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로 머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는 이유가 있을까 궁금해졌다.
+왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류, 회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습 방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도 있다." />
+<meta property="og:url" content="http://localhost:1313/posts/tensorflow-scikit-learn/">
+  <meta property="og:site_name" content="평범한 개발자">
+  <meta property="og:title" content="텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이">
+  <meta property="og:description" content="책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.
+각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득 텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로 머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는 이유가 있을까 궁금해졌다.
+왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류, 회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습 방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도 있다.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-05-06T17:05:11+09:00">
+    <meta property="article:modified_time" content="2019-05-06T17:05:11+09:00">
+    <meta property="article:tag" content="Tensorflow">
+    <meta property="article:tag" content="Scikit Learn">
+
+
+  <meta itemprop="name" content="텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이">
+  <meta itemprop="description" content="책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.
+각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득 텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로 머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는 이유가 있을까 궁금해졌다.
+왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류, 회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습 방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도 있다.">
+  <meta itemprop="datePublished" content="2019-05-06T17:05:11+09:00">
+  <meta itemprop="dateModified" content="2019-05-06T17:05:11+09:00">
+  <meta itemprop="wordCount" content="154">
+  <meta itemprop="keywords" content="tech">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="텐서플로우(Tensorflow)와 사이킷런(Scikit-learn)의 차이">
+  <meta name="twitter:description" content="책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.
+각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득 텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로 머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는 이유가 있을까 궁금해졌다.
+왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류, 회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습 방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도 있다.">
+
+<link rel="canonical" href="http://localhost:1313/posts/tensorflow-scikit-learn/" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+  
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "http://localhost:1313/posts/tensorflow-scikit-learn/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "Machine Learning"
+  ],
+  "author": {
+    "@type": "Person",
+    "email": "sukbeom.kim@gmail.com",
+    "name": "Sukbeom Kim",
+    "url": "http://localhost:1313/about/"
+  },
+  "copyrightNotice": "Sukbeom Kim",
+  "datePublished": "2019-05-06",
+  "description": "책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을 당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이 지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.\n각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득 텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로 머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는 이유가 있을까 궁금해졌다.\n왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류, 회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습 방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도 있다.",
+  "headline": "텐서플로우(Tensorflow)와 사이킷런(Scikit-Learn)의 차이",
+  "isPartOf": {
+    "@id": "http://localhost:1313/posts/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "keywords": [
+    "Scikit Learn",
+    "tech",
+    "Tensorflow"
+  ],
+  "mainEntityOfPage": "http://localhost:1313/posts/tensorflow-scikit-learn/",
+  "name": "텐서플로우(Tensorflow)와 사이킷런(Scikit-Learn)의 차이",
+  "timeRequired": "PT1M",
+  "url": "http://localhost:1313/posts/tensorflow-scikit-learn/",
+  "wordCount": 154
+}
+</script>
+
+
+  </head>
+  <body>
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        <div>
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
+  <a class="font-semibold" href="/">평범한 개발자</a>
+</div>
+
+  <nav>
+    <ul class="flex flex-row items-center justify-end space-x-4">
+    <li>
+      <a aria-current="true" class="ancestor" href="/posts/">Posts</a
+      >
+    </li>
+    <li>
+      <a href="/graph/">Graph</a
+      >
+    </li>
+    <li>
+      <a href="/about/">About</a
+      >
+    </li>
+    </ul>
+  </nav>
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">텐서플로우(Tensorflow)와 사이킷런(Scikit-Learn)의 차이</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2019-05-06T17:05:11&#43;09:00"
+            >May 6, 2019</time
+          >
+        </div>
+    </header>
+
+    <p>책장 속에서 잊혀져 갔던 머신러닝 책을 꺼내 읽기 시작했다. 책을 받았을
+당시에는 회사 출장으로 읽을 시간이 없었는데 이제서야 몇 개월이
+지나서야 마음이 안정되어 이 책을 꺼내보게 되었다.</p>
+<p>각설하고, 책의 모든 내용이 사이킷런(Scikit-learn)을 이용하는데 문득
+텐서플로우(Tensorflow)와의 차이점이 무엇인지 궁금해졌다. 통상적으로
+머신러닝이라 하면 텐서플로우를 많이 쓰는데, 굳이 사이킷런을 사용하는
+이유가 있을까 궁금해졌다.</p>
+<p>왜 라이브러리가 아닌 프레임워크라 부르는지 모르겠지만, 이들은 분류,
+회귀, 클러스터링, 비정상행위 탐지, 데이터 준비를 위한 다양한 학습
+방법을 다루며 인공 신경망 메서드를 포함할 수도, 포함하지 않을 수도
+있다.</p>
+<h2 id="차이점" class="scroll-mt-8 group">
+  차이점
+  
+    <a href="#%ec%b0%a8%ec%9d%b4%ec%a0%90"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<p>출처에 따르면, 텐서플로우는 상대적으로 로우레벨 라이브러리에 가깝고
+사이킷런은 하이레벨 라이브러리에 가깝다. 텐서플로우는 신경망이나
+딥러닝을 위해 사용되는 데이터 계산, 연산을 위한 라이브러리며 신경망
+네트워크 레이어 정의를 위한 메서드도 제공한다. 하지만 결정 트리, 논리
+회귀, K-Means, PCA와 같은 머신러닝 메서드는 제공하지 않는다.</p>
+<p>이에 비해, 사이킷런(Scikit-learn)은 데이터 마이닝과 머신러닝을 위한
+라이브러리다. 딥러닝이나 강화 학습을 다루지 않지만 지도 학습, 비지도
+학습에 관련된 다양한 메서드를 제공하기 때문에 간단하게 학습 알고리즘을
+사용하고자 한다면 사이킷런이 사용하기 쉽다는 장점이 있다.</p>
+<h2 id="출처" class="scroll-mt-8 group">
+  출처
+  
+    <a href="#%ec%b6%9c%ec%b2%98"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<ul>
+<li><a href="https://m.blog.naver.com/PostView.nhn?blogId=kimkanu&amp;logNo=221116429423&amp;proxyReferer=https%3A%2F%2Fwww.google.com%2F">https://m.blog.naver.com/PostView.nhn?blogId=kimkanu&amp;logNo=221116429423&amp;proxyReferer=https%3A%2F%2Fwww.google.com%2F</a></li>
+<li><a href="https://www.quora.com/What-are-the-main-differences-between-TensorFlow-and-SciKit-Learn">https://www.quora.com/What-are-the-main-differences-between-TensorFlow-and-SciKit-Learn</a></li>
+</ul>
+
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
+
+        <span>Categories</span>
+      </h2>
+
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/machine-learning/" class="taxonomy category">Machine Learning</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-tags h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19" />
+  <path
+    d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"
+  />
+  <circle cx="6.5" cy="9.5" r=".5" fill="currentColor" />
+</svg>
+
+        <span>Tags</span>
+      </h2>
+
+      <ul class="not-prose ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/tags/tensorflow/" class="taxonomy tag">tensorflow</a>
+          </li>
+          <li>
+            <a href="/tags/scikit-learn/" class="taxonomy tag">scikit learn</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4" aria-hidden="true">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-chart-network h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="m13.11 7.664 1.78 2.672M14.162 12.788l-3.324 1.424M20 4l-6.06 1.515M3 3v16a2 2 0 0 0 2 2h16"
+  />
+  <circle cx="12" cy="6" r="2" />
+  <circle cx="16" cy="12" r="2" />
+  <circle cx="9" cy="15" r="2" />
+</svg>
+
+        <span>Graph</span>
+      </h2>
+
+      <content-network-graph
+  class="h-64 ml-6"
+  data-endpoint="/graph/index.json"
+  page="/posts/tensorflow-scikit-learn/"
+></content-network-graph>
+
+    </section>
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-newspaper h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2M18 14h-8M15 18h-5"
+  />
+  <path d="M10 6h8v4h-8V6Z" />
+</svg>
+
+        <span>Posts</span>
+      </h2>
+        <section class="flex flex-col space-y-1">
+          <h3 class="flex flex-row items-center space-x-2 text-sm font-semibold">
+            <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  class="h-4 w-4"
+  aria-hidden="true"
+>
+  <path
+    fill="currentColor"
+    d="M222.16 153.26a8 8 0 0 1-1 11.25c-17.36 14.38-32.86 19.49-47 19.49-18.58 0-34.82-8.81-49.93-17-25.35-13.75-47.24-25.63-79.07.74a8 8 0 1 1-10.22-12.3c40.17-33.27 70.32-16.92 96.93-2.48 25.35 13.75 47.24 25.62 79.07-.75a8 8 0 0 1 11.22 1.05m-177-49.46c31.83-26.37 53.72-14.5 79.07-.75 15.11 8.2 31.35 17 49.93 17 14.14 0 29.64-5.11 47-19.49a8 8 0 1 0-10.22-12.3c-31.83 26.37-53.72 14.49-79.07.74-26.61-14.43-56.76-30.79-96.93 2.48a8 8 0 0 0 10.17 12.32Z"
+  />
+</svg>
+
+            <span>Related</span>
+          </h3>
+
+          <ol class="not-prose ml-6">
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/posts/unsupervised-supervised-learning/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="비지도 학습 알고리즘과 지도 학습"
+              >비지도 학습 알고리즘과 지도 학습</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/machine-learning/"
+                  class="taxonomy"
+                  title="Posts and notes on Machine Learning"
+                  >Machine Learning</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/posts/java-inner-class/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="자바의 중첩 클래스(Nested Class)"
+              >자바의 중첩 클래스(Nested Class)</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/java/"
+                  class="taxonomy"
+                  title="Posts and notes on Java"
+                  >Java</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/posts/servlet-container/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="서블릿 컨테이너와 서버와의 관계"
+              >서블릿 컨테이너와 서버와의 관계</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/web/"
+                  class="taxonomy"
+                  title="Posts and notes on Web"
+                  >Web</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/posts/partition-and-sharding/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="파티셔닝(Partitioning)과 샤딩(Sharding)"
+              >파티셔닝(Partitioning)과 샤딩(Sharding)</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/database/"
+                  class="taxonomy"
+                  title="Posts and notes on Database"
+                  >Database</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
+    <li>
+      <article class="flex flex-row items-center">
+        <header class="grow">
+          <h3>
+            <a
+              href="/posts/rest-api-model/"
+              class="truncate text-sm underline decoration-slate-300 decoration-2 underline-offset-4 hover:decoration-inherit"
+              title="RESTful 성숙도 모델, Richardson Maturity Model(RMM)"
+              >RESTful 성숙도 모델, Richardson Maturity Model(RMM)</a
+            >
+          </h3>
+        </header>
+          <ul class="flex flex-row items-center justify-end space-x-2">
+              <li>
+                <a
+                  href="/categories/web/"
+                  class="taxonomy"
+                  title="Posts and notes on Web"
+                  >Web</a
+                >
+              </li>
+          </ul>
+      </article>
+    </li>
+</ol>
+
+        </section>
+    </section>
+</aside>
+
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2024, Sukbeom Kim.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+    
+  </body>
+</html>

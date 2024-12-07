@@ -1,0 +1,1538 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    라즈베리파이 네트워크 부팅 설정 | 평범한 개발자
+</title>
+  <meta name="description" content="네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에 관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.
+필자는 라즈베리파이4를 기준으로 환경을 구성하였다. 본 페이지에서는 TFTP와 라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는 방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.
+네트워크 구성 일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와 마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를 포함하고 있어 부트로더에 관련된 설정만 추가해주면 된다." />
+<meta property="og:url" content="http://localhost:1313/posts/rpi-pxeboot/">
+  <meta property="og:site_name" content="평범한 개발자">
+  <meta property="og:title" content="라즈베리파이 네트워크 부팅 설정">
+  <meta property="og:description" content="네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에 관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.
+필자는 라즈베리파이4를 기준으로 환경을 구성하였다. 본 페이지에서는 TFTP와 라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는 방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.
+네트워크 구성 일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와 마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를 포함하고 있어 부트로더에 관련된 설정만 추가해주면 된다.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-15T10:21:58+09:00">
+    <meta property="article:modified_time" content="2023-04-15T10:21:58+09:00">
+    <meta property="article:tag" content="Rpi">
+    <meta property="article:tag" content="Nfs">
+    <meta property="article:tag" content="Tftp">
+
+
+  <meta itemprop="name" content="라즈베리파이 네트워크 부팅 설정">
+  <meta itemprop="description" content="네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에 관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.
+필자는 라즈베리파이4를 기준으로 환경을 구성하였다. 본 페이지에서는 TFTP와 라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는 방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.
+네트워크 구성 일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와 마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를 포함하고 있어 부트로더에 관련된 설정만 추가해주면 된다.">
+  <meta itemprop="datePublished" content="2023-04-15T10:21:58+09:00">
+  <meta itemprop="dateModified" content="2023-04-15T10:21:58+09:00">
+  <meta itemprop="wordCount" content="975">
+  <meta itemprop="keywords" content="Rpi,Nfs,Tftp">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="라즈베리파이 네트워크 부팅 설정">
+  <meta name="twitter:description" content="네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에 관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.
+필자는 라즈베리파이4를 기준으로 환경을 구성하였다. 본 페이지에서는 TFTP와 라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는 방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.
+네트워크 구성 일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와 마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를 포함하고 있어 부트로더에 관련된 설정만 추가해주면 된다.">
+
+<link rel="canonical" href="http://localhost:1313/posts/rpi-pxeboot/" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+  
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "http://localhost:1313/posts/rpi-pxeboot/",
+  "@type": "BlogPosting",
+  "author": {
+    "@type": "Person",
+    "email": "sukbeom.kim@gmail.com",
+    "name": "Sukbeom Kim",
+    "url": "http://localhost:1313/about/"
+  },
+  "copyrightNotice": "Sukbeom Kim",
+  "datePublished": "2023-04-15",
+  "description": "네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에 관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.\n필자는 라즈베리파이4를 기준으로 환경을 구성하였다. 본 페이지에서는 TFTP와 라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는 방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.\n네트워크 구성 일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와 마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를 포함하고 있어 부트로더에 관련된 설정만 추가해주면 된다.",
+  "headline": "라즈베리파이 네트워크 부팅 설정",
+  "isPartOf": {
+    "@id": "http://localhost:1313/posts/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "keywords": [
+    "Nfs",
+    "Rpi",
+    "Tftp"
+  ],
+  "mainEntityOfPage": "http://localhost:1313/posts/rpi-pxeboot/",
+  "name": "라즈베리파이 네트워크 부팅 설정",
+  "timeRequired": "PT5M",
+  "url": "http://localhost:1313/posts/rpi-pxeboot/",
+  "wordCount": 975
+}
+</script>
+
+
+  </head>
+  <body>
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        <div>
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
+  <a class="font-semibold" href="/">평범한 개발자</a>
+</div>
+
+  <nav>
+    <ul class="flex flex-row items-center justify-end space-x-4">
+    <li>
+      <a aria-current="true" class="ancestor" href="/posts/">Posts</a
+      >
+    </li>
+    <li>
+      <a href="/graph/">Graph</a
+      >
+    </li>
+    <li>
+      <a href="/about/">About</a
+      >
+    </li>
+    </ul>
+  </nav>
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">라즈베리파이 네트워크 부팅 설정</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2023-04-15T10:21:58&#43;09:00"
+            >April 15, 2023</time
+          >
+        </div>
+    </header>
+
+    <h2 id="네트워크-부팅-환경-설정" class="scroll-mt-8 group">
+  네트워크 부팅 환경 설정
+  
+    <a href="#%eb%84%a4%ed%8a%b8%ec%9b%8c%ed%81%ac-%eb%b6%80%ed%8c%85-%ed%99%98%ea%b2%bd-%ec%84%a4%ec%a0%95"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<p>기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이
+때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에
+관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.</p>
+<p>필자는 라즈베리파이4를 기준으로 환경을 구성하였다. 본 페이지에서는 TFTP와
+라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는
+방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.</p>
+<h3 id="네트워크-구성" class="scroll-mt-8 group">
+  네트워크 구성
+  
+    <a href="#%eb%84%a4%ed%8a%b8%ec%9b%8c%ed%81%ac-%ea%b5%ac%ec%84%b1"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와
+마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를
+포함하고 있어 부트로더에 관련된 설정만 추가해주면 된다. NFS의 경우 <code>mount</code>
+명령어를 통해 하지만 그 전에 네트워크 구성에 대해 한 번 생각해봐야 한다.</p>
+<p><img src="/img/raspberry-pi-netboot.drawio.png" alt="img"></p>
+<ol>
+<li>TFTP 서버는 Host PC (Windows) 의 tftpd를 이용한다. WSL2에서 tftp 서버를
+구성해도 되지만 필자는 윈도우즈 호스트 PC에서 <code>tftpd64</code> 라는 프로그램을
+이용하기로 했다.</li>
+<li>NFS 서버는 WSL2에 구성하고 라즈베리파이에서 WSL2에 접근할 수 있도록 NFS에서
+사용하는 포트에 한하여 포트포워딩을 한다.</li>
+</ol>
+<h3 id="tftp-이용하여-커널-이미지-로드" class="scroll-mt-8 group">
+  TFTP 이용하여 커널 이미지 로드
+  
+    <a href="#tftp-%ec%9d%b4%ec%9a%a9%ed%95%98%ec%97%ac-%ec%bb%a4%eb%84%90-%ec%9d%b4%eb%af%b8%ec%a7%80-%eb%a1%9c%eb%93%9c"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>TFTP를 이용해 커널 이미지를 로드하기 위해서는 아래의 작업 순서가 필요하다. 1번
+내용은 <code>Raspberry Pi Imager</code> 라는 공식 유틸리티가 있고 굳이 설명을 하지 않아도
+되기 때문에 따로 설명하지는 않겠다.</p>
+<ol>
+<li>SD 카드 이용해 기본 부트</li>
+<li>라즈베리파이의 부트로더 설정 변경</li>
+<li>SD 카드의 부트 파티션 복사</li>
+<li>tftp64 이용해 부트</li>
+</ol>
+<h4 id="2-부트로더-설정-변경" class="scroll-mt-8 group">
+  2. 부트로더 설정 변경
+  
+    <a href="#2-%eb%b6%80%ed%8a%b8%eb%a1%9c%eb%8d%94-%ec%84%a4%ec%a0%95-%eb%b3%80%ea%b2%bd"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>아래에 설명하는 부트로더 설정 변경 방법은
+<a href="https://metebalci.com/blog/cardless-rpi4/">https://metebalci.com/blog/cardless-rpi4/</a> 에 따른 것이다. 찾아본 포스팅 중에
+가장 정리가 잘 되어 있다. 포스팅 내 주요 내용을 정리하면, 아래의 순서로 부트로더
+설정을 업데이트 한다.</p>
+<ol>
+<li>현재 부트로더 버전 확인</li>
+<li>pieeprom.bin 바이너리로부터 설정 추출</li>
+<li>설정 파일 내 TFTP 정보 추가</li>
+<li>변경한 설정 파일을 포함한 pieeprom.bin 재생성</li>
+<li>재생성한 pieeprom.bin으로 부트로더 업데이트</li>
+</ol>
+<p>먼저 부트로더 버전을 확인해보자. <code>vcgencmd bootloader_version</code> 명령어를 이용하면
+아래와 같이 현재 부트한 환경 기준으로 사용 중인 부트로더 버전을 확인할 수 있다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">sh</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-01 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-01"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">sh code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pi@raspberrypi:~$ vcgencmd bootloader_version
+</span></span><span class="line"><span class="cl">2023/01/11 17:40:52
+</span></span><span class="line"><span class="cl">version 8ba17717fbcedd4c3b6d4bce7e50c7af4155cba9 <span class="o">(</span>release<span class="o">)</span>
+</span></span><span class="line"><span class="cl">timestamp <span class="m">1673458852</span>
+</span></span><span class="line"><span class="cl">update-time <span class="m">1681394003</span>
+</span></span><span class="line"><span class="cl">capabilities 0x0000007f</span></span></code></pre></div>
+  <p class="sr-only">sh code snippet end</p>
+
+  
+</figure>
+<p>버전을 확인했으니 해당 날짜에 맞는 pieeprom을 홈 디렉토리로 복사하고 바이너리
+파일로부터 설정을 추출한다. 만약 rpi-eeprom-config가 없다면 <code>rpi-eeprom</code> 패키지를
+설치해줘야 한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-02">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">sh</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-02 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-02"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">sh code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ <span class="nb">pwd</span>
+</span></span><span class="line"><span class="cl">/home/pi
+</span></span><span class="line"><span class="cl">$ cp /lib/firmware/raspberrypi/bootloader/default/pieeprom-2023-01-11.bin pieeprom.bin
+</span></span><span class="line"><span class="cl">$ rpi-eeprom-config pieeprom.bin &gt; config.txt</span></span></code></pre></div>
+  <p class="sr-only">sh code snippet end</p>
+
+  
+</figure>
+<p>출처에서는 <code>BOOT_ORDER</code> 를 강조하고 있는데, TFTP 환경으로 부팅해야 하므로 앞서
+네트워크 구성에서 고려했던 것과 같이 config.txt 파일을 변경해준다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-03">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative"></span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-03 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-03"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only"> code snippet start</p>
+  <pre tabindex="0"><code>[all]
+BOOT_UART=1
+WAKE_ON_GPIO=1
+POWER_OFF_ON_HALT=0
+TFTP_IP=192.168.0.5
+CLIENT_IP=192.168.0.4
+SUBNET=255.255.255.0
+GATEWAY=
+TFTP_PREFIX=0
+BOOT_ORDER=0x21
+TFTP_FILE_TIMEOUT=30000</code></pre>
+  <p class="sr-only"> code snippet end</p>
+
+  
+</figure>
+<p>설정이 끝났다. 이제 설정파일이 담긴 바이너리 파일을 생성하고 해당 파일로 업데이트 해주자.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-04">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-04 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-04"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ rpi-eeprom-config --out pieeprom-out.bin --config config.txt pieeprom.bin
+</span></span><span class="line"><span class="cl">$ sudo rpi-eeprom-update -d -f ./pieeprom-out.bin
+</span></span><span class="line"><span class="cl">$ sudo reboot</span></span></code></pre></div>
+  <p class="sr-only">bash code snippet end</p>
+
+  
+</figure>
+<h4 id="3-sd-카드-부트-파티션-복사" class="scroll-mt-8 group">
+  3. SD 카드 부트 파티션 복사
+  
+    <a href="#3-sd-%ec%b9%b4%eb%93%9c-%eb%b6%80%ed%8a%b8-%ed%8c%8c%ed%8b%b0%ec%85%98-%eb%b3%b5%ec%82%ac"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>이제 부트로더 설정은 끝났으니 SD 카드의 boot partition을 Host PC에 저장한다.
+필자는 그냥 귀찮아서 tftpd64 디렉토리(<code>C:\Program Files\Tftpd64\rpi_boot</code>) 안에
+넣어놓았다.</p>
+<p><img src="/img/rpi_boot.png" alt="img"></p>
+<h4 id="4-tftp64-이용해-tftpboot" class="scroll-mt-8 group">
+  4. tftp64 이용해 tftpboot
+  
+    <a href="#4-tftp64-%ec%9d%b4%ec%9a%a9%ed%95%b4-tftpboot"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>이제 tftp64 프로그램에서 디렉토리를 설정해주고 라즈베리파이를 부팅해주면 커널
+로드까지는 정상적으로 되는 것을 확인할 수 있다. tftp64 프로그램은 아래 링크에서
+다운로드 받을 수 있다.</p>
+<ul>
+<li><a href="https://bitbucket.org/phjounin/tftpd64/downloads/">https://bitbucket.org/phjounin/tftpd64/downloads/</a></li>
+</ul>
+<p>이제 tftp를 이용한 커널 이미지 로드 준비는 끝이 났다. SD 카드를 빼고 전원을
+인가하면 커널 로드까지는 성공적으로 되는 것을 확인할 수 있다.</p>
+<h3 id="nfs-이용하여-루트파일시스템-로드" class="scroll-mt-8 group">
+  NFS 이용하여 루트파일시스템 로드
+  
+    <a href="#nfs-%ec%9d%b4%ec%9a%a9%ed%95%98%ec%97%ac-%eb%a3%a8%ed%8a%b8%ed%8c%8c%ec%9d%bc%ec%8b%9c%ec%8a%a4%ed%85%9c-%eb%a1%9c%eb%93%9c"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h3>
+<p>커널 이미지를 성공적으로 로드한다고 해도 루트파일시스템 로드가 되지 않으니
+부팅이 될 리가 없다. 필자는 WSL2(Ubuntu)에 NFS 서버를 구성해서 rootfs 마운트
+시점에 NFS를 마운트하도록 구성하였다.</p>
+<p>작업 순서는 아래와 같으며, 데비안 계열의 우분투 WSL 기준으로 설명하겠다.</p>
+<ol>
+<li>라즈베리파이 이미지 파일 (*.img) 마운트 및 복사</li>
+<li>WSL2 내 nfs-server 설치 및 설정</li>
+<li>nfs-server 서비스 실행</li>
+<li>Windows 내 포트 포워딩 및 방화벽 설정</li>
+</ol>
+<h4 id="라즈베리파이-이미지-내-rootfs-파일-복사" class="scroll-mt-8 group">
+  라즈베리파이 이미지 내 rootfs 파일 복사
+  
+    <a href="#%eb%9d%bc%ec%a6%88%eb%b2%a0%eb%a6%ac%ed%8c%8c%ec%9d%b4-%ec%9d%b4%eb%af%b8%ec%a7%80-%eb%82%b4-rootfs-%ed%8c%8c%ec%9d%bc-%eb%b3%b5%ec%82%ac"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>먼저, 라즈베리파이 공식 사이트에서 os 이미지 파일을 다운로드 받는다. 본인은 현재
+기준으로 lite version인 <code>2023-02-21-raspios-bullseye-arm64-lite.img</code> 파일을
+다운로드 받았다. 그 후 아래와 같이 마운트를 하고 로컬 디렉토리에 내용을
+복사한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-05">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-05 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-05"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo mount -o loop,offset<span class="o">=</span><span class="m">272629760</span> ./2023-02-21-raspios-bullseye-arm
+</span></span><span class="line"><span class="cl">64-lite.img /mnt/
+</span></span><span class="line"><span class="cl">$ mkdir /rpi
+</span></span><span class="line"><span class="cl">$ cp -ra /mnt/* /rpi</span></span></code></pre></div>
+  <p class="sr-only">bash code snippet end</p>
+
+  
+</figure>
+<h4 id="nfs-server-설치-및-설정" class="scroll-mt-8 group">
+  NFS-Server 설치 및 설정
+  
+    <a href="#nfs-server-%ec%84%a4%ec%b9%98-%eb%b0%8f-%ec%84%a4%ec%a0%95"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>이제 rootfs는 준비되었으니 nfs-server를 설치할 차례이다. 필자는 라즈베리파이를
+제외한 나머지 디렉토리는 필요하지 않기 때문에 rootdir을 /rpi로 설정하였다. 사용
+환경에 따라 적절하게 설정해준다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-06">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-06 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-06"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo apt install nfs-kernel-server
+</span></span><span class="line"><span class="cl">$ sudo vi /etc/nfs.conf
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="c1"># 아래와 같이 [exports] 설정</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>exports<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">rootdir</span><span class="o">=</span>/rpi
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="c1"># ...</span></span></span></code></pre></div>
+  <p class="sr-only">bash code snippet end</p>
+
+  
+</figure>
+<p>이제 <code>/etc/exports</code> 파일을 아래와 같이 설정해준다. <code>insecure</code> 옵션을 넣어주었는데
+본인의 경우 이 설정을 제외하면 파일 퍼미션이 보이지 않아 함께 넣어주었다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-07">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-07 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-07"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo vi /etc/exports
+</span></span><span class="line"><span class="cl"><span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">/       *<span class="o">(</span>rw,sync,no_root_squash,insecure<span class="o">)</span></span></span></code></pre></div>
+  <p class="sr-only">bash code snippet end</p>
+
+  
+</figure>
+<h4 id="nfs-server-서비스-실행" class="scroll-mt-8 group">
+  nfs-server 서비스 실행
+  
+    <a href="#nfs-server-%ec%84%9c%eb%b9%84%ec%8a%a4-%ec%8b%a4%ed%96%89"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>이제 서비스를 실행하고 <code>exportfs</code> 를 업데이트 해준다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-08">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-08 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-08"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo service nfs-server restart
+</span></span><span class="line"><span class="cl">$ sudo <span class="nb">export</span> -arv</span></span></code></pre></div>
+  <p class="sr-only">bash code snippet end</p>
+
+  
+</figure>
+<p>한 가지 발견한 문제는 윈도우즈에서 2049 포트가 포트포워딩이 되어 있을 경우 port
+binding 에러로 인해 서비스 실행 에러가 생긴다는 점이다. 반드시 윈도우즈에서
+포트포워딩 되어 있는 포트 중에 nfs 관련 포트가 없는지 확인하고 서비스를
+실행한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-09">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative"></span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-09 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-09"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only"> code snippet start</p>
+  <pre tabindex="0"><code>PS C:\Users\chaox&gt; netsh interface portproxy show all
+    
+Listen on ipv4:             Connect to ipv4:
+    
+Address         Port        Address         Port
+--------------- ----------  --------------- ----------
+0.0.0.0         3000        172.29.124.79   3000
+0.0.0.0         2049        172.29.124.79   2049 &lt;- 만약에 이 부분이 있다면 에러가 발생한다.</code></pre>
+  <p class="sr-only"> code snippet end</p>
+
+  
+</figure>
+<p>포트 포워딩 제거시에는 아래 명령어를 사용한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-10">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative"></span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-10 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-10"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only"> code snippet start</p>
+  <pre tabindex="0"><code>&gt; netsh interface portproxy del v4tov4 listenport=2049 listenaddress=0.0.0.0</code></pre>
+  <p class="sr-only"> code snippet end</p>
+
+  
+</figure>
+<h4 id="포트-포워딩-및-방화벽-설정" class="scroll-mt-8 group">
+  포트 포워딩 및 방화벽 설정
+  
+    <a href="#%ed%8f%ac%ed%8a%b8-%ed%8f%ac%ec%9b%8c%eb%94%a9-%eb%b0%8f-%eb%b0%a9%ed%99%94%eb%b2%bd-%ec%84%a4%ec%a0%95"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>WSL2에서 서비스까지 정상적으로 실행되었다면 윈도우즈에서 아래와 같이
+포트포워딩을 해준다. 그리고 정상적으로 2049 포트로 포트포워딩이 되어 있는지
+확인한다. connectaddress는 <code>wsl hostname -I</code> 로 확인한 아이피 주소를 넣어준다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-11">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative"></span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-11 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-11"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only"> code snippet start</p>
+  <pre tabindex="0"><code>&gt; netsh interface portproxy add v4tov4 listenport=2049 listenaddress=0.0.0.0 connectport=2049 connectaddress=172.29.124.79
+    
+&gt; netsh interface portproxy show all
+    
+Listen on ipv4:             Connect to ipv4:
+    
+Address         Port        Address         Port
+--------------- ----------  --------------- ----------
+0.0.0.0         3000        172.29.124.79   3000
+0.0.0.0         2049        172.29.124.79   2049</code></pre>
+  <p class="sr-only"> code snippet end</p>
+
+  
+</figure>
+<p>이제 윈도우즈의 <code>Windows Defender Firewall with Advanced Security</code> 를 열어서
+Inbound Rules와 Outbound Rules 각각 포트 2049에 대해 허용하도록 설정한다.</p>
+<h4 id="마무리" class="scroll-mt-8 group">
+  마무리
+  
+    <a href="#%eb%a7%88%eb%ac%b4%eb%a6%ac"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h4>
+<p>이제 마지막으로 앞서 복사해둔 경로 내 etc/fstab 을 아래와 같이 수정해준다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-12">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">bash</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-12 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-12"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">bash code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ sudo vi /rpi/etc/fstab
+</span></span><span class="line"><span class="cl"><span class="c1"># ...</span>
+</span></span><span class="line"><span class="cl">proc            /proc           proc    defaults          <span class="m">0</span>       <span class="m">0</span>
+</span></span><span class="line"><span class="cl">192.168.0.5:/   /               nfs     defaults,_netdav  <span class="m">0</span>       <span class="m">1</span></span></span></code></pre></div>
+  <p class="sr-only">bash code snippet end</p>
+
+  
+</figure>
+<p>마지막으로 부트 파티션으로 복사한 <code>cmdline.txt</code> 에 NFS를 로드할 수 있도록 변경해주자.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-13">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">text</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-13 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-13"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">text code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">console=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.0.5:/,nfsvers=4 ip=192.168.0.4 rw elevator=deadline fsck.repair=yes rootwait rootfstype=nfs</span></span></code></pre></div>
+  <p class="sr-only">text code snippet end</p>
+
+  
+</figure>
+<h2 id="출처" class="scroll-mt-8 group">
+  출처
+  
+    <a href="#%ec%b6%9c%ec%b2%98"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<ul>
+<li><a href="https://metebalci.com/blog/cardless-rpi4/">https://metebalci.com/blog/cardless-rpi4/</a></li>
+</ul>
+
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-tags h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19" />
+  <path
+    d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"
+  />
+  <circle cx="6.5" cy="9.5" r=".5" fill="currentColor" />
+</svg>
+
+        <span>Tags</span>
+      </h2>
+
+      <ul class="not-prose ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/tags/rpi/" class="taxonomy tag">rpi</a>
+          </li>
+          <li>
+            <a href="/tags/nfs/" class="taxonomy tag">nfs</a>
+          </li>
+          <li>
+            <a href="/tags/tftp/" class="taxonomy tag">tftp</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4" aria-hidden="true">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-chart-network h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="m13.11 7.664 1.78 2.672M14.162 12.788l-3.324 1.424M20 4l-6.06 1.515M3 3v16a2 2 0 0 0 2 2h16"
+  />
+  <circle cx="12" cy="6" r="2" />
+  <circle cx="16" cy="12" r="2" />
+  <circle cx="9" cy="15" r="2" />
+</svg>
+
+        <span>Graph</span>
+      </h2>
+
+      <content-network-graph
+  class="h-64 ml-6"
+  data-endpoint="/graph/index.json"
+  page="/posts/rpi-pxeboot/"
+></content-network-graph>
+
+    </section>
+</aside>
+
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2024, Sukbeom Kim.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+    
+  </body>
+</html>

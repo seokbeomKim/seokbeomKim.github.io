@@ -1,0 +1,815 @@
+<!doctype html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="language" content="en" />
+<meta name="viewport" content="width=device-width" />
+<title>
+    Major와 Minor Numbers | 평범한 개발자
+</title>
+  <meta name="description" content="세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, ‘c’를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, ‘b’를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다." />
+<meta property="og:url" content="http://localhost:1313/posts/major-and-minor-numbers/">
+  <meta property="og:site_name" content="평범한 개발자">
+  <meta property="og:title" content="Major와 Minor Numbers">
+  <meta property="og:description" content="세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, ‘c’를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, ‘b’를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-05-31T18:37:25+09:00">
+    <meta property="article:modified_time" content="2019-05-31T18:37:25+09:00">
+    <meta property="article:tag" content="Minor Number">
+    <meta property="article:tag" content="Major Number">
+
+
+  <meta itemprop="name" content="Major와 Minor Numbers">
+  <meta itemprop="description" content="세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, ‘c’를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, ‘b’를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.">
+  <meta itemprop="datePublished" content="2019-05-31T18:37:25+09:00">
+  <meta itemprop="dateModified" content="2019-05-31T18:37:25+09:00">
+  <meta itemprop="wordCount" content="924">
+  <meta itemprop="keywords" content="Minor Number,Major Number">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Major와 Minor Numbers">
+  <meta name="twitter:description" content="세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.
+캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, ‘c’를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, ‘b’를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.">
+
+<link rel="canonical" href="http://localhost:1313/posts/major-and-minor-numbers/" />
+
+    <link rel="stylesheet" href="/css/index.css" />
+
+
+      <script src="/js/main.js" defer></script>
+  
+  
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@id": "http://localhost:1313/posts/major-and-minor-numbers/",
+  "@type": "BlogPosting",
+  "articleSection": [
+    "Kernel"
+  ],
+  "author": {
+    "@type": "Person",
+    "email": "sukbeom.kim@gmail.com",
+    "name": "Sukbeom Kim",
+    "url": "http://localhost:1313/about/"
+  },
+  "copyrightNotice": "Sukbeom Kim",
+  "datePublished": "2019-05-31",
+  "description": "세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수 있는 아주 좋은 기회다.\n캐릭터 디바이스는 /dev 디렉토리에서 쉽게 확인할 수 있는데 파일의 속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를 들어, ‘c’를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한 특수 파일로, ‘b’를 포함하고 있다면 블록 디바이스(block devices)로 식별할 수 있다.",
+  "headline": "Major와 Minor Numbers",
+  "isPartOf": {
+    "@id": "http://localhost:1313/posts/",
+    "@type": "Blog",
+    "name": "Posts"
+  },
+  "keywords": [
+    "Major Number",
+    "Minor Number"
+  ],
+  "mainEntityOfPage": "http://localhost:1313/posts/major-and-minor-numbers/",
+  "name": "Major와 Minor Numbers",
+  "timeRequired": "PT5M",
+  "url": "http://localhost:1313/posts/major-and-minor-numbers/",
+  "wordCount": 924
+}
+</script>
+
+
+  </head>
+  <body>
+    <div class="container mx-auto flex max-w-prose flex-col space-y-10 p-4 md:p-6">
+      <header class="flex flex-row items-center justify-between">
+        <div>
+  <a id="skip-nav" class="sr-only" href="#maincontent">Skip to main content</a>
+  <a class="font-semibold" href="/">평범한 개발자</a>
+</div>
+
+  <nav>
+    <ul class="flex flex-row items-center justify-end space-x-4">
+    <li>
+      <a aria-current="true" class="ancestor" href="/posts/">Posts</a
+      >
+    </li>
+    <li>
+      <a href="/graph/">Graph</a
+      >
+    </li>
+    <li>
+      <a href="/about/">About</a
+      >
+    </li>
+    </ul>
+  </nav>
+
+
+      </header>
+      <main class="prose prose-slate relative md:prose-lg prose-h1:text-[2em]" id="maincontent">
+        <article class="main">
+    <header>
+      <h1 class="!mb-1">Major와 Minor Numbers</h1><div class="flex flex-row items-center space-x-4">
+          <time class="text-sm italic opacity-80" datetime="2019-05-31T18:37:25&#43;09:00"
+            >May 31, 2019</time
+          >
+        </div>
+    </header>
+
+    <p>세마포어를 이용한 모듈 프로그래밍을 하던 중 <code>Major, Minor</code> 라는 개념이
+등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한
+까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수
+있는 아주 좋은 기회다.</p>
+<p>캐릭터 디바이스는 <code>/dev</code> 디렉토리에서 쉽게 확인할 수 있는데 파일의
+속성에서 각 장치에 대한 속성은 맨 앞 문자를 통해 판단할 수 있다. 예를
+들어, &lsquo;c&rsquo;를 포함하고 있다면 캐릭터 디바이스(character devices)를 위한
+특수 파일로, &lsquo;b&rsquo;를 포함하고 있다면 블록 디바이스(block devices)로
+식별할 수 있다. 아래와 같이 <code>ls</code> 명령어를 사용하면 각 디바이스 파일에
+번호가 할당되어 있는 것을 알 수 있다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-01">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">shell</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-01 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-01"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">shell code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">drwxr-xr-x   <span class="m">2</span> root    root           <span class="m">60</span> May <span class="m">31</span> 23:18 vfio
+</span></span><span class="line"><span class="cl">crw-------   <span class="m">1</span> root    root    10,    <span class="m">63</span> May <span class="m">31</span> 23:18 vga_arbiter
+</span></span><span class="line"><span class="cl">crw-------   <span class="m">1</span> root    root    10,   <span class="m">137</span> May <span class="m">31</span> 23:18 vhci
+</span></span><span class="line"><span class="cl">crw-rw----+  <span class="m">1</span> root    kvm     10,   <span class="m">238</span> May <span class="m">31</span> 23:18 vhost-net
+</span></span><span class="line"><span class="cl">crw-------   <span class="m">1</span> root    root    10,   <span class="m">241</span> May <span class="m">31</span> 23:18 vhost-vsock
+</span></span><span class="line"><span class="cl">crw-rw----+  <span class="m">1</span> root    video   81,     <span class="m">0</span> May <span class="m">31</span> 23:18 video0
+</span></span><span class="line"><span class="cl">crw-rw----+  <span class="m">1</span> root    video   81,     <span class="m">1</span> May <span class="m">31</span> 23:18 video1
+</span></span><span class="line"><span class="cl">crw-------   <span class="m">1</span> root    root    10,   <span class="m">130</span> May <span class="m">31</span> 23:18 watchdog
+</span></span><span class="line"><span class="cl">crw-------   <span class="m">1</span> root    root   246,     <span class="m">0</span> May <span class="m">31</span> 23:18 watchdog0
+</span></span><span class="line"><span class="cl">crw-rw-rw-   <span class="m">1</span> root    root     1,     <span class="m">5</span> May <span class="m">31</span> 23:18 zero</span></span></code></pre></div>
+  <p class="sr-only">shell code snippet end</p>
+
+  
+</figure>
+<p>이 때, <code>major number</code>는 특정 디바이스에 할당된 드라이버를
+식별한다. 예를 들어, <code>/dev/zero</code>는 드라이버 1이 관리하고
+<code>/dev/watchdog0</code>은 드라이버 246이 관리한다. <code>minor number</code>는
+드라이버가 맡고 있는 장치들을 분류하기 위한 것으로 아래와 같이 같은
+<code>major number</code>를 가지고 있는 장치들을 분류할 때 사용한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-02">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">shell</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-02 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-02"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">shell code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">➜  ~ ls -l /dev <span class="p">|</span> egrep <span class="s1">&#39;^c.*.(\s)1,&#39;</span>
+</span></span><span class="line"><span class="cl">crw-rw-rw-  <span class="m">1</span> root    root     1,     <span class="m">7</span> May <span class="m">31</span> 23:18 full
+</span></span><span class="line"><span class="cl">crw-r--r--  <span class="m">1</span> root    root     1,    <span class="m">11</span> May <span class="m">31</span> 23:18 kmsg
+</span></span><span class="line"><span class="cl">crw-r-----  <span class="m">1</span> root    kmem     1,     <span class="m">1</span> May <span class="m">31</span> 23:18 mem
+</span></span><span class="line"><span class="cl">crw-rw-rw-  <span class="m">1</span> root    root     1,     <span class="m">3</span> May <span class="m">31</span> 23:18 null
+</span></span><span class="line"><span class="cl">crw-r-----  <span class="m">1</span> root    kmem     1,     <span class="m">4</span> May <span class="m">31</span> 23:18 port
+</span></span><span class="line"><span class="cl">crw-rw-rw-  <span class="m">1</span> root    root     1,     <span class="m">8</span> May <span class="m">31</span> 23:18 random
+</span></span><span class="line"><span class="cl">crw-rw-rw-  <span class="m">1</span> root    root     1,     <span class="m">9</span> May <span class="m">31</span> 23:18 urandom
+</span></span><span class="line"><span class="cl">crw-rw-rw-  <span class="m">1</span> root    root     1,     <span class="m">5</span> May <span class="m">31</span> 23:18 zero</span></span></code></pre></div>
+  <p class="sr-only">shell code snippet end</p>
+
+  
+</figure>
+<p>버전 2.4 커널에서 <code>devfs(device file system)</code>라는 새 기능이
+추가되었다. 만약 이 파일시스템 사용되면 디바이스 파일들을 그 전보다
+훨씬 간단하게 관리할 수 있지만 호환성에 문제가 생긴다. 이에 대해서
+자세히 알아보자.</p>
+<p><code>devfs</code>를 사용하지 않을 경우, <code>시스템에 드라이버를 새로 추가한다</code>는
+의미는 새로운 <code>major number</code>를 할당한다는 의미와 같다. 그래서 아래와
+같은 코드를 이용해 직접 그 숫자를 할당해줘야 한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-03">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-03 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-03"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// return: success or failure(&lt;0)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// major: major number being requested
+</span></span></span><span class="line"><span class="cl"><span class="c1">// name: name of the device (which will appear in /proc/devices)
+</span></span></span><span class="line"><span class="cl"><span class="c1">// fops: driver&#39;s entry point
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">register_chrdev</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">major</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="k">struct</span> <span class="nc">file_operations</span> <span class="o">*</span><span class="n">fops</span><span class="p">);</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p><code>Major Number</code>는 <code>small integer</code> 형태로서 캐릭터 드라이버 배열의
+인덱스를 담당한다. 2.0 커널에서는 128개 디바이스에 대해, 2.2와
+2.4에서는 256개 디바이스에 대한 인덱스를 가질 수 있으며 <code>Minor Number</code>의 경우 8비트를 가져 마찬가지로 256개 디바이스에 대한 인덱스를
+가질 수 있다. 하지만 <code>Minor Number</code>는 위 함수에서 특별히 인자로 넘기지
+않는데 이는 드라이버에서만 제한적으로 사용되는 숫자이기 때문에 그렇다.</p>
+<p>드라이버를 커널 테이블에 등록하면 주어진 <code>major number</code>를
+할당한다. 이후부터는 캐릭터 디바이스에 대한 파일 연산을 할 때마다 등록
+시에 정의했던 <code>file_operations</code> 구조체의 각 함수들을 이용하게
+된다. 하지만 코드가 아닌 실제 명령어를 통해 이러한 등록 과정을 아주
+간단히 할 수가 있는데 그것이 바로 <code>mknod</code> 명령어이다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-04">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">shell</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-04 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-04"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">shell code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ mknod /dev/scull0 c <span class="m">254</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">$ rm /dev/scull0</span></span></code></pre></div>
+  <p class="sr-only">shell code snippet end</p>
+
+  
+</figure>
+<p>위처럼 major number가 254, minor number가 0인 캐릭터 디바이스(c)를
+생성하고 해당 디바이스를 삭제할 수 있다. 하지만 이렇게 정적으로
+디바이스를 관리하는 인덱스 번호를 할당할 필요가 있을까?</p>
+<h2 id="dynamic-allocation-of-major-numbers" class="scroll-mt-8 group">
+  Dynamic Allocation of Major Numbers
+  
+    <a href="#dynamic-allocation-of-major-numbers"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<p>몇몇 주요 장치들에 대한 인덱스 숫자는 정적으로 할당된다. 이러한
+장치들에 대한 정보는 <code>Documentation/admin-guide/devices.txt</code>에서 찾을
+수 있다. (책에는 <code>Documentation/devices.txt</code>라고 되어 있으나 커널
+버전이 업되면서 경로가 바뀌었다.)</p>
+<p>정적으로 <code>Major Number</code>를 할당하면 공식 커널 트리에 포함되어 유용하게
+사용되는 경우에만 할당해야 하며, 그렇지 않으면 반드시 동적으로
+할당하는 방법을 사용해야 한다. 하지만 동적으로 <code>Major Number</code>를
+할당하는 방법의 단점은 디바이스 노드를 생성할 수 없다는 것이다. 항상
+같은 번호를 할당받을 수 없기 때문인데 이 말은 즉슨,
+<code>loading-on-demand</code> 방식을 사용할 수 없다는 말과 같다. 하지만 이러한
+특징은 일반적인 사용에 있어서 크게 문제가 되지는 않는다. 앞서 설명했던
+것처럼 <code>/proc/devices</code>의 정보를 사용하면 되기 때문이다.</p>
+<p>동적으로 생성하는 방법은 아래와 같은 코드를 이용하면 된다. 이 때,
+<code>scull_major</code> 값을 0으로 주어지면 동적 할당을 사용한다는 의미이다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-05">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-05 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-05"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">register_chrdev</span><span class="p">(</span><span class="n">scull_major</span><span class="p">,</span> <span class="s">&#34;scull&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">scull_fops</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">printk</span><span class="p">(</span><span class="n">KERN_WARNING</span> <span class="s">&#34;scull: can&#39;t get major %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">scull_major</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">resul</span><span class="p">;</span><span class="n">t</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">scull_major</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">scull_major</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span> <span class="cm">/* dynamic */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">unregister_chrdev</span><span class="p">(</span><span class="n">scull_major</span><span class="p">,</span> <span class="s">&#34;scull&#34;</span><span class="p">);</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<p>이 때, 코드 마지막에 위치하는 <code>unregister_chrdev</code> 사용에 있어서
+실패했을 경우를 염두에 두어야 한다. 등록 해제(unregister_chrdev)가
+실패했을 때는 그 영향에 대해 주의해야 한다.<code>/proc/devices</code> 자체가
+실패할 수 있는데 그 이유는 이미 해제된 장치에 대해 이름을 가리키는
+포인터가 잘못될 수 있기 때문이다.</p>
+<h2 id="kdev_t-and--dev_t" class="scroll-mt-8 group">
+  kdev_t and  dev_t
+  
+    <a href="#kdev_t-and--dev_t"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<p>본래 유닉스에서는 16비트 정수 형태로 <code>dev_t</code>안에 디바이스 번호를 담고
+있었는데 오늘날에는 이것이 minor number의 최대치인 256보다 더 많은
+인덱스 숫자를 한번에 요구하는 경우가 생기게 되었다. 하지만 하위
+호환성을 위해서 <code>dev_t</code>자체의 구조를 변경하지는 못하고 있다.</p>
+<p>리눅스에서는 이와 달리 <code>kdev_t</code>라는 약간 다른 타입을
+사용한다. 블랙박스 형태로 설계되었기 때문에 사용자 애플리케이션은
+<code>kdev_t</code>에 대해 완전히 알지 못하고 커널 함수들 또한 해당 자료구조의
+내부를 정확히 알지 못한다. 때문에 커널 버전 변경에 따라 자료구조가
+변경되더라도 디바이스 드라이버에서 해당 변경에 대해 별다른 변경 작업을
+할 필요가 없도록 설계되었다. <code>kdev_t</code>를 이용하기 위해서는 직접 사용할
+필요가 없고 아래와 같이 제공되는 함수 또는 매크로를 이용한다.</p>
+<figure class="codeblock not-prose relative scroll-mt-8" id="codeblock-06">
+  <aside
+    class="absolute right-0 top-0 hidden rounded-bl-sm rounded-tr-sm bg-white/10 px-2 py-1 text-white/70 transition-opacity md:inline-block"
+  >
+    <div class="codeblock-meta flex max-w-xs flex-row items-center space-x-3">
+      <div class="small-caps shrink cursor-default truncate font-mono text-xs" aria-hidden="true">
+        <span class="relative">c&#43;&#43;</span>
+      </div>
+      <div>
+        <clipboard-copy
+          type="button"
+          aria-label="Copy code to clipboard"
+          title="Copy code to clipboard"
+          class="block cursor-pointer transition-colors hover:text-sky-400"
+          target="#codeblock-06 code"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class="lucide lucide-clipboard h-4 w-4"
+  viewBox="0 0 24 24"
+>
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+</svg>
+
+        </clipboard-copy>
+      </div>
+      <div>
+        <a
+          href="#codeblock-06"
+          class="block"
+          aria-label="Link to this code block"
+          title="Link to this code block"
+        >
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+        </a>
+      </div>
+    </div>
+  </aside>
+  <p class="sr-only">c&#43;&#43; code snippet start</p>
+  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Extract the major number from a kdev_t structure.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define MAJOR(dev)	((unsigned int) ((dev) &gt;&gt; MINORBITS))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Extract the minor number.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define MINOR(dev)	((unsigned int) ((dev) &amp; MINORMASK))
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Create a kdev_t build from major and minor numbers
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define MKDEV(ma,mi)	(((ma) &lt;&lt; MINORBITS) | (mi))</span></span></span></code></pre></div>
+  <p class="sr-only">c&#43;&#43; code snippet end</p>
+
+  
+</figure>
+<h2 id="출처" class="scroll-mt-8 group">
+  출처
+  
+    <a href="#%ec%b6%9c%ec%b2%98"
+        class="no-underline hidden opacity-50 hover:opacity-100 !text-inherit group-hover:inline-block"
+        aria-hidden="true" title="Link to this heading" tabindex="-1">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="16"
+  height="16"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-link w-4 h-4 block"
+  viewBox="0 0 24 24"
+>
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+</svg>
+
+    </a>
+  
+</h2>
+<ul>
+<li><a href="https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html">https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch03s02.html</a></li>
+</ul>
+
+  </article>
+    <aside class="not-prose flex flex-col space-y-8 border-t pt-6">
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-shapes h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"
+  />
+  <rect width="7" height="7" x="3" y="14" rx="1" />
+  <circle cx="17.5" cy="17.5" r="3.5" />
+</svg>
+
+        <span>Categories</span>
+      </h2>
+
+      <ul class="ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/categories/kernel/" class="taxonomy category">Kernel</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-tags h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19" />
+  <path
+    d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"
+  />
+  <circle cx="6.5" cy="9.5" r=".5" fill="currentColor" />
+</svg>
+
+        <span>Tags</span>
+      </h2>
+
+      <ul class="not-prose ml-6 flex flex-row flex-wrap items-center space-x-2">
+          <li>
+            <a href="/tags/minor-number/" class="taxonomy tag">minor number</a>
+          </li>
+          <li>
+            <a href="/tags/major-number/" class="taxonomy tag">major number</a>
+          </li>
+      </ul>
+    </section>
+    <section class="flex flex-col space-y-4" aria-hidden="true">
+      <h2 class="flex flex-row items-center space-x-2 text-lg font-semibold">
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  stroke-width="2"
+  class="lucide lucide-chart-network h-4 w-4"
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+>
+  <path
+    d="m13.11 7.664 1.78 2.672M14.162 12.788l-3.324 1.424M20 4l-6.06 1.515M3 3v16a2 2 0 0 0 2 2h16"
+  />
+  <circle cx="12" cy="6" r="2" />
+  <circle cx="16" cy="12" r="2" />
+  <circle cx="9" cy="15" r="2" />
+</svg>
+
+        <span>Graph</span>
+      </h2>
+
+      <content-network-graph
+  class="h-64 ml-6"
+  data-endpoint="/graph/index.json"
+  page="/posts/major-and-minor-numbers/"
+></content-network-graph>
+
+    </section>
+</aside>
+
+
+      </main>
+      <footer class="mt-20 border-t border-neutral-100 pt-2 text-xs">
+        <section class="items-top flex flex-row justify-between opacity-70">
+  <div class="flex flex-col space-y-2">
+      <p>Copyright &copy; 2024, Sukbeom Kim.</p>
+
+  </div>
+    <div>
+      <a
+        href="https://github.com/michenriksen/hugo-theme-til"
+        title="Today I Learned &#8212; A Hugo theme by Michael Henriksen"
+        data-theme-version="0.6.0"
+        >theme: til</a
+      >
+    </div>
+</section>
+
+      </footer>
+    </div>
+    
+  </body>
+</html>
