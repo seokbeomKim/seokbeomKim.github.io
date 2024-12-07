@@ -1,12 +1,11 @@
 ---
-title: __is_constexpr macro in kernel
+title: Kernel macro __is_constexpr
 date: 2021-03-21T22:44:03+09:00
 toc: false
 draft: false
 categories:
 - Kernel
 tags:
-- __is_constexpr
 - c
 ---
 
