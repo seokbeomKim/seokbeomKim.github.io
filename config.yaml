@@ -4,6 +4,7 @@ title: 평범한 개발자
 defaultContentLanguage: en
 buildDrafts: false
 buildFuture: false
+
 menu:
   main:
     - name: "Main"
@@ -45,7 +46,7 @@ disqusShortname: seokbeomkim-github-io
 # Site parameters
 params:
   # Site Author
-  author: '김석범 (Sukbeom Kim)'
+  author: "김석범 (Sukbeom Kim)"
   description: "Jason Kim"
   enableGitInfo: true
 
@@ -68,7 +69,11 @@ params:
   # To hidden post summary in home page, you could set `hiddenPostSummaryInHomePage: true`, default is `false`
   hiddenPostSummaryInHomePage: false
   # Website copy write, default: '© Copyright 2021 ❤️ {params.author}'
-  copyright: 'Copyright - Sukbeom Kim'
+  copyright: "Copyright - Sukbeom Kim"
+
+  notitle: true # hide title
+  next: true
+  nomenu: true
 
   # Extra links in navigation
   links:
