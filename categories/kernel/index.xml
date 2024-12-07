@@ -44,10 +44,10 @@
       <description>개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하</description>
     </item>
     <item>
-      <title>__is_constexpr macro in kernel</title>
-      <link>/posts/__is_constexpr-macro-in-kernel/</link>
+      <title>Kernel macro __is_constexpr</title>
+      <link>/posts/kernel-macro-__is_constexpr/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
-      <guid>/posts/__is_constexpr-macro-in-kernel/</guid>
+      <guid>/posts/kernel-macro-__is_constexpr/</guid>
       <description>커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러</description>
     </item>
     <item>
