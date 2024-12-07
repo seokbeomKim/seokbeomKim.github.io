@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</link>
       <pubDate>Wed, 26 Feb 2020 23:56:18 +0900</pubDate>
       <guid>//localhost:1313/posts/switch-%EA%B5%AC%EB%AC%B8%EA%B3%BC-if-else-%EA%B5%AC%EB%AC%B8/</guid>
-      <description>개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다. 1int switch_example(unsigned int flag) { 2 switch (flag) { 3 case FLAG_A: 4 // do A 5 break; 6 case FLAG_B: 7 // do B 8 break; 9 case blabla: 10 //</description>
+      <description>개요 실행 시간 단축을 위해 어떤 방법이 가능할지 고민하던 중 아래와 같은 case 구문을 보았다. int switch_example(unsigned int flag) { switch (flag) { case FLAG_A: // do A break; case FLAG_B: // do B break; case blabla: // blabla... break; default: printk(KERN_ERR &amp;#34;ERROR!\n&amp;#34;); } return 0; }</description>
     </item>
   </channel>
 </rss>
