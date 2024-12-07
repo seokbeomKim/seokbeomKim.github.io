@@ -71,10 +71,6 @@ params:
   # Website copy write, default: '© Copyright 2021 ❤️ {params.author}'
   copyright: "Copyright - Sukbeom Kim"
 
-  notitle: true # hide title
-  next: true
-  nomenu: true
-
   # Extra links in navigation
   links:
     ## e.g.
