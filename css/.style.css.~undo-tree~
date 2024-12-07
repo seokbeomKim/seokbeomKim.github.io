@@ -1,9 +1,0 @@
-(undo-tree-save-format-version . 1)
-"6d080280f0bbf6350592cfa3abfd8550d3cbcf2e"
-[nil nil nil nil (25621 49163 289544 485000) 0 nil]
-([nil nil ((#("  height: 80px;
-" 0 1 (fontified t highlight-indent-guides-prop (0 nil t 1 (fill nil highlight-indent-guides-even-face) ((#<marker at 3925 in style.css> . #<marker at 3986 in style.css>))) face highlight-indent-guides-even-face) 1 2 (fontified t highlight-indent-guides-prop (0 nil nil 1 (fill nil highlight-indent-guides-even-face) ((#<marker at 3925 in style.css> . #<marker at 3986 in style.css>))) face highlight-indent-guides-even-face) 2 8 (fontified t face css-property) 8 16 (fontified t)) . 3965) (undo-tree-id2 . -16) (undo-tree-id3 . -1) (undo-tree-id4 . -1) (undo-tree-id5 . -2) (undo-tree-id6 . -16) (undo-tree-id7 . -3) (undo-tree-id8 . -3) (undo-tree-id9 . -3) (undo-tree-id10 . -3) (undo-tree-id11 . -3) (undo-tree-id12 . -16) (undo-tree-id13 . -15) 3968 (t 25621 41223 460496 876000)) nil (25621 49163 289541 985000) 0 nil])
-([nil nil ((#("8" 0 1 (fontified t)) . 3959) (undo-tree-id0 . -1) (undo-tree-id1 . -1)) nil (25621 49163 289528 785000) 0 nil])
-([nil nil ((3959 . 3960)) nil (25621 49163 289500 185000) 0 nil])
-([nil current ((4123 . 4142) (4120 . 4123) (t 25621 49163 300513 685000) 4113) nil (25621 49251 227831 580000) 0 nil])
-nil
