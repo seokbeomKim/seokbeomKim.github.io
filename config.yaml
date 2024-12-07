@@ -1,4 +1,4 @@
-baseURL: /
+baseURL: "/"
 languageCode: en-us
 title: 평범한 개발자
 defaultContentLanguage: en
