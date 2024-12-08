@@ -47,7 +47,11 @@
     </style>
 
     
-    <link rel="stylesheet" type="text/css" href="/style.min.a8513f7521b02331c6050b494ac9a62d736b51c737ddbc806150eefffa0145f5.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/style.min.c8c448788222a35adf7ac27ff97b4517910e918cfc75b2ba3ebd473830b7202c.css" media="all">
+
+    
+    
+    <link rel="stylesheet" href="//localhost:1313/css/sidenote.c70fc51aa5d3254aea52eec2f16d36f688990181433c6f3211405d4199eb2a9a.css" integrity="sha256-xw/FGqXTJUrqUu7C8W029oiZAYFDPG8yEUBdQZnrKpo=">
   </head>
 
   <body>
@@ -76,14 +80,17 @@
     
     
         <span class="datesub">May 1, 2019</span>
-      
+     
+
 <span id="tags">
   &nbsp;&nbsp;
-   <span>
-    <a href="//localhost:1313/tags/http/">#http</a>
-  </span>&nbsp; <span>
-    <a href="//localhost:1313/tags/https/">#https</a>
-  </span>&nbsp;</span>
+   
+    <span>
+        <a href="//localhost:1313/tags/http/">#http</a>
+      </span>&nbsp; 
+    <span>
+        <a href="//localhost:1313/tags/https/">#https</a>
+      </span>&nbsp;</span>
 
 
   </div>
@@ -339,6 +346,27 @@ SSL이라는 용어를 혼용해서 사용하고 있다. 이 때문에 많은 �
 <script>
 window.store = {
     
+    "\/\/localhost:1313\/posts\/": {
+        "title": "Posts",
+        "tags": [],
+        "content": "", 
+        "url": "\/\/localhost:1313\/posts\/"
+    },
+    
+    "\/\/localhost:1313\/posts\/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84\/": {
+        "title": "이맥스 메인테이너 사임",
+        "tags": [],
+        "content": "몇주 전, 이맥스 커뮤니티를 뜨겁게 달군 https://lists.gnu.org/archive/html/emacs-devel/2024-11/msg00534.html 이 하나 있었다. C/C++ 언어를 지원하는 cc-mode의 이름 변경으로 인해 maintainer 한 명이 개발팀에서 나가겠다고 메일링 리스트를 통해 선언한 것이다.\n", 
+        "url": "\/\/localhost:1313\/posts\/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84\/"
+    },
+    
+    "\/\/localhost:1313\/": {
+        "title": "평범한 개발자",
+        "tags": [],
+        "content": "", 
+        "url": "\/\/localhost:1313\/"
+    },
+    
     "\/\/localhost:1313\/categories\/": {
         "title": "Categories",
         "tags": [],
@@ -360,13 +388,6 @@ window.store = {
         "url": "\/\/localhost:1313\/categories\/emacs\/"
     },
     
-    "\/\/localhost:1313\/posts\/": {
-        "title": "Posts",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/posts\/"
-    },
-    
     "\/\/localhost:1313\/tags\/": {
         "title": "Tags",
         "tags": [],
@@ -386,13 +407,6 @@ window.store = {
         "tags": ["tree-sitter","emacs",],
         "content": "이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다.\nSyntax Tree Generator 출현 Tree-sitter1 는 소스 코드를 syntax tree로 만드는 \u0026lsquo;parser generator tool\u0026rsquo;이다. Emacs, Neovim, Zed 등의 편집기에 기본으로 builtin 되어 제공된다. 편집기에서 지원하는 건 별개이지만 2018년에 처음 릴리즈 되었다고 하니 벌써 6년이나 된 기능이다. 처음 tree-sitter 출현을 접했을 때 들었던 생각은 \u0026lsquo;대체 왜 만든걸까?\u0026rsquo; 였다. 이미 syntax highlighting 기능은 오래 전부터 제공되던 기능이었기에 실시간으로 소스 코드로부터 syntax tree를 만들 수 있다는 게 어떤 장점을 가질지 예상하기 힘들었다.\n레거시 방식 Emacs는 버퍼 확장자에 따라 언어 지원을 위한 major mode가 로드된다. 예를 들어, C언어(*.c, *.h)는 c-mode 패키지가 자동으로 로드되며 해당 패키지를 통해 syntax highlighting 기능이 제공된다. C-h v auto-mode-alist 명령어를 통해 auto-mode-alist를 확인하면 아래와 같이 c-mode가 할당된 확장자를 확인할 수 있다.\n(\u0026#34;\\\\.ii\\\\\u0026#39;\u0026#34; . c++-mode) (\u0026#34;\\\\.i\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.lex\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.y\\\\(acc\\\\)?\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.h\\\\\u0026#39;\u0026#34; . c-or-c++-mode) (\u0026#34;\\\\.c\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.\\\\(CC?\\\\|HH?\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) (\u0026#34;\\\\.[ch]\\\\(pp\\\\|xx\\\\|\\\\+\\\\+\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) (\u0026#34;\\\\.\\\\(cc\\\\|hh\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) 그렇다면 이러한 Major Mode 패키지가 있는데도 불구하고 tree-sitter를 사용하는 이유는 무엇일까? 훨씬 빠르기 때문이다. tree-sitter 이전까지 이맥스 패키지 대부분은 syntax highlighting을 위해 정규식을 사용했다. cc-mode 코드를 살펴보면 아래와 같이 아름다운 정규식으로 짜여져 있는 것을 볼 수 있다.\n(defconst c-or-c++-mode--regexp (eval-when-compile (let ((id \u0026#34;[a-zA-Z_][a-zA-Z0-9_]*\u0026#34;) (ws \u0026#34;[ \\t]+\u0026#34;) (ws-maybe \u0026#34;[ \\t]*\u0026#34;) (headers \u0026#39;(\u0026#34;string\u0026#34; \u0026#34;string_view\u0026#34; \u0026#34;iostream\u0026#34; \u0026#34;map\u0026#34; \u0026#34;unordered_map\u0026#34; \u0026#34;set\u0026#34; \u0026#34;unordered_set\u0026#34; \u0026#34;vector\u0026#34; \u0026#34;tuple\u0026#34;))) (concat \u0026#34;^\u0026#34; ws-maybe \u0026#34;\\\\(?:\u0026#34; \u0026#34;using\u0026#34; ws \u0026#34;\\\\(?:namespace\u0026#34; ws \u0026#34;\\\\|\u0026#34; id \u0026#34;::\u0026#34; \u0026#34;\\\\|\u0026#34; id ws-maybe \u0026#34;=\\\\)\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;\\\\(?:inline\u0026#34; ws \u0026#34;\\\\)?namespace\u0026#34; \u0026#34;\\\\(:?\u0026#34; ws \u0026#34;\\\\(?:\u0026#34; id \u0026#34;::\\\\)*\u0026#34; id \u0026#34;\\\\)?\u0026#34; ws-maybe \u0026#34;{\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;class\u0026#34; ws id \u0026#34;\\\\(?:\u0026#34; ws \u0026#34;final\u0026#34; \u0026#34;\\\\)?\u0026#34; ws-maybe \u0026#34;[:{;\\n]\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;struct\u0026#34; ws id \u0026#34;\\\\(?:\u0026#34; ws \u0026#34;final\u0026#34; ws-maybe \u0026#34;[:{\\n]\u0026#34; \u0026#34;\\\\|\u0026#34; ws-maybe \u0026#34;:\\\\)\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;template\u0026#34; ws-maybe \u0026#34;\u0026lt;.*?\u0026gt;\u0026#34; \u0026#34;\\\\|\u0026#34; \u0026#34;#include\u0026#34; ws-maybe \u0026#34;\u0026lt;\u0026#34; (regexp-opt headers) \u0026#34;\u0026gt;\u0026#34; \u0026#34;\\\\)\u0026#34;))) \u0026#34;A regexp applied to C header files to check if they are really C++.\u0026#34;) 이렇게 성능이 떨어지는 방식으로 syntax highlighting 기능을 꾸역꾸역 제공하는 대신 tree-sitter를 이용하면 내가 원하는 파일의 syntax를 실시간으로 parser를 통해 얻어올 수 있고 indentation rule 이나 특정 키워드를 통해 각 노드들의 카테고리를 만들어 가져올 수 있다.\nBitbake syntax highlighting 구현 이미 수많은 tree-sitter parser 들이 공개되어 있다. Github의 tree-sitter-grammars2 를 살펴보면 다양한 언어들에 대해 지원하고 있음을 알 수 있다. 그런데 이러한 parser가 있다고 해서 곧바로 이맥스에서 사용할 수 있는 것은 아니다. 현재 열려있는 버퍼에 대해 매핑되는 major mode를 정의하고 해당 mode에서 tree-sitter 파서가 주는 syntax tree를 이용해 노드 별 카테고리를 만들고 syntax highlighting 컬러에 할당해줘야 한다.\nYocto의 bitbake를 파싱하는 parser는 이미 공개되어 있지만 이를 사용할 수 있는 major mode는 구현되어 있지 않은 상태이다. 필요한데 없으면 만들어야지 어쩌겠는가. 이제부터 bitbake-ts-mode3 코드를 구현하는 과정을 소개한다.\ntree-sitter-bitbake 다운로드 기본적인 parser 조차 없었다면 절망적이었겠지만 다행이도 tree-sitter-bitbake 패키지가 이미 구현되어 공개되어 있었다. 먼저 아래와 같이 이맥스의 tree-sitter 리스트에 tree-sitter-bitbake를 등록한다.\n(setq treesit-language-source-alist \u0026#39;((devicetree \u0026#34;https://github.com/joelspadin/tree-sitter-devicetree\u0026#34;) (bitbake \u0026#34;https://github.com/tree-sitter-grammars/tree-sitter-bitbake\u0026#34;) (c \u0026#34;https://github.com/tree-sitter/tree-sitter-c\u0026#34;) (cpp \u0026#34;https://github.com/tree-sitter/tree-sitter-cpp\u0026#34;))) 이제 M-x treesit-install-language-grammar 함수를 이용해 bitbake treesit을 설치한다. 이제 기본적인 parser까지 준비가 됐으니 major mode를 만들고 확장자에 연결할 차례다.\nbitbake-ts-mode 생성 Major mode를 만들기 위해 처음부터 모드를 전부 작성할 필요 없이 define-derived-mode 함수를 이용해 기본적인 부분들을 상속하는 형태로 만들 수 있다. 여기서는 programming mode를 상속해서 모드를 정의하였다.\n(define-derived-mode bitbake-ts-mode prog-mode \u0026#34;bitbake\u0026#34; (when (treesit-ready-p \u0026#39;bitbake) (treesit-parser-create \u0026#39;bitbake) (treesit-major-mode-setup)) ) mode를 만들었으니 확장자에 맵핑할 차례다.\n(add-to-list \u0026#39;auto-mode-alist \u0026#39;(\u0026#34;\\\\.bb?\\\\\u0026#39;\u0026#34; . bitbake-ts-mode)) (add-to-list \u0026#39;auto-mode-alist \u0026#39;(\u0026#34;\\\\.bbappend?\\\\\u0026#39;\u0026#34; . bitbake-ts-mode)) 이제 parser가 제대로 동작하는지 테스트할 차례다. bb 파일을 열어본 뒤에 M-x treesit-install-language-grammar 함수를 실행해 커서에 위치한 노드 정보를 정상적으로 파싱해오는지 확인한다. 만약 제대로 설치 및 모드가 연결이 되었다면 아래와 같이 커서 위치의 syntax tree 정보가 보일 것이다.\nsyntax highlighting Syntax Tree를 이용해 아래와 같이 font-locking 룰셋을 정의할 것이다. Font-lock4 이란 이맥스 버퍼 내에서 특정 텍스트에 대한 폰트를 지정할 수 있게 해주는 기능이다. 주로 syntax highlighting을 위해 사용한다. Syntax Tree를 얻었으니 이를 이용해 각 노드별로 매칭되는 face를 지정해준다.\n(defvar bitbake-ts-font-lock-rules `(:language bitbake :override t :feature attribute ((attribute) @font-lock-builtin-face) :language bitbake :override t :feature identifier ((identifier) @font-lock-variable-keyword-face) :language bitbake :override t :feature string_content ((string_content) @font-lock-string-face) :language bitbake :override t :feature comment ((comment) @font-lock-comment-face) :language bitbake :override t :feature keyword ([,@bitbake-ts-mode--treesit-keywords] @font-lock-keyword-face))) 여기서 정의된 feature 들은 아래와 같이 treesit-font-lock-feature-list 에 등록해줘야 한다.\n(when (treesit-ready-p \u0026#39;bitbake) (treesit-parser-create \u0026#39;bitbake) ;; Define a list of features of what it is going to be highlighted (setq-local treesit-font-lock-feature-list \u0026#39;((comment) (keyword) (identifier attribute string_content))) ... feature들을 조합해서 (identifier attribute string_content)로 나타낸 것을 볼 수 있는데 syntax tree가 그러하기 때문이다. 예를 들어, 아래와 같은 라인이 있다고 하면\nDEPENDS += \u0026#34;${@bb.utils.contains(\u0026#39;ARCH\u0026#39;, \u0026#39;x86\u0026#39;, \u0026#39;elfutils-native\u0026#39;, \u0026#39;\u0026#39;, d)}\u0026#34; 위 라인은 syntax tree에서 아래와 같이 표현되는데 identifier, attribute, string_content feature 들이 한 라인에 담겨있는 것을 볼 수 있다. 만약 attribute는 syntax highlighting에서 제거하고 싶다면 (identifier string_content) 로 나타내도 무방하다.\n(variable_assignment (identifier) operator: += (literal (string \u0026#34; (inline_python ${@ (call function: (attribute object: (attribute object: (python_identifier) . attribute: (python_identifier)) . attribute: (python_identifier)) arguments: (argument_list ( (python_string (string_start) (string_content) (string_end)) , (python_string (string_start) (string_content) (string_end)) , (python_string (string_start) (string_content) (string_end)) , (python_string (string_start) (string_end)) , (python_identifier) ))) }) \u0026#34;))) imenu 연동 imenu는 이맥스에서 제공하는 frontend 패키지 중 하나로 원하는 정보를 보여주기 위해 사용한다. 여기서는 yocto recipe의 directive와 identifier 위주로 볼 수 있도록 함수를 구현할 것이다. 사실 이 부분도 syntax highlighting 과 마찬가지로 매우 간단하다.\n(setq-local treesit-simple-imenu-settings `((\u0026#34;Directive\u0026#34; bitbake-ts-imenu-directive-node-p nil bitbake-ts-imenu-directive-name-function) (\u0026#34;Identifier\u0026#34; bitbake-ts-imenu-identifier-node-p nil bitbake-ts-imenu-identifier-name-function))) directive를 예로 살펴보면, 해당 노드가 directive인지 판단하기 위한 bitbake-ts-imenu-directive-node-p 함수와 노드로부터 어떻게 출력할 것인지 문자열을 반환하는 bitbake-ts-imenu-directive-name-function 을 이용하고 있는 것을 볼 수 있다. 각각의 함수들은 정규식과 treesit-node-text 함수를 이용해 아래와 같이 간단하게 구현할 수 있다.\n(defun bitbake-ts-imenu-identifier-name-function (node) \u0026#34;A function to return the name of identifier `NODE\u0026#39;.\u0026#34; (treesit-node-text node)) (defun bitbake-ts-imenu-identifier-node-p (node) \u0026#34;A function to check whether the `NODE\u0026#39; is identifier.\u0026#34; (string-match-p \u0026#34;^identifier$\u0026#34; (treesit-node-type node))) (defun bitbake-ts-imenu-directive-name-function (node) \u0026#34;A function to obtain the name of directive `NODE\u0026#39;.\u0026#34; (treesit-node-text node)) (defun bitbake-ts-imenu-directive-node-p (node) \u0026#34;A function to check whether the `NODE\u0026#39; is directive.\u0026#34; (string-match-p \u0026#34;_directive$\u0026#34; (treesit-node-type node))) 마무리 전체 코드는 https://github.com/seokbeomKim/bitbake-ts-mode repo를 참고한다. 한국에 얼마 남지 않은 이맥스 유저들에게 도움이 되길 바라며 글을 마무리한다.\nhttps://tree-sitter.github.io/tree-sitter \u0026#160;\u0026#x21a9;\u0026#xfe0e;\nhttps://github.com/tree-sitter-grammars \u0026#160;\u0026#x21a9;\u0026#xfe0e;\nhttps://github.com/seokbeomKim/bitbake-ts-mode \u0026#160;\u0026#x21a9;\u0026#xfe0e;\nhttps://www.gnu.org/software/emacs/manual/html_node/emacs/Font-Lock.html \u0026#160;\u0026#x21a9;\u0026#xfe0e;\n", 
         "url": "\/\/localhost:1313\/posts\/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84\/"
-    },
-    
-    "\/\/localhost:1313\/": {
-        "title": "평범한 개발자",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/"
     },
     
     "\/\/localhost:1313\/posts\/vterm-in-emacs\/": {
@@ -738,25 +752,18 @@ window.store = {
         "url": "\/\/localhost:1313\/tags\/kgdb\/"
     },
     
-    "\/\/localhost:1313\/tags\/__is_constexpr\/": {
-        "title": "__Is_constexpr",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/tags\/__is_constexpr\/"
-    },
-    
-    "\/\/localhost:1313\/posts\/__is_constexpr-macro-in-kernel\/": {
-        "title": "__is_constexpr macro in kernel",
-        "tags": ["__is_constexpr","c",],
-        "content": "커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.\nThat is either genius, or a seriously diseased mind. 추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.\n#define __is_constexpr(x)\t\\ (sizeof(int) == sizeof(*(8 ? ((void *)((long)(x) * 0l)) : (int *)8))) 이러한 매크로는 VLA (Variable Length Arrays)를 제거하기 위한 패치의 일부인데, GCC의 -Wvla 옵션으로는 아래와 같은 상황을 구분하지 못하고 경고를 출력한다.\n#define BTRFS_NAME_LEN 255 #define XATTR_NAME_MAX 255 char namebuf[max(BTRFS_NAME_LEN, XATTR_NAME_MAX)]; 단순하게 배열의 크기를 선언하는 데에 있어서 프로그래머라면 당연하게 컴파일 타임에 정의되는 것이므로 VLA 가 아니라고 생각하겠지만, GCC는 이를 VLA 로 처리해버린다. 이를 해결하기 위해 만든 매크로가 위의 매크로이다. 기존의 max 매크로 대신, is_constexpr 매크로를 사용한 max_t 등을 새로 구현하여 VLA에 대한 에러를 성공적으로 제거했다.\n그렇다면, 이 매크로는 어떻게 동작하는 걸까?\n복잡해 보이지만, 알고보면 간단하다. ICE 인 경우 내부 값은 ((void *) NULL) 이 된다. 이 때 리턴 값은 (void *) NULL 이 아니라, 삼항 연산자의 마지막 항 (int *)8에 의해 자동으로 (int *) NULL이 되어 sizeof(int) == sizeoof(*(int *)NULL) 을 만족하게 된다. 만약 ICE가 아닌 경우에는, 위 값은 (void *)(possible values) 가 되고 결국 sizeof(*(void *)value) == 1 이 된다.\n내부적으로 long으로 캐스팅하고 난 뒤에 0L으로 곱하는 이유는 아키텍처에 따라 64비트 변수에 대해 발생할 수 있는 컴파일러 에러를 없애기 위함이다.\n참고 링크 https://stackoverflow.com/questions/49481217/linux-kernels-is-constexpr-macro https://lkml.org/lkml/2018/3/20/845 ", 
-        "url": "\/\/localhost:1313\/posts\/__is_constexpr-macro-in-kernel\/"
-    },
-    
     "\/\/localhost:1313\/tags\/c\/": {
         "title": "C",
         "tags": [],
         "content": "", 
         "url": "\/\/localhost:1313\/tags\/c\/"
+    },
+    
+    "\/\/localhost:1313\/posts\/kernel-macro-__is_constexpr\/": {
+        "title": "Kernel macro __is_constexpr",
+        "tags": ["c",],
+        "content": "커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한 방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인 매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.\nThat is either genius, or a seriously diseased mind. 추가한 매크로는 ICE (Integer Constant Expression) 을 알아내기 위한 매크로이고 아래와 같이 정의한다.\n#define __is_constexpr(x)\t\\ (sizeof(int) == sizeof(*(8 ? ((void *)((long)(x) * 0l)) : (int *)8))) 이러한 매크로는 VLA (Variable Length Arrays)를 제거하기 위한 패치의 일부인데, GCC의 -Wvla 옵션으로는 아래와 같은 상황을 구분하지 못하고 경고를 출력한다.\n#define BTRFS_NAME_LEN 255 #define XATTR_NAME_MAX 255 char namebuf[max(BTRFS_NAME_LEN, XATTR_NAME_MAX)]; 단순하게 배열의 크기를 선언하는 데에 있어서 프로그래머라면 당연하게 컴파일 타임에 정의되는 것이므로 VLA 가 아니라고 생각하겠지만, GCC는 이를 VLA 로 처리해버린다. 이를 해결하기 위해 만든 매크로가 위의 매크로이다. 기존의 max 매크로 대신, is_constexpr 매크로를 사용한 max_t 등을 새로 구현하여 VLA에 대한 에러를 성공적으로 제거했다.\n그렇다면, 이 매크로는 어떻게 동작하는 걸까?\n복잡해 보이지만, 알고보면 간단하다. ICE 인 경우 내부 값은 ((void *) NULL) 이 된다. 이 때 리턴 값은 (void *) NULL 이 아니라, 삼항 연산자의 마지막 항 (int *)8에 의해 자동으로 (int *) NULL이 되어 sizeof(int) == sizeoof(*(int *)NULL) 을 만족하게 된다. 만약 ICE가 아닌 경우에는, 위 값은 (void *)(possible values) 가 되고 결국 sizeof(*(void *)value) == 1 이 된다.\n내부적으로 long으로 캐스팅하고 난 뒤에 0L으로 곱하는 이유는 아키텍처에 따라 64비트 변수에 대해 발생할 수 있는 컴파일러 에러를 없애기 위함이다.\n참고 링크 https://stackoverflow.com/questions/49481217/linux-kernels-is-constexpr-macro https://lkml.org/lkml/2018/3/20/845 ", 
+        "url": "\/\/localhost:1313\/posts\/kernel-macro-__is_constexpr\/"
     },
     
     "\/\/localhost:1313\/tags\/state\/": {

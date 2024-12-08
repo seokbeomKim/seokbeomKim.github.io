@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/posts/</loc>
+    <lastmod>2024-12-01T12:26:49+09:00</lastmod>
+  </url><url>
+    <loc>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</loc>
+    <lastmod>2024-12-01T12:26:49+09:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2024-12-01T12:26:49+09:00</lastmod>
+  </url><url>
     <loc>/categories/</loc>
     <lastmod>2024-09-09T22:39:58+09:00</lastmod>
   </url><url>
@@ -11,9 +20,6 @@
     <loc>/categories/emacs/</loc>
     <lastmod>2024-09-09T22:39:58+09:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2024-09-09T22:39:58+09:00</lastmod>
-  </url><url>
     <loc>/tags/</loc>
     <lastmod>2024-09-09T22:39:58+09:00</lastmod>
   </url><url>
@@ -21,9 +27,6 @@
     <lastmod>2024-09-09T22:39:58+09:00</lastmod>
   </url><url>
     <loc>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</loc>
-    <lastmod>2024-09-09T22:39:58+09:00</lastmod>
-  </url><url>
-    <loc>/</loc>
     <lastmod>2024-09-09T22:39:58+09:00</lastmod>
   </url><url>
     <loc>/posts/vterm-in-emacs/</loc>
