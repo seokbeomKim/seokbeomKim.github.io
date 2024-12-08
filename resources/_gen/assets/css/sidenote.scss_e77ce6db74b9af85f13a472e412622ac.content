@@ -6,16 +6,19 @@ In my case, I added position: relative; to my `.post` selector.
 :root {
   --neon-pink: #3366cc; }
 
-.sidenote:hover {
+.sidenote:hover .sidenote-label {
+  text-decoration: none;
+  color: white;
   background-color: var(--neon-pink); }
-  .sidenote:hover .sidenote-label {
-    text-decoration: none;
-    color: white; }
-  .sidenote:hover .sidenote-content {
-    border: dashed 1px var(--neon-pink); }
+
+.sidenote:hover .sidenote-content {
+  color: black; }
 
 .sidenote .sidenote-label {
   text-decoration: underline dashed var(--neon-pink); }
+
+.sidenote .sidenote-content {
+  color: #aaaaaa; }
 
 .sidenote-checkbox {
   display: none; }
@@ -45,7 +48,7 @@ In my case, I added position: relative; to my `.post` selector.
       width: 100%;
       display: none; }
       .sidenote-checkbox:checked ~ .sidenote-content {
-        display: block; }
+        display: contents; }
       .sidenote-content.sidenote-right {
         margin-right: 0px; }
       .sidenote-content.sidenote-left {
