@@ -3,6 +3,9 @@ title: "이맥스 메인테이너 사임"
 date: 2024-12-01T12:26:49+09:00
 draft: false
 toc: false
+tags:
+- emacs
+- open-source
 ---
 
 ## CC Mode
