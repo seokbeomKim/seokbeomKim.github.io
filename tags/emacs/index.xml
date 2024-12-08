@@ -6,8 +6,15 @@
     <description>Recent content in Emacs on 평범한 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Sep 2024 22:39:58 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 01 Dec 2024 12:26:49 +0900</lastBuildDate>
     <atom:link href="/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>이맥스 메인테이너 사임</title>
+      <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</link>
+      <pubDate>Sun, 01 Dec 2024 12:26:49 +0900</pubDate>
+      <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</guid>
+      <description>CC Mode 얼마 전 이맥스 커뮤니티를 뜨겁게 달군 메일 이 있다. cc-mode cc-mode: C와 C++을 지원하는 이맥스 레거시 패키지로 오랫동안 유지보수 되어왔다. 로 유명한 메인테이너 Alan Mackenzie</description>
+    </item>
     <item>
       <title>이맥스 Tree-sitter Major Mode 구현</title>
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</link>
