@@ -1,0 +1,9 @@
+[submodule "content"]
+	path = content
+	url = git@github.com:seokbeomKim/hugo-posts.git
+[submodule "seokbeomkim.github.io"]
+	path = seokbeomkim.github.io
+	url = https://github.com/seokbeomkim/seokbeomkim.github.io.git
+[submodule "public"]
+	path = public
+	url = https://github.com/seokbeomkim/seokbeomkim.github.io.git

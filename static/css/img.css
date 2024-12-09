@@ -1,0 +1,23 @@
+img {
+    max-width: 70%;
+}
+
+code {
+    font-family: D2Coding, 'D2 coding', monospace;
+}
+
+[class*="p-title"] {
+    font-weight: bold;
+}
+
+[class*="profile"] {
+    display: none;
+}
+
+nav.navigation {
+    margin: 0 0 100px 0;
+}
+
+body {
+    font-family: 'Nanum Gothic', 'Noto Sans KR', sans-serif;
+}

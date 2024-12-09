@@ -1,0 +1,82 @@
+baseURL: "/"
+languageCode: en-us
+title: 평범한 개발자
+defaultContentLanguage: en
+buildDrafts: false
+buildFuture: false
+menu:
+  main:
+    - name: "글 목록"
+      url: /
+      weight: 1
+    - name: "태그"
+      url: /tags
+      weight: 2
+    - name: "소개"
+      url: /about
+      weight: 3
+
+markup:
+  highlight:
+    anchorLineNos: true
+    codeFences: true
+    guessSyntax: false
+    tabWidth: 4
+    lineNumbersInTable: false
+    noClasses: true
+    lineNos: false
+    style: emacs
+  goldmark:
+    extensions:
+      footnote: true
+      linkify: true
+      linkifyProtocol: https
+      table: true
+    renderer:
+      unsafe: true
+
+hasCJKLanguage: true
+permalinks:
+  posts: /posts/:title/
+
+googleAnalytics: G-Y7VW74D2P3
+disqusShortname: seokbeomkim-github-io
+
+# Site parameters
+params:
+  # Site Author
+  author: "김석범 (Sukbeom Kim)"
+  description: "Jason Kim"
+  enableGitInfo: true
+
+  ###########################################
+  # Optional Configuration
+  ###########################################
+
+  # To enable RSS, you could set `enableRSS: true`, default is `true`
+  enableRSS: true
+  # To enable comments, you may need to set `disqusShortname`
+  enableComments: false
+  # To enable comments, you may need to set `googleAnalytics`
+  enableGoogleAnalytics: false
+  # To enable table of content, you could set `showToc: true`, default is `false`
+  showToc: true
+  # To hidden powerBy message in the page footer, you could set: `showPowerBy: false`, default is `true`
+  showPowerBy: false
+  # To enable math typesetting , you could set `math: true`, default is `false`
+  math: true
+  # To hidden post summary in home page, you could set `hiddenPostSummaryInHomePage: true`, default is `false`
+  hiddenPostSummaryInHomePage: false
+  # Website copy write, default: '© Copyright 2021 ❤️ {params.author}'
+  copyright: "Copyright - Sukbeom Kim"
+
+  # Extra links in navigation
+  links:
+  customCSS:
+    - css/noto_sans_kr.css
+    - css/nanumgothic.css
+    - css/img.css
+
+module:
+  imports:
+    - path: hugo-dead-simple
