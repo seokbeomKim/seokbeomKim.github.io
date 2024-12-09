@@ -56,7 +56,7 @@ params:
   # To enable RSS, you could set `enableRSS: true`, default is `true`
   enableRSS: true
   # To enable comments, you may need to set `disqusShortname`
-  enableComments: false
+  enableComments: true
   # To enable comments, you may need to set `googleAnalytics`
   enableGoogleAnalytics: false
   # To enable table of content, you could set `showToc: true`, default is `false`
