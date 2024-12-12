@@ -15,7 +15,8 @@ In my case, I added position: relative; to my `.post` selector.
   color: black; }
 
 .sidenote .sidenote-label {
-  text-decoration: underline dashed var(--neon-pink); }
+  text-decoration: underline dashed var(--neon-pink);
+  text-underline-offset: 3px; }
 
 .sidenote .sidenote-content {
   color: #aaaaaa; }
