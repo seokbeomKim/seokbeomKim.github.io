@@ -372,6 +372,27 @@ solution이라는 두 개 그룹에서 구현되면서 각기 다른 이름을 �
 <script>
 window.store = {
     
+    "\/posts\/": {
+        "title": "Posts",
+        "tags": [],
+        "content": "", 
+        "url": "\/posts\/"
+    },
+    
+    "\/posts\/the-upcoming-year-of-2025\/": {
+        "title": "The Upcoming Year of 2025",
+        "tags": [],
+        "content": "Are You Unable to Find Employment? This morning, I came across an RSS feed discussing a question on HN (Hacker News). On the page, many individuals find it challenging to secure employment in the U.S. despite holding an CS degree (even from Ivy League). Companies are increasingly focused on cutting costs, which has led to a rise in hiring in developing countries like India, Brazil, and Kazakhstan. The sentence from the question resonates with me: \u0026ldquo;Have you been fired in favor of foreign workers?\u0026rdquo; Could this happen in South Korea in the future?\nHighly Dependent on the Manufacturing Industry I am not an economic expert, but as an ordinary developer living in South Korea, I would like to share my thoughts on the situation here. The primary industry in South Korea is manufacturing, dominated by a few large companies run by Chaebol. Additionally, the portion of real estate in domestic property is much larger than capital investment. This means that the country is highly dependent on exports, with limited domestic demand. Given this structure, facing the uncertainties posed by Donald Trump\u0026rsquo;s new administration is quite stressful. One of the pressing topics of concern in the economy is \u0026ldquo;offshoring.\u0026rdquo; The U.S. government is pressuring many companies, including those in the semiconductor sector in Korea, to invest in the U.S. by establishing their factories there. The policies from the upcoming U.S. government could be detrimental to South Korea\u0026rsquo;s industry by reducing domestic investment.\nEconomic Base The country has struggled to shift its economic base from manufacturing to higher productive industries like IT. Many people continue to cling to traditional sectors without embracing necessary changes. A significant portion of the GDP still comes from manufacturing, largely thanks to semiconductor giants like SK Hynix and Samsung. Interestingly, however, most employment opportunities are emerging from the service industry, not manufacturing.\nSouth Korea also has a high dependency on China and the U.S., and currently, China\u0026rsquo;s technology has advanced to a level comparable to Korea\u0026rsquo;s in some sectors. Without technological development, economic growth is bound to decline. Not only that, the significant decrease in population, coupled with housing debt from the unique Jeonse system in South Korea, is exacerbating the economic challenges.\nYear of 2025 Due to the president\u0026rsquo;s impeachment, the current circumstances are filled with uncertainties, and significant changes are expected. Until now, the government has minimized its debt by relying on public enterprises, while housing debt remains unmeasured statistically due to the Jeonse system. I worry that foreigners might begin to recognize the true situation and reconsider the economic fundamentals. However, given the high current exchange rate, I believe they are already starting to become awareness of these issues.\n", 
+        "url": "\/posts\/the-upcoming-year-of-2025\/"
+    },
+    
+    "\/": {
+        "title": "평범한 개발자",
+        "tags": [],
+        "content": "", 
+        "url": "\/"
+    },
+    
     "\/tags\/emacs\/": {
         "title": "Emacs",
         "tags": [],
@@ -386,13 +407,6 @@ window.store = {
         "url": "\/tags\/open-source\/"
     },
     
-    "\/posts\/": {
-        "title": "Posts",
-        "tags": [],
-        "content": "", 
-        "url": "\/posts\/"
-    },
-    
     "\/tags\/": {
         "title": "Tags",
         "tags": [],
@@ -405,13 +419,6 @@ window.store = {
         "tags": ["emacs","open-source",],
         "content": "CC Mode 얼마 전 이맥스 커뮤니티를 뜨겁게 달군 메일이 있다. cc-mode cc-mode: C와 C++을 지원하는 이맥스 레거시 패키지로 오랫동안 유지보수 되어왔다. 로 유명한 메인테이너 Alan Mackenzie 가 개발팀에서 나가겠다고 메일링 리스트를 통해 선언한 것이다.\nTree-sitter vs. Legacy Package 최근 이맥스는 tree-sitter Syntax Parsing Library로써 런타임에 코드를 파싱하여 syntax를 구조적으로 액세스할 수 있도록 인터페이스를 제공한다. 를 적극적으로 사용하도록 코드를 수정하고 있다. 하지만 문제는 tree-sitter 이전에 작성된 레거시 패키지들을 사용하지 못하게 되는 경우다. 개발팀은 이를 위해 major-mode-remap-defaults 라는 변수로써 사용자가 원하는 경우 레거시 패키지를 사용할 수 있도록 하고 있다.\n참고로 이맥스는 파일 확장자를 모드 패키지에 매핑시키는 구조로 되어 있다. auto-mode-alist 변수를 살펴보면 어떠한 모드 패키지가 실행될 것인지 확장자에 따라 정의되어 있다.\n;; ... 생략 (\u0026#34;\\\\.lex\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.y\\\\(acc\\\\)?\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.h\\\\\u0026#39;\u0026#34; . c-or-c++-mode) (\u0026#34;\\\\.c\\\\\u0026#39;\u0026#34; . c-mode) (\u0026#34;\\\\.\\\\(CC?\\\\|HH?\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) (\u0026#34;\\\\.[ch]\\\\(pp\\\\|xx\\\\|\\\\+\\\\+\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) (\u0026#34;\\\\.\\\\(cc\\\\|hh\\\\)\\\\\u0026#39;\u0026#34; . c++-mode) ;; ... 생략 해당 메인테이너에 따르면, cc-mode의 주요 심볼인 c-mode, c++-mode, c-or-c++-mode는 오래전부터 사용자들에게 사용되어온 심볼임에도 불구하고 아무런 공지 없이 개발팀이 tree-sitter 지원을 위한 목적으로 변경되었다는 것이다. 패키지 내부에는 아래와 같이 major-mode-remap-defaults를 이용해 cc-mode를 사용하고자 하는 사용자들을 위해 임시로 수정 사항을 적용한 것을 볼 수 있는데 제3자 입장에서 봐도 화가 날 만하다.\n(when (boundp \u0026#39;major-mode-remap-defaults) (add-to-list \u0026#39;major-mode-remap-defaults \u0026#39;(c++-mode . c++-ts-mode)) (add-to-list \u0026#39;major-mode-remap-defaults \u0026#39;(c-mode . c-ts-mode)) (add-to-list \u0026#39;major-mode-remap-defaults \u0026#39;(c-or-c++-mode . c-or-c++-ts-mode)) (let (entry) (dolist (mode \u0026#39;(c-mode c++-mode c-or-c++-mode)) (if (and (setq entry (assq mode major-mode-remap-defaults)) (null (cdr entry))) (setq major-mode-remap-defaults (delq entry major-mode-remap-defaults))) (push (cons mode nil) major-mode-remap-defaults)))) 커뮤니티 반응 해당 메인테이너의 메일로 인해 커뮤니티에서는 주요 변경이 있을 때마다 논의하는 시간을 갖자는 의견이 나왔다. \u0026lsquo;결국 사람이 일하는 것인데\u0026hellip;\u0026rsquo;. 해당 의견은 이상적으로만 느껴졌다. 이에 리처드 스톨만은 적극적으로 판단하고 결정하기보다 커뮤니티의 분위기를 다소 온화한 방향으로 이끄는데만 주력했다. 독단적이지만 체계/논리적인 개발 프로세스를 구축한 리눅스 커널의 리누즈와 비교되는 부분이었다.\n비현실적 고찰 오픈소스 프로젝트는 사람들을 이끌고 그들로부터 자발적인 협업을 이끌어낸다. 비지니스 영역은 잘 모르지만 그들이 중요하게 여기는 빠른 결정과 리더쉽이 이 곳에도 동일하게 적용된다. 온화한 성격은 리더쉽이 약하다고 오해되기도 하는데 여기에 이유가 있지 않나 싶다. 빠른 결정을 내릴 수 있으면서도 독단적으로 보이지 않을 수 있는 정치력, 그리고 구성원들이 자발적으로 참여하도록 만들기 위한 기술적 역량이 프로젝트 리더에 정말 중요한 것이라 생각한다.\n생각해보니\u0026hellip; 그런 사람이 있을까?\n", 
         "url": "\/posts\/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84\/"
-    },
-    
-    "\/": {
-        "title": "평범한 개발자",
-        "tags": [],
-        "content": "", 
-        "url": "\/"
     },
     
     "\/categories\/": {
