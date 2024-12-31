@@ -7,6 +7,21 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2024-12-30T17:22:37+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/posts/the-upcoming-year-of-2025/</loc>
+    <lastmod>2024-12-30T17:22:37+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/tags/%EC%9D%BC%EC%83%81/</loc>
+    <lastmod>2024-12-30T17:22:37+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>/</loc>
     <lastmod>2024-12-30T17:22:37+09:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -18,11 +33,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>/tags/open-source/</loc>
-    <lastmod>2024-12-01T12:26:49+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2024-12-01T12:26:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -278,11 +288,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</loc>
-    <lastmod>2020-09-05T09:50:58+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>/tags/%EC%9D%BC%EC%83%81/</loc>
     <lastmod>2020-09-05T09:50:58+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
