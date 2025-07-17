@@ -86,4 +86,4 @@ params:
 
 module:
   imports:
-    - path: hugo-dead-simple
+    - path: hugo-themes

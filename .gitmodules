@@ -7,3 +7,6 @@
 [submodule "public"]
 	path = public
 	url = https://github.com/seokbeomkim/seokbeomkim.github.io.git
+[submodule "themes/hugo-themes"]
+	path = themes/hugo-themes
+	url = git@github.com:seokbeomKim/hugo-themes.git
