@@ -13,7 +13,7 @@
       <link>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       <guid>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</guid>
-      <description>개요 업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다소</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;업무 중에 카메라 드라이버에 관련된 이슈를 보다가 &lt;code&gt;poll()&lt;/code&gt;과&#xA;&lt;code&gt;poll_wait()&lt;/code&gt;이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된&#xA;커널이 다소 오래되었기에 살펴보아야 하는 드라이버 코드도 레거시에&#xA;가까웠지만 &lt;code&gt;poll&lt;/code&gt;을 이용하여 디바이스 드라이버의 인터럽트를 처리하는&#xA;것으로 확인하여 관련 내용을 정리하고자 한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

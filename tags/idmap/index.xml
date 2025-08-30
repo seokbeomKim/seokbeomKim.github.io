@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/identity-mapping/</link>
       <pubDate>Mon, 24 Feb 2020 23:01:54 +0900</pubDate>
       <guid>//localhost:1313/posts/identity-mapping/</guid>
-      <description>ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오</description>
+      <description>&lt;p&gt;ARM64 페이징을 공부하다보니 idmap (Identity Mapping)이라는 용어가 등장했다. 페이지 테이블이 완전하게 준비가 되지 않았을 때 임시로 사용하는 매핑 방법 중의 하나인데 오늘을 여기에 대해서 정리하고자 한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

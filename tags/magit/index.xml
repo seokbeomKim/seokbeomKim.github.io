@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 01 Jan 2021 13:42:08 +0900</pubDate>
       <guid>//localhost:1313/posts/emacs%EC%97%90%EC%84%9C-magit-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/</guid>
-      <description>개요 이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래 걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은 없었는데, Speeding up magit - Jake McCray 블로</description>
+      <description>&lt;h2 id=&#34;개요&#34;&gt;개요&lt;/h2&gt;&#xA;&lt;p&gt;이맥스에서 magit 을 이용하여 수정 상태나 커밋 메시지를 확인할 때 오래&#xA;걸리는 문제가 있었다. magit 의 매뉴얼 페이지를 보아도 원하는 것은&#xA;없었는데, &lt;a href=&#34;https://jakemccrary.com/blog/2020/11/14/speeding-up-magit/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;Speeding up magit - Jake&#xA;McCray&lt;/a&gt;&#xA;블로그의 내용으로 문제를 해결할 수 있었다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

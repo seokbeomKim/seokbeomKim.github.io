@@ -13,7 +13,7 @@
       <link>/posts/gpio-mapping/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       <guid>/posts/gpio-mapping/</guid>
-      <description>GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO</description>
+      <description>&lt;h1 id=&#34;gpio-맵핑하기&#34;&gt;GPIO 맵핑하기&lt;/h1&gt;&#xA;&lt;p&gt;오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

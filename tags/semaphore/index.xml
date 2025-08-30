@@ -13,14 +13,14 @@
       <link>//localhost:1313/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</link>
       <pubDate>Tue, 04 Jun 2019 11:40:12 +0900</pubDate>
       <guid>//localhost:1313/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-3/5/</guid>
-      <description>이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해 기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면 된다. 태스크가</description>
+      <description>&lt;p&gt;이번 포스팅에서는 리눅스 커널 락의 세 번째인 세마포어에 대해&#xA;기술한다. 리눅스의 세마포어(semaphore)는 휴면하는 락이라고 생각하면&#xA;된다. 태스크가 이미 사용 중인 세마포어를 얻으려고 하면, 세마포어는&#xA;해당 태스크를 대기큐에 넣고 휴면 상태로 만든다. 그 다음 프로세서는&#xA;자유롭게 다른 코드를 실행한다. 세마포어가 다시 사용 가능해지면&#xA;대기큐의 태스크 하나를 깨우고 이 태스크가 세마포어를 사용하게 된다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>리눅스 커널 락 종류 (2/5)</title>
       <link>//localhost:1313/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</link>
       <pubDate>Wed, 29 May 2019 00:59:34 +0900</pubDate>
       <guid>//localhost:1313/posts/%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EB%9D%BD-%EC%A2%85%EB%A5%98-2/5/</guid>
-      <description>지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해 기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자 한다</description>
+      <description>&lt;p&gt;지난 번 포스팅에서는 리눅스 커널 락 중 하나인 스핀락(Spinlock)에 대해&#xA;기술하였다. 이번 포스팅에서는 뮤텍스(Mutex)에 대해서 기술하고자&#xA;한다. 많은 곳에서 뮤텍스는 세마포어의 카운트 값이 단순하게 1로&#xA;설정되었을 때를 말한다고 기술한다. 하지만 이것이 맞는 설명일까?&lt;/p&gt;</description>
     </item>
     <item>
       <title>리눅스 커널 락 종류 (1/5)</title>

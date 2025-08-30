@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       <guid>//localhost:1313/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</guid>
-      <description>개요 데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로 나</description>
+      <description>&lt;!-- toc --&gt;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;데이터베이스에 관련된 문서를 보다보니 &lt;code&gt;Partition&lt;/code&gt;, &lt;code&gt;Sharding&lt;/code&gt;이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그&#xA;대로 데이터베이스를 여러 개로 나누어 분산시키기 위한 기술 용어들인데 모두 서비스 크기 증가에 따른 DB 크기 증가, 성능 이슈에 따른 것이다.&#xA;일명 VLDB(Very Large DBMS)라 불리는, DBMS 하나로 전체 데이터베이스를 다룰 수 없는 데이터베이스가 자연스럽게 등장하였고&#xA;DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생기게 되었는데 이를 해결하기 위한 것이 바로 &lt;code&gt;파티셔닝(partitioning) 과 샤딩(Sharding)&lt;/code&gt;이다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

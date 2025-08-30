@@ -13,21 +13,21 @@
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</link>
       <pubDate>Sun, 01 Dec 2024 12:26:49 +0900</pubDate>
       <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</guid>
-      <description>CC Mode 얼마 전 이맥스 커뮤니티를 뜨겁게 달군 메일이 있다. cc-mode cc-mode: C와 C++을 지원하는 이맥스 레거시 패키지로 오랫동안 유지보수 되어왔다. 로 유명한 메인테이너 Alan Mackenzie</description>
+      <description>&lt;h2 id=&#34;cc-mode&#34;&gt;CC Mode&lt;/h2&gt;&#xA;&lt;p&gt;얼마 전 이맥스 커뮤니티를 뜨겁게 달군 &lt;a href=&#34;https://lists.gnu.org/archive/html/emacs-devel/2024-11/msg00534.html&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;메일&lt;/a&gt;이 있다. &lt;span class=&#34;sidenote&#34;&gt;&#xA;    &lt;label class=&#34;sidenote-label&#34; for=&#34;sidenote-0&#34;&gt;cc-mode&lt;/label&gt;&#xA;    &lt;input class=&#34;sidenote-checkbox&#34; type=&#34;checkbox&#34; id=&#34;sidenote-0&#34;&gt;&lt;/input&gt;&#xA;    &lt;span class=&#34;sidenote-content sidenote-right&#34;&gt;&#xA;    &lt;bold&gt;cc-mode&lt;/bold&gt;: C와 C++을 지원하는 이맥스 레거시 패키지로 오랫동안 유지보수 되어왔다. &#xA;    &lt;/span&gt;&#xA;&lt;/span&gt;&#xA;로 유명한 메인테이너 &lt;em&gt;Alan Mackenzie&lt;/em&gt; 가 개발팀에서 나가겠다고 메일링 리스트를 통해 선언한 것이다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>이맥스 Tree-sitter Major Mode 구현</title>
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</link>
       <pubDate>Mon, 09 Sep 2024 22:39:58 +0900</pubDate>
       <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</guid>
-      <description>이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다. Syntax Tree Generator 출현 Tree-sitter1 는 소스 코드를 syntax tree로 만드는 &amp;lsquo;parser generator tool</description>
+      <description>&lt;p&gt;이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;syntax-tree-generator-출현&#34;&gt;Syntax Tree Generator 출현&lt;/h2&gt;&#xA;&lt;p&gt;Tree-sitter&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; 는 소스 코드를 syntax tree로 만드는 &amp;lsquo;parser generator tool&amp;rsquo;이다. Emacs, Neovim, Zed 등의&#xA;편집기에 기본으로 builtin 되어 제공된다. 편집기에서 지원하는 건 별개이지만 2018년에 처음 릴리즈 되었다고 하니 벌써&#xA;6년이나 된 기능이다. 처음 tree-sitter 출현을 접했을 때 들었던 생각은 &amp;lsquo;대체 왜 만든걸까?&amp;rsquo; 였다. 이미 syntax highlighting&#xA;기능은 오래 전부터 제공되던 기능이었기에 실시간으로 소스 코드로부터 syntax tree를 만들 수 있다는 게 어떤 장점을 가질지&#xA;예상하기 힘들었다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>이맥스 기본 에디터로 사용하기</title>
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
       <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
-      <description>개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해&#xA;포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가&#xA;상당히 오래 걸리는 편이다. &lt;code&gt;daemon&lt;/code&gt; 형태로 실행한다고 해도, 첫 로드를&#xA;위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에&#xA;편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로&#xA;로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

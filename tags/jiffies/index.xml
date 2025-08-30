@@ -13,7 +13,7 @@
       <link>/posts/%EC%A7%80%ED%94%BCjiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       <guid>/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
-      <description>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시</description>
+      <description>&lt;!-- toc --&gt;&#xA;&lt;p&gt;오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한&#xA;뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인&#xA;&lt;code&gt;jiffies&lt;/code&gt;에는 시스템 시작 이후 발생한 진동 횟수(tick)이&#xA;저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머&#xA;인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회&#xA;발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은&#xA;&lt;code&gt;jiffies / HZ&lt;/code&gt;(초)가 된다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

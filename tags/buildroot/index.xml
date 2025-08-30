@@ -13,7 +13,7 @@
       <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
-      <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</description>
+      <description>&lt;p&gt;지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에&#xA;올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는&#xA;무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던&#xA;기회였다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

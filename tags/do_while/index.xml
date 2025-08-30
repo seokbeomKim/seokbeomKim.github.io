@@ -13,7 +13,7 @@
       <link>/posts/do-while/</link>
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       <guid>/posts/do-while/</guid>
-      <description>개요 커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 매크로에 &lt;code&gt;do { .. } while(0)&lt;/code&gt; 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. &lt;a href=&#34;https://kernelnewbies.org/FAQ/DoWhile0&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;https://kernelnewbies.org/FAQ/DoWhile0&lt;/a&gt; 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

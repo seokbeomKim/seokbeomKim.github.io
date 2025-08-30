@@ -13,21 +13,21 @@
       <link>//localhost:1313/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</link>
       <pubDate>Sat, 12 Sep 2020 00:05:37 +0900</pubDate>
       <guid>//localhost:1313/posts/%ED%95%98%EC%8A%A4%EC%BC%88-%EB%B2%84%EC%A0%84-%EA%B4%80%EB%A6%AC/</guid>
-      <description>개요 IDE 환경을 구성하기 위해 haskell-ide-engine을 설치하였지만 한 가지 문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine 버전이 8.10 까지 버</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;IDE 환경을 구성하기 위해 &lt;code&gt;haskell-ide-engine&lt;/code&gt;을 설치하였지만 한 가지&#xA;문제가 발생하였다. 현재 기준 8.8.3 까지 지원하고 있는 ide-engine&#xA;버전이 8.10 까지 버전업 되어 있는 ghc 환경과 호환이 안되는 문제가&#xA;발생하였다. 이를 위해 하스켈의 전체적인 버전 관리를 해주는 패키지&#xA;매니저가 있을 것이라 생각하고 관련 내용으로 검색해보니 &lt;code&gt;ghcup&lt;/code&gt; 이라는&#xA;버전 관리 매니저가 있었다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>(.) 와 ($) 의 차이</title>
       <link>//localhost:1313/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
       <guid>//localhost:1313/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
-      <description>개요 최근 하스켈로 조그만 프로젝트를 시작하기 위해 Real World Haskell 이라는 책 한 권을 구입하여 공부하기 시작했다. Functional Programming 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결하</description>
+      <description>&lt;h2 id=&#34;개요&#34;&gt;개요&lt;/h2&gt;&#xA;&lt;p&gt;최근 하스켈로 조그만 프로젝트를 시작하기 위해 &lt;em&gt;Real World Haskell&lt;/em&gt; 이라는 책 한 권을 구입하여 공부하기 시작했다. &lt;em&gt;Functional Programming&lt;/em&gt; 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결하기 위한 접근 방식부터 차근차근 배워나가려 하고 있지만 쉽지 않다. 여타 주요 언어에서 제공하는 &lt;strong&gt;loop&lt;/strong&gt;의 개념이 없고 함수만으로 이루어진 &lt;em&gt;recursive&lt;/em&gt;와 &lt;em&gt;pattern matching&lt;/em&gt; 또는 &lt;em&gt;function application&lt;/em&gt; 등으로 표현되기에 쉽지가 않다. &lt;strong&gt;Higher-order function&lt;/strong&gt;으로 이루어지는 하스켈의 함수에서는 &lt;strong&gt;currying&lt;/strong&gt;을 통해 여러 개의 인자를 갖는 함수를 표현할 수 있다. 이러한 개념과 함께 설명되는 것이 포스팅의 타이틀에 해당하는 (.)과 ($) 연산자인데 각각 &lt;strong&gt;Function Composition&lt;/strong&gt;과 &lt;strong&gt;Function Application&lt;/strong&gt;을 의미한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Folding in Haskell</title>
       <link>//localhost:1313/posts/folding-in-haskell/</link>
       <pubDate>Wed, 01 May 2019 17:56:20 +0900</pubDate>
       <guid>//localhost:1313/posts/folding-in-haskell/</guid>
-      <description>Folding in Haskell 취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional Programming에 대해 관심이 생겨 Haskell이라는 언어를 배우기 시작했다. (알고리</description>
+      <description>&lt;!-- toc --&gt;&#xA;&lt;h1 id=&#34;folding-in-haskell&#34;&gt;Folding in Haskell&lt;/h1&gt;&#xA;&lt;p&gt;취업을 위한 포트폴리오 준비 작업으로 바쁜 가운데, Functional&#xA;Programming에 대해 관심이 생겨 &lt;code&gt;Haskell&lt;/code&gt;이라는 언어를 배우기&#xA;시작했다. (알고리즘이나 데이터베이스 등 배울 것이 많은 데 갈수록&#xA;태산이다.) 대학교 시절, xmonad 윈도우즈 매니저를 사용하면서 접한&#xA;언어를 이렇게 뒤늦게 배우게 될 줄은 꿈에도 몰랐다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

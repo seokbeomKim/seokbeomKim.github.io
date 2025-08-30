@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</link>
       <pubDate>Wed, 05 Feb 2020 00:53:22 +0900</pubDate>
       <guid>//localhost:1313/posts/raspberry-pi%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%82%AC%EC%9D%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</guid>
-      <description>카메라 포팅 건으로 불필요한 업무가 지속적으로 들어온다. 포팅을 위한 기본적인 것들을 자동화 하거나 유틸리티 형태로 제공할 수 있어야 한다는 것을 뼈저리게 느꼈다.</description>
+      <description>&lt;p&gt;카메라 포팅 건으로 불필요한 업무가 지속적으로 들어온다. 포팅을 위한&#xA;기본적인 것들을 자동화 하거나 유틸리티 형태로 제공할 수 있어야 한다는&#xA;것을 뼈저리게 느꼈다. 특히, 오늘은 고객사의 디바이스 트리 내 오타로&#xA;인해 Pin Control이 안됐던 원인을 찾고 나니 그러한 유틸리티의 필요성을&#xA;뼈저리게 느꼈다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

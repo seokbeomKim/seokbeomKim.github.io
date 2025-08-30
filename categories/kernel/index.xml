@@ -13,112 +13,112 @@
       <link>/posts/fwnode/</link>
       <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
       <guid>/posts/fwnode/</guid>
-      <description>fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이 없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고</description>
+      <description>&lt;p&gt;fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이&#xA;없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고할 수&#xA;있는 자료가 너무 없어서 아쉬웠다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>strcpy</title>
       <link>/posts/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>/posts/strcpy/</guid>
-      <description>개요 한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을&#xA;이용하여 정적분석을 하는 도중, &lt;code&gt;strcpy&lt;/code&gt; 에 대한 warning 을 어떻게 처리할까&#xA;고민하다가 LWN 에서 &lt;a href=&#34;https://lwn.net/Articles/905777/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;Ushering out strlcpy()&lt;/a&gt;&#xA;라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고&#xA;했는데 이제서야 겨우 정리할 수 있게 되었다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>프로세스 종료와 파일 디스크립터</title>
       <link>/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</link>
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       <guid>/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</guid>
-      <description>파일을 open 했는데 close를 안하면? stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정</description>
+      <description>&lt;h1 id=&#34;파일을-open-했는데-close를-안하면&#34;&gt;파일을 open 했는데 close를 안하면?&lt;/h1&gt;&#xA;&lt;p&gt;stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 &lt;em&gt;태스크가 파일을 열면 얻게 되는 고유 id값&lt;/em&gt; 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?) 살펴보고자 한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>커널의 KASAN 코드가 삽입되는 방법</title>
       <link>/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       <guid>/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</guid>
-      <description>커널의 KASAN 코드가 삽입되는 방법 Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에</description>
+      <description>&lt;h1 id=&#34;커널의-kasan-코드가-삽입되는-방법&#34;&gt;커널의 KASAN 코드가 삽입되는 방법&lt;/h1&gt;&#xA;&lt;p&gt;Generic KASAN 의 경우, 위와 같이 &lt;code&gt;__asan_load&lt;/code&gt;와 &lt;code&gt;__asan_store&lt;/code&gt; 함수가 정의되어&#xA;있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에&#xA;접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에&#xA;따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어&#xA;해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 &lt;code&gt;static inline&lt;/code&gt;&#xA;형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만,&#xA;실제 코드를 보았을 때 함수와 &lt;code&gt;EXPORT_SYMBOL&lt;/code&gt; 이 사용된 것 외에는 그 어디에도&#xA;inline 키워드는 사용도지 않았다. 컴파일러가 해당 코드를 삽입한다고 하는데&#xA;정확하게 어떻게 삽입하는지, 해당 함수들의 이름이 바뀌면 어떤 결과가 나올지&#xA;궁금했다. 또한 커널 소스를 다 뒤져봐도 ASAN에 관련된 호출 부분을 아무리 찾아도&#xA;어떤 방식으로 &lt;code&gt;__asan_loadN&lt;/code&gt;, &lt;code&gt;__asan_storeN&lt;/code&gt; 이 메모리 접근 전에 삽입되는지&#xA;찾을 수 없었다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kernel Debug With Kgdb</title>
       <link>/posts/kernel-debug-with-kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       <guid>/posts/kernel-debug-with-kgdb/</guid>
-      <description>개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을&#xA;위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는&#xA;방법에 대한 세미나를 보게 되었다. 유투브에서 &lt;a href=&#34;https://www.youtube.com/watch?v=HBOwoSyRmys&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;«Using Serial kdb / kgdb to Debug&#xA;the Linux Kernel - Douglas Anderson,&#xA;Google»&lt;/a&gt; 검색한 영상인데, KDB와&#xA;KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을&#xA;테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kernel macro __is_constexpr</title>
       <link>/posts/kernel-macro-__is_constexpr/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       <guid>/posts/kernel-macro-__is_constexpr/</guid>
-      <description>커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러</description>
+      <description>&lt;p&gt;커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일&#xA;시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한&#xA;방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인&#xA;매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mac에서 GDB 이용한 커널 해킹하기</title>
       <link>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       <guid>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</guid>
-      <description>개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게&#xA;되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게&#xA;하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, &lt;code&gt;aarch64&lt;/code&gt;&#xA;아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는&#xA;누구인가?&lt;/p&gt;</description>
     </item>
     <item>
       <title>poll() 그리고 poll_wait()</title>
       <link>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       <guid>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</guid>
-      <description>개요 업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다소</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;업무 중에 카메라 드라이버에 관련된 이슈를 보다가 &lt;code&gt;poll()&lt;/code&gt;과&#xA;&lt;code&gt;poll_wait()&lt;/code&gt;이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된&#xA;커널이 다소 오래되었기에 살펴보아야 하는 드라이버 코드도 레거시에&#xA;가까웠지만 &lt;code&gt;poll&lt;/code&gt;을 이용하여 디바이스 드라이버의 인터럽트를 처리하는&#xA;것으로 확인하여 관련 내용을 정리하고자 한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ioctl()에 전달되는 cmd 관련 매크로 함수</title>
       <link>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       <guid>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
-      <description>드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한</description>
+      <description>&lt;p&gt;드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를&#xA;사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을&#xA;포스팅과 함께 정리하고자 한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Likely and Unlikely</title>
       <link>/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       <guid>/posts/likely-and-unlikely/</guid>
-      <description>개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlike</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;예전에 관리하던 블로그에서 커널에서 사용하는 &lt;code&gt;likely&lt;/code&gt;와 &lt;code&gt;unlikely&lt;/code&gt; 에&#xA;대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시&#xA;보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>typedef is evil</title>
       <link>/posts/typedef-is-evil/</link>
       <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
       <guid>/posts/typedef-is-evil/</guid>
-      <description>커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목</description>
+      <description>&lt;p&gt;커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서&#xA;궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를&#xA;발견했다. &lt;a href=&#34;https://discuss.fogcreek.com/joelonsoftware1/10506.html&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;typedef is&#xA;evil&lt;/a&gt; 이라는&#xA;제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을&#xA;비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이&#xA;되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ftrace 이용한 커널 디버깅</title>
       <link>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       <guid>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
-      <description>개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를&#xA;제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이&#xA;중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀&#xA;내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지&#xA;않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 &lt;code&gt;ftrace&lt;/code&gt;가 있다는&#xA;것을 알게 됐다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>GPIO Mapping</title>
       <link>/posts/gpio-mapping/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       <guid>/posts/gpio-mapping/</guid>
-      <description>GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO</description>
+      <description>&lt;h1 id=&#34;gpio-맵핑하기&#34;&gt;GPIO 맵핑하기&lt;/h1&gt;&#xA;&lt;p&gt;오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Major와 Minor Numbers</title>
       <link>/posts/major%EC%99%80-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       <guid>/posts/major%EC%99%80-minor-numbers/</guid>
-      <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변</description>
+      <description>&lt;p&gt;세마포어를 이용한 모듈 프로그래밍을 하던 중 &lt;code&gt;Major, Minor&lt;/code&gt; 라는 개념이&#xA;등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한&#xA;까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수&#xA;있는 아주 좋은 기회다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
       <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
-      <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</description>
+      <description>&lt;p&gt;지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에&#xA;올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는&#xA;무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던&#xA;기회였다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</title>
       <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
       <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</guid>
-      <description>취업은 언제하나&amp;hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물</description>
+      <description>&lt;!-- toc --&gt;&#xA;&lt;p&gt;&lt;strong&gt;취업은 언제하나&amp;hellip;&lt;/strong&gt; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을&#xA;공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이&#xA;꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접&#xA;확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도&#xA;나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방&#xA;해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은&#xA;마운트하지 않는다는 제한은 있다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

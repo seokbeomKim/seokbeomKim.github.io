@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
       <guid>//localhost:1313/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
-      <description>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스</description>
+      <description>&lt;p&gt;예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그&#xA;페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게&#xA;될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올&#xA;경우 포스팅을 업데이트 할 예정이다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

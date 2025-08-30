@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/wayland%EA%B3%BC-weston/</link>
       <pubDate>Mon, 03 Feb 2020 23:17:11 +0900</pubDate>
       <guid>//localhost:1313/posts/wayland%EA%B3%BC-weston/</guid>
-      <description>개요 직접적으로 연관된 업무는 아니지만 팀 내에서 wayland, weston 이라는 용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아 X11 기반으로 최소한의 작업 환경을 맞</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;직접적으로 연관된 업무는 아니지만 팀 내에서 &lt;code&gt;wayland&lt;/code&gt;, &lt;code&gt;weston&lt;/code&gt; 이라는&#xA;용어가 자주 들린다. 어렸을 적에 리눅스 데스크탑 환경에 관심이 많아&#xA;&lt;code&gt;X11&lt;/code&gt; 기반으로 최소한의 작업 환경을 맞추고 &lt;code&gt;gnome&lt;/code&gt;이나 &lt;code&gt;kde&lt;/code&gt;, &lt;code&gt;xfce&lt;/code&gt;가&#xA;아닌 &lt;code&gt;fluxbox&lt;/code&gt;, &lt;code&gt;blackbox&lt;/code&gt;, &lt;code&gt;i3&lt;/code&gt;, &lt;code&gt;xmonad&lt;/code&gt;, &lt;code&gt;enlightenment&lt;/code&gt; 등을&#xA;이용해서 이런저런 시도를 해보았던 기억이 난다. 당시에는 그저 설치해서&#xA;사용하기에만 급급했지 실제로 업무에서 그러한 것들이 사용될 줄은 꿈에도&#xA;몰랐다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

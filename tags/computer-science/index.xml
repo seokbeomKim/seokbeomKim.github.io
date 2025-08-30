@@ -13,7 +13,7 @@
       <link>/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
       <guid>/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</guid>
-      <description>개요 맥 환경에서 bare-metal이 아닌 리눅스 커널로 컴파일하는 것은 생각했던 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한 라이브러리와 경</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;맥 환경에서 &lt;code&gt;bare-metal&lt;/code&gt;이 아닌 리눅스 커널로 컴파일하는 것은 생각했던&#xA;것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한&#xA;라이브러리와 경로들이 리눅스 환경과 다르기 때문에, 일반적인 리눅스&#xA;배포판에서처럼 크로스 컴파일러를 바이너리 형태로 설치한 뒤에 곧바로&#xA;커널 빌드를 할 수는 없다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

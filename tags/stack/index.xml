@@ -13,7 +13,7 @@
       <link>/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       <guid>/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</guid>
-      <description>Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이</description>
+      <description>&lt;h1 id=&#34;stack-protector-넌-뭐하는-놈이냐&#34;&gt;Stack Protector, 넌 뭐하는 놈이냐?&lt;/h1&gt;&#xA;&lt;p&gt;현업에서 커널의 &lt;code&gt;CONFIG_STACK_PROTECTOR&lt;/code&gt; 를 활성화하면 커널 부트가 안된다는 이슈가&#xA;보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에&#xA;Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

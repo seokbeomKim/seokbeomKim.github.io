@@ -13,14 +13,14 @@
       <link>//localhost:1313/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-%232/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       <guid>//localhost:1313/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-%232/</guid>
-      <description>개요 &amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데</description>
+      <description>&lt;h2 id=&#34;개요&#34;&gt;개요&lt;/h2&gt;&#xA;&lt;p&gt;&amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를&#xA;진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데&#xA;문제가 없을 거라 생각했는데 역시나 기억력에 한계가&#xA;있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고&#xA;방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 &lt;em&gt;분명히&lt;/em&gt; 다시&#xA;살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>캐시 라인(Cache-Line)</title>
       <link>//localhost:1313/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</link>
       <pubDate>Sat, 25 Apr 2020 14:27:31 +0900</pubDate>
       <guid>//localhost:1313/posts/%EC%BA%90%EC%8B%9C-%EB%9D%BC%EC%9D%B8cache-line/</guid>
-      <description>캐시를 꼭 사용해야 하나 SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다. 하지만</description>
+      <description>&lt;h2 id=&#34;캐시를-꼭-사용해야-하나&#34;&gt;캐시를 꼭 사용해야 하나&lt;/h2&gt;&#xA;&lt;p&gt;SMP 환경에서 일어나는 커널 패닉 문제를 다루다 보면 메모리 배리어를 비롯하여 캐시와 주 메모리 간의 동기화를 다루는 내용이 주를 이룬다. 하지만 매번 간략하게 정리한 문서가 없다보니 기억에 잘 남지도 않고 전체적인 흐름을 읽지 못하는 것 같아 이번 포스팅을 통해서 대략적으로나마 정리하고자 한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

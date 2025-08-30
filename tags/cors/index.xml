@@ -13,7 +13,7 @@
       <link>/posts/corscross-origin-resource-sharing/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       <guid>/posts/corscross-origin-resource-sharing/</guid>
-      <description>CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(O</description>
+      <description>&lt;h1 id=&#34;corscross-origin-resource-sharing&#34;&gt;CORS(Cross-Origin Resource Sharing)&lt;/h1&gt;&#xA;&lt;p&gt;웹 보안 정책 중 &lt;code&gt;Same-Origin Policy&lt;/code&gt;는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 &lt;code&gt;출처(Origin)&lt;/code&gt;는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

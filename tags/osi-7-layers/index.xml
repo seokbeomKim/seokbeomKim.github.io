@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/osi-7-layers/</link>
       <pubDate>Tue, 21 May 2019 16:10:20 +0900</pubDate>
       <guid>//localhost:1313/posts/osi-7-layers/</guid>
-      <description>네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보</description>
+      <description>&lt;p&gt;네트워크의 기본 개념인 &lt;code&gt;OSI 7-Layers&lt;/code&gt;에 대해서 정리하고자 한다. 학부&#xA;시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층&#xA;개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을&#xA;이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

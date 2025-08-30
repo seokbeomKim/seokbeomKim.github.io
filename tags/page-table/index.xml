@@ -13,14 +13,14 @@
       <link>//localhost:1313/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</link>
       <pubDate>Sat, 11 Apr 2020 18:25:16 +0900</pubDate>
       <guid>//localhost:1313/posts/%EA%B0%80%EC%83%81%EC%A3%BC%EC%86%8C%EC%99%80-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%85%8C%EC%9D%B4%EB%B8%94-%ED%81%AC%EA%B8%B0/</guid>
-      <description>각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이</description>
+      <description>&lt;p&gt;각 태스트(유저 레벨에서 프로세스라고 일컫는)에는 각각의 가상주소를 갖는다. 사용되는 가상주소는 메모리 상에서 MMU에 의해 물리 메모리로 접근이 가능한데 이 때 MMU에 &amp;lsquo;어떻게 가상 주소를 맵핑할 것인지&amp;rsquo;에 대한 정보를 전달해줘야 한다. 이러한 정보는 &amp;lsquo;페이지 테이블&amp;rsquo;이라는 것으로 표현되어 그 물리주소를 MMU에서 참고하는 레지스터 정보에 저장하게 된다. 포스팅에서 기준으로 삼은 아키텍처는 ARM64이다. ARM64 커널에서는 사용 가능한 페이지의 크기로서 4K, 16K, 64K 등을 사용하고 있고 가상주소 비트 수(&lt;code&gt;VA_BITS&lt;/code&gt;)로서 36, 39, 42, 47, 48비트 등을 사용한다. 여기서 잠깐 짚고 넘어가자면 커널에서 가상주소를 전부 사용하지 않는다. 예를 들어, 64비트 환경에서는 주소 체계가 64비트 기반이므로 가상주소의 경우에도 64비트 0x0000000000000000 ~ 0xffffffffffffffff 를 모두 사용할 것 같지만 실제로는 그렇지 않다. 페이지 단위로 관리되고 있는 메모리 체계에서 커널은 &lt;code&gt;VA_BITS&lt;/code&gt; 상수를 통해 전체 64비트 중에서 실제 가상주소로 사용하기 위한 비트 개수를 정의한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ARM64에서의 커널 메모리 맵</title>
       <link>//localhost:1313/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</link>
       <pubDate>Sat, 01 Feb 2020 23:27:45 +0900</pubDate>
       <guid>//localhost:1313/posts/arm64%EC%97%90%EC%84%9C%EC%9D%98-%EC%BB%A4%EB%84%90-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%A7%B5/</guid>
-      <description>ARM64에서의 커널 메모리 맵 &amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;quot;이라는 챕터를 읽으면서 커널 메</description>
+      <description>&lt;h1 id=&#34;arm64에서의-커널-메모리-맵&#34;&gt;ARM64에서의 커널 메모리 맵&lt;/h1&gt;&#xA;&lt;p&gt;&amp;lt;코드로 알아보는 ARM 리눅스 커널&amp;gt; 에서의 &amp;ldquo;페이징과 매핑&amp;quot;이라는 챕터를&#xA;읽으면서 커널 메모리 맵에 대한 간략한 설명을 포스팅으로 정리하고자&#xA;한다. 물리 메모리와 가상 메모리 주소간의 매핑을 위해 사용하는 테이블을&#xA;매핑 테이블이라고 하며, 본 포스팅에서는 기본적인 개념인 가상 주소&#xA;공간과 ARM64에서의 커널 메모리 맵 구성을 정리한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

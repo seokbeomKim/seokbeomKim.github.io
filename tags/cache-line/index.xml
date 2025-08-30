@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-%232/</link>
       <pubDate>Sun, 13 Sep 2020 21:30:10 +0900</pubDate>
       <guid>//localhost:1313/posts/%EC%BA%90%EC%8B%9C%EB%9D%BC%EC%9D%B8cache-line-%EA%B5%AC%EC%A1%B0-%232/</guid>
-      <description>개요 &amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를 진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데</description>
+      <description>&lt;h2 id=&#34;개요&#34;&gt;개요&lt;/h2&gt;&#xA;&lt;p&gt;&amp;laquo;코드로 알아보는 ARM 리눅스 커널&amp;raquo;이라는 커널 분석 책으로 스터디를&#xA;진행하였다. 예전에 ARM64 아키텍처 부분을 공부한 터라 이해하는 데&#xA;문제가 없을 거라 생각했는데 역시나 기억력에 한계가&#xA;있었다. 개인적으로는 책의 그림과 내용이 직관적으로 이해가 되지 않고&#xA;방해가 방해가 되었다. 나중에 캐시라인의 구조에 대해 &lt;em&gt;분명히&lt;/em&gt; 다시&#xA;살펴볼 것이므로 아래와 같이 짧게 재 정리해놓고자 한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

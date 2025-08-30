@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/goto-statement/</link>
       <pubDate>Wed, 25 Mar 2020 00:47:49 +0900</pubDate>
       <guid>//localhost:1313/posts/goto-statement/</guid>
-      <description>개요 학부 시절 c언어를 배울 때 &amp;lsquo;goto&amp;rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를 사</description>
+      <description>&lt;h2 id=&#34;개요&#34;&gt;개요&lt;/h2&gt;&#xA;&lt;p&gt;학부 시절 c언어를 배울 때 &amp;lsquo;goto&amp;rsquo; 문을 사용하는 것을 터부시할 정도로 절대 사용하면 안되는 문법으로 배웠다. 그 이유는 자세하게 알려주지 않았지만 되도록이면 goto 를 사용하지 않고 분기나 객체를 이용하도록 코딩을 했었고 저학년에서 고학년으로 올라갈수록 c언어 대신 자바나 c++, c# 등을 배우면서 goto는 머릿속에서 잊혀져갔다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

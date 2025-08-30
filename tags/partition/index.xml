@@ -13,14 +13,14 @@
       <link>//localhost:1313/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</link>
       <pubDate>Thu, 12 Mar 2020 00:26:40 +0900</pubDate>
       <guid>//localhost:1313/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%ED%8C%8C%ED%8B%B0%EC%85%98/</guid>
-      <description>개요 안드로이드 기본 내용이지만 파티션을 착각한 탓에 수정 사항을 반영하지 못해 시간을 날리고 말았다. 커널의 수정사항이라 부트 이미지만 적용하면 변경 사항이 적용</description>
+      <description>&lt;h2 id=&#34;개요&#34;&gt;개요&lt;/h2&gt;&#xA;&lt;p&gt;안드로이드 기본 내용이지만 파티션을 착각한 탓에 수정 사항을 반영하지 못해 시간을 날리고 말았다. 커널의 수정사항이라 부트 이미지만 적용하면 변경 사항이 적용될 거라 생각했지만 커널 모듈로 빌드되는 경우 vendor 이미지로 별도로 관리될 수도 있기 때문에 해당 이미지도 함께 추가해서 해당 파티션도 업데이트 해줘야 한다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>파티셔닝(Partitioning)과 샤딩(Sharding)</title>
       <link>//localhost:1313/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</link>
       <pubDate>Wed, 01 May 2019 20:29:02 +0900</pubDate>
       <guid>//localhost:1313/posts/%ED%8C%8C%ED%8B%B0%EC%85%94%EB%8B%9Dpartitioning%EA%B3%BC-%EC%83%A4%EB%94%A9sharding/</guid>
-      <description>개요 데이터베이스에 관련된 문서를 보다보니 Partition, Sharding이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그 대로 데이터베이스를 여러 개로 나</description>
+      <description>&lt;!-- toc --&gt;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;데이터베이스에 관련된 문서를 보다보니 &lt;code&gt;Partition&lt;/code&gt;, &lt;code&gt;Sharding&lt;/code&gt;이라는 용어들이 등장하기 시작하기 시작했다. 이러한 것들은 말 그&#xA;대로 데이터베이스를 여러 개로 나누어 분산시키기 위한 기술 용어들인데 모두 서비스 크기 증가에 따른 DB 크기 증가, 성능 이슈에 따른 것이다.&#xA;일명 VLDB(Very Large DBMS)라 불리는, DBMS 하나로 전체 데이터베이스를 다룰 수 없는 데이터베이스가 자연스럽게 등장하였고&#xA;DBMS 한 개가 여러 개의 테이블을 관리하면서 성능 이슈도 생기게 되었는데 이를 해결하기 위한 것이 바로 &lt;code&gt;파티셔닝(partitioning) 과 샤딩(Sharding)&lt;/code&gt;이다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
