@@ -6,8 +6,15 @@
     <description>Recent content in Tags on 평범한 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2024 12:26:49 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jul 2025 22:03:48 +0900</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ai</title>
+      <link>/tags/ai/</link>
+      <pubDate>Thu, 17 Jul 2025 22:03:48 +0900</pubDate>
+      <guid>/tags/ai/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Emacs</title>
       <link>/tags/emacs/</link>
