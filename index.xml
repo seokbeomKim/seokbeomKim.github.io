@@ -6,8 +6,15 @@
     <description>Recent content on 평범한 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Jul 2025 22:03:48 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 31 Aug 2025 07:46:49 +0900</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Review Anxiety</title>
+      <link>/posts/code-review-anxiety/</link>
+      <pubDate>Sun, 31 Aug 2025 07:46:49 +0900</pubDate>
+      <guid>/posts/code-review-anxiety/</guid>
+      <description>&lt;h2 id=&#34;코드-리뷰-스트레스&#34;&gt;코드 리뷰 스트레스&lt;/h2&gt;&#xA;&lt;p&gt;몇달전부터 코드 리뷰로 심하게 스트레스를 받았다.&lt;/p&gt;&#xA;&lt;p&gt;담당 모듈의 업데이트 내용이 하나의 commit으로 작성했는데, 이를 여러&#xA;개의 commit으로 다시 나눠 작성해 올리라는 지적이었다. 틀린 말이&#xA;아니었기 때문에 해당 commit을 8개 정도의 commit으로 나눠 작성했는데&#xA;꼬박 하루가 걸렸다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>만족스러운 인공지능 서비스</title>
       <link>/posts/%EB%A7%8C%EC%A1%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%84%9C%EB%B9%84%EC%8A%A4/</link>
