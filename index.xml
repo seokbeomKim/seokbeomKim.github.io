@@ -13,7 +13,7 @@
       <link>/posts/code-review-anxiety/</link>
       <pubDate>Sun, 31 Aug 2025 07:46:49 +0900</pubDate>
       <guid>/posts/code-review-anxiety/</guid>
-      <description>&lt;h2 id=&#34;코드-리뷰-스트레스&#34;&gt;코드 리뷰 스트레스&lt;/h2&gt;&#xA;&lt;p&gt;몇달전부터 코드 리뷰로 심하게 스트레스를 받았다.&lt;/p&gt;&#xA;&lt;p&gt;담당 모듈의 업데이트 내용이 하나의 commit으로 작성했는데, 이를 여러&#xA;개의 commit으로 다시 나눠 작성해 올리라는 지적이었다. 틀린 말이&#xA;아니었기 때문에 해당 commit을 8개 정도의 commit으로 나눠 작성했는데&#xA;꼬박 하루가 걸렸다.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;code-review-anxiety&#34;&gt;Code Review Anxiety&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Code Review Anxiety&lt;/code&gt;는 만국 공통으로 개발자라면 한 번씩은 느껴봤을 것&#xA;같다. 심지어 요즘엔 AI 때문에 느끼는 경우도 있다. &lt;a href=&#34;https://github.com/dotnet/runtime/pull/115732&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;심지어&#xA;마이크로소프트 개발자&#xA;조차도&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>만족스러운 인공지능 서비스</title>
