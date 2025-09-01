@@ -320,11 +320,7 @@ who are using strcat or variants deserved to be punished.</p>
       
       copyButton.addEventListener("click", () => {
         
-        const elements = codeBlock.querySelectorAll(".cl");
-        let codeToCopy = "";
-        elements.forEach((element) => {
-          codeToCopy += element.innerText;
-        });
+        const codeToCopy = codeBlock.textContent;
         navigator.clipboard.writeText(codeToCopy);
 
         

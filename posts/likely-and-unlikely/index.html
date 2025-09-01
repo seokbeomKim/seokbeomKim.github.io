@@ -317,11 +317,7 @@ jump 명령어를 수행하지 않도록 하는 기법이다.</p>
       
       copyButton.addEventListener("click", () => {
         
-        const elements = codeBlock.querySelectorAll(".cl");
-        let codeToCopy = "";
-        elements.forEach((element) => {
-          codeToCopy += element.innerText;
-        });
+        const codeToCopy = codeBlock.textContent;
         navigator.clipboard.writeText(codeToCopy);
 
         

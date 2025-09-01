@@ -303,11 +303,7 @@ inline 키워드는 사용도지 않았다. 컴파일러가 해당 코드를 삽
       
       copyButton.addEventListener("click", () => {
         
-        const elements = codeBlock.querySelectorAll(".cl");
-        let codeToCopy = "";
-        elements.forEach((element) => {
-          codeToCopy += element.innerText;
-        });
+        const codeToCopy = codeBlock.textContent;
         navigator.clipboard.writeText(codeToCopy);
 
         

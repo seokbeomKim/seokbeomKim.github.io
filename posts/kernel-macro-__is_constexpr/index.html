@@ -245,11 +245,7 @@ GCC의 -Wvla 옵션으로는 아래와 같은 상황을 구분하지 못하고 �
       
       copyButton.addEventListener("click", () => {
         
-        const elements = codeBlock.querySelectorAll(".cl");
-        let codeToCopy = "";
-        elements.forEach((element) => {
-          codeToCopy += element.innerText;
-        });
+        const codeToCopy = codeBlock.textContent;
         navigator.clipboard.writeText(codeToCopy);
 
         

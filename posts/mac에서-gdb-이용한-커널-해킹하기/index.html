@@ -288,11 +288,7 @@ KeyNATSwitch를 선택해준다.</p>
       
       copyButton.addEventListener("click", () => {
         
-        const elements = codeBlock.querySelectorAll(".cl");
-        let codeToCopy = "";
-        elements.forEach((element) => {
-          codeToCopy += element.innerText;
-        });
+        const codeToCopy = codeBlock.textContent;
         navigator.clipboard.writeText(codeToCopy);
 
         
