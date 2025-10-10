@@ -6,7 +6,7 @@ buildDrafts: false
 buildFuture: false
 menu:
   main:
-    - name: "글 목록"
+    - name: "글"
       url: /
       weight: 1
     - name: "태그"
@@ -15,6 +15,9 @@ menu:
     - name: "소개"
       url: /about
       weight: 3
+    - name: "피드"
+      url: /index.xml
+      weight: 4
 
 markup:
   highlight:
