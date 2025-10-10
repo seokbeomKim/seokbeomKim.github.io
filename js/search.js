@@ -31,7 +31,9 @@ if (query) {
     this.field("title", {
       boost: 15,
     });
-    this.field("tags");
+    this.field("tags", {
+      boost: 13,
+    });
     this.field("content", {
       boost: 10,
     });
@@ -40,7 +42,7 @@ if (query) {
       this.add({
         id: key,
         title: window.store[key].title,
-        tags: window.store[key].category,
+        tags: window.store[key].tags,
         content: window.store[key].content,
       });
     }

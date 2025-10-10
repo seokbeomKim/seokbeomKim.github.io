@@ -2,33 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/posts/code-review-anxiety/</loc>
-    <lastmod>2025-08-31T07:46:49+09:00</lastmod>
+    <loc>/posts/</loc>
+    <lastmod>2025-10-10T17:45:34+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2025-08-31T07:46:49+09:00</lastmod>
+    <loc>/posts/%EB%8B%B9%EC%8B%A0%EC%9D%B4-%EB%AA%A8%EB%A5%B4%EB%8A%94-%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98/</loc>
+    <lastmod>2025-10-10T17:45:34+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/</loc>
-    <lastmod>2025-08-31T07:46:49+09:00</lastmod>
+    <lastmod>2025-10-10T17:45:34+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/tags/ai/</loc>
-    <lastmod>2025-07-17T22:03:48+09:00</lastmod>
+    <lastmod>2025-09-27T14:03:48+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2025-07-17T22:03:48+09:00</lastmod>
+    <lastmod>2025-09-27T14:03:48+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>/posts/%EB%A7%8C%EC%A1%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%84%9C%EB%B9%84%EC%8A%A4/</loc>
-    <lastmod>2025-07-17T22:03:48+09:00</lastmod>
+    <lastmod>2025-09-27T14:03:48+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/posts/code-review-anxiety/</loc>
+    <lastmod>2025-08-31T07:46:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -44,16 +49,6 @@
   </url><url>
     <loc>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</loc>
     <lastmod>2024-12-01T12:26:49+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2024-09-09T22:39:58+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>/categories/emacs/</loc>
-    <lastmod>2024-09-09T22:39:58+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -92,17 +87,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2023-03-19T17:45:39+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>/tags/device-tree/</loc>
     <lastmod>2023-03-19T17:45:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>/tags/fwnode/</loc>
+    <loc>/posts/fwnode/</loc>
     <lastmod>2023-03-19T17:45:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>/posts/fwnode/</loc>
+    <loc>/tags/fwnode/</loc>
     <lastmod>2023-03-19T17:45:39+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -587,6 +587,26 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>/tags/tcp/</loc>
+    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</loc>
+    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/tags/udp/</loc>
+    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/categories/web/</loc>
+    <lastmod>2019-05-21T15:27:08+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>/tags/cors/</loc>
     <lastmod>2019-05-01T17:20:49+09:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -597,8 +617,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>/categories/web/</loc>
-    <lastmod>2019-05-01T17:20:49+09:00</lastmod>
+    <loc>/posts/server-name-indicationsni/</loc>
+    <lastmod>2019-05-01T17:12:34+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/tags/sni/</loc>
+    <lastmod>2019-05-01T17:12:34+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

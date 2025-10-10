@@ -34,7 +34,7 @@
       <link>/posts/little-endian-vs.-big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>/posts/little-endian-vs.-big-endian/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;p class=&#34;imgp&#34;&gt;&#xA;  &lt;img loading=&#34;lazy&#34; src=&#34;/img/endian_compare.png&#34; alt=&#34;Endian 비교&#34;  /&gt;&#xA;&lt;/p&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;엔디안(Endianness)은 컴퓨터의 메모리와 같은 &lt;strong&gt;1차원 공간에 여러 개의 연속된 대상을 배열하는 방법&lt;/strong&gt;을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. &lt;strong&gt;엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며&lt;/strong&gt;, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;p class=&#34;imgp&#34;&gt;&#xD;&#xA;  &lt;img loading=&#34;lazy&#34; src=&#34;/img/endian_compare.png&#34; alt=&#34;Endian 비교&#34;  /&gt;&#xD;&#xA;&lt;/p&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;엔디안(Endianness)은 컴퓨터의 메모리와 같은 &lt;strong&gt;1차원 공간에 여러 개의 연속된 대상을 배열하는 방법&lt;/strong&gt;을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. &lt;strong&gt;엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며&lt;/strong&gt;, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>색 공간(Color Space)</title>
@@ -48,7 +48,7 @@
       <link>/posts/%EC%A7%80%ED%94%BCjiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       <guid>/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
-      <description>&lt;!-- toc --&gt;&#xA;&lt;p&gt;오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한&#xA;뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인&#xA;&lt;code&gt;jiffies&lt;/code&gt;에는 시스템 시작 이후 발생한 진동 횟수(tick)이&#xA;저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머&#xA;인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회&#xA;발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은&#xA;&lt;code&gt;jiffies / HZ&lt;/code&gt;(초)가 된다.&lt;/p&gt;</description>
+      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;p&gt;오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한&#xA;뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인&#xA;&lt;code&gt;jiffies&lt;/code&gt;에는 시스템 시작 이후 발생한 진동 횟수(tick)이&#xA;저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머&#xA;인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회&#xA;발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은&#xA;&lt;code&gt;jiffies / HZ&lt;/code&gt;(초)가 된다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

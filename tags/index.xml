@@ -6,12 +6,12 @@
     <description>Recent content in Tags on 평범한 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Jul 2025 22:03:48 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 27 Sep 2025 14:03:48 +0900</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai</title>
       <link>/tags/ai/</link>
-      <pubDate>Thu, 17 Jul 2025 22:03:48 +0900</pubDate>
+      <pubDate>Sat, 27 Sep 2025 14:03:48 +0900</pubDate>
       <guid>/tags/ai/</guid>
       <description></description>
     </item>
@@ -457,10 +457,31 @@
       <description></description>
     </item>
     <item>
+      <title>Tcp</title>
+      <link>/tags/tcp/</link>
+      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
+      <guid>/tags/tcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Udp</title>
+      <link>/tags/udp/</link>
+      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
+      <guid>/tags/udp/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Cors</title>
       <link>/tags/cors/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       <guid>/tags/cors/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SNI</title>
+      <link>/tags/sni/</link>
+      <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
+      <guid>/tags/sni/</guid>
       <description></description>
     </item>
   </channel>

@@ -6,8 +6,22 @@
     <description>Recent content on 평범한 개발자</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Aug 2025 07:46:49 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Oct 2025 17:45:34 +0900</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>당신이 모르는 민주주의</title>
+      <link>/posts/%EB%8B%B9%EC%8B%A0%EC%9D%B4-%EB%AA%A8%EB%A5%B4%EB%8A%94-%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98/</link>
+      <pubDate>Fri, 10 Oct 2025 17:45:34 +0900</pubDate>
+      <guid>/posts/%EB%8B%B9%EC%8B%A0%EC%9D%B4-%EB%AA%A8%EB%A5%B4%EB%8A%94-%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98/</guid>
+      <description>&lt;p&gt;최근 트럼프의 관세 정책과 야당 강세 주에 주 방위군을 투입하는 막장극을 보면서 트럼프 지지층이 이해가 가질 않았다. 이런 와중에 추석 연휴를 맞아 오랫 동안 읽지 못했던 마이클 샌델의 «당신이 모르는 민주주의» 라는 책을 읽었는데 미국 초기 건국자들이 가졌던 정치 이념과 시민 정의에 입각한 자유관과 정치 경제 이념들이 어떻게 수정되어 왔는지 대략적으로 알 수 있었다. 그리고 왜 많은 미국인들이 트럼프를 지지하는지도 어렴풋이 알 수 있게 됐다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>만족스러운 인공지능 서비스</title>
+      <link>/posts/%EB%A7%8C%EC%A1%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%84%9C%EB%B9%84%EC%8A%A4/</link>
+      <pubDate>Sat, 27 Sep 2025 14:03:48 +0900</pubDate>
+      <guid>/posts/%EB%A7%8C%EC%A1%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%84%9C%EB%B9%84%EC%8A%A4/</guid>
+      <description>&lt;h2 id=&#34;인공지능-인기&#34;&gt;인공지능 인기&lt;/h2&gt;&#xA;&lt;p&gt;인공지능 인기가 식을 줄 모른다. &lt;a href=&#34;https://firstpagesage.com/seo-blog/google-vs-chatgpt-market-share-report/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;사람들은 정보 검색을 위해 ChatGPT 같은 Frontend 서비스를 사용&lt;/a&gt;하고 리눅스 커널 패치에는 &amp;lsquo;Generated-by: Claude AI&amp;rsquo; 와 같은 커밋 태그가 등장했다. 사람들은 더 이상 GPT, LLM과 같은 용어들을 낯설어 하지 않는다. 인공지능이 많은 것들을 대체할 것이라는 기대 속에서 어떤 이들은 본인들의 직업 안정성을 걱정하고 어떤 이들은 비용 절감 방법으로써 활용 가능성을 궁금해한다. 그렇다면 이러한 인기 속에서 사람들은 인공지능 서비스를 어떻게 활용하고 있을까?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Code Review Anxiety</title>
       <link>/posts/code-review-anxiety/</link>
@@ -16,18 +30,11 @@
       <description>&lt;h2 id=&#34;code-review-anxiety&#34;&gt;Code Review Anxiety&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Code Review Anxiety&lt;/code&gt;는 만국 공통으로 개발자라면 한 번씩은 느껴봤을 것&#xA;같다. 심지어 요즘엔 AI 때문에 느끼는 경우도 있다. &lt;a href=&#34;https://github.com/dotnet/runtime/pull/115732&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;심지어&#xA;마이크로소프트 개발자&#xA;조차도&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>만족스러운 인공지능 서비스</title>
-      <link>/posts/%EB%A7%8C%EC%A1%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%84%9C%EB%B9%84%EC%8A%A4/</link>
-      <pubDate>Thu, 17 Jul 2025 22:03:48 +0900</pubDate>
-      <guid>/posts/%EB%A7%8C%EC%A1%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%84%9C%EB%B9%84%EC%8A%A4/</guid>
-      <description>&lt;h2 id=&#34;인공지능의-인기&#34;&gt;인공지능의 인기&lt;/h2&gt;&#xA;&lt;p&gt;인공지능의 인기가 식을 줄을 모른다.&lt;/p&gt;&#xA;&lt;p&gt;인공지능 없이는 사람들이 돈을 쓰지 않는다고 생각한건지 최근 출시되는&#xA;제품 대부분에서는 인공지능과 관련돼 보이지 않는데도 인공지능&#xA;키워드로써 마케팅을 한다.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>이맥스 메인테이너 사임</title>
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</link>
       <pubDate>Sun, 01 Dec 2024 12:26:49 +0900</pubDate>
       <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</guid>
-      <description>&lt;h2 id=&#34;cc-mode&#34;&gt;CC Mode&lt;/h2&gt;&#xA;&lt;p&gt;얼마 전 이맥스 커뮤니티를 뜨겁게 달군 &lt;a href=&#34;https://lists.gnu.org/archive/html/emacs-devel/2024-11/msg00534.html&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;메일&lt;/a&gt;이 있다. &lt;span class=&#34;sidenote&#34;&gt;&#xA;    &lt;label class=&#34;sidenote-label&#34; for=&#34;sidenote-0&#34;&gt;cc-mode&lt;/label&gt;&#xA;    &lt;input class=&#34;sidenote-checkbox&#34; type=&#34;checkbox&#34; id=&#34;sidenote-0&#34;&gt;&lt;/input&gt;&#xA;    &lt;span class=&#34;sidenote-content sidenote-right&#34;&gt;&#xA;    &lt;bold&gt;cc-mode&lt;/bold&gt;: C와 C++을 지원하는 이맥스 레거시 패키지로 오랫동안 유지보수 되어왔다. &#xA;    &lt;/span&gt;&#xA;&lt;/span&gt;&#xA;로 유명한 메인테이너 &lt;em&gt;Alan Mackenzie&lt;/em&gt; 가 개발팀에서 나가겠다고 메일링 리스트를 통해 선언한 것이다.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;cc-mode&#34;&gt;CC Mode&lt;/h2&gt;&#xA;&lt;p&gt;얼마 전 이맥스 커뮤니티를 뜨겁게 달군 &lt;a href=&#34;https://lists.gnu.org/archive/html/emacs-devel/2024-11/msg00534.html&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;메일&lt;/a&gt;이 있다. &lt;span class=&#34;sidenote&#34;&gt;&#xD;&#xA;    &lt;label class=&#34;sidenote-label&#34; for=&#34;sidenote-0&#34;&gt;cc-mode&lt;/label&gt;&#xD;&#xA;    &lt;input class=&#34;sidenote-checkbox&#34; type=&#34;checkbox&#34; id=&#34;sidenote-0&#34;&gt;&lt;/input&gt;&#xD;&#xA;    &lt;span class=&#34;sidenote-content sidenote-right&#34;&gt;&#xD;&#xA;    &lt;bold&gt;cc-mode&lt;/bold&gt;: C와 C++을 지원하는 이맥스 레거시 패키지로 오랫동안 유지보수 되어왔다. &#xD;&#xA;    &lt;/span&gt;&#xD;&#xA;&lt;/span&gt;&#xD;&#xA;로 유명한 메인테이너 &lt;em&gt;Alan Mackenzie&lt;/em&gt; 가 개발팀에서 나가겠다고 메일링 리스트를 통해 선언한 것이다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>이맥스 Tree-sitter Major Mode 구현</title>
@@ -132,7 +139,7 @@
       <link>/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       <guid>/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
-      <description>&lt;!--toc--&gt;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는&#xA;메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이&#xA;비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한&#xA;내용은 &lt;a href=&#34;https://blog.simonpeterdebbarma.com/2020-04-memory-and-wsl/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;다른&#xA;블로그&lt;/a&gt;에서도&#xA;동일하게 재현되고 있었다.&lt;/p&gt;</description>
+      <description>&lt;!--toc--&gt;&#xD;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는&#xA;메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이&#xA;비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한&#xA;내용은 &lt;a href=&#34;https://blog.simonpeterdebbarma.com/2020-04-memory-and-wsl/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;다른&#xA;블로그&lt;/a&gt;에서도&#xA;동일하게 재현되고 있었다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>리누즈게이트와 CoC</title>
@@ -244,7 +251,7 @@
       <link>/posts/little-endian-vs.-big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>/posts/little-endian-vs.-big-endian/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;p class=&#34;imgp&#34;&gt;&#xA;  &lt;img loading=&#34;lazy&#34; src=&#34;/img/endian_compare.png&#34; alt=&#34;Endian 비교&#34;  /&gt;&#xA;&lt;/p&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;엔디안(Endianness)은 컴퓨터의 메모리와 같은 &lt;strong&gt;1차원 공간에 여러 개의 연속된 대상을 배열하는 방법&lt;/strong&gt;을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. &lt;strong&gt;엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며&lt;/strong&gt;, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;p class=&#34;imgp&#34;&gt;&#xD;&#xA;  &lt;img loading=&#34;lazy&#34; src=&#34;/img/endian_compare.png&#34; alt=&#34;Endian 비교&#34;  /&gt;&#xD;&#xA;&lt;/p&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;엔디안(Endianness)은 컴퓨터의 메모리와 같은 &lt;strong&gt;1차원 공간에 여러 개의 연속된 대상을 배열하는 방법&lt;/strong&gt;을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. &lt;strong&gt;엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며&lt;/strong&gt;, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>색 공간(Color Space)</title>
@@ -272,7 +279,7 @@
       <link>/posts/%EC%A7%80%ED%94%BCjiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       <guid>/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
-      <description>&lt;!-- toc --&gt;&#xA;&lt;p&gt;오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한&#xA;뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인&#xA;&lt;code&gt;jiffies&lt;/code&gt;에는 시스템 시작 이후 발생한 진동 횟수(tick)이&#xA;저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머&#xA;인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회&#xA;발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은&#xA;&lt;code&gt;jiffies / HZ&lt;/code&gt;(초)가 된다.&lt;/p&gt;</description>
+      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;p&gt;오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한&#xA;뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인&#xA;&lt;code&gt;jiffies&lt;/code&gt;에는 시스템 시작 이후 발생한 진동 횟수(tick)이&#xA;저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머&#xA;인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회&#xA;발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은&#xA;&lt;code&gt;jiffies / HZ&lt;/code&gt;(초)가 된다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
@@ -286,7 +293,14 @@
       <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
       <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</guid>
-      <description>&lt;!-- toc --&gt;&#xA;&lt;p&gt;&lt;strong&gt;취업은 언제하나&amp;hellip;&lt;/strong&gt; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을&#xA;공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이&#xA;꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접&#xA;확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도&#xA;나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방&#xA;해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은&#xA;마운트하지 않는다는 제한은 있다.&lt;/p&gt;</description>
+      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;p&gt;&lt;strong&gt;취업은 언제하나&amp;hellip;&lt;/strong&gt; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을&#xA;공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이&#xA;꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접&#xA;확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도&#xA;나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방&#xA;해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은&#xA;마운트하지 않는다는 제한은 있다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TCP와 UDP의 차이점</title>
+      <link>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
+      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
+      <guid>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
+      <description>&lt;p&gt;예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그&#xA;페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게&#xA;될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올&#xA;경우 포스팅을 업데이트 할 예정이다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>CORS(Cross-Origin Resource Sharing)</title>
@@ -294,6 +308,13 @@
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       <guid>/posts/corscross-origin-resource-sharing/</guid>
       <description>&lt;h1 id=&#34;corscross-origin-resource-sharing&#34;&gt;CORS(Cross-Origin Resource Sharing)&lt;/h1&gt;&#xA;&lt;p&gt;웹 보안 정책 중 &lt;code&gt;Same-Origin Policy&lt;/code&gt;는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 &lt;code&gt;출처(Origin)&lt;/code&gt;는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Server Name Indication(SNI)</title>
+      <link>/posts/server-name-indicationsni/</link>
+      <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
+      <guid>/posts/server-name-indicationsni/</guid>
+      <description>&lt;h1 id=&#34;server-name-indication&#34;&gt;Server Name Indication&lt;/h1&gt;&#xA;&lt;p&gt;Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다. 이러한 문제를 해결하기 위해 Server Name Indication(SNI)라는 Extension을 사용하여 아래와 같이 문제를 해결할 수 있다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

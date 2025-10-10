@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</link>
       <pubDate>Fri, 03 May 2019 17:50:32 +0900</pubDate>
       <guid>//localhost:1313/posts/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84/</guid>
-      <description>&lt;!-- toc --&gt;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을&#xA;올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는&#xA;애플리케이션은 개발해 본 적이 없다. 때문에 서블릿이라는 용어 자체가&#xA;생소하고 웹 서버에서 이를 어떻게 관리하는지에 대해 궁금한 점을&#xA;중점으로 정리하고자 한다.&lt;/p&gt;</description>
+      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;아파치 서버에 톰캣(tomcat)을 이용하여 젠킨스와 같은 애플리케이션을&#xA;올려본 적은 있어도 직접 서블릿 컨테이너에서 사용할 수 있는&#xA;애플리케이션은 개발해 본 적이 없다. 때문에 서블릿이라는 용어 자체가&#xA;생소하고 웹 서버에서 이를 어떻게 관리하는지에 대해 궁금한 점을&#xA;중점으로 정리하고자 한다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
