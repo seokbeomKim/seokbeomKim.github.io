@@ -2,7 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/book/</loc>
+    <lastmod>2025-10-10T17:45:34+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>/posts/</loc>
+    <lastmod>2025-10-10T17:45:34+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>/tags/</loc>
     <lastmod>2025-10-10T17:45:34+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -18,11 +28,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>/tags/ai/</loc>
-    <lastmod>2025-09-27T14:03:48+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2025-09-27T14:03:48+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
