@@ -253,11 +253,53 @@
 <script>
 window.store = {
     
+    "\/tags\/feedly\/": {
+        "title": "Feedly",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/feedly\/"
+    },
+    
+    "\/tags\/miniflux\/": {
+        "title": "Miniflux",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/miniflux\/"
+    },
+    
+    "\/tags\/news\/": {
+        "title": "News",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/news\/"
+    },
+    
     "\/posts\/": {
         "title": "Posts",
         "tags": [],
         "content": "", 
         "url": "\/posts\/"
+    },
+    
+    "\/tags\/rss\/": {
+        "title": "Rss",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/rss\/"
+    },
+    
+    "\/tags\/": {
+        "title": "Tags",
+        "tags": [],
+        "content": "", 
+        "url": "\/tags\/"
+    },
+    
+    "\/posts\/%EB%82%B4%EA%B0%80-%EB%89%B4%EC%8A%A4%EB%A5%BC-%EC%86%8C%EB%B9%84%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95\/": {
+        "title": "내가 뉴스를 소비하는 방법",
+        "tags": ["rss","news","miniflux","feedly",],
+        "content": "낮은 인터넷 자유도 Freedom House 에서 발표한 자료에 따르면 한국의 인터넷 자유도는 100점 만점 중 65점에 불과하다. 25년 5월에 발표된 자료라 그런지 윤석열 씨의 계엄 사태도 언급 FreedomHouse 보고서에는 계엄 뿐만 아니라 허위보도 의혹 수사에 대한 내용이 함께 언급돼 있다. 돼 있는데, 자유도 하락에 한 몫했다. Freedom House는 아래와 같이 윤석열 씨를 직접적으로 언급한다.\nInternet freedom in South Korea declined slightly during the coverage period. Conditions were affected by President Yoon Suk-yeol’s December 2024 declaration of martial law, in which he cited a need to eliminate “anti-state” forces among the opposition. His decree appeared to violate the law and the constitution. Martial law was lifted the following day through a unanimous vote by 190 legislators, and Yoon was removed from office in April 2025 following successful impeachment proceedings and a final ruling by the Constitutional Court.\n하지만 이러한 정치적 요소들을 제외하고도 개인정보보호를 이유로 일방적으로 LLM 모델의 다운로드를 막은 사례도 언급하고 있다. 이처럼 인터넷 자유가 제한돼 있는 한국에서 뉴스에 혼동되지 않으려면 해외의 다양한 뉴스 피드를 이용해야 한다.\n언론수용자 조사 보고서 한국언론진흥재단에서 발표한 언론수용자 조사 보고서에 따르면 국민들이 뉴스를 소비하는 방법은 아래와 같다. (참고로 단일 선택 조사가 아니므로 이용 비중의 합이 100%이 아니다.)\n순위 주 이용 경로 이용 비중 (%) 1 텔레비전 (TV) 81.4% 2 인터넷 포털 / 검색엔진 66.5% 3 온라인 동영상 플랫폼 (유튜브 등) 30.0% 4 SNS 41.7% 6 뉴스 모음 앱 / 숏폼 22.9% 텔레비전과 인터넷 포털 사이트의 비중이 압도적으로 높고 유튜브와 SNS의 비중도 예상보다 매우 높았다. 다시 말해 소비자들이 뉴스를 접하는 과정이 왜곡될 수 있다는 것이다. SNS, 유튜브나 포털 사이트를 통해 접하는 뉴스는 각각의 뉴스 매체에서 1차적으로 가공한 정보다. 공식 매체 정보가 아닌 가짜뉴스도 있는데 SNS, YouTube는 이 문제에 더 취약하다. 그리고 이렇게 가공된 정보는 내가 직접적으로 알 수 없는 알고리즘에 의해 한번 더 정제되는데 여기서 어떻게 왜곡이 발생했는지 알 수가 없다. 또한 내가 추가할 수 있는 뉴스 피드의 종류가 한정돼 있고 포털 사이트와 국내 매체 공식 페이지에는 온갖 광고로 도배돼 있다.\n각국 언론은 해당 국가에서 발생한 사건에 대해 중립적이지 않은 경우가 많다. 때문에 국내 주요 사건을 알기 위해서는 해외 언론사의 기사를 읽는 것이 훨씬 낫다. 기사문의 질도 더 우수하다.\n대안: RSS (Really Simple Syndication) RSS는 사용자가 원하는 뉴스 피드를 구독해 읽을 수 있는 포맷이다. 이미 국내 포털 사이트에서 여러 뉴스 매체들을 \u0026lsquo;구독\u0026rsquo; 형태로써 서비스하고 있는데 그 원조격이라 할 수 있다. 이미 수많은 뉴스 매체들이 사용자들을 위해 RSS를 제공한다. 자유로운 정보 공유라는 철학 아래, 소비자들은 RSS 형식을 통해 배포되는 정보를 이용해 뉴스를 모아 한 눈에 볼 수 있고 공급자들은 불필요한 트래픽을 절약할 수 있다. 또한, 알고리즘이나 광고로써 뉴스를 읽는데 방해받지 않는다.\n대표적인 서비스로는 Feedly, Inoreader 등이 있다. 이들의 장점은 내 관심 분야 피드를 검색해 바로 구독하고 클라우드 형태로 관리할 수 있다는 점이다. 무료 버전으로도 가능하나 좀 더 많은 Feed를 구독하고자 할 경우 Feedly 기준 한달에 $7달러 정도의 비용이 발생한다. Inoreader가 좀 더 저렴하나 모바일 애플리케이션을 포함해 전반적인 사용자 경험은 Feedly가 더 나은 것 같다.\n만약 서버를 구성할 수 있다면 miniflux를 이용한 셀프 호스팅 방법도 가능하다. Feedly, Inoreader와 같이 피드를 검색하는 기능은 없지만, Feedly에서 검색한 뉴스 피드 정보를 토대로 직접 링크를 추가해 원하는 카테고리로써 뉴스들을 관리할 수 있다. 또한 Fever API와의 통합도 함께 지원하여 다양한 RSS 클라이언트에 연동해 사용할 수 있다. 하지만 이러한 서버 방식이 싫거나 굳이 필요하지 않다면, Windows의 RSS Guard나 안드로이드의 FeedMe 애플리케이션과 같이 로컬에 RSS를 직접 받아서 관리하는 방식으로 사용 가능하다. 물론 이 애플리케이션들은 miniflux 서비스와 Fever API를 통해 연동할 수 있다.\n뉴스 피드 예시 뉴스 피드 구독을 위해서는 Feedly Discovery에서 관심있는 피드를 검색한 뒤 RSS discovery에서 해당 도메인을 검색해 구독하면 된다. 아래는 개인적으로 구독하고 있는 피드 중 일부이다.\nAl Jazeera: https://www.aljazeera.com/xml/rss/all.xml ㅍㅍㅅㅅ PPSS: https://cdn.ppss.kr/rss/gn_rss_allArticle.xml NYT: https://www.nytimes.com/section/world/rss.xml GeekNews: http://feeds.feedburner.com/geeknews-feed The Atlantic: https://www.theatlantic.com/feed/all/ LWN.net: https://lwn.net/headlines/newrss ", 
+        "url": "\/posts\/%EB%82%B4%EA%B0%80-%EB%89%B4%EC%8A%A4%EB%A5%BC-%EC%86%8C%EB%B9%84%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95\/"
     },
     
     "\/": {
@@ -272,13 +314,6 @@ window.store = {
         "tags": [],
         "content": "", 
         "url": "\/tags\/book\/"
-    },
-    
-    "\/tags\/": {
-        "title": "Tags",
-        "tags": [],
-        "content": "", 
-        "url": "\/tags\/"
     },
     
     "\/posts\/%EB%8B%B9%EC%8B%A0%EC%9D%B4-%EB%AA%A8%EB%A5%B4%EB%8A%94-%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98\/": {

@@ -6,8 +6,36 @@
     <description>Recent content in Tags on 평범한 개발자</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Oct 2025 17:45:34 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 03 Jan 2026 10:06:10 +0900</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Feedly</title>
+      <link>/tags/feedly/</link>
+      <pubDate>Sat, 03 Jan 2026 10:06:10 +0900</pubDate>
+      <guid>/tags/feedly/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Miniflux</title>
+      <link>/tags/miniflux/</link>
+      <pubDate>Sat, 03 Jan 2026 10:06:10 +0900</pubDate>
+      <guid>/tags/miniflux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>News</title>
+      <link>/tags/news/</link>
+      <pubDate>Sat, 03 Jan 2026 10:06:10 +0900</pubDate>
+      <guid>/tags/news/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rss</title>
+      <link>/tags/rss/</link>
+      <pubDate>Sat, 03 Jan 2026 10:06:10 +0900</pubDate>
+      <guid>/tags/rss/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Book</title>
       <link>/tags/book/</link>
