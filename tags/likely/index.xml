@@ -4,7 +4,7 @@
     <title>Likely on 평범한 개발자</title>
     <link>/tags/likely/</link>
     <description>Recent content in Likely on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Feb 2020 23:27:51 +0900</lastBuildDate>
     <atom:link href="/tags/likely/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       <guid>/posts/likely-and-unlikely/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;예전에 관리하던 블로그에서 커널에서 사용하는 &lt;code&gt;likely&lt;/code&gt;와 &lt;code&gt;unlikely&lt;/code&gt; 에&#xA;대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시&#xA;보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.&lt;/p&gt;</description>
+      <description>개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlike</description>
     </item>
   </channel>
 </rss>

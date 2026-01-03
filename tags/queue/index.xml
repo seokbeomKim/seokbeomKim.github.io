@@ -4,7 +4,7 @@
     <title>Queue on 평범한 개발자</title>
     <link>/tags/queue/</link>
     <description>Recent content in Queue on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Apr 2020 00:26:52 +0900</lastBuildDate>
     <atom:link href="/tags/queue/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 &lt;code&gt;list.h&lt;/code&gt; 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 &lt;code&gt;&amp;lt;sys/queue.h&amp;gt;&lt;/code&gt; 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다. 라이센스에 전혀 문제가 되지 않을 뿐만 아니라 필요한 메시지 큐를 구현하기 위한 매크로가 알기 쉽게 정의되어 있어 작성하는데에는 크게 어렵지 않았다. 대신, 불필요하게 잘못된 메모리 접근으로 인한 코드를 디버깅하는데 시간이 많이 걸렸다.&lt;/p&gt;</description>
+      <description>개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡</description>
     </item>
   </channel>
 </rss>

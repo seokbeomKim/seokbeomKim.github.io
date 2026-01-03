@@ -4,7 +4,7 @@
     <title>COW on 평범한 개발자</title>
     <link>//localhost:1313/tags/cow/</link>
     <description>Recent content in COW on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 May 2019 18:24:16 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/cow/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/copy-on-write-cow-or-cow/</link>
       <pubDate>Thu, 16 May 2019 18:24:16 +0900</pubDate>
       <guid>//localhost:1313/posts/copy-on-write-cow-or-cow/</guid>
-      <description>&lt;p&gt;Copy-on-write은 리눅스 커널의 &lt;code&gt;fork()&lt;/code&gt; 함수에서 사용하는 기법이다.&lt;/p&gt;&#xA;&lt;p&gt;전통적인 &lt;code&gt;fork()&lt;/code&gt;는 부모 프로세스의 모든 자원을 복사해 자식&#xA;프로세스에게 넘겨준다. 하지만 이러한 방식은 공유가 가능한 많은&#xA;데이터를 복사하므로 단순하고 비효율적이다. 게다가 새로 만든 프로세스가&#xA;곧바로 다른 프로그램을 실행한다면 복사 작업이 모두 헛수고가 되고 만다.&lt;/p&gt;</description>
+      <description>Copy-on-write은 리눅스 커널의 fork() 함수에서 사용하는 기법이다. 전통적인 fork()는 부모 프로세스의 모든 자원을 복사해 자식 프로세스에게 넘겨</description>
     </item>
   </channel>
 </rss>

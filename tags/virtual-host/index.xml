@@ -4,7 +4,7 @@
     <title>Virtual Host on 평범한 개발자</title>
     <link>//localhost:1313/tags/virtual-host/</link>
     <description>Recent content in Virtual Host on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2019 17:16:40 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/virtual-host/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</link>
       <pubDate>Wed, 01 May 2019 17:16:40 +0900</pubDate>
       <guid>//localhost:1313/posts/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header/</guid>
-      <description>&lt;h1 id=&#34;virtual-host-and-host-header&#34;&gt;Virtual Host and Host Header&lt;/h1&gt;&#xA;&lt;p&gt;문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가상 호스트와 호스트 헤더 간에는 무슨 관계가 있는 것일까.&#xA;이 문서에서는 가상 호스트와 가상호스트 종류, 그리고 마지막으로 호스트 헤더와 어떤 식으로 연관되는지에 대해 설명하겠다.&lt;/p&gt;</description>
+      <description>Virtual Host and Host Header 문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가</description>
     </item>
   </channel>
 </rss>

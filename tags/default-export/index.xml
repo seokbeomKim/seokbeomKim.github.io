@@ -4,7 +4,7 @@
     <title>Default Export on 평범한 개발자</title>
     <link>//localhost:1313/tags/default-export/</link>
     <description>Recent content in Default Export on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 May 2019 16:30:51 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/default-export/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/named-export%EC%99%80-default-export/</link>
       <pubDate>Tue, 07 May 2019 16:30:51 +0900</pubDate>
       <guid>//localhost:1313/posts/named-export%EC%99%80-default-export/</guid>
-      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때&#xA;이해가 되지 않았다. 특히 default export와 named export 라는 export&#xA;방식과 자바스크립트 버전에 따른 문법 호환 때문에 모듈 export와 import,&#xA;require를 사용하는 코드를 이해하기 힘들었다.&lt;/p&gt;</description>
+      <description>개요 모듈 프로그래밍 기반인 자바스크립트는 모듈 방식은 처음 접했을 때 이해가 되지 않았다. 특히 default export와 named export 라는 export 방식과 자바스크립트 버전에 따른 문법</description>
     </item>
   </channel>
 </rss>

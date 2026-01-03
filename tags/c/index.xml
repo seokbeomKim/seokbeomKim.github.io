@@ -4,7 +4,7 @@
     <title>C on 평범한 개발자</title>
     <link>/tags/c/</link>
     <description>Recent content in C on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 21 Mar 2021 22:44:03 +0900</lastBuildDate>
     <atom:link href="/tags/c/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/kernel-macro-__is_constexpr/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       <guid>/posts/kernel-macro-__is_constexpr/</guid>
-      <description>&lt;p&gt;커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일&#xA;시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한&#xA;방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인&#xA;매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.&lt;/p&gt;</description>
+      <description>커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러</description>
     </item>
   </channel>
 </rss>

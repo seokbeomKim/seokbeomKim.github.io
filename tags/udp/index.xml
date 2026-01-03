@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Udp on 평범한 개발자</title>
-    <link>/tags/udp/</link>
+    <link>//localhost:1313/tags/udp/</link>
     <description>Recent content in Udp on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 May 2019 15:27:08 +0900</lastBuildDate>
-    <atom:link href="/tags/udp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/udp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TCP와 UDP의 차이점</title>
-      <link>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
+      <link>//localhost:1313/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
       <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
-      <guid>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
-      <description>&lt;p&gt;예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그&#xA;페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게&#xA;될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올&#xA;경우 포스팅을 업데이트 할 예정이다.&lt;/p&gt;</description>
+      <guid>//localhost:1313/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
+      <description>예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스</description>
     </item>
   </channel>
 </rss>

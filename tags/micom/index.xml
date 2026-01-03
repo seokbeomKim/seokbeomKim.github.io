@@ -4,7 +4,7 @@
     <title>Micom on 평범한 개발자</title>
     <link>//localhost:1313/tags/micom/</link>
     <description>Recent content in Micom on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 08 Mar 2020 23:30:44 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/micom/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/micom%EA%B3%BC-mpu/</link>
       <pubDate>Sun, 08 Mar 2020 23:30:44 +0900</pubDate>
       <guid>//localhost:1313/posts/micom%EA%B3%BC-mpu/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지 마이컴에서 담당하게 되는 시나리오가 있어 마이컴이 정확히 어떤 것인지 한번은 짚고 넘어가야 했다.&lt;/p&gt;</description>
+      <description>개요 카메라 관련 업무로 ARM Cortex A7 Single 모델을 주로 사용하지만 A53, MICOM 과의 인터럽트 충돌 문제가 일어날 때가 있다. UART 부트 및 LVDS 채널 변경, 더 나아가 카메라 센서의 초기화까지</description>
     </item>
   </channel>
 </rss>

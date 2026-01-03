@@ -4,7 +4,7 @@
     <title>Mmap on 평범한 개발자</title>
     <link>/tags/mmap/</link>
     <description>Recent content in Mmap on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 18 Apr 2021 00:32:27 +0900</lastBuildDate>
     <atom:link href="/tags/mmap/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/v4l2-memory-type/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>/posts/v4l2-memory-type/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를&#xA;할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를&#xA;수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로&#xA;이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를&#xA;분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를&#xA;파악할 수 있었다.&lt;/p&gt;</description>
+      <description>개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기</description>
     </item>
   </channel>
 </rss>

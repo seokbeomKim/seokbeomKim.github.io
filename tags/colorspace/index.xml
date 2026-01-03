@@ -4,7 +4,7 @@
     <title>Colorspace on 평범한 개발자</title>
     <link>/tags/colorspace/</link>
     <description>Recent content in Colorspace on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Jan 2020 16:39:36 +0900</lastBuildDate>
     <atom:link href="/tags/colorspace/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
-      <description>&lt;h1 id=&#34;색-공간-포맷&#34;&gt;색 공간 포맷&lt;/h1&gt;&#xA;&lt;p&gt;업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.&lt;/p&gt;</description>
+      <description>색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다.</description>
     </item>
   </channel>
 </rss>

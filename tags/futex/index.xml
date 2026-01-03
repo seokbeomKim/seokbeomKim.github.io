@@ -4,7 +4,7 @@
     <title>Futex on 평범한 개발자</title>
     <link>//localhost:1313/tags/futex/</link>
     <description>Recent content in Futex on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 02 Apr 2020 01:45:50 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/futex/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/futex/</link>
       <pubDate>Thu, 02 Apr 2020 01:45:50 +0900</pubDate>
       <guid>//localhost:1313/posts/futex/</guid>
-      <description>&lt;h2 id=&#34;futex-fast-userspace-mutexes&#34;&gt;Futex (Fast Userspace Mutexes)&lt;/h2&gt;&#xA;&lt;p&gt;futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등의 라이브러리의 구현에 사용되기 때문에 애플리케이션으로부터 직접 이용하는 경우는 별로 없다고 생각되지만 POSIX Thread는 Java 스레드의 구현 등에도 이용되고 있어 동기 처리를 많이 이용하는 애플리케이션에는 이익이 있을 것이다. futex 시스템 콜의 주된 기능은 FUTEX_WAIT와 FUTEX_WAKE이다.&lt;/p&gt;</description>
+      <description>Futex (Fast Userspace Mutexes) futex는 전통적인 UNIX 커널에서 사용되고 있는 sleep/wakup과 매우 비슷한 동기 기구를 userland에 대해 제공한다. 주로 NPTL(Native POSIX Thread Library) 등</description>
     </item>
   </channel>
 </rss>

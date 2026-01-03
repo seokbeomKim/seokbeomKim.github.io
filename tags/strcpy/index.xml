@@ -4,7 +4,7 @@
     <title>Strcpy on 평범한 개발자</title>
     <link>/tags/strcpy/</link>
     <description>Recent content in Strcpy on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 09 Oct 2022 14:00:05 +0900</lastBuildDate>
     <atom:link href="/tags/strcpy/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>/posts/strcpy/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을&#xA;이용하여 정적분석을 하는 도중, &lt;code&gt;strcpy&lt;/code&gt; 에 대한 warning 을 어떻게 처리할까&#xA;고민하다가 LWN 에서 &lt;a href=&#34;https://lwn.net/Articles/905777/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;Ushering out strlcpy()&lt;/a&gt;&#xA;라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고&#xA;했는데 이제서야 겨우 정리할 수 있게 되었다.&lt;/p&gt;</description>
+      <description>개요 한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기</description>
     </item>
   </channel>
 </rss>

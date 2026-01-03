@@ -4,7 +4,7 @@
     <title>평범한 개발자</title>
     <link>/</link>
     <description>Recent content on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 10 Oct 2025 17:45:34 +0900</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
@@ -13,84 +13,84 @@
       <link>/posts/%EB%8B%B9%EC%8B%A0%EC%9D%B4-%EB%AA%A8%EB%A5%B4%EB%8A%94-%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98/</link>
       <pubDate>Fri, 10 Oct 2025 17:45:34 +0900</pubDate>
       <guid>/posts/%EB%8B%B9%EC%8B%A0%EC%9D%B4-%EB%AA%A8%EB%A5%B4%EB%8A%94-%EB%AF%BC%EC%A3%BC%EC%A3%BC%EC%9D%98/</guid>
-      <description>&lt;p&gt;최근 트럼프의 관세 정책과 야당 강세 주에 주 방위군을 투입하는 막장극을 보면서 트럼프 지지층이 이해가 가질 않았다. 이런 와중에 추석 연휴를 맞아 오랫 동안 읽지 못했던 마이클 샌델의 «당신이 모르는 민주주의» 라는 책을 읽었는데 미국 초기 건국자들이 가졌던 정치 이념과 시민 정의에 입각한 자유관과 정치 경제 이념들이 어떻게 수정되어 왔는지 대략적으로 알 수 있었다. 그리고 왜 많은 미국인들이 트럼프를 지지하는지도 어렴풋이 알 수 있게 됐다.&lt;/p&gt;</description>
+      <description>최근 트럼프의 관세 정책과 야당 강세 주에 주 방위군을 투입하는 막장극을 보면서 트럼프 지지층이 이해가 가질 않았다. 이런 와중에 추석 연휴를 맞아 오랫 동안 읽지 못했던</description>
     </item>
     <item>
       <title>만족스러운 인공지능 서비스</title>
       <link>/posts/%EB%A7%8C%EC%A1%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%84%9C%EB%B9%84%EC%8A%A4/</link>
       <pubDate>Sat, 27 Sep 2025 14:03:48 +0900</pubDate>
       <guid>/posts/%EB%A7%8C%EC%A1%B1%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5-%EC%84%9C%EB%B9%84%EC%8A%A4/</guid>
-      <description>&lt;h2 id=&#34;인공지능-인기&#34;&gt;인공지능 인기&lt;/h2&gt;&#xA;&lt;p&gt;인공지능 인기가 식을 줄 모른다. &lt;a href=&#34;https://firstpagesage.com/seo-blog/google-vs-chatgpt-market-share-report/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;사람들은 정보 검색을 위해 ChatGPT 같은 Frontend 서비스를 사용&lt;/a&gt;하고 리눅스 커널 패치에는 &amp;lsquo;Generated-by: Claude AI&amp;rsquo; 와 같은 커밋 태그가 등장했다. 사람들은 더 이상 GPT, LLM과 같은 용어들을 낯설어 하지 않는다. 인공지능이 많은 것들을 대체할 것이라는 기대 속에서 어떤 이들은 본인들의 직업 안정성을 걱정하고 어떤 이들은 비용 절감 방법으로써 활용 가능성을 궁금해한다. 그렇다면 이러한 인기 속에서 사람들은 인공지능 서비스를 어떻게 활용하고 있을까?&lt;/p&gt;</description>
+      <description>인공지능 인기 인공지능 인기가 식을 줄 모른다. 사람들은 정보 검색을 위해 ChatGPT 같은 Frontend 서비스를 사용하고 리눅스 커널 패치에는 &amp;lsquo;Generated-by: Claude AI&amp;rsquo; 와 같은 커밋 태그가 등장했다. 사람</description>
     </item>
     <item>
       <title>Code Review Anxiety</title>
       <link>/posts/code-review-anxiety/</link>
       <pubDate>Sun, 31 Aug 2025 07:46:49 +0900</pubDate>
       <guid>/posts/code-review-anxiety/</guid>
-      <description>&lt;h2 id=&#34;code-review-anxiety&#34;&gt;Code Review Anxiety&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;Code Review Anxiety&lt;/code&gt;는 만국 공통으로 개발자라면 한 번씩은 느껴봤을 것&#xA;같다. 심지어 요즘엔 AI 때문에 느끼는 경우도 있다. &lt;a href=&#34;https://github.com/dotnet/runtime/pull/115732&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;심지어&#xA;마이크로소프트 개발자&#xA;조차도&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>Code Review Anxiety Code Review Anxiety는 만국 공통으로 개발자라면 한 번씩은 느껴봤을 것 같다. 심지어 요즘엔 AI 때문에 느끼는 경우도 있다. 심지어 마이크로소프트 개발자 조차</description>
     </item>
     <item>
       <title>이맥스 메인테이너 사임</title>
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</link>
       <pubDate>Sun, 01 Dec 2024 12:26:49 +0900</pubDate>
       <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EB%A9%94%EC%9D%B8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AC%EC%9E%84/</guid>
-      <description>&lt;h2 id=&#34;cc-mode&#34;&gt;CC Mode&lt;/h2&gt;&#xA;&lt;p&gt;얼마 전 이맥스 커뮤니티를 뜨겁게 달군 &lt;a href=&#34;https://lists.gnu.org/archive/html/emacs-devel/2024-11/msg00534.html&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;메일&lt;/a&gt;이 있다. &lt;span class=&#34;sidenote&#34;&gt;&#xD;&#xA;    &lt;label class=&#34;sidenote-label&#34; for=&#34;sidenote-0&#34;&gt;cc-mode&lt;/label&gt;&#xD;&#xA;    &lt;input class=&#34;sidenote-checkbox&#34; type=&#34;checkbox&#34; id=&#34;sidenote-0&#34;&gt;&lt;/input&gt;&#xD;&#xA;    &lt;span class=&#34;sidenote-content sidenote-right&#34;&gt;&#xD;&#xA;    &lt;bold&gt;cc-mode&lt;/bold&gt;: C와 C++을 지원하는 이맥스 레거시 패키지로 오랫동안 유지보수 되어왔다. &#xD;&#xA;    &lt;/span&gt;&#xD;&#xA;&lt;/span&gt;&#xD;&#xA;로 유명한 메인테이너 &lt;em&gt;Alan Mackenzie&lt;/em&gt; 가 개발팀에서 나가겠다고 메일링 리스트를 통해 선언한 것이다.&lt;/p&gt;</description>
+      <description>CC Mode 얼마 전 이맥스 커뮤니티를 뜨겁게 달군 메일이 있다. cc-mode cc-mode: C와 C++을 지원하는 이맥스 레거시 패키지로 오랫동안 유지보수 되어왔다. 로 유명한 메인테이너 Alan Mackenzie</description>
     </item>
     <item>
       <title>이맥스 Tree-sitter Major Mode 구현</title>
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</link>
       <pubDate>Mon, 09 Sep 2024 22:39:58 +0900</pubDate>
       <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-tree-sitter-major-mode-%EA%B5%AC%ED%98%84/</guid>
-      <description>&lt;p&gt;이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;syntax-tree-generator-출현&#34;&gt;Syntax Tree Generator 출현&lt;/h2&gt;&#xA;&lt;p&gt;Tree-sitter&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; 는 소스 코드를 syntax tree로 만드는 &amp;lsquo;parser generator tool&amp;rsquo;이다. Emacs, Neovim, Zed 등의&#xA;편집기에 기본으로 builtin 되어 제공된다. 편집기에서 지원하는 건 별개이지만 2018년에 처음 릴리즈 되었다고 하니 벌써&#xA;6년이나 된 기능이다. 처음 tree-sitter 출현을 접했을 때 들었던 생각은 &amp;lsquo;대체 왜 만든걸까?&amp;rsquo; 였다. 이미 syntax highlighting&#xA;기능은 오래 전부터 제공되던 기능이었기에 실시간으로 소스 코드로부터 syntax tree를 만들 수 있다는 게 어떤 장점을 가질지&#xA;예상하기 힘들었다.&lt;/p&gt;</description>
+      <description>이 글에서는 이맥스에서 bitbake tree-sitter parser를 사용하기 위해 major mode를 구현하는 방법을 소개한다. Syntax Tree Generator 출현 Tree-sitter1 는 소스 코드를 syntax tree로 만드는 &amp;lsquo;parser generator tool</description>
     </item>
     <item>
       <title>Vterm In Emacs</title>
       <link>/posts/vterm-in-emacs/</link>
       <pubDate>Sat, 19 Aug 2023 00:00:00 +0000</pubDate>
       <guid>/posts/vterm-in-emacs/</guid>
-      <description>&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;&#xA;&lt;h2 id=&#34;headline-1&#34;&gt;&#xA;Overview&#xA;&lt;/h2&gt;&#xA;&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;&#xA;&lt;p&gt;Using Emacs in daily life, I rely on &lt;code&gt;vterm&lt;/code&gt; terminal emulator instead of &lt;code&gt;eshell&lt;/code&gt;. However, I&amp;#39;ve&#xA;noticed that there are certain limitations in terms of integration between &lt;code&gt;vterm&lt;/code&gt; and Emacs. While&#xA;the package supports some user-accessible functions, they are not sufficient. I&amp;#39;ve always wanted the&#xA;integration level as &lt;code&gt;VSCode&lt;/code&gt;, and at least it should be able to open files from the terminal&#xA;interface. Well, this is one of &lt;strong&gt;essential&lt;/strong&gt; features of the terminal emulator running on editors, so I&#xA;thought that having this kind of issue was ridiculous. So I tried to find solutions by googling&#xA;about it, but none of them had a one-shot method to achieve this. So, I made up my mind to write&#xA;functions by myself.&lt;/p&gt;</description>
+      <description>Overview Using Emacs in daily life, I rely on vterm terminal emulator instead of eshell. However, I&amp;#39;ve noticed that there are certain limitations in terms of integration between vterm and Emacs. While the package supports some user-accessible functions, they are not sufficient. I&amp;#39;ve always wanted the integration level as VSCode, and at least it should be able to open files from the terminal interface. Well, this is one of essential features of the terminal emulator running on editors, so I thought that having this kind of issue was ridiculous.</description>
     </item>
     <item>
       <title>라즈베리파이 네트워크 부팅 설정</title>
       <link>/posts/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95/</link>
       <pubDate>Sat, 15 Apr 2023 10:21:58 +0900</pubDate>
       <guid>/posts/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95/</guid>
-      <description>&lt;h1 id=&#34;네트워크-부팅-환경-설정&#34;&gt;네트워크 부팅 환경 설정&lt;/h1&gt;&#xA;&lt;p&gt;기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이&#xA;때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에&#xA;관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.&lt;/p&gt;</description>
+      <description>네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매</description>
     </item>
     <item>
       <title>Fwnode</title>
       <link>/posts/fwnode/</link>
       <pubDate>Sun, 19 Mar 2023 17:45:39 +0900</pubDate>
       <guid>/posts/fwnode/</guid>
-      <description>&lt;p&gt;fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이&#xA;없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고할 수&#xA;있는 자료가 너무 없어서 아쉬웠다.&lt;/p&gt;</description>
+      <description>fwnode에 대해서는 자료가 거의 없는 것 같다. 너무 쉬운 개념이라 없는 건지 관심이 없어서 그런 것인지는 모르겠으나 개인적으로는 단번에 이해되지가 않았고 참고</description>
     </item>
     <item>
       <title>strcpy</title>
       <link>/posts/strcpy/</link>
       <pubDate>Sun, 09 Oct 2022 14:00:05 +0900</pubDate>
       <guid>/posts/strcpy/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을&#xA;이용하여 정적분석을 하는 도중, &lt;code&gt;strcpy&lt;/code&gt; 에 대한 warning 을 어떻게 처리할까&#xA;고민하다가 LWN 에서 &lt;a href=&#34;https://lwn.net/Articles/905777/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;Ushering out strlcpy()&lt;/a&gt;&#xA;라는 기사문을 읽게 되었다. string copy에 대한 글을 읽고 블로그에 정리하자고&#xA;했는데 이제서야 겨우 정리할 수 있게 되었다.&lt;/p&gt;</description>
+      <description>개요 한달 전 회사에서 리눅스 디바이스 드라이버 코드에 MISRA-C, CERT-C 룰셋들을 이용하여 정적분석을 하는 도중, strcpy 에 대한 warning 을 어떻게 처리할까 고민하다가 LWN 에서 Ushering out strlcpy() 라는 기</description>
     </item>
     <item>
       <title>프로세스 종료와 파일 디스크립터</title>
       <link>/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</link>
       <pubDate>Tue, 10 May 2022 00:03:20 +0900</pubDate>
       <guid>/posts/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%A2%85%EB%A3%8C%EC%99%80-%ED%8C%8C%EC%9D%BC-%EB%94%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%84%B0/</guid>
-      <description>&lt;h1 id=&#34;파일을-open-했는데-close를-안하면&#34;&gt;파일을 open 했는데 close를 안하면?&lt;/h1&gt;&#xA;&lt;p&gt;stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정의는 &lt;em&gt;태스크가 파일을 열면 얻게 되는 고유 id값&lt;/em&gt; 이었다. 그리고 이러한 파일디스크립터는 항상 open 을 해주면 close 를 해줘야 한다고 배웠다. 그런데 막상 단순한 텍스트 파일을 open 한 뒤 프로세스 종료 전 close를 명시적으로 하지 않아도 이로 인한 오류는 발생하지 않는다. 그 전에는 단순하게 프로세스 종료 시에 파일 디스크립터도 함께 정리해주겠거니 하고 넘어갔던 내용이지만 본 글에서는 이 부분에 대해서 간단히(?) 살펴보고자 한다.&lt;/p&gt;</description>
+      <description>파일을 open 했는데 close를 안하면? stdin(0), stdout(2), stderr(3) 이라는 정해진 공식과 함께 리다이렉션과 파이프의 개념만으로도 흥분하던 대학교 시절에 내가 알던 파일 디스크립터의 정</description>
     </item>
     <item>
       <title>Device Tree Overlay</title>
       <link>/posts/device-tree-overlay/</link>
       <pubDate>Sun, 08 May 2022 01:37:45 +0900</pubDate>
       <guid>/posts/device-tree-overlay/</guid>
-      <description>&lt;h1 id=&#34;ramoops-덕분에-알게된-오버레이&#34;&gt;Ramoops 덕분에 알게된 오버레이&lt;/h1&gt;&#xA;&lt;p&gt;며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다.&#xA;ramoops는 커널이 oops/panic 이 발생하면서 warm reset 되었을 경우 재부팅 이후에 pstore (persistent store)을 이용하여 이전에 기록된 dmesg 나&#xA;user 콘솔의 기록을 확인할 수 있도록 하는 logger 이다. ramoops 는 cold reset 이 되면 기록이 남아있지 않는다는 단점이 있어&#xA;최근에는 ramoops 대신 blk oops/panic logger 를 사용하기도 한다.&lt;/p&gt;</description>
+      <description>Ramoops 덕분에 알게된 오버레이 며칠전 리눅스에서의 Tracing 방법에 대해 공부하다가 찾아낸 세미나 영상에서 ramoops 라는 것을 알게 되었다. ramoops는 커널이 oops/panic 이 발생하면서</description>
     </item>
     <item>
       <title>Stack Protector와 디버깅 이야기</title>
       <link>/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</link>
       <pubDate>Thu, 03 Feb 2022 15:00:45 +0900</pubDate>
       <guid>/posts/stack-protector%EC%99%80-%EB%94%94%EB%B2%84%EA%B9%85-%EC%9D%B4%EC%95%BC%EA%B8%B0/</guid>
-      <description>&lt;h1 id=&#34;stack-protector-넌-뭐하는-놈이냐&#34;&gt;Stack Protector, 넌 뭐하는 놈이냐?&lt;/h1&gt;&#xA;&lt;p&gt;현업에서 커널의 &lt;code&gt;CONFIG_STACK_PROTECTOR&lt;/code&gt; 를 활성화하면 커널 부트가 안된다는 이슈가&#xA;보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이스 드라이버 코드 때문에&#xA;Stack Overflow가 발생하여 부트가 안되고 있었다. 문제의 지점은 사수가 발견하고 파트장의 수정으로 마무리되었다.&lt;/p&gt;</description>
+      <description>Stack Protector, 넌 뭐하는 놈이냐? 현업에서 커널의 CONFIG_STACK_PROTECTOR 를 활성화하면 커널 부트가 안된다는 이슈가 보고되었다. Trace32 로 callstack을 살펴보니 내 파트에서 맡고 있는 디바이</description>
     </item>
     <item>
       <title>컴파일 타임에 매크로 변수 값 확인하기</title>
@@ -104,217 +104,203 @@
       <link>/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</link>
       <pubDate>Fri, 24 Sep 2021 01:13:41 +0900</pubDate>
       <guid>/posts/%EC%BB%A4%EB%84%90%EC%9D%98-kasan-%EC%BD%94%EB%93%9C%EA%B0%80-%EC%82%BD%EC%9E%85%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95/</guid>
-      <description>&lt;h1 id=&#34;커널의-kasan-코드가-삽입되는-방법&#34;&gt;커널의 KASAN 코드가 삽입되는 방법&lt;/h1&gt;&#xA;&lt;p&gt;Generic KASAN 의 경우, 위와 같이 &lt;code&gt;__asan_load&lt;/code&gt;와 &lt;code&gt;__asan_store&lt;/code&gt; 함수가 정의되어&#xA;있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에서 어떻게 모든 메모리에&#xA;접근할 때마다 특정 함수의 내용을 실행할까 라는 궁금증이 생겼다. 커널 문서에&#xA;따르면, 컴파일러에 의해 위 함수들이 인라인 형태로 모든 메모리 접근 전에 삽입되어&#xA;해당 메모리가 안전한지 확인한다고 기술하고 있다. 이에 처음에는 &lt;code&gt;static inline&lt;/code&gt;&#xA;형태로 정의된 함수가 컴파일러에 의해 처리되는 것인가? 라고 생각했다. 하지만,&#xA;실제 코드를 보았을 때 함수와 &lt;code&gt;EXPORT_SYMBOL&lt;/code&gt; 이 사용된 것 외에는 그 어디에도&#xA;inline 키워드는 사용도지 않았다. 컴파일러가 해당 코드를 삽입한다고 하는데&#xA;정확하게 어떻게 삽입하는지, 해당 함수들의 이름이 바뀌면 어떤 결과가 나올지&#xA;궁금했다. 또한 커널 소스를 다 뒤져봐도 ASAN에 관련된 호출 부분을 아무리 찾아도&#xA;어떤 방식으로 &lt;code&gt;__asan_loadN&lt;/code&gt;, &lt;code&gt;__asan_storeN&lt;/code&gt; 이 메모리 접근 전에 삽입되는지&#xA;찾을 수 없었다.&lt;/p&gt;</description>
+      <description>커널의 KASAN 코드가 삽입되는 방법 Generic KASAN 의 경우, 위와 같이 __asan_load와 __asan_store 함수가 정의되어 있다. 단순하게 KASAN의 사용법만 보았을 때, 과연 커널에</description>
     </item>
     <item>
       <title>V4L2 Memory Type</title>
       <link>/posts/v4l2-memory-type/</link>
       <pubDate>Sun, 18 Apr 2021 00:32:27 +0900</pubDate>
       <guid>/posts/v4l2-memory-type/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를&#xA;할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를&#xA;수정하니 기대한 결과값이 나오는 것처럼 보였다. 어떻게 동작이 가능했을까 머리로&#xA;이해가 되지않아 토요일 하루종일 V4L2 프레임워크와 LWN 을 뒤져가며 프레임워크를&#xA;분석하고 나니 왜 그동안 이해가 안됐었는지, 그리고 현재 무엇이 잘못됐는지를&#xA;파악할 수 있었다.&lt;/p&gt;</description>
+      <description>개요 최근 Capture 디바이스 드라이버 코드의 V4L2 표준화 작업을 위해 한 가지 업무를 할당 받았다. 거의 일주일 동안 헤매었는데 다른 선임 개발자가 몇 시간 만에 코드를 수정하니 기</description>
     </item>
     <item>
       <title>Kernel Debug With Kgdb</title>
       <link>/posts/kernel-debug-with-kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       <guid>/posts/kernel-debug-with-kgdb/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을&#xA;위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는&#xA;방법에 대한 세미나를 보게 되었다. 유투브에서 &lt;a href=&#34;https://www.youtube.com/watch?v=HBOwoSyRmys&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;«Using Serial kdb / kgdb to Debug&#xA;the Linux Kernel - Douglas Anderson,&#xA;Google»&lt;/a&gt; 검색한 영상인데, KDB와&#xA;KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을&#xA;테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.&lt;/p&gt;</description>
+      <description>개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하</description>
     </item>
     <item>
       <title>Kernel macro __is_constexpr</title>
       <link>/posts/kernel-macro-__is_constexpr/</link>
       <pubDate>Sun, 21 Mar 2021 22:44:03 +0900</pubDate>
       <guid>/posts/kernel-macro-__is_constexpr/</guid>
-      <description>&lt;p&gt;커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일&#xA;시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러한&#xA;방식으로 매크로를 활용할 수 있다는 것에 다시 한번 놀랐다. 가히 변태적인&#xA;매크로다. 관련 패치를 보고 리누즈가 한 말에 완전 동의한다.&lt;/p&gt;</description>
+      <description>커널에서 한 가지 재미있는(?) 매크로를 발견했다. 깊이 살펴보고 나니, GCC로 컴파일 시에 삼항 연산자를 이러한 방식으로 사용할 수 있다는 점에 한 번 놀랐고 이러</description>
     </item>
     <item>
       <title>Mac에서 GDB 이용한 커널 해킹하기</title>
       <link>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       <guid>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게&#xA;되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게&#xA;하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, &lt;code&gt;aarch64&lt;/code&gt;&#xA;아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는&#xA;누구인가?&lt;/p&gt;</description>
+      <description>개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었</description>
     </item>
     <item>
       <title>WSL 리소스 조정하기</title>
       <link>/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 28 Nov 2020 23:00:00 +0900</pubDate>
       <guid>/posts/wsl-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
-      <description>&lt;!--toc--&gt;&#xD;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는&#xA;메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이&#xA;비일비재했다. Vmmem 이라는 프로세스로 엄청난 리소스가 소모되고 있었고 이러한&#xA;내용은 &lt;a href=&#34;https://blog.simonpeterdebbarma.com/2020-04-memory-and-wsl/&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;다른&#xA;블로그&lt;/a&gt;에서도&#xA;동일하게 재현되고 있었다.&lt;/p&gt;</description>
+      <description>개요 커널 분석을 위해 WSL을 이용하도록 환경을 구성하자 서브시스템에서 사용하는 메모리나 CPU 자원이 상당하였다. 16기가 램 중에 무려 12기가를 사용하는 일이</description>
     </item>
     <item>
       <title>리누즈게이트와 CoC</title>
       <link>/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</link>
       <pubDate>Sat, 05 Sep 2020 09:50:58 +0900</pubDate>
       <guid>/posts/%EB%A6%AC%EB%88%84%EC%A6%88%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%99%80-coc/</guid>
-      <description>&lt;h1 id=&#34;자유-발언&#34;&gt;자유 발언&lt;/h1&gt;&#xA;&lt;p&gt;구독 중인 «LXer Linux News»에서 &lt;em&gt;Linusgate Leaked&lt;/em&gt; 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것은 무엇인가&amp;rsquo; 에 대해서 다시 한번 생각하게 되었다. 해당 사건은 평소 과감한 발언으로 자주 회자되었던 리누즈 토발즈가 자유소프트웨어 진영을 벌레같다고 표현하며 공격적으로 발언하는 그의 태도를 두고 이를 커뮤니티 행동강령 위반으로서 문제삼았다는 것이 주 내용이다. 이 사건을 두고 어떤 사람은 리누즈의 그러한 발언 조차 &amp;lsquo;자유 발언&amp;rsquo;으로서 존중 받아야 할 것이다라고 얘기할 것이다. 혹자는 아래와 같이 생각할 수도 있다.&lt;/p&gt;</description>
+      <description>자유 발언 구독 중인 «LXer Linux News»에서 Linusgate Leaked 라는 제목으로 글 하나가 올라왔다. 글을 읽고 나서 최근 고민하던 문제인 &amp;lsquo;개발자에게 중요한 것은</description>
     </item>
     <item>
       <title>커널에서의 Object-Oriented Design Pattern</title>
       <link>/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       <guid>/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인&#xA;패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패턴은 이미&#xA;오래 전부터 적용되어 왔지만 BSP에 포함된 솔루션 코드로서 추가되는&#xA;코드에는 그러한 디자인 패턴이 보이지 않는다.&lt;/p&gt;</description>
+      <description>개요 현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패턴</description>
     </item>
     <item>
       <title>맥 OS에서 리눅스 커널 컴파일하기</title>
       <link>/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 12 Jul 2020 22:13:08 +0900</pubDate>
       <guid>/posts/%EB%A7%A5-os%EC%97%90%EC%84%9C-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A4%EB%84%90-%EC%BB%B4%ED%8C%8C%EC%9D%BC%ED%95%98%EA%B8%B0/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;맥 환경에서 &lt;code&gt;bare-metal&lt;/code&gt;이 아닌 리눅스 커널로 컴파일하는 것은 생각했던&#xA;것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한&#xA;라이브러리와 경로들이 리눅스 환경과 다르기 때문에, 일반적인 리눅스&#xA;배포판에서처럼 크로스 컴파일러를 바이너리 형태로 설치한 뒤에 곧바로&#xA;커널 빌드를 할 수는 없다.&lt;/p&gt;</description>
+      <description>개요 맥 환경에서 bare-metal이 아닌 리눅스 커널로 컴파일하는 것은 생각했던 것보다 까다롭다. BSD 계열이기는 하지만 커널 컴파일에 필요한 라이브러리와 경</description>
     </item>
     <item>
       <title>mu4e 설정하기</title>
       <link>/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       <guid>/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;이맥스에서는 이메일 클라이언트로서 사용할 수 있는 &lt;code&gt;mu4e&lt;/code&gt;라는 패키지가 있다.&#xA;일반적으로 &lt;code&gt;isync (mbsync)&lt;/code&gt; 라는 프로그램과 함께 사용하며 mu 를 설치하면 설치&#xA;디렉토리 내에 함께 포함되어 있다. &lt;code&gt;mu&lt;/code&gt;는 메일 수신 및 분류, 저장 보다는 인덱싱과&#xA;검색을 위한 프로그램이기 때문에 원하는 메일을 빠르게 검색하고 org mode와 함께&#xA;사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 특징이다.&lt;/p&gt;</description>
+      <description>개요 이맥스에서는 이메일 클라이언트로서 사용할 수 있는 mu4e라는 패키지가 있다. 일반적으로 isync (mbsync) 라는 프로그램과 함께 사용하며 mu 를 설치하면 설치 디렉토리 내</description>
     </item>
     <item>
       <title>Do While</title>
       <link>/posts/do-while/</link>
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       <guid>/posts/do-while/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 매크로에 &lt;code&gt;do { .. } while(0)&lt;/code&gt; 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. &lt;a href=&#34;https://kernelnewbies.org/FAQ/DoWhile0&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;https://kernelnewbies.org/FAQ/DoWhile0&lt;/a&gt; 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.&lt;/p&gt;</description>
+      <description>개요 커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했</description>
     </item>
     <item>
       <title>BSD 버전 Linked List</title>
       <link>/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 &lt;code&gt;list.h&lt;/code&gt; 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 &lt;code&gt;&amp;lt;sys/queue.h&amp;gt;&lt;/code&gt; 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다. 라이센스에 전혀 문제가 되지 않을 뿐만 아니라 필요한 메시지 큐를 구현하기 위한 매크로가 알기 쉽게 정의되어 있어 작성하는데에는 크게 어렵지 않았다. 대신, 불필요하게 잘못된 메모리 접근으로 인한 코드를 디버깅하는데 시간이 많이 걸렸다.&lt;/p&gt;</description>
+      <description>개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡</description>
     </item>
     <item>
       <title>C ARRAY_SIZE 매크로와 포인터 기초</title>
       <link>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link>
       <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
       <guid>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 &lt;a href=&#34;https://kldp.org/node/34268&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;https://kldp.org/node/34268&lt;/a&gt;과 같은 원인이라는 것을 알게되고 C 기초를 또 다시 한번 공부하게 되었다.&lt;/p&gt;</description>
+      <description>개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 http</description>
     </item>
     <item>
       <title>poll() 그리고 poll_wait()</title>
       <link>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</link>
       <pubDate>Tue, 10 Mar 2020 23:52:01 +0900</pubDate>
       <guid>/posts/poll-%EA%B7%B8%EB%A6%AC%EA%B3%A0-poll_wait/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;업무 중에 카메라 드라이버에 관련된 이슈를 보다가 &lt;code&gt;poll()&lt;/code&gt;과&#xA;&lt;code&gt;poll_wait()&lt;/code&gt;이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된&#xA;커널이 다소 오래되었기에 살펴보아야 하는 드라이버 코드도 레거시에&#xA;가까웠지만 &lt;code&gt;poll&lt;/code&gt;을 이용하여 디바이스 드라이버의 인터럽트를 처리하는&#xA;것으로 확인하여 관련 내용을 정리하고자 한다.&lt;/p&gt;</description>
+      <description>개요 업무 중에 카메라 드라이버에 관련된 이슈를 보다가 poll()과 poll_wait()이 지속적으로 사용되는 것을 볼 수 있었다. 이슈에 관련된 커널이 다소</description>
     </item>
     <item>
       <title>ioctl()에 전달되는 cmd 관련 매크로 함수</title>
       <link>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       <guid>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
-      <description>&lt;p&gt;드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를&#xA;사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을&#xA;포스팅과 함께 정리하고자 한다.&lt;/p&gt;</description>
+      <description>드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한</description>
     </item>
     <item>
       <title>Likely and Unlikely</title>
       <link>/posts/likely-and-unlikely/</link>
       <pubDate>Thu, 13 Feb 2020 23:27:51 +0900</pubDate>
       <guid>/posts/likely-and-unlikely/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;예전에 관리하던 블로그에서 커널에서 사용하는 &lt;code&gt;likely&lt;/code&gt;와 &lt;code&gt;unlikely&lt;/code&gt; 에&#xA;대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시&#xA;보며 likely, unlikely를 보니 다시 헷갈리기 시작했다.&lt;/p&gt;</description>
+      <description>개요 예전에 관리하던 블로그에서 커널에서 사용하는 likely와 unlikely 에 대해서 정리한 포스팅이 있었다. 하지만 시간이 지나 커널 분석 책을 다시 보며 likely, unlike</description>
     </item>
     <item>
       <title>typedef is evil</title>
       <link>/posts/typedef-is-evil/</link>
       <pubDate>Thu, 13 Feb 2020 01:12:37 +0900</pubDate>
       <guid>/posts/typedef-is-evil/</guid>
-      <description>&lt;p&gt;커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서&#xA;궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를&#xA;발견했다. &lt;a href=&#34;https://discuss.fogcreek.com/joelonsoftware1/10506.html&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;typedef is&#xA;evil&lt;/a&gt; 이라는&#xA;제목의 포스팅이었다. 이 포스팅에서는 아래와 같이 사용하는 것을&#xA;비판하고 있다. 2000년도 초반에 작성된 것이니, 벌써 20년 가까이&#xA;되었는데도 불구하고 여전히 코드에 남아있다는 점이 아이러니하다.&lt;/p&gt;</description>
+      <description>커널 쪽의 코드를 보다가 문득 커널 코드에 적용하는 코딩 규칙에 대해서 궁금해졌다. 관련 내용으로 검색하다보니 재미있는 포스팅 하나를 발견했다. typedef is evil 이라는 제목</description>
     </item>
     <item>
       <title>이맥스 기본 에디터로 사용하기</title>
       <link>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sun, 09 Feb 2020 03:09:59 +0000</pubDate>
       <guid>/posts/%EC%9D%B4%EB%A7%A5%EC%8A%A4-%EA%B8%B0%EB%B3%B8-%EC%97%90%EB%94%94%ED%84%B0%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해&#xA;포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가&#xA;상당히 오래 걸리는 편이다. &lt;code&gt;daemon&lt;/code&gt; 형태로 실행한다고 해도, 첫 로드를&#xA;위해 필요한 시간은 다른 편집기에 비해서 오래 걸리는 편이다. 때문에&#xA;편집기를 실행하고자 하는 때에 초기화를 진행하지 않고 사용자로&#xA;로그인하여 부트하는 시간에 편집기의 초기화를 진행하도록 설정할 것이다.&lt;/p&gt;</description>
+      <description>개요 이맥스를 메인으로 사용하는 환경을 위해서 필요한 몇 가지 설정 값에 대해 포스팅하고자 한다. 이맥스의 경우 다른 vim 과 마찬가지로 초기 로드가 상당히 오래 걸리는 편</description>
     </item>
     <item>
       <title>ftrace 이용한 커널 디버깅</title>
       <link>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       <guid>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를&#xA;제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이&#xA;중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀&#xA;내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지&#xA;않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 &lt;code&gt;ftrace&lt;/code&gt;가 있다는&#xA;것을 알게 됐다.&lt;/p&gt;</description>
+      <description>개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있</description>
     </item>
     <item>
       <title>GPIO Mapping</title>
       <link>/posts/gpio-mapping/</link>
       <pubDate>Fri, 31 Jan 2020 23:48:06 +0900</pubDate>
       <guid>/posts/gpio-mapping/</guid>
-      <description>&lt;h1 id=&#34;gpio-맵핑하기&#34;&gt;GPIO 맵핑하기&lt;/h1&gt;&#xA;&lt;p&gt;오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO 맵핑하는 방법으로 디바이스 트리를 이용하는 것 외에 어떤 대안이 있는지 알아보고자 정리하고자 한다.&lt;/p&gt;</description>
+      <description>GPIO 맵핑하기 오늘은 gpio 맵핑을 위해 디바이스 트리를 이용하였지만 정상적으로 설정되지 않는 문제가 있었다. SoC에서 GPIO Enable 에 대한 것이 문제일 것이라 예상되지만, GPIO</description>
     </item>
     <item>
       <title>안드로이드의 uevent, ueventd</title>
       <link>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       <guid>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. &lt;code&gt;ueventd.rc&lt;/code&gt; 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.&lt;/p&gt;</description>
+      <description>개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이</description>
     </item>
     <item>
       <title>Little Endian vs. Big Endian</title>
       <link>/posts/little-endian-vs.-big-endian/</link>
       <pubDate>Mon, 27 Jan 2020 22:27:06 +0900</pubDate>
       <guid>/posts/little-endian-vs.-big-endian/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;p class=&#34;imgp&#34;&gt;&#xD;&#xA;  &lt;img loading=&#34;lazy&#34; src=&#34;/img/endian_compare.png&#34; alt=&#34;Endian 비교&#34;  /&gt;&#xD;&#xA;&lt;/p&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;엔디안(Endianness)은 컴퓨터의 메모리와 같은 &lt;strong&gt;1차원 공간에 여러 개의 연속된 대상을 배열하는 방법&lt;/strong&gt;을 뜻하며, 바이트를 배열하는 방법을 바이트 순서(Byte-order)라고 한다. &lt;strong&gt;엔디안은 보통 큰 단위가 앞에 나오는 빅 엔디안(Big-Endian)과 작은 단위가 앞에 나오는 리틀 엔디안(Little-Endian)으로 나눌 수 있으며&lt;/strong&gt;, 두 경우에 속하지 않거나 둘 모두 지원하는 것을 미들 엔디안(Middle-Endian)이라 부른다.&lt;/p&gt;</description>
+      <description>개요 빅 엔디안과 리틀 엔디안에 관해 업무에서 접할 수 있는 상황과 각각에 해당하는 포인터 연산 예제를 종합적으로 정리하도록 한다. 엔디안(Endianness)</description>
     </item>
     <item>
       <title>색 공간(Color Space)</title>
       <link>/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</link>
       <pubDate>Sun, 26 Jan 2020 16:39:36 +0900</pubDate>
       <guid>/posts/%EC%83%89-%EA%B3%B5%EA%B0%84color-space/</guid>
-      <description>&lt;h1 id=&#34;색-공간-포맷&#34;&gt;색 공간 포맷&lt;/h1&gt;&#xA;&lt;p&gt;업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다. YUV에는 서브샘플링 방법에 따라 YUV444, YUV422, YUV411, YUV420 등으로 세분화할 수 있는데 각 특징에 따라 실제 표현되는 색이 달라지므로 주의해야 한다.&lt;/p&gt;</description>
+      <description>색 공간 포맷 업무 상에 사용되는 일반적인 색 인코딩 시스템은 RGB 와 YUV 이다. 그 중에서도 SoC의 각 컴포넌트에서 이미지 처리를 위해 기본으로 요구하는 포맷은 YUV 이다.</description>
     </item>
     <item>
       <title>평범한 개발자</title>
       <link>/about/</link>
       <pubDate>Sat, 25 Jan 2020 22:47:44 +0900</pubDate>
       <guid>/about/</guid>
-      <description>&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=urcL86UpqZc&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;이맥스를 사용합니다.&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://medium.com/@alexeynovikov_89393/linux-on-desktop-still-sucks-60e263f77745&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;Gentoo Linux를 사랑하지만 WSL를 사용합니다.&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://drewdevault.com/2023/04/11/2023-04-11-The-FSF-is-dying.html&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;FSF의 철학을 좋아합니다.&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://lkml.org/lkml/2012/12/23/75&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;인성도 중요한 스킬이라 생각합니다.&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>이맥스를 사용합니다. Gentoo Linux를 사랑하지만 WSL를 사용합니다. FSF의 철학을 좋아합니다. 인성도 중요한 스킬이라 생각합니다.</description>
     </item>
     <item>
       <title>Major와 Minor Numbers</title>
       <link>/posts/major%EC%99%80-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       <guid>/posts/major%EC%99%80-minor-numbers/</guid>
-      <description>&lt;p&gt;세마포어를 이용한 모듈 프로그래밍을 하던 중 &lt;code&gt;Major, Minor&lt;/code&gt; 라는 개념이&#xA;등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한&#xA;까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수&#xA;있는 아주 좋은 기회다.&lt;/p&gt;</description>
+      <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변</description>
     </item>
     <item>
       <title>지피(Jiffies)</title>
       <link>/posts/%EC%A7%80%ED%94%BCjiffies/</link>
       <pubDate>Sun, 26 May 2019 10:38:40 +0900</pubDate>
       <guid>/posts/%EC%A7%80%ED%94%BCjiffies/</guid>
-      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;p&gt;오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한&#xA;뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인&#xA;&lt;code&gt;jiffies&lt;/code&gt;에는 시스템 시작 이후 발생한 진동 횟수(tick)이&#xA;저장된다. 시스템 시작 시 커널은 이 값을 0으로 설정하고 타이머&#xA;인터럽트가 발생할 때마다 1씩 증가시킨다. 타이머 인터럽트는 초당 HZ회&#xA;발생하므로, 초당 지피 수는 HZ가 되며, 이에 따라 시스템 가동 시간은&#xA;&lt;code&gt;jiffies / HZ&lt;/code&gt;(초)가 된다.&lt;/p&gt;</description>
+      <description>오랜만에 지피에 대한 포스팅을 다시 작성한다(대학생 때 커널 공부를 한 뒤로 이렇게 별도로 문서를 작성하는 것은 처음인 것 같다). 전역 변수인 jiffies에는 시</description>
     </item>
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
       <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
       <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
-      <description>&lt;p&gt;지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에&#xA;올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는&#xA;무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던&#xA;기회였다.&lt;/p&gt;</description>
+      <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</description>
     </item>
     <item>
       <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</title>
       <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
       <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</guid>
-      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;p&gt;&lt;strong&gt;취업은 언제하나&amp;hellip;&lt;/strong&gt; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을&#xA;공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이&#xA;꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접&#xA;확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도&#xA;나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방&#xA;해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은&#xA;마운트하지 않는다는 제한은 있다.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>TCP와 UDP의 차이점</title>
-      <link>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link>
-      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
-      <guid>/posts/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid>
-      <description>&lt;p&gt;예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그&#xA;페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게&#xA;될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올&#xA;경우 포스팅을 업데이트 할 예정이다.&lt;/p&gt;</description>
+      <description>취업은 언제하나&amp;hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물</description>
     </item>
     <item>
       <title>CORS(Cross-Origin Resource Sharing)</title>
       <link>/posts/corscross-origin-resource-sharing/</link>
       <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       <guid>/posts/corscross-origin-resource-sharing/</guid>
-      <description>&lt;h1 id=&#34;corscross-origin-resource-sharing&#34;&gt;CORS(Cross-Origin Resource Sharing)&lt;/h1&gt;&#xA;&lt;p&gt;웹 보안 정책 중 &lt;code&gt;Same-Origin Policy&lt;/code&gt;는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 &lt;code&gt;출처(Origin)&lt;/code&gt;는 두 페이지의 프로토콜, 호스트, 포트가 같으면 동일 출처로 간주한다.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Server Name Indication(SNI)</title>
-      <link>/posts/server-name-indicationsni/</link>
-      <pubDate>Wed, 01 May 2019 17:12:34 +0900</pubDate>
-      <guid>/posts/server-name-indicationsni/</guid>
-      <description>&lt;h1 id=&#34;server-name-indication&#34;&gt;Server Name Indication&lt;/h1&gt;&#xA;&lt;p&gt;Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다. 이러한 문제를 해결하기 위해 Server Name Indication(SNI)라는 Extension을 사용하여 아래와 같이 문제를 해결할 수 있다.&lt;/p&gt;</description>
+      <description>CORS(Cross-Origin Resource Sharing) 웹 보안 정책 중 Same-Origin Policy는 한 출처(Origin)에서 로드된 문서나 스크립트가 다른 출처 자원과 상호작용하지 못하도록 제약한다. 언급한 출처(O</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>I3wm on 평범한 개발자</title>
     <link>//localhost:1313/tags/i3wm/</link>
     <description>Recent content in I3wm on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 11 Feb 2021 18:20:10 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/i3wm/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/i3-window-manager/</link>
       <pubDate>Thu, 11 Feb 2021 18:20:10 +0900</pubDate>
       <guid>//localhost:1313/posts/i3-window-manager/</guid>
-      <description>&lt;h1 id=&#34;우분투-데스크탑-환경-삭제하기&#34;&gt;우분투 데스크탑 환경 삭제하기&lt;/h1&gt;&#xA;&lt;p&gt;개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한&#xA;서드파티 드라이버들이 우분투를 기반으로 배포되고 있어 이들을 손쉽게 설치 하기&#xA;위해 우분투를&#xA;설치하였다. (&lt;a href=&#34;https://seokbeomkim.github.io/posts/linux-on-mbp/%29&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;https://seokbeomkim.github.io/posts/linux-on-mbp/)&lt;/a&gt;. 우분투를 설치한&#xA;뒤에 필요한 커널 코드 컴파일와 GDB, QEMU 연동 환경을 구성하자 램 부족으로&#xA;가상머신이 죽어버렸다. 겨우 이맥스와 gdb, firefox, qemu 만을 돌렸을 뿐인데&#xA;이렇게 힘들어하니 이해할 수가 없었다.&lt;/p&gt;</description>
+      <description>우분투 데스크탑 환경 삭제하기 개인적으로 우분투를 좋아하지 않지만, 맥북에 리눅스 환경을 구성하기 위해 필요한 서드파티 드라이버들이 우분투를 기반으로 배포되고</description>
     </item>
   </channel>
 </rss>

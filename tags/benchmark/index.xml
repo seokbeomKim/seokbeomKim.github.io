@@ -4,7 +4,7 @@
     <title>Benchmark on 평범한 개발자</title>
     <link>//localhost:1313/tags/benchmark/</link>
     <description>Recent content in Benchmark on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 03 Apr 2020 01:41:29 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/benchmark/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/dmips-dhrystone-million-instructions-per-second/</link>
       <pubDate>Fri, 03 Apr 2020 01:41:29 +0900</pubDate>
       <guid>//localhost:1313/posts/dmips-dhrystone-million-instructions-per-second/</guid>
-      <description>&lt;h2 id=&#34;개요&#34;&gt;개요&lt;/h2&gt;&#xA;&lt;p&gt;프로세서의 성능을 나타내는 지표로서 &lt;code&gt;DMIPS&lt;/code&gt;라는 것을 사용하게 되었다. 벤치마크로 &lt;code&gt;MIPS&lt;/code&gt;만 알고 있었는데 실제로 업무에서 사용했던 것은 &lt;code&gt;DMIPS&lt;/code&gt;라는 것이어서 이번에 확실하게 정리하고 가고자 한다.&lt;/p&gt;</description>
+      <description>개요 프로세서의 성능을 나타내는 지표로서 DMIPS라는 것을 사용하게 되었다. 벤치마크로 MIPS만 알고 있었는데 실제로 업무에서 사용했던 것은 DMIPS라</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>Restful on 평범한 개발자</title>
     <link>//localhost:1313/tags/restful/</link>
     <description>Recent content in Restful on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 May 2019 18:38:22 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/restful/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</link>
       <pubDate>Wed, 01 May 2019 18:38:22 +0900</pubDate>
       <guid>//localhost:1313/posts/restful-%EC%84%B1%EC%88%99%EB%8F%84-%EB%AA%A8%EB%8D%B8-richardson-maturity-modelrmm/</guid>
-      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에서는 REST 소개부터 API 설계 방법, 그리고 설계한 API가 &amp;lsquo;RESTful&amp;rsquo; 이라는 형용사를 붙일 수 있는지 판단할 수 있는 &amp;lsquo;Richardson Maturity Model&amp;rsquo;이라는 성숙도 모델을 기술한다.&lt;/p&gt;</description>
+      <description>개요 이 문서는 진행하는 프로젝트에서 백엔드 서버에서 제공할 REST API를 어떻게 설계해야 하는가에 대해 공부하던 중 인터넷에서 찾은 문서를 정리한 것이다. 이 문서에</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>지도 학습 on 평범한 개발자</title>
     <link>//localhost:1313/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
     <description>Recent content in 지도 학습 on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 May 2019 15:31:38 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</link>
       <pubDate>Mon, 06 May 2019 15:31:38 +0900</pubDate>
       <guid>//localhost:1313/posts/%EB%B9%84%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EA%B3%BC-%EC%A7%80%EB%8F%84-%ED%95%99%EC%8A%B5/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일&#xA;먼저 나오는 개념이 지도 학습(Supervised Learning)과&#xA;비지도(Unsupervised Learning)이었는데 어디에도 학습이 정확이&#xA;무엇인지에 대한 내용이 없었다.&lt;/p&gt;</description>
+      <description>개요 프로젝트 진행을 위해 필요한 머신러닝을 배우기 위해 책을 펼쳤다. 제일 먼저 나오는 개념이 지도 학습(Supervised Learning)과 비지도(U</description>
     </item>
   </channel>
 </rss>

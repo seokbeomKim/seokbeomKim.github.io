@@ -4,7 +4,7 @@
     <title>Ftrace on 평범한 개발자</title>
     <link>/tags/ftrace/</link>
     <description>Recent content in Ftrace on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 06 Feb 2020 23:43:34 +0900</lastBuildDate>
     <atom:link href="/tags/ftrace/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</link>
       <pubDate>Thu, 06 Feb 2020 23:43:34 +0900</pubDate>
       <guid>/posts/ftrace-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%EB%94%94%EB%B2%84%EA%B9%85/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를&#xA;제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이&#xA;중요한데 커널에서는 사용할 수 있는 디버깅 툴이 제한적이다. 또한, 팀&#xA;내에서도 로그나 레지스터 외에 별다른 디버깅 도구를 사용하는 것 같지&#xA;않아, 다른 방법이 있는지 찾아보던 중 익숙한 이름의 &lt;code&gt;ftrace&lt;/code&gt;가 있다는&#xA;것을 알게 됐다.&lt;/p&gt;</description>
+      <description>개요 커널 디버깅을 위해 procfs, sysfs, 레지스터 덤프 등의 단순 정보를 제외한 다른 방법은 없을까? 업무에서 문제 원인 파악을 위해서는 디버깅이 중요한데 커널에서는 사용할 수 있</description>
     </item>
   </channel>
 </rss>

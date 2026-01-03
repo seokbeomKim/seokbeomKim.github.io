@@ -4,7 +4,7 @@
     <title>C on 평범한 개발자</title>
     <link>/categories/c/</link>
     <description>Recent content in C on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Apr 2020 23:55:32 +0900</lastBuildDate>
     <atom:link href="/categories/c/index.xml" rel="self" type="application/rss+xml" />
@@ -13,21 +13,21 @@
       <link>/posts/do-while/</link>
       <pubDate>Wed, 01 Apr 2020 23:55:32 +0900</pubDate>
       <guid>/posts/do-while/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;커널 매크로에 &lt;code&gt;do { .. } while(0)&lt;/code&gt; 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했다. 그런데 그런 구문에도 의미가 있었다. &lt;a href=&#34;https://kernelnewbies.org/FAQ/DoWhile0&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;https://kernelnewbies.org/FAQ/DoWhile0&lt;/a&gt; 링크를 보면 이러한 구문을 만든 이유가 기술되어 있다. 이러한 구문에 대한 이유는 아래와 같다.&lt;/p&gt;</description>
+      <description>개요 커널 매크로에 do { .. } while(0) 구문을 사용하는 것을 보게 되었다. 사내 코드에서도 이러한 구문들이 많이 보였는데 처음에는 의미없이 이상하게 짜여진 코드라고 생각했</description>
     </item>
     <item>
       <title>BSD 버전 Linked List</title>
       <link>/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</link>
       <pubDate>Wed, 01 Apr 2020 00:26:52 +0900</pubDate>
       <guid>/posts/bsd-%EB%B2%84%EC%A0%84-linked-list/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡게 되었다. 처음에는 리눅스의 커널에서 제공하는 &lt;code&gt;list.h&lt;/code&gt; 를 사용하지 못해서 연결 리스트를 학부시절에 사용하던 방식으로 직접 구현하고자 하였다. 하지만 조금 더 찾아보니 BSD 버전의 연결 리스트가 &lt;code&gt;&amp;lt;sys/queue.h&amp;gt;&lt;/code&gt; 의 형태로 존재하고 있었고 현재 FreeBSD에 포함되어 있는 queue.h 와는 다르지만 오래 전 공유하던 레거시 코드로서 여전히 리눅스 커널 내에 BSD 커널 라이브러리를 간직하고 있었다. 라이센스에 전혀 문제가 되지 않을 뿐만 아니라 필요한 메시지 큐를 구현하기 위한 매크로가 알기 쉽게 정의되어 있어 작성하는데에는 크게 어렵지 않았다. 대신, 불필요하게 잘못된 메모리 접근으로 인한 코드를 디버깅하는데 시간이 많이 걸렸다.&lt;/p&gt;</description>
+      <description>개요 사내에서 소스 파일에 대한 라이센스를 정리하기 시작하면서 기존 애플리케이션에서 리눅스의 pipe 를 이용하여 구현된 메세지 큐를 연결 리스트로 재작성하는 작업을 맡</description>
     </item>
     <item>
       <title>C ARRAY_SIZE 매크로와 포인터 기초</title>
       <link>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</link>
       <pubDate>Sat, 28 Mar 2020 00:54:01 +0900</pubDate>
       <guid>/posts/c-array_size-%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80-%ED%8F%AC%EC%9D%B8%ED%84%B0-%EA%B8%B0%EC%B4%88/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 &lt;a href=&#34;https://kldp.org/node/34268&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;https://kldp.org/node/34268&lt;/a&gt;과 같은 원인이라는 것을 알게되고 C 기초를 또 다시 한번 공부하게 되었다.&lt;/p&gt;</description>
+      <description>개요 칩 검증 코드를 수정하기 위해 간단한 루틴을 작성하고 있던 도중 커널에서 제공하는 ARRAY_SIZE 매크로가 의도한대로 동작하지 않아 살펴보기 시작했다. 그러던 도중 http</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>Function Application on 평범한 개발자</title>
     <link>//localhost:1313/tags/function-application/</link>
     <description>Recent content in Function Application on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 17 Aug 2020 18:08:58 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/function-application/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Mon, 17 Aug 2020 18:08:58 +0900</pubDate>
       <guid>//localhost:1313/posts/.-%EC%99%80-%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
-      <description>&lt;h2 id=&#34;개요&#34;&gt;개요&lt;/h2&gt;&#xA;&lt;p&gt;최근 하스켈로 조그만 프로젝트를 시작하기 위해 &lt;em&gt;Real World Haskell&lt;/em&gt; 이라는 책 한 권을 구입하여 공부하기 시작했다. &lt;em&gt;Functional Programming&lt;/em&gt; 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결하기 위한 접근 방식부터 차근차근 배워나가려 하고 있지만 쉽지 않다. 여타 주요 언어에서 제공하는 &lt;strong&gt;loop&lt;/strong&gt;의 개념이 없고 함수만으로 이루어진 &lt;em&gt;recursive&lt;/em&gt;와 &lt;em&gt;pattern matching&lt;/em&gt; 또는 &lt;em&gt;function application&lt;/em&gt; 등으로 표현되기에 쉽지가 않다. &lt;strong&gt;Higher-order function&lt;/strong&gt;으로 이루어지는 하스켈의 함수에서는 &lt;strong&gt;currying&lt;/strong&gt;을 통해 여러 개의 인자를 갖는 함수를 표현할 수 있다. 이러한 개념과 함께 설명되는 것이 포스팅의 타이틀에 해당하는 (.)과 ($) 연산자인데 각각 &lt;strong&gt;Function Composition&lt;/strong&gt;과 &lt;strong&gt;Function Application&lt;/strong&gt;을 의미한다.&lt;/p&gt;</description>
+      <description>개요 최근 하스켈로 조그만 프로젝트를 시작하기 위해 Real World Haskell 이라는 책 한 권을 구입하여 공부하기 시작했다. Functional Programming 패러다임 자체가 익숙하지 않기에 주어진 문제를 해결하</description>
     </item>
   </channel>
 </rss>

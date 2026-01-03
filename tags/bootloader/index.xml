@@ -4,7 +4,7 @@
     <title>Bootloader on 평범한 개발자</title>
     <link>//localhost:1313/tags/bootloader/</link>
     <description>Recent content in Bootloader on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 23 Jun 2019 22:47:44 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/bootloader/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</link>
       <pubDate>Sun, 23 Jun 2019 22:47:44 +0900</pubDate>
       <guid>//localhost:1313/posts/%EB%B6%80%ED%8A%B8%EB%A1%9C%EB%8D%94bootloader/</guid>
-      <description>&lt;!--toc--&gt;&#xD;&#xA;&lt;p&gt;이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해&#xA;중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를&#xA;탑재하거나 실행하기 위해서 시스템 초기화 코드, 하드웨어 제어 프로그램,&#xA;네트워크, USB 등의 프로토콜과 일부 파일 시스템을 관리한다.&lt;/p&gt;</description>
+      <description>이 포스팅의 내용은 임베디드 리눅스에서의 부트로더 역할에 대해 중점적으로 다룬다. 부트로더는 시스템을 초기화하고 임베디드 운영체제를 탑재하거나 실행하기 위해</description>
     </item>
   </channel>
 </rss>

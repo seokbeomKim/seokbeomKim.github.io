@@ -4,7 +4,7 @@
     <title>Linux on 평범한 개발자</title>
     <link>/categories/linux/</link>
     <description>Recent content in Linux on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Jul 2020 16:25:23 +0900</lastBuildDate>
     <atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</link>
       <pubDate>Sat, 25 Jul 2020 16:25:23 +0900</pubDate>
       <guid>/posts/%EC%BB%A4%EB%84%90%EC%97%90%EC%84%9C%EC%9D%98-object-oriented-design-pattern/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인&#xA;패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패턴은 이미&#xA;오래 전부터 적용되어 왔지만 BSP에 포함된 솔루션 코드로서 추가되는&#xA;코드에는 그러한 디자인 패턴이 보이지 않는다.&lt;/p&gt;</description>
+      <description>개요 현업에서 BSP 코드를 수정하다가 문득 든 생각은 &amp;lsquo;왜 객체 지향의 디자인 패턴을 적용하지 않는 걸까?&amp;rsquo; 라는 것이다. 그러한 디자인 패턴</description>
     </item>
   </channel>
 </rss>

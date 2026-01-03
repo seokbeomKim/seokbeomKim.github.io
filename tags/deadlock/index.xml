@@ -4,7 +4,7 @@
     <title>Deadlock on 평범한 개발자</title>
     <link>//localhost:1313/tags/deadlock/</link>
     <description>Recent content in Deadlock on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 May 2019 17:40:14 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/deadlock/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</link>
       <pubDate>Wed, 15 May 2019 17:40:14 +0900</pubDate>
       <guid>//localhost:1313/posts/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9Cdeadlock/</guid>
-      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;h1 id=&#34;교착-상태deadlock&#34;&gt;교착 상태(Deadlock)&lt;/h1&gt;&#xA;&lt;p&gt;두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기&#xA;때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결하는&#xA;일반적인 방법은 아직 없는 상태다.&lt;/p&gt;</description>
+      <description>교착 상태(Deadlock) 두 개 이상의 작업이 서로 상대방의 작업이 끝나기만을 기다리고 있기 때문에 아무 것도 완료되지 않는 상태를 가리킨다. 이 문제를 해결하</description>
     </item>
   </channel>
 </rss>

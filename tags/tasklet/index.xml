@@ -4,7 +4,7 @@
     <title>Tasklet on 평범한 개발자</title>
     <link>//localhost:1313/tags/tasklet/</link>
     <description>Recent content in Tasklet on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Nov 2022 17:32:26 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/tasklet/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,14 @@
       <link>//localhost:1313/posts/tasklet/</link>
       <pubDate>Sun, 13 Nov 2022 17:32:26 +0900</pubDate>
       <guid>//localhost:1313/posts/tasklet/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;사내 커널 스터디에서 교재로서 사용하고 있는 디버깅을 통해 배우는 리눅스 커널의&#xA;구조와 원리 책에서는 태스크릿 (Tasklet)을 SoftIRQ와 함께 아래와 같이 설명한다.&lt;/p&gt;</description>
+      <description>개요 사내 커널 스터디에서 교재로서 사용하고 있는 디버깅을 통해 배우는 리눅스 커널의 구조와 원리 책에서는 태스크릿 (Tasklet)을 SoftIRQ와 함께 아</description>
     </item>
     <item>
       <title>태스크릿(Tasklet)</title>
       <link>//localhost:1313/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</link>
       <pubDate>Sat, 25 May 2019 17:32:26 +0900</pubDate>
       <guid>//localhost:1313/posts/%ED%83%9C%EC%8A%A4%ED%81%AC%EB%A6%BFtasklet/</guid>
-      <description>&lt;p&gt;커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게&#xA;되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접&#xA;사용해본 적은 없었기 때문에 이 문서를 통해 정리하고자 한다.&lt;/p&gt;</description>
+      <description>커널 모듈 프로그래밍을 연습하던 도중, 태스크릿 예제를 접하게 되었다. 한참 전에 태스크릿이 어떤 것인지 이론으로 접하기는 했으나 직접 사용해본 적은 없었기 때문에</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>Major Number on 평범한 개발자</title>
     <link>/tags/major-number/</link>
     <description>Recent content in Major Number on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 31 May 2019 18:37:25 +0900</lastBuildDate>
     <atom:link href="/tags/major-number/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/major%EC%99%80-minor-numbers/</link>
       <pubDate>Fri, 31 May 2019 18:37:25 +0900</pubDate>
       <guid>/posts/major%EC%99%80-minor-numbers/</guid>
-      <description>&lt;p&gt;세마포어를 이용한 모듈 프로그래밍을 하던 중 &lt;code&gt;Major, Minor&lt;/code&gt; 라는 개념이&#xA;등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한&#xA;까닭에, 커널 코드가 어떻게 변경되어 갔는지 히스토리를 삽질해 볼 수&#xA;있는 아주 좋은 기회다.&lt;/p&gt;</description>
+      <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변</description>
     </item>
   </channel>
 </rss>

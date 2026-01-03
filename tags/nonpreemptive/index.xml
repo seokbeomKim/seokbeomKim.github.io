@@ -4,7 +4,7 @@
     <title>Nonpreemptive on 평범한 개발자</title>
     <link>//localhost:1313/tags/nonpreemptive/</link>
     <description>Recent content in Nonpreemptive on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 May 2019 18:44:06 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/nonpreemptive/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</link>
       <pubDate>Wed, 15 May 2019 18:44:06 +0900</pubDate>
       <guid>//localhost:1313/posts/%EB%B9%84%EC%84%A0%EC%A0%90-%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%A7%81nonpreemptive-scheduling/</guid>
-      <description>&lt;!-- toc --&gt;&#xD;&#xA;&lt;h1 id=&#34;비선점-스케쥴링non-preemptive-scheduling&#34;&gt;비선점 스케쥴링(Non-preemptive Scheduling)&lt;/h1&gt;&#xA;&lt;p&gt;비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을&#xA;할당받았을 경우 자원을 스스로 반납할 때까지 계속 그 자원을 사용하도록&#xA;허용하는 정책이다. 적용할 때는 현재 프로세서를 사용하는 프로세스가&#xA;생성되거나 현재 프로세스 작업을 종료할 때 입출력하기 위해 스스로&#xA;프로세서를 반납할 때까지 우선 순위가 높은 프로세스의 비선점 정책을&#xA;적용하면 프로세스의 종료 시간을 비교적 정확하게 예측할 수 있다.&lt;/p&gt;</description>
+      <description>비선점 스케쥴링(Non-preemptive Scheduling) 비선점 스케쥴링(Non-preemptive Scheduling)은 프로세스가 자원을 할당받았을</description>
     </item>
   </channel>
 </rss>

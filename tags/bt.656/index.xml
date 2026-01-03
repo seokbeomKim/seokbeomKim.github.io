@@ -4,7 +4,7 @@
     <title>Bt.656 on 평범한 개발자</title>
     <link>//localhost:1313/tags/bt.656/</link>
     <description>Recent content in Bt.656 on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Jan 2020 17:44:18 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/bt.656/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</link>
       <pubDate>Sun, 26 Jan 2020 17:44:18 +0900</pubDate>
       <guid>//localhost:1313/posts/%EC%98%81%EC%83%81-%EC%B6%9C%EB%A0%A5-%ED%8F%AC%EB%A7%B7/</guid>
-      <description>&lt;h1 id=&#34;디지널-출력-포맷&#34;&gt;디지널 출력 포맷&lt;/h1&gt;&#xA;&lt;p&gt;아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타겟으로 한 표준들이 나오고 있다. 디지털 텔레비전의 부호화 파라미터들을 정의한 권고안으로서 601은 모든 컴포넌트 디지털 영상 표준에 대한 기초가 되었다.&lt;/p&gt;</description>
+      <description>디지널 출력 포맷 아날로그 신호에 대한 디지털 포맷으로서 표준화된 포맷들을 기술한다. 대표적인 표준으로는 BT.601, BT.656 이 있으며 그 외에도 최근에는 BT.2020 등의 고화질 영상을 타</description>
     </item>
   </channel>
 </rss>

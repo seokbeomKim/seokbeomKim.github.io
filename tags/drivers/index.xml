@@ -4,7 +4,7 @@
     <title>Drivers on 평범한 개발자</title>
     <link>//localhost:1313/tags/drivers/</link>
     <description>Recent content in Drivers on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 May 2019 02:11:40 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/drivers/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</link>
       <pubDate>Thu, 16 May 2019 02:11:40 +0900</pubDate>
       <guid>//localhost:1313/posts/%EC%BB%A4%EB%84%90-%EB%AA%A8%EB%93%88%EA%B3%BC-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B2%84%EC%9D%98-%EC%B0%A8%EC%9D%B4/</guid>
-      <description>&lt;p&gt;오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게&#xA;되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고&#xA;난 후의 첫 질문을 정리하고자 한다.&lt;/p&gt;</description>
+      <description>오랜만에 커널 공부를 다시 시작하면서 소스 트리를 다시 살펴보게 되었다. 분명히 예전에도 같은 질문을 가졌겠거니 생각하면서 트리를 보고 난 후의 첫 질문을 정리하고자</description>
     </item>
   </channel>
 </rss>

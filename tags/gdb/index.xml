@@ -4,7 +4,7 @@
     <title>Gdb on 평범한 개발자</title>
     <link>/tags/gdb/</link>
     <description>Recent content in Gdb on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 Feb 2021 02:43:54 +0900</lastBuildDate>
     <atom:link href="/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</link>
       <pubDate>Sat, 20 Feb 2021 02:43:54 +0900</pubDate>
       <guid>/posts/mac%EC%97%90%EC%84%9C-gdb-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BB%A4%EB%84%90-%ED%95%B4%ED%82%B9%ED%95%98%EA%B8%B0/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게&#xA;되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게&#xA;하나도 없었다. 특히 homebrew 를 통해 설치하는 gdb가 말썽이었는데, &lt;code&gt;aarch64&lt;/code&gt;&#xA;아키텍처로 빌드된 바이너리로부터 심볼 테이블을 읽지 못했다. 대체 Dave 는&#xA;누구인가?&lt;/p&gt;</description>
+      <description>개요 맥에서도 GDB 를 이용하여 커널 디버깅을 하려고 여러 방법을 시도해보았지만 쉽게 되지 않았다. 리눅스 커널 컴파일부터 qemu 실행, gdb attach 까지 단번에 되는게 하나도 없었</description>
     </item>
   </channel>
 </rss>

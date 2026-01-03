@@ -4,7 +4,7 @@
     <title>BUG_ON on 평범한 개발자</title>
     <link>//localhost:1313/tags/bug_on/</link>
     <description>Recent content in BUG_ON on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 21 Feb 2020 00:12:34 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/bug_on/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</link>
       <pubDate>Fri, 21 Feb 2020 00:12:34 +0900</pubDate>
       <guid>//localhost:1313/posts/warn_on-bug_on-%EB%A7%A4%ED%81%AC%EB%A1%9C/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를&#xA;살펴보니, &lt;code&gt;BUG_ON&lt;/code&gt; 매크로 사용에 의한 것으로 파악했다. 커널 패닉을&#xA;일으킬 정도로 크리티컬은 아니었기에 해당 매크로를 &lt;code&gt;WARN_ON&lt;/code&gt;으로&#xA;변경하였다. 변경 이후에 커널 패닉은 일어나지 않았지만 커널 메시지로&#xA;보여주는 내용이 조금 달랐다.&lt;/p&gt;</description>
+      <description>개요 업무 중에 예전 SDK에서 커널 패닉이 일어나는 것을 보고 관련 코드를 살펴보니, BUG_ON 매크로 사용에 의한 것으로 파악했다. 커널 패닉을 일으킬 정도로 크리티컬은 아</description>
     </item>
   </channel>
 </rss>

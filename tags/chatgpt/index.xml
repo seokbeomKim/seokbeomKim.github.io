@@ -4,7 +4,7 @@
     <title>Chatgpt on 평범한 개발자</title>
     <link>//localhost:1313/tags/chatgpt/</link>
     <description>Recent content in Chatgpt on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Jan 2023 21:37:38 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/openai-chatgpt/</link>
       <pubDate>Sat, 07 Jan 2023 21:37:38 +0900</pubDate>
       <guid>//localhost:1313/posts/openai-chatgpt/</guid>
-      <description>&lt;p&gt;며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일&#xA;거라 생각했는데 성능이 예상했던 것보다 훨~씬 좋았다. MISRA-C나 CERT-C 에 문제가&#xA;없는지 확인하는 코드 리뷰부터 영어 문장이 문법적으로 옳은지, 또 ARM Architecture&#xA;에서 궁금했던 용어나 설명 자체가 이해되지 않을 때 이게 무슨 의미인지&#xA;물어보았는데, 소름돋을 정도로 대답을 잘 해주었다.&lt;/p&gt;</description>
+      <description>며칠 전 같은 팀 부장님께서 OpenAI의 ChatGPT를 알려주셨다. 처음에는 단순한 챗봇일 거라 생각했는데 성능이 예상했던 것보다 훨~씬 좋았다. MISR</description>
     </item>
   </channel>
 </rss>

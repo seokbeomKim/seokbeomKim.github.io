@@ -4,7 +4,7 @@
     <title>Categories on 평범한 개발자</title>
     <link>/categories/</link>
     <description>Recent content in Categories on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Mar 2023 17:45:39 +0900</lastBuildDate>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
@@ -67,7 +67,7 @@
     <item>
       <title>Web</title>
       <link>/categories/web/</link>
-      <pubDate>Tue, 21 May 2019 15:27:08 +0900</pubDate>
+      <pubDate>Wed, 01 May 2019 17:20:49 +0900</pubDate>
       <guid>/categories/web/</guid>
       <description></description>
     </item>

@@ -4,7 +4,7 @@
     <title>Mu4e on 평범한 개발자</title>
     <link>/tags/mu4e/</link>
     <description>Recent content in Mu4e on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 26 Jun 2020 01:36:36 +0900</lastBuildDate>
     <atom:link href="/tags/mu4e/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</link>
       <pubDate>Fri, 26 Jun 2020 01:36:36 +0900</pubDate>
       <guid>/posts/mu4e-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;이맥스에서는 이메일 클라이언트로서 사용할 수 있는 &lt;code&gt;mu4e&lt;/code&gt;라는 패키지가 있다.&#xA;일반적으로 &lt;code&gt;isync (mbsync)&lt;/code&gt; 라는 프로그램과 함께 사용하며 mu 를 설치하면 설치&#xA;디렉토리 내에 함께 포함되어 있다. &lt;code&gt;mu&lt;/code&gt;는 메일 수신 및 분류, 저장 보다는 인덱싱과&#xA;검색을 위한 프로그램이기 때문에 원하는 메일을 빠르게 검색하고 org mode와 함께&#xA;사용하여 필요한 내용을 간단하게 메일 형태로 만들어낼 수 있는 것이 특징이다.&lt;/p&gt;</description>
+      <description>개요 이맥스에서는 이메일 클라이언트로서 사용할 수 있는 mu4e라는 패키지가 있다. 일반적으로 isync (mbsync) 라는 프로그램과 함께 사용하며 mu 를 설치하면 설치 디렉토리 내</description>
     </item>
   </channel>
 </rss>

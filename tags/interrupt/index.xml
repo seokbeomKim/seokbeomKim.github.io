@@ -4,7 +4,7 @@
     <title>Interrupt on 평범한 개발자</title>
     <link>//localhost:1313/tags/interrupt/</link>
     <description>Recent content in Interrupt on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 03 Mar 2020 00:00:10 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/interrupt/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</link>
       <pubDate>Tue, 03 Mar 2020 00:00:10 +0900</pubDate>
       <guid>//localhost:1313/posts/ioctl%EA%B3%BC-%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackOverflow에서 재미있는 질문을 찾았다.&lt;/p&gt;</description>
+      <description>개요 디바이스 드라이버와 인터럽트 핸들러 간의 동기화 때문에 머리가 아팠다. 현재도 해결하지 못하고 있는 이슈가 있어 계속해서 찾아보고 있는 와중에 StackOv</description>
     </item>
   </channel>
 </rss>

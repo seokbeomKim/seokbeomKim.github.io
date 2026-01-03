@@ -4,7 +4,7 @@
     <title>Kmem on 평범한 개발자</title>
     <link>//localhost:1313/tags/kmem/</link>
     <description>Recent content in Kmem on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Jan 2020 23:30:44 +0900</lastBuildDate>
     <atom:link href="//localhost:1313/tags/kmem/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>//localhost:1313/posts/dev/mem-vs.-/dev/kmem/</link>
       <pubDate>Wed, 29 Jan 2020 23:30:44 +0900</pubDate>
       <guid>//localhost:1313/posts/dev/mem-vs.-/dev/kmem/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때, /dev/mem 디바이스 노드가 반드시 있어야 한다고 들었기에 Kconfig에서 관련 설정 플래그를 찾던 중 kmem 이라는 것도 있다는 것을 알게 되었다. 문득 이 둘의 차이점과 공식적(?)인 디버깅 툴이 어떤 것이 있는지 알아보고자 한다.&lt;/p&gt;</description>
+      <description>개요 업무에서 사용하는 디버깅 툴은 특정 레지스터 정보를 보기 위해, 메모리 상에 매핑되어 있는 주소에 접근하여 해당 레지스터의 값을 읽어오는 방식을 이용한다. 이 때</description>
     </item>
   </channel>
 </rss>

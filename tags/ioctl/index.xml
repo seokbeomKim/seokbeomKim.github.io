@@ -4,7 +4,7 @@
     <title>Ioctl on 평범한 개발자</title>
     <link>/tags/ioctl/</link>
     <description>Recent content in Ioctl on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Feb 2020 00:23:10 +0900</lastBuildDate>
     <atom:link href="/tags/ioctl/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</link>
       <pubDate>Thu, 27 Feb 2020 00:23:10 +0900</pubDate>
       <guid>/posts/ioctl%EC%97%90-%EC%A0%84%EB%8B%AC%EB%90%98%EB%8A%94-cmd-%EA%B4%80%EB%A0%A8-%EB%A7%A4%ED%81%AC%EB%A1%9C-%ED%95%A8%EC%88%98/</guid>
-      <description>&lt;p&gt;드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를&#xA;사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을&#xA;포스팅과 함께 정리하고자 한다.&lt;/p&gt;</description>
+      <description>드라이버 코드 내에서 ioctl commands 를 정의하기 위해 단순 integer를 사용하는 게 아니라 매크로를 통해 생성을 하고 있었다. 이에 관련 내용을 포스팅과 함께 정리하고자 한</description>
     </item>
   </channel>
 </rss>

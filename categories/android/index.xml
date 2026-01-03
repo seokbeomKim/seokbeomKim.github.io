@@ -4,7 +4,7 @@
     <title>Android on 평범한 개발자</title>
     <link>/categories/android/</link>
     <description>Recent content in Android on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 30 Jan 2020 23:34:30 +0900</lastBuildDate>
     <atom:link href="/categories/android/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</link>
       <pubDate>Thu, 30 Jan 2020 23:34:30 +0900</pubDate>
       <guid>/posts/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%EC%9D%98-uevent-ueventd/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이스 OPEN에 실패하는 것으로 나왔는데, 원인은 다른 곳에 있었다. &lt;code&gt;ueventd.rc&lt;/code&gt; 파일을 수정하지 않아 관련된 디바이스 노드 파일에 대한 권한이 설정되지 않았던 것이 문제였다.&lt;/p&gt;</description>
+      <description>개요 디바이스 트리와 카메라 포팅에 관련된 디바이스 드라이버 코드를 적절하게 수정한 뒤에도 계속해서 디바이스가 정상적으로 동작하지 않았다. 로그 상으로는 디바이</description>
     </item>
   </channel>
 </rss>

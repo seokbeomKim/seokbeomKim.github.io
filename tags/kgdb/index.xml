@@ -4,7 +4,7 @@
     <title>Kgdb on 평범한 개발자</title>
     <link>/tags/kgdb/</link>
     <description>Recent content in Kgdb on 평범한 개발자</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Apr 2021 23:31:41 +0900</lastBuildDate>
     <atom:link href="/tags/kgdb/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>/posts/kernel-debug-with-kgdb/</link>
       <pubDate>Tue, 13 Apr 2021 23:31:41 +0900</pubDate>
       <guid>/posts/kernel-debug-with-kgdb/</guid>
-      <description>&lt;h1 id=&#34;개요&#34;&gt;개요&lt;/h1&gt;&#xA;&lt;p&gt;필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을&#xA;위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하는&#xA;방법에 대한 세미나를 보게 되었다. 유투브에서 &lt;a href=&#34;https://www.youtube.com/watch?v=HBOwoSyRmys&#34;  target=&#34;_blank&#34; rel=&#34;noreferrer nofollow&#34;&gt;«Using Serial kdb / kgdb to Debug&#xA;the Linux Kernel - Douglas Anderson,&#xA;Google»&lt;/a&gt; 검색한 영상인데, KDB와&#xA;KGDB 활용하는 방법에 대해 상세하게 설명하고 있다. 본 포스팅에서는 링크의 영상을&#xA;테스트 하기 위해 필요한 디버깅 환경 구성 방법에 대해서만 간단하게 정리한다.&lt;/p&gt;</description>
+      <description>개요 필자에게는 디버깅이 현업에서 가장 많은 시간을 소모하는 일이다. 업무 효율을 위해서 디버깅 하는 방법을 찾던 도중 커널에서 제공하는 kdb와 kgdb를 이용하</description>
     </item>
   </channel>
 </rss>
