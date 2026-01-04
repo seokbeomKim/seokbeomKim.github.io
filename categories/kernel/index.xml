@@ -107,17 +107,17 @@
       <description>세마포어를 이용한 모듈 프로그래밍을 하던 중 Major, Minor 라는 개념이 등장하였다. 인터넷으로 찾은 커널 모듈 소스가 구버전 커널을 기준으로 한 까닭에, 커널 코드가 어떻게 변</description>
     </item>
     <item>
-      <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2/2)</title>
-      <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</link>
+      <title>QEMU &#43; Busybox &#43; Linux Kernel (2/2)</title>
+      <link>/posts/qemu--busybox--linux-kernel-2/2/</link>
       <pubDate>Thu, 23 May 2019 15:10:46 +0900</pubDate>
-      <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02/2/</guid>
+      <guid>/posts/qemu--busybox--linux-kernel-2/2/</guid>
       <description>지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리</description>
     </item>
     <item>
-      <title>Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1/2)</title>
-      <link>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</link>
+      <title>QEMU &#43; Busybox &#43; Linux Kernel (1/2)</title>
+      <link>/posts/qemu--busybox--linux-kernel-1/2/</link>
       <pubDate>Wed, 22 May 2019 19:35:04 +0900</pubDate>
-      <guid>/posts/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01/2/</guid>
+      <guid>/posts/qemu--busybox--linux-kernel-1/2/</guid>
       <description>취업은 언제하나&amp;hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물</description>
     </item>
   </channel>

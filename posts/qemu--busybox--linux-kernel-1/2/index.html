@@ -22,11 +22,10 @@
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1b" />
 
-    <meta name="description" content="Overlay">
+    <meta name="description" content="QEMU &#43; Busybox &#43; Linux Kernel (1/2)">
 
-    <link rel="alternate" type="application/rss+xml" href="/tags/overlay/index.xml" title="평범한 개발자" />
     
-        <title>Overlay | 평범한 개발자</title>
+        <title>QEMU &#43; Busybox &#43; Linux Kernel (1/2) | 평범한 개발자</title>
     
 
     
@@ -73,27 +72,176 @@
         
 
 
-<h1>Overlay</h1>
-<ul class="post-list">
+
+
+<div id="single-header">
+  <h1>
+    QEMU + Busybox + Linux Kernel (1/2)
+  </h1>
+  <div id="single-meta">
     
-
-    <li style="list-style-type: none;">
-
-    <div style="display: flex; justify-content: space-between; align-items: baseline; white-space: nowrap; gap: 1em;">
-      
-      <a style="overflow: hidden;" href="/posts/device-tree-overlay/">Device Tree Overlay</a>
-      
-      <span class="date">May 8, 2022</span>
-    </div>
-
-</li>
-
-
-
     
-  </ul>
+        <span class="datesub">May 22, 2019</span>
+     
+
+<span id="tags">
+  &nbsp;&nbsp;
+  
+    <span>
+        <a href="/tags/busybox/">#busybox</a>
+      </span>&nbsp;
+    <span>
+        <a href="/tags/qemu/">#qemu</a>
+      </span>&nbsp;</span>
 
 
+  </div>
+</div>
+
+
+
+
+
+<main><!-- toc -->
+<p><strong>취업은 언제하나&hellip;</strong> 커널 공부를 할 게 아니라 취업을 위한 알고리즘을
+공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이
+꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접
+확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도
+나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방
+해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은
+마운트하지 않는다는 제한은 있다.</p>
+<p>이 문서는 참고한 페이지를 토대로 필요한 정보들을 중간에 좀 더 추가한
+형태로 정리하였다. 향후 커널 분석과 토이 프로젝트들을 진행하기 위해
+필요한 환경으로 실행 환경은 아래와 같다.</p>
+<p>출처 페이지와는 다르게 필자는 맥 환경에서 커널 컴파일을 진행해야 했기
+때문에 빌드를 시작하기에 앞서 docker 컨테이너를 준비하는 과정이
+있었다. 맥에서 직접 크로스 컴파일러를 직접 만들어 사용하는 방법도
+있지만, 시간도 오래 걸리고 빌드에 필요한 헤더 환경이 달라 도커를
+사용하였다.</p>
+<h1 id="맥에서-작업하기-위한-환경-구축하기">맥에서 작업하기 위한 환경 구축하기</h1>
+<p>현재 주로 사용하는 운영체제는 <code>macOS Mojave 10.14.5</code>이다. 이 환경에서
+리눅스 커널을 빌드하기 위해서는 GNU GCC, GLIBC 환경이 리눅스와
+일치해야 하는데 커널 컴파일을 위해 필요한 헤더파일 경로부터 맞지 않은
+부분이 있어 크로스 컴파일러를 준비하는 방법은 포기하고 대신, docker를
+사용하기로 했다. 가상머신을 이용하는 방법도 있지만, 도커에 비해 무겁고
+GUI 환경이 불필요했기에 도커를 이용해 커널 컴파일을 하는 편이 훨씬
+유리하다고 생각했다.</p>
+<h2 id="우분투-이미지로-컨테이너-생성하기">우분투 이미지로 컨테이너 생성하기</h2>
+<p>docker를 설치했다는 가정하에, 아래와 같이 컨테이너를 만들었다. 호스트
+볼륨을 컨테이너에 맵핑해주었는데 이렇게 해야 커널 해킹한 소스를 바로
+빌드하여 맥에서 QEMU를 통해 확인할 수 있기 때문이다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker run --name kernel_builder -ti -v /Users/sukbeom/Workspaces:/kernel/ ubuntu /bin/bash
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># 아래 부터는 개발 환경을 위한 패키지 설치이다.</span>
+</span></span><span style="display:flex;"><span>apt update <span style="color:#666">&amp;&amp;</span> apt upgrade
+</span></span><span style="display:flex;"><span>apt install vim <span style="color:#666">&amp;&amp;</span> vim /etc/apt/sources.list <span style="color:#080;font-style:italic"># 편집기 설치 및 미러저장소 경로 설정</span>
+</span></span><span style="display:flex;"><span>apt install git curl libncurses-dev wget gcc make flex build-essential bison linux-headers-generic libelf-dev openssl bc libssl-dev cpio
+</span></span></code></pre></div><h1 id="1-busybox-준비">1. BusyBox 준비</h1>
+<p>이제 컴파일을 위한 빌드 환경이 준비되었다. 커널 컴파일을 위한 맥에서의
+경로는 <code>$HOME/Workspaces/kernel</code> 로 지정하고 컨테이너 내에서는
+<code>/kernel</code> 로 접근하도록 설정하였다. 커널은
+<a href="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.20.9.tar.xz"  target="_blank" rel="noreferrer nofollow">여기</a>에서,
+busybox는 <a href="https://busybox.net/downloads"  target="_blank" rel="noreferrer nofollow">여기</a>에서 받을 수
+있다. 필자가 사용한 버전은 아래와 같다.</p>
+<ul>
+<li>busybox: 1.30.1</li>
+<li>kernel: 4.20.9</li>
+</ul>
+<blockquote>
+<p>busybox란?<br>Single executable 파일 형태로 여러 가지 유닉스
+유틸리티를 제공하는 Software suite 이다. 안드로이드 상에서 리눅스와
+같은 터미널 환경을 제공하는 termux 애플리케이션을 살펴보면 최초 실행
+시 busybox를 설치하는 것을 알 수 있다. 임베디드 환경과 같이 아주
+제한된 리소스를 가진 시스템 상에서 필요한 (셸 환경을 위한)최소한의
+유틸리티만을 사용하고자 할 때 사용하는 소프트웨어라고 생각하면 된다.</p>
+</blockquote>
+<p>원래는 커널 분석을 하던 버전(v2.6.39)으로 진행을 하고자 했으나 소스
+자체가 오래되었고 GCC 7 버전을 지원하지 않아 플래그와 perl 소스에서
+생기는 에러를 고쳐도 컴파일 에러가 나 버전을 바꾸었다. 추후 GCC 버전을
+낮춰 다시 한번 빌드 해봐야겠다.</p>
+<h2 id="1-1-busybox-빌드-설정">1-1. BusyBox 빌드 설정</h2>
+<p>이제 컨테이너 환경으로 돌아가 아래와 같이 (shell)환경변수를 임시로 설정해준
+뒤 차례대로 빌드해준다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#b8860b">STAGE</span><span style="color:#666">=</span>~/Workspaces
+</span></span><span style="display:flex;"><span><span style="color:#b8860b">TOP</span><span style="color:#666">=</span><span style="color:#b8860b">$STAGE</span>/custom-kernel
+</span></span><span style="display:flex;"><span>mkdir -p <span style="color:#b8860b">$STAGE</span>
+</span></span></code></pre></div><p>다운로드 한 busybox, kernel 소스의 압축을 풀어주고 아래와 같이
+busybox를 설정해준다. <code>Busybox settings -&gt; Build BusyBox as a static binary (no shared libs)</code> 항목에 체크해준다. <em>(출처 링크에 가면 친절한
+스크린샷과 함께 각 과정들을 자세하게 확인할 수 있다.)</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/busybox-x86 menuconfig
+</span></span></code></pre></div><h2 id="1-2-busybox-빌드-및-initramfs-디텍토리-구조-만들기">1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/obj/busybox-x86
+</span></span><span style="display:flex;"><span>make -j3
+</span></span><span style="display:flex;"><span>make install
+</span></span></code></pre></div><p><code>make install</code>을 완료하고 나면 <code>_install</code> 이름으로 디렉토리가 생성된
+것을 확인할 수 있다. 이를 이용하여 아래와 같이 <code>initramfs</code>를 생성한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -pv <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+</span></span><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+</span></span><span style="display:flex;"><span>mkdir -pv <span style="color:#666">{</span>bin,dev,sbin,etc,proc,sys/kernel/debug,usr/<span style="color:#666">{</span>bin,sbin<span style="color:#666">}</span>,lib,lib64,mnt/root,root<span style="color:#666">}</span>
+</span></span><span style="display:flex;"><span>cp -av <span style="color:#b8860b">$TOP</span>/obj/busybox-x86/_install/* <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+</span></span><span style="display:flex;"><span>sudo cp -av /dev/<span style="color:#666">{</span>null,console,tty,sda1<span style="color:#666">}</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/dev/
+</span></span></code></pre></div><h2 id="1-3-init-파일-만들기">1-3. Init 파일 만들기</h2>
+<p><code>$TOP/initramfs/x86-busybox/init</code> 파일을 생성한 뒤 아래와 같이 내용을 작성한다.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mount -t proc none /proc
+</span></span><span style="display:flex;"><span>mount -t sysfs none /sys
+</span></span><span style="display:flex;"><span>mount -t debugfs none /sys/kernel/debug
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> -e <span style="color:#b44">&#34;\nBoot took </span><span style="color:#a2f;font-weight:bold">$(</span>cut -d<span style="color:#b44">&#39; &#39;</span> -f1 /proc/uptime<span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44"> seconds\n&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f">exec</span> /bin/sh
+</span></span></code></pre></div><p>작성 후에는 실행 권한을 조정한다:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>chmod +x <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox/init
+</span></span></code></pre></div><h2 id="1-4-initramfs-생성">1-4. initramfs 생성</h2>
+<p>initramfs는 메모리 기반 디스크 구조, 즉 램디스크이다. 주요 목적은 root
+파일 시스템을 마운트 하기 위한 것이며, 일반적인 root 파일 시스템에서
+찾아볼 수 있는 디렉토리 구조를 갖고 있다.</p>
+<p>일반적으로, 루트 파일시스템의 init 프로그램으로 제어권을 넘기기 전에,
+필요한 파일 시스템을 마운트하는 필수 도구와 스크립트를 포함하고 있는
+램디스크로서 <code>initramfs</code> 루트디스크에서 시스템을 준비하는 설정
+스크립트를 준비하고 실제 파일 시스템으로 전환한 뒤 init을 실행한다.</p>
+<p>요약하면, 실제 루트파일시스템을 마운트 하고 그 안의 init 프로그램을
+실행하기까지의 준비단계를 위한 램디스크라 생각하면 된다.</p>
+<blockquote>
+<p>그렇다면 그러한 램디스크는 왜 필요한 것일까? <br> 예전 젠투 리눅스를
+이용해 리눅스를 설치했던 경험으로 ramdisk 없이도 리눅스를 충분히
+사용할 수 있었다. 다만, 루트파티션이 암호화된 경우에는 반드시
+램디스크를 통해 로드해야 했고 최근에는 (데스크탑용 리눅스에서)
+이러한 램디스크가 필수적이 되어가고 있는 추세인 듯하다.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$TOP</span>/initramfs/x86-busybox
+</span></span><span style="display:flex;"><span>find . | cpio -H newc -o &gt; ../initramfs.cpio
+</span></span><span style="display:flex;"><span><span style="color:#a2f">cd</span> ..
+</span></span><span style="display:flex;"><span>cat initramfs.cpio | gzip &gt; <span style="color:#b8860b">$TOP</span>/obj/initramfs.igz
+</span></span></code></pre></div><h1 id="2-커널-빌드하기">2. 커널 빌드하기</h1>
+<p>이제 busybox 준비가 끝났으니 리눅스 커널을 빌드해보자.</p>
+<h2 id="2-1-minimal-config로-리눅스-커널-설정하기">2-1. Minimal config로 리눅스 커널 설정하기</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#a2f">cd</span> <span style="color:#b8860b">$STAGE</span>/linux-4.20.9
+</span></span><span style="display:flex;"><span>mkdir -pv <span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig
+</span></span><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig allnoconfig
+</span></span><span style="display:flex;"><span>make <span style="color:#b8860b">O</span><span style="color:#666">=</span><span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig -j3
+</span></span></code></pre></div><h2 id="빌드한-커널-busybox-함께-실행하기">빌드한 커널, busybox 함께 실행하기</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>qemu-system-x86_64 <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -kernel <span style="color:#b8860b">$TOP</span>/obj/linux-x86-allnoconfig/arch/x86/boot/bzImage <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -initrd <span style="color:#b8860b">$TOP</span>/obj/initramfs.igz <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>    -nographic -append <span style="color:#b44">&#34;earlyprintk=serial,ttyS0 console=ttyS0&#34;</span>
+</span></span></code></pre></div><p>정상적으로 커널이 로드되고 셸이 실행된 것을 확인하면 <code>Control-a x</code>를
+입력하여 QEMU를 종료한다.</p>
+<h1 id="출처">출처</h1>
+<ul>
+<li><a href="https://www.centennialsoftwaresolutions.com/blog/build-the-linux-kernel-and-busybox-and-run-them-on-qemu"  target="_blank" rel="noreferrer nofollow">Build the linux kernel and busybox and run them on
+qemu</a></li>
+<li><a href="http://www.linuxfromscratch.org/blfs/view/svn/postlfs/initramfs.html"  target="_blank" rel="noreferrer nofollow">LFS - About initramfs</a></li>
+<li><a href="https://wiki.gentoo.org/wiki/Initramfs/Guide/ko"  target="_blank" rel="noreferrer nofollow">Gentoo Linux - initramfs</a></li>
+<li><a href="https://gist.github.com/seokbeomKim/9cff93b073573fe535534c522c6e53e1"  target="_blank" rel="noreferrer nofollow">Build &lsquo;Mini Linux&rsquo; Instruction - forked</a></li>
+</ul>
+</main>
+
+<script src="https://utteranc.es/client.js"
+           repo="seokbeomKim/hugo-comments"
+           issue-term="pathname"
+           theme="github-light"
+           crossorigin="anonymous"
+           async>
+   </script>
 <br>
 
 <footer>
