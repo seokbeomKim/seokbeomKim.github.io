@@ -256,11 +256,32 @@
 <script>
 window.store = {
     
-    "\/\/localhost:1313\/tags\/news\/": {
-        "title": "News",
+    "\/\/localhost:1313\/categories\/": {
+        "title": "Categories",
         "tags": [],
         "content": "", 
-        "url": "\/\/localhost:1313\/tags\/news\/"
+        "url": "\/\/localhost:1313\/categories\/"
+    },
+    
+    "\/\/localhost:1313\/categories\/emacs\/": {
+        "title": "Emacs",
+        "tags": [],
+        "content": "", 
+        "url": "\/\/localhost:1313\/categories\/emacs\/"
+    },
+    
+    "\/\/localhost:1313\/posts\/emacs-org-%EB%AC%B8%EC%84%9C-%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%B3%80%EA%B2%BD\/": {
+        "title": "Emacs Org 문서 스타일 변경",
+        "tags": ["org",],
+        "content": "Org 문서 이맥스의 Org Mode는 마크다운 이상으로 유용하지만 이맥스 문서라는 플랫폼 특성상 다른 개발자들에게 잘 알려져 있지 않다. 덕분에 마크다운 형식의 문서처럼 런타임 뷰가 많지 않으며 가독성을 해치는 syntax 들을 온전하게 받아들여야 한다.\n하지만 정렬되지 않은 Header 들과 문장들이 어떤 장절에 속해있는지 알 수 없을 정도로 장절 깊이가 많아지다보면 :PROPERTIES: 와 같은 추가적인 속성을 사용할 수 있다고 하더라도 텍스트로써의 역할을 제대로 하지 못한다고 생각했다.\n", 
+        "url": "\/\/localhost:1313\/posts\/emacs-org-%EB%AC%B8%EC%84%9C-%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%B3%80%EA%B2%BD\/"
+    },
+    
+    "\/\/localhost:1313\/tags\/org\/": {
+        "title": "Org",
+        "tags": [],
+        "content": "", 
+        "url": "\/\/localhost:1313\/tags\/org\/"
     },
     
     "\/\/localhost:1313\/posts\/": {
@@ -270,25 +291,11 @@ window.store = {
         "url": "\/\/localhost:1313\/posts\/"
     },
     
-    "\/\/localhost:1313\/tags\/rss\/": {
-        "title": "Rss",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/tags\/rss\/"
-    },
-    
     "\/\/localhost:1313\/tags\/": {
         "title": "Tags",
         "tags": [],
         "content": "", 
         "url": "\/\/localhost:1313\/tags\/"
-    },
-    
-    "\/\/localhost:1313\/posts\/%EB%82%B4%EA%B0%80-%EB%89%B4%EC%8A%A4%EB%A5%BC-%EC%86%8C%EB%B9%84%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95\/": {
-        "title": "내가 뉴스를 소비하는 방법",
-        "tags": ["rss","news",],
-        "content": "낮은 인터넷 자유도 Freedom House 에서 발표한 자료에 따르면 한국의 인터넷 자유도는 100점 만점 중 65점에 불과하다. 25년 5월에 발표된 자료라 그런지 윤석열 씨의 계엄 사태도 언급 FreedomHouse 보고서에는 계엄 뿐만 아니라 허위보도 의혹 수사에 대한 내용이 함께 언급돼 있다. 돼 있는데, 자유도 하락에 한 몫했다. Freedom House는 아래와 같이 윤석열 씨를 직접적으로 언급한다.\nInternet freedom in South Korea declined slightly during the coverage period. Conditions were affected by President Yoon Suk-yeol’s December 2024 declaration of martial law, in which he cited a need to eliminate “anti-state” forces among the opposition. His decree appeared to violate the law and the constitution. Martial law was lifted the following day through a unanimous vote by 190 legislators, and Yoon was removed from office in April 2025 following successful impeachment proceedings and a final ruling by the Constitutional Court.\n하지만 이러한 정치적 요소들을 제외하고도 개인정보보호를 이유로 일방적으로 LLM 모델의 다운로드를 막은 사례도 언급하고 있다. 이처럼 인터넷 자유가 제한돼 있는 한국에서 뉴스에 혼동되지 않으려면 해외의 다양한 뉴스 피드를 이용해야 한다.\n언론수용자 조사 보고서 한국언론진흥재단에서 발표한 언론수용자 조사 보고서에 따르면 국민들이 뉴스를 소비하는 방법은 아래와 같다. (참고로 단일 선택 조사가 아니므로 이용 비중의 합이 100%이 아니다.)\n순위 주 이용 경로 이용 비중 (%) 1 텔레비전 (TV) 81.4% 2 인터넷 포털 / 검색엔진 66.5% 3 온라인 동영상 플랫폼 (유튜브 등) 30.0% 4 SNS 41.7% 6 뉴스 모음 앱 / 숏폼 22.9% 텔레비전과 인터넷 포털 사이트의 비중이 압도적으로 높고 유튜브와 SNS의 비중도 예상보다 매우 높았다. 다시 말해 소비자들이 뉴스를 접하는 과정이 왜곡될 수 있다는 것이다. SNS, 유튜브나 포털 사이트를 통해 접하는 뉴스는 각각의 뉴스 매체에서 1차적으로 가공한 정보다. 공식 매체 정보가 아닌 가짜뉴스도 있는데 SNS, YouTube는 이 문제에 더 취약하다. 그리고 이렇게 가공된 정보는 내가 직접적으로 알 수 없는 알고리즘에 의해 한번 더 정제되는데 여기서 어떻게 왜곡이 발생했는지 알 수가 없다. 또한 내가 추가할 수 있는 뉴스 피드의 종류가 한정돼 있고 포털 사이트와 국내 매체 공식 페이지에는 온갖 광고로 도배돼 있다.\n각국 언론은 해당 국가에서 발생한 사건에 대해 중립적이지 않은 경우가 많다. 때문에 국내 주요 사건을 알기 위해서는 해외 언론사의 기사를 읽는 것이 훨씬 낫다. 기사문의 질도 더 우수하다. 그리고 국내 언론사의 \u0026lsquo;기술\u0026rsquo; 섹션에서 제품 광고가 많아 깊이 있는 기사를 찾기가 매우 힘들다.\n대안: RSS (Really Simple Syndication) RSS는 사용자가 원하는 뉴스 피드를 구독해 읽을 수 있는 포맷이다. 이미 국내 포털 사이트에서 여러 뉴스 매체들을 \u0026lsquo;구독\u0026rsquo; 형태로써 서비스하고 있는데 그 원조격이라 할 수 있다. 이미 수많은 뉴스 매체들이 사용자들을 위해 RSS를 제공한다. 자유로운 정보 공유라는 철학 아래, 소비자들은 RSS 형식을 통해 배포되는 정보를 이용해 뉴스를 모아 한 눈에 볼 수 있고 공급자들은 불필요한 트래픽을 절약할 수 있다. 또한, 알고리즘이나 광고로써 뉴스를 읽는데 방해받지 않는다.\n대표적인 서비스로는 Feedly, Inoreader 등이 있다. 이들의 장점은 내 관심 분야 피드를 검색해 바로 구독하고 클라우드 형태로 관리할 수 있다는 점이다. 무료 버전으로도 가능하나 좀 더 많은 Feed를 구독하고자 할 경우 Feedly 기준 한달에 $7달러 정도의 비용이 발생한다. Inoreader가 좀 더 저렴하나 모바일 애플리케이션을 포함해 전반적인 사용자 경험은 Feedly가 더 나은 것 같다.\n만약 서버를 구성할 수 있다면 miniflux를 이용한 셀프 호스팅 방법도 가능하다. Feedly, Inoreader와 같이 피드를 검색하는 기능은 없지만, Feedly에서 검색한 뉴스 피드 정보를 토대로 직접 링크를 추가해 원하는 카테고리로써 뉴스들을 관리할 수 있다. 또한 Fever API와의 통합도 함께 지원하여 다양한 RSS 클라이언트에 연동해 사용할 수 있다. 하지만 이러한 서버 방식이 싫거나 굳이 필요하지 않다면, Windows의 RSS Guard나 안드로이드의 FeedMe 애플리케이션과 같이 로컬에 RSS를 직접 받아서 관리하는 방식으로 사용 가능하다. 물론 이 애플리케이션들은 miniflux 서비스와 Fever API를 통해 연동할 수 있다.\n뉴스 피드 예시 아래는 개인적으로 구독하고 있는 피드 중 일부이다. Feedly Discovery에서 관심있는 피드를 검색한 뒤 RSS discovery에서 해당 도메인을 검색해 구독하면 된다.\nAl Jazeera: https://www.aljazeera.com/xml/rss/all.xml ㅍㅍㅅㅅ PPSS: https://cdn.ppss.kr/rss/gn_rss_allArticle.xml NYT: https://www.nytimes.com/section/world/rss.xml GeekNews: http://feeds.feedburner.com/geeknews-feed The Atlantic: https://www.theatlantic.com/feed/all/ LWN.net: https://lwn.net/headlines/newrss ", 
-        "url": "\/\/localhost:1313\/posts\/%EB%82%B4%EA%B0%80-%EB%89%B4%EC%8A%A4%EB%A5%BC-%EC%86%8C%EB%B9%84%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95\/"
     },
     
     "\/\/localhost:1313\/": {
@@ -298,11 +305,39 @@ window.store = {
         "url": "\/\/localhost:1313\/"
     },
     
-    "\/\/localhost:1313\/posts\/%ED%95%9C%EA%B5%AD%EC%9D%98-%EC%96%B8%EB%A1%A0-%EC%9E%90%EC%9C%A0%EB%8F%84-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%8B%A0%EB%A2%B0%EC%84%B1\/": {
-        "title": "한국의 언론 자유도, 그리고 신뢰성",
+    "\/\/localhost:1313\/tags\/feedly\/": {
+        "title": "Feedly",
         "tags": [],
         "content": "", 
-        "url": "\/\/localhost:1313\/posts\/%ED%95%9C%EA%B5%AD%EC%9D%98-%EC%96%B8%EB%A1%A0-%EC%9E%90%EC%9C%A0%EB%8F%84-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%8B%A0%EB%A2%B0%EC%84%B1\/"
+        "url": "\/\/localhost:1313\/tags\/feedly\/"
+    },
+    
+    "\/\/localhost:1313\/tags\/miniflux\/": {
+        "title": "Miniflux",
+        "tags": [],
+        "content": "", 
+        "url": "\/\/localhost:1313\/tags\/miniflux\/"
+    },
+    
+    "\/\/localhost:1313\/tags\/news\/": {
+        "title": "News",
+        "tags": [],
+        "content": "", 
+        "url": "\/\/localhost:1313\/tags\/news\/"
+    },
+    
+    "\/\/localhost:1313\/tags\/rss\/": {
+        "title": "Rss",
+        "tags": [],
+        "content": "", 
+        "url": "\/\/localhost:1313\/tags\/rss\/"
+    },
+    
+    "\/\/localhost:1313\/posts\/%EB%89%B4%EC%8A%A4%EB%A5%BC-%EC%86%8C%EB%B9%84%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95\/": {
+        "title": "뉴스를 소비하는 방법",
+        "tags": ["rss","news","miniflux","feedly",],
+        "content": "낮은 인터넷 자유도 Freedom House 에서 발표한 자료에 따르면 한국의 인터넷 자유도는 100점 만점 중 65점에 불과하다. 25년 5월에 발표된 자료라 그런지 윤석열 씨의 계엄 사태도 언급 FreedomHouse 보고서에는 계엄 뿐만 아니라 허위보도 의혹 수사에 대한 내용이 함께 언급돼 있다. 돼 있는데, 자유도 하락에 한 몫했다. Freedom House는 아래와 같이 윤석열 씨를 직접적으로 언급한다.\nInternet freedom in South Korea declined slightly during the coverage period. Conditions were affected by President Yoon Suk-yeol’s December 2024 declaration of martial law, in which he cited a need to eliminate “anti-state” forces among the opposition. His decree appeared to violate the law and the constitution. Martial law was lifted the following day through a unanimous vote by 190 legislators, and Yoon was removed from office in April 2025 following successful impeachment proceedings and a final ruling by the Constitutional Court.\n하지만 이러한 정치적 요소들을 제외하고도 개인정보보호를 이유로 일방적으로 LLM 모델의 다운로드를 막은 사례도 언급하고 있다. 이처럼 인터넷 자유가 제한돼 있는 한국에서 뉴스에 혼동되지 않으려면 해외의 다양한 뉴스 피드를 이용해야 한다.\n언론수용자 조사 보고서 한국언론진흥재단에서 발표한 언론수용자 조사 보고서에 따르면 국민들이 뉴스를 소비하는 방법은 아래와 같다. (참고로 단일 선택 조사가 아니므로 이용 비중의 합이 100%이 아니다.)\n순위 주 이용 경로 이용 비중 (%) 1 텔레비전 (TV) 81.4% 2 인터넷 포털 / 검색엔진 66.5% 3 온라인 동영상 플랫폼 (유튜브 등) 30.0% 4 SNS 41.7% 6 뉴스 모음 앱 / 숏폼 22.9% 텔레비전과 인터넷 포털 사이트의 비중이 압도적으로 높고 유튜브와 SNS의 비중도 예상보다 매우 높았다. 다시 말해 소비자들이 뉴스를 접하는 과정이 왜곡될 수 있다는 것이다. SNS, 유튜브나 포털 사이트를 통해 접하는 뉴스는 각각의 뉴스 매체에서 1차적으로 가공한 정보다. 공식 매체 정보가 아닌 가짜뉴스도 있는데 SNS, YouTube는 이 문제에 더 취약하다. 그리고 이렇게 가공된 정보는 내가 직접적으로 알 수 없는 알고리즘에 의해 한번 더 정제되는데 여기서 어떻게 왜곡이 발생했는지 알 수가 없다. 또한 내가 추가할 수 있는 뉴스 피드의 종류가 한정돼 있고 포털 사이트와 국내 매체 공식 페이지에는 온갖 광고로 도배돼 있다.\n각국 언론은 해당 국가에서 발생한 사건에 대해 중립적이지 않은 경우가 많다. 때문에 국내 주요 사건을 알기 위해서는 해외 언론사의 기사를 읽는 것이 훨씬 낫다. 기사문의 질도 더 우수하다.\n대안: RSS (Really Simple Syndication) RSS는 사용자가 원하는 뉴스 피드를 구독해 읽을 수 있는 포맷이다. 이미 국내 포털 사이트에서 여러 뉴스 매체들을 \u0026lsquo;구독\u0026rsquo; 형태로써 서비스하고 있는데 그 원조격이라 할 수 있다. 이미 수많은 뉴스 매체들이 사용자들을 위해 RSS를 제공한다. 자유로운 정보 공유라는 철학 아래, 소비자들은 RSS 형식을 통해 배포되는 정보를 이용해 뉴스를 모아 한 눈에 볼 수 있고 공급자들은 불필요한 트래픽을 절약할 수 있다. 또한, 알고리즘이나 광고로써 뉴스를 읽는데 방해받지 않는다.\n대표적인 서비스로는 Feedly, Inoreader 등이 있다. 이들의 장점은 내 관심 분야 피드를 검색해 바로 구독하고 클라우드 형태로 관리할 수 있다는 점이다. 무료 버전으로도 가능하나 좀 더 많은 Feed를 구독하고자 할 경우 Feedly 기준 한달에 $7달러 정도의 비용이 발생한다. Inoreader가 좀 더 저렴하나 모바일 애플리케이션을 포함해 전반적인 사용자 경험은 Feedly가 더 나은 것 같다.\n만약 서버를 구성할 수 있다면 miniflux를 이용한 셀프 호스팅 방법도 가능하다. Feedly, Inoreader와 같이 피드를 검색하는 기능은 없지만, Feedly에서 검색한 뉴스 피드 정보를 토대로 직접 링크를 추가해 원하는 카테고리로써 뉴스들을 관리할 수 있다. 또한 Fever API와의 통합도 함께 지원하여 다양한 RSS 클라이언트에 연동해 사용할 수 있다. 하지만 이러한 서버 방식이 싫거나 굳이 필요하지 않다면, Windows의 RSS Guard나 안드로이드의 FeedMe 애플리케이션과 같이 로컬에 RSS를 직접 받아서 관리하는 방식으로 사용 가능하다. 물론 이 애플리케이션들은 miniflux 서비스와 Fever API를 통해 연동할 수 있다.\n뉴스 피드 예시 뉴스 피드 구독을 위해서는 Feedly Discovery에서 관심있는 피드를 검색한 뒤 RSS discovery에서 해당 도메인을 검색해 구독하면 된다. 아래는 개인적으로 구독하고 있는 피드 중 일부이다.\nAl Jazeera: https://www.aljazeera.com/xml/rss/all.xml ㅍㅍㅅㅅ PPSS: https://cdn.ppss.kr/rss/gn_rss_allArticle.xml NYT: https://www.nytimes.com/section/world/rss.xml GeekNews: http://feeds.feedburner.com/geeknews-feed The Atlantic: https://www.theatlantic.com/feed/all/ LWN.net: https://lwn.net/headlines/newrss ", 
+        "url": "\/\/localhost:1313\/posts\/%EB%89%B4%EC%8A%A4%EB%A5%BC-%EC%86%8C%EB%B9%84%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95\/"
     },
     
     "\/\/localhost:1313\/tags\/book\/": {
@@ -422,13 +457,6 @@ window.store = {
         "tags": ["rpi","nfs","tftp",],
         "content": "네트워크 부팅 환경 설정 기본적으로 라즈베리파이의 경우 SD 카드에 부트에 필요한 파티션들을 저장한다. 이 때문에 커널이나 루트파일시스템의 수정사항이 있는 경우 매번 호스트에서 SD 카드에 관련된 파일을 넣어줘야 하는데 이것만큼 정말 번거로운 것이 없다.\n필자는 라즈베리파이4를 기준으로 환경을 구성하였다. 본 페이지에서는 TFTP와 라즈베리파이의 PXE Boot을 지원하는 기본 부트로더를 이용해 커널 이미지를 로드하는 방법과 NFS를 이용하여 루트파일시스템을 로드하는 방법을 함께 기술한다.\n네트워크 구성 일반적으로 부트로더에서 TFTP 클라이언트를 함께 제공한다. U-Boot 부트로더와 마찬가지로 라즈베리파이의 기본 부트로더 또한 내부적으로 TFTP 클라이언트를 포함하고 있어 부트로더에 관련된 설정만 추가해주면 된다. NFS의 경우 mount 명령어를 통해 하지만 그 전에 네트워크 구성에 대해 한 번 생각해봐야 한다.\nTFTP 서버는 Host PC (Windows) 의 tftpd를 이용한다. WSL2에서 tftp 서버를 구성해도 되지만 필자는 윈도우즈 호스트 PC에서 tftpd64 라는 프로그램을 이용하기로 했다. NFS 서버는 WSL2에 구성하고 라즈베리파이에서 WSL2에 접근할 수 있도록 NFS에서 사용하는 포트에 한하여 포트포워딩을 한다. TFTP 이용하여 커널 이미지 로드 TFTP를 이용해 커널 이미지를 로드하기 위해서는 아래의 작업 순서가 필요하다. 1번 내용은 Raspberry Pi Imager 라는 공식 유틸리티가 있고 굳이 설명을 하지 않아도 되기 때문에 따로 설명하지는 않겠다.\nSD 카드 이용해 기본 부트 라즈베리파이의 부트로더 설정 변경 SD 카드의 부트 파티션 복사 tftp64 이용해 부트 2. 부트로더 설정 변경 아래에 설명하는 부트로더 설정 변경 방법은 https://metebalci.com/blog/cardless-rpi4/ 에 따른 것이다. 찾아본 포스팅 중에 가장 정리가 잘 되어 있다. 포스팅 내 주요 내용을 정리하면, 아래의 순서로 부트로더 설정을 업데이트 한다.\n현재 부트로더 버전 확인 pieeprom.bin 바이너리로부터 설정 추출 설정 파일 내 TFTP 정보 추가 변경한 설정 파일을 포함한 pieeprom.bin 재생성 재생성한 pieeprom.bin으로 부트로더 업데이트 먼저 부트로더 버전을 확인해보자. vcgencmd bootloader_version 명령어를 이용하면 아래와 같이 현재 부트한 환경 기준으로 사용 중인 부트로더 버전을 확인할 수 있다.\npi@raspberrypi:~$ vcgencmd bootloader_version 2023/01/11 17:40:52 version 8ba17717fbcedd4c3b6d4bce7e50c7af4155cba9 (release) timestamp 1673458852 update-time 1681394003 capabilities 0x0000007f 버전을 확인했으니 해당 날짜에 맞는 pieeprom을 홈 디렉토리로 복사하고 바이너리 파일로부터 설정을 추출한다. 만약 rpi-eeprom-config가 없다면 rpi-eeprom 패키지를 설치해줘야 한다.\n$ pwd /home/pi $ cp /lib/firmware/raspberrypi/bootloader/default/pieeprom-2023-01-11.bin pieeprom.bin $ rpi-eeprom-config pieeprom.bin \u0026gt; config.txt 출처에서는 BOOT_ORDER 를 강조하고 있는데, TFTP 환경으로 부팅해야 하므로 앞서 네트워크 구성에서 고려했던 것과 같이 config.txt 파일을 변경해준다.\n[all] BOOT_UART=1 WAKE_ON_GPIO=1 POWER_OFF_ON_HALT=0 TFTP_IP=192.168.0.5 CLIENT_IP=192.168.0.4 SUBNET=255.255.255.0 GATEWAY= TFTP_PREFIX=0 BOOT_ORDER=0x21 TFTP_FILE_TIMEOUT=30000 설정이 끝났다. 이제 설정파일이 담긴 바이너리 파일을 생성하고 해당 파일로 업데이트 해주자.\n$ rpi-eeprom-config --out pieeprom-out.bin --config config.txt pieeprom.bin $ sudo rpi-eeprom-update -d -f ./pieeprom-out.bin $ sudo reboot 3. SD 카드 부트 파티션 복사 이제 부트로더 설정은 끝났으니 SD 카드의 boot partition을 Host PC에 저장한다. 필자는 그냥 귀찮아서 tftpd64 디렉토리(C:\\Program Files\\Tftpd64\\rpi_boot) 안에 넣어놓았다.\n4. tftp64 이용해 tftpboot 이제 tftp64 프로그램에서 디렉토리를 설정해주고 라즈베리파이를 부팅해주면 커널 로드까지는 정상적으로 되는 것을 확인할 수 있다. tftp64 프로그램은 아래 링크에서 다운로드 받을 수 있다.\nhttps://bitbucket.org/phjounin/tftpd64/downloads/ 이제 tftp를 이용한 커널 이미지 로드 준비는 끝이 났다. SD 카드를 빼고 전원을 인가하면 커널 로드까지는 성공적으로 되는 것을 확인할 수 있다.\nNFS 이용하여 루트파일시스템 로드 커널 이미지를 성공적으로 로드한다고 해도 루트파일시스템 로드가 되지 않으니 부팅이 될 리가 없다. 필자는 WSL2(Ubuntu)에 NFS 서버를 구성해서 rootfs 마운트 시점에 NFS를 마운트하도록 구성하였다.\n작업 순서는 아래와 같으며, 데비안 계열의 우분투 WSL 기준으로 설명하겠다.\n라즈베리파이 이미지 파일 (*.img) 마운트 및 복사 WSL2 내 nfs-server 설치 및 설정 nfs-server 서비스 실행 Windows 내 포트 포워딩 및 방화벽 설정 라즈베리파이 이미지 내 rootfs 파일 복사 먼저, 라즈베리파이 공식 사이트에서 os 이미지 파일을 다운로드 받는다. 본인은 현재 기준으로 lite version인 2023-02-21-raspios-bullseye-arm64-lite.img 파일을 다운로드 받았다. 그 후 아래와 같이 마운트를 하고 로컬 디렉토리에 내용을 복사한다.\n$ sudo mount -o loop,offset=272629760 ./2023-02-21-raspios-bullseye-arm 64-lite.img /mnt/ $ mkdir /rpi $ cp -ra /mnt/* /rpi NFS-Server 설치 및 설정 이제 rootfs는 준비되었으니 nfs-server를 설치할 차례이다. 필자는 라즈베리파이를 제외한 나머지 디렉토리는 필요하지 않기 때문에 rootdir을 /rpi로 설정하였다. 사용 환경에 따라 적절하게 설정해준다.\n$ sudo apt install nfs-kernel-server $ sudo vi /etc/nfs.conf # 아래와 같이 [exports] 설정 [exports] rootdir=/rpi # ... 이제 /etc/exports 파일을 아래와 같이 설정해준다. insecure 옵션을 넣어주었는데 본인의 경우 이 설정을 제외하면 파일 퍼미션이 보이지 않아 함께 넣어주었다.\n$ sudo vi /etc/exports # ... / *(rw,sync,no_root_squash,insecure) nfs-server 서비스 실행 이제 서비스를 실행하고 exportfs 를 업데이트 해준다.\n$ sudo service nfs-server restart $ sudo export -arv 한 가지 발견한 문제는 윈도우즈에서 2049 포트가 포트포워딩이 되어 있을 경우 port binding 에러로 인해 서비스 실행 에러가 생긴다는 점이다. 반드시 윈도우즈에서 포트포워딩 되어 있는 포트 중에 nfs 관련 포트가 없는지 확인하고 서비스를 실행한다.\nPS C:\\Users\\chaox\u0026gt; netsh interface portproxy show all Listen on ipv4: Connect to ipv4: Address Port Address Port --------------- ---------- --------------- ---------- 0.0.0.0 3000 172.29.124.79 3000 0.0.0.0 2049 172.29.124.79 2049 \u0026lt;- 만약에 이 부분이 있다면 에러가 발생한다. 포트 포워딩 제거시에는 아래 명령어를 사용한다.\n\u0026gt; netsh interface portproxy del v4tov4 listenport=2049 listenaddress=0.0.0.0 포트 포워딩 및 방화벽 설정 WSL2에서 서비스까지 정상적으로 실행되었다면 윈도우즈에서 아래와 같이 포트포워딩을 해준다. 그리고 정상적으로 2049 포트로 포트포워딩이 되어 있는지 확인한다. connectaddress는 wsl hostname -I 로 확인한 아이피 주소를 넣어준다.\n\u0026gt; netsh interface portproxy add v4tov4 listenport=2049 listenaddress=0.0.0.0 connectport=2049 connectaddress=172.29.124.79 \u0026gt; netsh interface portproxy show all Listen on ipv4: Connect to ipv4: Address Port Address Port --------------- ---------- --------------- ---------- 0.0.0.0 3000 172.29.124.79 3000 0.0.0.0 2049 172.29.124.79 2049 이제 윈도우즈의 Windows Defender Firewall with Advanced Security 를 열어서 Inbound Rules와 Outbound Rules 각각 포트 2049에 대해 허용하도록 설정한다.\n마무리 이제 마지막으로 앞서 복사해둔 경로 내 etc/fstab 을 아래와 같이 수정해준다.\n$ sudo vi /rpi/etc/fstab # ... proc /proc proc defaults 0 0 192.168.0.5:/ / nfs defaults,_netdav 0 1 마지막으로 부트 파티션으로 복사한 cmdline.txt 에 NFS를 로드할 수 있도록 변경해주자.\nconsole=serial0,115200 console=tty1 root=/dev/nfs nfsroot=192.168.0.5:/,nfsvers=4 ip=192.168.0.4 rw elevator=deadline fsck.repair=yes rootwait rootfstype=nfs 출처 https://metebalci.com/blog/cardless-rpi4/ ", 
         "url": "\/\/localhost:1313\/posts\/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%80%ED%8C%85-%EC%84%A4%EC%A0%95\/"
-    },
-    
-    "\/\/localhost:1313\/categories\/": {
-        "title": "Categories",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/categories\/"
     },
     
     "\/\/localhost:1313\/tags\/device-tree\/": {
@@ -1985,18 +2013,18 @@ window.store = {
         "url": "\/\/localhost:1313\/tags\/busybox\/"
     },
     
-    "\/\/localhost:1313\/posts\/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02\/2\/": {
-        "title": "Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(2\/2)",
+    "\/\/localhost:1313\/posts\/qemu--busybox--linux-kernel-2\/2\/": {
+        "title": "QEMU \u002b Busybox \u002b Linux Kernel (2\/2)",
         "tags": ["kernel","buildroot","busybox",],
         "content": "지난 번 포스팅에서는 단순하기 initramfs 램디스크를 만들어 busybox에 올리는 방법을 기술했었다. 그러면서 램디스크가 무엇인지 busybox는 무엇인지, 그리고 대략적인 빌드 디렉토리 구조를 파악할 수 있었던 기회였다.\n두 번째 포스팅에서는 직접 busybox를 빌드하지 않고 crosstool-ng라는 크로스 컴파일러 생성 스크립트 도구와 buildroot라는 Makefile 패키지를 이용하여 램디스크를 만드는 방법에 대해 기술하겠다.\nCrosstool-ng 이용하여 크로스 컴파일러 만들기 crosstool-ng는 미리 설정된 config를 이용해 손쉽게 크로스 컴파일러를 만들 수 있는 패키지이다. 이를 어떻게 이용하는지 자세히 설명하겠다.\n먼저 crosstool-ng를 받는다. 이 때, 깃허브에 있는 경로를 이용해 직접 받아쓰는 경우가 있을텐데 만약, 받아쓰는 경우라면 반드시 릴리즈 버전으로 checkout해서 사용해야 한다. master로 그냥 받아서 사용하면 이상한데서 고생하게 된다. git을 사용하지 않는 경우는 여기를 통해 홈페이지에서 직접 받아서 사용할 수 있다.\n$ git clone https://github.com/crosstool-ng/crosstool-ng $ git fetch \u0026ndash;all $ git checkout tags/crosstool-ng-1.24.0-rc3\n압축을 푼 후 내부에서 아래와 갈이 설정해준다.\n$ ./configure \u0026ndash;local $ make $ make install\n이제 크로스컴파일러를 만들어보자. 컴파일러 생성을 위해 필요한 패키지(binutls, glibc, gcc, mpc, flex..등등)들을 자동으로 다운로드하고 빌드한다. 예전 LFS(Linux from scratch)에서 이 방법을 썼다면 정말로 편하게 작업할 수 있었을텐데 하는 아쉬움이 남는 순간이었다.\n아래와 같이 list-samples 옵션을 주어 실행하면 사용 가능한 샘플 목록들이 출력된다. 여기에 없다면 앞으로 수행할 menuconfig에서 필요한 설정들을 직접 해주어야 한다.\nroot@19893213a218:~/Workspaces/crosstool-ng# ./ct-ng list-samples Status Sample name (생략) \u0026hellip; [L\u0026hellip;] x86_64-multilib-linux-gnu [L..X] x86_64-multilib-linux-musl [L\u0026hellip;] x86_64-multilib-linux-uclibc [L..X] x86_64-w64-mingw32,x86_64-pc-linux-gnu [L\u0026hellip;] x86_64-ubuntu12.04-linux-gnu [L\u0026hellip;] x86_64-ubuntu14.04-linux-gnu [L\u0026hellip;] x86_64-ubuntu16.04-linux-gnu [L\u0026hellip;] x86_64-unknown-linux-gnu [L\u0026hellip;] x86_64-unknown-linux-uclibc [L..X] x86_64-w64-mingw32 [L..X] xtensa-fsf-elf [L\u0026hellip;] xtensa-fsf-linux-uclibc\nL (Local) : sample was found in current directory G (Global) : sample was installed with crosstool-NG X (EXPERIMENTAL): sample may use EXPERIMENTAL features B (BROKEN) : sample is currently broken O (OBSOLETE) : sample needs to be upgraded\n커널 해킹을 위한 것이지만 임베디드용 커널을 살펴볼 것은 아니기 때문에 필자는 x86_64-unknown-linux-gnu를 선택하였다.\n$ ./ct-ng x86_64-unknown-linux-gnu $ ./ct-ng menuconfig # 옵션을 추가로 선택할 경우 $ ./ct-ng build\nBuildRoot 이용하여 rootfs 만들기 앞서 빌드한 크로스 컴파일러들을 /opt/crosstool/x86_64-unknown-linux-gnu 경로에 설치했다고 가정하고 buildroot를 이용하여 이미지 파일을 생성한다. buildroot 를 이용할 경우 크로스컴파일러를 이용해 컴파일한 응용 프로그램과 커널 모듈을 함께 빌드하여 추가할 수 있기 때문에 용이하다.\n$ export BUILDROOT=$OPT/buildroot $ export BUILDROOT_BUILD=$BUILDS/buildroot $ mkdir -p $BUILDROOT_BUILD $ cd $BUILDROOT_BUILD $ touch Config.in external.mk $ echo \u0026rsquo;name: mini_linux\u0026rsquo; \u0026gt; external.desc $ echo \u0026lsquo;desc: minimal linux system with buildroot\u0026rsquo; \u0026raquo; external.desc $ mkdir configs overlay $ cd $BUILDROOT $ make O=$BUILDROOT_BUILD BR2_EXTERNAL=$BUILDROOT_BUILD qemu_x86_64_defconfig $ cd $BUILDROOT_BUILD $ make menuconfig\n이 후, 아래와 같이 설정해준다. 이 때 중요한 것은 System configuration ---\u0026gt; Network interface to configure through DHCP 부분을 빈칸으로 해줘야한다는 점이다. 기본값이 eth0으로 되어있을텐데, init 스크립트에서 해당 인터페이스가 로드될 때까지 기다리며 없을 경우에는 셸이 실행되지 않게된다.\nBuild options ---\u0026gt; Location to save buildroot config ---\u0026gt; $(BR2_EXTERNAL)/configs/mini_linux_defconfig Build options ---\u0026gt; Download dir ---\u0026gt; /some/where/buildroot_dl Build options ---\u0026gt; Number of jobs to run simultaneously (0 for auto) ---\u0026gt; 8 Build options ---\u0026gt; Enable compiler cache ---\u0026gt; yes Build options ---\u0026gt; Compiler cache location ---\u0026gt; /some/where/buildroot_ccache Toolchain ---\u0026gt; Toolchain type ---\u0026gt; External toolchain Toolchain ---\u0026gt; Toolchain ---\u0026gt; Custom toolchain Toolchain ---\u0026gt; Toolchain origin ---\u0026gt; Pre-installed toolchain Toolchain ---\u0026gt; Toolchain path ---\u0026gt; /opt/toolchains/x86_64-unknown-linux-gnu Toolchain ---\u0026gt; Toolchain prefix ---\u0026gt; x86_64-unknown-linux-gnu Toolchain ---\u0026gt; External toolchain gcc version ---\u0026gt; 5.x Toolchain ---\u0026gt; External toolchain kernel headers series ---\u0026gt; 4.3.x Toolchain ---\u0026gt; External toolchain C library ---\u0026gt; glibc/eglibc Toolchain ---\u0026gt; Toolchain has C++ support? ---\u0026gt; yes System configuration ---\u0026gt; System hostname ---\u0026gt; mini_linux System configuration ---\u0026gt; System banner ---\u0026gt; Welcome to mini_linux System configuration ---\u0026gt; Run a getty (login prompt) after boot ---\u0026gt; TTY port ---\u0026gt; ttyS0 System configuration ---\u0026gt; Network interface to configure through DHCP ---\u0026gt; System configuration ---\u0026gt; Root filesystem overlay directories ---\u0026gt; $(BR2_EXTERNAL)/overlay Kernel ---\u0026gt; Linux Kernel ---\u0026gt; no Filesystem images ---\u0026gt; cpio the root filesystem (for use as an initial RAM filesystem) ---\u0026gt; yes Filesystem images ---\u0026gt; Compression method ---\u0026gt; gzip 아래와 같이 설정 저장 후 init 스크립트를 추가해준뒤 빌드한다.\n$ make savedefconfig $ vim $BUILDROOT_BUILD/overlay/init #!/bin/sh /bin/mount -t devtmpfs devtmpfs /dev /bin/mount -t proc none /proc /bin/mount -t sysfs none /sys exec 0\u0026lt;/dev/console exec 1\u0026gt;/dev/console exec 2\u0026gt;/dev/console cat \u0026lt;\u0026lt;! Boot took $(cut -d\u0026#39; \u0026#39; -f1 /proc/uptime) seconds ! exec /bin/sh # vim 종료 후 스크립트에 권한 부여 $ chmod +x overlay/init $ make 이제 qemu를 통해 실행시켜보면 정상적으로 실행되는 것을 확인할 수 있다.\nqemu-system-x86_64 -kernel $LINUX_BUILD/arch/x86_64/boot/bzImage \\ -initrd $BUILDROOT_BUILD/images/rootfs.cpio.gz -nographic \\ -append \u0026#34;console=ttyS0\u0026#34; 출처 Build and run minimal linux Building embedded ARM systems with Crosstool-NG ", 
-        "url": "\/\/localhost:1313\/posts\/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B02\/2\/"
+        "url": "\/\/localhost:1313\/posts\/qemu--busybox--linux-kernel-2\/2\/"
     },
     
-    "\/\/localhost:1313\/posts\/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01\/2\/": {
-        "title": "Linux 커널, Busybox 빌드 후 QEMU에서 실행하기(1\/2)",
+    "\/\/localhost:1313\/posts\/qemu--busybox--linux-kernel-1\/2\/": {
+        "title": "QEMU \u002b Busybox \u002b Linux Kernel (1\/2)",
         "tags": ["busybox","qemu",],
         "content": " 취업은 언제하나\u0026hellip; 커널 공부를 할 게 아니라 취업을 위한 알고리즘을 공부해야 하는데 커널 해킹을 위한 환경 구축만 하고 공부하자는 것이 꼬리에 꼬리를 물게 되었다. 커널 분석을 공부하고 궁금했던 사항들을 직접 확인해보기 위해 QEMU를 이용한 환경을 구축하기로 결정했다. 다행히도 나와 같은 생각을 한 사람이 있었고 매우 자세하게 설명을 해놓았기에 금방 해결할 수 있었다. 다만, 부팅 후 램디스크만을 이용하고 루트파티션은 마운트하지 않는다는 제한은 있다.\n이 문서는 참고한 페이지를 토대로 필요한 정보들을 중간에 좀 더 추가한 형태로 정리하였다. 향후 커널 분석과 토이 프로젝트들을 진행하기 위해 필요한 환경으로 실행 환경은 아래와 같다.\n출처 페이지와는 다르게 필자는 맥 환경에서 커널 컴파일을 진행해야 했기 때문에 빌드를 시작하기에 앞서 docker 컨테이너를 준비하는 과정이 있었다. 맥에서 직접 크로스 컴파일러를 직접 만들어 사용하는 방법도 있지만, 시간도 오래 걸리고 빌드에 필요한 헤더 환경이 달라 도커를 사용하였다.\n맥에서 작업하기 위한 환경 구축하기 현재 주로 사용하는 운영체제는 macOS Mojave 10.14.5이다. 이 환경에서 리눅스 커널을 빌드하기 위해서는 GNU GCC, GLIBC 환경이 리눅스와 일치해야 하는데 커널 컴파일을 위해 필요한 헤더파일 경로부터 맞지 않은 부분이 있어 크로스 컴파일러를 준비하는 방법은 포기하고 대신, docker를 사용하기로 했다. 가상머신을 이용하는 방법도 있지만, 도커에 비해 무겁고 GUI 환경이 불필요했기에 도커를 이용해 커널 컴파일을 하는 편이 훨씬 유리하다고 생각했다.\n우분투 이미지로 컨테이너 생성하기 docker를 설치했다는 가정하에, 아래와 같이 컨테이너를 만들었다. 호스트 볼륨을 컨테이너에 맵핑해주었는데 이렇게 해야 커널 해킹한 소스를 바로 빌드하여 맥에서 QEMU를 통해 확인할 수 있기 때문이다.\ndocker run --name kernel_builder -ti -v /Users/sukbeom/Workspaces:/kernel/ ubuntu /bin/bash # 아래 부터는 개발 환경을 위한 패키지 설치이다. apt update \u0026amp;\u0026amp; apt upgrade apt install vim \u0026amp;\u0026amp; vim /etc/apt/sources.list # 편집기 설치 및 미러저장소 경로 설정 apt install git curl libncurses-dev wget gcc make flex build-essential bison linux-headers-generic libelf-dev openssl bc libssl-dev cpio 1. BusyBox 준비 이제 컴파일을 위한 빌드 환경이 준비되었다. 커널 컴파일을 위한 맥에서의 경로는 $HOME/Workspaces/kernel 로 지정하고 컨테이너 내에서는 /kernel 로 접근하도록 설정하였다. 커널은 여기에서, busybox는 여기에서 받을 수 있다. 필자가 사용한 버전은 아래와 같다.\nbusybox: 1.30.1 kernel: 4.20.9 busybox란?\nSingle executable 파일 형태로 여러 가지 유닉스 유틸리티를 제공하는 Software suite 이다. 안드로이드 상에서 리눅스와 같은 터미널 환경을 제공하는 termux 애플리케이션을 살펴보면 최초 실행 시 busybox를 설치하는 것을 알 수 있다. 임베디드 환경과 같이 아주 제한된 리소스를 가진 시스템 상에서 필요한 (셸 환경을 위한)최소한의 유틸리티만을 사용하고자 할 때 사용하는 소프트웨어라고 생각하면 된다.\n원래는 커널 분석을 하던 버전(v2.6.39)으로 진행을 하고자 했으나 소스 자체가 오래되었고 GCC 7 버전을 지원하지 않아 플래그와 perl 소스에서 생기는 에러를 고쳐도 컴파일 에러가 나 버전을 바꾸었다. 추후 GCC 버전을 낮춰 다시 한번 빌드 해봐야겠다.\n1-1. BusyBox 빌드 설정 이제 컨테이너 환경으로 돌아가 아래와 같이 (shell)환경변수를 임시로 설정해준 뒤 차례대로 빌드해준다.\nSTAGE=~/Workspaces TOP=$STAGE/custom-kernel mkdir -p $STAGE 다운로드 한 busybox, kernel 소스의 압축을 풀어주고 아래와 같이 busybox를 설정해준다. Busybox settings -\u0026gt; Build BusyBox as a static binary (no shared libs) 항목에 체크해준다. (출처 링크에 가면 친절한 스크린샷과 함께 각 과정들을 자세하게 확인할 수 있다.)\nmake O=$TOP/obj/busybox-x86 menuconfig 1-2. BusyBox 빌드 및 initramfs 디텍토리 구조 만들기 cd $TOP/obj/busybox-x86 make -j3 make install make install을 완료하고 나면 _install 이름으로 디렉토리가 생성된 것을 확인할 수 있다. 이를 이용하여 아래와 같이 initramfs를 생성한다.\nmkdir -pv $TOP/initramfs/x86-busybox cd $TOP/initramfs/x86-busybox mkdir -pv {bin,dev,sbin,etc,proc,sys/kernel/debug,usr/{bin,sbin},lib,lib64,mnt/root,root} cp -av $TOP/obj/busybox-x86/_install/* $TOP/initramfs/x86-busybox sudo cp -av /dev/{null,console,tty,sda1} $TOP/initramfs/x86-busybox/dev/ 1-3. Init 파일 만들기 $TOP/initramfs/x86-busybox/init 파일을 생성한 뒤 아래와 같이 내용을 작성한다.\nmount -t proc none /proc mount -t sysfs none /sys mount -t debugfs none /sys/kernel/debug echo -e \u0026#34;\\nBoot took $(cut -d\u0026#39; \u0026#39; -f1 /proc/uptime) seconds\\n\u0026#34; exec /bin/sh 작성 후에는 실행 권한을 조정한다:\nchmod +x $TOP/initramfs/x86-busybox/init 1-4. initramfs 생성 initramfs는 메모리 기반 디스크 구조, 즉 램디스크이다. 주요 목적은 root 파일 시스템을 마운트 하기 위한 것이며, 일반적인 root 파일 시스템에서 찾아볼 수 있는 디렉토리 구조를 갖고 있다.\n일반적으로, 루트 파일시스템의 init 프로그램으로 제어권을 넘기기 전에, 필요한 파일 시스템을 마운트하는 필수 도구와 스크립트를 포함하고 있는 램디스크로서 initramfs 루트디스크에서 시스템을 준비하는 설정 스크립트를 준비하고 실제 파일 시스템으로 전환한 뒤 init을 실행한다.\n요약하면, 실제 루트파일시스템을 마운트 하고 그 안의 init 프로그램을 실행하기까지의 준비단계를 위한 램디스크라 생각하면 된다.\n그렇다면 그러한 램디스크는 왜 필요한 것일까? 예전 젠투 리눅스를 이용해 리눅스를 설치했던 경험으로 ramdisk 없이도 리눅스를 충분히 사용할 수 있었다. 다만, 루트파티션이 암호화된 경우에는 반드시 램디스크를 통해 로드해야 했고 최근에는 (데스크탑용 리눅스에서) 이러한 램디스크가 필수적이 되어가고 있는 추세인 듯하다.\ncd $TOP/initramfs/x86-busybox find . | cpio -H newc -o \u0026gt; ../initramfs.cpio cd .. cat initramfs.cpio | gzip \u0026gt; $TOP/obj/initramfs.igz 2. 커널 빌드하기 이제 busybox 준비가 끝났으니 리눅스 커널을 빌드해보자.\n2-1. Minimal config로 리눅스 커널 설정하기 cd $STAGE/linux-4.20.9 mkdir -pv $TOP/obj/linux-x86-allnoconfig make O=$TOP/obj/linux-x86-allnoconfig allnoconfig make O=$TOP/obj/linux-x86-allnoconfig -j3 빌드한 커널, busybox 함께 실행하기 qemu-system-x86_64 \\ -kernel $TOP/obj/linux-x86-allnoconfig/arch/x86/boot/bzImage \\ -initrd $TOP/obj/initramfs.igz \\ -nographic -append \u0026#34;earlyprintk=serial,ttyS0 console=ttyS0\u0026#34; 정상적으로 커널이 로드되고 셸이 실행된 것을 확인하면 Control-a x를 입력하여 QEMU를 종료한다.\n출처 Build the linux kernel and busybox and run them on qemu LFS - About initramfs Gentoo Linux - initramfs Build \u0026lsquo;Mini Linux\u0026rsquo; Instruction - forked ", 
-        "url": "\/\/localhost:1313\/posts\/linux-%EC%BB%A4%EB%84%90-busybox-%EB%B9%8C%EB%93%9C-%ED%9B%84-qemu%EC%97%90%EC%84%9C-%EC%8B%A4%ED%96%89%ED%95%98%EA%B8%B01\/2\/"
+        "url": "\/\/localhost:1313\/posts\/qemu--busybox--linux-kernel-1\/2\/"
     },
     
     "\/\/localhost:1313\/tags\/osi-7-layers\/": {
@@ -2011,34 +2039,6 @@ window.store = {
         "tags": ["OSI 7 Layers",],
         "content": "네트워크의 기본 개념인 OSI 7-Layers에 대해서 정리하고자 한다. 학부 시절 달달 외우기만 했던 까닭에 제대로 공부하지 못해 아쉬웠던 7계층 개념인데 외우기보다 이해하는 것이 훨씬 간단하므로, 필자의 경험을 이용해 (나중에 기억하기 쉽도록) 정리하고자 한다.\nOSI 7계층에 대해 설명하기 위해 이 역시 방산업체에서의 경험을 이용하고자 한다. 아래는 OSI 7계층을 나타낸 그림이다. 이 때, 각 레이어들을 데이터들이 송수신될 때 전달되는 경로로 생각하며 그림을 이해해야 한다.\nL1. 물리 계층, Physical Layer 물리 계층은 말 그대로 네트워크 장비들 간에 데이터를 송수신하기 위해 물리적으로 신호를 주고받는 계층이다. 무인 드론 개발 프로젝트에서 각 장비들은 스위치와 광케이블을 이용해 연결되었는데 이러한 1차적인 물리적 인프라들, 광케이블 따위들을 물리 계층의 하나로 이해하면 된다. 광케이블의 경우 선이 길어지면 신호가 약해져 수신측에서 신호 입력을 제대로 받지 못하는 경우가 있기에 리피터를 별도로 달아 사용하기도 한다. 이처럼 물리적인 신호를 주고받는 인프라들을 물리 계층이라 하며, Coax, Fiber, Wireless, Hubs, Repeaters 등이 여기에 포함된다.\n허브(Hubs)와 스위치(Switch) 둘이 헷갈리는 경우가 종종 있는데 출처를 확인해보면 이해하기 쉬울 것이다. 간략하게 말하면, 허브는 물리적인 신호 전달 경로만 제공하고 스위치는 각 장비들을 구분할 수 있다는 점이 차이점이다.\nL2. 데이터 링크 계층, Data Link Layer 데이터 링크 계층의 주 목적은 잡음이 있는 인접 노드 간의 물리적인 회선을 상위 네트워크 계층이 사용할 수 있도록 전송 에러가 없는 통신 채널로 변환시키는 계층이다. 때문에 데이터 링크 계층의 역할 중 가장 중요한 역할은 **에러 제어(Error Control)**이다.\n드론 개발 프로젝트를 다시 예로 들어보자. 각 장비들은 광 케이블로 연결되고 이러한 광 케이블은 다시 스위치 한 개에 집중되어 연결된다. 마침내 각 장비들은 서로를 MAC 주소를 이용해 식별하고 raw 데이터를 신뢰성 있게 송수신 할 수 있게 되었다. 이처럼 데이터 링크 계층의 역할은 1계층(Physical Layer)에서 raw 데이터들의 흐름을 제어하고 에러를 제어하는 역할을 한다.\n이 계층에는 Ethernet, PPP, Switch, Bridge 등이 포함된다.\n데이터링크 계층 역할 프레이밍(Framing)\n데이터 배열에 Data, Header, Trailer 등을 넣어서 캡슐화를 하는 작업을 말한다. 각각의 노드(송신자, 수신자, 중간 중간의 각종 라우터, 스위치 등의 하드웨어)에서 다음 노드로 데이터를 보낼 때, L3(Network Layer)에서 받은 데이터그램(Datagram)을 캡슐화하며 캡슐화된 틀(데이터 배열)을 프레임(Frame) 또는 패킷(packet)이라 한다.\n흐름제어(Flow Control)\n송신 측이 수신 측의 데이터 처리 속도보다 훨씬 빠른 속도로 데이터를 보낸다면 어떻게 될까?\n수신 측의 버퍼(Buffer)가 점점 더 길어지게 된다. 버퍼의 길이는 제한되어 있기 때문에 버퍼가 가득차면 데이터를 더이상 저장할 수 없어 데이터가 손실된다. 이러한 문제를 보완하기 위해 수신 측에서는 송신 측에게 그만 보내거나 천천히 보내달라는 피드백을 보낼 수 있는데 이러한 것을 흐름제어(Flow Control)라 한다.\n에러제어(Error Control)\n송신 측에서는 프레이밍을 통해 0과 1로 구성된 비트로 변환한 뒤 송신한다. 수신 측에서는 당연히 이 비트 배열들을 받을 텐데, 0과 1을 이루는 전기적 신호들은 매우 취약하기 때문에 수신 측의 L2 계층이 이 전기적 신호를 보고 프레이밍을 해야 한다. 이 과정에서 에러를 검출할 수 있으며, 검출된 에러는 직접 수정하거나 송신 측에 재송신을 요청하여 해결한다.\n데이터링크의 부계층, LLC와 MAC 데이터 링크 계층을 더 세부적으로 나누면 LLC(Logical Link Control) 부계층과 MAC(Media Access Control) 부계층으로 나눌 수 있다. LLC는 Flow Control과 Error Control에 대한 책임을 갖고 있고 MAC은 네트워크 노드 간의 접근과 권한을 관리한다.\n주소 종류 Unicast address: 1 대 1 통신\n모든 기기(송신자, 수신자, 라우터 등)에는 Unicast 주소가 할당되어 있다. Unicast는 1 대 1 통신을 의미하며 L2 계층에서 프레이밍을 할 때 Unicast address를 넣으면 해당 MAC 주소를 가진 곳으로만 간다.\nMulticast address: 1 대 다 통신\n특정 L2 계층의 프로토콜에는 Multicast 주소를 정의하고 있다. Multicast란 1대 다 통신을 의미하며 아무데서나 쓸 수 없고 특정 범위에서만 사용 가능하다.\nBroadcast address: 1 대 전체 통신\nBroadcast는 1 대 전체 통신을 의미한다. Broadcast 주소를 담은 프레임은 모든 기기에 전달되며 일반적인 브로드캐스트 주소는 FF:FF:FF:FF:FF:FF 이다.\nL3. 네트워크 계층, Network Layer 네트워크 계층은 여러 개의 네트워크 간 데이터를 구성하고 전송하는 계층으로 라우팅, 주소체계를 관리하는 계층이라고 이해하면 된다. 네트워크 계층에 대한 간단한 예로, 보스턴에 있는 컴퓨터가 캘리포니아에 있는 서버에 연결하려고 할 때 그 경로는 수백 만 가지다. 이 계층의 라우터가 이러한 작업을 효율적으로 처리한다.\n네트워크 계층에는 라우터와 브릿지 라우터 등이 포함되며 IPv4, IPv6와 같은 인터넷 프로토콜(Internet Protocol)과 ARP가 여기에 포함된다.\n계층 역할 경로제어(라우팅)\n단말기 혹은 컴퓨터가 어떤 망에 접속되어 있을 때 송신하고자 하는 정보가 망을 통해서 어떻게 상대방 수신측까지 전달되는가를 제어하는 일을 담당한다. 네트워크 계층의 패킷이 하위 계층인 데이터 링크 계층으로 내려오면 데이터 링크 계층은 패킷을 프레임 단위로 만들고 바로 인접 노드의 물리 주소를 헤더에 첨부하여 전송하게 된다. 이 때, 목적지 호스트(논리주소)까지 각 노드를 거칠 때마다 인접 노드의 물리 주소를 프레임에 다시 첨부하여 전송하게 되는데, 이처럼 경로를 지정하거나 교환 기능을 제공하는 것을 라우팅이라고 한다.\n투명성\n상위의 전송계층(Transport Layer)이 경로 선택과 중계 등 망 계층 고유의 기능에 대하여 의식하지 않도록 투명하게 하는 역할이다.\n논리적 주소체계 부여\n라우팅과 관련된 주소 지정 등 주소 체계를 정립한다. (IP 주소, 공인 IP, 사설 IP 등) 상위 전송계층에서 받은 데이터에 목적지 호스트의 논리 주소를 헤더에 추가하여 전송한다.\nL4. 전송 계층, Transport Layer 전송 계층은 양단 간 어떤 종류의 망이 사용되었는지 의식하지 않고 쌍방 응용프로세스 간 투명하고 신뢰성 있게 논리적인 통신을 이루는 계층이다. 이 계층은 Error Control, Flow Control, Congestion Control 등의 매커니즘을 제공하며 일반적인 프로토콜은 TCP(Transmission Control Protocol), UDP(User Datagram Protocol) 등이 있다.\n계층 역할 전송 계층의 하위 계층인 네트워크 계층(L2)는 목적지까지 개별적인 패킷(프레임)을 전달하지만, 이들 패킷 간의 관계는 알지 못한다. 다시 말해, 올바른 순서대로 도착하여 정상적인 메시지로 조립되었는지 알지 못하기 때문에 이를 전송 계층에서 담당해야 한다.\n서비스 지점 주소 지정\n컴퓨터는 여러 개의 프로그램을 동시에 실행하는 경우가 많은데 각 프로그램을 서비스 단위 혹은 프로세스로 보고, 전송 계층은 상위 계층에서 내려온 메시지를 세그먼트로 나누어 헤더에 목적지 호스트의 해당 서비스 지점 주소, 즉 포트번호를 붙여 전송한다.\n분할과 재조립\n상위 계층에서 내려온 세그먼트를 전송할 수 있는 세그먼트 단위로 나누면 각 세그먼트는 순서 번호를 갖고 목적지에 도착하면 수신자 측에서 이를 재조립한다.\n흐름 제어\n데이터 링크 계층의 흐름 제어는 노드 대 노드의 흐름제어지만 전송 계층의 흐름제어는 단일 링크가 아닌 종단 간 흐름(end-to-end)을 제어한다.\n오류 제어\n흐름 제어와 마찬가지로 데이터링크 계층에서는 프레임에 대한 오류를 제어하나, 전송 계층은 전체 세그먼트 오류(손상, 유실 등) 없이 수신측 전송 계층에 도착하도록 오류 제어 기능을 수행하며, 오류 교정은 통상 재전송을 통해 이루어진다.\nL5. 세션 계층, Session Layer 여기서부터는 애플리케이션에 관련된 계층이라고 할 수 있다. (물리계층(L1)부터 전송계층(L4)까지의 주된 기능은 단순히 데이터를 전달하는 것이다.) 세션 계층은 응용 프로세스가 통신을 관리하기 위한 방법을 정의하는 계층으로, 세션을 만들고 없애는 역할을 한다. 흔한 예로 HTTP의 세션을 생각하면 이해하기 쉽다.\nL6. 표현 계층, Presentation Layer 네트워크 상의 여러 이기종 시스템들은 저마다 다른 데이터 표현 방식을 사용하는데, 이를 하나의 통일된 구문으로 변환시키는 기능을 수행하는 계층을 말한다. 즉, 네트워크와 애플리케이션 간 데이터 형식을 변환하는 역할을 수행한다.\n표현 계층의 주요 기능은 아래와 같이 정리할 수 있다.\n암호화 압축 코드 변환(ASCII, EBCDIC, Binary 등), 파일 변환 및 문장 축소화 등의 기능 수행 L7. 응용 계층, Application Layer 여러 하위 통신 프로토콜 개체에 대하여 사용 관점의 사용자 인터페이스를 제공하며 응용계층 프로세스들 사이의 통신은 표현계층이 제공하는 서비스를 이용한다. (데이터의 형식을 정하고 부호화하고 암호화, 압축하는 서비스를 통해 이루어진다.)\n응용계층에는 FTP, SMTP, HTTP, HTTPS, TELNET 등이 해당된다.\n계층별 전송 단위 OSI-7 Layers의 각 계층에서 전송 단위는 아래와 같이 정리할 수 있다.\n1계층: 비트 2계층: 프레임 3계층: 패킷 4계층: 세그먼트 5계층: 메시지 계층별 네트워킹 장비 1계층: 리피터, 허브 2계층: 브리지, 스위치 3계층: 라우터 4 - 7계층: 게이트웨이 출처 허브와 스위치의 차이점 데이터링크 계층 OSI 7 Layer OSI 7계층 각 계층별 역할 비유 ", 
         "url": "\/\/localhost:1313\/posts\/osi-7-layers\/"
-    },
-    
-    "\/\/localhost:1313\/tags\/tcp\/": {
-        "title": "Tcp",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/tags\/tcp\/"
-    },
-    
-    "\/\/localhost:1313\/posts\/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90\/": {
-        "title": "TCP와 UDP의 차이점",
-        "tags": ["udp","tcp",],
-        "content": "예전에 TCP, UDP에 대해서 정리해놓은 것들을 찾을 수 없어 블로그 페이지로 정리하고자 포스팅을 새로 만들었다. 앞으로 두고두고 찾아보게 될 페이지므로 향후 커널 소스 분석을 통해 TCP, UDP와 관련된 부분이 나올 경우 포스팅을 업데이트 할 예정이다.\n방산 업체에서 무인 정찰기를 개발할 당시에도 중요 데이터는 모두 TCP를 이용해 송수신하고 영상과 같은 정보는 UDP를 이용해 전달받았다. 당시에 구현된 코드를 보면서 이전에 프로토콜 사용에 있어서 어디부터 어디까지를 UDP 혹은 TCP로 해야 하는가에 대해 논란이 있었을거라 예상했지만 코드를 변경할 수 없어 아쉬웠던 적이 있었다.\n각설하고 이 포스팅에서는 리눅스 커널 소스에서 TCP와 UDP, 즉 L4 전송계층에 대한 구현이 어떤 식으로 되어있는지 살펴볼 것이다.\nTCP (Transmission Control Protocol) 먼저, TCP(Transmission Control Protocol)는 connection-oriented 프로토콜이다. 연결이 수립되기 전까지는 데이터를 송수신하지 않으며, 데이터 송수신이 종료되면 반드시 연결을 닫아야 한다. 이러한 특성 덕분에 TCP는 아래와 같은 특징을 갖는다.\n데이터 송수신에 신뢰성이 보장된다. 에러 체크 기능을 제공한다. 수신자에게 패킷이 순서대로 전달된다. UDP보다 상대적으로 느리다. 패킷 손실로 인한 패킷 재전송이 가능하다. 헤더 크기가 20bytes이다. HTTP, HTTPS, FTP, SMTP, Telnet 등에 사용된다. 먼저 앞서 언급한 것들에 대해서 커널 소스를 통해 자세히 살펴보자. tcp에 관련된 코드는 /net/ipv4/tcp.c 하위 경로 내에 위치한다. (분석으로는 IPv4를 먼저 진행하고 충분히 이해한 뒤 추후에 IPv6에 대해서 분석한 뒤 업데이트 하고자 한다.)\n코드를 살펴보면 EXPORT_SYMBOL 코드를 많이 볼 수 있을 것이다. 로드 가능한 모듈이 삽입되면 해당 모듈이 가지고 있는 커널 함수들과 데이터 구조들은 반드시 현재 실행 중인 커널에 로드되어 reference 될 수 있어야 한다. 하지만 모듈을 로드하는 Module Loader는 모듈에서 명시적으로 export 하지 않는 한 모듈이 가지고 있는 모든 심볼들을 export 하지 않는다.\n또 한가지 재밌는 점은 라이센스에 따라 해당 심볼로의 접근을 제한할 수 있다는 것이다. cscope를 통해 탐색해보면 알겠지만, __EXPORT_SYMBOL 함수에는 심볼 이름 외에 라이센스 그룹에 대한 정보를 전달하게 되어 있어 같은 라이센스 구릅인지 아닌지를 구분하여 액세스 여부를 허용/거부 하도록 되어 있다.\n초기화 코드 void __init tcp_init(void) { struct sk_buff *skb = NULL; unsigned long nr_pages, limit; int i, max_share, cnt; unsigned long jiffy = jiffies; BUILD_BUG_ON(sizeof(struct tcp_skb_cb) \u0026gt; sizeof(skb-\u0026gt;cb)); percpu_counter_init(\u0026amp;tcp_sockets_allocated, 0); percpu_counter_init(\u0026amp;tcp_orphan_count, 0); tcp_hashinfo.bind_bucket_cachep = ... TCP 초기화 코드는 __init 이라는 키워드와 함께 심볼이 정의되어 있다.\n__init에 관한 설명은 $KERNEL_SOURCE/arch/um/include/shared/init.h 에서 찾아볼 수 있다. 이 키워드는 해당 함수를 초기화 함수로 표시하는 역할을 한다. 커널은 초기화 프로세스 도중에 초기화에 관련된 것으로 간주하고 메모리 리소스를 해제하거나 초기화 프로세스 과정에서 표시된 함수나 데이터들을 이용한다.\n링크를 살펴보면 재미있는 예시가 하나 있다. \u0026lsquo;Freeing unused kernel memory\u0026rsquo;와 같은 메시지를 나타내는 것을 그 예로 들 수 있다.\n출처 https://www.geeksforgeeks.org/differences-between-tcp-and-udp/ LWN - On the value of EXPORT_SYMBOL_GPL Naver D2 - TCP/IP 스택 이해하기 ", 
-        "url": "\/\/localhost:1313\/posts\/tcp%EC%99%80-udp%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90\/"
-    },
-    
-    "\/\/localhost:1313\/tags\/udp\/": {
-        "title": "Udp",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/tags\/udp\/"
-    },
-    
-    "\/\/localhost:1313\/categories\/web\/": {
-        "title": "Web",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/categories\/web\/"
     },
     
     "\/\/localhost:1313\/tags\/process\/": {
@@ -2251,6 +2251,13 @@ window.store = {
         "url": "\/\/localhost:1313\/tags\/servlet_container\/"
     },
     
+    "\/\/localhost:1313\/categories\/web\/": {
+        "title": "Web",
+        "tags": [],
+        "content": "", 
+        "url": "\/\/localhost:1313\/categories\/web\/"
+    },
+    
     "\/\/localhost:1313\/posts\/%EC%84%9C%EB%B8%94%EB%A6%BF-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%99%80-%EC%84%9C%EB%B2%84%EC%99%80%EC%9D%98-%EA%B4%80%EA%B3%84\/": {
         "title": "서블릿 컨테이너와 서버와의 관계",
         "tags": ["apache_httpd","servlet_container",],
@@ -2382,20 +2389,6 @@ window.store = {
         "tags": ["virtual host","host header",],
         "content": "Virtual Host and Host Header 문득 HTTP/2에 대한 책을 읽다가 가상호스트(Virtual host)와 호스트 헤더(Host header)에 대한 얘기가 나왔다. 대체 가상 호스트와 호스트 헤더 간에는 무슨 관계가 있는 것일까. 이 문서에서는 가상 호스트와 가상호스트 종류, 그리고 마지막으로 호스트 헤더와 어떤 식으로 연관되는지에 대해 설명하겠다.\n가상 호스트(Virtual Host) 가상호스트란 싱글 서버(또는 서버 풀)에서 여러 개의 도메인 이름으로 호스팅하기 위한 방법이다. 가상 호스트를 사용함으로써 얻는 이점은 하나의 서버로 해당 서버의 리소스(메모리, 프로세서 사이클 등)를 공유할 수 있다는 점이다. 이러한 특징을 잘 살린 것이 Shared Web Hosting이라는 서비스이다. 서버 한 대를 통째로 소비자에게 빌려주는 방식이 아닌 서버 하나에 가상 호스트를 이용하여 여러 개의 웹 서비스를 구축하는 방식이다.\n가상 호스트에는 Name-based 방식과 IP-based 방식 등 두 가지 방식이 있다.\n이름 기반(Name-based) Name-based 방식의 가상 호스트는 같은 IP 주소를 가지고 여러 개의 호스트명을 가진다. 이 때, 기술적인 요구사항은 HTTP/1.1 프로토콜에서의 REQUEST 메시지 안에 들어가 있는 호스트 헤더이다. 서버는 클라이언트가 보낸 요청의 호스트 헤더를 통해 어떤 가상 호스트로 요청을 전달해야 할지를 파악할 수 있기 때문이다.\n참고로, 호스트 헤더의 문법은 다음과 같다.\nHost: \u0026lt;host\u0026gt;:\u0026lt;port\u0026gt; 아래는 실제 Request 안에 들어있는 호스트 헤더 예시이다.\nGET /pub/WWW/TheProject.html HTTP/1.1 Host: www.w3.org 하지만 이러한 Name-based 방식은 한 가지 문제점이 있는데 SSL/TLS를 사용하는 HTTPS 기반의 웹 사이트들의 경우에는 이러한 가상 호스트를 적용하기 힘들다는 것이다. 왜냐하면 SSL/TLS handshake를 위해서 인증서를 사용하게 되는데 서버 입장에서는 클라이언트가 보내는 encrypted 된 handshake 단계의 패킷들이 어떠한 서비스의 인증서인지 알 길이 없다. 때문에 이러한 문제를 해결하기 위해 [SNI(Server Name Indication)](#/wiki/detail/Server Name Indication(SNI))이라는 TLS의 확장이 나오게 되었는데 이를 이용하여 handshake 시작부터 서버의 어떤 호스트를 가리키는지 이름을 사용하여 문제를 해결할 수 있게 되었다.\n또 한가지 문제점은 DNS(Domain Name System)이 제대로 설정되지 않았을 때, 서버의 IP 주소를 알고 있다고 해도 가상 호스트 웹사이트에 접속할 수 없는 문제가 생긴다. 특정 도메인으로 접속하여 fall back이 발생하면 웹 브라우저는 IP 주소를 호스트이름으로 보내기 때문이다. 웹 서버가 웹 브라우저가 어떤 서버 이름(vhost)을 사용할 것인지를 요청으로 서버에게 알리는 방식이기 때문에 DNS로 인해 fallback이 발생하는 상황까지 서버에서 전부 처리해줄 수 없다. 이러한 문제의 해결 방법은 클라이언트 시스템의 호스트 파일에 서버 IP 주소와 호스트 이름을 함께 직접 추가해주는 것이다.\nIP 주소 기반(IP-based) IP 기반의 가상호스팅 환경에서 각 사이트들은 고유한 IP주소를 갖는다. 이 때 웹 서버 환경은 물리적 네트워크 인터페이스를 여러개 갖고 있거나, 하나의 물리 네트워크 인터페이스 위에 여러 개의 가상 네트워크 인터페이스를 갖고 있거나, 하나의 물리 인터페이스가 여러 개의 아이피 주소를 갖고 있는 경우 중 하나에 해당한다. 또한 웹 서버는 각 IP 주소별로 LISTENING 소켓을 갖고 있거나 하나의 소켓만으로 모든 인터페이스를 LISTEN하도록 설정할 수도 있다. Name-based 방식과는 다르게 클라이언트가 어떤 가상 호스트를 선택할 것인지 결정하는 과정이 없기 때문에 Compatibility 이슈는 없다. 하지만 각 웹 사이트들마다 서로 다른 IP 주소가 필요하고 이에 따라 사이트 관리 오버헤드가 증가하게 되는 것이 단점이다.\n포트 기반(Port-based) 기본 HTTP 포트는 80번이다. 하지만 LISTEN 포트를 80번에서 다른 번호로 바꿈으로써 하나의 IP 주소로 여러 개의 웹 사이트를 명시적으로 운영할 수 있다.\n출처 위키피디아 - 가상호스트 검색 결과 ", 
         "url": "\/\/localhost:1313\/posts\/%EA%B0%80%EC%83%81%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host%EC%99%80-host-header\/"
-    },
-    
-    "\/\/localhost:1313\/posts\/server-name-indicationsni\/": {
-        "title": "Server Name Indication(SNI)",
-        "tags": ["SNI",],
-        "content": "Server Name Indication Server Name Indication(줄여서 SNI)는 SSL/TLS 기반의 HTTPS에 기반한 Name-based 가상 호스팅 환경에서 일어날 수 있는 문제점을 해결하기 위해 구현된 HTTPS의 Extension이다. 해당 문제점에 대해 구체적으로 설명하자면 Name-based 가상 호스팅 환경에서 클라이언트는 서버로 어떤 vhost를 사용할 것인지 Request 메시지에 같이 보낸다. 이 때, 사용하는 프로토콜이 HTTP가 아닌 HTTPS라면 서버는 클라이언트로 Server Hello 패킷을 보낼 때 패킷 내에 인증서 데이터를 함께 전송한다. 클라이언트가 다시 서버로 Client Hello를 보낼 때 클라이언트는 서버에서 보내준 인증서의 공개키로 암호화하여 패킷을 보내게 되는데 서버 입장에서는 클라이언트가 사용한 인증서가 어떤 가상 호스트에서 보낸 인증서인지 알 길이 없다. 이러한 문제를 해결하기 위해 Server Name Indication(SNI)라는 Extension을 사용하여 아래와 같이 문제를 해결할 수 있다.\n서버에서 SNI 설정 방법(예시. Apache 사용) SNI 설정을 위해서는 두 가지 방법이 있다. (설정 파일 변경 방법)\n첫 번째는 하나의 가상 호스트만 정의하고 나머지는 SSLSNIMap을 통해 호스트 이름과 인증서 레이블을 맵핑하는 방법이다.\n\u0026lt;virtualhost *:443\u0026gt; ServerName example.com SSLEnable SNI SSLServerCert default SSLSNIMap a.example.com sni1-rsa SSLSNIMap a.example.com sni1-ecc SSLSNIMap b.example.com sni2 \u0026lt;/virtualhost\u0026gt; 두 번째는 가상호스트에 맵핑할 호스트명과 인증서 레이블을 각각 나누어 명시해주는 방법이다.\n\u0026lt;virtualhost *:443\u0026gt; ServerName example.com SSLEnable SNI \u0026lt;/virtualhost\u0026gt; \u0026lt;virtualhost *:443\u0026gt; ServerName a.example.com SSLEnable SSLServerCert sni1 \u0026lt;/virtualhost\u0026gt; \u0026lt;virtualhost *:443\u0026gt; ServerName b.example.com ServerAlias other.example.com SSLEnable SSLServerCert sni2 \u0026lt;/virtualhost\u0026gt; 실제 SNI 패킷 const unsigned char good_data_2[] = { // TLS record 0x16, // Content Type: Handshake 0x03, 0x01, // Version: TLS 1.0 0x00, 0x6c, // Length (use for bounds checking) // Handshake 0x01, // Handshake Type: Client Hello 0x00, 0x00, 0x68, // Length (use for bounds checking) 0x03, 0x03, // Version: TLS 1.2 // Random (32 bytes fixed length) 0xb6, 0xb2, 0x6a, 0xfb, 0x55, 0x5e, 0x03, 0xd5, 0x65, 0xa3, 0x6a, 0xf0, 0x5e, 0xa5, 0x43, 0x02, 0x93, 0xb9, 0x59, 0xa7, 0x54, 0xc3, 0xdd, 0x78, 0x57, 0x58, 0x34, 0xc5, 0x82, 0xfd, 0x53, 0xd1, 0x00, // Session ID Length (skip past this much) 0x00, 0x04, // Cipher Suites Length (skip past this much) 0x00, 0x01, // NULL-MD5 0x00, 0xff, // RENEGOTIATION INFO SCSV 0x01, // Compression Methods Length (skip past this much) 0x00, // NULL 0x00, 0x3b, // Extensions Length (use for bounds checking) // Extension 0x00, 0x00, // Extension Type: Server Name (check extension type) 0x00, 0x0e, // Length (use for bounds checking) /* SNI 설정 부분: 아래에서 \u0026#34;localhost\u0026#34;라고 서버의 이름을 직접 명시한다. */ 0x00, 0x0c, // Server Name Indication Length 0x00, // Server Name Type: host_name (check server name type) 0x00, 0x09, // Length (length of your data) // \u0026#34;localhost\u0026#34; (data your after) 0x6c, 0x6f, 0x63, 0x61, 0x6c, 0x68, 0x6f, 0x73, 0x74, // Extension 0x00, 0x0d, // Extension Type: Signature Algorithms (check extension type) 0x00, 0x20, // Length (skip past since this is the wrong extension) // Data 0x00, 0x1e, 0x06, 0x01, 0x06, 0x02, 0x06, 0x03, 0x05, 0x01, 0x05, 0x02, 0x05, 0x03, 0x04, 0x01, 0x04, 0x02, 0x04, 0x03, 0x03, 0x01, 0x03, 0x02, 0x03, 0x03, 0x02, 0x01, 0x02, 0x02, 0x02, 0x03, // Extension 0x00, 0x0f, // Extension Type: Heart Beat (check extension type) 0x00, 0x01, // Length (skip past since this is the wrong extension) 0x01 // Mode: Peer allows to send requests }; 출처 SNI(Server Name Indication) - IBM Knowledge Center Extract Server Name Indication (SNI) from TLS client hello ", 
-        "url": "\/\/localhost:1313\/posts\/server-name-indicationsni\/"
-    },
-    
-    "\/\/localhost:1313\/tags\/sni\/": {
-        "title": "SNI",
-        "tags": [],
-        "content": "", 
-        "url": "\/\/localhost:1313\/tags\/sni\/"
     },
     
     "\/\/localhost:1313\/tags\/http\/": {
