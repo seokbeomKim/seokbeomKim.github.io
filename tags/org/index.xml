@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Org on 평범한 개발자</title>
-    <link>//localhost:1313/tags/org/</link>
+    <link>/tags/org/</link>
     <description>Recent content in Org on 평범한 개발자</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 18 May 2026 20:04:18 +0900</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/org/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/org/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Emacs Org 문서 스타일 변경</title>
-      <link>//localhost:1313/posts/emacs-org-%EB%AC%B8%EC%84%9C-%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%B3%80%EA%B2%BD/</link>
+      <title>Org 문서 가독성 문제</title>
+      <link>/posts/org-%EB%AC%B8%EC%84%9C-%EA%B0%80%EB%8F%85%EC%84%B1-%EB%AC%B8%EC%A0%9C/</link>
       <pubDate>Mon, 18 May 2026 20:04:18 +0900</pubDate>
-      <guid>//localhost:1313/posts/emacs-org-%EB%AC%B8%EC%84%9C-%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%B3%80%EA%B2%BD/</guid>
-      <description>Org 문서 이맥스의 Org Mode는 마크다운 이상으로 유용하지만 이맥스 문서라는 플랫폼 특성상 다른 개발자들에게 잘 알려져 있지 않다. 덕분에 마크다운 형식의 문서처럼</description>
+      <guid>/posts/org-%EB%AC%B8%EC%84%9C-%EA%B0%80%EB%8F%85%EC%84%B1-%EB%AC%B8%EC%A0%9C/</guid>
+      <description>Org 문서 Org 문서는 이맥스 사용자들 사이에서 킬러앱 중 하나인 org-mode로써 유명하지만 일반 사용자에게 인지도는 현저하게 낮다. 최근에는 vscode나 v</description>
     </item>
   </channel>
 </rss>
