@@ -1,8 +1,7 @@
-/*
-Make sure that your main content container has position: relative;
-Otherwise your sidenotes may show up in weird places, or even off the side of the screen.
-In my case, I added position: relative; to my `.post` selector.
-*/
+/* Anchor sidenotes to the article, with collision-free vertical positions. */
+main {
+  position: relative; }
+
 :root {
   --neon-pink: #3366cc; }
 
@@ -29,21 +28,22 @@ In my case, I added position: relative; to my `.post` selector.
   position: absolute;
   width: 240px;
   box-sizing: border-box;
-  margin-top: -1.5em;
+  top: var(--sidenote-top, auto);
+  margin-top: 0;
   border: solid 1px var(--border-color);
   padding: 0.5rem;
-  font-size: 0.75rem;
-  transform: translateX(105ch); }
+  font-size: 0.75rem; }
   .sidenote-content.sidenote-right {
-    margin-right: -250px;
+    left: calc(100% + 24px);
     max-width: 15vw;
     border: solid 1px white; }
   .sidenote-content.sidenote-left {
-    left: 0;
-    margin-left: -250px; }
+    right: calc(100% + 24px);
+    max-width: 15vw; }
   @media screen and (max-width: 1320px) {
     .sidenote-content {
       position: static;
+      top: auto;
       margin-top: 10px;
       margin-bottom: 10px;
       width: 100%;
@@ -51,6 +51,6 @@ In my case, I added position: relative; to my `.post` selector.
       .sidenote-checkbox:checked ~ .sidenote-content {
         display: contents; }
       .sidenote-content.sidenote-right {
-        margin-right: 0px; }
+        left: auto; }
       .sidenote-content.sidenote-left {
-        margin-left: 0px; } }
+        right: auto; } }

@@ -1,0 +1,13 @@
+#+TITLE: {{ replace .Name "-" " " | title }}
+#+DATE: {{ .Date }}
+#+DRAFT: true
+#+TAGS[]:
+#+TOC: true
+
+* Overview
+
+* Code
+
+#+begin_src sh
+echo "Hello from Org"
+#+end_src
