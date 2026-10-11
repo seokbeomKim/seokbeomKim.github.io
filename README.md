@@ -50,6 +50,24 @@ direct rendering. See [Hugo's Org front matter documentation](https://gohugo.io/
 Source blocks and example blocks have the same monochrome copy and wrapping
 buttons as Markdown code blocks. Line wrapping starts disabled.
 
+To make an Org source block start collapsed, add the site-specific `:collapse yes`
+option after the language:
+
+```org
+#+begin_src c :collapse yes :title "Example program"
+int main(void) {
+    return 0;
+}
+#+end_src
+```
+
+Click the language header, or focus it and press Enter or Space, to expand or
+collapse the code. Expanded blocks retain the copy and wrapping controls.
+The optional `:title "Example program"` adds a subtitle, displayed as
+`C: Example program`. Use double quotes for titles containing spaces.
+Omit the option or use `:collapse no` to leave the block expanded. The native
+disclosure works without JavaScript; the copy and wrapping buttons require it.
+
 ## Sidenotes and footnotes
 
 In Org, use a `sidenote:` link to select the exact phrase that opens a sidenote:
