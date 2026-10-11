@@ -50,6 +50,9 @@ main {
       display: none; }
       .sidenote-checkbox:checked ~ .sidenote-content {
         display: contents; }
+      .sidenote-content > p {
+        display: inline;
+        margin: 0; }
       .sidenote-content.sidenote-right {
         left: auto; }
       .sidenote-content.sidenote-left {

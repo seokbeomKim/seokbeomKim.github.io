@@ -48,7 +48,7 @@ to the ox-hugo export workflow; use Hugo's native front matter keywords for
 direct rendering. See [Hugo's Org front matter documentation](https://gohugo.io/content-management/front-matter/#emacs-org-mode).
 
 Source blocks and example blocks have the same monochrome copy and wrapping
-buttons as Markdown code blocks. Line wrapping starts enabled.
+buttons as Markdown code blocks. Line wrapping starts disabled.
 
 ## Sidenotes and footnotes
 
