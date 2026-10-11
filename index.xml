@@ -6,8 +6,15 @@
     <description>Recent content on 평범한 개발자</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 May 2026 20:04:18 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 21:05:55 +0900</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reproducing AArch64 Kernel Exceptions</title>
+      <link>/posts/reproducing-aarch64-kernel-exceptions/</link>
+      <pubDate>Fri, 09 Oct 2026 21:05:55 +0900</pubDate>
+      <guid>/posts/reproducing-aarch64-kernel-exceptions/</guid>
+      <description>연휴를 맞아 몇년 동안 책장에 모셔 놨던 《임베디드 레시피》를 꺼냈다. 이직 후 구매했다가 바쁘다는 핑계로 펼쳐 보지도 못했는데 막상 읽어 보니 ARM AArch32 아키텍처 부분을 제</description>
+    </item>
     <item>
       <title>Org 문서 가독성 문제</title>
       <link>/posts/org-%EB%AC%B8%EC%84%9C-%EA%B0%80%EB%8F%85%EC%84%B1-%EB%AC%B8%EC%A0%9C/</link>

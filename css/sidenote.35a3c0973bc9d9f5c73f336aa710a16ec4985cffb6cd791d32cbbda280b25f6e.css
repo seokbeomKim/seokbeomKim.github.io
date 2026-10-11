@@ -1,0 +1,59 @@
+/* Anchor sidenotes to the article, with collision-free vertical positions. */
+main {
+  position: relative; }
+
+:root {
+  --neon-pink: #3366cc; }
+
+.sidenote:hover .sidenote-label {
+  text-decoration: none;
+  color: white;
+  background-color: var(--neon-pink); }
+
+.sidenote:hover .sidenote-content {
+  color: black; }
+
+.sidenote .sidenote-label {
+  text-decoration: underline dashed var(--neon-pink);
+  text-underline-offset: 3px; }
+
+.sidenote .sidenote-content {
+  color: #aaaaaa; }
+
+.sidenote-checkbox {
+  display: none; }
+
+.sidenote-content {
+  display: block;
+  position: absolute;
+  width: 240px;
+  box-sizing: border-box;
+  top: var(--sidenote-top, auto);
+  margin-top: 0;
+  border: solid 1px var(--border-color);
+  padding: 0.5rem;
+  font-size: 0.75rem; }
+  .sidenote-content.sidenote-right {
+    left: calc(100% + 24px);
+    max-width: 15vw;
+    border: solid 1px white; }
+  .sidenote-content.sidenote-left {
+    right: calc(100% + 24px);
+    max-width: 15vw; }
+  @media screen and (max-width: 1320px) {
+    .sidenote-content {
+      position: static;
+      top: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      display: none; }
+      .sidenote-checkbox:checked ~ .sidenote-content {
+        display: contents; }
+      .sidenote-content > p {
+        display: inline;
+        margin: 0; }
+      .sidenote-content.sidenote-right {
+        left: auto; }
+      .sidenote-content.sidenote-left {
+        right: auto; } }
